@@ -1,0 +1,39 @@
+# Аварийный сценарий: потеря охлаждения
+name: loss_of_cooling
+description: Потеря охлаждения при высокой мощности с последующим SCRAM
+
+seed: 123
+duration: 150
+
+timeline:
+  - t: 0
+    action: set_auto_control
+    params:
+      enabled: true
+      target_power: 180
+
+  - t: 50
+    action: set_coolant_flow
+    params:
+      value: 0.2
+      ramp_duration: 10
+
+  - t: 50
+    action: set_auto_control
+    params:
+      enabled: false
+
+  - t: 85
+    action: scram_if
+    params:
+      condition: "T_fuel > 900"
+
+  - t: 120
+    action: set_coolant_flow
+    params:
+      value: 1.0
+
+initial_state:
+  rod_position: 1.0
+  coolant_flow: 1.0
+

@@ -3,6 +3,10 @@
 Тестовый скрипт для быстрой проверки симулятора
 """
 
+import sys
+import os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from reactor import ReactorSimulator
 
 

@@ -1,0 +1,30 @@
+# Базовый сценарий: плавное изменение мощности
+name: basic_ramp
+description: Плавное изменение мощности от 100 до 150 МВт
+
+seed: 42
+duration: 120  # секунды
+
+timeline:
+  - t: 0
+    action: set_auto_control
+    params:
+      enabled: true
+      target_power: 100
+
+  - t: 30
+    action: set_auto_control
+    params:
+      enabled: true
+      target_power: 150
+
+  - t: 90
+    action: set_auto_control
+    params:
+      enabled: true
+      target_power: 100
+
+initial_state:
+  rod_position: 1.0
+  coolant_flow: 1.0
+

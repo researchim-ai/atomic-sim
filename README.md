@@ -8,6 +8,7 @@
 
 ## 📋 Возможности
 
+### Базовые
 - **Нейтронная кинетика**: Уравнения точечной кинетики с 6 группами запаздывающих нейтронов
 - **Тепловая модель**: Трехузловая модель (топливо, оболочка, теплоноситель)
 - **Система управления**: Управляющие стержни с ручным и автоматическим (ПИД) управлением
@@ -15,25 +16,76 @@
 - **Безопасность**: Мониторинг предельных значений и аварийная остановка (SCRAM)
 - **Визуализация**: Графики в реальном времени и отчеты о симуляции
 
+### Расширенные (v1.1.0+)
+- **Отравление ксеноном/йодом**: Модель Xe-135/I-135 для реалистичной динамики
+- **Нелинейная worth-кривая**: S-образная зависимость реактивности от позиции стержней
+- **Система событий**: Аварии и возмущения (отказ насоса, выброс стержня, и т.д.)
+- **Gymnasium интерфейс**: Готовые RL-среды для обучения агентов
+- **Батч-симуляция**: Векторизованная генерация датасетов (×22 быстрее)
+- **Генератор датасетов**: Автоматическая генерация траекторий в Parquet/JSONL
+- **Q&A генерация**: Создание instruction-style данных для LLM
+- **Конфигурации YAML**: Гибкая настройка параметров
+- **CI/CD**: Автоматическое тестирование и проверка качества
+
 ## 🚀 Установка
+
+### Базовая установка
 
 ```bash
 # Клонировать репозиторий
+git clone https://github.com/yourusername/atomic-sim.git
 cd atomic-sim
 
 # Установить зависимости
 pip install -r requirements.txt
 ```
 
+### Установка как пакет
+
+```bash
+# В режиме разработки
+pip install -e .
+
+# С dev-зависимостями
+pip install -e ".[dev]"
+
+# После установки доступна команда
+atomic-sim --help
+```
+
 ### Требования
 
+**Базовые:**
 - Python 3.8+
 - PyTorch 2.0+
 - NumPy 1.24+
 - Matplotlib 3.7+
 - SciPy 1.10+
+- tqdm 4.65+
+
+**Расширенные (для ML/RL):**
+- Gymnasium 0.29+
+- PyYAML 6.0+
+- Pandas 2.0+
+- PyArrow 12.0+
+
+**Разработка:**
+- pytest 7.4+
+- pytest-cov 4.1+
+- black 23.0+
+- ruff 0.0.290+
 
 ## 📖 Быстрый старт
+
+### Тестирование
+
+```bash
+# Запустить все тесты (34 теста)
+pytest tests/ -v
+
+# Быстрая проверка
+python tests/test_simulator.py
+```
 
 ### Базовая симуляция
 
@@ -117,9 +169,100 @@ python emergency_scram.py
 ```
 Симуляция потери охлаждения и аварийной остановки реактора.
 
-## 📚 Документация
+## 🚀 Расширенные возможности
 
-### Основные компоненты
+### Генерация датасетов
+
+```bash
+# Генерация 100 сценариев
+python generate_dataset.py --n-scenarios 100 --duration 100 --format parquet
+
+# Q&A для LLM
+python dataset_builders/qa_from_traces.py --input datasets/*.parquet --output datasets/qa.jsonl
+```
+
+### Reinforcement Learning
+
+```python
+from envs.gym_reactor import ReactorEnv
+import gymnasium as gym
+
+# Создание среды
+env = ReactorEnv(target_power=95.0)
+
+# Или через Gymnasium
+env = gym.make('AtomicReactor-v0')
+
+obs, info = env.reset(seed=42)
+for _ in range(1000):
+    action = env.action_space.sample()
+    obs, reward, term, trunc, info = env.step(action)
+```
+
+### Батч-симуляция (высокая производительность)
+
+```python
+from reactor.batch_simulator import BatchReactorSimulator
+
+# 16 параллельных симуляций
+sim = BatchReactorSimulator(batch_size=16, dtype=torch.float32)
+trajectory = sim.run_batch(n_steps=100_000)
+
+# Производительность: ~125,000 шагов/сек (×22 быстрее)
+```
+
+### Отравление ксеноном
+
+```python
+from reactor.simulator_advanced import ReactorSimulatorAdvanced
+
+sim = ReactorSimulatorAdvanced(enable_xenon=True)
+sim.reset(equilibrium_xenon=True)
+
+history = sim.run(duration=50000.0)  # ~14 часов
+
+# Эффект ксеноновой ямы при изменении мощности
+```
+
+### События и аварии
+
+```python
+from reactor.events import PumpCoastdownEvent, StuckRodEvent
+
+sim = ReactorSimulatorAdvanced()
+sim.event_manager.add_event(PumpCoastdownEvent(trigger_time=30.0))
+sim.event_manager.add_event(StuckRodEvent(trigger_time=45.0, rod_index=3))
+
+history = sim.run(duration=100.0)
+```
+
+## 📚 Полная документация
+
+Вся подробная документация находится в директории **[docs/](docs/)**:
+
+- **[Быстрый старт](docs/QUICKSTART.md)** - начните здесь!
+- **[Установка](docs/INSTALLATION.md)** - детальное руководство
+- **[Архитектура](docs/ARCHITECTURE.md)** - структура и дизайн
+- **[Математика](docs/MATHEMATICS.md)** - все уравнения
+- **[Физика](docs/PHYSICS_MODELS.md)** - подробная физика (100+ формул)
+- **[Расширенные функции](docs/ADVANCED_FEATURES.md)** - ML/RL, датасеты
+- **[Производительность](docs/PERFORMANCE.md)** - оптимизация
+- **[Contributing](docs/CONTRIBUTING.md)** - для разработчиков
+
+### Генерация PDF документации
+
+```bash
+pip install -r requirements-docs.txt
+playwright install chromium
+mkdocs build
+python scripts/export_pdf.py
+```
+
+Подробнее: [docs/HOW_TO_GENERATE_PDF.md](docs/HOW_TO_GENERATE_PDF.md)
+
+## 📚 Краткий обзор компонентов
+
+### Основные классы
 
 #### ReactorSimulator
 Главный класс симулятора, объединяющий все подсистемы.

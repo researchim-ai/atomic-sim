@@ -5,6 +5,7 @@
 
 import torch
 import torch.nn as nn
+from .rod_worth import rod_worth_curve
 
 
 class ControlSystem(nn.Module):
@@ -41,6 +42,7 @@ class ControlSystem(nn.Module):
         self.register_buffer('Kp', torch.tensor(0.02, device=device, dtype=dtype))  # пропорциональный
         self.register_buffer('Ki', torch.tensor(0.002, device=device, dtype=dtype))  # интегральный
         self.register_buffer('Kd', torch.tensor(0.01, device=device, dtype=dtype))  # дифференциальный
+        self.register_buffer('deadband', torch.tensor(0.1, device=device, dtype=dtype))  # порог срабатывания
         
         self.integral_error = torch.tensor(0.0, device=device, dtype=dtype)
         self.previous_error = torch.tensor(0.0, device=device, dtype=dtype)
@@ -88,17 +90,25 @@ class ControlSystem(nn.Module):
         delta = direction * self.rod_speed * dt
         self.rod_positions = torch.clamp(self.rod_positions + delta, 0.0, 1.0)
     
-    def compute_rod_reactivity(self):
+    def compute_rod_reactivity(self, use_nonlinear=True):
         """
         Вычислить реактивность от управляющих стержней
+        
+        Args:
+            use_nonlinear: использовать нелинейную S-образную кривую worth
         
         Returns:
             реактивность в долях β
         """
+        if use_nonlinear:
+            # Нелинейная S-образная кривая (реалистичнее)
+            worth_factors = rod_worth_curve(self.rod_positions, shape=2.2)
+        else:
+            # Линейная зависимость (упрощенная)
+            worth_factors = 1.0 - self.rod_positions
+        
         # Суммарная реактивность от всех стержней
-        # Полностью извлеченный стержень (position=1) не вносит реактивности
-        # Полностью вставленный стержень (position=0) вносит rod_worth
-        total_reactivity = torch.sum((1.0 - self.rod_positions) * self.rod_worth)
+        total_reactivity = torch.sum(worth_factors * self.rod_worth)
         
         return total_reactivity
     
@@ -138,10 +148,10 @@ class ControlSystem(nn.Module):
         # Положительная ошибка (нужно больше мощности) -> извлечь стержни (+1)
         # Отрицательная ошибка (нужно меньше мощности) -> вставить стержни (-1)
         
-        threshold = 0.1  # порог для движения стержней (низкий для чувствительного управления)
-        if control_signal > threshold:
+        # Используем параметр deadband (порог срабатывания)
+        if control_signal > self.deadband:
             return 1  # извлечь
-        elif control_signal < -threshold:
+        elif control_signal < -self.deadband:
             return -1  # вставить
         else:
             return 0  # не двигать
