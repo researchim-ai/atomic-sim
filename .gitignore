@@ -40,9 +40,6 @@ ENV/
 *.pt
 
 # Results
-*.png
-*.jpg
-*.pdf
 results/
 outputs/
 
