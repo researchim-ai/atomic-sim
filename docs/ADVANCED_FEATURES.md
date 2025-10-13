@@ -568,7 +568,7 @@ assert (total_react > -10.0).all() and (total_react < 2.0).all()
   title = {Atomic Reactor Simulator: High-Fidelity Nuclear Reactor Simulation for ML/RL},
   author = {Atomic Sim Team},
   year = {2025},
-  url = {https://github.com/yourusername/atomic-sim},
+  url = {https://github.com/researchim-ai/atomic-sim},
   version = {1.1.0}
 }
 ```

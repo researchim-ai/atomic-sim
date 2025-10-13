@@ -51,8 +51,8 @@ dev = [
 atomic-sim = "generate_dataset:main"
 
 [project.urls]
-Homepage = "https://github.com/yourusername/atomic-sim"
-Repository = "https://github.com/yourusername/atomic-sim"
+Homepage = "https://github.com/researchim-ai/atomic-sim"
+Repository = "https://github.com/researchim-ai/atomic-sim"
 
 [tool.setuptools]
 packages = ["reactor", "envs", "dataset_builders", "tests"]

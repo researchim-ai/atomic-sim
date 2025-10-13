@@ -87,22 +87,15 @@ code {
         page-break-inside: avoid;
     }
     
-    /* Изображения: контролируем размер и разрывы */
+    /* Изображения: сохраняем оригинальные пропорции */
     img {
-        max-width: 60%;
-        max-height: 300px;
+        width: auto;
         height: auto;
+        max-width: 100%;
         page-break-inside: avoid;
         page-break-after: avoid;
         display: block;
         margin: 1em auto;
-    }
-    
-    /* Изображение на главной странице - еще меньше */
-    article > div:first-child img,
-    #welcome-to-atomic-simulator-documentation + div img {
-        max-width: 50%;
-        max-height: 250px;
     }
 }
 
