@@ -1,6 +1,6 @@
 site_name: Симулятор Атомного Реактора - Документация
 site_description: Высокоточный симулятор ядерного реактора для ML/RL
-site_author: Atomic Sim Team
+site_author: researchim-ai
 site_url: https://github.com/researchim-ai/atomic-sim
 
 repo_name: atomic-sim
@@ -113,6 +113,9 @@ nav:
       - Быстрый старт: QUICKSTART.md
       - Установка: INSTALLATION.md
       - Генерация PDF: HOW_TO_GENERATE_PDF.md
+  - Основы:
+      - Основные понятия: BASIC_CONCEPTS.md
+      - Глоссарий терминов: GLOSSARY.md
   - Технические детали:
       - Архитектура: ARCHITECTURE.md
       - Математические модели: MATHEMATICS.md

@@ -566,7 +566,7 @@ assert (total_react > -10.0).all() and (total_react < 2.0).all()
 ```bibtex
 @software{atomic_sim_2025,
   title = {Atomic Reactor Simulator: High-Fidelity Nuclear Reactor Simulation for ML/RL},
-  author = {Atomic Sim Team},
+  author = {researchim-ai},
   year = {2025},
   url = {https://github.com/researchim-ai/atomic-sim},
   version = {1.1.0}
