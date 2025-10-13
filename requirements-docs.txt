@@ -1,17 +1,8 @@
-# Зависимости для генерации документации
-
 mkdocs>=1.5.0
 mkdocs-material>=9.4.0
 mkdocs-print-site-plugin>=2.3.0
 mkdocs-mermaid2-plugin>=1.1.0
 pymdown-extensions>=10.3.0
 playwright>=1.40.0
-
-# Для работы с формулами
 markdown>=3.4.0
-
-# Для экспорта PDF
 Pillow>=10.0.0
-
-# Опционально для генерации из Jupyter notebooks
-# nbconvert>=7.0.0

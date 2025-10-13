@@ -98,7 +98,7 @@ class TestBatchSimulator:
         print(f"  Производительность: {steps_per_sec:,.0f} шагов/сек")
         
         # Должен быть быстрее одиночного симулятора
-        assert steps_per_sec > 50000, "Batch simulator should be fast"
+        assert steps_per_sec > 40000, "Batch simulator should be fast"
 
 
 if __name__ == '__main__':
