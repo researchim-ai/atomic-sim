@@ -17,7 +17,7 @@ def print_dashboard(state):
     print("\033[2J\033[H", end='')
     
     print("=" * 70)
-    print(" " * 20 + "🔬 СИМУЛЯТОР АТОМНОГО РЕАКТОРА 🔬")
+    print(" " * 20 + "🔬 СИМУЛЯТОР ЯДЕРНОГО РЕАКТОРА 🔬")
     print("=" * 70)
     print()
     

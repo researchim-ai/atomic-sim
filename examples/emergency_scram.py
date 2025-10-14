@@ -13,7 +13,7 @@ from reactor.visualization import plot_simulation_results
 
 def main():
     print("=" * 60)
-    print("СИМУЛЯТОР АТОМНОГО РЕАКТОРА")
+    print("СИМУЛЯТОР ЯДЕРНОГО РЕАКТОРА")
     print("Аварийная ситуация: Потеря охлаждения и SCRAM")
     print("=" * 60)
     

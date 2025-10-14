@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def plot_simulation_results(history, title="Симуляция атомного реактора", save_path=None):
+def plot_simulation_results(history, title="Симуляция ядерного реактора", save_path=None):
     """
     Построить графики результатов симуляции
     
@@ -133,7 +133,7 @@ def create_summary_report(history):
     
     report = []
     report.append("=" * 60)
-    report.append("ОТЧЕТ О СИМУЛЯЦИИ АТОМНОГО РЕАКТОРА")
+    report.append("ОТЧЕТ О СИМУЛЯЦИИ ЯДЕРНОГО РЕАКТОРА")
     report.append("=" * 60)
     report.append("")
     

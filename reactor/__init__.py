@@ -1,6 +1,6 @@
 """
 Atomic Reactor Simulator
-Симулятор атомного реактора с использованием PyTorch
+Симулятор ядерного реактора с использованием PyTorch
 """
 
 from .neutronics import NeutronKinetics

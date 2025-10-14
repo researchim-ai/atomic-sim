@@ -111,7 +111,7 @@ async def export_pdf():
                 'left': '15mm'
             },
             display_header_footer=True,
-            header_template='<div style="font-size:9pt; width:100%; text-align:center; color:#666;">Симулятор Атомного Реактора v1.1.0</div>',
+            header_template='<div style="font-size:9pt; width:100%; text-align:center; color:#666;">Симулятор Ядерного Реактора v1.1.0</div>',
             footer_template='<div style="font-size:9pt; width:100%; text-align:center; color:#666;"><span class="pageNumber"></span> / <span class="totalPages"></span></div>',
         )
         
