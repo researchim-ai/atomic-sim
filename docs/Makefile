@@ -21,7 +21,7 @@ pdf:
 		-V geometry:margin=1in \
 		-V lang=ru \
 		--metadata title="Симулятор Атомного Реактора - Документация" \
-		--metadata author="Atomic Sim Team" \
+		--metadata author="researchim-ai" \
 		--metadata date="$(shell date +%Y-%m-%d)"
 	@echo "✓ PDF создан: build/atomic-sim-documentation.pdf"
 

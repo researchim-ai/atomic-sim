@@ -33,7 +33,7 @@
 
 ```bash
 # Клонировать репозиторий
-git clone https://github.com/yourusername/atomic-sim.git
+git clone https://github.com/researchim-ai/atomic-sim.git
 cd atomic-sim
 
 # Установить зависимости

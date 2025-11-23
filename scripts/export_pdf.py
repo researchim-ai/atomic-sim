@@ -46,7 +46,7 @@ async def export_pdf():
         print("3. Ожидание рендеринга формул (MathJax)...")
         
         # Ждем загрузки MathJax
-        await page.wait_for_timeout(3000)
+        await page.wait_for_timeout(10000)
         
         # Проверяем что MathJax готов и запускаем рендеринг всех формул
         await page.evaluate("""
@@ -59,7 +59,7 @@ async def export_pdf():
         """)
         
         # Даем дополнительное время на рендеринг
-        await page.wait_for_timeout(5000)
+        await page.wait_for_timeout(10000)
         
         # Проверяем количество отрендеренных формул
         math_count = await page.evaluate("""
@@ -96,7 +96,7 @@ async def export_pdf():
         
         # Дополнительная задержка для полного рендеринга
         print("   Финальное ожидание...")
-        await page.wait_for_timeout(5000)
+        await page.wait_for_timeout(10000)
         
         # Экспорт в PDF
         print("5. Генерация PDF...")

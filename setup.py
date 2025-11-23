@@ -15,7 +15,7 @@ setup(
     description="High-fidelity nuclear reactor simulator for ML/RL dataset generation",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    author="Atomic Sim Team",
+    author="researchim-ai",
     python_requires=">=3.8",
     packages=find_packages(exclude=["tests*", "examples*"]),
     install_requires=[

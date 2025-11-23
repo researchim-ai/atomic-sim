@@ -12,7 +12,7 @@
 ### 1. Быстрая установка (только использование)
 
 ```bash
-git clone https://github.com/yourusername/atomic-sim.git
+git clone https://github.com/researchim-ai/atomic-sim.git
 cd atomic-sim
 pip install -r requirements.txt
 python tests/test_simulator.py  # Проверка
@@ -21,7 +21,7 @@ python tests/test_simulator.py  # Проверка
 ### 2. Установка пакетом (рекомендуется)
 
 ```bash
-git clone https://github.com/yourusername/atomic-sim.git
+git clone https://github.com/researchim-ai/atomic-sim.git
 cd atomic-sim
 
 # Установка в editable mode
@@ -35,7 +35,7 @@ python -c "import reactor; print(reactor.__version__)"
 ### 3. Установка для разработки
 
 ```bash
-git clone https://github.com/yourusername/atomic-sim.git
+git clone https://github.com/researchim-ai/atomic-sim.git
 cd atomic-sim
 
 # Установка с dev-зависимостями
@@ -209,7 +209,7 @@ from reactor import ReactorSimulator
 ## Поддержка
 
 Если возникли проблемы:
-1. Проверьте [FAQ](https://github.com/yourusername/atomic-sim/wiki/FAQ)
-2. Создайте [Issue](https://github.com/yourusername/atomic-sim/issues)
+1. Проверьте [FAQ](https://github.com/researchim-ai/atomic-sim/wiki/FAQ)
+2. Создайте [Issue](https://github.com/researchim-ai/atomic-sim/issues)
 3. См. [CONTRIBUTING.md](CONTRIBUTING.md)
 

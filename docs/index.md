@@ -58,7 +58,7 @@
 ### Установка
 
 ```bash
-git clone https://github.com/yourusername/atomic-sim.git
+git clone https://github.com/researchim-ai/atomic-sim.git
 cd atomic-sim
 pip install -r requirements.txt
 ```
@@ -90,25 +90,27 @@ python tests/test_simulator.py
 
 ### Для начинающих
 
-1. **[Быстрый старт](QUICKSTART.md)** - первые шаги с симулятором
-2. **[Установка](INSTALLATION.md)** - детальное руководство
+1. **[Основные понятия](BASIC_CONCEPTS.md)** - что такое ядерный реактор простыми словами
+2. **[Быстрый старт](QUICKSTART.md)** - первые шаги с симулятором
+3. **[Установка](INSTALLATION.md)** - детальное руководство
+4. **[Глоссарий терминов](GLOSSARY.md)** - объяснение основных понятий ядерной физики
 
 ### Технические детали
 
-3. **[Архитектура](ARCHITECTURE.md)** - структура и дизайн системы
-4. **[Математические модели](MATHEMATICS.md)** - все уравнения и выводы
-5. **[Физические модели](PHYSICS_MODELS.md)** - подробное описание физики
+5. **[Архитектура](ARCHITECTURE.md)** - структура и дизайн системы
+6. **[Математические модели](MATHEMATICS.md)** - все уравнения и выводы
+7. **[Физические модели](PHYSICS_MODELS.md)** - подробное описание физики
 
 ### Для продвинутых пользователей
 
-6. **[Расширенные возможности](ADVANCED_FEATURES.md)** - ML/RL, датасеты, события
-7. **[Производительность](PERFORMANCE.md)** - оптимизация и benchmark
+8. **[Расширенные возможности](ADVANCED_FEATURES.md)** - ML/RL, датасеты, события
+9. **[Производительность](PERFORMANCE.md)** - оптимизация и benchmark
 
 ### Для разработчиков
 
-8. **[Руководство по вкладу](CONTRIBUTING.md)** - как участвовать
-9. **[История изменений](CHANGELOG.md)** - версии и обновления
-10. **[Сводка проекта](PROJECT_SUMMARY.md)** - метрики и статистика
+10. **[Руководство по вкладу](CONTRIBUTING.md)** - как участвовать
+11. **[История изменений](CHANGELOG.md)** - версии и обновления
+12. **[Сводка проекта](PROJECT_SUMMARY.md)** - метрики и статистика
 
 ## 🎯 Примеры использования
 
@@ -151,14 +153,14 @@ history = sim.run(duration=50000.0)  # 14 часов
 
 ## 🔗 Полезные ссылки
 
-- [GitHub Repository](https://github.com/yourusername/atomic-sim)
-- [Issue Tracker](https://github.com/yourusername/atomic-sim/issues)
-- [Примеры кода](https://github.com/yourusername/atomic-sim/tree/main/examples)
+- [GitHub Repository](https://github.com/researchim-ai/atomic-sim)
+- [Issue Tracker](https://github.com/researchim-ai/atomic-sim/issues)
+- [Примеры кода](https://github.com/researchim-ai/atomic-sim/tree/main/examples)
 
 ## 📞 Контакты
 
 Для вопросов и предложений:
-- Создайте [Issue](https://github.com/yourusername/atomic-sim/issues)
+- Создайте [Issue](https://github.com/researchim-ai/atomic-sim/issues)
 - См. [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ---

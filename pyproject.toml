@@ -8,9 +8,9 @@ version = "1.1.0"
 description = "High-fidelity nuclear reactor simulator for ML/RL dataset generation"
 readme = "README.md"
 requires-python = ">=3.8"
-license = {text = "MIT"}
+license = {text = "Apache-2.0"}
 authors = [
-    {name = "Atomic Sim Team"}
+    {name = "researchim-ai"}
 ]
 keywords = ["nuclear", "reactor", "simulation", "pytorch", "reinforcement-learning", "machine-learning"]
 classifiers = [
@@ -51,8 +51,8 @@ dev = [
 atomic-sim = "generate_dataset:main"
 
 [project.urls]
-Homepage = "https://github.com/yourusername/atomic-sim"
-Repository = "https://github.com/yourusername/atomic-sim"
+Homepage = "https://github.com/researchim-ai/atomic-sim"
+Repository = "https://github.com/researchim-ai/atomic-sim"
 
 [tool.setuptools]
 packages = ["reactor", "envs", "dataset_builders", "tests"]
