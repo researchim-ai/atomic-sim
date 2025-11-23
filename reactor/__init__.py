@@ -11,7 +11,7 @@ from .poisoning import XenonIodineKinetics
 from . import visualization
 from . import rod_worth
 
-# New Professional 1D Modules
+# 1D Spatial Kinetics Modules
 from .neutronics_1d import Neutronics1D
 from .thermal_1d import ThermalModel1D
 from .poisoning_1d import XenonIodine1D
