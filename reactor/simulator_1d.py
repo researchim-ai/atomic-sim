@@ -9,6 +9,7 @@ from .neutronics_1d import Neutronics1D
 from .thermal_1d import ThermalModel1D
 from .poisoning_1d import XenonIodine1D
 from .control_1d import ControlSystem1D
+from .depletion_1d import FuelDepletion1D
 
 class ReactorSimulator1D:
     def __init__(self, num_nodes=50, device='cpu', dtype=torch.float64):
@@ -19,6 +20,7 @@ class ReactorSimulator1D:
         self.neutronics = Neutronics1D(num_nodes=num_nodes, device=device, dtype=dtype)
         self.thermal = ThermalModel1D(num_nodes=num_nodes, device=device, dtype=dtype)
         self.poisoning = XenonIodine1D(num_nodes=num_nodes, device=device, dtype=dtype)
+        self.fuel = FuelDepletion1D(num_nodes=num_nodes, device=device, dtype=dtype)
         self.control = ControlSystem1D(device=device, dtype=dtype)
         
         # Инициализация равновесного ксенона под начальный поток
@@ -64,13 +66,17 @@ class ReactorSimulator1D:
         # xenon_absorption: вектор (N,) Sigma_Xe
         xenon_absorption = self.poisoning.get_absorption_cross_section()
         
+        # fuel_feedback: кортеж (delta_Sigma_a, delta_nu_Sigma_f)
+        fuel_feedback = self.fuel.get_cross_section_changes()
+        
         # 3. Шаг нейтроники
         # Передаем позицию стержней, бор, темп. связь и ксенон
         self.neutronics.update_cross_sections(
             self.rod_position, 
             boron_ppm=self.boron_concentration,
             temp_feedback=reactivity_feedback,
-            xenon_absorption=xenon_absorption
+            xenon_absorption=xenon_absorption,
+            fuel_feedback=fuel_feedback
         )
         
         # Делаем шаг нейтроники
@@ -92,10 +98,27 @@ class ReactorSimulator1D:
         
         return self.get_state()
 
+    def burnup_step(self, time_hours):
+        """
+        Выполняет шаг выгорания топлива (Accelerated Time).
+        Внимание: Этот шаг не изменяет время симуляции self.time (оно для переходных процессов),
+        но изменяет изотопный состав топлива.
+        """
+        dt_seconds = time_hours * 3600.0
+        
+        # Используем текущий средний поток
+        flux = self.neutronics.phi
+        
+        # Шаг выгорания
+        self.fuel.step(flux, dt_seconds)
+        
+        return self.fuel.get_state()
+
     def get_state(self):
         n_state = self.neutronics.get_state()
         t_state = self.thermal.get_state()
         p_state = self.poisoning.get_state()
+        f_state = self.fuel.get_state()
         
         return {
             'time': self.time,
@@ -104,7 +127,8 @@ class ReactorSimulator1D:
             'total_power': torch.sum(self.neutronics.phi).item() * (60.0 / 1e13), 
             **n_state,
             **t_state,
-            **p_state
+            **p_state,
+            **f_state
         }
 
     def set_rod_speed(self, speed):

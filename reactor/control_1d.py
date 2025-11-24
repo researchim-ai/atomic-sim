@@ -93,11 +93,15 @@ class ControlSystem1D(nn.Module):
             # Нужно УВЕЛИЧИТЬ бор (borate), чтобы заставить стержни пойти внутрь для компенсации.
             
             if rod_error > self.boron_deadband:
-                # Rods too deep -> Dilute Boron (remove poison)
-                boron_change = -self.boron_rate
-            elif rod_error < -self.boron_deadband:
-                # Rods too high -> Borate (add poison)
+                # Rods too deep (e.g. 0.8 > 0.2) -> Need to withdraw rods.
+                # To withdraw rods (add reactivity), we must subtract reactivity elsewhere.
+                # So we ADD Boron (poison).
                 boron_change = self.boron_rate
+            elif rod_error < -self.boron_deadband:
+                # Rods too high (e.g. 0.0 < 0.2) -> Need to insert rods.
+                # To insert rods (remove reactivity), we must add reactivity elsewhere.
+                # So we REMOVE Boron (dilute).
+                boron_change = -self.boron_rate
             else:
                 boron_change = 0.0
                 

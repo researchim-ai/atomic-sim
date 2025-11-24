@@ -65,9 +65,9 @@ class Neutronics1D(nn.Module):
         # Для 350см реактора геометрический лапласиан B_g^2 ~ (pi/H)^2 ~ (3.14/350)^2 ~ 8e-5
         # k_eff = nu*Sigma_f / (Sigma_a + D*B^2) ~ 1
         # nu*Sigma_f ~ Sigma_a + D*B^2 ~ 0.015 + 1.2 * 8e-5 ~ 0.0151
-        # Ставим чуть выше критичности, чтобы был запас на управление
-        # UPD: 0.018 to cover Xenon and Boron (100ppm)
-        self.register_buffer('nu_Sigma_f_base', torch.ones(num_nodes, device=device, dtype=dtype) * 0.0180)
+        # Ставим ЗНАЧИТЕЛЬНО выше (0.022), чтобы обеспечить запас на выгорание (18 месяцев)
+        # Лишнюю реактивность в начале кампании (BOL) компенсируем Бором (~1200 ppm)
+        self.register_buffer('nu_Sigma_f_base', torch.ones(num_nodes, device=device, dtype=dtype) * 0.0220)
         
         # Параметры Бора
         # Дифференциальное сечение бора-10 ~ 3840 барн. 
@@ -92,7 +92,8 @@ class Neutronics1D(nn.Module):
         # Можно задать один стержень на весь реактор или банк стержней
         self.rod_position = 0.0 
         # Эффективность стержней (добавка к Sigma_a при полном погружении)
-        self.rod_worth_total = 0.005 # ~0.5% dRho ~ 5 beta
+        # Увеличено до 0.02 (2% dRho) для надежного глушения реактора с запасом реактивности
+        self.rod_worth_total = 0.02
         
         # Источник нейтронов (Source Term)
         # Позволяет реактору не затухать в 0 и стартовать с малых мощностей
@@ -124,7 +125,7 @@ class Neutronics1D(nn.Module):
         
         self.boron_concentration = 0.0
 
-    def update_cross_sections(self, rod_pos, boron_ppm=0.0, temp_feedback=None, xenon_absorption=None):
+    def update_cross_sections(self, rod_pos, boron_ppm=0.0, temp_feedback=None, xenon_absorption=None, fuel_feedback=None):
         """
         Обновление сечений на основе положения стержней, бора, температур и отравления.
         Args:
@@ -132,12 +133,20 @@ class Neutronics1D(nn.Module):
             boron_ppm: концентрация бора в теплоносителе (ppm)
             temp_feedback: (опционально) корректировка сечений от температуры
             xenon_absorption: (опционально) вектор (N,) макроскопического сечения ксенона
+            fuel_feedback: (опционально) кортеж (delta_Sigma_a, delta_nu_Sigma_f) от выгорания
         """
         self.rod_position = rod_pos
         self.boron_concentration = boron_ppm
         
         # Сброс к базе
         self.Sigma_a = self.Sigma_a_base.clone()
+        self.nu_Sigma_f = self.nu_Sigma_f_base.clone() # Reset fission too for burnup
+        
+        # === Эффект Выгорания (Fuel Depletion) ===
+        if fuel_feedback is not None:
+            delta_Sigma_a, delta_nu_Sigma_f = fuel_feedback
+            self.Sigma_a += delta_Sigma_a
+            self.nu_Sigma_f += delta_nu_Sigma_f
         
         # === Эффект Бора ===
         # Равномерное добавление поглощения по всему объему
