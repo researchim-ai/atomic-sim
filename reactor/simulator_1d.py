@@ -8,6 +8,7 @@ import numpy as np
 from .neutronics_1d import Neutronics1D
 from .thermal_1d import ThermalModel1D
 from .poisoning_1d import XenonIodine1D
+from .control_1d import ControlSystem1D
 
 class ReactorSimulator1D:
     def __init__(self, num_nodes=50, device='cpu', dtype=torch.float64):
@@ -18,21 +19,43 @@ class ReactorSimulator1D:
         self.neutronics = Neutronics1D(num_nodes=num_nodes, device=device, dtype=dtype)
         self.thermal = ThermalModel1D(num_nodes=num_nodes, device=device, dtype=dtype)
         self.poisoning = XenonIodine1D(num_nodes=num_nodes, device=device, dtype=dtype)
+        self.control = ControlSystem1D(device=device, dtype=dtype)
         
         # Инициализация равновесного ксенона под начальный поток
         self.poisoning.reset(flux_profile=self.neutronics.phi)
         
         self.time = 0.0
-        self.rod_position = 0.0 # 0.0 (out) to 1.0 (in)
+        self.rod_position = 0.2 # Start slightly inserted (20%)
         self.rod_speed = 0.0 # units/sec
+        self.boron_concentration = 100.0 # ppm (Low initial boron)
         
         # Для записи истории
         self.history = []
         
-    def step(self, dt=0.01):
-        # 1. Управление стержнями
+    def step(self, dt=0.01, flow_factor=1.0):
+        # 0. Автоматическое управление
+        # Получаем управляющие воздействия от контроллера
+        current_power_MW = torch.sum(self.neutronics.phi).item() * (60.0 / 1e13) # Approx calc
+        
+        ctrl_rod_speed, ctrl_boron_change = self.control.step(
+            dt, current_power_MW, self.rod_position, self.boron_concentration
+        )
+        
+        # Применяем управление (если авто-режим выключен, ctrl_* будут 0, или можно переопределить)
+        # Если пользователь задал ручную скорость rod_speed, она имеет приоритет?
+        # Давайте суммировать или переключать. Пусть control module решает.
+        # Если авто включено в модуле, оно выдает скорость.
+        
+        if self.control.auto_power:
+            self.rod_speed = ctrl_rod_speed
+            
+        if self.control.auto_boron:
+            self.boron_concentration += ctrl_boron_change * dt
+        
+        # 1. Физическое движение стержней
         self.rod_position += self.rod_speed * dt
         self.rod_position = max(0.0, min(1.0, self.rod_position))
+        self.boron_concentration = max(0.0, self.boron_concentration)
         
         # 2. Получение обратной связи от теплофизики и ксенона
         # reactivity_feedback: вектор (N,)
@@ -42,9 +65,10 @@ class ReactorSimulator1D:
         xenon_absorption = self.poisoning.get_absorption_cross_section()
         
         # 3. Шаг нейтроники
-        # Передаем позицию стержней, темп. связь и ксенон
+        # Передаем позицию стержней, бор, темп. связь и ксенон
         self.neutronics.update_cross_sections(
             self.rod_position, 
+            boron_ppm=self.boron_concentration,
             temp_feedback=reactivity_feedback,
             xenon_absorption=xenon_absorption
         )
@@ -62,7 +86,7 @@ class ReactorSimulator1D:
         power_profile_MW = flux_profile * conversion
         
         # 6. Шаг теплофизики
-        self.thermal.step(dt, power_profile_MW)
+        self.thermal.step(dt, power_profile_MW, flow_factor=flow_factor)
         
         self.time += dt
         
@@ -76,6 +100,7 @@ class ReactorSimulator1D:
         return {
             'time': self.time,
             'rod_position': self.rod_position,
+            'boron_ppm': self.boron_concentration,
             'total_power': torch.sum(self.neutronics.phi).item() * (60.0 / 1e13), 
             **n_state,
             **t_state,

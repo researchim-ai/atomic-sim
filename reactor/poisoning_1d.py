@@ -47,7 +47,7 @@ class XenonIodine1D(nn.Module):
         
         # Initial approximate flux for equilibrium calc
         self.nominal_flux = 1e13 
-        self.nu_sigma_f_ref = 0.015 # Reference macroscopic fission xs
+        self.nu_sigma_f_ref = 0.018 # Reference macroscopic fission xs (SYNC WITH NEUTRONICS)
         
         self.reset()
         

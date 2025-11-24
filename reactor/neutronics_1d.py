@@ -37,8 +37,10 @@ class Neutronics1D(nn.Module):
         
         # === Физические константы (Пример для PWR) ===
         # Скорость нейтронов (тепловая группа) ~ 2200 м/с, но для 1-группового приближения 
-        # берется усредненная скорость спектра ~ 10^5 - 10^6 см/с
-        self.register_buffer('v', torch.tensor(1.0e5, device=device, dtype=dtype))
+        # берется усредненная скорость спектра ~ 10^5 - 10^6 см/с.
+        # ДЛЯ СТАБИЛЬНОСТИ с шагом dt=0.01-0.1 используем уменьшенную "эффективную" скорость.
+        # v = 1000.0 дает tau ~ 0.1 сек, что стабильно.
+        self.register_buffer('v', torch.tensor(1000.0, device=device, dtype=dtype))
         
         # Константы запаздывающих нейтронов (6 групп)
         self.register_buffer('beta_i', torch.tensor(
@@ -63,7 +65,17 @@ class Neutronics1D(nn.Module):
         # Для 350см реактора геометрический лапласиан B_g^2 ~ (pi/H)^2 ~ (3.14/350)^2 ~ 8e-5
         # k_eff = nu*Sigma_f / (Sigma_a + D*B^2) ~ 1
         # nu*Sigma_f ~ Sigma_a + D*B^2 ~ 0.015 + 1.2 * 8e-5 ~ 0.0151
-        self.register_buffer('nu_Sigma_f_base', torch.ones(num_nodes, device=device, dtype=dtype) * 0.01515)
+        # Ставим чуть выше критичности, чтобы был запас на управление
+        # UPD: 0.018 to cover Xenon and Boron (100ppm)
+        self.register_buffer('nu_Sigma_f_base', torch.ones(num_nodes, device=device, dtype=dtype) * 0.0180)
+        
+        # Параметры Бора
+        # Дифференциальное сечение бора-10 ~ 3840 барн. 
+        # ppm = parts per million (масса). В воде ~ 1 ppm = 1e-6 g B / g H2O.
+        # Макроскопическое сечение ~ 1.8e-4 cm^-1 на 100 ppm. (Roughly)
+        # Сделаем бор слабее, чтобы он был сравним со стержнями по диапазону регулирования.
+        # Пусть 1000 ppm ~ 0.005 cm^-1 (как все стержни). 
+        self.register_buffer('sigma_a_boron', torch.tensor(5.0e-6, device=device, dtype=dtype)) # per ppm
         
         # Текущие сечения (могут меняться от температуры и стержней)
         self.D = self.D_base.clone()
@@ -81,6 +93,10 @@ class Neutronics1D(nn.Module):
         self.rod_position = 0.0 
         # Эффективность стержней (добавка к Sigma_a при полном погружении)
         self.rod_worth_total = 0.005 # ~0.5% dRho ~ 5 beta
+        
+        # Источник нейтронов (Source Term)
+        # Позволяет реактору не затухать в 0 и стартовать с малых мощностей
+        self.register_buffer('source_term', torch.ones(num_nodes, device=device, dtype=dtype) * 1e5)
         
         self.reset()
 
@@ -105,19 +121,28 @@ class Neutronics1D(nn.Module):
         production_rate = self.nu_Sigma_f * self.phi
         coeff = self.beta_i.unsqueeze(1) / self.lambda_i.unsqueeze(1)
         self.C = coeff * production_rate.unsqueeze(0)
+        
+        self.boron_concentration = 0.0
 
-    def update_cross_sections(self, rod_pos, temp_feedback=None, xenon_absorption=None):
+    def update_cross_sections(self, rod_pos, boron_ppm=0.0, temp_feedback=None, xenon_absorption=None):
         """
-        Обновление сечений на основе положения стержней, температур и отравления.
+        Обновление сечений на основе положения стержней, бора, температур и отравления.
         Args:
             rod_pos: 0.0 (top/out) to 1.0 (bottom/in). Стержни входят СВЕРХУ.
+            boron_ppm: концентрация бора в теплоносителе (ppm)
             temp_feedback: (опционально) корректировка сечений от температуры
             xenon_absorption: (опционально) вектор (N,) макроскопического сечения ксенона
         """
         self.rod_position = rod_pos
+        self.boron_concentration = boron_ppm
         
         # Сброс к базе
         self.Sigma_a = self.Sigma_a_base.clone()
+        
+        # === Эффект Бора ===
+        # Равномерное добавление поглощения по всему объему
+        boron_absorption = self.sigma_a_boron * boron_ppm
+        self.Sigma_a += boron_absorption
         
         # === Эффект Ксенона ===
         if xenon_absorption is not None:
@@ -199,8 +224,9 @@ class Neutronics1D(nn.Module):
         delayed_source = torch.sum(self.lambda_i.unsqueeze(1) * C, dim=0)
         
         # === Уравнение для phi ===
-        # 1/v * dphi/dt = Leakage + PromptProd - Abs + DelayedSrc
-        dphi_dt = self.v * (leakage + prompt_production - absorption + delayed_source)
+        # 1/v * dphi/dt = Leakage + PromptProd - Abs + DelayedSrc + Source
+        term = leakage + prompt_production - absorption + delayed_source + self.source_term
+        dphi_dt = self.v * term
         
         # === Уравнение для C ===
         # dC_i/dt = beta_i * nu * Sigma_f * phi - lambda_i * C_i
@@ -213,12 +239,14 @@ class Neutronics1D(nn.Module):
         
         return dphi_dt, dC_dt
 
-    def step(self, dt, rod_pos=None):
+    def step(self, dt, rod_pos=None, boron_ppm=None):
         """
         Шаг по времени (RK4)
         """
         if rod_pos is not None:
-            self.update_cross_sections(rod_pos)
+            # Если boron_ppm не передан, используем текущий
+            bpm = boron_ppm if boron_ppm is not None else self.boron_concentration
+            self.update_cross_sections(rod_pos, boron_ppm=bpm)
             
         # RK4 Integration
         phi0 = self.phi.clone()
@@ -266,7 +294,8 @@ class Neutronics1D(nn.Module):
             'flux_profile': self.phi.cpu().numpy(),
             'avg_flux': self.phi.mean().item(),
             'peak_flux': self.phi.max().item(),
-            'axial_offset': self.compute_axial_offset()
+            'axial_offset': self.compute_axial_offset(),
+            'boron_ppm': self.boron_concentration
         }
         
     def compute_axial_offset(self):
@@ -283,4 +312,3 @@ class Neutronics1D(nn.Module):
         if (p_top + p_bottom) > 1e-6:
             return ((p_top - p_bottom) / (p_top + p_bottom)).item()
         return 0.0
-
