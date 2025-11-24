@@ -137,6 +137,8 @@ class ThermalModel1D(nn.Module):
 
     def get_state(self):
         return {
+            'fuel_temp': self.T_fuel.cpu().numpy(),
+            'coolant_temp': self.T_coolant.cpu().numpy(),
             'max_fuel_temp': self.T_fuel.max().item(),
             'max_clad_temp': self.T_clad.max().item(),
             'outlet_temp': torch.minimum(self.T_coolant[0], self.T_sat).item(),
