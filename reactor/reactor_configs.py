@@ -48,7 +48,7 @@ VVER_1000 = ReactorConfig(
     shim_speed=0.01
 )
 
-# === RBMK-1000 (Chernobyl Type) ===
+# === RBMK-1000 (Channel Type) ===
 # Unstable at low power: Positive void coefficient.
 # Graphite moderated, water cooled.
 RBMK_1000 = ReactorConfig(

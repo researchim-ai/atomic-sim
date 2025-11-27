@@ -33,6 +33,7 @@ LANG = {
         'tab_main': 'Main',
         'tab_safety': 'Safety',
         'tab_auto': 'Auto',
+        'tab_plant': 'Turbine',
         'lbl_rods': 'Control Rods Position',
         'lbl_boron': 'Boron Concentration (ppm)',
         'lbl_auto_sys': 'Automatic Control System',
@@ -47,6 +48,8 @@ LANG = {
         'kpi_power': 'Thermal Power',
         'kpi_temp': 'Peak Fuel Temp',
         'kpi_void': 'Void Fraction',
+        'kpi_turbine': 'Electric Output',
+        'kpi_sg': 'SG Pressure',
         'chart_core': 'Reactor Core Status (Axial Profile)',
         'chart_trend': 'Trends',
         'lbl_logs': 'System Event Log',
@@ -75,7 +78,9 @@ LANG = {
         'lbl_custom_settings': 'Custom Parameters',
         'lbl_power_mw': 'Thermal Power (MW)',
         'lbl_height_m': 'Core Height (m)',
-        'lbl_void_coeff': 'Void Coefficient (Safety!)'
+        'lbl_void_coeff': 'Void Coefficient (Safety!)',
+        'lbl_turbine_ctrl': 'Turbine Governor',
+        'lbl_feedwater': 'Feedwater Pump'
     },
     'ru': {
         'title': 'АТОМНЫЙ СИМУЛЯТОР',
@@ -96,6 +101,7 @@ LANG = {
         'tab_main': 'Главная',
         'tab_safety': 'Защита',
         'tab_auto': 'Авто',
+        'tab_plant': 'Турбина',
         'lbl_rods': 'Положение Стержней СУЗ',
         'lbl_boron': 'Концентрация Бора (ppm)',
         'lbl_auto_sys': 'Система Автоматического Управления',
@@ -110,6 +116,8 @@ LANG = {
         'kpi_power': 'Тепловая Мощность',
         'kpi_temp': 'Макс. Темп. Топлива',
         'kpi_void': 'Паросодержание',
+        'kpi_turbine': 'Электрич. Мощность',
+        'kpi_sg': 'Давление ПГ',
         'chart_core': 'Состояние Активной Зоны (Профиль)',
         'chart_trend': 'Тренды',
         'lbl_logs': 'Журнал Событий',
@@ -138,7 +146,9 @@ LANG = {
         'lbl_custom_settings': 'Параметры конструктора',
         'lbl_power_mw': 'Тепловая Мощность (МВт)',
         'lbl_height_m': 'Высота Активной Зоны (м)',
-        'lbl_void_coeff': 'Паровой Коэффициент (Безопасность!)'
+        'lbl_void_coeff': 'Паровой Коэффициент (Безопасность!)',
+        'lbl_turbine_ctrl': 'Клапан Турбины',
+        'lbl_feedwater': 'Питательный Насос'
     }
 }
 
@@ -221,7 +231,7 @@ def setup_page(mode: str):
             
             reactor_options = {
                 'vver': 'VVER-1000 (Standard PWR)',
-                'rbmk': 'RBMK-1000 (Chernobyl Type)',
+                'rbmk': 'RBMK-1000 (Channel Type LWGR)',
                 'custom': 'Custom (Experimental)'
             }
             
@@ -295,7 +305,8 @@ def run_simulation(mode: str):
     sim = ReactorSimulator1D(config_name=params['reactor'], num_nodes=50, device='cpu')
     
     sim.boron_concentration = params['boron']
-    sim.rod_position = params['rods']
+    sim.control.rod_position = params['rods']
+    sim.control.boron_concentration = params['boron'] # Sync control object state
     
     # Pre-stabilization
     for _ in range(50):
@@ -351,6 +362,7 @@ def run_simulation(mode: str):
                 main_tab = ui.tab(T('tab_main'))
                 safety_tab = ui.tab(T('tab_safety'))
                 auto_tab = ui.tab(T('tab_auto'))
+                plant_tab = ui.tab(T('tab_plant'))
 
             with ui.tab_panels(tabs, value=main_tab).classes('w-full bg-transparent flex-grow'):
                 
@@ -362,17 +374,17 @@ def run_simulation(mode: str):
                         slider_rods = ui.slider(min=0, max=100, value=sim.rod_position*100, step=0.1).props('label-always color=orange track-size=8px thumb-size=20px')
                         def manual_rods(e):
                             if not sim.control.auto_power:
-                                sim.rod_position = slider_rods.value / 100.0
+                                sim.control.rod_position = slider_rods.value / 100.0
                         slider_rods.on('change', manual_rods)
-                        ui.linear_progress(value=0.2).bind_value_from(sim, 'rod_position').props('color=orange track-color=gray-800 size=15px rounded')
+                        ui.linear_progress(value=0.2).bind_value_from(sim.control, 'rod_position').props('color=orange track-color=gray-800 size=15px rounded')
 
                     # Boron
                     with ui.column().classes('w-full'):
                         ui.label(T('lbl_boron')).classes('text-sm text-gray-400 font-bold')
                         def set_boron(e):
-                            try: sim.boron_concentration = float(boron_input.value)
+                            try: sim.control.boron_concentration = float(boron_input.value)
                             except: pass
-                        boron_input = ui.number(value=sim.boron_concentration, format='%.0f', on_change=set_boron).classes('w-full text-lg').props('standout outlined dense')
+                        boron_input = ui.number(value=sim.control.boron_concentration, format='%.0f', on_change=set_boron).classes('w-full text-lg').props('standout outlined dense')
                         ui.slider(min=0, max=2000, value=1000).bind_value(boron_input).props('color=cyan')
 
                 # AUTO TAB
@@ -396,11 +408,27 @@ def run_simulation(mode: str):
                     sw_b.on('update:model-value', update_auto)
                     target_p.on('change', update_auto)
 
+                # PLANT TAB (Secondary)
+                with ui.tab_panel(plant_tab).classes('flex flex-col gap-4'):
+                     ui.label('TURBINE & SECONDARY').classes('text-cyan-400 font-bold text-center mb-2')
+                     
+                     ui.label(T('lbl_turbine_ctrl')).classes('text-sm text-gray-400')
+                     slider_turbine = ui.slider(min=0, max=100, value=100).props('label-always color=cyan track-size=8px')
+                     def set_turbine(e):
+                         sim.plant.turbine_throttle = slider_turbine.value / 100.0
+                     slider_turbine.on('change', set_turbine)
+                     
+                     ui.label(T('lbl_feedwater')).classes('text-sm text-gray-400')
+                     slider_fw = ui.slider(min=0, max=100, value=100).props('label-always color=teal track-size=8px')
+                     def set_fw(e):
+                         sim.plant.feedwater_pump_speed = slider_fw.value / 100.0
+                     slider_fw.on('change', set_fw)
+
                 # SAFETY TAB
                 with ui.tab_panel(safety_tab).classes('flex flex-col gap-4'):
                     ui.label(T('lbl_emergency')).classes('text-red-500 font-bold')
                     def scram():
-                        sim.rod_position = 1.0
+                        sim.control.rod_position = 1.0
                         slider_rods.value = 100
                         sw_p.value = False
                         sim.control.auto_power = False
@@ -411,12 +439,12 @@ def run_simulation(mode: str):
                     ui.label(T('lbl_faults')).classes('text-orange-400 font-bold')
                     
                     def trip_pump():
-                        sim.thermal.flow_factor = 0.1
+                        sim.pump_signal = 0.1
                         add_log(T('msg_pump'), 'warning')
                     ui.button(T('btn_trip'), on_click=trip_pump).props('outline color=orange').classes('w-full')
                     
                     def eject_rod():
-                        sim.rod_position = 0.0
+                        sim.control.rod_position = 0.0
                         slider_rods.value = 0
                         add_log(T('msg_rod'), 'critical')
                     ui.button(T('btn_eject'), on_click=eject_rod).props('outline color=red').classes('w-full')
@@ -424,16 +452,17 @@ def run_simulation(mode: str):
         # === CENTER: VIZ ===
         with ui.column().classes('h-full gap-4'):
             # KPIs
-            with ui.row().classes('w-full h-[120px] gap-4'):
+            with ui.row().classes('w-full h-[100px] gap-2'):
                 def kpi_card(title, unit, color):
-                    with ui.card().classes(f'flex-1 h-full bg-gray-900/50 border-l-4 border-{color}-500 flex flex-col justify-center items-center'):
-                        ui.label(title).classes('text-gray-400 text-xs uppercase tracking-widest text-center')
-                        lbl = ui.label('0').classes(f'text-4xl font-mono font-bold text-{color}-400')
-                        ui.label(unit).classes(f'text-{color}-600 text-sm font-bold')
+                    with ui.card().classes(f'flex-1 h-full bg-gray-900/50 border-l-4 border-{color}-500 flex flex-col justify-center items-center p-1'):
+                        ui.label(title).classes('text-gray-400 text-[10px] uppercase tracking-widest text-center')
+                        lbl = ui.label('0').classes(f'text-2xl font-mono font-bold text-{color}-400')
+                        ui.label(unit).classes(f'text-{color}-600 text-xs font-bold')
                         return lbl
                 refs['lbl_power'] = kpi_card(T('kpi_power'), 'MW', 'orange')
                 refs['lbl_temp'] = kpi_card(T('kpi_temp'), '°C', 'red')
-                refs['lbl_void'] = kpi_card(T('kpi_void'), '%', 'purple')
+                refs['lbl_turbine'] = kpi_card(T('kpi_turbine'), 'MW', 'cyan')
+                refs['lbl_sg_press'] = kpi_card(T('kpi_sg'), 'MPa', 'teal')
 
             # Main Chart
             with ui.row().classes('w-full flex-grow bg-gray-900 border border-gray-800 p-0 overflow-hidden relative no-wrap'):
@@ -465,11 +494,6 @@ def run_simulation(mode: str):
             # Specs Card
             with ui.card().classes('w-full bg-gray-900/30 border border-gray-700 p-3'):
                 ui.label(T('lbl_specs')).classes('text-[10px] font-bold text-gray-500 mb-2 tracking-widest')
-                
-                # Dynamic specs binding
-                # Since sim is local, we need to read from sim.config
-                # But sim is created inside run_simulation. 
-                # Let's create a small data binding for UI updates.
                 
                 # Initial Static Display (will be updated in loop)
                 ui.label(f"{T('spec_type')}: {sim.config.name}").classes('text-xs text-blue-300 font-bold')
@@ -508,17 +532,19 @@ def run_simulation(mode: str):
         
         # Sync UI -> Sim
         if sim.control.auto_power:
-            slider_rods.value = sim.rod_position * 100.0
+            slider_rods.value = sim.control.rod_position * 100.0
         if sim.control.auto_boron:
-            boron_input.value = sim.boron_concentration
+            boron_input.value = sim.control.boron_concentration
 
         # Physics Steps
         for _ in range(steps):
-            state = sim.step(dt=dt_phys, flow_factor=sim.thermal.flow_factor)
+            state = sim.step(dt=dt_phys)
 
         # Data
-        p_mw = state['total_power']
+        p_mw = state['thermal_power_mw'] # Real thermal power
         t_fuel = state['max_fuel_temp']
+        p_electric = state['turbine_power_mw']
+        p_sg = state['sg_pressure'] / 1e6 # MPa
         
         time_hist.append(sim.time)
         power_hist.append(p_mw)
@@ -529,8 +555,10 @@ def run_simulation(mode: str):
         # UI Updates (using refs)
         refs['lbl_power'].set_text(f"{p_mw:.0f}")
         refs['lbl_temp'].set_text(f"{t_fuel:.0f}")
-        refs['lbl_void'].set_text(f"{state['max_void_fraction']*100:.1f}")
-        refs['rod_bar'].style(f"height: {sim.rod_position * 100}%")
+        refs['lbl_turbine'].set_text(f"{p_electric:.0f}")
+        refs['lbl_sg_press'].set_text(f"{p_sg:.1f}")
+        
+        refs['rod_bar'].style(f"height: {sim.control.rod_position * 100}%")
 
         # Alarms
         if t_fuel > 1200:
@@ -580,9 +608,13 @@ def run_simulation(mode: str):
             advice.append("Warning: Fuel temp rising. Insert rods.")
         
         if state['max_void_fraction'] > 0.1:
-             advice.append("Boiling detected! Check coolant flow.")
+             advice.append("Boiling detected!")
              if sim.config.void_coeff > 0:
-                 advice.append("DANGER: Positive void coeff! Runaway power possible!")
+                 advice.append("DANGER: Positive void coeff!")
+        
+        # Add Plant advice
+        if p_sg > 7.0:
+            advice.append("SG Pressure HIGH! Open Turbine Valve.")
              
         if abs(p_mw - sim.control.target_power) > 50 and sim.control.auto_power:
             advice.append("Regulating power to target...")

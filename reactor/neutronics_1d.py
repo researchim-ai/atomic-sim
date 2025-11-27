@@ -42,7 +42,14 @@ class Neutronics1D(nn.Module):
         
         # === Физические константы ===
         # Velocity
-        self.register_buffer('v', torch.tensor(config.neutron_speed, device=device, dtype=dtype))
+        # SCALING FACTOR FOR NUMERICAL STABILITY:
+        # To ensure stability of explicit RK4 method with dt ~ 0.1s, 
+        # we must satisfy v * Sigma_a * dt < 1.0 approx.
+        # With Sigma_a ~ 0.015, dt=0.1 => v < 666 cm/s.
+        # We choose a conservative value. This makes prompt kinetics slower 
+        # but does not affect delayed neutron precursors which drive the timescale we care about.
+        safe_v = 200.0 # cm/s
+        self.register_buffer('v', torch.tensor(safe_v, device=device, dtype=dtype))
         
         # Delayed Neutrons (Approximate 6-group data, scaled to match beta_eff)
         # Standard parameters for U-235 thermal fission
@@ -73,7 +80,7 @@ class Neutronics1D(nn.Module):
         critical_production = 0.015 + 1.2 * geometric_buckling
         
         # Add excess reactivity for burnup/control (e.g. +5-10%)
-        initial_excess = 1.08 
+        initial_excess = 1.0 
         self.register_buffer('nu_Sigma_f_base', torch.ones(num_nodes, device=device, dtype=dtype) * (critical_production * initial_excess))
         
         # Параметры Бора
@@ -176,11 +183,27 @@ class Neutronics1D(nn.Module):
         
         return dphi_dt, dC_dt
 
-    def step(self, dt, rod_pos=None, boron_ppm=None):
-        if rod_pos is not None:
-            bpm = boron_ppm if boron_ppm is not None else self.boron_concentration
-            self.update_cross_sections(rod_pos, boron_ppm=bpm)
-            
+    def forward(self, dt, rod_pos=None, boron_ppm=None, feedback_rho=None, xenon_sigma=None):
+        """
+        Полный шаг по времени с учетом всех обратных связей.
+        """
+        # Если параметры не переданы, используем текущие
+        r_pos = rod_pos if rod_pos is not None else self.rod_position
+        b_ppm = boron_ppm if boron_ppm is not None else self.boron_concentration
+        
+        # Обновляем сечения
+        self.update_cross_sections(
+            rod_pos=r_pos, 
+            boron_ppm=b_ppm, 
+            temp_feedback=feedback_rho, 
+            xenon_absorption=xenon_sigma
+        )
+        
+        # Решаем кинетику
+        return self.solve_kinetics(dt)
+
+    def solve_kinetics(self, dt):
+        """RK4 solver for kinetics equations"""
         phi0 = self.phi.clone()
         C0 = self.C.clone()
         
@@ -202,6 +225,10 @@ class Neutronics1D(nn.Module):
         self.C = torch.clamp(C0 + (dt / 6.0) * (k1_C + 2*k2_C + 2*k3_C + k4_C), min=1e-10)
         
         return self.phi.mean()
+
+    def step(self, dt, rod_pos=None, boron_ppm=None):
+        """Wrapper for backward compatibility and simple tests"""
+        return self.forward(dt, rod_pos, boron_ppm)
     
     def get_state(self):
         return {

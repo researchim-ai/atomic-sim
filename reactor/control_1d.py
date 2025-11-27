@@ -1,113 +1,81 @@
-"""
-Automatic Control System (1D)
-Реализует алгоритмы управления мощностью и формой поля (Axial Offset)
-используя управляющие стержни (Rods) и борное регулирование (Boron).
-"""
-
 import torch
 import torch.nn as nn
 
 class ControlSystem1D(nn.Module):
-    """
-    Система управления реактором.
-    
-    Цели:
-    1. Поддерживать заданную мощность (Power Control) с помощью стержней.
-    2. Поддерживать Axial Offset (Ao) около 0, используя бор для возврата стержней в оптимальную позицию.
-       (Стратегия: Rods контролируют мощность, Boron контролирует положение Rods).
-    """
-    
     def __init__(self, device='cpu', dtype=torch.float64):
         super().__init__()
         self.device = device
         self.dtype = dtype
         
-        # === Настройки PID регулятора мощности (Rods) ===
-        self.target_power = 3000.0 # MW
-        # Уменьшаем коэффициенты для стабильности
-        self.kp_p = 0.00002  # Proportional gain
-        self.ki_p = 0.000005 # Integral gain
-        self.kd_p = 0.0001  # Derivative gain
+        # State
+        self.rod_position = 0.2 # 0.0 (out) to 1.0 (in)
+        self.boron_concentration = 1000.0 # ppm
         
-        self.integral_error_p = 0.0
-        self.prev_error_p = 0.0
+        # Targets & Auto Flags
+        self.target_power = 3000.0 # MW (will be overwritten by sim)
+        self.auto_power = False # PID for rods
+        self.auto_boron = False # Shim control
         
-        # === Настройки контроля Бора (Boron Shim) ===
-        # Цель: держать стержни в позиции inserted_ref (например, 20% внутри)
-        # Если стержни глубже -> уменьшить бор (dilute) -> стержни пойдут вверх
-        # Если стержни выше -> увеличить бор (borate) -> стержни пойдут вниз
-        self.rod_ref_pos = 0.2 # Оптимальная позиция стержней (20%)
-        self.boron_rate = 0.1 # ppm/sec (скорость изменения концентрации) - уменьшена с 0.5
-        self.boron_deadband = 0.05 # Зона нечувствительности (5% позиции стержней)
+        # PID Params (Power)
+        self.kp = 0.01
+        self.ki = 0.005
+        self.kd = 0.05
+        self.integral_error = 0.0
+        self.prev_error = 0.0
         
-        self.auto_power = False
-        self.auto_boron = False
+        # Shim Params (Boron)
+        self.shim_deadband = 0.05 # Allow rod deviation +/- 5% from ref
+        self.rod_ref = 0.2 # We want rods at ~20% inserted for bite.
+        self.boron_rate = 2.0 # ppm/s
         
-    def step(self, dt, current_power, current_rod_pos, current_boron):
-        """
-        Вычисляет управляющие воздействия.
-        
-        Returns:
-            rod_speed: скорость движения стержней (-1.0 .. 1.0 units/sec)
-            boron_change: изменение концентрации бора (ppm/sec)
-        """
-        rod_speed = 0.0
-        boron_change = 0.0
-        
-        # 1. Контроль мощности (Стержни)
+    def step(self, dt, target_power, current_power, manual=False):
+        if manual:
+            # In manual mode, user sets rods/boron directly via UI setters on this object
+            # Reset integral error to avoid windup when switching back
+            self.integral_error = 0.0
+            self.prev_error = 0.0
+            return
+            
+        # --- Auto Power Control (Rods) ---
         if self.auto_power:
-            error = self.target_power - current_power
-            self.integral_error_p += error * dt
-            derivative = (error - self.prev_error_p) / dt if dt > 0 else 0.0
+            error = target_power - current_power
+            self.integral_error += error * dt
+            derivative = (error - self.prev_error) / dt if dt > 0 else 0.0
             
-            # PID output = desired reactivity change speed -> mapped to rod speed
-            # Output > 0 means we need MORE power -> withdraw rods (speed < 0)
-            # Output < 0 means we need LESS power -> insert rods (speed > 0)
-            pid_out = self.kp_p * error + self.ki_p * self.integral_error_p + self.kd_p * derivative
+            # PID output = required reactivity change
+            # But we control rod speed.
+            # If error > 0 (Power too low) -> Move rods OUT (decrease position)
             
-            # PID выдает желаемую скорость изменения реактивности.
-            # Преобразуем в скорость стержней.
-            # withdraw (power up) -> rod_speed negative (pos decreases toward 0)
-            # insert (power down) -> rod_speed positive (pos increases toward 1)
+            control_signal = self.kp * error + self.ki * self.integral_error + self.kd * derivative
             
-            # Если pid_out > 0 (хотим больше мощности), нужно вытаскивать стержни (speed < 0)
-            rod_speed = -pid_out 
+            # Map signal to rod speed
+            # Signal > 0 => Need Power UP => Rod Speed < 0 (Withdraw)
+            rod_speed = -control_signal * 0.01 # Scaling factor
             
-            # Ограничение скорости
-            rod_speed = max(-0.2, min(0.2, rod_speed)) # Макс 20% высоты в секунду
+            # Clamp speed
+            rod_speed = max(-0.1, min(0.1, rod_speed))
             
-            self.prev_error_p = error
+            self.rod_position = max(0.0, min(1.0, self.rod_position + rod_speed * dt))
+            self.prev_error = error
             
-        # 2. Контроль формы поля / Позиции стержней (Бор)
+        # --- Auto Boron Control (Shim) ---
         if self.auto_boron:
-            # Ошибка позиции стержней
-            rod_error = current_rod_pos - self.rod_ref_pos
+            # Logic: Keep rods at reference position
+            # If Rods > Ref (Too deep): We need to withdraw them. To allow withdrawal while keeping power const, we must ADD poison? 
+            # Balance: Rho_total = 0.
+            # Rho_rods + Rho_boron = const.
             
-            # Если стержни слишком глубоко (rod_error > deadband)
-            # Значит в реакторе слишком много реактивности скомпенсировано стержнями?
-            # Нет. Чтобы стержни вышли (уменьшить rod_pos), нужно добавить реактивности чем-то другим.
-            # Нужно УМЕНЬШИТЬ бор (dilute).
+            rod_dev = self.rod_position - self.rod_ref
             
-            # Если стержни слишком высоко (rod_error < -deadband)
-            # Значит реактор "тупой", стержни почти вышли.
-            # Нужно УВЕЛИЧИТЬ бор (borate), чтобы заставить стержни пойти внутрь для компенсации.
-            
-            if rod_error > self.boron_deadband:
-                # Rods too deep (e.g. 0.8 > 0.2) -> Need to withdraw rods.
-                # To withdraw rods (add reactivity), we must subtract reactivity elsewhere.
-                # So we ADD Boron (poison).
-                boron_change = self.boron_rate
-            elif rod_error < -self.boron_deadband:
-                # Rods too high (e.g. 0.0 < 0.2) -> Need to insert rods.
-                # To insert rods (remove reactivity), we must add reactivity elsewhere.
-                # So we REMOVE Boron (dilute).
-                boron_change = -self.boron_rate
-            else:
-                boron_change = 0.0
+            if rod_dev > self.shim_deadband: 
+                # Rods too deep (0.5 > 0.2). Need to pull out.
+                # Action: Add Boron. Power drops. Auto-rod pulls rods out.
+                self.boron_concentration += self.boron_rate * dt
+            elif rod_dev < -self.shim_deadband:
+                # Rods too high (0.1 < 0.2). Need to push in.
+                # Action: Dilute Boron (Remove poison). Power rises. Auto-rod pushes rods in.
+                self.boron_concentration -= self.boron_rate * dt
                 
-        return rod_speed, boron_change
-
-    def set_target_power(self, power):
-        self.target_power = power
-        self.integral_error_p = 0.0
-
+            self.boron_concentration = max(0.0, self.boron_concentration)
+            
+        return # State is updated internally
