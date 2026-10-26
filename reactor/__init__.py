@@ -17,18 +17,18 @@ from .thermal_1d import ThermalModel1D
 from .poisoning_1d import XenonIodine1D
 from .simulator_1d import ReactorSimulator1D
 
-__version__ = '1.2.0'
+__version__ = "2.0.0"
 
 __all__ = [
-    'NeutronKinetics',
-    'ThermalModel',
-    'ControlSystem',
-    'ReactorSimulator',
-    'XenonIodineKinetics',
-    'visualization',
-    'rod_worth',
-    'Neutronics1D',
-    'ThermalModel1D',
-    'XenonIodine1D',
-    'ReactorSimulator1D',
+    "NeutronKinetics",
+    "ThermalModel",
+    "ControlSystem",
+    "ReactorSimulator",
+    "XenonIodineKinetics",
+    "visualization",
+    "rod_worth",
+    "Neutronics1D",
+    "ThermalModel1D",
+    "XenonIodine1D",
+    "ReactorSimulator1D",
 ]

@@ -1,0 +1,81 @@
+"""Обёртка жёсткого интегратора.
+
+Выбран scipy BDF (переменный порядок, адаптивный шаг): открытая реализация
+формул NDF/BDF без внешней библиотеки SUNDIALS. Отказ шага не маскируется.
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Callable, Optional, Sequence
+
+import numpy as np
+from scipy.integrate import solve_ivp
+
+from core.status import SolverError
+
+Rhs = Callable[[float, np.ndarray], np.ndarray]
+
+
+@dataclass
+class IntegrationResult:
+    t: np.ndarray
+    y: np.ndarray
+    n_steps: int
+    message: str
+    success: bool
+
+    @property
+    def final(self) -> np.ndarray:
+        return self.y[:, -1]
+
+
+def integrate(
+    rhs: Rhs,
+    y0: np.ndarray,
+    t_span: Sequence[float],
+    rtol: float = 1e-6,
+    atol: float = 1e-8,
+    max_step: Optional[float] = None,
+    t_eval: Optional[np.ndarray] = None,
+    events: Optional[list] = None,
+    method: str = "BDF",
+) -> IntegrationResult:
+    """Интегрировать ODE. При несходимости поднимает SolverError."""
+    if method not in ("BDF", "Radau", "LSODA"):
+        raise SolverError("Метод %s не входит в согласованный набор жёстких решателей" % method)
+    y0 = np.asarray(y0, dtype=float)
+    kwargs = {
+        "fun": rhs,
+        "t_span": (float(t_span[0]), float(t_span[1])),
+        "y0": y0,
+        "method": method,
+        "rtol": rtol,
+        "atol": atol,
+        "dense_output": False,
+        "t_eval": t_eval,
+        "events": events,
+    }
+    if max_step is not None:
+        kwargs["max_step"] = max_step
+    sol = solve_ivp(**kwargs)
+    if not sol.success:
+        raise SolverError(sol.message)
+    return IntegrationResult(
+        t=sol.t, y=sol.y, n_steps=int(sol.nfev), message=sol.message, success=True
+    )
+
+
+def observe_cfl(speed_m_s: float, dx_m: float, dt_s: float) -> float:
+    if dx_m <= 0.0:
+        raise ValueError("Шаг сетки должен быть положительным")
+    return abs(speed_m_s) * dt_s / dx_m
+
+
+def substep_count(cfl: float, limit: float = 1.0) -> int:
+    """Число подшагов явной схемы. limit — заявленный предел Куранта, не подгонка физики."""
+    if limit <= 0.0:
+        raise ValueError("Предел Куранта должен быть положительным")
+    if cfl < 0.0:
+        raise ValueError("Число Куранта берётся по модулю скорости до вызова")
+    return max(1, int(np.ceil(cfl / limit - 1e-15)))

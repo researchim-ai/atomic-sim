@@ -1,0 +1,151 @@
+"""Drift-flux, двухжидкостная смесь, критическое истечение и четырёхквадрантный насос."""
+
+from __future__ import annotations
+
+import math
+from dataclasses import dataclass
+
+from core.status import DomainError, ModelPassport, ModelStatus
+
+DRIFT_PASSPORT = ModelPassport(
+    model_id="drift-flux-zuber-findlay",
+    version="2.0.0",
+    status=ModelStatus.VERIFIED,
+    phenomenon="Объёмное паросодержание по соотношению дрейфа Цубера–Финдли",
+    approximations=("постоянные C0 и v_gj на шаге", "равновесные плотности фаз"),
+    applicability="Сопутный восходящий поток, G > 0, 0 <= x <= 1",
+    data_sources=("Zuber N., Findlay J.A., J. Heat Transfer 87 (1965); C0 и v_gj — параметры замыкания",),
+)
+
+TWO_FLUID_PASSPORT = ModelPassport(
+    model_id="two-fluid-lumped",
+    version="2.0.0",
+    status=ModelStatus.VERIFIED,
+    phenomenon="Две фазы с раздельными массами и энергиями и противоположным межфазным обменом",
+    approximations=("общее давление", "обмен массами на энтальпиях насыщения", "исчезание фазы останавливает обмен"),
+    applicability="Закрытый объём без отрицательной массы фазы",
+    data_sources=("Балансы массы и энергии двухфазной смеси",),
+)
+
+CRITICAL_PASSPORT = ModelPassport(
+    model_id="ideal-gas-choke",
+    version="2.0.0",
+    status=ModelStatus.VERIFIED,
+    phenomenon="Критическое истечение идеального газа",
+    approximations=("изоэнтропийное сопло", "однофазный газ"),
+    applicability="Давление после горла не поднимает расход выше критического",
+    data_sources=("Стандартная газодинамическая формула критического расхода",),
+)
+
+PUMP4_PASSPORT = ModelPassport(
+    model_id="pump-polynomial-four-quadrant",
+    version="2.0.0",
+    status=ModelStatus.VERIFIED,
+    phenomenon="Полиномиальный напор во всех сочетаниях знаков расхода и скорости",
+    approximations=("не измеренная гомологическая кривая конкретного насоса", "гладкие нечётные степени"),
+    applicability="Все четыре квадранта этой полиномиальной модели",
+    data_sources=("Полином a1*W|W| + a2*W*F + a3*F|F|, коэффициенты паспорта модели",),
+    notes=("Это не заводская четырёхквадрантная характеристика.",),
+)
+
+
+def drift_void_fraction(
+    quality: float,
+    rho_liquid: float,
+    rho_vapor: float,
+    mass_flux_kg_m2_s: float,
+    distribution: float = 1.2,
+    drift_velocity_m_s: float = 0.2,
+) -> float:
+    if quality < 0.0 or quality > 1.0:
+        raise DomainError("Дрейф-флакс определён для x в [0, 1]")
+    if mass_flux_kg_m2_s <= 0.0 or distribution <= 0.0:
+        raise DomainError("Массовая скорость и C0 должны быть положительными")
+    denominator = distribution * (quality + (1.0 - quality) * rho_vapor / rho_liquid) + rho_vapor * drift_velocity_m_s / mass_flux_kg_m2_s
+    alpha = quality / denominator
+    if alpha < 0.0 or alpha > 1.0:
+        raise DomainError("Замыкание дрейфа дало паросодержание вне [0, 1]")
+    return alpha
+
+
+def hem_void_matches_drift_limit(quality: float, rho_liquid: float, rho_vapor: float) -> float:
+    """При C0=1 и v_gj=0 формула дрейфа совпадает с HEM."""
+    return drift_void_fraction(quality, rho_liquid, rho_vapor, mass_flux_kg_m2_s=1.0e12, distribution=1.0, drift_velocity_m_s=0.0)
+
+
+@dataclass
+class TwoFluidVolume:
+    liquid_mass_kg: float
+    vapor_mass_kg: float
+    liquid_energy_j: float
+    vapor_energy_j: float
+    exchange_limited: bool = False
+
+    def transfer(self, gamma_kg_s: float, dt_s: float, h_liquid_j_kg: float, h_vapor_j_kg: float) -> float:
+        """Положительный gamma испаряет жидкость. Возвращает фактически перенесённую массу."""
+        requested = gamma_kg_s * dt_s
+        moved = requested
+        self.exchange_limited = False
+        if moved > 0.0 and moved > self.liquid_mass_kg:
+            moved = self.liquid_mass_kg
+            self.exchange_limited = True
+        if moved < 0.0 and -moved > self.vapor_mass_kg:
+            moved = -self.vapor_mass_kg
+            self.exchange_limited = True
+        self.liquid_mass_kg -= moved
+        self.vapor_mass_kg += moved
+        self.liquid_energy_j -= moved * h_liquid_j_kg
+        self.vapor_energy_j += moved * h_vapor_j_kg
+        return moved
+
+    @property
+    def total_mass_kg(self) -> float:
+        return self.liquid_mass_kg + self.vapor_mass_kg
+
+    @property
+    def total_energy_j(self) -> float:
+        return self.liquid_energy_j + self.vapor_energy_j
+
+
+def interfacial_drag_pair(relative_velocity_m_s: float, coefficient: float) -> tuple:
+    """Силы на пар и жидкость равны по модулю и противоположны."""
+    force = coefficient * relative_velocity_m_s * abs(relative_velocity_m_s)
+    return force, -force
+
+
+def terminal_relative_velocity(density_difference: float, gravity: float, drag_coefficient: float) -> float:
+    if drag_coefficient <= 0.0:
+        raise DomainError("Коэффициент межфазного трения должен быть положительным")
+    buoyancy = density_difference * gravity
+    return math.copysign(math.sqrt(abs(buoyancy) / drag_coefficient), buoyancy)
+
+
+def critical_mass_flux_ideal_gas(pressure_pa: float, temperature_k: float, gamma: float, gas_constant_j_kg_k: float) -> float:
+    """Критический массовый поток изоэнтропийного сопла, кг/(м²·с)."""
+    if gamma <= 1.0 or pressure_pa <= 0.0 or temperature_k <= 0.0:
+        raise DomainError("Критическое истечение идеального газа вне области формулы")
+    factor = (2.0 / (gamma + 1.0)) ** ((gamma + 1.0) / (2.0 * (gamma - 1.0)))
+    return pressure_pa * math.sqrt(gamma / (gas_constant_j_kg_k * temperature_k)) * factor
+
+
+def choked_mass_flow(upstream_pressure_pa: float, downstream_pressure_pa: float, critical_pressure_ratio: float, critical_flow_kg_s: float, area_coefficient: float) -> float:
+    """Ниже критического отношения расход не растёт при дальнейшем снижении противодавления."""
+    if upstream_pressure_pa <= 0.0:
+        raise DomainError("Давление перед горлом должно быть положительным")
+    ratio = downstream_pressure_pa / upstream_pressure_pa
+    if ratio <= critical_pressure_ratio:
+        return critical_flow_kg_s
+    unchoked = area_coefficient * math.sqrt(max(upstream_pressure_pa - downstream_pressure_pa, 0.0))
+    return min(unchoked, critical_flow_kg_s)
+
+
+def four_quadrant_head_pa(speed_ratio: float, flow_ratio: float, a_speed: float, a_cross: float, a_flow: float, head_scale_pa: float) -> float:
+    """Напор во всех квадрантах. speed_ratio и flow_ratio нормированы на номинал."""
+    group = a_speed * speed_ratio * abs(speed_ratio) + a_cross * speed_ratio * flow_ratio + a_flow * flow_ratio * abs(flow_ratio)
+    return head_scale_pa * group
+
+
+def pump_shaft_power_w(mass_flow_kg_s: float, head_pa: float, density_kg_m3: float) -> float:
+    if density_kg_m3 <= 0.0:
+        raise DomainError("Плотность насоса должна быть положительной")
+    return mass_flow_kg_s * head_pa / density_kg_m3

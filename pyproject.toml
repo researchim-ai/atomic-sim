@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "atomic-sim"
-version = "1.1.0"
-description = "High-fidelity nuclear reactor simulator for ML/RL dataset generation"
+version = "2.0.0"
+description = "Open reactor-systems simulator with a verified lumped PWR core and a legacy teaching stack"
 readme = "README.md"
 requires-python = ">=3.8"
 license = {text = "Apache-2.0"}
@@ -16,7 +16,7 @@ keywords = ["nuclear", "reactor", "simulation", "pytorch", "reinforcement-learni
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: MIT License",
+    "License :: OSI Approved :: Apache Software License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
@@ -39,6 +39,10 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+gui = [
+    "nicegui>=1.4.0",
+    "plotly>=5.0.0",
+]
 dev = [
     "pytest>=7.4.0",
     "pytest-cov>=4.1.0",
@@ -55,7 +59,26 @@ Homepage = "https://github.com/researchim-ai/atomic-sim"
 Repository = "https://github.com/researchim-ai/atomic-sim"
 
 [tool.setuptools]
-packages = ["reactor", "envs", "dataset_builders", "tests"]
+py-modules = ["generate_dataset"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+    "reactor*",
+    "envs*",
+    "dataset_builders*",
+    "core*",
+    "physics*",
+    "components*",
+    "plants*",
+    "instrumentation*",
+    "control*",
+    "coupling*",
+    "validation*",
+    "agent_envs*",
+    "sdk*",
+    "data*",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

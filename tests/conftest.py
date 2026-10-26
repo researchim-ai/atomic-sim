@@ -18,11 +18,10 @@ def seed():
 @pytest.fixture
 def device():
     """Устройство для тестов"""
-    return 'cpu'
+    return "cpu"
 
 
 @pytest.fixture
 def dtype():
     """Тип данных для тестов"""
     return torch.float64
-

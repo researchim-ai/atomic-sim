@@ -87,7 +87,7 @@ class QAGenerator:
             change = p2 - p1
             
             if abs(change) > 5.0:  # Изменение больше 5 МВт
-                dt = 10 * 0.001 * 10  # Примерное время
+                dt = float(df.iloc[i + 10]["time"] - df.iloc[i]["time"]) if "time" in df.columns else 0.1
                 direction = "выросла" if change > 0 else "упала"
                 
                 question = f"Мощность изменилась с {p1:.1f} до {p2:.1f} МВт за {dt:.1f} секунд. Почему это произошло?"
@@ -176,7 +176,11 @@ class QAGenerator:
                 answer += f"Перегрев топлива ({row['T_fuel_C']:.1f}°C > 1200°C). "
             if row['coolant_boiling']:
                 answer += f"Кипение теплоносителя ({row['T_coolant_C']:.1f}°C > 320°C). "
-            answer += "Был выполнен аварийный SCRAM для защиты реактора."
+            answer += "Нарушены пределы этой модели. Факт SCRAM в ответе указывается только если в траектории есть событие защиты."
+            if "scram" in df.columns and bool(row.get("scram", False)):
+                answer += " В записи отмечено срабатывание SCRAM."
+            elif str(row.get("action", "")) == "SCRAM":
+                answer += " В записи действие помечено как SCRAM."
             
             qa.append((question, answer))
         
