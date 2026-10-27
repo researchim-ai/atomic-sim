@@ -1,0 +1,9 @@
+name: vver_load_rejection
+engine: vver
+model_id: vver-lumped-loop
+description: Закрытие дросселя турбины на эквивалентной петле ВВЭР
+duration_s: 0.4
+step_s: 0.2
+timeline:
+  - t: 0.2
+    throttle: 0.0

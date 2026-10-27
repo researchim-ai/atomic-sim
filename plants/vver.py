@@ -11,10 +11,11 @@ from dataclasses import dataclass
 
 import numpy as np
 
+from control.regulation import ProtectionLogic
 from core.status import Applicability, DomainError, ModelPassport, ModelStatus
 from physics.depletion.chains import DecayHeat
-from physics.hydraulics.network import FlowNetwork, Junction, Volume
-from physics.materials.iapws import properties_pt, saturation_properties
+from physics.hydraulics.network import BoundaryState, FlowNetwork, Junction, Volume
+from physics.materials.iapws import properties_pt, saturation_properties, saturation_temperature_k
 from physics.neutronics.point_kinetics import PointKinetics
 
 PASSPORT = ModelPassport(
@@ -61,6 +62,10 @@ class PlantSnapshot:
     scram_latched: bool
     throttle: float
     motor_on: bool
+    rod_command: float = 0.0
+    protection_timer_s: float = 0.0
+    protection_latched: bool = False
+    feed_bias_kg_s: float = 0.0
 
 
 class VVERPlant:
@@ -86,6 +91,7 @@ class VVERPlant:
         self.scram_latched = False
         self.scram_speed = 0.2  # доля хода в секунду
         self.rod_command = 0.0
+        self.feed_bias_kg_s = 0.0
         self.time_s = 0.0
         self.applicability = Applicability.IN_DOMAIN
         self.message = ""
@@ -96,6 +102,11 @@ class VVERPlant:
         self.omega = self.omega_nom
         self.rod = self.rod_ref
         self.fuel_temperature = self.t_fuel_ref
+        self.fuel_to_coolant_w = self.fission_power_nom
+        self.power_protection = ProtectionLogic(
+            setpoint=1.25 * self.fission_power_nom, delay_s=2.0
+        )
+        self._power_channel_bias = (-0.001, 0.0, 0.001)
 
     def _build_network(self) -> FlowNetwork:
         volumes = {
@@ -105,7 +116,6 @@ class VVERPlant:
             "cold_leg": Volume("cold_leg", 8.0, 0.0),
             "pressurizer": Volume("pressurizer", 55.0, 0.0),
             "sg_secondary": Volume("sg_secondary", 120.0, 0.0),
-            "condenser": Volume("condenser", 80.0, 0.0),
         }
 
         def junction(name, up, down, k_loss=0.25, area=0.8):
@@ -135,8 +145,9 @@ class VVERPlant:
                 0.2,
                 8.0,
                 0.0,
-                enthalpy_mode="saturated_liquid",
+                enthalpy_mode="donor",
                 flow_law="target",
+                flow_time_constant_s=0.05,
             ),
         }
         return FlowNetwork(volumes, junctions)
@@ -148,7 +159,13 @@ class VVERPlant:
         h_cold = cold.h_j_kg
         h_hot = hot.h_j_kg
         self.network.volumes["sg_secondary"].set_quality(self.p_secondary, 0.12)
-        self.network.volumes["condenser"].set_quality(self.p_condenser, 1.0e-4)
+        self.hotwell_temperature_k = saturation_temperature_k(self.p_condenser * 1.0e-6) - 8.0
+        hotwell = properties_pt(self.p_condenser, self.hotwell_temperature_k)
+        self.hotwell_mass_kg = 60000.0
+        self.hotwell_energy_j = self.hotwell_mass_kg * hotwell.u_j_kg
+        self.network.boundaries["condenser"] = BoundaryState(
+            self.p_condenser, hotwell.h_j_kg, hotwell.rho_kg_m3, 0.0
+        )
         p_cold = p_core = p_hot = p_sg = self.p_primary
         self.dp_pump_nom = 0.0
         for _ in range(3):
@@ -197,9 +214,9 @@ class VVERPlant:
         feed.delivery_enthalpy_j_kg = self.h_feed
         t_sat = net.volumes["sg_secondary"].temperature_k
         self.ua_sg = self.q_transferred_w / (net.volumes["sg_primary"].temperature_k - t_sat)
-        q_sink = self.m_steam_nom * (self.h_turbine_nom - liquid_c.h_j_kg)
-        t_cond = net.volumes["condenser"].temperature_k
-        self.ua_condenser = q_sink / max(t_cond - self.t_sink, 1.0)
+        h_bulk = hotwell.h_j_kg
+        q_sink = self.m_steam_nom * (self.h_turbine_nom - h_bulk)
+        self.ua_condenser = q_sink / max(self.hotwell_temperature_k - self.t_sink, 1.0)
         self.ua_fuel = self.fission_power_nom / (
             self.t_fuel_ref - net.volumes["core"].temperature_k
         )
@@ -209,6 +226,8 @@ class VVERPlant:
         self.loss_coef = 0.05 * hyd_torque / self.omega_nom
         self.drive_torque = hyd_torque + self.loss_coef * self.omega_nom
         self.fuel_capacity = 2.5e8
+        self.condenser_mass_ref_kg = self.hotwell_mass_kg
+        self.feed_level_gain = 0.05
 
     def _assign_primary_enthalpy(self, p_cold, p_core, p_hot, p_sg, h_cold, h_hot) -> None:
         net = self.network
@@ -249,7 +268,7 @@ class VVERPlant:
                 [self.fuel_temperature, self.omega, self.rod],
             ]
         )
-        return np.concatenate([extra, self.network.pack()])
+        return np.concatenate([extra, self.network.pack(), [self.hotwell_mass_kg, self.hotwell_energy_j]])
 
     def unpack(self, state: np.ndarray) -> None:
         self.kinetics_state = state[:7].copy()
@@ -257,7 +276,9 @@ class VVERPlant:
         self.fuel_temperature = float(state[10])
         self.omega = float(state[11])
         self.rod = float(state[12])
-        self.network.unpack(state[13:])
+        self.network.unpack(state[13:-2])
+        self.hotwell_mass_kg = float(state[-2])
+        self.hotwell_energy_j = float(state[-1])
 
     def reactivity(self) -> float:
         net = self.network
@@ -269,6 +290,14 @@ class VVERPlant:
         rho_boron = self.boron_coef * (boron_ppm - self.boron_ppm_ref)
         return float(rho_rod + rho_fuel + rho_mod + rho_boron)
 
+    def set_boron_ppm(self, ppm: float) -> None:
+        """Одинаковая концентрация в объёмах первого контура. Масса бора следует за массой воды."""
+        if ppm < 0.0:
+            raise DomainError("Концентрация бора отрицательна")
+        for name in ("core", "hot_leg", "sg_primary", "cold_leg", "pressurizer"):
+            volume = self.network.volumes[name]
+            volume.boron_kg = ppm * 1.0e-6 * volume.mass_kg
+
     def derivatives(self, _time: float, state: np.ndarray) -> np.ndarray:
         self.unpack(state)
         self.network.refresh_properties()
@@ -279,8 +308,7 @@ class VVERPlant:
         fission = self.kinetics.power_w(self.kinetics_state[0])
         d_decay = self.decay.derivatives(self.decay_state, fission)
         total = self.decay.total_power_w(fission, self.decay_state)
-        t_coolant = self.network.volumes["core"].temperature_k
-        d_tf = (total - self.ua_fuel * (self.fuel_temperature - t_coolant)) / self.fuel_capacity
+        d_tf = (total - self.fuel_to_coolant_w) / self.fuel_capacity
         torque_hyd = 0.0 if abs(self.omega) < 1.0 else self._hydraulic_torque()
         torque_drive = self.drive_torque if self.motor_on else 0.0
         d_omega = (torque_drive - torque_hyd - self.loss_coef * self.omega) / self.inertia
@@ -293,9 +321,30 @@ class VVERPlant:
         if self.rod >= 1.0 and rod_speed > 0.0:
             rod_speed = 0.0
         d_rod = rod_speed
+        self._sync_hotwell()
         net_dot = self.network.derivatives(self.network.pack())
-        # derivatives() распаковывает сеть заново из pack, состояние уже то же.
-        return np.concatenate([kin, d_decay, [d_tf, d_omega, d_rod], net_dot])
+        steam_flow = self.network.junctions["steam"].mass_flow_kg_s
+        feed_flow = self.network.junctions["feed"].mass_flow_kg_s
+        h_steam = self.network.junctions["steam"].delivery_enthalpy_j_kg
+        h_liquid = self.network.boundaries["condenser"].enthalpy_j_kg
+        heat = -self.ua_condenser * max(self.hotwell_temperature_k - self.t_sink, 0.0)
+        d_mass = steam_flow - feed_flow
+        d_energy = steam_flow * h_steam - feed_flow * h_liquid + heat
+        return np.concatenate([kin, d_decay, [d_tf, d_omega, d_rod], net_dot, [d_mass, d_energy]])
+
+    def _sync_hotwell(self) -> None:
+        from physics.materials.iapws import properties_pu
+
+        if self.hotwell_mass_kg <= 1.0:
+            raise DomainError("Конденсатор осушен")
+        state = properties_pu(self.p_condenser, self.hotwell_energy_j / self.hotwell_mass_kg)
+        if state.region == 4 or state.quality > 0.0:
+            raise DomainError("Конденсатный бак вскипел: вакуум и теплоотвод не удержали жидкость")
+        self.hotwell_temperature_k = state.T_k
+        boundary = self.network.boundaries["condenser"]
+        boundary.enthalpy_j_kg = state.h_j_kg
+        boundary.density_kg_m3 = state.rho_kg_m3
+        boundary.pressure_pa = self.p_condenser
 
     def _hydraulic_torque(self) -> float:
         pump = self.network.junctions["pump"]
@@ -310,18 +359,17 @@ class VVERPlant:
 
     def _apply_heat_and_actuators(self) -> None:
         net = self.network
-        fission = self.kinetics.power_w(self.kinetics_state[0])
-        total = self.decay.total_power_w(fission, self.decay_state)
         t_sat = net.volumes["sg_secondary"].temperature_k
         q_sg = self.ua_sg * (net.volumes["sg_primary"].temperature_k - t_sat)
-        net.volumes["core"].heat_w = total
+        q_fuel = self.ua_fuel * (self.fuel_temperature - net.volumes["core"].temperature_k)
+        self.fuel_to_coolant_w = q_fuel
+        net.volumes["core"].heat_w = q_fuel
         net.volumes["hot_leg"].heat_w = 0.0
         net.volumes["sg_primary"].heat_w = -q_sg
         net.volumes["cold_leg"].heat_w = 0.0
         net.volumes["pressurizer"].heat_w = 0.0
         net.volumes["sg_secondary"].heat_w = q_sg
-        t_cond = net.volumes["condenser"].temperature_k
-        net.volumes["condenser"].heat_w = -self.ua_condenser * max(t_cond - self.t_sink, 0.0)
+        self._sync_hotwell()
         _liquid, vapor = saturation_properties(net.volumes["sg_secondary"].pressure_pa)
         self.h_g_current = vapor.h_j_kg
         steam = net.junctions["steam"]
@@ -334,7 +382,10 @@ class VVERPlant:
             net.volumes["sg_secondary"].pressure_pa
         )
         feed = net.junctions["feed"]
-        feed.flow_target_kg_s = max(steam.mass_flow_kg_s, 0.0)
+        level_error = self.hotwell_mass_kg - self.condenser_mass_ref_kg
+        feed.flow_target_kg_s = max(
+            0.0, steam.mass_flow_kg_s + self.feed_level_gain * level_error + self.feed_bias_kg_s
+        )
         liquid_c, _vapor_c = saturation_properties(self.p_condenser)
         feed.delivery_enthalpy_j_kg = liquid_c.h_j_kg + liquid_c.v_m3_kg * (
             net.volumes["sg_secondary"].pressure_pa - self.p_condenser
@@ -352,21 +403,39 @@ class VVERPlant:
             raise DomainError("Температура топлива вне области теплофизики модели")
 
     def advance(self, dt_s: float, rtol: float = 1e-5, atol: float = 1e-4) -> dict:
-        from core.solvers import integrate
+        from core.solvers import SolverError, integrate
 
-        y0 = self.pack()
-        result = integrate(
-            self.derivatives,
-            y0,
-            (self.time_s, self.time_s + dt_s),
-            rtol=rtol,
-            atol=atol,
-            max_step=dt_s,
-        )
-        self.time_s += dt_s
-        self.unpack(result.final)
-        self.network.refresh_properties()
-        return self.observation()
+        saved = self.snapshot()
+        try:
+            y0 = self.pack()
+            result = integrate(
+                self.derivatives,
+                y0,
+                (self.time_s, self.time_s + dt_s),
+                rtol=rtol,
+                atol=atol,
+                max_step=dt_s,
+            )
+            self.time_s += dt_s
+            self.unpack(result.final)
+            self.network.refresh_properties()
+            self._sync_hotwell()
+            self._check_domain()
+            for volume in self.network.volumes.values():
+                mismatch = abs(volume.volume_mismatch) > 0.02 * volume.thermo.v_m3_kg
+                if abs(volume.energy_mismatch_j_kg) > 5.0e3 or mismatch:
+                    raise DomainError(
+                        "Принятый шаг вывел объём %s из равновесной области" % volume.name
+                    )
+            fission = self.kinetics.power_w(self.kinetics_state[0])
+            total = self.decay.total_power_w(fission, self.decay_state)
+            channels = [total * (1.0 + bias) for bias in self._power_channel_bias]
+            if self.power_protection.step(channels, dt_s):
+                self.scram_latched = True
+            return self.observation()
+        except (DomainError, SolverError):
+            self.restore(saved)
+            raise
 
     def observation(self) -> dict:
         net = self.network
@@ -390,7 +459,15 @@ class VVERPlant:
 
     def snapshot(self) -> PlantSnapshot:
         return PlantSnapshot(
-            self.time_s, self.pack().copy(), self.scram_latched, self.throttle, self.motor_on
+            self.time_s,
+            self.pack().copy(),
+            self.scram_latched,
+            self.throttle,
+            self.motor_on,
+            self.rod_command,
+            self.power_protection.timer_s,
+            self.power_protection.latched,
+            self.feed_bias_kg_s,
         )
 
     def restore(self, snapshot: PlantSnapshot) -> None:
@@ -398,5 +475,10 @@ class VVERPlant:
         self.scram_latched = snapshot.scram_latched
         self.throttle = snapshot.throttle
         self.motor_on = snapshot.motor_on
+        self.rod_command = snapshot.rod_command
+        self.feed_bias_kg_s = snapshot.feed_bias_kg_s
+        self.power_protection.timer_s = snapshot.protection_timer_s
+        self.power_protection.latched = snapshot.protection_latched
         self.unpack(snapshot.state)
         self.network.refresh_properties()
+        self._sync_hotwell()

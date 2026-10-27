@@ -12,7 +12,7 @@ from core.assembly import EquationSpec, check_topology, differential_mask
 from core.events import EventSpec, collect_sign_changes
 from core.mesh import Mesh1D
 from core.solvers import integrate, substep_count
-from core.status import Applicability, DomainError
+from core.status import Applicability, DomainError, SolverError
 from core.units import Quantity, barns_to_m2, per_cm_to_per_m
 from coupling.maps import ExternalSolverAdapter, conserve_integral, picard_power
 from data.open_library import open_two_group_provider
@@ -392,7 +392,7 @@ def test_nusselt_orifice_protection_and_mapping():
     assert found[0].time_s == pytest.approx(0.3, abs=1e-6)
 
     def fail(_payload):
-        raise RuntimeError("down")
+        raise SolverError("down")
 
     result = ExternalSolverAdapter(fail, "test-1").exchange({"x": 1})
     assert result["applicability"] == Applicability.UNSUPPORTED.value

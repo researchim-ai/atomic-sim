@@ -4,6 +4,9 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+import numpy as np
+from scipy.optimize import brentq
+
 from core.status import DomainError, ModelPassport, ModelStatus
 from physics.materials.iapws import saturation_properties
 
@@ -25,6 +28,45 @@ class SteamDrum:
     pressure_pa: float
     liquid_mass_kg: float
     vapor_mass_kg: float
+
+    def __post_init__(self) -> None:
+        liquid, vapor = saturation_properties(self.pressure_pa)
+        self._energy_j = self.liquid_mass_kg * liquid.u_j_kg + self.vapor_mass_kg * vapor.u_j_kg
+
+    def occupied_volume_m3(self, pressure_pa: float | None = None) -> float:
+        liquid, vapor = saturation_properties(
+            self.pressure_pa if pressure_pa is None else pressure_pa
+        )
+        return self.liquid_mass_kg / liquid.rho_kg_m3 + self.vapor_mass_kg / vapor.rho_kg_m3
+
+    def fit_pressure_to_volume(self) -> float:
+        """Давление насыщения, при котором фазы занимают геометрический объём.
+
+        Энергия, накопленная балансом потоков, этим поиском не переписывается.
+        """
+
+        def residual(pressure_pa: float) -> float:
+            return self.occupied_volume_m3(pressure_pa) - self.volume_m3
+
+        grid = np.linspace(0.5e6, 15.0e6, 20)
+        values = []
+        usable = []
+        for pressure in grid:
+            try:
+                value = float(residual(float(pressure)))
+            except DomainError:
+                continue
+            if np.isfinite(value):
+                usable.append(float(pressure))
+                values.append(value)
+        for left, right, f_left, f_right in zip(usable, usable[1:], values, values[1:]):
+            if f_left == 0.0:
+                self.pressure_pa = left
+                return left
+            if f_left * f_right < 0.0:
+                self.pressure_pa = float(brentq(residual, left, right))
+                return self.pressure_pa
+        raise DomainError("Фазы барабана не помещаются в геометрический объём при насыщении")
 
     def level_m(self) -> float:
         _liquid, _vapor = saturation_properties(self.pressure_pa)

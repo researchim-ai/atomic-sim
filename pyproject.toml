@@ -7,7 +7,7 @@ name = "atomic-sim"
 version = "2.0.0"
 description = "Open reactor-systems simulator with a verified lumped PWR core and a legacy teaching stack"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 license = {text = "Apache-2.0"}
 authors = [
     {name = "researchim-ai"}
@@ -18,10 +18,9 @@ classifiers = [
     "Intended Audience :: Science/Research",
     "License :: OSI Approved :: Apache Software License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Topic :: Scientific/Engineering :: Physics",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
@@ -77,6 +76,7 @@ include = [
     "validation*",
     "agent_envs*",
     "sdk*",
+    "scenarios*",
     "data*",
 ]
 
@@ -89,7 +89,7 @@ addopts = "-v"
 
 [tool.black]
 line-length = 100
-target-version = ['py38', 'py39', 'py310', 'py311']
+target-version = ['py310', 'py311', 'py312']
 
 [tool.ruff]
 line-length = 100
@@ -97,7 +97,7 @@ select = ["E", "F", "W", "I"]
 ignore = ["E501"]
 
 [tool.mypy]
-python_version = "3.8"
+python_version = "3.10"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = false

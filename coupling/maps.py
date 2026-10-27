@@ -6,7 +6,7 @@ from typing import Callable, Dict
 
 import numpy as np
 
-from core.status import Applicability, DomainError
+from core.status import Applicability, DomainError, SolverError
 
 
 def conserve_integral(
@@ -47,7 +47,7 @@ class ExternalSolverAdapter:
     def exchange(self, payload: Dict) -> Dict:
         try:
             result = self.runner(payload)
-        except Exception as exc:
+        except (DomainError, SolverError) as exc:
             return {
                 "applicability": Applicability.UNSUPPORTED.value,
                 "message": str(exc),

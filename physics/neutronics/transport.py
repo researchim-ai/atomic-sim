@@ -109,36 +109,57 @@ def sn_infinite_medium(sigma_per_m: float, isotropic_source: float) -> float:
     return isotropic_source / (2.0 * sigma_per_m)
 
 
-def sn_s2_slab(width_m: float, n_cells: int, sigma_per_m: float, isotropic_source: float, left: str = "vacuum", right: str = "vacuum") -> np.ndarray:
-    """Скалярный поток S2. Возвращает phi = psi_plus + psi_minus по ячейкам."""
+def _sweep_direction(
+    psi_size: int,
+    dx: float,
+    mu: float,
+    sigma_per_m: float,
+    source_half: float,
+    incoming: float,
+    forward: bool,
+) -> np.ndarray:
+    psi = np.zeros(psi_size)
+    indices = range(psi_size) if forward else range(psi_size - 1, -1, -1)
+    denom = mu / dx + sigma_per_m
+    for index in indices:
+        psi[index] = (mu / dx * incoming + source_half) / denom
+        incoming = psi[index]
+    return psi
+
+
+def sn_s2_slab(
+    width_m: float,
+    n_cells: int,
+    sigma_per_m: float,
+    isotropic_source: float,
+    left: str = "vacuum",
+    right: str = "vacuum",
+    iterations: int = 200,
+    tolerance: float = 1.0e-12,
+) -> np.ndarray:
+    """Скалярный поток S2. Отражающие границы итерируются до сходимости токов."""
     if left not in ("vacuum", "reflective") or right not in ("vacuum", "reflective"):
         raise DomainError("Граничное условие транспорта не поддержано")
     dx = width_m / n_cells
     mu = MU_S2
-    # Неявная шаг за шагом схема алмаза заменена шаг назад по потоку: устойчиво для поглотителя.
+    incoming_left = 0.0
+    incoming_right = 0.0
     psi_plus = np.zeros(n_cells)
-    incoming = 0.0
-    for i in range(n_cells):
-        denom = mu / dx + sigma_per_m
-        psi_plus[i] = (mu / dx * incoming + isotropic_source / 2.0) / denom
-        incoming = psi_plus[i]
-    if right == "reflective":
-        outgoing_seed = psi_plus[-1]
-    else:
-        outgoing_seed = 0.0
     psi_minus = np.zeros(n_cells)
-    incoming = outgoing_seed
-    for i in range(n_cells - 1, -1, -1):
-        denom = mu / dx + sigma_per_m
-        psi_minus[i] = (mu / dx * incoming + isotropic_source / 2.0) / denom
-        incoming = psi_minus[i]
-    if left == "reflective":
-        # Одна итерация отражения: повтор прямого прохода от отражённого тока.
-        incoming = psi_minus[0]
-        for i in range(n_cells):
-            denom = mu / dx + sigma_per_m
-            psi_plus[i] = (mu / dx * incoming + isotropic_source / 2.0) / denom
-            incoming = psi_plus[i]
+    for _ in range(iterations):
+        half = isotropic_source / 2.0
+        psi_plus = _sweep_direction(n_cells, dx, mu, sigma_per_m, half, incoming_left, True)
+        right_in = psi_plus[-1] if right == "reflective" else 0.0
+        psi_minus = _sweep_direction(n_cells, dx, mu, sigma_per_m, half, right_in, False)
+        left_in = psi_minus[0] if left == "reflective" else 0.0
+        if abs(left_in - incoming_left) + abs(right_in - incoming_right) < tolerance:
+            incoming_left = left_in
+            incoming_right = right_in
+            break
+        incoming_left = left_in
+        incoming_right = right_in
+    else:
+        raise DomainError("Токи на отражающих границах S2 не сошлись")
     return psi_plus + psi_minus
 
 

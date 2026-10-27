@@ -113,6 +113,13 @@ def fission_operator(mesh: Mesh1D, nu_sigma_fission: np.ndarray) -> np.ndarray:
     return np.diag(nu_sigma_fission * mesh.dx)
 
 
+def adjoint_k_eigenvalue(
+    removal: np.ndarray, fission: np.ndarray, tol: float = 1e-10, max_iter: int = 200
+) -> tuple:
+    """Сопряжённая задача A^T phi* = (1/k) F^T phi*. То же k, что у прямой задачи."""
+    return k_eigenvalue(np.array(removal, dtype=float).T, np.array(fission, dtype=float).T, tol, max_iter)
+
+
 def k_eigenvalue(
     removal: np.ndarray, fission: np.ndarray, tol: float = 1e-10, max_iter: int = 200
 ) -> tuple:
@@ -139,6 +146,33 @@ def k_eigenvalue(
         if flux_err < tol and k_err < tol:
             return k_value, phi, True
     return k_value, phi, False
+
+
+def uniform_delayed_step(
+    flux: float,
+    precursor: float,
+    sigma_a_per_m: float,
+    nu_sigma_f_per_m: float,
+    speed_m_s: float,
+    beta: float,
+    decay_per_s: float,
+    dt_s: float,
+) -> np.ndarray:
+    """Однородная зона без утечки, одна группа запаздывающих нейтронов.
+
+    Возвращает (phi, C). C связан с точечной кинетикой как C_hat = v C.
+    """
+    from scipy.linalg import expm
+
+    if speed_m_s <= 0.0 or nu_sigma_f_per_m <= 0.0:
+        raise DomainError("Скорость и nuSigma_f однородной кинетики должны быть положительными")
+    matrix = np.array(
+        [
+            [speed_m_s * ((1.0 - beta) * nu_sigma_f_per_m - sigma_a_per_m), speed_m_s * decay_per_s],
+            [beta * nu_sigma_f_per_m, -decay_per_s],
+        ]
+    )
+    return expm(matrix * dt_s) @ np.array([flux, precursor], dtype=float)
 
 
 def analytical_slab_k(
@@ -168,6 +202,76 @@ def rod_absorption(
         fraction = depth - full
         sigma[full] += fraction * rod_delta_sigma
     return sigma
+
+
+def analytical_two_group_slab_k(
+    diffusion_m: np.ndarray,
+    sigma_a: np.ndarray,
+    scatter_down: float,
+    nu_sigma_f: np.ndarray,
+    height_m: float,
+) -> float:
+    """Две группы, chi=(1, 0), рассеяние только вниз, нулевой поток на торцах пластины.
+
+    Геометрический баклинг (pi/H)^2. Это не вакуумное условие Маршака.
+    """
+    buckling = (np.pi / height_m) ** 2
+    removal_fast = sigma_a[0] + scatter_down + diffusion_m[0] * buckling
+    removal_thermal = sigma_a[1] + diffusion_m[1] * buckling
+    if removal_fast <= 0.0 or removal_thermal <= 0.0:
+        raise DomainError("Съём двухгрупповой пластины неположителен")
+    return float(
+        nu_sigma_f[0] / removal_fast
+        + nu_sigma_f[1] * scatter_down / (removal_fast * removal_thermal)
+    )
+
+
+def _as_cells(value, n_cells: int) -> np.ndarray:
+    array = np.asarray(value, dtype=float)
+    if array.ndim == 0:
+        return np.full(n_cells, float(array))
+    if array.shape == (n_cells,):
+        return array
+    raise DomainError("Поле ячеек должно быть скаляром или длиной сетки")
+
+
+def two_group_slab_k(
+    mesh: Mesh1D,
+    diffusion_m: np.ndarray,
+    sigma_a: np.ndarray,
+    scatter_down,
+    nu_sigma_f: np.ndarray,
+    left: str = "dirichlet0",
+    right: str = "dirichlet0",
+    tol: float = 1e-10,
+) -> tuple:
+    """Стационарная k-задача двух групп. chi=(1, 0), обратного рассеяния нет."""
+    n_cells = mesh.n_cells
+    diffusion_m = np.asarray(diffusion_m, dtype=float)
+    sigma_a = np.asarray(sigma_a, dtype=float)
+    nu_sigma_f = np.asarray(nu_sigma_f, dtype=float)
+    if diffusion_m.shape[0] != 2 or sigma_a.shape[0] != 2 or nu_sigma_f.shape[0] != 2:
+        raise DomainError("Двухгрупповая задача ждёт по два значения D, Sigma_a и nuSigma_f")
+    scatter = _as_cells(scatter_down, n_cells)
+    fast_d = _as_cells(diffusion_m[0], n_cells)
+    thermal_d = _as_cells(diffusion_m[1], n_cells)
+    fast_a = _as_cells(sigma_a[0], n_cells)
+    thermal_a = _as_cells(sigma_a[1], n_cells)
+    fast_f = _as_cells(nu_sigma_f[0], n_cells)
+    thermal_f = _as_cells(nu_sigma_f[1], n_cells)
+    removal = np.zeros((2 * n_cells, 2 * n_cells))
+    fission = np.zeros((2 * n_cells, 2 * n_cells))
+    removal[:n_cells, :n_cells] = diffusion_operator(
+        mesh, fast_d, fast_a + scatter, left=left, right=right
+    )
+    removal[n_cells:, n_cells:] = diffusion_operator(
+        mesh, thermal_d, thermal_a, left=left, right=right
+    )
+    for index, dx in enumerate(mesh.dx):
+        removal[n_cells + index, index] -= scatter[index] * dx
+        fission[index, index] = fast_f[index] * dx
+        fission[index, n_cells + index] = thermal_f[index] * dx
+    return k_eigenvalue(removal, fission, tol=tol)
 
 
 def two_group_infinite_k(

@@ -7,7 +7,7 @@ from dataclasses import dataclass
 import numpy as np
 
 from core.status import DomainError, ModelPassport, ModelStatus
-from physics.materials.coolants import helium_density_kg_m3, sodium_density_kg_m3
+from physics.materials.coolants import helium_density_kg_m3, sodium_cp_j_kg_k, sodium_density_kg_m3
 from physics.materials.iapws import properties_pt, saturation_properties
 
 BWR_PASSPORT = ModelPassport(
@@ -105,6 +105,11 @@ class SFRLoop:
         """Температура, при которой отвод равен мощности делений."""
         return self.sink_temperature_k + self.fission_power_w / self.ua_w_k
 
+    def temperature_derivative_k_s(self) -> float:
+        """m cp dT/dt = Q_fission - UA (T - T_sink)."""
+        capacity = self.mass_kg * sodium_cp_j_kg_k(self.temperature_k)
+        return (self.fission_power_w - self.heat_to_sink_w()) / capacity
+
 
 @dataclass
 class HTGRBrayton:
@@ -129,6 +134,16 @@ class HTGRBrayton:
 
     def net_electric_w(self) -> float:
         return self.turbine_power_w - self.compressor_power_w
+
+    def graphite_temperature_derivative_k_s(self) -> float:
+        """C dT_g/dt = UA (T_core - T_g). Гелий этим уравнением не подменяется."""
+        if self.graphite_capacity_j_k <= 0.0 or self.ua_fuel_graphite <= 0.0:
+            raise DomainError("Теплоёмкость графита и UA должны быть положительными")
+        return (
+            self.ua_fuel_graphite
+            * (self.core_temperature_k - self.graphite_temperature_k)
+            / self.graphite_capacity_j_k
+        )
 
 
 @dataclass

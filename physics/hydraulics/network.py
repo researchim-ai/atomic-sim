@@ -51,6 +51,8 @@ class Volume:
     temperature_k: float = 300.0
     heat_w: float = 0.0
     thermo: Optional[ThermoState] = None
+    energy_mismatch_j_kg: float = 0.0
+    volume_mismatch: float = 0.0
 
     def set_ph(self, pressure_pa: float, enthalpy_j_kg: float, boron_ppm: float = 0.0) -> None:
         state = properties_ph(pressure_pa, enthalpy_j_kg)
@@ -97,6 +99,8 @@ class Volume:
         self.thermo = state
         self.pressure_pa = state.p_pa
         self.temperature_k = state.T_k
+        self.energy_mismatch_j_kg = state.energy_mismatch_j_kg
+        self.volume_mismatch = state.volume_mismatch
         return state
 
     @property

@@ -8,7 +8,7 @@ from scipy.linalg import expm
 
 from components.grid import electrical_power_w, speed_after_constant_torques, synchronous_balance
 from components.separator import SteamDrum
-from coupling.openmc_adapter import OpenMCAdapter
+from coupling.openmc_adapter import OpenMCAdapter, slab_specification
 from physics.depletion.cram import cram16
 from physics.hydraulics.two_phase_ext import (
     TwoFluidVolume,
@@ -77,10 +77,11 @@ def test_drift_two_fluid_choke_and_pump_quadrants():
     assert drifted < hem
     vessel = TwoFluidVolume(10.0, 1.0, 1.0e7, 2.0e6)
     mass0 = vessel.total_mass_kg
+    energy0 = vessel.total_energy_j
     moved = vessel.transfer(0.5, 1.0, 1.0e6, 2.5e6)
     assert moved == pytest.approx(0.5)
     assert vessel.total_mass_kg == pytest.approx(mass0)
-    assert vessel.total_energy_j - (1.0e7 + 2.0e6) == pytest.approx(0.5 * (2.5e6 - 1.0e6))
+    assert vessel.total_energy_j == pytest.approx(energy0)
     empty = TwoFluidVolume(0.1, 0.0, 1.0, 0.0)
     limited = empty.transfer(5.0, 1.0, 1.0, 2.0)
     assert limited == pytest.approx(0.1)
@@ -168,5 +169,7 @@ def test_drum_generator_uq_ekf_batch_and_openmc_adapter():
     dn_numpy, _dc2 = batch_derivatives(np.ones(2), np.vstack([kinetics.equilibrium_precursors(1.0), kinetics.equilibrium_precursors(1.0)]), rho, kinetics)
     assert dn_torch == pytest.approx(dn_numpy, rel=1e-12)
     adapter = OpenMCAdapter()
-    result = adapter.run_mgxs({"groups": 2})
-    assert result["applicability"] in ("in_domain", "unsupported")
+    result = adapter.run_mgxs(slab_specification())
+    assert result["applicability"] in ("unsupported", "out_of_domain")
+    assert "k_combined_mean" not in result
+    assert len(result["manifest"]["sha256"]) == 64

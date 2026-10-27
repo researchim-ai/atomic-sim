@@ -22,7 +22,12 @@ TWO_FLUID_PASSPORT = ModelPassport(
     version="2.0.0",
     status=ModelStatus.VERIFIED,
     phenomenon="Две фазы с раздельными массами и энергиями и противоположным межфазным обменом",
-    approximations=("общее давление", "обмен массами на энтальпиях насыщения", "исчезание фазы останавливает обмен"),
+    approximations=(
+        "общее давление",
+        "межфазный перенос на энтальпиях фаз",
+        "скрытая теплота берётся из энергии фаз",
+        "исчезание фазы останавливает обмен",
+    ),
     applicability="Закрытый объём без отрицательной массы фазы",
     data_sources=("Балансы массы и энергии двухфазной смеси",),
 )
@@ -81,8 +86,21 @@ class TwoFluidVolume:
     vapor_energy_j: float
     exchange_limited: bool = False
 
-    def transfer(self, gamma_kg_s: float, dt_s: float, h_liquid_j_kg: float, h_vapor_j_kg: float) -> float:
-        """Положительный gamma испаряет жидкость. Возвращает фактически перенесённую массу."""
+    def transfer(
+        self,
+        gamma_kg_s: float,
+        dt_s: float,
+        h_liquid_j_kg: float,
+        h_vapor_j_kg: float,
+        interface_heat_w: float = 0.0,
+    ) -> float:
+        """Перенос массы через межфазную границу.
+
+        Положительный gamma испаряет жидкость. Скрытая теплота не возникает сама:
+        интерфейс без собственной ёмкости требует Q_interface = gamma*(h_v - h_l).
+        Недостающее тепло забирается из внутренней энергии жидкости, поэтому при
+        нулевом внешнем подогреве сумма энергий фаз не меняется.
+        """
         requested = gamma_kg_s * dt_s
         moved = requested
         self.exchange_limited = False
@@ -92,10 +110,19 @@ class TwoFluidVolume:
         if moved < 0.0 and -moved > self.vapor_mass_kg:
             moved = -self.vapor_mass_kg
             self.exchange_limited = True
+        heat_from_phases = moved * (h_vapor_j_kg - h_liquid_j_kg) - interface_heat_w * dt_s
+        liquid_after = self.liquid_energy_j - moved * h_vapor_j_kg + interface_heat_w * dt_s
+        if moved > 0.0 and liquid_after < 0.0:
+            if h_vapor_j_kg <= 0.0:
+                moved = 0.0
+            else:
+                moved = max(0.0, (self.liquid_energy_j + interface_heat_w * dt_s) / h_vapor_j_kg)
+            self.exchange_limited = True
+            heat_from_phases = moved * (h_vapor_j_kg - h_liquid_j_kg) - interface_heat_w * dt_s
         self.liquid_mass_kg -= moved
         self.vapor_mass_kg += moved
-        self.liquid_energy_j -= moved * h_liquid_j_kg
         self.vapor_energy_j += moved * h_vapor_j_kg
+        self.liquid_energy_j += -moved * h_liquid_j_kg - heat_from_phases
         return moved
 
     @property
@@ -118,6 +145,33 @@ def terminal_relative_velocity(density_difference: float, gravity: float, drag_c
         raise DomainError("Коэффициент межфазного трения должен быть положительным")
     buoyancy = density_difference * gravity
     return math.copysign(math.sqrt(abs(buoyancy) / drag_coefficient), buoyancy)
+
+
+def frozen_mixture_critical_flux(pressure_pa: float, quality: float, pressure_step_pa: float = 2.0e4) -> float:
+    """Замороженное по паросодержанию критическое истечение насыщенной смеси, кг/(м²·с).
+
+    Скорость звука берётся из dv/dp вдоль линии насыщения при фиксированном x.
+    Идеальный газ и недогретая жидкость этой функцией не подменяются.
+    """
+    from physics.materials.iapws import saturation_properties
+
+    if quality <= 0.0 or quality >= 1.0:
+        raise DomainError("Замороженная смесь задана при 0 < x < 1; жидкость и пар — другие модели")
+    if pressure_pa <= pressure_step_pa:
+        raise DomainError("Давление слишком близко к границе шага dv/dp")
+
+    def specific_volume(pressure: float) -> float:
+        liquid, vapor = saturation_properties(pressure)
+        return (1.0 - quality) / liquid.rho_kg_m3 + quality / vapor.rho_kg_m3
+
+    center = specific_volume(pressure_pa)
+    slope = (
+        specific_volume(pressure_pa + pressure_step_pa) - specific_volume(pressure_pa - pressure_step_pa)
+    ) / (2.0 * pressure_step_pa)
+    if slope >= 0.0:
+        raise DomainError("Смесь в этой разности не сжимается, критический поток не определён")
+    sound_m_s = math.sqrt(-(center * center) / slope)
+    return sound_m_s / center
 
 
 def critical_mass_flux_ideal_gas(pressure_pa: float, temperature_k: float, gamma: float, gas_constant_j_kg_k: float) -> float:

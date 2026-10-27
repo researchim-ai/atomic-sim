@@ -1,9 +1,8 @@
-"""IAPWS-IF97 для областей 1, 2 и линии насыщения 4.
+"""IAPWS-IF97 для областей 1, 2, 3, 5 и линии насыщения 4.
 
-Область 3 (околокритическая) и область 5 не реализованы: запрос возвращает
-`out_of_domain`, а не экстраполяцию. Коэффициенты — из Revised Release
-IAPWS-IF97 (2007). Вязкость — IAPWS 2008 без критической добавки.
-Теплопроводность — IAPWS 2011 без критической добавки.
+Коэффициенты — из Revised Release IAPWS-IF97 (2007). Вязкость — IAPWS 2008
+без критической добавки. Теплопроводность — IAPWS 2011 без критической добавки.
+Насыщение выше 623.15 K по-прежнему вне области: это не подменяется проекцией.
 
 Внутренний интерфейс модуля принимает СИ (Па, Дж/кг) и переводит в МПа и кДж/кг
 только на границе формуляции.
@@ -405,6 +404,8 @@ class ThermoState:
     quality: float
     region: int
     applicability: Applicability = Applicability.IN_DOMAIN
+    energy_mismatch_j_kg: float = 0.0
+    volume_mismatch: float = 0.0
 
     @property
     def phase(self) -> str:
@@ -931,26 +932,72 @@ def saturation_properties(pressure_pa: float) -> tuple:
     return liquid, vapor
 
 
+def _enthalpy_residual(
+    temperature_k: float, pressure_mpa: float, enthalpy_kj: float, region: int
+) -> float:
+    if region == 1:
+        raw = _region1_raw(temperature_k, pressure_mpa)
+    elif region == 2:
+        raw = _region2_raw(temperature_k, pressure_mpa)
+    elif region == 3:
+        raw = _region3_from_pressure(temperature_k, pressure_mpa)
+    elif region == 5:
+        raw = _region5_raw(temperature_k, pressure_mpa)
+    else:
+        raise DomainError("Область %s не имеет обратного p,h" % region)
+    return raw["h"] - enthalpy_kj
+
+
+def _temperature_in_region(
+    pressure_mpa: float, enthalpy_kj: float, region: int, low: float, high: float
+) -> float:
+    def residual(temperature: float) -> float:
+        return _enthalpy_residual(temperature, pressure_mpa, enthalpy_kj, region)
+
+    return _brent(residual, low, high)
+
+
 def properties_ph(pressure_pa: float, enthalpy_j_kg: float) -> ThermoState:
-    """Состояние по давлению и энтальпии, включая равновесную двухфазную область."""
+    """Состояние по давлению и энтальпии, включая области 3 и 5."""
     p_mpa = pressure_pa * 1.0e-6
     h_kj = enthalpy_j_kg / 1000.0
     if p_mpa <= P_MIN_MPA or p_mpa > 100.0:
         raise DomainError("Давление вне поддерживаемого диапазона IF97")
-    if p_mpa > P_REGION13_MPA:
-        temperature = _invert_temperature(p_mpa, h_kj, 580.0, region=1)
-        return properties_pt(pressure_pa, temperature)
-    liquid, vapor = saturation_properties(pressure_pa)
-    hf = liquid.h_j_kg / 1000.0
-    hg = vapor.h_j_kg / 1000.0
-    if h_kj < hf:
-        temperature = _invert_temperature(p_mpa, h_kj, liquid.T_k - 30.0, region=1)
-        return properties_pt(pressure_pa, temperature)
-    if h_kj > hg:
-        temperature = _invert_temperature(p_mpa, h_kj, vapor.T_k + 30.0, region=2)
-        return properties_pt(pressure_pa, temperature)
-    quality = 0.0 if hg == hf else (h_kj - hf) / (hg - hf)
-    return _mix_saturation(liquid, vapor, quality)
+    if p_mpa <= P_REGION13_MPA:
+        liquid, vapor = saturation_properties(pressure_pa)
+        hf = liquid.h_j_kg / 1000.0
+        hg = vapor.h_j_kg / 1000.0
+        if hf <= h_kj <= hg:
+            quality = 0.0 if hg == hf else (h_kj - hf) / (hg - hf)
+            return _mix_saturation(liquid, vapor, quality)
+        if h_kj < hf:
+            temperature = _temperature_in_region(p_mpa, h_kj, 1, T_MIN + 1e-4, liquid.T_k)
+            return properties_pt(pressure_pa, temperature)
+        try:
+            temperature = _temperature_in_region(p_mpa, h_kj, 2, vapor.T_k, T_REGION2_MAX - 1.0)
+            return properties_pt(pressure_pa, temperature)
+        except DomainError:
+            temperature = _temperature_in_region(p_mpa, h_kj, 5, 1073.15, 2273.15)
+            return properties_pt(pressure_pa, temperature)
+    try:
+        temperature = _temperature_in_region(p_mpa, h_kj, 1, T_MIN + 1e-4, T_REGION1_MAX)
+        state = properties_pt(pressure_pa, temperature)
+        enthalpy_gap = abs(state.h_j_kg - enthalpy_j_kg)
+        if state.region == 1 and enthalpy_gap <= 1.0 + 1e-6 * abs(enthalpy_j_kg):
+            return state
+    except DomainError:
+        pass
+    lows = []
+    for temperature in np.linspace(623.2, 863.0, 25):
+        try:
+            if classify_region(float(temperature), p_mpa) == 3:
+                lows.append(float(temperature))
+        except DomainError:
+            continue
+    if len(lows) < 2:
+        raise DomainError("p,h не попали в реализованную однофазную область")
+    temperature = _temperature_in_region(p_mpa, h_kj, 3, lows[0], lows[-1])
+    return properties_pt(pressure_pa, temperature)
 
 
 def properties_pu(pressure_pa: float, internal_energy_j_kg: float) -> ThermoState:
@@ -964,11 +1011,52 @@ def properties_pu(pressure_pa: float, internal_energy_j_kg: float) -> ThermoStat
         return properties_pt(pressure_pa, temperature).u_j_kg - internal_energy_j_kg
 
     if internal_energy_j_kg < liquid.u_j_kg:
-        bracket = (T_MIN + 1e-6, liquid.T_k)
-    else:
-        bracket = (vapor.T_k, min(T_REGION2_MAX - 1.0, vapor.T_k + 400.0))
-    temperature = _brent(residual, bracket[0], bracket[1])
-    return properties_pt(pressure_pa, temperature)
+        temperature = _brent(residual, T_MIN + 1e-6, liquid.T_k)
+        return properties_pt(pressure_pa, temperature)
+    try:
+        temperature = _brent(residual, vapor.T_k, min(T_REGION2_MAX - 1.0, vapor.T_k + 400.0))
+        return properties_pt(pressure_pa, temperature)
+    except DomainError:
+        temperature = _brent(residual, 1073.15, 2273.15)
+        return properties_pt(pressure_pa, temperature)
+
+
+def _project_equilibrium(
+    density_kg_m3: float, internal_energy_j_kg: float
+) -> ThermoState:
+    """Ближайшее равновесное состояние, если пробная точка якобиана вышла из купола.
+
+    Масса и энергия интегратора не переписываются. Несовпадение сохраняется в полях
+    состояния и проверяется на принятом шаге.
+    """
+    specific_volume = 1.0 / density_kg_m3
+    best = None
+    best_score = None
+    for pressure in np.geomspace(P_MIN_MPA * 1.5, P_REGION13_MPA * 0.98, 32):
+        liquid, vapor = saturation_properties(float(pressure) * 1.0e6)
+        span = vapor.u_j_kg - liquid.u_j_kg
+        quality = (internal_energy_j_kg - liquid.u_j_kg) / span
+        quality = min(1.0, max(0.0, quality))
+        mixture = _mix_saturation(liquid, vapor, quality)
+        score = ((mixture.v_m3_kg - specific_volume) / specific_volume) ** 2 + (
+            (mixture.u_j_kg - internal_energy_j_kg) / 1.0e6
+        ) ** 2
+        if best_score is None or score < best_score:
+            best_score = score
+            best = mixture
+    if best is None:
+        raise DomainError("Не найдено ближайшее равновесное состояние")
+    return ThermoState(
+        **{
+            **best.__dict__,
+            "energy_mismatch_j_kg": internal_energy_j_kg - best.u_j_kg,
+            "volume_mismatch": specific_volume - best.v_m3_kg,
+            "applicability": Applicability.OUT_OF_DOMAIN
+            if abs(internal_energy_j_kg - best.u_j_kg) > 5.0e3
+            or abs(specific_volume - best.v_m3_kg) / specific_volume > 0.02
+            else Applicability.IN_DOMAIN,
+        }
+    )
 
 
 def properties_rho_u(
@@ -976,27 +1064,54 @@ def properties_rho_u(
     internal_energy_j_kg: float,
     pressure_guess_pa: float,
     temperature_guess_k: float,
+    allow_projection: bool = False,
 ) -> ThermoState:
-    """Обратное преобразование (rho, u) -> состояние. Экстраполяция запрещена."""
+    """Обратное (rho, u). Проекция на купол только для численной пробы, не для принятого шага."""
     if density_kg_m3 <= 0.0:
         raise DomainError("Плотность должна быть положительной")
     v_target = 1.0 / density_kg_m3
     p_mpa = pressure_guess_pa * 1.0e-6
+    if P_MIN_MPA < p_mpa < P_REGION13_MPA:
+        liquid, vapor = saturation_properties(pressure_guess_pa)
+        if liquid.u_j_kg <= internal_energy_j_kg <= vapor.u_j_kg:
+            two_phase = _invert_two_phase(v_target, internal_energy_j_kg, pressure_guess_pa)
+            if two_phase is not None:
+                return two_phase
     try:
-        if P_MIN_MPA < p_mpa < P_REGION13_MPA:
-            liquid, vapor = saturation_properties(pressure_guess_pa)
-            if liquid.u_j_kg <= internal_energy_j_kg <= vapor.u_j_kg:
-                two_phase = _invert_two_phase(v_target, internal_energy_j_kg, pressure_guess_pa)
-                if two_phase is not None:
-                    return two_phase
         return _invert_single_phase(
             v_target, internal_energy_j_kg, pressure_guess_pa, temperature_guess_k
         )
     except DomainError:
         two_phase = _invert_two_phase(v_target, internal_energy_j_kg, pressure_guess_pa)
-        if two_phase is None:
-            raise
-        return two_phase
+        if two_phase is not None:
+            return two_phase
+        try:
+            return _invert_region3_rho_u(density_kg_m3, internal_energy_j_kg)
+        except DomainError:
+            if allow_projection:
+                return _project_equilibrium(density_kg_m3, internal_energy_j_kg)
+            raise DomainError(
+                "Обращение (rho, u) не сошлось; проекция разрешена только для численной пробы"
+            )
+
+
+def _invert_region3_rho_u(density_kg_m3: float, internal_energy_j_kg: float) -> ThermoState:
+    """Область 3 задана как (rho, T). Ищем T и проверяем классификацию области."""
+    target_kj = internal_energy_j_kg / 1000.0
+
+    def residual(temperature: float) -> float:
+        return _region3_raw(density_kg_m3, temperature)["u"] - target_kj
+
+    temperature = _brent(residual, 623.2, 863.15)
+    raw = _region3_raw(density_kg_m3, temperature)
+    if classify_region(temperature, raw["p_mpa"]) != 3:
+        raise DomainError("Найденная точка (rho, u) не лежит в области 3")
+    state = _pack(raw, temperature, raw["p_mpa"] * 1.0e6, 0.0, 3)
+    if abs(state.u_j_kg - internal_energy_j_kg) > 1.0 + 1e-5 * abs(internal_energy_j_kg):
+        raise DomainError("Обращение области 3 не сошлось по энергии")
+    if abs(state.rho_kg_m3 - density_kg_m3) / density_kg_m3 > 1e-6:
+        raise DomainError("Обращение области 3 не сошлось по плотности")
+    return state
 
 
 def _mix_saturation(liquid: ThermoState, vapor: ThermoState, quality: float) -> ThermoState:
@@ -1080,24 +1195,43 @@ def _invert_two_phase(
 
     guess = min(max(pressure_guess_pa * 1.0e-6, P_MIN_MPA * 2.0), P_REGION13_MPA * 0.999)
     value = residual(guess)
-    if value is None:
-        return None
-    if abs(value) < 1e-8 * specific_volume:
+    if value is not None and abs(value) < 1e-8 * specific_volume:
         return properties_pu(guess * 1.0e6, internal_energy_j_kg)
-    step = 1.0e-4 * guess
-    for _ in range(12):
-        other = residual(guess + step)
-        if other is None or other == value:
-            return None
-        guess_next = guess - value * step / (other - value)
-        guess_next = min(max(guess_next, P_MIN_MPA * 1.5), P_REGION13_MPA * 0.999)
-        value_next = residual(guess_next)
-        if value_next is None:
-            return None
-        if abs(value_next) < 1e-8 * specific_volume:
-            return properties_pu(guess_next * 1.0e6, internal_energy_j_kg)
-        step = guess_next - guess
-        guess, value = guess_next, value_next
+    if value is not None:
+        step = 1.0e-4 * guess
+        for _ in range(12):
+            other = residual(guess + step)
+            if other is None or other == value:
+                break
+            guess_next = guess - value * step / (other - value)
+            guess_next = min(max(guess_next, P_MIN_MPA * 1.5), P_REGION13_MPA * 0.999)
+            value_next = residual(guess_next)
+            if value_next is None:
+                break
+            if abs(value_next) < 1e-8 * specific_volume:
+                return properties_pu(guess_next * 1.0e6, internal_energy_j_kg)
+            step = guess_next - guess
+            guess, value = guess_next, value_next
+    return _bracket_two_phase(residual, specific_volume, internal_energy_j_kg)
+
+
+def _bracket_two_phase(residual, specific_volume: float, internal_energy_j_kg: float):
+    """Запасной поиск давления, если секущая срывается у границы купола."""
+    pressures = np.geomspace(P_MIN_MPA * 1.5, P_REGION13_MPA * 0.98, 28)
+    grid = []
+    values = []
+    for pressure in pressures:
+        value = residual(float(pressure))
+        if value is None or not np.isfinite(value):
+            continue
+        grid.append(float(pressure))
+        values.append(float(value))
+    for left, right, f_left, f_right in zip(grid[:-1], grid[1:], values[:-1], values[1:]):
+        if f_left == 0.0 or abs(f_left) < 1e-8 * specific_volume:
+            return properties_pu(left * 1.0e6, internal_energy_j_kg)
+        if f_left * f_right < 0.0:
+            root = _brent(residual, left, right)
+            return properties_pu(root * 1.0e6, internal_energy_j_kg)
     return None
 
 
@@ -1115,11 +1249,14 @@ def _invert_single_phase(
         p_mpa, temperature = float(x[0]), float(x[1])
         try:
             region = classify_region(temperature, p_mpa)
-            raw = (
-                _region1_raw(temperature, p_mpa)
-                if region == 1
-                else _region2_raw(temperature, p_mpa)
-            )
+            if region == 1:
+                raw = _region1_raw(temperature, p_mpa)
+            elif region == 2:
+                raw = _region2_raw(temperature, p_mpa)
+            elif region == 5:
+                raw = _region5_raw(temperature, p_mpa)
+            else:
+                return np.array([1.0e6, 1.0e6])
         except DomainError:
             return np.array([1.0e6, 1.0e6])
         return np.array([raw["v"] - specific_volume, raw["u"] - u_kj])
@@ -1128,6 +1265,8 @@ def _invert_single_phase(
         np.array([pressure_guess_pa * 1e-6, temperature_guess_k]),
         np.array([pressure_guess_pa * 1e-6, max(280.0, temperature_guess_k - 40.0)]),
         np.array([max(pressure_guess_pa * 1e-6, 0.01), min(620.0, temperature_guess_k + 40.0)]),
+        np.array([max(pressure_guess_pa * 1e-6, 0.1), max(temperature_guess_k, 1500.0)]),
+        np.array([0.5, 1500.0]),
     ]
     solved = None
     for guess in guesses:

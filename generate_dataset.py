@@ -14,7 +14,70 @@ import pandas as pd
 from tqdm import tqdm
 import yaml
 
+from core.status import DomainError, SolverError
 from reactor import ReactorSimulator
+from sdk.api import create_session, step_session
+
+
+def generate_vver_trajectory(seed: int, duration_s: float, step_s: float, scenario_type: str) -> list:
+    """Траектория паспорта ВВЭР. Поля, которых в сосредоточенной модели нет, не заполняются."""
+    rng = np.random.default_rng(seed)
+    plant = create_session("vver")
+    nominal = plant.fission_power_nom
+    records = []
+    time_s = 0.0
+    step_index = 0
+    while time_s < duration_s - 1.0e-12:
+        commands = {}
+        if scenario_type == "rod":
+            commands["rod_command"] = float(rng.uniform(-0.05, 0.05))
+        elif scenario_type == "trip" and time_s >= 0.5 * duration_s:
+            commands["throttle"] = 0.0
+        elif scenario_type == "coastdown" and time_s >= duration_s / 3.0:
+            commands["motor_off"] = True
+        out_of_domain = False
+        message = ""
+        try:
+            observed = step_session(plant, step_s, commands)
+        except (DomainError, SolverError) as exc:
+            out_of_domain = True
+            message = str(exc)
+            observed = plant.observation()
+        records.append(
+            {
+                "step": step_index,
+                "time": observed["time_s"],
+                "obs": {
+                    "power_MW": observed["thermal_power_w"] / 1.0e6,
+                    "T_fuel_C": observed["fuel_temperature_k"] - 273.15,
+                    "rod_position_pct": observed["rod_insertion"] * 100.0,
+                    "flow_rate": observed["mass_flow_kg_s"],
+                    "steam_flow_kg_s": observed["steam_flow_kg_s"],
+                    "sg_pressure_MPa": observed["sg_pressure_pa"] / 1.0e6,
+                    "electric_MW": observed["electrical_power_w"] / 1.0e6,
+                },
+                "action": commands,
+                "labels": {
+                    "safe": not out_of_domain,
+                    "out_of_domain": out_of_domain,
+                    "message": message,
+                    "scram_latched": observed["scram_latched"],
+                },
+                "meta": {
+                    "scenario_type": scenario_type,
+                    "seed": int(seed),
+                    "core": "plants.vver.VVERPlant",
+                    "core_version": plant.passport.version,
+                    "model_id": plant.passport.model_id,
+                    "nominal_fission_MW": nominal / 1.0e6,
+                },
+            }
+        )
+        if out_of_domain:
+            break
+        time_s += step_s
+        step_index += 1
+    return records
 
 
 class DatasetGenerator:
@@ -272,6 +335,8 @@ def main():
     )
     parser.add_argument("--seed", type=int, default=None, help="Random seed")
     parser.add_argument("--name", type=str, default="reactor_dataset", help="Имя датасета")
+    parser.add_argument("--engine", choices=["vver", "legacy"], default="vver")
+    parser.add_argument("--step", type=float, default=0.5, help="Шаг ядра ВВЭР, с")
 
     args = parser.parse_args()
 
@@ -284,14 +349,29 @@ def main():
     print(f"  Формат: {args.format}")
     print(f"  Seed: {args.seed}")
 
-    # Создать генератор
+    if args.engine == "vver":
+        seed0 = 0 if args.seed is None else int(args.seed)
+        kinds = ["rod", "trip", "coastdown"]
+        trajectories = []
+        for index in range(args.n_scenarios):
+            kind = kinds[index % len(kinds)]
+            trajectories.extend(
+                generate_vver_trajectory(seed0 + index, args.duration, args.step, kind)
+            )
+        destination = Path(args.output_dir)
+        destination.mkdir(parents=True, exist_ok=True)
+        outfile = destination / f"{args.name}_vver.jsonl"
+        with outfile.open("w", encoding="utf-8") as handle:
+            for row in trajectories:
+                handle.write(json.dumps(row, ensure_ascii=False) + "\n")
+        print(f"\nЯдро: plants.vver.VVERPlant")
+        print(f"  Записей: {len(trajectories)}")
+        print(f"  Файл: {outfile}")
+        return
+
     generator = DatasetGenerator(output_dir=args.output_dir, seed=args.seed)
-
-    # Сгенерировать датасет
-    print(f"\nГенерация...")
+    print(f"\nГенерация legacy ReactorSimulator...")
     trajectories = generator.generate_batch(n_scenarios=args.n_scenarios, duration=args.duration)
-
-    # Сохранить
     generator.save_dataset(trajectories, name=args.name, format=args.format)
 
     print("\n✓ Генерация завершена!")

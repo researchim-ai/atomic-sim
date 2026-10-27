@@ -10,8 +10,10 @@ import gymnasium as gym
 import numpy as np
 from gymnasium import spaces
 
+from core.status import DomainError, SolverError
 from instrumentation.channels import Sensor
 from plants.vver import VVERPlant
+from sdk.api import apply_commands
 
 
 class PWRPlantEnv(gym.Env):
@@ -25,34 +27,40 @@ class PWRPlantEnv(gym.Env):
         self.sensor_tau_s = sensor_tau_s
         self.sensor_noise = sensor_noise
         self.plant = VVERPlant()
-        self.power_sensor = Sensor(sensor_tau_s, value=1.0, noise_std=sensor_noise)
-        noise_margin = 1.0 + 8.0 * sensor_noise
+        self._steps = 0
+        self.sensor_saturated = False
         self.action_space = spaces.Box(low=-1.0, high=1.0, shape=(1,), dtype=np.float32)
         self.observation_space = spaces.Box(
             low=np.array([0.0, 400.0, 10.0, 0.0], dtype=np.float32),
-            high=np.array([1.5 * noise_margin, 2000.0, 20.0, 1.0], dtype=np.float32),
+            high=np.array([1.5, 2000.0, 20.0, 1.0], dtype=np.float32),
             dtype=np.float32,
         )
-        self._steps = 0
+        self._bind_sensors(nominal=True)
 
     def reset(self, seed=None, options=None):
         super().reset(seed=seed)
         self.plant = VVERPlant()
-        self.power_sensor = Sensor(self.sensor_tau_s, value=1.0, noise_std=self.sensor_noise)
         self._steps = 0
+        self._bind_sensors(nominal=True)
         obs = self._observe()
-        return obs, {"applicability": "in_domain", "out_of_domain": False}
+        return obs, {
+            "applicability": "in_domain",
+            "out_of_domain": False,
+            "sensor_saturated": self.sensor_saturated,
+        }
 
     def step(self, action):
         command = float(np.asarray(action, dtype=float).reshape(-1)[0])
-        self.plant.rod_command = max(-1.0, min(1.0, command))
+        apply_commands(self.plant, {"rod_command": max(-1.0, min(1.0, command))})
         info = {"out_of_domain": False, "applicability": "in_domain", "constraint_power_error": 0.0}
         try:
             observation = self.plant.advance(self.action_dt_s, rtol=1e-4, atol=1e-2)
-        except Exception as exc:
+        except (DomainError, SolverError) as exc:
             info["out_of_domain"] = True
-            info["applicability"] = "out_of_domain"
+            info["applicability"] = exc.applicability.value if isinstance(exc, DomainError) else "solver_error"
+            info["error_type"] = type(exc).__name__
             info["message"] = str(exc)
+            info["sensor_saturated"] = self.sensor_saturated
             obs = self._observe()
             return obs, 0.0, False, True, info
         self._steps += 1
@@ -61,9 +69,24 @@ class PWRPlantEnv(gym.Env):
         info["scram_latched"] = observation["scram_latched"]
         reward = -info["constraint_power_error"]
         obs = self._observe()
+        info["sensor_saturated"] = self.sensor_saturated
         terminated = False
         truncated = self._steps >= 50
         return obs, reward, terminated, truncated, info
+
+    def _bind_sensors(self, nominal: bool) -> None:
+        noise = self.sensor_noise
+        tau = self.sensor_tau_s
+        if nominal:
+            self.power_sensor = Sensor(tau, value=1.0, noise_std=noise)
+            self.fuel_sensor = Sensor(tau, value=self.plant.t_fuel_ref, noise_std=noise)
+            self.pressure_sensor = Sensor(tau, value=self.plant.p_primary / 1.0e6, noise_std=noise)
+            self.rod_sensor = Sensor(tau, value=self.plant.rod, noise_std=0.0)
+        else:
+            self.power_sensor = Sensor(tau, noise_std=noise)
+            self.fuel_sensor = Sensor(tau, noise_std=noise)
+            self.pressure_sensor = Sensor(tau, noise_std=noise)
+            self.rod_sensor = Sensor(tau, noise_std=0.0)
 
     def _observe(self) -> np.ndarray:
         fraction = (
@@ -73,14 +96,19 @@ class PWRPlantEnv(gym.Env):
             )
             / self.plant.fission_power_nom
         )
-        measured = self.power_sensor.step(fraction, self.action_dt_s, self.np_random)
-        obs = np.array(
+        pressure_mpa = self.plant.network.volumes["pressurizer"].pressure_pa / 1.0e6
+        rng = self.np_random
+        raw = np.array(
             [
-                measured,
-                self.plant.fuel_temperature,
-                self.plant.network.volumes["pressurizer"].pressure_pa / 1.0e6,
-                self.plant.rod,
+                self.power_sensor.step(fraction, self.action_dt_s, rng),
+                self.fuel_sensor.step(self.plant.fuel_temperature, self.action_dt_s, rng),
+                self.pressure_sensor.step(pressure_mpa, self.action_dt_s, rng),
+                self.rod_sensor.step(self.plant.rod, self.action_dt_s, rng),
             ],
-            dtype=np.float32,
+            dtype=np.float64,
         )
-        return obs
+        low = self.observation_space.low.astype(np.float64)
+        high = self.observation_space.high.astype(np.float64)
+        clipped = np.clip(raw, low, high)
+        self.sensor_saturated = bool(np.any(np.abs(clipped - raw) > 1.0e-8))
+        return clipped.astype(np.float32)

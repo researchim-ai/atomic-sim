@@ -5,6 +5,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Dict, List, Sequence, Tuple
 
+import numpy as np
+
 
 @dataclass
 class EquationSpec:
@@ -49,6 +51,18 @@ def check_topology(
     if not volumes:
         report.errors.append("Схема не содержит контрольных объёмов")
     return report
+
+
+def jacobian_rank(matrix, relative_tolerance: float = 1.0e-8) -> int:
+    """Численный ранг. Нулевая матрица имеет ранг 0 и не считается полноранговой."""
+    array = np.asarray(matrix, dtype=float)
+    if array.ndim != 2 or array.size == 0:
+        raise ValueError("Ранг определён для непустой матрицы")
+    singular = np.linalg.svd(array, compute_uv=False)
+    scale = float(singular[0]) if singular.size else 0.0
+    if scale == 0.0:
+        return 0
+    return int(np.sum(singular > relative_tolerance * scale))
 
 
 def differential_mask(specs: Sequence[EquationSpec]) -> List[bool]:

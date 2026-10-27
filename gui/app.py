@@ -3,14 +3,11 @@ import sys
 import os
 from datetime import datetime
 from nicegui import ui
-import plotly.graph_objects as go
-import numpy as np
 
 # Add project root to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from reactor import ReactorSimulator1D
-from reactor.reactor_configs import VVER_1000, RBMK_1000, ReactorConfig, REACTORS
+from sdk.console import VVERConsole
 
 # === Localization ===
 LANG = {
@@ -23,9 +20,9 @@ LANG = {
         'mode_manual': 'Manual Control',
         'desc_manual': 'Standard operational mode. Control rods and boron manually.',
         'mode_xenon': 'Xenon Oscillations',
-        'desc_xenon': 'Demonstrates spatial instability caused by Xe-135.',
-        'mode_accident': 'LOCA / Boiling',
-        'desc_accident': 'Loss of coolant flow and void fraction feedback.',
+        'desc_xenon': 'Spatial Xe-135 oscillations are unsupported in the lumped VVER core.',
+        'mode_accident': 'Pump trip',
+        'desc_accident': 'Main coolant pump coastdown. Bulk boiling stops the step.',
         'back_home': 'Exit to Menu',
         'status_norm': 'SYSTEM NORMAL',
         'status_crit': 'CRITICAL WARNING',
@@ -50,16 +47,17 @@ LANG = {
         'kpi_void': 'Void Fraction',
         'kpi_turbine': 'Electric Output',
         'kpi_sg': 'SG Pressure',
-        'chart_core': 'Reactor Core Status (Axial Profile)',
+        'chart_core': 'Lumped core: power and fuel temperature',
         'chart_trend': 'Trends',
         'lbl_logs': 'System Event Log',
-        'axis_height': 'Core Height (Bottom -> Top)',
-        'axis_power': 'Power Density (MW/m)',
+        'axis_height': 'Time (s)',
+        'axis_power': 'Thermal power (MW)',
         'axis_temp': 'Temperature (°C)',
         'msg_scram': 'SCRAM INITIATED!',
         'msg_pump': 'Main Coolant Pump TRIPPED!',
         'msg_rod': 'Rod Ejection Accident!',
-        'msg_overheat': 'OUT OF DOMAIN: legacy model does not simulate core damage',
+        'msg_overheat': 'OUT OF DOMAIN: this passport stops instead of modelling core damage',
+        'msg_unsupported': 'This session only runs the lumped VVER passport. Spatial xenon, RBMK and a custom core are unsupported.',
         'legend_power': 'Power',
         'legend_tf': 'Fuel Temp',
         'legend_tc': 'Coolant Temp',
@@ -74,6 +72,7 @@ LANG = {
         'spec_fuel': 'Fuel',
         'spec_rods': 'Control Rods',
         'spec_coolant': 'Coolant',
+        'spec_coolant_value': 'water, no bulk boiling',
         'lbl_reactor_type': 'Reactor Model',
         'lbl_custom_settings': 'Custom Parameters',
         'lbl_power_mw': 'Thermal Power (MW)',
@@ -91,9 +90,9 @@ LANG = {
         'mode_manual': 'Ручное Управление',
         'desc_manual': 'Стандартный режим. Управление стержнями и бором.',
         'mode_xenon': 'Ксеноновые Колебания',
-        'desc_xenon': 'Демонстрация пространственной неустойчивости Xe-135.',
-        'mode_accident': 'Авария Охлаждения (LOCA)',
-        'desc_accident': 'Остановка насоса и кипение теплоносителя.',
+        'desc_xenon': 'Пространственные колебания Xe-135 в сосредоточенной петле не считаются.',
+        'mode_accident': 'Останов ГЦН',
+        'desc_accident': 'Выбег главного насоса. Объёмное кипение останавливает шаг.',
         'back_home': 'Выход в Меню',
         'status_norm': 'НОРМАЛЬНАЯ РАБОТА',
         'status_crit': 'КРИТИЧЕСКАЯ ТРЕВОГА',
@@ -118,16 +117,17 @@ LANG = {
         'kpi_void': 'Паросодержание',
         'kpi_turbine': 'Электрич. Мощность',
         'kpi_sg': 'Давление ПГ',
-        'chart_core': 'Состояние Активной Зоны (Профиль)',
+        'chart_core': 'Сосредоточенная зона: мощность и температура топлива',
         'chart_trend': 'Тренды',
         'lbl_logs': 'Журнал Событий',
-        'axis_height': 'Высота Активной Зоны (Низ -> Верх)',
-        'axis_power': 'Плотность Мощности (МВт/м)',
+        'axis_height': 'Время, с',
+        'axis_power': 'Тепловая мощность, МВт',
         'axis_temp': 'Температура (°C)',
         'msg_scram': 'АВАРИЙНАЯ ЗАЩИТА АКТИВИРОВАНА!',
         'msg_pump': 'ОТКАЗ ГЛАВНОГО ЦИРКУЛЯЦИОННОГО НАСОСА!',
         'msg_rod': 'ВЫБРОС СТЕРЖНЯ СУЗ!',
-        'msg_overheat': 'ВНЕ ОБЛАСТИ: эта модель не считает повреждение активной зоны',
+        'msg_overheat': 'ВНЕ ОБЛАСТИ: паспорт останавливает шаг и не считает повреждение зоны',
+        'msg_unsupported': 'Сессия считает только сосредоточенный ВВЭР. Пространственный ксенон, РБМК и произвольная зона — unsupported.',
         'legend_power': 'Мощность',
         'legend_tf': 'Т. Топлива',
         'legend_tc': 'Т. Воды',
@@ -142,6 +142,7 @@ LANG = {
         'spec_fuel': 'Топливо',
         'spec_rods': 'Стержни СУЗ',
         'spec_coolant': 'Теплоноситель',
+        'spec_coolant_value': 'вода, без объёмного кипения',
         'lbl_reactor_type': 'Модель Реактора',
         'lbl_custom_settings': 'Параметры конструктора',
         'lbl_power_mw': 'Тепловая Мощность (МВт)',
@@ -260,29 +261,10 @@ def setup_page(mode: str):
             rods_slider = ui.slider(min=0, max=100, value=init_vals['rods']).props('label-always color=orange')
 
             def start():
-                # Create config if custom
                 r_type = selected_reactor.value
-                
-                if r_type == 'custom':
-                    # Create temp custom config
-                    conf = ReactorConfig(
-                        name="Custom Reactor",
-                        type_str="Experimental",
-                        thermal_power=custom_power.value,
-                        core_height=custom_height.value,
-                        num_assemblies=100,
-                        beta_eff=0.0065,
-                        neutron_speed=1000.0,
-                        temp_coeff_fuel=-2e-5,
-                        temp_coeff_coolant=-5e-4,
-                        void_coeff=custom_void.value,
-                        scram_speed=0.1,
-                        shim_speed=0.01
-                    )
-                    REACTORS['custom_session'] = conf
-                    r_type = 'custom_session'
-
-                # Save params
+                if mode == 'xenon' or r_type != 'vver':
+                    ui.notify(T('msg_unsupported'), type='warning')
+                    return
                 session_params[mode] = {
                     'boron': boron_slider.value,
                     'rods': rods_slider.value / 100.0,
@@ -296,26 +278,18 @@ def setup_page(mode: str):
 # === Simulation Runner Page ===
 @ui.page('/run/{mode}')
 def run_simulation(mode: str):
-    # 1. Initialize Simulator based on Mode and User Params
-    
-    # Load params
-    params = session_params.get(mode, {'boron': 1000.0, 'rods': 0.2, 'reactor': 'vver'})
-    
-    # Init Simulator with chosen reactor config
-    sim = ReactorSimulator1D(config_name=params['reactor'], num_nodes=50, device='cpu')
-    
-    sim.boron_concentration = params['boron']
-    sim.control.rod_position = params['rods']
-    sim.control.boron_concentration = params['boron'] # Sync control object state
-    
-    # Pre-stabilization
-    for _ in range(50):
-        sim.step(dt=0.01)
+    params = session_params.get(mode, {'boron': 1000.0, 'rods': 0.25, 'reactor': 'vver'})
+    if mode == 'xenon' or params.get('reactor') != 'vver':
+        ui.label(T('msg_unsupported')).classes('text-xl text-orange-300 p-8')
+        ui.button(T('back_home'), on_click=lambda: ui.navigate.to('/'))
+        return
+    sim = VVERConsole(rod=params['rods'], boron_ppm=params['boron'])
 
     # 2. Session State (Logs, History)
     max_history = 300
     time_hist = []
     power_hist = []
+    temp_hist = []
     system_logs = []
 
     def add_log(msg, level='info'):
@@ -352,10 +326,21 @@ def run_simulation(mode: str):
             ui.label('0.0s').classes('font-mono text-blue-300 min-w-[60px]').bind_text_from(sim, 'time', lambda t: f"{t:.1f}s")
 
     # --- Main Content ---
-    with ui.grid(columns='350px 1fr 300px').classes('w-full h-[calc(100vh-60px)] gap-4 p-4'):
-        
+    with ui.column().classes('w-full gap-4 p-4'):
+        with ui.row().classes('w-full gap-2 flex-wrap'):
+            def kpi_card(title, unit, color):
+                with ui.card().classes(f'flex-1 min-w-[140px] h-[88px] bg-gray-900/50 border-l-4 border-{color}-500 flex flex-col justify-center items-center p-1'):
+                    ui.label(title).classes('text-gray-400 text-[10px] uppercase tracking-widest text-center')
+                    lbl = ui.label('0').classes(f'text-2xl font-mono font-bold text-{color}-400')
+                    ui.label(unit).classes(f'text-{color}-600 text-xs font-bold')
+                    return lbl
+            refs['lbl_power'] = kpi_card(T('kpi_power'), 'MW', 'orange')
+            refs['lbl_temp'] = kpi_card(T('kpi_temp'), '°C', 'red')
+            refs['lbl_turbine'] = kpi_card(T('kpi_turbine'), 'MW', 'cyan')
+            refs['lbl_sg_press'] = kpi_card(T('kpi_sg'), 'MPa', 'teal')
+
         # === LEFT: CONTROLS ===
-        with ui.card().classes('h-full bg-gray-900/50 border border-gray-800 flex flex-col gap-4'):
+        with ui.card().classes('w-full max-w-[380px] min-h-[520px] bg-gray-900/50 border border-gray-800 flex flex-col gap-4'):
             ui.label(T('ctrl_room')).classes('text-lg font-bold text-blue-400 border-b border-gray-800 pb-2')
             
             with ui.tabs().classes('w-full text-blue-400') as tabs:
@@ -376,7 +361,9 @@ def run_simulation(mode: str):
                             if not sim.control.auto_power:
                                 sim.control.rod_position = slider_rods.value / 100.0
                         slider_rods.on('change', manual_rods)
-                        ui.linear_progress(value=0.2).bind_value_from(sim.control, 'rod_position').props('color=orange track-color=gray-800 size=15px rounded')
+                        ui.linear_progress(value=0.2, show_value=False).bind_value_from(
+                            sim.control, 'rod_position'
+                        ).props('color=orange track-color=gray-800 size=15px rounded')
 
                     # Boron
                     with ui.column().classes('w-full'):
@@ -428,10 +415,9 @@ def run_simulation(mode: str):
                 with ui.tab_panel(safety_tab).classes('flex flex-col gap-4'):
                     ui.label(T('lbl_emergency')).classes('text-red-500 font-bold')
                     def scram():
-                        sim.control.rod_position = 1.0
-                        slider_rods.value = 100
-                        sw_p.value = False
+                        sim.core.scram_latched = True
                         sim.control.auto_power = False
+                        sw_p.value = False
                         add_log(T('msg_scram'), 'critical')
                     ui.button(T('btn_scram'), on_click=scram).classes('bg-red-600 w-full font-bold py-4 text-lg shadow-[0_0_15px_rgba(220,38,38,0.6)] hover:bg-red-700 transition-all')
 
@@ -439,33 +425,22 @@ def run_simulation(mode: str):
                     ui.label(T('lbl_faults')).classes('text-orange-400 font-bold')
                     
                     def trip_pump():
-                        sim.pump_signal = 0.1
+                        sim.plant.motor_on = False
                         add_log(T('msg_pump'), 'warning')
                     ui.button(T('btn_trip'), on_click=trip_pump).props('outline color=orange').classes('w-full')
                     
                     def eject_rod():
-                        sim.control.rod_position = 0.0
+                        sim.core.scram_latched = False
+                        sim.control.auto_power = False
+                        sw_p.value = False
+                        sim.rod_target = 0.0
                         slider_rods.value = 0
                         add_log(T('msg_rod'), 'critical')
                     ui.button(T('btn_eject'), on_click=eject_rod).props('outline color=red').classes('w-full')
 
         # === CENTER: VIZ ===
-        with ui.column().classes('h-full gap-4'):
-            # KPIs
-            with ui.row().classes('w-full h-[100px] gap-2'):
-                def kpi_card(title, unit, color):
-                    with ui.card().classes(f'flex-1 h-full bg-gray-900/50 border-l-4 border-{color}-500 flex flex-col justify-center items-center p-1'):
-                        ui.label(title).classes('text-gray-400 text-[10px] uppercase tracking-widest text-center')
-                        lbl = ui.label('0').classes(f'text-2xl font-mono font-bold text-{color}-400')
-                        ui.label(unit).classes(f'text-{color}-600 text-xs font-bold')
-                        return lbl
-                refs['lbl_power'] = kpi_card(T('kpi_power'), 'MW', 'orange')
-                refs['lbl_temp'] = kpi_card(T('kpi_temp'), '°C', 'red')
-                refs['lbl_turbine'] = kpi_card(T('kpi_turbine'), 'MW', 'cyan')
-                refs['lbl_sg_press'] = kpi_card(T('kpi_sg'), 'MPa', 'teal')
-
-            # Main Chart
-            with ui.row().classes('w-full flex-grow bg-gray-900 border border-gray-800 p-0 overflow-hidden relative no-wrap'):
+        with ui.column().classes('w-full min-h-[420px] gap-4'):
+            with ui.row().classes('w-full h-[380px] bg-gray-900 border border-gray-800 p-0 overflow-hidden relative no-wrap'):
                 refs['core_plot'] = ui.plotly({
                     'layout': {
                         'title': {'text': T('chart_core'), 'font': {'color': '#94a3b8'}},
@@ -473,13 +448,13 @@ def run_simulation(mode: str):
                         'plot_bgcolor': 'rgba(0,0,0,0)',
                         'font': {'color': '#cbd5e1'},
                         'margin': {'l': 50, 'r': 20, 't': 50, 'b': 40},
-                        'xaxis': {'title': T('axis_height'), 'range': [50, 0], 'gridcolor': '#334155'}, 
+                        'xaxis': {'title': T('axis_height'), 'autorange': True, 'gridcolor': '#334155'}, 
                         'yaxis': {'title': T('axis_power'), 'gridcolor': '#334155'},
                         'yaxis2': {'title': T('axis_temp'), 'overlaying': 'y', 'side': 'right', 'gridcolor': '#334155', 'showgrid': False},
                         'showlegend': True,
                         'legend': {'x': 0.02, 'y': 0.98, 'bgcolor': 'rgba(15,23,42,0.8)'}
                     }
-                }).classes('flex-grow h-full')
+                }).classes('w-full h-full')
                 
                 # Side Rod Bar
                 with ui.column().classes('w-[60px] h-full border-l border-gray-700 items-center p-2 bg-gray-800/30'):
@@ -487,18 +462,18 @@ def run_simulation(mode: str):
                     with ui.element('div').classes('w-[20px] flex-grow bg-gray-700 rounded relative overflow-hidden'):
                         refs['rod_bar'] = ui.element('div').classes('w-full bg-orange-500 absolute top-0 left-0 shadow-[0_0_10px_orange] transition-all duration-300')
                         refs['rod_bar'].style('height: 20%') 
-                    ui.label('0%').classes('text-[9px] text-gray-500 mt-1')
+                    refs['rod_pct'] = ui.label('0%').classes('text-[9px] text-gray-500 mt-1')
 
         # === RIGHT: LOGS ===
-        with ui.column().classes('h-full gap-4'):
+        with ui.column().classes('w-full max-w-[320px] min-h-[520px] gap-4'):
             # Specs Card
             with ui.card().classes('w-full bg-gray-900/30 border border-gray-700 p-3'):
                 ui.label(T('lbl_specs')).classes('text-[10px] font-bold text-gray-500 mb-2 tracking-widest')
                 
                 # Initial Static Display (will be updated in loop)
-                ui.label(f"{T('spec_type')}: {sim.config.name}").classes('text-xs text-blue-300 font-bold')
-                ui.label(f"{T('spec_power')}: {sim.config.thermal_power} MW").classes('text-xs text-gray-400')
-                ui.label(f"{T('spec_coolant')}: Void Coeff {sim.config.void_coeff}").classes('text-xs text-gray-400')
+                ui.label(f"{T('spec_type')}: {sim.core.passport.model_id}").classes('text-xs text-blue-300 font-bold')
+                ui.label(f"{T('spec_power')}: {sim.core.fission_power_nom / 1e6:.0f} MW").classes('text-xs text-gray-400')
+                ui.label(f"{T('spec_coolant')}: {T('spec_coolant_value')}").classes('text-xs text-gray-400')
             
             # AI Copilot
             with ui.card().classes('flex-grow bg-blue-900/20 border border-blue-800 flex flex-col p-2 relative overflow-hidden'):
@@ -526,19 +501,12 @@ def run_simulation(mode: str):
 
     # === LOOP ===
     async def update_loop():
-        dt_ui = 0.1
-        dt_phys = 0.02
-        steps = int(dt_ui / dt_phys)
-        
-        # Sync UI -> Sim
         if sim.control.auto_power:
             slider_rods.value = sim.control.rod_position * 100.0
         if sim.control.auto_boron:
             boron_input.value = sim.control.boron_concentration
 
-        # Physics Steps
-        for _ in range(steps):
-            state = sim.step(dt=dt_phys)
+        state = sim.step(dt=0.1)
 
         # Data
         p_mw = state['thermal_power_mw'] # Real thermal power
@@ -548,9 +516,11 @@ def run_simulation(mode: str):
         
         time_hist.append(sim.time)
         power_hist.append(p_mw)
+        temp_hist.append(t_fuel)
         if len(time_hist) > max_history:
             time_hist.pop(0)
             power_hist.pop(0)
+            temp_hist.pop(0)
 
         # UI Updates (using refs)
         refs['lbl_power'].set_text(f"{p_mw:.0f}")
@@ -558,7 +528,8 @@ def run_simulation(mode: str):
         refs['lbl_turbine'].set_text(f"{p_electric:.0f}")
         refs['lbl_sg_press'].set_text(f"{p_sg:.1f}")
         
-        refs['rod_bar'].style(f"height: {sim.control.rod_position * 100}%")
+        refs['rod_bar'].style(f"height: {sim.control.rod_position * 100:.1f}%")
+        refs['rod_pct'].set_text(f"{sim.control.rod_position * 100:.1f}%")
 
         # Alarms
         if t_fuel > 1200:
@@ -572,19 +543,31 @@ def run_simulation(mode: str):
             refs['status_label'].set_text(T('status_norm'))
             refs['status_label'].classes(replace='text-green-400')
 
-        # Plot Updates
-        z_nodes = np.arange(50)
         refs['core_plot'].update_figure({
             'data': [
                 {
-                    'type': 'scatter', 'x': z_nodes, 'y': state['flux_profile'] * (60.0/1e13), 
-                    'name': T('legend_power'), 'fill': 'tozeroy', 'line': {'color': '#f59e0b', 'width': 3}
+                    'type': 'scatter', 'x': list(time_hist), 'y': list(power_hist),
+                    'name': T('legend_power'), 'line': {'color': '#f59e0b', 'width': 3}
                 },
                 {
-                    'type': 'scatter', 'x': z_nodes, 'y': state['fuel_temp'], 
+                    'type': 'scatter', 'x': list(time_hist), 'y': list(temp_hist),
                     'name': T('legend_tf'), 'yaxis': 'y2', 'line': {'color': '#ef4444', 'width': 2}
                 }
-            ]
+            ],
+            'layout': {
+                'paper_bgcolor': 'rgba(0,0,0,0)',
+                'plot_bgcolor': 'rgba(0,0,0,0)',
+                'font': {'color': '#cbd5e1'},
+                'xaxis': {'autorange': True, 'title': T('axis_height'), 'gridcolor': '#334155'},
+                'yaxis': {'autorange': True, 'title': T('axis_power'), 'gridcolor': '#334155'},
+                'yaxis2': {
+                    'title': T('axis_temp'),
+                    'overlaying': 'y',
+                    'side': 'right',
+                    'autorange': True,
+                    'showgrid': False,
+                },
+            },
         })
         
         refs['trend_plot'].update_figure({
@@ -607,11 +590,9 @@ def run_simulation(mode: str):
         elif t_fuel > 800:
             advice.append("Warning: Fuel temp rising. Insert rods.")
         
-        if state['max_void_fraction'] > 0.1:
-             advice.append("Boiling detected!")
-             if sim.config.void_coeff > 0:
-                 advice.append("DANGER: Positive void coeff!")
-        
+        if state["out_of_domain"]:
+            advice.append(state["message"])
+
         # Add Plant advice
         if p_sg > 7.0:
             advice.append("SG Pressure HIGH! Open Turbine Valve.")

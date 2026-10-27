@@ -14,9 +14,13 @@ PASSPORT = ModelPassport(
     model_id="xs-provider-open-test",
     version="2.0.0",
     status=ModelStatus.VERIFIED,
-    phenomenon="Интерполяция макроскопических сечений по температуре топлива",
-    approximations=("линейная интерполяция по T", "одно значение плотности и состава на таблицу"),
-    applicability="Только узлы внутри выпуклой оболочки таблицы",
+    phenomenon="Макросечения по температуре, относительной плотности и выгоранию",
+    approximations=(
+        "линейная интерполяция по температуре топлива",
+        "однородное масштабирование состава: Sigma ~ плотность, D ~ 1/плотность",
+        "ось выгорания не экстраполируется",
+    ),
+    applicability="Только узлы внутри таблицы температуры и выгорания; плотность > 0",
     data_sources=(
         "Открытая тестовая двухгрупповая библиотека data/open_library.py, не оценённые файлы ENDF",
     ),
@@ -35,12 +39,24 @@ class MacroscopicState:
 
 
 class CrossSectionProvider:
-    def __init__(self, temperatures_k: np.ndarray, tables: Mapping[str, np.ndarray]):
+    def __init__(
+        self,
+        temperatures_k: np.ndarray,
+        tables: Mapping[str, np.ndarray],
+        burnup_mwd_per_kg: np.ndarray | None = None,
+    ):
         self.temperatures_k = np.asarray(temperatures_k, dtype=float)
         self.tables = {key: np.asarray(value, dtype=float) for key, value in tables.items()}
         order = np.argsort(self.temperatures_k)
         self.temperatures_k = self.temperatures_k[order]
         self.tables = {key: value[order] for key, value in self.tables.items()}
+        if burnup_mwd_per_kg is None:
+            burnup_mwd_per_kg = np.array([0.0])
+        self.burnup_mwd_per_kg = np.asarray(burnup_mwd_per_kg, dtype=float)
+        if self.burnup_mwd_per_kg.ndim != 1 or self.burnup_mwd_per_kg.size < 1:
+            raise DomainError("Ось выгорания библиотеки пуста")
+        if np.any(np.diff(self.burnup_mwd_per_kg) < 0.0):
+            raise DomainError("Выгорание в библиотеке должно неубывать")
 
     def at_temperature(self, temperature_k: float) -> MacroscopicState:
         if temperature_k < self.temperatures_k[0] or temperature_k > self.temperatures_k[-1]:
@@ -64,6 +80,34 @@ class CrossSectionProvider:
             nu_sigma_f_per_m=mixed["nu_sigma_f"],
             kappa_sigma_f_j_m=mixed["kappa_sigma_f"],
             scatter_to=mixed["scatter"],
+        )
+
+    def at_state(
+        self, temperature_k: float, density_ratio: float = 1.0, burnup_mwd_per_kg: float = 0.0
+    ) -> MacroscopicState:
+        """Плотность масштабирует макросечения опорного состава. Выгорание вне узлов — отказ."""
+        if density_ratio <= 0.0:
+            raise DomainError("Относительная плотность сечений должна быть положительной")
+        low = float(self.burnup_mwd_per_kg[0])
+        high = float(self.burnup_mwd_per_kg[-1])
+        if burnup_mwd_per_kg < low - 1.0e-9 or burnup_mwd_per_kg > high + 1.0e-9:
+            raise DomainError(
+                "Выгорание %.4g МВт·сут/кг вне таблицы сечений; экстраполяция не выполняется"
+                % burnup_mwd_per_kg
+            )
+        if self.burnup_mwd_per_kg.size > 1:
+            raise DomainError(
+                "Библиотека объявила несколько выгораний, но таблица по этой оси не заполнена"
+            )
+        base = self.at_temperature(temperature_k)
+        ratio = float(density_ratio)
+        return MacroscopicState(
+            diffusion_m=base.diffusion_m / ratio,
+            sigma_a_per_m=base.sigma_a_per_m * ratio,
+            sigma_f_per_m=base.sigma_f_per_m * ratio,
+            nu_sigma_f_per_m=base.nu_sigma_f_per_m * ratio,
+            kappa_sigma_f_j_m=base.kappa_sigma_f_j_m * ratio,
+            scatter_to=base.scatter_to * ratio,
         )
 
 
