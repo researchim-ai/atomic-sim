@@ -1,0 +1,35 @@
+{
+  "plan_version": "3.0",
+  "stage": "E01",
+  "stage_status": "baseline_recorded",
+  "accepted_as_complete_product": false,
+  "claims": {
+    "validated": false,
+    "plant_referenced": false,
+    "nominal_horizon_3600_s_passed": false,
+    "openmc_particles_executed": false
+  },
+  "python_requires": ">=3.10",
+  "error_budgets_are_targets_not_measured_on_the_plant": {
+    "integral_mass_relative": 1e-6,
+    "integral_energy_relative": 1e-5
+  },
+  "integrated_model_ids": [
+    "vver-lumped-loop",
+    "protection-2oo3"
+  ],
+  "standalone_model_ids_not_in_vver": [
+    "dynamic-condenser",
+    "heat-exchanger-wall",
+    "natural-circulation-loop",
+    "two-fluid-lumped"
+  ],
+  "vver_condenser": "fixed_vacuum_hotwell",
+  "audit_regressions": [
+    "tests/test_audit_defects.py"
+  ],
+  "notes": [
+    "Наличие файла или зелёного теста не закрывает пакет A01–A24.",
+    "Динамический конденсатор, стенка и естественная циркуляция не подключены к VVERPlant."
+  ]
+}

@@ -10,6 +10,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+import math
+
 import numpy as np
 
 from core.mesh import Mesh1D
@@ -148,6 +150,42 @@ def k_eigenvalue(
     return k_value, phi, False
 
 
+def modal_delayed_step(
+    mesh: Mesh1D,
+    diffusion_m: np.ndarray,
+    sigma_a_per_m: np.ndarray,
+    nu_sigma_f_per_m: np.ndarray,
+    speed_m_s: float,
+    beta: float,
+    decay_per_s: float,
+    flux: np.ndarray,
+    precursor: np.ndarray,
+    dt_s: float,
+    left: str = "dirichlet0",
+    right: str = "dirichlet0",
+) -> tuple:
+    """Шаг одногрупповой диффузии с одной группой запаздывающих нейтронов.
+
+    Пространственный оператор тот же, что у стационарной k-задачи. На собственной
+    моде амплитуда совпадает с точечной кинетикой при Lambda = 1/(v nuSigma_f).
+    """
+    from scipy.linalg import expm
+
+    if speed_m_s <= 0.0 or decay_per_s <= 0.0:
+        raise DomainError("Скорость и постоянная распада модальной кинетики должны быть положительными")
+    removal = diffusion_operator(mesh, diffusion_m, sigma_a_per_m, left=left, right=right)
+    n_cells = mesh.n_cells
+    matrix = np.zeros((2 * n_cells, 2 * n_cells))
+    for index in range(n_cells):
+        matrix[index, :n_cells] = -speed_m_s / mesh.dx[index] * removal[index]
+        matrix[index, index] += speed_m_s * (1.0 - beta) * nu_sigma_f_per_m[index]
+        matrix[index, n_cells + index] = speed_m_s * decay_per_s
+        matrix[n_cells + index, index] = beta * nu_sigma_f_per_m[index]
+        matrix[n_cells + index, n_cells + index] = -decay_per_s
+    state = expm(matrix * dt_s) @ np.concatenate([flux, precursor])
+    return state[:n_cells], state[n_cells:]
+
+
 def uniform_delayed_step(
     flux: float,
     precursor: float,
@@ -173,6 +211,55 @@ def uniform_delayed_step(
         ]
     )
     return expm(matrix * dt_s) @ np.array([flux, precursor], dtype=float)
+
+
+def two_region_reflector_k(
+    diffusion_core_m: float,
+    sigma_core_per_m: float,
+    nu_sigma_f_per_m: float,
+    diffusion_reflector_m: float,
+    sigma_reflector_per_m: float,
+    core_half_width_m: float,
+    reflector_m: float,
+) -> float:
+    """k пластины с отражателем: ноль тока на оси, ноль потока на внешнем краю.
+
+    На границе непрерывны поток и ток. Это одногрупповая задача, не многогрупповой ВВЭР.
+    """
+    if min(
+        diffusion_core_m,
+        diffusion_reflector_m,
+        sigma_core_per_m,
+        sigma_reflector_per_m,
+        nu_sigma_f_per_m,
+        core_half_width_m,
+        reflector_m,
+    ) <= 0.0:
+        raise DomainError("Параметры двухзонной пластины должны быть положительными")
+    k_infinity = nu_sigma_f_per_m / sigma_core_per_m
+    kappa = math.sqrt(sigma_reflector_per_m / diffusion_reflector_m)
+    edge = math.pi / (2.0 * core_half_width_m)
+    k_at_quarter_wave = nu_sigma_f_per_m / (sigma_core_per_m + diffusion_core_m * edge**2)
+
+    def residual(k_value: float) -> float:
+        buckling2 = (nu_sigma_f_per_m / k_value - sigma_core_per_m) / diffusion_core_m
+        if buckling2 <= 0.0:
+            return -1.0
+        buckling = math.sqrt(buckling2)
+        argument = buckling * core_half_width_m
+        if argument >= 0.5 * math.pi:
+            return 1.0
+        left = diffusion_core_m * buckling * math.tan(argument)
+        right = diffusion_reflector_m * kappa / math.tanh(kappa * reflector_m)
+        return left - right
+
+    from scipy.optimize import brentq
+
+    low = min(k_infinity, k_at_quarter_wave) * 1.0000001
+    high = k_infinity * 0.999999
+    if low >= high or residual(low) * residual(high) > 0.0:
+        raise DomainError("Корень k двухзонной пластины не локализован")
+    return float(brentq(residual, low, high))
 
 
 def analytical_slab_k(

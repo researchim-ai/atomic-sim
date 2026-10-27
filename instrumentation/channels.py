@@ -27,18 +27,37 @@ class Sensor:
     noise_std: float = 0.0
     failed: bool = False
     quality: str = "good"
+    quantum: float = 0.0
+    drift_per_s: float = 0.0
+    sample_period_s: float = 0.0
+    held: float = 0.0
+    sample_elapsed_s: float = 0.0
+
+    def __post_init__(self) -> None:
+        self.held = self.value
 
     def step(self, truth: float, dt_s: float, rng: np.random.Generator) -> float:
         if self.failed:
             self.quality = "bad"
-            return self.value
+            return self.held
+        if self.sample_period_s > 0.0:
+            self.sample_elapsed_s += dt_s
+            if self.sample_elapsed_s + 1.0e-15 < self.sample_period_s:
+                self.quality = "held"
+                return self.held
+            dt_s = self.sample_elapsed_s
+            self.sample_elapsed_s = 0.0
+        self.bias += self.drift_per_s * dt_s
         decay = 1.0 - np.exp(-dt_s / self.tau_s)
         self.value += decay * ((truth + self.bias) - self.value)
         measured = self.value
         if self.noise_std > 0.0:
             measured = self.value + float(rng.normal(0.0, self.noise_std))
+        if self.quantum > 0.0:
+            measured = float(self.quantum * np.round(measured / self.quantum))
         self.quality = "good"
-        return measured
+        self.held = float(measured)
+        return self.held
 
 
 @dataclass

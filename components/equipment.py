@@ -30,6 +30,52 @@ PUMP = ModelPassport(
 )
 
 
+def valve_mass_flow(
+    phase: str,
+    area_m2: float,
+    upstream_pressure_pa: float,
+    downstream_pressure_pa: float,
+    density_kg_m3: float = 0.0,
+    quality: float = -1.0,
+    temperature_k: float = 0.0,
+    gamma: float = 1.3,
+    gas_constant_j_kg_k: float = 461.5,
+    discharge_coefficient: float = 0.62,
+) -> float:
+    """Клапан выбирает одну модель по фазе и не подменяет её соседней.
+
+    Жидкость — несжимаемое отверстие. Смесь — замороженный критический поток.
+    Пар — изоэнтропийное сопло идеального газа. Обратный перепад для смеси и пара
+    в эту функцию не входит.
+    """
+    if area_m2 <= 0.0 or upstream_pressure_pa <= 0.0:
+        raise DomainError("Площадь клапана и давление перед ним должны быть положительными")
+    if phase == "liquid":
+        if quality not in (-1.0, 0.0):
+            raise DomainError("Жидкостный клапан не принимает паросодержание смеси")
+        return orifice_mass_flow(
+            discharge_coefficient, area_m2, density_kg_m3, upstream_pressure_pa - downstream_pressure_pa
+        )
+    if downstream_pressure_pa < 0.0:
+        raise DomainError("Противодавление клапана отрицательно")
+    if phase == "mixture":
+        from physics.hydraulics.two_phase_ext import frozen_mixture_critical_flux
+
+        return frozen_mixture_critical_flux(upstream_pressure_pa, quality) * area_m2
+    if phase == "vapor":
+        from physics.hydraulics.two_phase_ext import critical_mass_flux_ideal_gas
+
+        if quality not in (-1.0, 1.0):
+            raise DomainError("Паровой клапан не принимает недогретую смесь")
+        return (
+            critical_mass_flux_ideal_gas(
+                upstream_pressure_pa, temperature_k, gamma, gas_constant_j_kg_k
+            )
+            * area_m2
+        )
+    raise DomainError("Фаза клапана %s не поддержана" % phase)
+
+
 def orifice_mass_flow(
     discharge_coefficient: float, area_m2: float, density: float, pressure_drop_pa: float
 ) -> float:

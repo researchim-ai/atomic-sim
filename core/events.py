@@ -16,6 +16,9 @@ class EventSpec:
     function: EventFn
     direction: float = 0.0
     terminal: bool = True
+    priority: int = 0
+    hysteresis: float = 0.0
+    armed: bool = True
 
 
 @dataclass
@@ -23,6 +26,7 @@ class EventRecord:
     name: str
     time_s: float
     state: np.ndarray
+    priority: int = 0
 
 
 def bracket_root(
@@ -73,6 +77,26 @@ def collect_sign_changes(
             t_event = bracket_root(event.function, y0, y1, t0, t1)
             weight = 0.0 if t1 == t0 else (t_event - t0) / (t1 - t0)
             y_event = (1.0 - weight) * y0 + weight * y1
-            found.append(EventRecord(event.name, t_event, y_event))
-    found.sort(key=lambda item: item.time_s)
+            found.append(EventRecord(event.name, t_event, y_event, event.priority))
+    found.sort(key=lambda item: (item.time_s, -item.priority))
+    return found
+
+
+def resolve_events(
+    events: List[EventSpec], t0: float, y0: np.ndarray, t1: float, y1: np.ndarray
+) -> List[EventRecord]:
+    """Корни внутри шага. При равном времени выше приоритет. Гистерезис снимает дребезг."""
+    armed = []
+    for event in events:
+        value = float(event.function(t1, y1))
+        if not event.armed:
+            if value < -event.hysteresis:
+                event.armed = True
+            continue
+        armed.append(event)
+    found = collect_sign_changes(armed, t0, y0, t1, y1)
+    fired = {record.name for record in found}
+    for event in armed:
+        if event.name in fired:
+            event.armed = False
     return found

@@ -12,7 +12,7 @@ import numpy as np
 from scipy.linalg import expm
 
 from core.solvers import integrate
-from core.status import ModelPassport, ModelStatus
+from core.status import DomainError, ModelPassport, ModelStatus
 
 XENON_PASSPORT = ModelPassport(
     model_id="iodine-xenon",
@@ -57,6 +57,29 @@ class XenonIodine:
             - (self.lambda_xe + self.sigma_xe_m2 * flux) * xenon
         )
         return np.array([d_i, d_xe])
+
+    def shutdown_xenon(self, iodine: float, xenon: float, time_s: float) -> np.ndarray:
+        """Точное решение после останова: поток и деления равны нулю."""
+        if time_s < 0.0:
+            raise DomainError("Время после останова отрицательно")
+        decay_i = np.exp(-self.lambda_i * time_s)
+        decay_xe = np.exp(-self.lambda_xe * time_s)
+        iodine_t = iodine * decay_i
+        gap = self.lambda_xe - self.lambda_i
+        xenon_t = xenon * decay_xe + self.lambda_i * iodine / gap * (decay_i - decay_xe)
+        return np.array([iodine_t, xenon_t])
+
+    def shutdown_peak_time_s(self, iodine: float, xenon: float) -> float:
+        """Момент максимума Xe, когда λ_I I = λ_Xe Xe."""
+        if self.lambda_i * iodine <= self.lambda_xe * xenon:
+            raise DomainError("После останова ксенон сразу убывает: пика нет")
+        from scipy.optimize import brentq
+
+        def slope(time_s: float) -> float:
+            state = self.shutdown_xenon(iodine, xenon, time_s)
+            return float(self.derivatives(state[0], state[1], 0.0, 0.0)[1])
+
+        return float(brentq(slope, 0.0, 5.0e5))
 
     def equilibrium(self, fission_rate: float, flux: float) -> np.ndarray:
         iodine = self.gamma_i * fission_rate / self.lambda_i

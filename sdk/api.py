@@ -3,12 +3,21 @@
 from __future__ import annotations
 
 import json
+import math
 
 import numpy as np
 
 from core.status import Applicability, DomainError
 from plants.registry import build_plant
 from plants.vver import PlantSnapshot, VVERPlant
+
+_COMMANDS = {
+    "throttle": (0.0, 1.0),
+    "rod_command": (-1.0, 1.0),
+    "feed_bias_kg_s": (-1.0e5, 1.0e5),
+    "boron_ppm": (0.0, 2.0e4),
+}
+_FLAGS = ("scram", "motor_off", "motor_on")
 
 
 def create_session(kind: str = "vver") -> VVERPlant:
@@ -21,17 +30,41 @@ def create_session(kind: str = "vver") -> VVERPlant:
     return plant
 
 
+def _finite_command(name: str, value: object) -> float:
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        raise ValueError("Команда %s должна быть числом" % name)
+    number = float(value)
+    low, high = _COMMANDS[name]
+    if not math.isfinite(number) or number < low or number > high:
+        raise ValueError("Команда %s вне диапазона [%s, %s]" % (name, low, high))
+    return number
+
+
 def apply_commands(plant: VVERPlant, commands: dict | None = None) -> VVERPlant:
-    """Единственная точка команд для SDK, сценария, датасета, среды и пульта."""
-    commands = commands or {}
+    """Единственная точка команд для SDK, сценария, датасета, среды и пульта.
+
+    Неизвестный ключ, нечисло и выход за диапазон — ошибка входа, не физический режим.
+    """
+    commands = dict(commands or {})
+    unknown = sorted(set(commands) - set(_COMMANDS) - set(_FLAGS))
+    if unknown:
+        raise ValueError("Неизвестные команды: %s" % ", ".join(unknown))
+    for name in _COMMANDS:
+        if name in commands:
+            commands[name] = _finite_command(name, commands[name])
+    for name in _FLAGS:
+        if name in commands and not isinstance(commands[name], bool):
+            raise ValueError("Флаг %s должен быть bool" % name)
+    if commands.get("motor_off") and commands.get("motor_on"):
+        raise ValueError("Нельзя одновременно включить и отключить двигатель насоса")
     if "throttle" in commands:
-        plant.throttle = float(commands["throttle"])
+        plant.throttle = commands["throttle"]
     if "rod_command" in commands:
-        plant.rod_command = float(commands["rod_command"])
+        plant.rod_command = commands["rod_command"]
     if "feed_bias_kg_s" in commands:
-        plant.feed_bias_kg_s = float(commands["feed_bias_kg_s"])
+        plant.feed_bias_kg_s = commands["feed_bias_kg_s"]
     if "boron_ppm" in commands:
-        plant.set_boron_ppm(float(commands["boron_ppm"]))
+        plant.set_boron_ppm(commands["boron_ppm"])
     if commands.get("scram"):
         plant.scram_latched = True
     if commands.get("motor_off"):
@@ -42,8 +75,12 @@ def apply_commands(plant: VVERPlant, commands: dict | None = None) -> VVERPlant:
 
 
 def step_session(plant: VVERPlant, dt_s: float, commands: dict | None = None) -> dict:
+    if isinstance(dt_s, bool) or not isinstance(dt_s, (int, float)):
+        raise ValueError("Шаг сессии должен быть числом")
+    if not math.isfinite(float(dt_s)) or float(dt_s) <= 0.0 or float(dt_s) > 5.0:
+        raise ValueError("Шаг сессии должен быть в (0, 5] с; длинный горизонт собирается из шагов")
     apply_commands(plant, commands)
-    return plant.advance(dt_s, rtol=1e-4, atol=1e-2)
+    return plant.advance(float(dt_s), rtol=1e-4, atol=1e-2)
 
 
 def export_snapshot(plant: VVERPlant) -> dict:

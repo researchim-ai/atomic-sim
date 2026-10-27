@@ -134,6 +134,39 @@ class TwoFluidVolume:
         return self.liquid_energy_j + self.vapor_energy_j
 
 
+@dataclass
+class TwoFluidMomentum:
+    """Импульсы фаз. Межфазная сила входит в обе фазы с противоположным знаком.
+
+    Исчезновение фазы останавливает модель: делить импульс на нулевую массу нельзя.
+    """
+
+    liquid_mass_kg: float
+    vapor_mass_kg: float
+    liquid_velocity_m_s: float
+    vapor_velocity_m_s: float
+
+    def step(
+        self,
+        dt_s: float,
+        force_liquid_n: float,
+        force_vapor_n: float,
+        interfacial_on_vapor_n: float,
+    ) -> None:
+        if self.liquid_mass_kg <= 0.0 or self.vapor_mass_kg <= 0.0:
+            raise DomainError("Импульс фазы не определён: одна из фаз исчезла")
+        if dt_s < 0.0:
+            raise DomainError("Шаг импульса фаз отрицателен")
+        self.liquid_velocity_m_s += dt_s * (force_liquid_n - interfacial_on_vapor_n) / self.liquid_mass_kg
+        self.vapor_velocity_m_s += dt_s * (force_vapor_n + interfacial_on_vapor_n) / self.vapor_mass_kg
+
+    def momentum_kg_m_s(self) -> float:
+        return (
+            self.liquid_mass_kg * self.liquid_velocity_m_s
+            + self.vapor_mass_kg * self.vapor_velocity_m_s
+        )
+
+
 def interfacial_drag_pair(relative_velocity_m_s: float, coefficient: float) -> tuple:
     """Силы на пар и жидкость равны по модулю и противоположны."""
     force = coefficient * relative_velocity_m_s * abs(relative_velocity_m_s)
