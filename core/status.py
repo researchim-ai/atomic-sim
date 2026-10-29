@@ -36,6 +36,15 @@ class SolverError(RuntimeError):
     """Интегратор не сошёлся. Результат не подменяется ограничением."""
 
 
+def classify_model_error(exc: BaseException) -> str:
+    """domain — выход из области, solver — отказ интегратора, program — остальное."""
+    if isinstance(exc, DomainError):
+        return "domain"
+    if isinstance(exc, SolverError):
+        return "solver"
+    return "program"
+
+
 @dataclass(frozen=True)
 class ModelPassport:
     """Паспорт модели: явление, приближения, статус и источники данных."""

@@ -1,5 +1,7 @@
 """Двухгрупповая пластина, таблица сечений и контракт OpenMC."""
 
+import os
+
 import numpy as np
 import pytest
 
@@ -87,3 +89,18 @@ def test_openmc_specification_has_no_invented_k():
     del payload["k_combined_std"]
     with pytest.raises(DomainError):
         interpret_mgxs_result(payload)
+
+
+def test_openmc_particle_run_reports_k_and_mgxs():
+    library = os.environ.get("OPENMC_CROSS_SECTIONS")
+    if not library or not os.path.isfile(str(library) + ".license.json"):
+        pytest.skip("Локальная библиотека ENDF/B с license.json не подключена")
+    spec = slab_specification()
+    spec["settings"] = {"batches": 12, "inactive": 4, "particles": 200}
+    result = OpenMCAdapter().run_mgxs(spec, execute=True)
+    assert result["applicability"] == "in_domain"
+    assert result["k_combined_std"] > 0.0
+    assert np.isfinite(result["k_combined_mean"])
+    interpreted = interpret_mgxs_result(result)
+    assert interpreted["absorption_per_m"].shape == (2,)
+    assert np.all(np.isfinite(interpreted["flux_std"]))

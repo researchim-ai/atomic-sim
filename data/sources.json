@@ -1,0 +1,64 @@
+{
+  "sources": [
+    {
+      "id": "project-open-two-group",
+      "bundled": true,
+      "redistribution_allowed": true,
+      "license": "Apache-2.0",
+      "path": "data/open_library.py",
+      "sha256": "93f538305d4112061408aa9b2773fa8ab73e1454884bea6d9bbd64a4c16b300e",
+      "what": "Тестовые двухгрупповые макросечения проекта, не оценка ENDF и не паспорт ВВЭР",
+      "url": ""
+    },
+    {
+      "id": "iapws-if97",
+      "bundled": false,
+      "redistribution_allowed": true,
+      "license": "IAPWS-release-free-use",
+      "path": "",
+      "sha256": "",
+      "what": "Уравнения IF97 реализованы в коде. PDF релиза в репозиторий не кладётся",
+      "url": "https://iapws.org/relguide/IF97-Rev.html"
+    },
+    {
+      "id": "endf-b-nndc",
+      "bundled": false,
+      "redistribution_allowed": true,
+      "license": "LicenseRef-US-Government-public-domain",
+      "path": "",
+      "sha256": "",
+      "what": "Оценённые ядерные данные ENDF/B с NNDC. В репозиторий не включены из-за объёма. Это единственный внешний нейтронный источник, который код согласен принять",
+      "url": "https://www.nndc.bnl.gov/endf/"
+    },
+    {
+      "id": "ans-5.1",
+      "bundled": false,
+      "redistribution_allowed": false,
+      "license": "proprietary-ANSI-ANS",
+      "path": "",
+      "sha256": "",
+      "what": "Стандарт остаточного тепла. Таблицы не копируются. Трёхгрупповая модель проекта не является ANS-5.1",
+      "url": ""
+    },
+    {
+      "id": "lwr-uam",
+      "bundled": false,
+      "redistribution_allowed": false,
+      "license": "NEA-restricted",
+      "path": "",
+      "sha256": "",
+      "what": "Бенчмарк OECD/NEA LWR-UAM. Материалы не включены",
+      "url": "https://www.oecd-nea.org/jcms/pl_32175/"
+    },
+    {
+      "id": "plant-measurements",
+      "bundled": false,
+      "redistribution_allowed": false,
+      "license": "not-licensed-for-this-repo",
+      "path": "",
+      "sha256": "",
+      "what": "Измерения конкретного блока. Статус plant_referenced без них не ставится",
+      "url": ""
+    }
+  ]
+}

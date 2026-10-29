@@ -72,7 +72,10 @@ class SteamDrum:
         _liquid, _vapor = saturation_properties(self.pressure_pa)
         if self.liquid_mass_kg < 0.0 or self.vapor_mass_kg < 0.0:
             raise DomainError("Масса фазы барабана стала отрицательной")
-        return self.liquid_mass_kg / (_liquid.rho_kg_m3 * self.area_m2)
+        liquid_volume = self.liquid_mass_kg / _liquid.rho_kg_m3
+        if liquid_volume > self.volume_m3 * (1.0 + 1.0e-9):
+            raise DomainError("Жидкость барабана не помещается в геометрический объём")
+        return liquid_volume / self.area_m2
 
     def step(
         self,

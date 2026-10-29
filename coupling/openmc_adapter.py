@@ -9,12 +9,15 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import tempfile
+from pathlib import Path
 from typing import Mapping
 
 import numpy as np
 
 from core.status import Applicability, DomainError
 from core.units import per_cm_to_per_m
+from data.catalog import assert_nuclear_data_allowed
 
 MGXS_SCORES = ("absorption", "fission", "flux", "nu-fission", "scatter")
 
@@ -79,7 +82,9 @@ def validate_specification(specification: Mapping) -> None:
         raise DomainError("Плотность материала должна быть положительной")
     scores = tuple(sorted(specification.get("scores") or []))
     if scores != MGXS_SCORES:
-        raise DomainError("Набор MGXS должен включать поток, поглощение, деление, nu-деление и рассеяние")
+        raise DomainError(
+            "Набор MGXS должен включать поток, поглощение, деление, nu-деление и рассеяние"
+        )
     settings = specification.get("settings") or {}
     if int(settings.get("particles", 0)) < 1 or int(settings.get("batches", 0)) <= int(
         settings.get("inactive", 0)
@@ -137,14 +142,109 @@ class OpenMCAdapter:
         if not execute:
             return {
                 "applicability": Applicability.OUT_OF_DOMAIN.value,
-                "message": "Модель подготовлена; запуск поколений требует execute=True",
+                "message": "Модель подготовлена. Запуск требует execute=True и license.json источника endf-b-nndc",
                 "version": self.status["version"],
                 "manifest": manifest,
                 "width_cm": float(specification["geometry"]["width_m"]) * 100.0,
             }
-        raise DomainError(
-            "Запуск OpenMC из этого процесса не включён: нет проверенного каталога данных и бюджета частиц"
-        )
+        assert_nuclear_data_allowed(cross_sections)
+        report = execute_openmc_slab(specification, cross_sections)
+        report["applicability"] = Applicability.IN_DOMAIN.value
+        report["version"] = self.status["version"]
+        report["manifest"] = manifest
+        return report
+
+
+def execute_openmc_slab(specification: Mapping, cross_sections: str) -> dict:
+    """Запуск частиц OpenMC во временном каталоге. k без статистической ошибки не возвращается."""
+    import openmc
+
+    openmc.config["cross_sections"] = str(cross_sections)
+    material_spec = specification["materials"][0]
+    material = openmc.Material(name=str(material_spec["name"]))
+    material.set_density("g/cm3", float(material_spec["density_kg_m3"]) / 1000.0)
+    for name, fraction in material_spec["nuclides"].items():
+        material.add_nuclide(str(name), float(fraction))
+    materials = openmc.Materials([material])
+
+    width_cm = float(specification["geometry"]["width_m"]) * 100.0
+    left = openmc.XPlane(0.0, boundary_type=str(specification["geometry"]["left"]))
+    right = openmc.XPlane(width_cm, boundary_type=str(specification["geometry"]["right"]))
+    y_min = openmc.YPlane(-1.0, boundary_type="reflective")
+    y_max = openmc.YPlane(1.0, boundary_type="reflective")
+    z_min = openmc.ZPlane(-1.0, boundary_type="reflective")
+    z_max = openmc.ZPlane(1.0, boundary_type="reflective")
+    cell = openmc.Cell(fill=material, region=+left & -right & +y_min & -y_max & +z_min & -z_max)
+    geometry = openmc.Geometry([cell])
+
+    settings = openmc.Settings()
+    settings.run_mode = "eigenvalue"
+    settings.batches = int(specification["settings"]["batches"])
+    settings.inactive = int(specification["settings"]["inactive"])
+    settings.particles = int(specification["settings"]["particles"])
+    settings.source = openmc.IndependentSource(
+        space=openmc.stats.Box((1.0e-6, -0.99, -0.99), (width_cm - 1.0e-6, 0.99, 0.99))
+    )
+
+    groups = openmc.mgxs.EnergyGroups(_cm_bounds(specification["energy_bounds_ev"]))
+    library = openmc.mgxs.Library(geometry)
+    library.energy_groups = groups
+    library.mgxs_types = ["absorption", "fission", "nu-fission", "scatter"]
+    library.domain_type = "material"
+    library.domains = [material]
+    library.by_nuclide = False
+    library.legendre_order = 0
+    library.build_library()
+    tallies = openmc.Tallies()
+    if hasattr(library, "add_to_tallies"):
+        library.add_to_tallies(tallies)
+    else:
+        library.add_to_tallies_file(tallies)
+    flux = openmc.Tally(name="group-flux")
+    flux.filters = [
+        openmc.MaterialFilter([material]),
+        openmc.EnergyFilter(_cm_bounds(specification["energy_bounds_ev"])),
+    ]
+    flux.scores = ["flux"]
+    tallies.append(flux)
+
+    model = openmc.Model(geometry, materials, settings, tallies)
+    with tempfile.TemporaryDirectory(prefix="atomic-openmc-") as folder:
+        statepoint_path = model.run(cwd=folder, threads=1)
+        with openmc.StatePoint(statepoint_path) as statepoint:
+            mean, std = _keff_mean_std(statepoint)
+            if std <= 0.0 or not np.isfinite(mean):
+                raise DomainError("OpenMC не вернул положительную статистическую ошибку k")
+            library.load_from_statepoint(statepoint)
+            absorption = _group_values(library.get_mgxs(material, "absorption").get_xs())
+            flux_tally = statepoint.get_tally(name="group-flux")
+            flux_std = _group_values(np.asarray(flux_tally.std_dev, dtype=float))
+        return {
+            "k_combined_mean": mean,
+            "k_combined_std": std,
+            "macroscopic_unit": "1/cm",
+            "absorption_per_cm": absorption.tolist(),
+            "flux_std": flux_std.tolist(),
+            "openmc_version": getattr(openmc, "__version__", None),
+            "statepoint": Path(statepoint_path).name,
+            "message": "Частицы OpenMC выполнены, statepoint прочитан",
+        }
+
+
+def _keff_mean_std(statepoint) -> tuple:
+    keff = getattr(statepoint, "keff", None)
+    if keff is not None and hasattr(keff, "n") and hasattr(keff, "s"):
+        return float(keff.n), float(keff.s)
+    combined = getattr(statepoint, "k_combined", None)
+    if combined is not None:
+        return float(combined[0]), float(combined[1])
+    raise DomainError("Statepoint не содержит k и его статистическую ошибку")
+
+
+def _group_values(values) -> np.ndarray:
+    """OpenMC нумерует группы от низкой энергии. Спецификация проекта — от высокой."""
+    array = np.asarray(values, dtype=float).reshape(-1)
+    return array[::-1]
 
 
 def interpret_mgxs_result(payload: Mapping) -> dict:

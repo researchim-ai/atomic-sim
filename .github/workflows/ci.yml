@@ -28,7 +28,7 @@ jobs:
     
     - name: Run tests
       run: |
-        pytest tests/ -v
+        pytest tests/ -q --cov=core --cov=physics --cov=components --cov=plants --cov=sdk --cov=instrumentation --cov-report=term-missing --cov-fail-under=80
     
     - name: Run smoke benchmark
       run: |
@@ -45,7 +45,7 @@ jobs:
         pip install build
         python -m build
         python -m pip install --force-reinstall dist/atomic_sim-*.whl
-        cd /tmp && python -c "from sdk.api import create_session; plant=create_session('vver'); print(plant.passport.model_id)"
+        cd /tmp && python -c "from sdk.api import create_session; from scenarios.session import load_scenario; import generate_dataset; plant=create_session('vver'); print(plant.passport.model_id, load_scenario is not None, generate_dataset.main)"
 
   performance:
     runs-on: ubuntu-latest

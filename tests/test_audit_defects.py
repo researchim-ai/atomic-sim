@@ -62,23 +62,8 @@ def test_reflective_s2_is_flat_source_over_sigma():
 
 def _energy_rates(plant: VVERPlant) -> tuple[float, float]:
     dot = plant.derivatives(plant.time_s, plant.pack())
-    fission = plant.kinetics.power_w(plant.kinetics_state[0])
-    total = plant.decay.total_power_w(fission, plant.decay_state)
-    d_internal = 0.0
-    for index, _name in enumerate(plant.network.volume_names()):
-        d_internal += dot[13 + 3 * index + 1]
-    pump = plant.network.junctions["pump"]
-    steam = plant.network.junctions["steam"]
-    feed = plant.network.junctions["feed"]
-    density = plant.network.volumes["cold_leg"].thermo.rho_kg_m3
-    pump_work = pump.mass_flow_kg_s * pump.pump_pressure_pa / density
-    turbine_work = steam.mass_flow_kg_s * (plant.h_g_current - steam.delivery_enthalpy_j_kg)
-    feed_work = feed.mass_flow_kg_s * (
-        feed.delivery_enthalpy_j_kg - plant.network.boundaries["condenser"].enthalpy_j_kg
-    )
-    condenser = -plant.ua_condenser * max(plant.hotwell_temperature_k - plant.t_sink, 0.0)
-    stored = plant.fuel_capacity * dot[10] + d_internal + dot[-1]
-    supplied = total + pump_work + feed_work - turbine_work + condenser
+    stored = sum(plant.account_rates_w(dot).values())
+    supplied = sum(plant.boundary_terms_w().values())
     return stored, supplied
 
 

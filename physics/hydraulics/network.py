@@ -30,6 +30,62 @@ from physics.materials.iapws import (
 G = 9.80665
 
 
+def diluted_boron_kg(
+    mass_kg: float, boron_kg: float, exchange_kg_s: float, inlet_fraction: float, dt_s: float
+) -> float:
+    """Постоянные масса и обмен: c(t) = c_in + (c0 - c_in) exp(-m t / M)."""
+    if mass_kg <= 0.0 or exchange_kg_s < 0.0 or dt_s < 0.0:
+        raise DomainError("Масса бора, обмен и шаг должны быть неотрицательными, масса — положительной")
+    if inlet_fraction < 0.0:
+        raise DomainError("Входная доля бора отрицательна")
+    fraction = boron_kg / mass_kg
+    decay = np.exp(-exchange_kg_s * dt_s / mass_kg)
+    return mass_kg * (inlet_fraction + (fraction - inlet_fraction) * decay)
+
+
+def boiloff_inventory(mass_kg: float, boron_kg: float, vapor_kg_s: float, dt_s: float) -> tuple:
+    """Отбор пара без уноса бора. Масса бора постоянна, концентрация растёт как M0/M."""
+    if mass_kg <= 0.0 or boron_kg < 0.0 or vapor_kg_s < 0.0 or dt_s < 0.0:
+        raise DomainError("Выпаривание задано при отрицательном запасе, расходе или шаге")
+    mass = mass_kg - vapor_kg_s * dt_s
+    if mass <= 0.0:
+        raise DomainError("Отбор пара осушает объём на этом шаге")
+    return mass, boron_kg
+
+
+def charge_letdown_inventory(
+    mass_kg: float,
+    boron_kg: float,
+    letdown_kg_s: float,
+    makeup_kg_s: float,
+    makeup_fraction: float,
+    dt_s: float,
+) -> tuple:
+    """Подпитка и продувка при постоянных расходах.
+
+    Продувка без подпитки сохраняет концентрацию. Равные расходы сводятся к разбавлению.
+    Осушение объёма на шаге останавливает расчёт.
+    """
+    if mass_kg <= 0.0 or boron_kg < 0.0 or letdown_kg_s < 0.0 or makeup_kg_s < 0.0 or dt_s < 0.0:
+        raise DomainError("Запас, бор, расходы и шаг подпитки заданы вне области")
+    if makeup_fraction < 0.0:
+        raise DomainError("Доля бора в подпитке отрицательна")
+    net = makeup_kg_s - letdown_kg_s
+    mass = mass_kg + net * dt_s
+    if mass <= 0.0:
+        raise DomainError("Продувка осушает объём на этом шаге")
+    if net == 0.0:
+        boron = diluted_boron_kg(mass_kg, boron_kg, letdown_kg_s, makeup_fraction, dt_s)
+        return mass_kg, boron
+    if makeup_kg_s == 0.0:
+        return mass, boron_kg * mass / mass_kg
+    ratio = mass / mass_kg
+    exponent = -makeup_kg_s / net
+    concentration_0 = boron_kg / mass_kg
+    concentration = makeup_fraction - (makeup_fraction - concentration_0) * ratio**exponent
+    return mass, concentration * mass
+
+
 @dataclass
 class BoundaryState:
     pressure_pa: float
@@ -124,6 +180,7 @@ class Junction:
     flow_law: str = "momentum"
     flow_target_kg_s: Optional[float] = None
     flow_time_constant_s: float = 0.5
+    check_valve: bool = False
 
     def friction_dp(self, density: float) -> float:
         if density <= 0.0:
@@ -231,14 +288,10 @@ class FlowNetwork:
             signed = flow
             if junction.upstream in self.volumes:
                 dm[junction.upstream] -= signed
-                leaving = self.volumes[junction.upstream].boron_fraction if signed >= 0.0 else boron
-                dB[junction.upstream] -= signed * leaving
+                dB[junction.upstream] -= signed * boron
             if junction.downstream in self.volumes:
                 dm[junction.downstream] += signed
-                arriving = (
-                    boron if signed >= 0.0 else self.volumes[junction.downstream].boron_fraction
-                )
-                dB[junction.downstream] += signed * arriving
+                dB[junction.downstream] += signed * boron
             transported = abs(flow)
             if flow >= 0.0:
                 if junction.upstream in self.volumes:
@@ -250,7 +303,7 @@ class FlowNetwork:
                     dU[junction.downstream] -= transported * enthalpy
                 if junction.upstream in self.volumes:
                     dU[junction.upstream] += transported * arrive
-            if junction.pump_pressure_pa != 0.0 and flow < 0.0:
+            if junction.pump_pressure_pa != 0.0 and flow < 0.0 and not junction.check_valve:
                 raise DomainError(
                     "Обратный расход через насос %s вне проверенного квадранта" % name
                 )
@@ -267,9 +320,11 @@ class FlowNetwork:
                 p_up = up.pressure_pa if isinstance(up, BoundaryState) else up.thermo.p_pa
                 p_down = down.pressure_pa if isinstance(down, BoundaryState) else down.thermo.p_pa
                 gravity = density * G * (z_down - z_up)
-                accel = (junction.area_m2 / junction.length_m) * (
-                    p_up - p_down - gravity - dp_fric + junction.pump_pressure_pa
-                )
+                driving = p_up - p_down - gravity - dp_fric + junction.pump_pressure_pa
+                if junction.check_valve and flow <= 0.0 and driving <= 0.0:
+                    accel = -flow / junction.flow_time_constant_s
+                else:
+                    accel = (junction.area_m2 / junction.length_m) * driving
             elif junction.flow_law == "target":
                 if junction.flow_target_kg_s is None:
                     raise DomainError("Для соединения %s не задан целевой расход" % name)

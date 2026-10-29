@@ -27,6 +27,13 @@ def speed_after_constant_torques(omega0: float, inertia: float, mechanical_torqu
     return omega0 + speed_derivative(inertia, mechanical_torque, electrical_torque) * time_s
 
 
+def grid_electrical_torque_nm(connected: bool, mechanical_power_w: float, omega_rad_s: float) -> float:
+    """При отключённой сети электрический момент равен нулю и не подменяется механическим."""
+    if not connected:
+        return 0.0
+    return synchronous_balance(mechanical_power_w, omega_rad_s)
+
+
 def synchronous_balance(mechanical_power_w: float, omega_rad_s: float) -> float:
     """Момент, при котором электрическая мощность равна механической."""
     if omega_rad_s == 0.0:

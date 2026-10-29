@@ -1,0 +1,15 @@
+{
+  "validated": false,
+  "plant_referenced": false,
+  "rows": [
+    {"phenomenon": "ramp-load", "test": "tests/test_plan_ten.py"},
+    {"phenomenon": "boron-and-throttle", "test": "tests/test_plan_ten.py"},
+    {"phenomenon": "pump-trip", "test": "tests/test_plan_ten.py"},
+    {"phenomenon": "feed-bias", "test": "tests/test_plan_ten.py"},
+    {"phenomenon": "rod-banks", "test": "tests/test_plan_ten.py"},
+    {"phenomenon": "diffusion-currents", "test": "tests/test_plan_ten.py"},
+    {"phenomenon": "modal-precursors-2d", "test": "tests/test_plan_ten.py"},
+    {"phenomenon": "post-chf-refused", "test": "tests/test_plan_ten.py"},
+    {"phenomenon": "observation-ledger", "test": "tests/test_plan_ten.py"}
+  ]
+}

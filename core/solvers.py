@@ -24,6 +24,7 @@ class IntegrationResult:
     n_steps: int
     message: str
     success: bool
+    dense: object = None
 
     @property
     def final(self) -> np.ndarray:
@@ -40,6 +41,7 @@ def integrate(
     t_eval: Optional[np.ndarray] = None,
     events: Optional[list] = None,
     method: str = "BDF",
+    dense_output: bool = False,
 ) -> IntegrationResult:
     """Интегрировать ODE. При несходимости поднимает SolverError."""
     if method not in ("BDF", "Radau", "LSODA"):
@@ -52,7 +54,7 @@ def integrate(
         "method": method,
         "rtol": rtol,
         "atol": atol,
-        "dense_output": False,
+        "dense_output": dense_output,
         "t_eval": t_eval,
         "events": events,
     }
@@ -62,8 +64,23 @@ def integrate(
     if not sol.success:
         raise SolverError(sol.message)
     return IntegrationResult(
-        t=sol.t, y=sol.y, n_steps=int(sol.nfev), message=sol.message, success=True
+        t=sol.t,
+        y=sol.y,
+        n_steps=int(sol.nfev),
+        message=sol.message,
+        success=True,
+        dense=sol.sol if dense_output else None,
     )
+
+
+def per_variable_atol(scales, relative_tolerance: float) -> np.ndarray:
+    """Абсолютный допуск каждого неизвестного: atol_i = ε · масштаб_i."""
+    scales = np.asarray(scales, dtype=float)
+    if relative_tolerance <= 0.0 or scales.size == 0 or np.any(scales <= 0.0):
+        raise ValueError("Масштабы допуска положительны, относительный допуск тоже")
+    if not np.all(np.isfinite(scales)):
+        raise ValueError("Масштаб допуска должен быть конечным")
+    return relative_tolerance * scales
 
 
 def observe_cfl(speed_m_s: float, dx_m: float, dt_s: float) -> float:

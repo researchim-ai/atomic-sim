@@ -1,0 +1,10 @@
+name: vver_pump_trip
+schema_version: 1
+engine: vver
+model_id: vver-lumped-loop
+description: Отключение двигателя насоса эквивалентной петли
+duration_s: 0.4
+step_s: 0.2
+timeline:
+  - t: 0.2
+    motor_off: true

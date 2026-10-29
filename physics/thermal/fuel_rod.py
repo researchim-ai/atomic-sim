@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass
 
 import numpy as np
@@ -27,6 +28,15 @@ PASSPORT = ModelPassport(
 STEFAN_BOLTZMANN = 5.670374419e-8
 
 
+def radiation_gap_h(emissivity: float, t_fuel_k: float, t_clad_k: float) -> float:
+    """Линеаризация излучения: εσ (T_f^4 - T_c^4) / (T_f - T_c). При равных температурах предел 4εσT^3."""
+    if emissivity < 0.0 or emissivity > 1.0 or t_fuel_k <= 0.0 or t_clad_k <= 0.0:
+        raise DomainError(
+            "Излучение зазора задано при недопустимой степени черноты или температуре"
+        )
+    return emissivity * STEFAN_BOLTZMANN * (t_fuel_k + t_clad_k) * (t_fuel_k**2 + t_clad_k**2)
+
+
 def gap_conductance(
     k_gas_w_m_k: float, gap_m: float, emissivity: float, t_fuel_k: float, t_clad_k: float
 ) -> float:
@@ -35,9 +45,59 @@ def gap_conductance(
         raise DomainError(
             "Закрытый зазор требует термомеханической модели",
         )
-    conduction = k_gas_w_m_k / gap_m
-    radiation = emissivity * STEFAN_BOLTZMANN * (t_fuel_k + t_clad_k) * (t_fuel_k**2 + t_clad_k**2)
-    return conduction + radiation
+    if k_gas_w_m_k < 0.0:
+        raise DomainError("Теплопроводность газа в зазоре отрицательна")
+    return k_gas_w_m_k / gap_m + radiation_gap_h(emissivity, t_fuel_k, t_clad_k)
+
+
+def log_mean_radius_m(inner_radius_m: float, outer_radius_m: float) -> float:
+    """(r_o − r_i) / ln(r_o / r_i). При сближении радиусов стремится к их среднему."""
+    if inner_radius_m <= 0.0 or outer_radius_m <= inner_radius_m:
+        raise DomainError("Логарифмический радиус задан при неположительной толщине")
+    return (outer_radius_m - inner_radius_m) / math.log(outer_radius_m / inner_radius_m)
+
+
+def cylindrical_shell_heat_per_m(
+    conductivity_w_m_k: float,
+    inner_temperature_k: float,
+    outer_temperature_k: float,
+    inner_radius_m: float,
+    outer_radius_m: float,
+) -> float:
+    """Тепло на метр длины оболочки: 2 π k (T_i − T_o) / ln(r_o / r_i)."""
+    if conductivity_w_m_k < 0.0:
+        raise DomainError("Теплопроводность оболочки отрицательна")
+    radius = log_mean_radius_m(inner_radius_m, outer_radius_m)
+    thickness = outer_radius_m - inner_radius_m
+    return (
+        conductivity_w_m_k
+        * (2.0 * math.pi * radius)
+        * (inner_temperature_k - outer_temperature_k)
+        / thickness
+    )
+
+
+def cylindrical_shell_temperature_k(
+    radius_m: float,
+    inner_radius_m: float,
+    outer_radius_m: float,
+    inner_temperature_k: float,
+    outer_temperature_k: float,
+) -> float:
+    """Логарифмический профиль. На среднем геометрическом радиусе температура — среднее арифметическое."""
+    if inner_radius_m <= 0.0 or outer_radius_m <= inner_radius_m:
+        raise DomainError("Оболочка задана при неположительной толщине")
+    if radius_m < inner_radius_m or radius_m > outer_radius_m:
+        raise DomainError("Радиус профиля оболочки вне стенки")
+    weight = math.log(radius_m / inner_radius_m) / math.log(outer_radius_m / inner_radius_m)
+    return inner_temperature_k + (outer_temperature_k - inner_temperature_k) * weight
+
+
+def cylinder_surface_flux_w_m2(volumetric_power_w_m3: float, outer_radius_m: float) -> float:
+    """Поток с боковой поверхности длинного цилиндра: q''' R / 2. Он уносит всю генерацию сечения."""
+    if outer_radius_m <= 0.0:
+        raise DomainError("Радиус поверхности цилиндра должен быть положительным")
+    return volumetric_power_w_m3 * outer_radius_m / 2.0
 
 
 def analytical_cylinder_temperature(
@@ -95,6 +155,14 @@ class FuelRod:
 
     def _ring_volume(self, r_in: float, r_out: float) -> float:
         return np.pi * (r_out**2 - r_in**2) * self.length_m * self.n_rods
+
+    def cylinder_volumes_m3(self) -> tuple:
+        """Объём топлива и оболочки как цилиндров. Зазор между ними в сумму не входит."""
+        fuel = np.pi * self.r_fuel_m**2 * self.length_m * self.n_rods
+        clad = (
+            np.pi * (self.r_clad_outer_m**2 - self.r_clad_inner_m**2) * self.length_m * self.n_rods
+        )
+        return float(fuel), float(clad)
 
     def volumes(self) -> np.ndarray:
         values = []
@@ -202,34 +270,108 @@ class FuelRod:
             q[i] = volumetric_power_w_m3 * self._ring_volume(r_in, r_out)
         return q
 
+    def _cylindrical_conductance(
+        self, conductivity: float, radius_in: float, radius_out: float
+    ) -> float:
+        if conductivity <= 0.0 or radius_out <= radius_in:
+            raise DomainError("Проводимость кольца задана при неположительном k или радиусе")
+        return (
+            self.n_rods
+            * 2.0
+            * np.pi
+            * conductivity
+            * self.length_m
+            / np.log(radius_out / radius_in)
+        )
+
+    def _series_conductance(
+        self,
+        k_left: float,
+        k_right: float,
+        radius_left: float,
+        radius_face: float,
+        radius_right: float,
+    ) -> float:
+        left = self._cylindrical_conductance(k_left, radius_left, radius_face)
+        right = self._cylindrical_conductance(k_right, radius_face, radius_right)
+        return 1.0 / (1.0 / left + 1.0 / right)
+
     def fuel_only_operator(self) -> tuple:
         """Топливо с заданной температурой внешней поверхности топлива. Возвращает K и G_surface."""
+        return self.fuel_operator_at(np.full(self.n_fuel, 0.0), lambda _temperature: self.k_fuel)
+
+    def fuel_operator_at(self, temperature: np.ndarray, conductivity_of_temperature) -> tuple:
+        """Проводимость между ячейками при k(T). Постоянное k совпадает с прежним оператором."""
         n = self.n_fuel
         matrix = np.zeros((n, n))
         centers = self._centers(self.fuel_faces)
+        conductivity = np.array(
+            [float(conductivity_of_temperature(float(value))) for value in temperature]
+        )
         for i in range(n - 1):
-            g = (
-                self.n_rods
-                * 2.0
-                * np.pi
-                * self.k_fuel
-                * self.length_m
-                / np.log(centers[i + 1] / centers[i])
+            g = self._series_conductance(
+                conductivity[i],
+                conductivity[i + 1],
+                centers[i],
+                self.fuel_faces[i + 1],
+                centers[i + 1],
             )
             matrix[i, i] += g
             matrix[i, i + 1] -= g
             matrix[i + 1, i] -= g
             matrix[i + 1, i + 1] += g
-        g_surface = (
-            self.n_rods
-            * 2.0
-            * np.pi
-            * self.k_fuel
-            * self.length_m
-            / np.log(self.r_fuel_m / centers[-1])
-        )
+        g_surface = self._cylindrical_conductance(conductivity[-1], centers[-1], self.r_fuel_m)
         matrix[-1, -1] += g_surface
         return matrix, g_surface
+
+    def steady_fuel_kt(
+        self,
+        volumetric_power_w_m3: float,
+        surface_temperature_k: float,
+        conductivity_of_temperature,
+    ) -> np.ndarray:
+        """Стационар при k(T). Итерации расходятся — отказ, а не заморозка последнего поля."""
+        temperature = np.full(self.n_fuel, surface_temperature_k)
+        for _ in range(25):
+            matrix, g_surface = self.fuel_operator_at(temperature, conductivity_of_temperature)
+            rhs = self.generation(volumetric_power_w_m3)[: self.n_fuel].copy()
+            rhs[-1] += g_surface * surface_temperature_k
+            updated = np.linalg.solve(matrix, rhs)
+            if float(np.max(np.abs(updated - temperature))) < 1.0e-6:
+                return updated
+            temperature = updated
+        raise DomainError("Стационар твэла с k(T) не сошёлся")
+
+    def capacitance_at(
+        self, temperature: np.ndarray, cp_fuel_of_temperature, cp_clad_of_temperature
+    ) -> np.ndarray:
+        volume = self.volumes()
+        capacity = np.empty(self.n_nodes)
+        for index in range(self.n_fuel):
+            capacity[index] = (
+                self.rho_fuel
+                * float(cp_fuel_of_temperature(float(temperature[index])))
+                * volume[index]
+            )
+        for index in range(self.n_clad):
+            node = self.n_fuel + index
+            capacity[node] = (
+                self.rho_clad
+                * float(cp_clad_of_temperature(float(temperature[node])))
+                * volume[node]
+            )
+        return capacity
+
+    def steady_state(
+        self, volumetric_power_w_m3: float, coolant_temperature_k: float
+    ) -> np.ndarray:
+        """Стационар топлива и оболочки. Тепло в теплоноситель равно генерации в топливе."""
+        if volumetric_power_w_m3 < 0.0:
+            raise DomainError("Объёмная мощность твэла отрицательна")
+        matrix = self.conductance_matrix(coolant_temperature_k)
+        source = self.generation(volumetric_power_w_m3)
+        source[-1] += self._coolant_conductance * coolant_temperature_k
+        return np.linalg.solve(matrix, source)
 
     def steady_fuel(self, volumetric_power_w_m3: float, surface_temperature_k: float) -> np.ndarray:
         matrix, g_surface = self.fuel_only_operator()

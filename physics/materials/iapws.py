@@ -957,6 +957,23 @@ def _temperature_in_region(
     return _brent(residual, low, high)
 
 
+def mix_isobaric(
+    mass_a_kg: float,
+    enthalpy_a_j_kg: float,
+    mass_b_kg: float,
+    enthalpy_b_j_kg: float,
+    pressure_pa: float,
+) -> tuple:
+    """Смешение двух потоков при общем давлении. Масса и энтальпия сохраняются."""
+    if mass_a_kg < 0.0 or mass_b_kg < 0.0 or pressure_pa <= 0.0:
+        raise DomainError("Массы смешения неотрицательны, давление положительно")
+    mass = mass_a_kg + mass_b_kg
+    if mass <= 0.0:
+        raise DomainError("Смешение не содержит массы")
+    enthalpy = (mass_a_kg * enthalpy_a_j_kg + mass_b_kg * enthalpy_b_j_kg) / mass
+    return mass, enthalpy, properties_ph(pressure_pa, enthalpy)
+
+
 def properties_ph(pressure_pa: float, enthalpy_j_kg: float) -> ThermoState:
     """Состояние по давлению и энтальпии, включая области 3 и 5."""
     p_mpa = pressure_pa * 1.0e-6
@@ -1146,6 +1163,95 @@ def _mix_saturation(liquid: ThermoState, vapor: ThermoState, quality: float) -> 
         quality=quality,
         region=4,
     )
+
+
+def mixture_specific_volume(quality: float, rho_liquid: float, rho_vapor: float) -> float:
+    """Удельный объём HEM: x/ρ_v + (1-x)/ρ_l."""
+    if quality < 0.0 or quality > 1.0:
+        raise DomainError("Удельный объём смеси определён для x в [0, 1]")
+    if rho_liquid <= 0.0 or rho_vapor <= 0.0:
+        raise DomainError("Плотности фаз должны быть положительными")
+    return quality / rho_vapor + (1.0 - quality) / rho_liquid
+
+
+def homogeneous_momentum_flux(
+    mass_flux_kg_m2_s: float, quality: float, rho_liquid: float, rho_vapor: float
+) -> float:
+    """G²/ρ смеси. Совпадает с разделённым потоком, если доли взяты из HEM."""
+    if mass_flux_kg_m2_s < 0.0:
+        raise DomainError("Массовая скорость импульса отрицательна")
+    return mass_flux_kg_m2_s**2 / (1.0 / mixture_specific_volume(quality, rho_liquid, rho_vapor))
+
+
+def separated_momentum_flux(
+    mass_flux_kg_m2_s: float,
+    quality: float,
+    void: float,
+    rho_liquid: float,
+    rho_vapor: float,
+) -> float:
+    """G² (x²/(α ρ_v) + (1-x)²/((1-α) ρ_l)). Край α=0 или 1 без второй фазы не считается."""
+    if quality <= 0.0 or quality >= 1.0 or void <= 0.0 or void >= 1.0:
+        raise DomainError("Разделённый импульс задан при 0 < x < 1 и 0 < α < 1")
+    if rho_liquid <= 0.0 or rho_vapor <= 0.0 or mass_flux_kg_m2_s < 0.0:
+        raise DomainError("Плотности фаз положительны, массовая скорость неотрицательна")
+    vapor = quality**2 / (void * rho_vapor)
+    liquid = (1.0 - quality) ** 2 / ((1.0 - void) * rho_liquid)
+    return mass_flux_kg_m2_s**2 * (vapor + liquid)
+
+
+def slip_void_fraction(
+    quality: float, rho_liquid: float, rho_vapor: float, slip_ratio: float
+) -> float:
+    """Объёмная доля пара при отношении скоростей S = v_v/v_l. S=1 совпадает с HEM."""
+    if quality < 0.0 or quality > 1.0:
+        raise DomainError("Проскальзывание задано при паросодержании вне [0, 1]")
+    if rho_liquid <= 0.0 or rho_vapor <= 0.0 or slip_ratio <= 0.0:
+        raise DomainError("Плотности и отношение скоростей должны быть положительными")
+    if quality == 0.0:
+        return 0.0
+    if quality == 1.0:
+        return 1.0
+    vapor = quality / rho_vapor
+    liquid = slip_ratio * (1.0 - quality) / rho_liquid
+    return vapor / (vapor + liquid)
+
+
+def quality_from_slip_void(
+    void: float, rho_liquid: float, rho_vapor: float, slip_ratio: float
+) -> float:
+    """Обратное к slip_void_fraction. Вне [0, 1] доля не продолжается."""
+    if void < 0.0 or void > 1.0:
+        raise DomainError("Объёмная доля для обратного проскальзывания вне [0, 1]")
+    if rho_liquid <= 0.0 or rho_vapor <= 0.0 or slip_ratio <= 0.0:
+        raise DomainError("Плотности и отношение скоростей должны быть положительными")
+    if void == 0.0:
+        return 0.0
+    if void == 1.0:
+        return 1.0
+    numerator = void * slip_ratio / rho_liquid
+    denominator = numerator + (1.0 - void) / rho_vapor
+    return numerator / denominator
+
+
+def clapeyron_slope_pa_per_k(temperature_k: float) -> float:
+    """dp/dT = h_fg / (T (v_g - v_f)) по энтальпиям и объёмам насыщения."""
+    pressure_pa = saturation_pressure_mpa(temperature_k) * 1.0e6
+    liquid, vapor = saturation_properties(pressure_pa)
+    latent = vapor.h_j_kg - liquid.h_j_kg
+    volume_change = vapor.v_m3_kg - liquid.v_m3_kg
+    if latent <= 0.0 or volume_change <= 0.0 or temperature_k <= 0.0:
+        raise DomainError("Наклон линии насыщения не определён")
+    return latent / (temperature_k * volume_change)
+
+
+def latent_heat_j_kg(pressure_pa: float) -> float:
+    """h_g - h_f на линии насыщения. Неположительная теплота парообразования останавливает расчёт."""
+    liquid, vapor = saturation_properties(pressure_pa)
+    latent = vapor.h_j_kg - liquid.h_j_kg
+    if latent <= 0.0:
+        raise DomainError("Теплота парообразования не положительна")
+    return latent
 
 
 def void_fraction(quality: float, rho_liquid: float, rho_vapor: float) -> float:

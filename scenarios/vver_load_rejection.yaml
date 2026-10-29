@@ -1,4 +1,5 @@
 name: vver_load_rejection
+schema_version: 1
 engine: vver
 model_id: vver-lumped-loop
 description: Закрытие дросселя турбины на эквивалентной петле ВВЭР

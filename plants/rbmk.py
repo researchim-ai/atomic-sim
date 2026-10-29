@@ -44,8 +44,15 @@ class RBMKChannel:
     ua_graphite_channel: float = 8000.0
 
     def __post_init__(self) -> None:
+        if self.graphite_fraction < 0.0 or self.graphite_fraction > 1.0:
+            raise DomainError("Доля мощности в графит РБМК лежит в [0, 1]")
         self.passport = PASSPORT
         self.applicability = Applicability.IN_DOMAIN
+
+    def heat_split_w(self) -> tuple:
+        """Мощность топлива и графита. Сумма равна мощности делений."""
+        graphite = self.graphite_fraction * self.fission_power_w
+        return self.fission_power_w - graphite, graphite
 
     def channel_state(self):
         liquid, vapor = saturation_properties(self.pressure_pa)
@@ -60,6 +67,14 @@ class RBMKChannel:
         state = properties_ph(self.pressure_pa, h_out)
         alpha = void_fraction(state.quality, liquid.rho_kg_m3, vapor.rho_kg_m3)
         return state, alpha
+
+    def structure_power_residual_w(self) -> float:
+        """Запас топлива и графита плюс тепло в канал минус мощность делений."""
+        d_fuel, d_graphite, _alpha, _rho = self.derivatives()
+        _state, _void = self.channel_state()
+        stored = d_fuel * self.fuel_capacity_j_k + d_graphite * self.graphite_capacity_j_k
+        to_channel = self.ua_graphite_channel * (self.graphite_temperature_k - _state.T_k)
+        return stored + to_channel - self.fission_power_w
 
     def void_reactivity(self, alpha: float) -> float:
         return self.void_coefficient * (alpha - self.alpha_ref)

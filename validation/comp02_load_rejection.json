@@ -1,0 +1,18 @@
+{
+  "id": "COMP-02",
+  "measured_on": "2026-10-28",
+  "python": "3.12.9",
+  "throttle": 0.0,
+  "scram": false,
+  "measured_s": 40.0,
+  "wall_time_s": 54.2,
+  "condenser_temperature_reached_sink": true,
+  "condenser_quality_end": 0.015578,
+  "condenser_pressure_pa_end": 2339.4,
+  "sg_pressure_pa_end": 10938797.0,
+  "sg_pressure_still_rising": true,
+  "steam_dump_modelled": false,
+  "full_horizon_accepted": false,
+  "nominal_horizon_3600_s_passed": false,
+  "note": "Этот прогон сделан до сброса пара мимо турбины. Он не описывает текущую модель и не принимает горизонт 3600 с."
+}

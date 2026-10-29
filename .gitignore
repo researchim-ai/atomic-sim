@@ -55,3 +55,12 @@ htmlcov/
 # Examples output
 examples/*.png
 examples/results/
+
+# OpenMC и ядерные данные в этот репозиторий не входят
+endfb*/
+**/cross_sections.xml
+**/cross_sections.xml.license.json
+statepoint.*.h5
+summary.h5
+tallies.out
+*.h5

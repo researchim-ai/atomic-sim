@@ -47,8 +47,8 @@ def test_scram_inserts_rods_with_finite_speed():
     plant = VVERPlant()
     plant.scram_latched = True
     plant.advance(0.4, rtol=1e-4, atol=1e-2)
-    assert plant.rod < plant.rod_ref
-    assert plant.rod > 0.0
+    assert plant.rod > plant.rod_ref
+    assert plant.rod < 1.0
 
 
 def test_restart_matches_continuous_run():

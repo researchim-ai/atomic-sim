@@ -6,6 +6,7 @@
 
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass
 
 import numpy as np
@@ -69,6 +70,19 @@ class XenonIodine:
         xenon_t = xenon * decay_xe + self.lambda_i * iodine / gap * (decay_i - decay_xe)
         return np.array([iodine_t, xenon_t])
 
+    def shutdown_field(self, iodine, xenon, time_s: float) -> tuple:
+        """То же решение останова в каждой ячейке. Формула совпадает со скалярной."""
+        iodine = np.asarray(iodine, dtype=float)
+        xenon = np.asarray(xenon, dtype=float)
+        if time_s < 0.0 or iodine.shape != xenon.shape:
+            raise DomainError("Поле останова ксенона задано неверно")
+        decay_i = np.exp(-self.lambda_i * time_s)
+        decay_xe = np.exp(-self.lambda_xe * time_s)
+        gap = self.lambda_xe - self.lambda_i
+        iodine_t = iodine * decay_i
+        xenon_t = xenon * decay_xe + self.lambda_i * iodine / gap * (decay_i - decay_xe)
+        return iodine_t, xenon_t
+
     def shutdown_peak_time_s(self, iodine: float, xenon: float) -> float:
         """Момент максимума Xe, когда λ_I I = λ_Xe Xe."""
         if self.lambda_i * iodine <= self.lambda_xe * xenon:
@@ -80,6 +94,18 @@ class XenonIodine:
             return float(self.derivatives(state[0], state[1], 0.0, 0.0)[1])
 
         return float(brentq(slope, 0.0, 5.0e5))
+
+    def equilibrium_field(self, fission_rate, flux) -> tuple:
+        """Равновесие I и Xe в каждой ячейке. Поток выжигает ксенон и не даёт ему расти пропорционально."""
+        fission = np.asarray(fission_rate, dtype=float)
+        field = np.asarray(flux, dtype=float)
+        if fission.shape != field.shape or np.any(fission < 0.0) or np.any(field < 0.0):
+            raise DomainError("Поле ксенона задано при отрицательном делении или потоке")
+        iodine = self.gamma_i * fission / self.lambda_i
+        xenon = (self.gamma_xe * fission + self.lambda_i * iodine) / (
+            self.lambda_xe + self.sigma_xe_m2 * field
+        )
+        return iodine, xenon
 
     def equilibrium(self, fission_rate: float, flux: float) -> np.ndarray:
         iodine = self.gamma_i * fission_rate / self.lambda_i
@@ -107,6 +133,27 @@ class XenonIodine:
         return integrate(rhs, state, (0.0, dt_s), rtol=1e-8, atol=1e-12).final
 
 
+def xenon_macroscopic_per_m(number_density_per_m3: float, sigma_m2: float) -> float:
+    """Σ_Xe = σ_Xe N_Xe. Реактивность этой добавки считается отдельно как −Σ / νΣf."""
+    if number_density_per_m3 < 0.0 or sigma_m2 < 0.0:
+        raise DomainError("Плотность ядер и сечение ксенона неотрицательны")
+    return number_density_per_m3 * sigma_m2
+
+
+def decay_constant_per_s(half_life_s: float) -> float:
+    """λ = ln(2) / T_1/2. Через один период остаётся половина ядер."""
+    if half_life_s <= 0.0:
+        raise DomainError("Период полураспада должен быть положительным")
+    return math.log(2.0) / half_life_s
+
+
+def transient_equilibrium_ratio(lambda_parent: float, lambda_daughter: float) -> float:
+    """Предел N_d / N_p = λ_p / (λ_d − λ_p), когда дочь распадается быстрее родителя."""
+    if lambda_parent <= 0.0 or lambda_daughter <= lambda_parent:
+        raise DomainError("Переходное равновесие требует более быструю дочь")
+    return lambda_parent / (lambda_daughter - lambda_parent)
+
+
 def bateman_daughter(
     parent0: float, lambda_parent: float, lambda_daughter: float, time_s: float
 ) -> float:
@@ -119,6 +166,15 @@ def bateman_daughter(
         / (lambda_daughter - lambda_parent)
         * (np.exp(-lambda_parent * time_s) - np.exp(-lambda_daughter * time_s))
     )
+
+
+def stable_daughter_inventory(parent0: float, lambda_parent: float, time_s: float) -> tuple:
+    """Родитель и стабильная дочь. Сумма ядер равна начальному родителю."""
+    if parent0 < 0.0 or lambda_parent <= 0.0 or time_s < 0.0:
+        raise DomainError("Распад на стабильную дочь задан вне области")
+    parent = parent0 * np.exp(-lambda_parent * time_s)
+    daughter = bateman_daughter(parent0, lambda_parent, 0.0, time_s)
+    return float(parent), float(daughter)
 
 
 def decay_chain_matrix(lambdas: np.ndarray) -> np.ndarray:
@@ -173,6 +229,46 @@ class DecayHeat:
             return self.derivatives(y, fission_power_w)
 
         return integrate(rhs, stored_j, (0.0, dt_s), rtol=1e-8, atol=1e-6).final
+
+    def advance_linear_fission(
+        self, stored_j: np.ndarray, power0_w: float, ramp_w_s: float, dt_s: float
+    ) -> np.ndarray:
+        """Точное решение при P(t) = P0 + r t. Мощность на конце шага не опускается ниже нуля."""
+        stored = np.asarray(stored_j, dtype=float)
+        if dt_s < 0.0 or power0_w < 0.0 or stored.shape != self.decay_constants.shape:
+            raise DomainError("Линейная мощность остаточного тепла задана вне области")
+        if power0_w + ramp_w_s * dt_s < 0.0 or np.any(stored < 0.0):
+            raise DomainError(
+                "Линейная мощность на шаге стала бы отрицательной или запас отрицателен"
+            )
+        decay = np.exp(-self.decay_constants * dt_s)
+        lam = self.decay_constants
+        return (
+            stored * decay
+            + self.fractions * power0_w / lam * (1.0 - decay)
+            + self.fractions * ramp_w_s / lam**2 * (lam * dt_s - 1.0 + decay)
+        )
+
+    def advance_constant_fission(
+        self, stored_j: np.ndarray, fission_power_w: float, dt_s: float
+    ) -> np.ndarray:
+        """Точное решение при постоянной мощности делений: запас идёт к f P / lambda."""
+        stored = np.asarray(stored_j, dtype=float)
+        if dt_s < 0.0 or fission_power_w < 0.0 or stored.shape != self.decay_constants.shape:
+            raise DomainError("Постоянная мощность остаточного тепла задана вне области")
+        if np.any(stored < 0.0):
+            raise DomainError("Запас остаточного тепла отрицателен")
+        equilibrium = self.fractions * fission_power_w / self.decay_constants
+        return equilibrium + (stored - equilibrium) * np.exp(-self.decay_constants * dt_s)
+
+    def shutdown_release_j(self, stored_j: np.ndarray, dt_s: float) -> tuple:
+        """После обнуления делений группа распадается экспонентой. Выделенная энергия равна убыли запаса."""
+        stored = np.asarray(stored_j, dtype=float)
+        if dt_s < 0.0 or stored.shape != self.decay_constants.shape or np.any(stored < 0.0):
+            raise DomainError("Запас остаточного тепла или шаг останова заданы вне области")
+        remaining = stored * np.exp(-self.decay_constants * dt_s)
+        released = stored - remaining
+        return float(np.sum(released)), remaining
 
 
 def advance_nuclides(concentrations: np.ndarray, matrix: np.ndarray, dt_s: float) -> np.ndarray:

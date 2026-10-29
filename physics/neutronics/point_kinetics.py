@@ -10,6 +10,7 @@ dC_i/dt = (beta_i/Lambda) * n - lambda_i * C_i
 
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass
 from typing import Callable, Union
 
@@ -17,7 +18,7 @@ import numpy as np
 from scipy.linalg import expm
 
 from core.solvers import integrate
-from core.status import ModelPassport, ModelStatus
+from core.status import DomainError, ModelPassport, ModelStatus
 
 # Доли и постоянные распада, типичный тепловой спектр U-235 (Keepin-подобные
 # групповые данные, те же числа, что в учебной ветке). Это не beta_eff конкретного ВВЭР.
@@ -63,11 +64,43 @@ class PointKinetics:
     ) -> "PointKinetics":
         return cls(BETA_U235.copy(), LAMBDA_U235.copy(), generation_time_s, power_nominal_w, source)
 
+    def equilibrium_with_source(self, reactivity: float, source: float) -> np.ndarray:
+        """Стационар n = -S Λ / ρ при ρ < 0. Предшественники согласованы с этой амплитудой."""
+        if reactivity >= 0.0:
+            raise DomainError("Стационар с источником есть только при отрицательной реактивности")
+        if source < 0.0:
+            raise DomainError("Внешний источник стационара отрицателен")
+        amplitude = -source * self.generation_time_s / reactivity
+        return np.concatenate([[amplitude], self.equilibrium_precursors(amplitude)])
+
+    def decayed_precursors(self, precursors: np.ndarray, dt_s: float) -> np.ndarray:
+        """Свободный распад при нулевой амплитуде: C exp(-λ t)."""
+        if dt_s < 0.0:
+            raise DomainError("Время распада предшественников отрицательно")
+        concentration = np.asarray(precursors, dtype=float)
+        if concentration.shape != self.decay.shape:
+            raise DomainError("Число групп предшественников не совпадает с моделью")
+        return concentration * np.exp(-self.decay * dt_s)
+
     def equilibrium_precursors(self, amplitude: float) -> np.ndarray:
         return self.beta / (self.generation_time_s * self.decay) * amplitude
 
     def initial_state(self, amplitude: float = 1.0) -> np.ndarray:
         return np.concatenate([[amplitude], self.equilibrium_precursors(amplitude)])
+
+    def amplitude_reactivity_slope(self, amplitude: float) -> float:
+        """Частная производная dn/dt по реактивности при фиксированных предшественниках: n/Λ."""
+        if self.generation_time_s <= 0.0:
+            raise DomainError("Время генерации для наклона реактивности должно быть положительным")
+        return amplitude / self.generation_time_s
+
+    def inverse_period(
+        self, amplitude: float, precursors: np.ndarray, reactivity: float, source: float = 0.0
+    ) -> float:
+        """(1/n) dn/dt. На равновесных предшественниках сразу после скачка ρ это ρ/Λ."""
+        if amplitude == 0.0:
+            raise DomainError("Обратный период не определён при нулевой амплитуде")
+        return float(self.derivatives(amplitude, precursors, reactivity, source)[0] / amplitude)
 
     def derivatives(
         self,
@@ -93,6 +126,24 @@ class PointKinetics:
         matrix[1:, 0] = self.beta / self.generation_time_s
         matrix[1:, 1:] = np.diag(-self.decay)
         return matrix
+
+    def visible_amplitude_modes(self, reactivity: float, tolerance: float = 1.0e-8) -> int:
+        """Число собственных мод, которые двигают амплитуду.
+
+        Степени матрицы наблюдаемости в float64 теряют младшие моды этой жёсткой системы.
+        Видимость проверяется по компоненте амплитуды нормированной собственной моды.
+        """
+        if tolerance < 0.0:
+            raise DomainError("Допуск видимости моды отрицателен")
+        _values, vectors = np.linalg.eig(self.matrix(reactivity))
+        visible = 0
+        for index in range(vectors.shape[1]):
+            vector = vectors[:, index]
+            if abs(vector[0]) > tolerance * float(np.linalg.norm(vector)):
+                visible += 1
+        if visible < vectors.shape[1]:
+            raise DomainError("Мода не видна по амплитуде: %s из %s" % (visible, vectors.shape[1]))
+        return visible
 
     def reference_step(
         self, state: np.ndarray, reactivity: float, dt_s: float, source: float = 0.0
@@ -136,6 +187,49 @@ class PointKinetics:
         return amplitude * self.power_nominal_w
 
 
+def reactivity_in_dollars(reactivity: float, beta: float) -> float:
+    """Реактивность в долларах: ρ / β."""
+    if beta <= 0.0:
+        raise DomainError("Доля запаздывающих нейтронов для доллара должна быть положительной")
+    return reactivity / beta
+
+
+def one_group_inhour_root(
+    reactivity: float, generation_time_s: float, beta: float, decay_per_s: float
+) -> float:
+    """Корень одногруппового inhour из квадратного уравнения.
+
+    Λ ω² + (Λ λ + β − ρ) ω − ρ λ = 0. При ρ > 0 берётся положительный корень,
+    при ρ < 0 — ближайший к нулю.
+    """
+    if generation_time_s <= 0.0 or beta <= 0.0 or decay_per_s <= 0.0:
+        raise DomainError("Одногрупповой inhour задан при неположительных Λ, β или λ")
+    if reactivity == 0.0:
+        return 0.0
+    linear = generation_time_s * decay_per_s + beta - reactivity
+    discriminant = linear**2 + 4.0 * generation_time_s * reactivity * decay_per_s
+    if discriminant < 0.0:
+        raise DomainError("Дискриминант одногруппового inhour отрицателен")
+    root = math.sqrt(discriminant)
+    positive = (-linear + root) / (2.0 * generation_time_s)
+    negative = (-linear - root) / (2.0 * generation_time_s)
+    if reactivity > 0.0:
+        return positive
+    return max(positive, negative)
+
+
+def prompt_jump_ratio(beta: float, reactivity: float) -> float:
+    """Амплитуда сразу после скачка, пока предшественники ещё старые: β / (β − ρ).
+
+    Формула задана при ρ < β. На мгновенных нейтронах скачок так не записывается.
+    """
+    if beta <= 0.0:
+        raise DomainError("Доля запаздывающих нейтронов для скачка должна быть положительной")
+    if reactivity >= beta:
+        raise DomainError("Скачок на мгновенных нейтронах этой формулой не задаётся")
+    return beta / (beta - reactivity)
+
+
 def inhour_root(kinetics: PointKinetics, reactivity: float) -> float:
     """Положительный или доминирующий корень уравнения inhour для ступенчатой реактивности."""
     beta = kinetics.beta
@@ -148,7 +242,7 @@ def inhour_root(kinetics: PointKinetics, reactivity: float) -> float:
     if reactivity == 0.0:
         return 0.0
     if reactivity > 0.0:
-        low, high = 0.0, max(reactivity / generation, 1.0)
+        high = max(reactivity / generation, 1.0)
         while f(high) > 0.0:
             high *= 2.0
         # Для rho>0 корень между 0 и prompt pole; f(0)=rho>0, ищем смену знака вверх.
@@ -173,12 +267,27 @@ def inhour_root(kinetics: PointKinetics, reactivity: float) -> float:
 
 
 def batch_derivatives(
-    amplitudes: np.ndarray, precursors: np.ndarray, reactivity: np.ndarray, kinetics: PointKinetics
+    amplitudes: np.ndarray,
+    precursors: np.ndarray,
+    reactivity: np.ndarray,
+    kinetics: PointKinetics,
+    source: np.ndarray | float | None = None,
 ) -> tuple:
-    """Та же правая часть, что и у скалярной модели. precursors имеет форму (batch, groups)."""
+    """Та же правая часть, что и у скалярной модели. precursors имеет форму (batch, groups).
+
+    Источник по умолчанию — `kinetics.source` на каждый элемент пакета. Нулевой источник не подставляется вместо заданного.
+    """
+    amplitudes = np.asarray(amplitudes, dtype=float)
+    emitted = float(kinetics.source) if source is None else source
+    try:
+        emitted = np.broadcast_to(np.asarray(emitted, dtype=float), amplitudes.shape).copy()
+    except ValueError as exc:
+        raise DomainError("Источник пакета не согласован с амплитудами") from exc
     dn = (
-        (reactivity - kinetics.beta_total) / kinetics.generation_time_s
-    ) * amplitudes + precursors @ kinetics.decay
+        ((reactivity - kinetics.beta_total) / kinetics.generation_time_s) * amplitudes
+        + precursors @ kinetics.decay
+        + emitted
+    )
     dC = (
         amplitudes[:, None] * kinetics.beta / kinetics.generation_time_s
         - precursors * kinetics.decay

@@ -10,10 +10,22 @@ import gymnasium as gym
 import numpy as np
 from gymnasium import spaces
 
-from core.status import DomainError, SolverError
+from core.status import DomainError, SolverError, classify_model_error
 from instrumentation.channels import Sensor
 from plants.vver import VVERPlant
 from sdk.api import apply_commands
+
+FAILURE_REWARD = -10.0
+
+
+def step_reward(power_fraction: float, failed: bool) -> float:
+    """Срыв шага хуже отклонения мощности вплоть до десяти номиналов.
+
+    На номинале награда 0. Срыв даёт -10, а не 0: иначе отказ численно выгоднее точного слежения.
+    """
+    if failed:
+        return FAILURE_REWARD
+    return -abs(float(power_fraction) - 1.0)
 
 
 class PWRPlantEnv(gym.Env):
@@ -59,15 +71,16 @@ class PWRPlantEnv(gym.Env):
             info["out_of_domain"] = True
             info["applicability"] = exc.applicability.value if isinstance(exc, DomainError) else "solver_error"
             info["error_type"] = type(exc).__name__
+            info["error_class"] = classify_model_error(exc)
             info["message"] = str(exc)
             info["sensor_saturated"] = self.sensor_saturated
             obs = self._observe()
-            return obs, 0.0, False, True, info
+            return obs, step_reward(1.0, failed=True), False, True, info
         self._steps += 1
         fraction = observation["thermal_power_w"] / self.plant.fission_power_nom
         info["constraint_power_error"] = abs(fraction - 1.0)
         info["scram_latched"] = observation["scram_latched"]
-        reward = -info["constraint_power_error"]
+        reward = step_reward(fraction, failed=False)
         obs = self._observe()
         info["sensor_saturated"] = self.sensor_saturated
         terminated = False

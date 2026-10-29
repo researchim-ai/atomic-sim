@@ -1,0 +1,8 @@
+{
+  "frozen_before_scenario_tuning": true,
+  "validated": false,
+  "rod_worth": 0.008,
+  "doppler_coef_per_sqrt_k": -0.00144,
+  "density_coef_per_kg_m3": 0.00015,
+  "boron_coef_per_ppm": -0.00008
+}

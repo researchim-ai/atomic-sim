@@ -16,6 +16,7 @@ _COMMANDS = {
     "rod_command": (-1.0, 1.0),
     "feed_bias_kg_s": (-1.0e5, 1.0e5),
     "boron_ppm": (0.0, 2.0e4),
+    "sink_temperature_k": (273.15, 373.15),
 }
 _FLAGS = ("scram", "motor_off", "motor_on")
 
@@ -65,6 +66,8 @@ def apply_commands(plant: VVERPlant, commands: dict | None = None) -> VVERPlant:
         plant.feed_bias_kg_s = commands["feed_bias_kg_s"]
     if "boron_ppm" in commands:
         plant.set_boron_ppm(commands["boron_ppm"])
+    if "sink_temperature_k" in commands:
+        plant.set_sink_temperature_k(commands["sink_temperature_k"])
     if commands.get("scram"):
         plant.scram_latched = True
     if commands.get("motor_off"):
@@ -97,6 +100,8 @@ def export_snapshot(plant: VVERPlant) -> dict:
         "protection_timer_s": snap.protection_timer_s,
         "protection_latched": snap.protection_latched,
         "feed_bias_kg_s": snap.feed_bias_kg_s,
+        "protection_setpoint_w": snap.protection_setpoint_w,
+        "protection_delay_s": snap.protection_delay_s,
     }
 
 
@@ -116,6 +121,8 @@ def restore_snapshot(plant: VVERPlant, payload: dict) -> None:
             float(payload["protection_timer_s"]),
             bool(payload["protection_latched"]),
             float(payload["feed_bias_kg_s"]),
+            float(payload["protection_setpoint_w"]),
+            float(payload["protection_delay_s"]),
         )
     )
 

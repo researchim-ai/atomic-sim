@@ -18,10 +18,12 @@ def test_baseline_keeps_new_components_out_of_the_vver_passport():
     assert payload["claims"]["validated"] is False
     assert payload["claims"]["plant_referenced"] is False
     assert "vver-lumped-loop" in payload["integrated_model_ids"]
-    for model_id in ("dynamic-condenser", "heat-exchanger-wall", "natural-circulation-loop"):
+    assert "heat-exchanger-wall" in payload["integrated_model_ids"]
+    assert "dynamic-condenser" in payload["integrated_model_ids"]
+    for model_id in ("natural-circulation-loop", "thermal-circulation-loop"):
         assert model_id in payload["standalone_model_ids_not_in_vver"]
         assert model_id not in payload["integrated_model_ids"]
-    assert payload["vver_condenser"] == "fixed_vacuum_hotwell"
+    assert payload["vver_condenser"] == "dynamic_two_phase_shell"
 
 
 def test_invalid_commands_are_rejected_before_the_physics_step():

@@ -1,0 +1,10 @@
+name: vver_feed_step
+schema_version: 1
+engine: vver
+model_id: vver-lumped-loop
+description: Смещение уставки питания парогенератора
+duration_s: 0.4
+step_s: 0.2
+timeline:
+  - t: 0.2
+    feed_bias_kg_s: 40

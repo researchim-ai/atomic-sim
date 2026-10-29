@@ -1,0 +1,10 @@
+name: vver_load_ramp
+schema_version: 1
+engine: vver
+model_id: vver-lumped-loop
+description: Ступень дросселя с 1 до 0.5
+duration_s: 0.4
+step_s: 0.2
+timeline:
+  - t: 0.2
+    throttle: 0.5

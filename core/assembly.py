@@ -36,6 +36,7 @@ def check_topology(
     report = AssemblyReport()
     known = set(volumes)
     seen = set()
+    linked: set = set()
     for name, upstream, downstream in junctions:
         if name in seen:
             report.errors.append("Дублированное соединение %s" % name)
@@ -48,9 +49,31 @@ def check_topology(
                 report.errors.append(
                     "Соединение %s ссылается на неизвестный объём %s" % (name, end)
                 )
+            else:
+                linked.add(end)
     if not volumes:
         report.errors.append("Схема не содержит контрольных объёмов")
+    elif junctions:
+        for volume in volumes:
+            if volume not in linked:
+                report.errors.append("Объём %s не соединён со схемой" % volume)
+    elif len(list(volumes)) > 1:
+        report.errors.append("Несколько объёмов не соединены")
     return report
+
+
+def matrix_bandwidth(matrix, tolerance: float = 0.0) -> int:
+    """Максимальное |i-j| ненулевого элемента. Пустая матрица не имеет ленты."""
+    array = np.asarray(matrix, dtype=float)
+    if array.ndim != 2 or array.shape[0] != array.shape[1] or array.size == 0:
+        raise ValueError("Лента определена для квадратной матрицы")
+    band = 0
+    size = array.shape[0]
+    for row in range(size):
+        for column in range(size):
+            if abs(array[row, column]) > tolerance:
+                band = max(band, abs(row - column))
+    return band
 
 
 def jacobian_rank(matrix, relative_tolerance: float = 1.0e-8) -> int:

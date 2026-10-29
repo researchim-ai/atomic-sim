@@ -1,0 +1,22 @@
+{
+  "id": "BENCH-01",
+  "budget_frozen_before_parameter_changes": true,
+  "parameters_were_not_adjusted_to_this_file": true,
+  "accepted_as_plant_validation": false,
+  "source": "IAPWS release IF97, region 3 and region 5 reference points",
+  "license": "IAPWS-release-free-use",
+  "points": [
+    {
+      "id": "if97-region3-rho-500-t-650",
+      "inputs": {"p_pa": 25583701.8, "T_k": 650.0},
+      "reference": {"rho_kg_m3": 500.0, "h_j_kg": 1863430.19},
+      "relative_budget": 1.0e-6
+    },
+    {
+      "id": "if97-region5-t-1500-p-0.5mpa",
+      "inputs": {"p_pa": 500000.0, "T_k": 1500.0},
+      "reference": {"v_m3_kg": 1.3845509, "h_j_kg": 5219768.55},
+      "relative_budget": 1.0e-6
+    }
+  ]
+}

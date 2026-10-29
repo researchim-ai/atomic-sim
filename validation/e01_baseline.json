@@ -7,29 +7,40 @@
     "validated": false,
     "plant_referenced": false,
     "nominal_horizon_3600_s_passed": false,
-    "openmc_particles_executed": false
+    "openmc_particles_executed": true,
+    "load_rejection_full_horizon_accepted": false
   },
   "python_requires": ">=3.10",
+  "last_local_pytest": {
+    "passed": 133,
+    "seconds": 261.58,
+    "python": "3.12.9",
+    "coverage_percent": 85,
+    "coverage_scope": "core physics components plants sdk instrumentation",
+    "inventory_not_acceptance": true
+  },
   "error_budgets_are_targets_not_measured_on_the_plant": {
     "integral_mass_relative": 1e-6,
     "integral_energy_relative": 1e-5
   },
   "integrated_model_ids": [
     "vver-lumped-loop",
-    "protection-2oo3"
+    "protection-2oo3",
+    "heat-exchanger-wall",
+    "dynamic-condenser"
   ],
   "standalone_model_ids_not_in_vver": [
-    "dynamic-condenser",
-    "heat-exchanger-wall",
     "natural-circulation-loop",
+    "thermal-circulation-loop",
     "two-fluid-lumped"
   ],
-  "vver_condenser": "fixed_vacuum_hotwell",
+  "vver_condenser": "dynamic_two_phase_shell",
   "audit_regressions": [
     "tests/test_audit_defects.py"
   ],
   "notes": [
     "Наличие файла или зелёного теста не закрывает пакет A01–A24.",
-    "Динамический конденсатор, стенка и естественная циркуляция не подключены к VVERPlant."
+    "Стенка ПГ и динамический конденсатор входят в VVERPlant. Петли циркуляции не подключены. Горизонт полного сброса нагрузки не принят: за 40 с давление ПГ ещё растёт.",
+    "Локальный запуск частиц OpenMC выполнен на ENDF/B-VIII.0 вне репозитория. Без OPENMC_CROSS_SECTIONS и license.json k не подставляется."
   ]
 }
