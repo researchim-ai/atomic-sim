@@ -2,14 +2,70 @@
   "validated": false,
   "plant_referenced": false,
   "rows": [
-    {"phenomenon": "ramp-load", "test": "tests/test_plan_ten.py"},
-    {"phenomenon": "boron-and-throttle", "test": "tests/test_plan_ten.py"},
-    {"phenomenon": "pump-trip", "test": "tests/test_plan_ten.py"},
-    {"phenomenon": "feed-bias", "test": "tests/test_plan_ten.py"},
-    {"phenomenon": "rod-banks", "test": "tests/test_plan_ten.py"},
-    {"phenomenon": "diffusion-currents", "test": "tests/test_plan_ten.py"},
-    {"phenomenon": "modal-precursors-2d", "test": "tests/test_plan_ten.py"},
-    {"phenomenon": "post-chf-refused", "test": "tests/test_plan_ten.py"},
-    {"phenomenon": "observation-ledger", "test": "tests/test_plan_ten.py"}
+    {
+      "phenomenon": "ramp-load",
+      "test": "tests/test_plan_ten.py"
+    },
+    {
+      "phenomenon": "boron-and-throttle",
+      "test": "tests/test_plan_ten.py"
+    },
+    {
+      "phenomenon": "pump-trip",
+      "test": "tests/test_plan_ten.py"
+    },
+    {
+      "phenomenon": "feed-bias",
+      "test": "tests/test_plan_ten.py"
+    },
+    {
+      "phenomenon": "rod-banks",
+      "test": "tests/test_plan_ten.py"
+    },
+    {
+      "phenomenon": "diffusion-currents",
+      "test": "tests/test_plan_ten.py"
+    },
+    {
+      "phenomenon": "modal-precursors-2d",
+      "test": "tests/test_plan_ten.py"
+    },
+    {
+      "phenomenon": "post-chf-refused",
+      "test": "tests/test_plan_ten.py"
+    },
+    {
+      "phenomenon": "observation-ledger",
+      "test": "tests/test_plan_ten.py"
+    },
+    {
+      "phenomenon": "isobaric-boiling-inventory",
+      "test": "tests/test_isobaric_channel.py",
+      "model_id": "isobaric-heated-channel"
+    },
+    {
+      "phenomenon": "isobaric-time-and-space-convergence",
+      "evidence": "validation/isobaric_benchmarks_delivery.json",
+      "model_id": "isobaric-heated-channel",
+      "test": "tests/test_isobaric_channel.py"
+    },
+    {
+      "phenomenon": "wall-fluid-internal-energy-and-source-switch",
+      "test": "tests/test_wall_channel.py",
+      "evidence": "validation/wall_channel_analytic_20s.json",
+      "model_id": "isobaric-wall-heated-channel"
+    },
+    {
+      "phenomenon": "pressure-driven-liquid-momentum-wall-and-reverse-flow",
+      "test": "tests/test_dynamic_channel.py",
+      "evidence": "validation/pressure_wall_analytic.json",
+      "model_id": "pressure-driven-wall-channel"
+    },
+    {
+      "phenomenon": "fixed-pipe-geometry-and-steady-spatial-convergence",
+      "test": "tests/test_pipe_mesh_reference.py",
+      "evidence": "validation/pipe_mesh_delivery.json",
+      "model_id": "pressure-driven-wall-channel"
+    }
   ]
 }

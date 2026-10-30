@@ -1,0 +1,16 @@
+{
+  "verification": "scripts/verify_wheel.py",
+  "exit_code": 0,
+  "wheel": "dist/atomic_sim-2.0.0-py3-none-any.whl",
+  "wheel_sha256": "a7782d471b73a0405d5bd6d0f6df5ea65af266e1453d326509cf8b971a0d8d0f",
+  "installed_outside_checkout": true,
+  "cli_cases": [
+    "legacy",
+    "central BDF",
+    "Radau with command",
+    "SCRAM with exact rod stop"
+  ],
+  "cold_hot_leg_snapshot_restore_exact": true,
+  "validated": false,
+  "plant_referenced": false
+}

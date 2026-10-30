@@ -7,7 +7,7 @@ import pytest
 
 from core.status import Applicability, DomainError
 from generate_dataset import generate_vver_trajectory
-from scenarios.session import run_scenario
+from scenarios.session import bundled_scenario, load_scenario, run_scenario
 from sdk.api import create_session, restore_snapshot, snapshot_json, step_session
 from sdk.console import VVERConsole
 
@@ -25,6 +25,18 @@ def test_commands_and_snapshot_roundtrip():
     assert other.rod_command == pytest.approx(0.05)
     assert other.feed_bias_kg_s == pytest.approx(-100.0)
     assert other.network.volumes["core"].boron_fraction * 1.0e6 == pytest.approx(1500.0, rel=1e-6)
+    plant.set_sink_temperature_k(310.0)
+    carried = json.loads(snapshot_json(plant))
+    restored = create_session("vver")
+    restore_snapshot(restored, carried)
+    assert restored.t_sink == pytest.approx(310.0)
+    stale = dict(carried)
+    del stale["sink_temperature_k"]
+    held = create_session("vver")
+    held.set_sink_temperature_k(300.0)
+    with pytest.raises(DomainError):
+        restore_snapshot(held, stale)
+    assert held.t_sink == pytest.approx(300.0)
     with pytest.raises(DomainError) as rejected:
         create_session("rbmk")
     assert rejected.value.applicability == Applicability.UNSUPPORTED
@@ -34,6 +46,9 @@ def test_legacy_scenario_is_unsupported_and_vver_file_is_hashed():
     with pytest.raises(DomainError) as rejected:
         run_scenario(Path("scenarios/basic_ramp.yaml"))
     assert rejected.value.applicability == Applicability.UNSUPPORTED
+    bundled = bundled_scenario("vver_load_rejection.yaml")
+    on_disk = load_scenario(Path("scenarios/vver_load_rejection.yaml"))
+    assert bundled["_sha256"] == on_disk["_sha256"]
     report = run_scenario(Path("scenarios/vver_load_rejection.yaml"))
     assert report["model_id"] == "vver-lumped-loop"
     assert len(report["sha256"]) == 64

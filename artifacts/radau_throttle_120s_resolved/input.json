@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "name": "radau_throttle_120s_resolved",
+  "engine": "vver",
+  "model_id": "vver-lumped-loop",
+  "description": "Часовой номинал с сохранением истории BDF; численная проверка, не экспериментальная валидация.",
+  "duration_s": 120.0,
+  "step_s": 0.5,
+  "timeline": [
+    {
+      "t": 10.0,
+      "throttle": 0.98
+    }
+  ],
+  "solver": {
+    "rtol": 1e-06,
+    "atol": 1e-05,
+    "method": "Radau",
+    "first_step_s": 0.5,
+    "continuation": true,
+    "jacobian_relative_step": 2e-06
+  },
+  "budgets": {
+    "energy_relative": 1e-05,
+    "mass_relative": 1e-06,
+    "boron_relative": 1e-06
+  }
+}

@@ -1,0 +1,23 @@
+schema_version: 1
+name: protected_coastdown_120s_stops_tight
+engine: vver
+model_id: vver-lumped-loop
+description: АЗ на 10 с с отключением двигателя насоса; численная проверка, не физическая
+  валидация.
+duration_s: 120.0
+step_s: 0.5
+timeline:
+- t: 10.0
+  motor_off: true
+  scram: true
+solver:
+  rtol: 1.0e-06
+  atol: 1.0e-05
+  method: Radau
+  first_step_s: 0.5
+  continuation: true
+  jacobian_relative_step: 2.0e-06
+budgets:
+  energy_relative: 1.0e-05
+  mass_relative: 1.0e-06
+  boron_relative: 1.0e-06

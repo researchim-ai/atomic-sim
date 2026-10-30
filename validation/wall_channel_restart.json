@@ -1,0 +1,38 @@
+{
+  "validated": false,
+  "plant_referenced": false,
+  "checks": [
+    {
+      "run": "artifacts/wall_delivery_1800s",
+      "snapshot_exact": true,
+      "restarted_to_s": 1800.5,
+      "switch_heat_w": 0.0,
+      "switch_wall_to_fluid_w": 141804.5021570754,
+      "balance": {
+        "mass_relative": 2.1923869733119315e-07,
+        "energy_relative": 1.0201282826874918e-07,
+        "max_mass_residual_kg": 6.552403268855755e-07,
+        "max_energy_residual_j": 0.8306083717616275,
+        "final_mass_residual_kg": -4.1448958386852807e-07,
+        "final_energy_residual_j": -0.525520115334893,
+        "normalization": "maximum sampled absolute residual / initial absolute inventory"
+      }
+    },
+    {
+      "run": "artifacts/wall_delivery_1800s_tight",
+      "snapshot_exact": true,
+      "restarted_to_s": 1800.5,
+      "switch_heat_w": 0.0,
+      "switch_wall_to_fluid_w": 141804.5021570754,
+      "balance": {
+        "mass_relative": 4.123620497049811e-09,
+        "energy_relative": 1.9170896007819974e-09,
+        "max_mass_residual_kg": 1.2324295278753894e-08,
+        "max_energy_residual_j": 0.015609317953931168,
+        "final_mass_residual_kg": 1.0147691216994004e-08,
+        "final_energy_residual_j": 0.012850734506648908,
+        "normalization": "maximum sampled absolute residual / initial absolute inventory"
+      }
+    }
+  ]
+}

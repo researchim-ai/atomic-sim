@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "name": "isobaric_prescribed_decay_1800s",
+  "status": "completed",
+  "model_id": "isobaric-heated-channel",
+  "requested_duration_s": 1800.0,
+  "completed_time_s": 1800.0,
+  "wall_time_s": 7.414991203,
+  "accepted_output_steps": 360,
+  "balance": {
+    "mass_relative": 5.889352262088835e-08,
+    "energy_relative": 6.442978694064505e-08,
+    "max_mass_residual_kg": 1.826922706449352e-07,
+    "max_energy_residual_j": 0.23152719577774405,
+    "final_mass_residual_kg": 1.826922706449352e-07,
+    "final_energy_residual_j": 0.23152719577774405,
+    "normalization": "maximum sampled absolute residual / initial absolute inventory"
+  },
+  "budget_checks": {
+    "mass_relative": true,
+    "energy_relative": true
+  },
+  "numerical_acceptance": true,
+  "validated": false,
+  "plant_referenced": false,
+  "error": null,
+  "extrema": {
+    "time_s": {
+      "min": 0.0,
+      "max": 1800.0
+    },
+    "pressure_pa": {
+      "min": 7000000.0,
+      "max": 7000000.0
+    },
+    "outlet_enthalpy_j_kg": {
+      "min": 1167437.2138653353,
+      "max": 2503294.1331504514
+    },
+    "outlet_quality": {
+      "min": 0.0,
+      "max": 0.8210953601030613
+    },
+    "max_quality": {
+      "min": 0.0,
+      "max": 0.8210953601030613
+    },
+    "outlet_void": {
+      "min": 0.0,
+      "max": 0.9893564920043935
+    },
+    "outlet_temperature_k": {
+      "min": 539.7595995588308,
+      "max": 558.9800228057516
+    },
+    "inlet_mass_flow_kg_s": {
+      "min": 0.049787068367863944,
+      "max": 1.0
+    },
+    "outlet_mass_flow_kg_s": {
+      "min": 0.05011479876168783,
+      "max": 1.131797348620668
+    },
+    "heat_w": {
+      "min": 66939.04804452894,
+      "max": 300000.0
+    },
+    "stored_mass_kg": {
+      "min": 0.37689921287333655,
+      "max": 3.1020774868735383
+    },
+    "stored_energy_j": {
+      "min": 651544.1808547906,
+      "max": 3593480.698470025
+    },
+    "mass_residual_kg": {
+      "min": -6.731456858588558e-08,
+      "max": 1.826922706449352e-07
+    },
+    "energy_residual_j": {
+      "min": -0.08534105774015188,
+      "max": 0.23152719577774405
+    }
+  },
+  "scope": "open isobaric channel; prescribed heat/flow, not a reactor coastdown"
+}

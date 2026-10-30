@@ -1,0 +1,30 @@
+schema_version: 1
+name: isobaric_wall_shutdown_1800s
+engine: isobaric-wall-channel
+duration_s: 1800.0
+step_s: 5.0
+channel:
+  cells: 4
+  total_volume_m3: 0.004
+  pressure_pa: 7000000.0
+  inlet_enthalpy_j_kg: 1247437.2138653353
+  inlet_mass_flow_kg_s: 1.0
+  heat_w: 300000.0
+  flow_decay_s: 600.0
+  heat_decay_s: 1200.0
+solver:
+  method: Radau
+  rtol: 1.0e-07
+  max_step_s: 1.0
+budgets:
+  mass_relative: 1.0e-06
+  energy_relative: 1.0e-05
+wall:
+  total_heat_capacity_j_k: 8000.0
+  total_ua_w_k: 10000.0
+  initial_temperature_k:
+  - 555.2463026048234
+  - 555.2463026048234
+  - 555.2463026048234
+  - 555.2463026048234
+  power_off_time_s: 900.0

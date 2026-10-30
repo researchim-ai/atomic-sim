@@ -1,0 +1,35 @@
+{
+  "kind": "numerical_verification",
+  "validated": false,
+  "plant_referenced": false,
+  "scope": "Synthetic constant-pressure homogeneous boiling reservoir, prescribed C and UA",
+  "exact": {
+    "enthalpy_j_kg": 1436988.695047768,
+    "wall_temperature_k": 566.2374327299327,
+    "stored_mass_kg": 2.3343493429506794
+  },
+  "cases": [
+    {
+      "rtol": 0.001,
+      "enthalpy_error_j_kg": 0.0008958033286035061,
+      "wall_temperature_error_k": 7.763390351556154e-05,
+      "mass_error_kg": 8.441230381350806e-09,
+      "energy_residual_j": 0.8118185506900772
+    },
+    {
+      "rtol": 1e-05,
+      "enthalpy_error_j_kg": 6.952951662242413e-05,
+      "wall_temperature_error_k": 6.697505341435317e-07,
+      "mass_error_kg": 6.551834630386111e-10,
+      "energy_residual_j": 0.00542360998224467
+    },
+    {
+      "rtol": 1e-07,
+      "enthalpy_error_j_kg": 4.086177796125412e-07,
+      "wall_temperature_error_k": 3.036575435544364e-09,
+      "mass_error_kg": 3.851141627819743e-12,
+      "energy_residual_j": 2.2256514057517052e-05
+    }
+  ],
+  "passed": true
+}

@@ -14,7 +14,7 @@ import numpy as np
 from components.condenser import DynamicCondenser
 from components.heat_exchanger import HeatExchangerWall
 from control.regulation import ProtectionLogic, high_trip_time
-from core.status import Applicability, DomainError, ModelPassport, ModelStatus
+from core.status import Applicability, DomainError, ModelLimitError, ModelPassport, ModelStatus
 from physics.depletion.chains import DecayHeat
 from physics.hydraulics.network import BoundaryState, FlowNetwork, Junction, Volume
 from physics.materials.iapws import properties_pt, saturation_properties
@@ -50,6 +50,7 @@ PASSPORT = ModelPassport(
 )
 
 WORTH = 0.008  # абсолютная интегральная эффективность, параметр модели
+PRIMARY_QUALITY_LIMIT = 1e-4
 
 
 def rod_integral_worth(insertion: float) -> float:
@@ -93,6 +94,7 @@ class PlantSnapshot:
     feed_bias_kg_s: float = 0.0
     protection_setpoint_w: float = 0.0
     protection_delay_s: float = 0.0
+    sink_temperature_k: float = 293.15
 
 
 class VVERPlant:
@@ -134,6 +136,157 @@ class VVERPlant:
         self._power_channel_bias = (-0.001, 0.0, 0.001)
         self.last_protection_event_s = None
         self.last_energy_ledger = None
+        self.horizon_ledger = None
+        self._continuation_horizon = None
+        self._continuation = None
+        self._continuation_signature = None
+        self._rod_rate_override = None
+        self.last_motion_events = ()
+
+    def enable_continuation(self, horizon_s: float) -> None:
+        """Разрешить сохранение состояния интегратора до конца эксперимента."""
+        if not np.isfinite(horizon_s) or horizon_s <= self.time_s:
+            raise DomainError("Горизонт continuation должен быть позже текущего времени")
+        self._continuation_horizon = float(horizon_s)
+        self._continuation = None
+
+    def _integrate_interval(
+        self, y0, t0, t1, rtol, atol, first_step_s, jacobian_relative_step, method
+    ):
+        from core.continuation import DenseInterval
+        from core.motion import LinearComponentOutput
+        from core.solvers import IntegrationResult
+
+        position = float(y0[12])
+        if not 0.0 <= position <= 1.0:
+            raise DomainError("Начальное положение стержня вне [0, 1]")
+        speed = self.scram_speed if self.scram_latched else self.rod_command
+        if (position == 0.0 and speed < 0.0) or (position == 1.0 and speed > 0.0):
+            speed = 0.0
+        stop = t1
+        hit_time = None
+        immediate_events = ()
+        if speed != 0.0:
+            boundary = 1.0 if speed > 0.0 else 0.0
+            hit_time = t0 + (boundary - position) / speed
+            # Совпадение упора и точки вывода в пределах округления времени.
+            if 0.0 < hit_time - t1 <= 8 * np.spacing(max(1.0, abs(t1), abs(hit_time))):
+                hit_time = t1
+            stop = min(t1, hit_time)
+            if stop <= t0:
+                y0 = y0.copy()
+                y0[12] = boundary
+                immediate_events = ({"kind": "rod_stop", "t": t0, "position": boundary},)
+                stop, speed, hit_time = t1, 0.0, None
+        pieces = []
+        state = y0.copy()
+        begin = t0
+        try:
+            for end, rate in [(stop, speed)] + ([(t1, 0.0)] if stop < t1 else []):
+                self._rod_rate_override = rate
+                result = self._solve_interval(
+                    state, begin, end, rtol, atol, first_step_s, jacobian_relative_step, method
+                )
+                # Это точное решение заданного закона движения, а не коррекция
+                # физического неизвестного по допустимому диапазону после ошибки.
+                result.y = result.y.copy()
+                result.y[12] = np.clip(state[12] + rate * (result.t - begin), 0.0, 1.0)
+                if end == stop and hit_time is not None and hit_time <= t1:
+                    result.y[12, -1] = 1.0 if speed > 0.0 else 0.0
+                    result.events = (
+                        {"kind": "rod_stop", "t": stop, "position": float(result.y[12, -1])},
+                    )
+                if result.dense is not None:
+                    result.dense = LinearComponentOutput(
+                        result.dense, 12, begin, state[12], rate, result.y[12, -1]
+                    )
+                pieces.append(result)
+                state, begin = result.final.copy(), end
+        finally:
+            self._rod_rate_override = None
+        pieces[0].events = immediate_events + pieces[0].events
+        if len(pieces) == 1:
+            return pieces[0]
+        first, second = pieces
+        return IntegrationResult(
+            t=np.concatenate([first.t, second.t[1:]]),
+            y=np.column_stack([first.y, second.y[:, 1:]]),
+            n_steps=first.n_steps + second.n_steps,
+            message="Rod stop localized; " + second.message,
+            success=True,
+            dense=DenseInterval(
+                [t0, stop, t1],
+                [first.dense, second.dense],
+                mesh_times=np.concatenate([first.t, second.t[1:]]),
+            )
+            if first.dense is not None and second.dense is not None
+            else None,
+            n_rhs_evaluations=first.n_rhs_evaluations + second.n_rhs_evaluations,
+            n_jacobian_evaluations=first.n_jacobian_evaluations + second.n_jacobian_evaluations,
+            n_lu_decompositions=first.n_lu_decompositions + second.n_lu_decompositions,
+            n_accepted_steps=(first.n_accepted_steps + second.n_accepted_steps)
+            if first.n_accepted_steps is not None and second.n_accepted_steps is not None
+            else None,
+            events=first.events + second.events,
+        )
+
+    def _solve_interval(self, y0, t0, t1, rtol, atol, first_step_s, jacobian_relative_step, method):
+        from core.solvers import integrate
+
+        if self._continuation_horizon is None:
+            return integrate(
+                self.derivatives,
+                y0,
+                (t0, t1),
+                rtol=rtol,
+                atol=atol,
+                max_step=t1 - t0,
+                dense_output=True,
+                first_step=first_step_s,
+                jacobian_relative_step=jacobian_relative_step,
+                method=method,
+            )
+        from core.continuation import ImplicitContinuation
+
+        signature = (
+            self.throttle,
+            self.motor_on,
+            self.rod_command,
+            self.scram_latched,
+            self._rod_rate_override,
+            self.feed_bias_kg_s,
+            self.t_sink,
+            self.power_protection.setpoint,
+            self.power_protection.delay_s,
+            rtol,
+            atol,
+            first_step_s,
+            jacobian_relative_step,
+            method,
+            getattr(self.derivatives, "__func__", self.derivatives),
+        )
+        current = self._continuation
+        if (
+            current is None
+            or signature != self._continuation_signature
+            or current.time_s != t0
+            or not np.array_equal(current.state, y0)
+        ):
+            self._continuation = ImplicitContinuation(
+                self.derivatives,
+                y0,
+                t0,
+                self._continuation_horizon,
+                rtol=rtol,
+                atol=atol,
+                max_step=5.0,
+                first_step=first_step_s,
+                jacobian_relative_step=jacobian_relative_step,
+                method=method,
+                initial_target=t1,
+            )
+            self._continuation_signature = signature
+        return self._continuation.advance_to(t1)
 
     def _build_network(self) -> FlowNetwork:
         volumes = {
@@ -405,11 +558,20 @@ class VVERPlant:
             volume = self.network.volumes[name]
             volume.boron_kg = ppm * 1.0e-6 * volume.mass_kg
 
-    def derivatives(self, _time: float, state: np.ndarray) -> np.ndarray:
+    def refresh_algebraic(self, state: np.ndarray) -> None:
+        """Свойства и интерфейсные потоки без вычисления всех производных."""
         self.unpack(state)
         self.network.refresh_properties()
         self._check_domain()
         self._apply_heat_and_actuators()
+
+    def derivatives(self, _time: float, state: np.ndarray) -> np.ndarray:
+        try:
+            self.refresh_algebraic(state)
+        except ModelLimitError as exc:
+            exc.evaluation_time_s = float(_time)
+            exc.evaluation_phase = "rhs_probe"
+            raise
         rho = self.reactivity()
         kin = self.kinetics.derivatives(self.kinetics_state[0], self.kinetics_state[1:], rho, 0.0)
         fission = self.kinetics.power_w(self.kinetics_state[0])
@@ -427,8 +589,7 @@ class VVERPlant:
             rod_speed = 0.0
         if self.rod >= 1.0 and rod_speed > 0.0:
             rod_speed = 0.0
-        d_rod = rod_speed
-        self._sync_hotwell()
+        d_rod = rod_speed if self._rod_rate_override is None else self._rod_rate_override
         net_dot = self.network.derivatives(self.network.pack())
         steam_flow = self.network.junctions["steam"].mass_flow_kg_s
         dump_flow = self.network.junctions["dump"].mass_flow_kg_s
@@ -545,12 +706,28 @@ class VVERPlant:
     def _check_domain(self) -> None:
         for name in ("core", "hot_leg", "sg_primary", "cold_leg"):
             quality = self.network.volumes[name].thermo.quality
-            if quality > 1e-4:
-                raise DomainError(
-                    "Объёмное кипение в первичном контуре %s вне паспорта ВВЭР" % name
+            if quality > PRIMARY_QUALITY_LIMIT:
+                raise ModelLimitError(
+                    "Объёмное кипение в первичном контуре %s вне паспорта ВВЭР" % name,
+                    criterion="primary_bulk_boiling",
+                    node=name,
+                    observed=quality,
+                    limit=PRIMARY_QUALITY_LIMIT,
                 )
         if self.fuel_temperature > 2800.0 or self.fuel_temperature < 300.0:
             raise DomainError("Температура топлива вне области теплофизики модели")
+
+    def model_domain_diagnostics(self) -> dict:
+        """Значения ограничений в уже синхронизированном принятом состоянии."""
+        return {
+            "primary_bulk_boiling": {
+                name: {
+                    "observed": float(self.network.volumes[name].thermo.quality),
+                    "limit": PRIMARY_QUALITY_LIMIT,
+                }
+                for name in ("core", "hot_leg", "sg_primary", "cold_leg")
+            }
+        }
 
     def thermal_power_w_from_state(self, state: np.ndarray) -> float:
         fission = self.kinetics.power_w(float(state[0]))
@@ -567,6 +744,14 @@ class VVERPlant:
             "hotwell_w": float(dot[-2]),
             "wall_w": self.sg_wall_capacity * float(dot[-1]),
             "shaft_w": self.inertia * self.omega * float(dot[11]),
+        }
+
+    def closed_inventories(self) -> dict:
+        """Замкнутые масса контура с баком, бор и сумма энергетических запасов."""
+        return {
+            "closed_mass_kg": self.network.total_mass() + self.hotwell_mass_kg,
+            "boron_kg": self.network.total_boron(),
+            "stored_j": float(sum(self.stored_accounts_j().values())),
         }
 
     def stored_accounts_j(self) -> dict:
@@ -625,6 +810,8 @@ class VVERPlant:
         return 0.0, 0.0
 
     def _reject_if_out_of_domain(self) -> None:
+        if not np.isfinite(self.rod) or not 0.0 <= self.rod <= 1.0:
+            raise DomainError("Принятое положение стержня вне [0, 1]")
         self.network.refresh_properties()
         self._sync_hotwell()
         self._check_domain()
@@ -636,6 +823,12 @@ class VVERPlant:
                 )
 
     def _state_at(self, result, t0: float, t1: float, time_s: float) -> np.ndarray:
+        # Плотный полином в узле может отличаться от принятого y на один ULP.
+        # Checkpoint и следующий шаг обязаны брать исходный принятый вектор.
+        if time_s <= t0:
+            return np.asarray(result.y[:, 0], dtype=float).copy()
+        if time_s >= t1:
+            return np.asarray(result.y[:, -1], dtype=float).copy()
         if result.dense is not None:
             return np.asarray(result.dense(float(time_s)), dtype=float).reshape(-1)
         if t1 == t0:
@@ -706,7 +899,7 @@ class VVERPlant:
         times = []
         flows = []
         for time_s, state in samples:
-            self.derivatives(float(time_s), state)
+            self.refresh_algebraic(state)
             times.append(float(time_s))
             flows.append(self.boundary_terms_w())
         self.unpack(samples[-1][1])
@@ -725,8 +918,16 @@ class VVERPlant:
             "interval_s": times[-1] - times[0],
         }
 
-    def advance(self, dt_s: float, rtol: float = 1e-5, atol: float = 1e-4) -> dict:
-        from core.solvers import SolverError, integrate
+    def advance(
+        self,
+        dt_s: float,
+        rtol: float = 1e-5,
+        atol: float = 1e-4,
+        first_step_s: float | None = None,
+        jacobian_relative_step: float | None = None,
+        method: str = "BDF",
+    ) -> dict:
+        from core.solvers import SolverError
 
         if dt_s <= 0.0:
             raise DomainError("Шаг установки должен быть положительным")
@@ -735,17 +936,12 @@ class VVERPlant:
             t0 = self.time_s
             t1 = t0 + dt_s
             y0 = self.pack()
-            first = integrate(
-                self.derivatives,
-                y0,
-                (t0, t1),
-                rtol=rtol,
-                atol=atol,
-                max_step=dt_s,
-                dense_output=True,
+            first = self._integrate_interval(
+                y0, t0, t1, rtol, atol, first_step_s, jacobian_relative_step, method
             )
             trip = self._protection_trip_time(first, t0, t1)
             samples = self._samples(first, t0, t1)
+            motion_events = list(first.events)
             event_time = None
             if trip is not None and trip < t1 - 1.0e-10:
                 event_time = trip
@@ -756,20 +952,23 @@ class VVERPlant:
                 self.scram_latched = True
                 self._reject_if_out_of_domain()
                 samples = [item for item in samples if item[0] <= trip + 1.0e-12]
+                motion_events = [event for event in motion_events if event["t"] <= trip]
                 samples.append((trip, self.pack().copy()))
                 if t1 > trip + 1.0e-10:
-                    second = integrate(
-                        self.derivatives,
+                    second = self._integrate_interval(
                         self.pack(),
-                        (trip, t1),
-                        rtol=rtol,
-                        atol=atol,
-                        max_step=t1 - trip,
-                        dense_output=True,
+                        trip,
+                        t1,
+                        rtol,
+                        atol,
+                        first_step_s,
+                        jacobian_relative_step,
+                        method,
                     )
                     self.time_s = t1
                     self.unpack(second.final)
                     samples.extend(self._samples(second, trip, t1)[1:])
+                    motion_events.extend(second.events)
             else:
                 self.time_s = t1
                 self.unpack(first.final)
@@ -779,7 +978,10 @@ class VVERPlant:
                     self.scram_latched = True
             self._reject_if_out_of_domain()
             self.last_energy_ledger = self.energy_ledger(samples)
+            if self.horizon_ledger is not None:
+                self.horizon_ledger.observe(self)
             self.last_protection_event_s = event_time
+            self.last_motion_events = tuple(motion_events)
             return self.observation()
         except (DomainError, SolverError):
             self.restore(saved)
@@ -824,9 +1026,11 @@ class VVERPlant:
             self.feed_bias_kg_s,
             self.power_protection.setpoint,
             self.power_protection.delay_s,
+            self.t_sink,
         )
 
     def restore(self, snapshot: PlantSnapshot) -> None:
+        self._continuation = None
         self.time_s = snapshot.time_s
         self.scram_latched = snapshot.scram_latched
         self.throttle = snapshot.throttle
@@ -837,6 +1041,7 @@ class VVERPlant:
         self.power_protection.latched = snapshot.protection_latched
         self.power_protection.setpoint = snapshot.protection_setpoint_w
         self.power_protection.delay_s = snapshot.protection_delay_s
+        self.t_sink = snapshot.sink_temperature_k
         self.unpack(snapshot.state)
         self.network.refresh_properties()
         self._sync_hotwell()

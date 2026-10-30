@@ -1,0 +1,15 @@
+name: vver_pilot_nominal_60s
+schema_version: 1
+engine: vver
+model_id: vver-lumped-loop
+description: Номинал на 60 с с численными бюджетами; не экспериментальная валидация.
+duration_s: 60.0
+step_s: 1.0
+solver:
+  rtol: 0.00001
+  atol: 0.0001
+budgets:
+  mass_relative: 0.000001
+  energy_relative: 0.00001
+  boron_relative: 0.000001
+timeline: []

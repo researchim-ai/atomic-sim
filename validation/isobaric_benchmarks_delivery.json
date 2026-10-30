@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "kind": "numerical_verification",
+  "validated": false,
+  "plant_referenced": false,
+  "source_sha256": "26239485629a133ccc1f249e7c30f2c3653ed1000f0c219be92c7c9031c7e26f",
+  "pressure_pa": 7000000.0,
+  "analytic_case": {
+    "volume_m3": 0.01,
+    "heat_w": 200000.0,
+    "duration_s": 2.0,
+    "initial_enthalpy_j_kg": 1417950.4160261652
+  },
+  "analytic": [
+    {
+      "rtol": 0.001,
+      "wall_time_s": 0.0016742879997764248,
+      "enthalpy_error_j_kg": 0.37921258294954896,
+      "mass_error_kg": 1.051295499099325e-06,
+      "energy_residual_j": 8.161860399646685
+    },
+    {
+      "rtol": 1e-05,
+      "wall_time_s": 0.0016954480001913907,
+      "enthalpy_error_j_kg": 0.0014168755151331425,
+      "mass_error_kg": 3.92802390614122e-09,
+      "energy_residual_j": 0.031017675762996078
+    },
+    {
+      "rtol": 1e-07,
+      "wall_time_s": 0.003165754000292509,
+      "enthalpy_error_j_kg": 5.901791155338287e-06,
+      "mass_error_kg": 1.6361356713900932e-11,
+      "energy_residual_j": 0.0001226598396897316
+    }
+  ],
+  "spatial": [
+    {
+      "cells": 4,
+      "duration_s": 20.0,
+      "wall_time_s": 0.028992645000016637,
+      "mean_enthalpy_error_j_kg": 18750.0,
+      "outlet_error_j_kg": 0.0,
+      "mass_residual_kg": -2.368016893683489e-11,
+      "energy_residual_j": -2.816168125718832e-05
+    },
+    {
+      "cells": 8,
+      "duration_s": 20.0,
+      "wall_time_s": 0.04196949900006075,
+      "mean_enthalpy_error_j_kg": 9375.0,
+      "outlet_error_j_kg": 0.0,
+      "mass_residual_kg": -2.697342349478049e-11,
+      "energy_residual_j": -3.2078358344733715e-05
+    },
+    {
+      "cells": 16,
+      "duration_s": 20.0,
+      "wall_time_s": 0.06693027099981919,
+      "mean_enthalpy_error_j_kg": 4687.5,
+      "outlet_error_j_kg": 0.0,
+      "mass_residual_kg": -1.734545840292867e-11,
+      "energy_residual_j": -2.0628096535801888e-05
+    }
+  ],
+  "spatial_error_ratios": [
+    2.0,
+    2.0
+  ],
+  "checks": {
+    "temporal_error_decreases": true,
+    "finest_temporal_error_j_kg_below_1": true,
+    "first_order_spatial": true,
+    "outlet_steady_balance": true
+  },
+  "passed": true
+}

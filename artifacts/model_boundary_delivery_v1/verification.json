@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "source_sha256": "b7b2bd27e679f1fbecb25ff8883ff6ae0419dac4aea6c220b45cdb71ef1099e3",
+  "wheel_smoke": "passed",
+  "verification_command": "python scripts/verify_wheel.py dist/atomic_sim-2.0.0-py3-none-any.whl",
+  "installed_outside_checkout": true,
+  "synthetic_sdk_boundary_checked": true,
+  "bundled_boundary_scenario_checked": true,
+  "validated": false,
+  "plant_referenced": false,
+  "full_horizon_1800s_accepted": false,
+  "files": {
+    "atomic_sim-2.0.0-py3-none-any.whl": "2a07fc78fe34e8e4fbd1acb01a37e3a725b99aee1096a591f4cfb38a24f9f3cd",
+    "domain_boundary_delivery.json": "c347667ca76005fe3a384ab1f3a4e55495b24be60b665240548be6416d91bdb7",
+    "domain_boundary_refinement.json": "5b5b2ad6ab603c4b3b5d84cea9b88236e839d6c69c8d89bb303c86756a4bba66",
+    "domain_boundary_scenario_api.json": "840fb41777d3f290f928f476ec8ba915480a6eff0d4a360fa5c5b0e4e44a68c0"
+  }
+}

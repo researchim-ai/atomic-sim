@@ -1,0 +1,31 @@
+{
+  "id": "scram_60s-numerical-comparison",
+  "kind": "numerical_verification",
+  "validated": false,
+  "plant_referenced": false,
+  "horizon_s": 60,
+  "observable_budgets": {
+    "thermal_power_relative": 0.0001,
+    "fuel_temperature_absolute_k": 0.1,
+    "primary_pressure_absolute_pa": 2000,
+    "sg_pressure_absolute_pa": 2000,
+    "mass_flow_absolute_kg_s": 1
+  },
+  "note": "Numerical agreement targets inherited without loosening from nominal/throttle; not physical validation.",
+  "state_bounds": {
+    "rod_insertion": [
+      0,
+      1
+    ]
+  },
+  "event_expectations": [
+    {
+      "kind": "rod_stop",
+      "t": 13.75,
+      "time_tolerance_s": 1e-08,
+      "values": {
+        "position": 1.0
+      }
+    }
+  ]
+}

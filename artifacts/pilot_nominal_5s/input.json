@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "name": "vver_pilot_nominal_5s",
+  "engine": "vver",
+  "model_id": "vver-lumped-loop",
+  "description": "Номинал на 60 с с численными бюджетами; не экспериментальная валидация.",
+  "duration_s": 5.0,
+  "step_s": 1.0,
+  "timeline": [],
+  "solver": {
+    "rtol": 1e-05,
+    "atol": 0.0001
+  },
+  "budgets": {
+    "mass_relative": 1e-06,
+    "energy_relative": 1e-05,
+    "boron_relative": 1e-06
+  }
+}

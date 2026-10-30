@@ -235,6 +235,19 @@ def isenthalpic_quality(enthalpy_j_kg: float, pressure_pa: float) -> float:
     return quality
 
 
+def interface_energy_split_j(
+    moved_kg: float, h_liquid_j_kg: float, h_vapor_j_kg: float, interface_heat_j: float
+) -> tuple:
+    """Пар получает m h_v. Жидкость отдаёт m h_l и скрытую теплоту, которую не принёс интерфейс.
+
+    Сумма изменений энергии фаз равна теплу интерфейса.
+    """
+    latent = moved_kg * (h_vapor_j_kg - h_liquid_j_kg)
+    vapor_delta = moved_kg * h_vapor_j_kg
+    liquid_delta = -moved_kg * h_liquid_j_kg - (latent - interface_heat_j)
+    return liquid_delta, vapor_delta
+
+
 def hem_void_matches_drift_limit(quality: float, rho_liquid: float, rho_vapor: float) -> float:
     """При C0=1 и v_gj=0 формула дрейфа совпадает с HEM."""
     return drift_void_fraction(
@@ -443,6 +456,28 @@ def critical_density_ratio(gamma: float) -> float:
     if gamma <= 1.0:
         raise DomainError("Показатель адиабаты критической плотности должен быть больше единицы")
     return critical_temperature_ratio(gamma) ** (1.0 / (gamma - 1.0))
+
+
+def ideal_gas_cp_j_kg_k(gamma: float, gas_constant_j_kg_k: float) -> float:
+    """cp = γ R / (γ − 1) для идеального газа с постоянными теплоёмкостями."""
+    if gamma <= 1.0 or gas_constant_j_kg_k <= 0.0:
+        raise DomainError("Теплоёмкость идеального газа задана вне области")
+    return gamma * gas_constant_j_kg_k / (gamma - 1.0)
+
+
+def isentropic_speed_m_s(
+    gamma: float,
+    gas_constant_j_kg_k: float,
+    stagnation_temperature_k: float,
+    static_temperature_k: float,
+) -> float:
+    """Скорость изоэнтропного разгона: sqrt(2 cp (T0 − T))."""
+    if static_temperature_k <= 0.0 or static_temperature_k > stagnation_temperature_k:
+        raise DomainError(
+            "Статическая температура изоэнтропы лежит между нулём и температурой торможения"
+        )
+    capacity = ideal_gas_cp_j_kg_k(gamma, gas_constant_j_kg_k)
+    return math.sqrt(2.0 * capacity * (stagnation_temperature_k - static_temperature_k))
 
 
 def throat_mass_flux_ideal_gas(

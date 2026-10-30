@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "source_sha256": "b7b2bd27e679f1fbecb25ff8883ff6ae0419dac4aea6c220b45cdb71ef1099e3",
+  "status": "model_limit",
+  "completed_time_s": 122.20257568359375,
+  "snapshot_matches_cli": true,
+  "boundary": {
+    "kind": "model_limit",
+    "scope": "integration_admissibility",
+    "t": 122.20257568359375,
+    "accepted_time_s": 122.20257568359375,
+    "failed_endpoint_s": 122.20263671875,
+    "failed_attempt_start_s": 122.2021484375,
+    "interval_width_s": 6.103515625e-05,
+    "requested_time_tolerance_s": 0.0001,
+    "requested_endpoint_s": 123.0,
+    "attempts": 15,
+    "accepted_prefix_steps": 9,
+    "probe": {
+      "criterion": "primary_bulk_boiling",
+      "node": "core",
+      "observed": 0.00010000431352703879,
+      "limit": 0.0001,
+      "evaluation_time_s": 122.20263671875,
+      "evaluation_phase": "rhs_probe"
+    },
+    "message": "Объёмное кипение в первичном контуре core вне паспорта ВВЭР",
+    "physical_crossing_localized": false,
+    "last_accepted_state": {
+      "primary_bulk_boiling": {
+        "core": {
+          "observed": 9.99749806859779e-05,
+          "limit": 0.0001
+        },
+        "hot_leg": {
+          "observed": 0.0,
+          "limit": 0.0001
+        },
+        "sg_primary": {
+          "observed": 0.0,
+          "limit": 0.0001
+        },
+        "cold_leg": {
+          "observed": 0.0,
+          "limit": 0.0001
+        }
+      }
+    }
+  },
+  "wall_time_s": 18.66312385499998,
+  "validated": false,
+  "plant_referenced": false
+}

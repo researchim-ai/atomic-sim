@@ -1,0 +1,279 @@
+{
+  "status": "domain_error",
+  "error": "\u041e\u0431\u044a\u0451\u043c\u043d\u043e\u0435 \u043a\u0438\u043f\u0435\u043d\u0438\u0435 \u0432 \u043f\u0435\u0440\u0432\u0438\u0447\u043d\u043e\u043c \u043a\u043e\u043d\u0442\u0443\u0440\u0435 core \u0432\u043d\u0435 \u043f\u0430\u0441\u043f\u043e\u0440\u0442\u0430 \u0412\u0412\u042d\u0420",
+  "source_sha256": "2d584f19d04d44cb481092d591dccc609ea3966aa41dc62085b025bf829d8a56",
+  "input_sha256": "8ef3a1a3613d6e3edf6d703d7f6cea3bd7c9f74031d50a12af8a81859aea9289",
+  "start_time_s": 120.0,
+  "completed_time_s": 120.0,
+  "requested_step_s": 5.0,
+  "rtol": 1e-05,
+  "atol": 0.0001,
+  "method": "Radau",
+  "jacobian_relative_step": 1e-05,
+  "first_step_s": 1.0,
+  "wall_time_s": 0.3480047960001684,
+  "rhs_calls_including_jacobian_and_ledger": 316,
+  "profile": [
+    {
+      "function": "advance",
+      "file": "/home/user/workspace/atomic-sim/plants/vver.py",
+      "line": 898,
+      "calls": 1,
+      "own_s": 9.447000000000001e-06,
+      "cumulative_s": 0.34795256
+    },
+    {
+      "function": "_integrate_interval",
+      "file": "/home/user/workspace/atomic-sim/plants/vver.py",
+      "line": 152,
+      "calls": 1,
+      "own_s": 8.556e-06,
+      "cumulative_s": 0.331132107
+    },
+    {
+      "function": "_solve_interval",
+      "file": "/home/user/workspace/atomic-sim/plants/vver.py",
+      "line": 232,
+      "calls": 1,
+      "own_s": 3.236e-06,
+      "cumulative_s": 0.33079416
+    },
+    {
+      "function": "integrate",
+      "file": "/home/user/workspace/atomic-sim/core/solvers.py",
+      "line": 39,
+      "calls": 1,
+      "own_s": 1.5889e-05,
+      "cumulative_s": 0.33079092400000004
+    },
+    {
+      "function": "solve_ivp",
+      "file": "/home/user/miniconda3/lib/python3.12/site-packages/scipy/integrate/_ivp/ivp.py",
+      "line": 159,
+      "calls": 1,
+      "own_s": 1.5291e-05,
+      "cumulative_s": 0.33068008200000004
+    },
+    {
+      "function": "counted",
+      "file": "/home/user/workspace/atomic-sim/scripts/profile_vver_step.py",
+      "line": 61,
+      "calls": 316,
+      "own_s": 0.000225863,
+      "cumulative_s": 0.327108573
+    },
+    {
+      "function": "derivatives",
+      "file": "/home/user/workspace/atomic-sim/plants/vver.py",
+      "line": 566,
+      "calls": 316,
+      "own_s": 0.001915285,
+      "cumulative_s": 0.326847492
+    },
+    {
+      "function": "properties_rho_u",
+      "file": "/home/user/workspace/atomic-sim/physics/materials/iapws.py",
+      "line": 1298,
+      "calls": 682,
+      "own_s": 0.000710689,
+      "cumulative_s": 0.317458314
+    },
+    {
+      "function": "refresh_algebraic",
+      "file": "/home/user/workspace/atomic-sim/plants/vver.py",
+      "line": 559,
+      "calls": 316,
+      "own_s": 0.000301655,
+      "cumulative_s": 0.307435889
+    },
+    {
+      "function": "step",
+      "file": "/home/user/miniconda3/lib/python3.12/site-packages/scipy/integrate/_ivp/base.py",
+      "line": 175,
+      "calls": 4,
+      "own_s": 1.1311e-05,
+      "cumulative_s": 0.30325621
+    },
+    {
+      "function": "_step_impl",
+      "file": "/home/user/miniconda3/lib/python3.12/site-packages/scipy/integrate/_ivp/radau.py",
+      "line": 399,
+      "calls": 4,
+      "own_s": 0.000220022,
+      "cumulative_s": 0.303244899
+    },
+    {
+      "function": "refresh_properties",
+      "file": "/home/user/workspace/atomic-sim/physics/hydraulics/network.py",
+      "line": 245,
+      "calls": 632,
+      "own_s": 0.000694217,
+      "cumulative_s": 0.267388766
+    },
+    {
+      "function": "sync",
+      "file": "/home/user/workspace/atomic-sim/physics/hydraulics/network.py",
+      "line": 142,
+      "calls": 3792,
+      "own_s": 0.0012226140000000001,
+      "cumulative_s": 0.266631025
+    },
+    {
+      "function": "fun",
+      "file": "/home/user/miniconda3/lib/python3.12/site-packages/scipy/integrate/_ivp/base.py",
+      "line": 152,
+      "calls": 52,
+      "own_s": 2.5584e-05,
+      "cumulative_s": 0.233618012
+    },
+    {
+      "function": "fun_wrapped",
+      "file": "/home/user/miniconda3/lib/python3.12/site-packages/scipy/integrate/_ivp/base.py",
+      "line": 22,
+      "calls": 52,
+      "own_s": 2.7995000000000002e-05,
+      "cumulative_s": 0.23359242800000002
+    },
+    {
+      "function": "solve_collocation_system",
+      "file": "/home/user/miniconda3/lib/python3.12/site-packages/scipy/integrate/_ivp/radau.py",
+      "line": 48,
+      "calls": 8,
+      "own_s": 0.00028305400000000003,
+      "cumulative_s": 0.22931746900000002
+    },
+    {
+      "function": "_invert_two_phase",
+      "file": "/home/user/workspace/atomic-sim/physics/materials/iapws.py",
+      "line": 1519,
+      "calls": 447,
+      "own_s": 0.0013828710000000001,
+      "cumulative_s": 0.17862813200000002
+    },
+    {
+      "function": "saturation_properties",
+      "file": "/home/user/workspace/atomic-sim/physics/materials/iapws.py",
+      "line": 1058,
+      "calls": 1192,
+      "own_s": 0.001929113,
+      "cumulative_s": 0.171521571
+    },
+    {
+      "function": "residual",
+      "file": "/home/user/workspace/atomic-sim/physics/materials/iapws.py",
+      "line": 1522,
+      "calls": 1771,
+      "own_s": 0.001768894,
+      "cumulative_s": 0.161234294
+    },
+    {
+      "function": "_region1_raw",
+      "file": "/home/user/workspace/atomic-sim/physics/materials/iapws.py",
+      "line": 479,
+      "calls": 3475,
+      "own_s": 0.090349521,
+      "cumulative_s": 0.12820656800000002
+    },
+    {
+      "function": "__call__",
+      "file": "/home/user/workspace/atomic-sim/core/jacobian.py",
+      "line": 32,
+      "calls": 3,
+      "own_s": 0.000449254,
+      "cumulative_s": 0.095279842
+    },
+    {
+      "function": "_evaluate",
+      "file": "/home/user/workspace/atomic-sim/core/jacobian.py",
+      "line": 25,
+      "calls": 264,
+      "own_s": 0.000534334,
+      "cumulative_s": 0.09472398400000001
+    },
+    {
+      "function": "_invert_liquid_local",
+      "file": "/home/user/workspace/atomic-sim/physics/materials/iapws.py",
+      "line": 1214,
+      "calls": 687,
+      "own_s": 0.0036341460000000004,
+      "cumulative_s": 0.083435982
+    },
+    {
+      "function": "_pack",
+      "file": "/home/user/workspace/atomic-sim/physics/materials/iapws.py",
+      "line": 677,
+      "calls": 2619,
+      "own_s": 0.003515123,
+      "cumulative_s": 0.07998332400000001
+    },
+    {
+      "function": "_region2_raw",
+      "file": "/home/user/workspace/atomic-sim/physics/materials/iapws.py",
+      "line": 578,
+      "calls": 1427,
+      "own_s": 0.038806905,
+      "cumulative_s": 0.072203445
+    }
+  ],
+  "snapshot": {
+    "schema_version": 2,
+    "model_id": "vver-lumped-loop",
+    "model_version": "2.0.0",
+    "time_s": 120.0,
+    "state": [
+      0.8360211713042848,
+      293.9598924276933,
+      786.2187232458531,
+      192.1612143187864,
+      142.4322814135985,
+      10.965554826698877,
+      1.5162165853814495,
+      506867274.89203733,
+      6481681950.349341,
+      58865021436.60762,
+      869.4737845883635,
+      50.43954147139074,
+      1.0,
+      10702.35587307089,
+      17165481015.45632,
+      10.43123547170654,
+      4765.866422965477,
+      7634065479.814078,
+      4.645133788696185,
+      17007.748818751723,
+      20185380548.076286,
+      16.576895300074913,
+      6184.166555166754,
+      7340534268.749389,
+      6.0275044390471075,
+      13931.315145574024,
+      25666408858.21939,
+      2.4303572946043306,
+      22993.621575261346,
+      30258119750.015194,
+      0.0,
+      5791.601351801098,
+      5817.6166780437725,
+      5793.275629365887,
+      5792.046846560974,
+      35.74288483551314,
+      951.174524151115,
+      948.4244189000773,
+      0.0,
+      -1.09046495939925e-26,
+      62000.446505484964,
+      15475044674.879269,
+      543.9689136612965
+    ],
+    "scram_latched": true,
+    "throttle": 1.0,
+    "motor_on": false,
+    "rod_command": 0.0,
+    "protection_timer_s": 0.0,
+    "protection_latched": true,
+    "feed_bias_kg_s": 0.0,
+    "protection_setpoint_w": 3779328938.595183,
+    "protection_delay_s": 2.0,
+    "sink_temperature_k": 293.15
+  }
+}

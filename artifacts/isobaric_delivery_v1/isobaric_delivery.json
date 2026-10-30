@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "source_sha256": "26239485629a133ccc1f249e7c30f2c3653ed1000f0c219be92c7c9031c7e26f",
+  "validated": false,
+  "plant_referenced": false,
+  "main_suite": {
+    "passed": 346,
+    "deselected": 1,
+    "seconds": 106.65,
+    "warnings": 0
+  },
+  "new_tests": 32,
+  "excluded": "unchanged external OpenMC/MPI particle-run",
+  "coverage_measured": false,
+  "ruff": "passed",
+  "model_passport_status": "implemented",
+  "component_horizon_s": 1800,
+  "numerical_component_evidence": "validation/isobaric_delivery_comparison.json",
+  "analytic_and_spatial_evidence": "validation/isobaric_benchmarks_delivery.json",
+  "checkpoint_evidence": "validation/isobaric_restart_checks.json",
+  "vver_hour_regression": "validation/vver_hour_endpoint_fix_comparison.json",
+  "vver_limit_regression": "artifacts/vver_boundary_after_endpoint_fix/report.json",
+  "vver_coastdown_1800s_accepted": false,
+  "physical_validation_established": false
+}

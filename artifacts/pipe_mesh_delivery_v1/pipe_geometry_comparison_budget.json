@@ -1,0 +1,12 @@
+{
+  "kind": "numerical_verification",
+  "horizon_s": 120,
+  "flow_absolute_kg_s": 0.0001,
+  "pressure_absolute_pa": 1.0,
+  "fluid_temperature_absolute_k": 0.001,
+  "wall_temperature_absolute_k": 0.001,
+  "mass_relative": 1e-06,
+  "energy_relative": 1e-05,
+  "validated": false,
+  "plant_referenced": false
+}

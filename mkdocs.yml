@@ -124,6 +124,22 @@ nav:
       - Расширенные возможности: ADVANCED_FEATURES.md
       - Производительность: PERFORMANCE.md
   - Разработка:
+      - Промышленный продукт и стартап: INDUSTRIAL_STARTUP_ROADMAP_RU.md
+      - Запуск пилотного эксперимента: PILOT_EXPERIMENTS_RU.md
+      - Результаты пилотной поставки: PILOT_DELIVERY_RU.md
+      - EOS и длительная динамика: EOS_STABILITY_RU.md
+      - Производительность термодинамики: THERMO_PERFORMANCE_RU.md
+      - История BDF и длинные прогоны: BDF_CONTINUATION_RU.md
+      - Часовой номинал и якобиан: CENTRAL_JACOBIAN_RU.md
+      - Переход нагрузки и Radau: RADAU_TRANSIENT_RU.md
+      - АЗ и выбег насоса: SCRAM_COASTDOWN_RU.md
+      - EOS и восстановление checkpoint: EOS_RESTART_RU.md
+      - Граница применимости модели: MODEL_BOUNDARY_RU.md
+      - Изобарический канал кипения: ISOBARIC_CHANNEL_RU.md
+      - Тепловая инерция стенки: WALL_CHANNEL_RU.md
+      - Давление и импульс канала: PRESSURE_DRIVEN_CHANNEL_RU.md
+      - Сетка и геометрия трубы: PIPE_MESH_RU.md
+      - Технический план: PRODUCT_DEVELOPMENT_PLAN_RU.md
       - Руководство по вкладу: CONTRIBUTING.md
       - История изменений: CHANGELOG.md
       - Сводка проекта: PROJECT_SUMMARY.md

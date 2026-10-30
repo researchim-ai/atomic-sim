@@ -1,0 +1,22 @@
+schema_version: 1
+name: radau_throttle_120s_resolved_base
+engine: vver
+model_id: vver-lumped-loop
+description: Прикрытие турбины до 98% на 10 с, переход 120 с; численная проверка,
+  не физическая валидация.
+duration_s: 120.0
+step_s: 1.0
+timeline:
+- t: 10.0
+  throttle: 0.98
+solver:
+  rtol: 1.0e-05
+  atol: 0.0001
+  method: Radau
+  first_step_s: 1.0
+  continuation: true
+  jacobian_relative_step: 1.0e-05
+budgets:
+  energy_relative: 1.0e-05
+  mass_relative: 1.0e-06
+  boron_relative: 1.0e-06

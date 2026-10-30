@@ -1,0 +1,221 @@
+{
+  "id": "thermo-performance-2026-10-30",
+  "validated": false,
+  "plant_referenced": false,
+  "comparison": "analytic region-1 Newton vs previous general inversion with tighter integration tolerance",
+  "observable_errors": {
+    "thermal_power_relative": 7.400984324416288e-07,
+    "fuel_temperature_absolute_k": 4.62059201709053e-05,
+    "primary_pressure_absolute_pa": 1.4382481817156076,
+    "sg_pressure_absolute_pa": 0.11656584683805704,
+    "mass_flow_absolute_kg_s": 8.596308180131018e-05
+  },
+  "observable_checks": {
+    "thermal_power_relative": true,
+    "fuel_temperature_absolute_k": true,
+    "primary_pressure_absolute_pa": true,
+    "sg_pressure_absolute_pa": true,
+    "mass_flow_absolute_kg_s": true
+  },
+  "nominal_20s": {
+    "schema_version": 1,
+    "status": "completed",
+    "name": "newton_nominal_20s_reference",
+    "requested_duration_s": 20.0,
+    "completed_time_s": 20.0,
+    "wall_time_s": 14.960852270000032,
+    "accepted_steps": 4,
+    "balance": {
+      "steps": 4,
+      "energy_max_abs_j": 63.29320213198662,
+      "energy_integral_j": -26.23421972990036,
+      "energy_global_j": -26.2341365814209,
+      "energy_relative": 1.557482354279934e-11,
+      "energy_scale_j": 1684393823745.7366,
+      "energy_net_relative": 0.0017483860355456565,
+      "energy_throughput_j": 121599082941.29779,
+      "energy_normalization": "max(1 J, abs(initial stored energy), gross boundary throughput)",
+      "mass_drift_kg": 2.9103830456733704e-11,
+      "mass_relative": 2.1153265450566477e-16,
+      "boron_drift_kg": -1.4210854715202004e-14,
+      "boron_relative": 3.542871025609169e-16,
+      "full_horizon_accepted": false
+    },
+    "budget_checks": {
+      "mass_relative": true,
+      "energy_relative": true,
+      "boron_relative": true
+    },
+    "numerical_acceptance": true,
+    "validated": false,
+    "plant_referenced": false,
+    "error": null,
+    "events": [],
+    "extrema": {
+      "time_s": {
+        "min": 0.0,
+        "max": 20.0
+      },
+      "fission_power_w": {
+        "min": 3023463150.871369,
+        "max": 3023466508.889301
+      },
+      "thermal_power_w": {
+        "min": 3023463150.871601,
+        "max": 3023466320.0347037
+      },
+      "electrical_power_w": {
+        "min": 921971241.0414294,
+        "max": 921971248.916155
+      },
+      "fuel_temperature_k": {
+        "min": 899.9999999997581,
+        "max": 900.0000551186845
+      },
+      "rod_insertion": {
+        "min": 0.25,
+        "max": 0.25
+      },
+      "reactivity": {
+        "min": 0.0,
+        "max": 3.2044137100228913e-09
+      },
+      "primary_pressure_pa": {
+        "min": 15877658.258942444,
+        "max": 15877660.615088103
+      },
+      "sg_pressure_pa": {
+        "min": 6399999.923570408,
+        "max": 6400000.080467797
+      },
+      "mass_flow_kg_s": {
+        "min": 17999.99950784567,
+        "max": 18000.000000479948
+      },
+      "steam_flow_kg_s": {
+        "min": 1166.2906465027963,
+        "max": 1166.2906548655221
+      },
+      "feed_flow_kg_s": {
+        "min": 1166.290535452192,
+        "max": 1166.2907309818602
+      },
+      "dump_flow_kg_s": {
+        "min": -3.690338330189143e-23,
+        "max": 4.106483332416853e-23
+      },
+      "pressurizer_heater_w": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "energy_residual_j": {
+        "min": -63.29320213198662,
+        "max": 37.519755363464355
+      }
+    }
+  },
+  "attempt_300s": {
+    "schema_version": 1,
+    "status": "wall_limit",
+    "name": "newton_nominal_300s",
+    "requested_duration_s": 300.0,
+    "completed_time_s": 75.0,
+    "wall_time_s": 180.00469197100028,
+    "accepted_steps": 15,
+    "balance": {
+      "steps": 15,
+      "energy_max_abs_j": 611.2210509479046,
+      "energy_integral_j": 2085.03822311759,
+      "energy_global_j": 2085.03830909729,
+      "energy_relative": 1.237856776546832e-09,
+      "energy_scale_j": 1684393823745.7366,
+      "energy_net_relative": 0.00019972411774814584,
+      "energy_throughput_j": 456008598446.6566,
+      "energy_normalization": "max(1 J, abs(initial stored energy), gross boundary throughput)",
+      "mass_drift_kg": -5.820766091346741e-10,
+      "mass_relative": 4.230653090113295e-15,
+      "boron_drift_kg": 2.0605739337042905e-13,
+      "boron_relative": 5.137162987133295e-15,
+      "full_horizon_accepted": false
+    },
+    "budget_checks": {
+      "mass_relative": true,
+      "energy_relative": true,
+      "boron_relative": true
+    },
+    "numerical_acceptance": false,
+    "validated": false,
+    "plant_referenced": false,
+    "error": null,
+    "events": [],
+    "extrema": {
+      "time_s": {
+        "min": 0.0,
+        "max": 75.0
+      },
+      "fission_power_w": {
+        "min": 3023444401.592713,
+        "max": 3023883681.1761975
+      },
+      "thermal_power_w": {
+        "min": 3023451522.063528,
+        "max": 3023858189.9615483
+      },
+      "electrical_power_w": {
+        "min": 921971158.5011806,
+        "max": 921990257.0641146
+      },
+      "fuel_temperature_k": {
+        "min": 899.9999999997581,
+        "max": 900.0232810890922
+      },
+      "rod_insertion": {
+        "min": 0.25,
+        "max": 0.25
+      },
+      "reactivity": {
+        "min": -8.192277896614542e-07,
+        "max": 7.078996010773152e-07
+      },
+      "primary_pressure_pa": {
+        "min": 15877126.99690179,
+        "max": 15877660.615088103
+      },
+      "sg_pressure_pa": {
+        "min": 6399999.923570408,
+        "max": 6400134.97825424
+      },
+      "mass_flow_kg_s": {
+        "min": 17997.496383056223,
+        "max": 18001.992952665598
+      },
+      "steam_flow_kg_s": {
+        "min": 1166.2905298893288,
+        "max": 1166.3148530084793
+      },
+      "feed_flow_kg_s": {
+        "min": 1166.2819352630684,
+        "max": 1166.322568951823
+      },
+      "dump_flow_kg_s": {
+        "min": -2.8676426528431136e-20,
+        "max": 3.996425579248855e-21
+      },
+      "pressurizer_heater_w": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "energy_residual_j": {
+        "min": -433.1993751823902,
+        "max": 611.2210509479046
+      }
+    }
+  },
+  "local_tests": {
+    "passed": 247,
+    "deselected": 1,
+    "seconds": 128.56,
+    "excluded": "unchanged real OpenMC MPI integration test",
+    "coverage_measured": false
+  }
+}

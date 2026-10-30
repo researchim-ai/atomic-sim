@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "name": "central_jacobian_hour_tight",
+  "engine": "vver",
+  "model_id": "vver-lumped-loop",
+  "description": "Часовой номинал с сохранением истории BDF; численная проверка, не экспериментальная валидация.",
+  "duration_s": 3600.0,
+  "step_s": 2.5,
+  "timeline": [],
+  "solver": {
+    "rtol": 3e-06,
+    "atol": 3e-05,
+    "first_step_s": 2.5,
+    "continuation": true,
+    "jacobian_relative_step": 5e-06
+  },
+  "budgets": {
+    "energy_relative": 1e-05,
+    "mass_relative": 1e-06,
+    "boron_relative": 1e-06
+  }
+}

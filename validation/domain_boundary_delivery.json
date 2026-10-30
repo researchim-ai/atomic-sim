@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "source_sha256": "b7b2bd27e679f1fbecb25ff8883ff6ae0419dac4aea6c220b45cdb71ef1099e3",
+  "validated": false,
+  "plant_referenced": false,
+  "main_suite": {
+    "passed": 314,
+    "deselected": 1,
+    "seconds": 107.81,
+    "warnings": 0
+  },
+  "new_tests": 15,
+  "excluded": "unchanged external OpenMC/MPI particle-run",
+  "coverage_measured": false,
+  "ruff": "passed",
+  "boundary_refinement_evidence": "validation/domain_boundary_refinement.json",
+  "full_horizon_accepted": false,
+  "physical_crossing_localized": false,
+  "scenario_api_evidence": "validation/domain_boundary_scenario_api.json",
+  "scenario_snapshot_matches_cli": true
+}

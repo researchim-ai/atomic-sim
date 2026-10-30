@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "name": "scram_from_zero_regression",
+  "requested_duration_s": 4.0,
+  "completed_time_s": 4.0,
+  "wall_time_s": 1.0909112250010367,
+  "accepted_steps": 4,
+  "balance": {
+    "steps": 4,
+    "energy_max_abs_j": 116276.10682630539,
+    "energy_integral_j": -205087.53730106354,
+    "energy_global_j": -205087.53730678558,
+    "energy_relative": 1.2175747406311083e-07,
+    "energy_scale_j": 1684393823745.7366,
+    "energy_net_relative": 4.363988188617228e-05,
+    "energy_throughput_j": 19619918111.31517,
+    "energy_normalization": "max(1 J, abs(initial stored energy), gross boundary throughput)",
+    "mass_drift_kg": -2.9103830456733704e-11,
+    "mass_relative": 2.1153265450566477e-16,
+    "boron_drift_kg": 0.0,
+    "boron_relative": 0.0,
+    "full_horizon_accepted": false
+  },
+  "budget_checks": {
+    "energy_relative": true,
+    "mass_relative": true,
+    "boron_relative": true
+  },
+  "numerical_acceptance": true,
+  "validated": false,
+  "plant_referenced": false,
+  "error": null,
+  "events": [
+    {
+      "kind": "command",
+      "t": 0.0,
+      "scram": true
+    },
+    {
+      "kind": "rod_stop",
+      "t": 3.7499999999999996,
+      "position": 1.0
+    }
+  ],
+  "extrema": {
+    "time_s": {
+      "min": 0.0,
+      "max": 4.0
+    },
+    "fission_power_w": {
+      "min": 1139971958.534724,
+      "max": 3023463150.8761463
+    },
+    "thermal_power_w": {
+      "min": 1252400492.0414872,
+      "max": 3023463150.876147
+    },
+    "electrical_power_w": {
+      "min": 921756848.1986458,
+      "max": 921971241.8770454
+    },
+    "fuel_temperature_k": {
+      "min": 882.204451491198,
+      "max": 900.0
+    },
+    "rod_insertion": {
+      "min": 0.25,
+      "max": 1.0
+    },
+    "reactivity": {
+      "min": -0.0062077777277749786,
+      "max": 0.0
+    },
+    "primary_pressure_pa": {
+      "min": 15810197.887654204,
+      "max": 15877660.615088103
+    },
+    "sg_pressure_pa": {
+      "min": 6397925.696524291,
+      "max": 6399999.999999999
+    },
+    "mass_flow_kg_s": {
+      "min": 18000.0,
+      "max": 18013.9852182116
+    },
+    "steam_flow_kg_s": {
+      "min": 1166.0476887837517,
+      "max": 1166.2906465073709
+    },
+    "feed_flow_kg_s": {
+      "min": 1164.9935769797876,
+      "max": 1166.3213511530705
+    },
+    "dump_flow_kg_s": {
+      "min": -6.89822348216395e-26,
+      "max": 5.441646592377028e-25
+    },
+    "pressurizer_heater_w": {
+      "min": 0.0,
+      "max": 0.0
+    },
+    "energy_residual_j": {
+      "min": -116276.10682630539,
+      "max": 71618.64456915855
+    }
+  }
+}

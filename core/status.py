@@ -32,6 +32,27 @@ class DomainError(RuntimeError):
         self.applicability = applicability
 
 
+class ModelLimitError(DomainError):
+    """Распознанное ограничение паспорта, отдельно от отказа EOS."""
+
+    def __init__(self, message, *, criterion, node, observed, limit):
+        super().__init__(message)
+        self.criterion, self.node = criterion, node
+        self.observed, self.limit = float(observed), float(limit)
+        self.evaluation_time_s = None
+        self.evaluation_phase = "state_check"
+
+    def details(self):
+        return {
+            "criterion": self.criterion,
+            "node": self.node,
+            "observed": self.observed,
+            "limit": self.limit,
+            "evaluation_time_s": self.evaluation_time_s,
+            "evaluation_phase": self.evaluation_phase,
+        }
+
+
 class SolverError(RuntimeError):
     """Интегратор не сошёлся. Результат не подменяется ограничением."""
 

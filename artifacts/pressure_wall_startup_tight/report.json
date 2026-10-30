@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "name": "pressure_wall_startup_005s tight",
+  "status": "completed",
+  "model_id": "pressure-driven-wall-channel",
+  "requested_duration_s": 0.05,
+  "completed_time_s": 0.05,
+  "wall_time_s": 2.8856766980006796,
+  "accepted_output_steps": 200,
+  "balance": {
+    "mass_relative": 6.494772603445819e-16,
+    "energy_relative": 5.131455824938569e-16,
+    "max_mass_residual_kg": 2.1701805995311807e-15,
+    "max_energy_residual_j": 3.712472107508802e-09,
+    "final_mass_residual_kg": -6.682753787635488e-16,
+    "final_energy_residual_j": -1.0015526186180068e-09,
+    "normalization": "maximum sampled absolute residual / initial absolute inventory"
+  },
+  "budget_checks": {
+    "mass_relative": true,
+    "energy_relative": true
+  },
+  "numerical_acceptance": true,
+  "validated": false,
+  "plant_referenced": false,
+  "error": null,
+  "events": [],
+  "extrema": {
+    "time_s": {
+      "min": 0.0,
+      "max": 0.05
+    },
+    "inlet_mass_flow_kg_s": {
+      "min": 0.0,
+      "max": 0.3247119931184059
+    },
+    "outlet_mass_flow_kg_s": {
+      "min": 0.0,
+      "max": 0.32471899036239893
+    },
+    "min_pressure_pa": {
+      "min": 7003339.600789878,
+      "max": 7010000.0
+    },
+    "max_pressure_pa": {
+      "min": 7010000.0,
+      "max": 7016660.761248942
+    },
+    "min_temperature_k": {
+      "min": 499.9986242256544,
+      "max": 500.00000397031164
+    },
+    "max_temperature_k": {
+      "min": 500.0,
+      "max": 500.00137591372965
+    },
+    "min_wall_temperature_k": {
+      "min": 500.0,
+      "max": 500.0186873781853
+    },
+    "max_wall_temperature_k": {
+      "min": 500.0,
+      "max": 500.0186958182683
+    },
+    "heat_w": {
+      "min": 3000.0,
+      "max": 3000.0
+    },
+    "wall_to_fluid_w": {
+      "min": 0.0,
+      "max": 18.658061718326735
+    },
+    "max_mach": {
+      "min": 0.0,
+      "max": 0.00030885781621843556
+    },
+    "stored_mass_kg": {
+      "min": 3.341426429667617,
+      "max": 3.341426608808114
+    },
+    "stored_energy_j": {
+      "min": 7234734.613647863,
+      "max": 7234884.489753816
+    },
+    "mass_residual_kg": {
+      "min": -2.1701805995311807e-15,
+      "max": 0.0
+    },
+    "energy_residual_j": {
+      "min": -3.712472107508802e-09,
+      "max": 1.392098880614867e-09
+    }
+  },
+  "scope": {
+    "model_id": "pressure-driven-wall-channel",
+    "approximations": [
+      "смешиваемые неподвижные объёмы IF97, донорная энтальпия",
+      "жидкость без кипения, горизонтальные соединения",
+      "сосредоточенный импульс, заданные местные сопротивления",
+      "внутренняя энергия и энтальпийные потоки без запаса кинетической энергии",
+      "постоянные C/UA; без насоса, CHF и нейтроники"
+    ]
+  }
+}

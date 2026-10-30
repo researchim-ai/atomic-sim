@@ -8,6 +8,7 @@ from scipy.linalg import expm
 
 from components.grid import electrical_power_w, speed_after_constant_torques, synchronous_balance
 from components.separator import SteamDrum
+from core.status import DomainError
 from coupling.openmc_adapter import OpenMCAdapter, slab_specification
 from physics.depletion.cram import cram16
 from physics.hydraulics.two_phase_ext import (
@@ -135,6 +136,11 @@ def test_reactor_types_have_their_own_balances():
     msr.decay_constant = 0.0
     msr.advance(2.0, 0.0)
     assert msr.core_precursors + msr.loop_precursors == pytest.approx(before, rel=1e-8)
+    produced = 3.0
+    msr.advance(4.0, produced)
+    assert msr.core_precursors + msr.loop_precursors == pytest.approx(before + produced * 4.0, rel=1e-8)
+    with pytest.raises(DomainError):
+        msr.equilibrium_precursors(produced)
 
 
 def test_drum_generator_uq_ekf_batch_and_openmc_adapter():

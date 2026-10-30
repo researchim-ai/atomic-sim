@@ -45,7 +45,11 @@ jobs:
         pip install build
         python -m build
         python -m pip install --force-reinstall dist/atomic_sim-*.whl
-        cd /tmp && python -c "from sdk.api import create_session; from scenarios.session import load_scenario; import generate_dataset; plant=create_session('vver'); print(plant.passport.model_id, load_scenario is not None, generate_dataset.main)"
+        cd /tmp && python -c "from sdk.api import create_session; from data.catalog import load_sources; from scenarios.session import bundled_scenario; import generate_dataset; plant=create_session('vver'); sources=load_sources(); scenario=bundled_scenario('vver_load_rejection.yaml'); assert sources and scenario['engine']=='vver'; print(plant.passport.model_id, len(sources), scenario['name'], generate_dataset.main)"
+
+    - name: Exercise installed experiment CLI outside checkout
+      run: |
+        python scripts/verify_wheel.py dist/atomic_sim-*.whl
 
   performance:
     runs-on: ubuntu-latest

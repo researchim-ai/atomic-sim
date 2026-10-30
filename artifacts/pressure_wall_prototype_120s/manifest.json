@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "source_sha256": "9350c954d9d67db9155b8e0614b1936b1f079be9c04b3950e8c839cf9f6ce228",
+  "input_sha256": "2e8cce4945b4bc5fa56a17c0de62eee464c077dc7569c85513cb03e3cd2172ad",
+  "passport": {
+    "model_id": "pressure-driven-wall-channel",
+    "version": "0.1.0",
+    "status": "implemented",
+    "phenomenon": "Однофазный канал с динамикой давления, импульсом соединений и стенкой",
+    "approximations": [
+      "смешиваемые неподвижные объёмы IF97, донорная энтальпия",
+      "жидкость без кипения, горизонтальные соединения",
+      "сосредоточенный импульс, заданные местные сопротивления",
+      "внутренняя энергия и энтальпийные потоки без запаса кинетической энергии",
+      "постоянные C/UA; без насоса, CHF и нейтроники"
+    ],
+    "applicability": "Жидкость IF97 region 1; прямые и обратные потоки; low-Mach приближение",
+    "data_sources": [
+      "physics.hydraulics.network.FlowNetwork",
+      "https://iapws.org/technical-guidance/release/IF97-Rev"
+    ],
+    "plant_referenced": false,
+    "notes": []
+  },
+  "python": "3.12.9",
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.2"
+  },
+  "solver": {
+    "method": "Radau",
+    "rtol": 1e-07,
+    "max_step_s": 0.5
+  },
+  "validated": false,
+  "plant_referenced": false,
+  "artifacts": {
+    "checkpoint.json": "ab1088e5e691800b863c366cada96f448e5367e1b0d9c1ea5ca77889377f9c39",
+    "input.json": "2e8cce4945b4bc5fa56a17c0de62eee464c077dc7569c85513cb03e3cd2172ad",
+    "report.json": "d188e11818c53d1776faae10078ee8d5a3439b9ad92a33a12cdf29a14feb1777",
+    "report.md": "159834ae39b23ca3873bc792b2a5d00048550a576dd9df086c4bfcd103279488",
+    "trajectory.csv": "f4fb06d7f96a2c033f2054ab56fb92ff27989da8ef8c1ad194ed6176d10a48e3"
+  }
+}

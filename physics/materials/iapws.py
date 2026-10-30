@@ -11,6 +11,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from functools import lru_cache
 
 import numpy as np
 
@@ -539,6 +540,8 @@ def _region1_raw(temperature_k: float, pressure_mpa: float) -> dict:
             / ((gamma_pi - tau * gamma_pi_tau) ** 2 / (tau**2 * gamma_tau_tau) - gamma_pi_pi)
         )
         sound = np.sqrt(sound_arg) if sound_arg > 0.0 else np.nan
+    dv_dp = R_KJ * temperature_k * gamma_pi_pi / (16.53**2 * 1000.0)
+    dv_dt = R_KJ * (gamma_pi - tau * gamma_pi_tau) / (16.53 * 1000.0)
     return {
         "v": v,
         "h": h,
@@ -547,6 +550,10 @@ def _region1_raw(temperature_k: float, pressure_mpa: float) -> dict:
         "cv": cv,
         "w": float(sound),
         "u": h - pressure_mpa * v * 1000.0,
+        "dv_dp_mpa": dv_dp,
+        "dv_dt": dv_dt,
+        "du_dp_mpa": -1000.0 * (temperature_k * dv_dt + pressure_mpa * dv_dp),
+        "du_dt": cp - 1000.0 * pressure_mpa * dv_dt,
     }
 
 
@@ -637,6 +644,7 @@ def _region2_raw(temperature_k: float, pressure_mpa: float) -> dict:
         "cv": cv,
         "w": float(np.sqrt(numer / denom)),
         "u": h - pressure_mpa * v * 1000.0,
+        "dv_dt": R_KJ * (gamma_pi - tau * gr_pi_tau) / 1000.0,
     }
 
 
@@ -692,13 +700,89 @@ def _pack(
 _R3_N0 = 1.0658070028513
 _R3_I = np.array(
     [
-        0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 8, 9, 9, 10, 10, 11,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        4,
+        4,
+        4,
+        4,
+        5,
+        5,
+        5,
+        6,
+        6,
+        6,
+        7,
+        8,
+        9,
+        9,
+        10,
+        10,
+        11,
     ],
     dtype=float,
 )
 _R3_J = np.array(
     [
-        0, 1, 2, 7, 10, 12, 23, 2, 6, 15, 17, 0, 2, 6, 7, 22, 26, 0, 2, 4, 16, 26, 0, 2, 4, 26, 1, 3, 26, 0, 2, 26, 2, 26, 2, 26, 0, 1, 26,
+        0,
+        1,
+        2,
+        7,
+        10,
+        12,
+        23,
+        2,
+        6,
+        15,
+        17,
+        0,
+        2,
+        6,
+        7,
+        22,
+        26,
+        0,
+        2,
+        4,
+        16,
+        26,
+        0,
+        2,
+        4,
+        26,
+        1,
+        3,
+        26,
+        0,
+        2,
+        26,
+        2,
+        26,
+        2,
+        26,
+        0,
+        1,
+        26,
     ],
     dtype=float,
 )
@@ -792,7 +876,9 @@ def _region3_raw(density_kg_m3: float, temperature_k: float) -> dict:
         )
     )
     j_pos = _R3_J != 0.0
-    phi_t = float(np.sum(_R3_N[j_pos] * _R3_J[j_pos] * delta ** _R3_I[j_pos] * tau ** (_R3_J[j_pos] - 1.0)))
+    phi_t = float(
+        np.sum(_R3_N[j_pos] * _R3_J[j_pos] * delta ** _R3_I[j_pos] * tau ** (_R3_J[j_pos] - 1.0))
+    )
     j_second = (_R3_J != 0.0) & (_R3_J != 1.0)
     phi_tt = float(
         np.sum(
@@ -818,9 +904,16 @@ def _region3_raw(density_kg_m3: float, temperature_k: float) -> dict:
     s = R_KJ * (tau * phi_t - phi)
     cv = -R_KJ * tau**2 * phi_tt
     cp_den = 2.0 * delta * phi_d + delta**2 * phi_dd
-    cp = R_KJ * (-tau**2 * phi_tt + (delta * phi_d - delta * tau * phi_dt) ** 2 / cp_den)
-    sound_arg = R_KJ * temperature_k * 1000.0 * (
-        2.0 * delta * phi_d + delta**2 * phi_dd - (delta * phi_d - delta * tau * phi_dt) ** 2 / (tau**2 * phi_tt)
+    cp = R_KJ * (-(tau**2) * phi_tt + (delta * phi_d - delta * tau * phi_dt) ** 2 / cp_den)
+    sound_arg = (
+        R_KJ
+        * temperature_k
+        * 1000.0
+        * (
+            2.0 * delta * phi_d
+            + delta**2 * phi_dd
+            - (delta * phi_d - delta * tau * phi_dt) ** 2 / (tau**2 * phi_tt)
+        )
     )
     with np.errstate(invalid="ignore"):
         sound = float(np.sqrt(sound_arg)) if sound_arg > 0.0 else float("nan")
@@ -870,34 +963,64 @@ def _region5_raw(temperature_k: float, pressure_mpa: float) -> dict:
     gamma0_pi_pi = -1.0 / pi**2
     gamma0_tau = float(np.sum(_R5_N0[j_pos] * _R5_J0[j_pos] * tau ** (_R5_J0[j_pos] - 1.0)))
     gamma0_tau_tau = float(
-        np.sum(_R5_N0[j_second] * _R5_J0[j_second] * (_R5_J0[j_second] - 1.0) * tau ** (_R5_J0[j_second] - 2.0))
+        np.sum(
+            _R5_N0[j_second]
+            * _R5_J0[j_second]
+            * (_R5_J0[j_second] - 1.0)
+            * tau ** (_R5_J0[j_second] - 2.0)
+        )
     )
     gamma_r = float(np.sum(_R5_N * pi**_R5_I * tau**_R5_J))
     gamma_r_pi = float(np.sum(_R5_N * _R5_I * pi ** (_R5_I - 1.0) * tau**_R5_J))
     i_second = _R5_I > 1.0
     gamma_r_pi_pi = float(
-        np.sum(_R5_N[i_second] * _R5_I[i_second] * (_R5_I[i_second] - 1.0) * pi ** (_R5_I[i_second] - 2.0) * tau ** _R5_J[i_second])
+        np.sum(
+            _R5_N[i_second]
+            * _R5_I[i_second]
+            * (_R5_I[i_second] - 1.0)
+            * pi ** (_R5_I[i_second] - 2.0)
+            * tau ** _R5_J[i_second]
+        )
     )
     gamma_r_tau = float(np.sum(_R5_N * _R5_J * pi**_R5_I * tau ** (_R5_J - 1.0)))
     j_r = (_R5_J != 0.0) & (_R5_J != 1.0)
     gamma_r_tau_tau = float(
-        np.sum(_R5_N[j_r] * _R5_J[j_r] * (_R5_J[j_r] - 1.0) * pi ** _R5_I[j_r] * tau ** (_R5_J[j_r] - 2.0))
+        np.sum(
+            _R5_N[j_r]
+            * _R5_J[j_r]
+            * (_R5_J[j_r] - 1.0)
+            * pi ** _R5_I[j_r]
+            * tau ** (_R5_J[j_r] - 2.0)
+        )
     )
-    gamma_r_pi_tau = float(np.sum(_R5_N * _R5_I * _R5_J * pi ** (_R5_I - 1.0) * tau ** (_R5_J - 1.0)))
+    gamma_r_pi_tau = float(
+        np.sum(_R5_N * _R5_I * _R5_J * pi ** (_R5_I - 1.0) * tau ** (_R5_J - 1.0))
+    )
     gamma_pi = gamma0_pi + gamma_r_pi
     v = pi * gamma_pi * R_KJ * temperature_k / pressure_mpa / 1000.0
     h = tau * (gamma0_tau + gamma_r_tau) * R_KJ * temperature_k
     s = R_KJ * (tau * (gamma0_tau + gamma_r_tau) - (gamma0 + gamma_r))
     cp = -R_KJ * tau**2 * (gamma0_tau_tau + gamma_r_tau_tau)
     cv = R_KJ * (
-        -tau**2 * (gamma0_tau_tau + gamma_r_tau_tau)
+        -(tau**2) * (gamma0_tau_tau + gamma_r_tau_tau)
         + (gamma_pi - tau * gamma_r_pi_tau) ** 2 / (gamma0_pi_pi + gamma_r_pi_pi)
     )
     numer = R_KJ * temperature_k * 1000.0 * (1.0 + 2.0 * pi * gamma_r_pi + pi**2 * gamma_r_pi**2)
-    denom = 1.0 - pi**2 * gamma_r_pi_pi + (1.0 + pi * gamma_r_pi - tau * pi * gamma_r_pi_tau) ** 2 / (
-        tau**2 * (gamma0_tau_tau + gamma_r_tau_tau)
+    denom = (
+        1.0
+        - pi**2 * gamma_r_pi_pi
+        + (1.0 + pi * gamma_r_pi - tau * pi * gamma_r_pi_tau) ** 2
+        / (tau**2 * (gamma0_tau_tau + gamma_r_tau_tau))
     )
-    return {"v": v, "h": h, "s": s, "cp": cp, "cv": cv, "w": float(np.sqrt(numer / denom)), "u": h - pressure_mpa * v * 1000.0}
+    return {
+        "v": v,
+        "h": h,
+        "s": s,
+        "cp": cp,
+        "cv": cv,
+        "w": float(np.sqrt(numer / denom)),
+        "u": h - pressure_mpa * v * 1000.0,
+    }
 
 
 def properties_pt(pressure_pa: float, temperature_k: float) -> ThermoState:
@@ -919,6 +1042,21 @@ def properties_pt(pressure_pa: float, temperature_k: float) -> ThermoState:
     return _pack(raw, temperature_k, pressure_pa, quality, region)
 
 
+def isobaric_enthalpy_slope_j_kg_k(
+    pressure_pa: float, temperature_k: float, step_k: float = 0.05
+) -> float:
+    """(∂h/∂T)_p центральной разностью внутри одной области IF97."""
+    if step_k <= 0.0:
+        raise DomainError("Шаг изобарного наклона энтальпии должен быть положительным")
+    hot = properties_pt(pressure_pa, temperature_k + step_k)
+    cold = properties_pt(pressure_pa, temperature_k - step_k)
+    center = properties_pt(pressure_pa, temperature_k)
+    if hot.region != center.region or cold.region != center.region:
+        raise DomainError("Изобарный наклон энтальпии пересёк границу области")
+    return (hot.h_j_kg - cold.h_j_kg) / (2.0 * step_k)
+
+
+@lru_cache(maxsize=256)
 def saturation_properties(pressure_pa: float) -> tuple:
     """Насыщенная жидкость и пар. Возвращает (liquid, vapor)."""
     p_mpa = pressure_pa * 1.0e-6
@@ -1038,9 +1176,7 @@ def properties_pu(pressure_pa: float, internal_energy_j_kg: float) -> ThermoStat
         return properties_pt(pressure_pa, temperature)
 
 
-def _project_equilibrium(
-    density_kg_m3: float, internal_energy_j_kg: float
-) -> ThermoState:
+def _project_equilibrium(density_kg_m3: float, internal_energy_j_kg: float) -> ThermoState:
     """Ближайшее равновесное состояние, если пробная точка якобиана вышла из купола.
 
     Масса и энергия интегратора не переписываются. Несовпадение сохраняется в полях
@@ -1076,6 +1212,97 @@ def _project_equilibrium(
     )
 
 
+def _invert_liquid_local(
+    volume: float,
+    energy_kj: float,
+    pressure_mpa: float,
+    temperature_k: float,
+    *,
+    max_iterations: int = 8,
+) -> ThermoState | None:
+    """Локальный Newton с производными того же потенциала IF97 области 1.
+
+    Шаг, покидающий область, не принимается. Неуспех возвращает управление
+    общему поиску; ближайшее состояние не подставляется вместо решения.
+    """
+    try:
+        if classify_region(temperature_k, pressure_mpa) != 1:
+            return None
+        if pressure_mpa <= saturation_pressure_mpa(temperature_k) * (1.0 + 1e-7):
+            return None
+    except DomainError:
+        return None
+    energy_scale = max(abs(energy_kj), 1.0)
+    for _ in range(max_iterations):
+        raw = _region1_raw(temperature_k, pressure_mpa)
+        residual = np.array([(raw["v"] - volume) / volume, (raw["u"] - energy_kj) / energy_scale])
+        error = float(np.max(np.abs(residual)))
+        if error <= 5e-14:
+            return _pack(raw, temperature_k, pressure_mpa * 1e6, 0.0, 1)
+        jacobian = np.array(
+            [
+                [raw["dv_dp_mpa"] / volume, raw["dv_dt"] / volume],
+                [raw["du_dp_mpa"] / energy_scale, raw["du_dt"] / energy_scale],
+            ]
+        )
+        try:
+            correction = np.linalg.solve(jacobian, residual)
+        except np.linalg.LinAlgError:
+            return None
+        accepted = False
+        for fraction in (1.0, 0.5, 0.25, 0.125):
+            trial_p = pressure_mpa - fraction * correction[0]
+            trial_t = temperature_k - fraction * correction[1]
+            try:
+                if classify_region(trial_t, trial_p) != 1:
+                    continue
+                trial = _region1_raw(trial_t, trial_p)
+            except DomainError:
+                continue
+            trial_error = max(
+                abs((trial["v"] - volume) / volume), abs((trial["u"] - energy_kj) / energy_scale)
+            )
+            if trial_error < error:
+                pressure_mpa, temperature_k = float(trial_p), float(trial_t)
+                accepted = True
+                break
+        if not accepted:
+            return None
+    return None
+
+
+def _invert_liquid_energy_seed(
+    volume: float, energy_kj: float, pressure_guess_pa: float
+) -> ThermoState | None:
+    """Резервное начальное приближение из монотонного u(T) области 1.
+
+    Скалярная локализация только внутри жидкой области. Затем решаются оба
+    исходных уравнения (v,u) с прежними строгими критериями Newton; совпадение
+    одной энергии не принимается за решение. Масса и энергия не проецируются.
+    """
+    from scipy.optimize import brentq
+
+    pressures = [pressure_guess_pa * 1e-6, P_REGION13_MPA, 20.0, 50.0, 100.0, 10.0, 5.0, 1.0]
+    for pressure in dict.fromkeys(pressures):
+        if not np.isfinite(pressure) or not P_MIN_MPA < pressure <= 100.0:
+            continue
+        upper = saturation_temperature_k(pressure) if pressure < P_REGION13_MPA else T_REGION1_MAX
+
+        def residual(temperature):
+            return _region1_raw(temperature, pressure)["u"] - energy_kj
+
+        low, high = residual(T_MIN), residual(upper)
+        if low > 0.0 or high < 0.0:
+            continue
+        temperature = brentq(residual, T_MIN, upper, xtol=1e-11, rtol=1e-14)
+        # Около насыщения допустимый Newton-шаг часто дробится: увеличиваем
+        # только бюджет резервного пути, не ослабляя критерий невязки.
+        state = _invert_liquid_local(volume, energy_kj, pressure, temperature, max_iterations=48)
+        if state is not None:
+            return state
+    return None
+
+
 def properties_rho_u(
     density_kg_m3: float,
     internal_energy_j_kg: float,
@@ -1088,6 +1315,11 @@ def properties_rho_u(
         raise DomainError("Плотность должна быть положительной")
     v_target = 1.0 / density_kg_m3
     p_mpa = pressure_guess_pa * 1.0e-6
+    local = _invert_liquid_local(
+        v_target, internal_energy_j_kg / 1000.0, p_mpa, temperature_guess_k
+    )
+    if local is not None:
+        return local
     if P_MIN_MPA < p_mpa < P_REGION13_MPA:
         liquid, vapor = saturation_properties(pressure_guess_pa)
         if liquid.u_j_kg <= internal_energy_j_kg <= vapor.u_j_kg:
@@ -1099,6 +1331,11 @@ def properties_rho_u(
             v_target, internal_energy_j_kg, pressure_guess_pa, temperature_guess_k
         )
     except DomainError:
+        liquid = _invert_liquid_energy_seed(
+            v_target, internal_energy_j_kg / 1000.0, pressure_guess_pa
+        )
+        if liquid is not None:
+            return liquid
         two_phase = _invert_two_phase(v_target, internal_energy_j_kg, pressure_guess_pa)
         if two_phase is not None:
             return two_phase
@@ -1291,6 +1528,10 @@ def _invert_two_phase(
     specific_volume: float, internal_energy_j_kg: float, pressure_guess_pa: float
 ) -> ThermoState | None:
     def residual(p_mpa: float):
+        # Разностная проба секущей может оказаться вне диапазона даже при
+        # ограниченном основном приближении. Это отказ пробы, не состояния.
+        if not P_MIN_MPA < p_mpa <= P_REGION13_MPA:
+            return None
         liquid, vapor = saturation_properties(p_mpa * 1.0e6)
         span = vapor.u_j_kg - liquid.u_j_kg
         quality = (internal_energy_j_kg - liquid.u_j_kg) / span
@@ -1301,7 +1542,7 @@ def _invert_two_phase(
 
     guess = min(max(pressure_guess_pa * 1.0e-6, P_MIN_MPA * 2.0), P_REGION13_MPA * 0.999)
     value = residual(guess)
-    if value is not None and abs(value) < 1e-8 * specific_volume:
+    if value is not None and abs(value) < 2e-13 * specific_volume:
         return properties_pu(guess * 1.0e6, internal_energy_j_kg)
     if value is not None:
         step = 1.0e-4 * guess
@@ -1314,7 +1555,7 @@ def _invert_two_phase(
             value_next = residual(guess_next)
             if value_next is None:
                 break
-            if abs(value_next) < 1e-8 * specific_volume:
+            if abs(value_next) < 2e-13 * specific_volume:
                 return properties_pu(guess_next * 1.0e6, internal_energy_j_kg)
             step = guess_next - guess
             guess, value = guess_next, value_next
@@ -1322,22 +1563,36 @@ def _invert_two_phase(
 
 
 def _bracket_two_phase(residual, specific_volume: float, internal_energy_j_kg: float):
-    """Запасной поиск давления, если секущая срывается у границы купола."""
-    pressures = np.geomspace(P_MIN_MPA * 1.5, P_REGION13_MPA * 0.98, 28)
-    grid = []
-    values = []
-    for pressure in pressures:
-        value = residual(float(pressure))
-        if value is None or not np.isfinite(value):
-            continue
-        grid.append(float(pressure))
-        values.append(float(value))
-    for left, right, f_left, f_right in zip(grid[:-1], grid[1:], values[:-1], values[1:]):
-        if f_left == 0.0 or abs(f_left) < 1e-8 * specific_volume:
-            return properties_pu(left * 1.0e6, internal_energy_j_kg)
-        if f_left * f_right < 0.0:
-            root = _brent(residual, left, right)
-            return properties_pu(root * 1.0e6, internal_energy_j_kg)
+    """Локализация с явными границами x=0/1 по заданной энергии.
+
+    Редкая сетка может полностью пропустить узкий интервал около насыщенной
+    жидкости. Добавляем корни u_f(p)=u и u_g(p)=u, не экстраполируя купол.
+    """
+    from scipy.optimize import brentq
+
+    base_pressures = list(np.geomspace(P_MIN_MPA * 1.5, P_REGION13_MPA, 28))
+    pressures = list(base_pressures)
+    for phase in (0, 1):
+
+        def energy_gap(pressure, phase_index=phase):
+            return (
+                saturation_properties(float(pressure) * 1e6)[phase_index].u_j_kg
+                - internal_energy_j_kg
+            )
+
+        for left, right in zip(base_pressures[:-1], base_pressures[1:]):
+            lo, hi = energy_gap(left), energy_gap(right)
+            if lo * hi < 0.0:
+                pressures.append(brentq(energy_gap, left, right, xtol=1e-12, rtol=1e-14))
+    grid = sorted(set(float(p) for p in pressures))
+    values = [residual(p) for p in grid]
+    for pressure, value in zip(grid, values):
+        if value is not None and abs(value) < 2e-13 * specific_volume:
+            return properties_pu(pressure * 1e6, internal_energy_j_kg)
+    for left, right, lo, hi in zip(grid[:-1], grid[1:], values[:-1], values[1:]):
+        if lo is not None and hi is not None and lo * hi < 0.0:
+            pressure = brentq(residual, left, right, xtol=1e-12, rtol=1e-14)
+            return properties_pu(pressure * 1e6, internal_energy_j_kg)
     return None
 
 
@@ -1365,7 +1620,12 @@ def _invert_single_phase(
                 return np.array([1.0e6, 1.0e6])
         except DomainError:
             return np.array([1.0e6, 1.0e6])
-        return np.array([raw["v"] - specific_volume, raw["u"] - u_kj])
+        return np.array(
+            [
+                (raw["v"] - specific_volume) / specific_volume,
+                (raw["u"] - u_kj) / max(abs(u_kj), 1.0),
+            ]
+        )
 
     guesses = [
         np.array([pressure_guess_pa * 1e-6, temperature_guess_k]),
@@ -1376,8 +1636,8 @@ def _invert_single_phase(
     ]
     solved = None
     for guess in guesses:
-        candidate = root(residual, guess, method="hybr")
-        if candidate.success:
+        candidate = root(residual, guess, method="hybr", options={"xtol": 1e-10})
+        if np.linalg.norm(residual(candidate.x), ord=np.inf) <= 5e-12:
             solved = candidate
             break
     if solved is None:

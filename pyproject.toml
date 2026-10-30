@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+requires = ["setuptools>=61", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -52,6 +52,9 @@ dev = [
 
 [project.scripts]
 atomic-sim = "generate_dataset:main"
+atomic-experiment = "sdk.experiment:main"
+atomic-channel-experiment = "sdk.channel_experiment:main"
+atomic-dynamic-experiment = "sdk.dynamic_experiment:main"
 
 [project.urls]
 Homepage = "https://github.com/researchim-ai/atomic-sim"
@@ -59,6 +62,11 @@ Repository = "https://github.com/researchim-ai/atomic-sim"
 
 [tool.setuptools]
 py-modules = ["generate_dataset"]
+
+[tool.setuptools.package-data]
+data = ["sources.json"]
+scenarios = ["*.yaml"]
+validation = ["*.json"]
 
 [tool.setuptools.packages.find]
 where = ["."]

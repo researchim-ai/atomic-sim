@@ -1,0 +1,20 @@
+{
+  "validated": false,
+  "plant_referenced": false,
+  "checks": [
+    {
+      "run": "artifacts/pressure_wall_delivery_1800s",
+      "snapshot_exact": true,
+      "restarted_to_s": 1800.5,
+      "energy_residual_j": -1.7680940800346434e-07,
+      "mass_residual_kg": 2.349249267341591e-15
+    },
+    {
+      "run": "artifacts/pressure_wall_delivery_1800s_tight",
+      "snapshot_exact": true,
+      "restarted_to_s": 1800.5,
+      "energy_residual_j": -5.202055035624653e-07,
+      "mass_residual_kg": -3.090843553321676e-15
+    }
+  ]
+}

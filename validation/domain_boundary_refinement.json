@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "validated": false,
+  "plant_referenced": false,
+  "budget_sha256": "4c3e6cfa307e476dcdbef29605ca7c58bb7c6fd1365bf272d4e924eb30f0feaa",
+  "accepted_time_spread_s": 3.0517578125e-05,
+  "within_time_spread_budget": true,
+  "runs": [
+    {
+      "artifact": "artifacts/boundary_5s_accounted",
+      "source_sha256": "b7b2bd27e679f1fbecb25ff8883ff6ae0419dac4aea6c220b45cdb71ef1099e3",
+      "report_sha256": "0349f26e5830a172575c467a79b92ef184d65e9ec0c14fe57c6973dad3c85d01",
+      "wall_time_s": 14.255295245000013,
+      "boundary": {
+        "kind": "model_limit",
+        "scope": "integration_admissibility",
+        "t": 122.20260620117188,
+        "accepted_time_s": 122.20260620117188,
+        "failed_endpoint_s": 122.20268249511719,
+        "failed_attempt_start_s": 122.20260620117188,
+        "interval_width_s": 7.62939453125e-05,
+        "requested_time_tolerance_s": 0.0001,
+        "requested_endpoint_s": 125.0,
+        "attempts": 17,
+        "accepted_prefix_steps": 7,
+        "probe": {
+          "criterion": "primary_bulk_boiling",
+          "node": "core",
+          "observed": 0.00010000620382146859,
+          "limit": 0.0001,
+          "evaluation_time_s": 122.20265540687365,
+          "evaluation_phase": "rhs_probe"
+        },
+        "message": "Объёмное кипение в первичном контуре core вне паспорта ВВЭР",
+        "physical_crossing_localized": false,
+        "last_accepted_state": {
+          "primary_bulk_boiling": {
+            "core": {
+              "observed": 9.99825528150634e-05,
+              "limit": 0.0001
+            },
+            "hot_leg": {
+              "observed": 0.0,
+              "limit": 0.0001
+            },
+            "sg_primary": {
+              "observed": 0.0,
+              "limit": 0.0001
+            },
+            "cold_leg": {
+              "observed": 0.0,
+              "limit": 0.0001
+            }
+          }
+        }
+      },
+      "csv_energy_sum_difference_j": 0.0,
+      "checks": {
+        "status_model_limit": true,
+        "width": true,
+        "accepted_constraints": true,
+        "checkpoint_restore_exact": true,
+        "csv_time_matches_checkpoint": true,
+        "csv_energy_matches_ledger": true,
+        "source_matches_current": true,
+        "hashes": true,
+        "not_full_acceptance": true,
+        "physical_crossing_not_claimed": true,
+        "energy_relative": true,
+        "mass_relative": true,
+        "boron_relative": true
+      }
+    },
+    {
+      "artifact": "artifacts/boundary_1s_accounted",
+      "source_sha256": "b7b2bd27e679f1fbecb25ff8883ff6ae0419dac4aea6c220b45cdb71ef1099e3",
+      "report_sha256": "dd35abe6562b968c25536b3c294d5f152b32a376434feafa296dc9d8f3373e3b",
+      "wall_time_s": 17.771252130999983,
+      "boundary": {
+        "kind": "model_limit",
+        "scope": "integration_admissibility",
+        "t": 122.20257568359375,
+        "accepted_time_s": 122.20257568359375,
+        "failed_endpoint_s": 122.20263671875,
+        "failed_attempt_start_s": 122.2021484375,
+        "interval_width_s": 6.103515625e-05,
+        "requested_time_tolerance_s": 0.0001,
+        "requested_endpoint_s": 123.0,
+        "attempts": 15,
+        "accepted_prefix_steps": 9,
+        "probe": {
+          "criterion": "primary_bulk_boiling",
+          "node": "core",
+          "observed": 0.00010000431352703879,
+          "limit": 0.0001,
+          "evaluation_time_s": 122.20263671875,
+          "evaluation_phase": "rhs_probe"
+        },
+        "message": "Объёмное кипение в первичном контуре core вне паспорта ВВЭР",
+        "physical_crossing_localized": false,
+        "last_accepted_state": {
+          "primary_bulk_boiling": {
+            "core": {
+              "observed": 9.99749806859779e-05,
+              "limit": 0.0001
+            },
+            "hot_leg": {
+              "observed": 0.0,
+              "limit": 0.0001
+            },
+            "sg_primary": {
+              "observed": 0.0,
+              "limit": 0.0001
+            },
+            "cold_leg": {
+              "observed": 0.0,
+              "limit": 0.0001
+            }
+          }
+        }
+      },
+      "csv_energy_sum_difference_j": 0.0,
+      "checks": {
+        "status_model_limit": true,
+        "width": true,
+        "accepted_constraints": true,
+        "checkpoint_restore_exact": true,
+        "csv_time_matches_checkpoint": true,
+        "csv_energy_matches_ledger": true,
+        "source_matches_current": true,
+        "hashes": true,
+        "not_full_acceptance": true,
+        "physical_crossing_not_claimed": true,
+        "energy_relative": true,
+        "mass_relative": true,
+        "boron_relative": true
+      }
+    },
+    {
+      "artifact": "artifacts/boundary_05s_accounted",
+      "source_sha256": "b7b2bd27e679f1fbecb25ff8883ff6ae0419dac4aea6c220b45cdb71ef1099e3",
+      "report_sha256": "f2242048bc027be51f04bfc9da662f7526f9d2d52533ed6d5f23b223b873a9b3",
+      "wall_time_s": 23.68135566699999,
+      "boundary": {
+        "kind": "model_limit",
+        "scope": "integration_admissibility",
+        "t": 122.20257568359375,
+        "accepted_time_s": 122.20257568359375,
+        "failed_endpoint_s": 122.20263671875,
+        "failed_attempt_start_s": 122.2021484375,
+        "interval_width_s": 6.103515625e-05,
+        "requested_time_tolerance_s": 0.0001,
+        "requested_endpoint_s": 122.5,
+        "attempts": 14,
+        "accepted_prefix_steps": 9,
+        "probe": {
+          "criterion": "primary_bulk_boiling",
+          "node": "core",
+          "observed": 0.00010001162747548351,
+          "limit": 0.0001,
+          "evaluation_time_s": 122.20263671875,
+          "evaluation_phase": "rhs_probe"
+        },
+        "message": "Объёмное кипение в первичном контуре core вне паспорта ВВЭР",
+        "physical_crossing_localized": false,
+        "last_accepted_state": {
+          "primary_bulk_boiling": {
+            "core": {
+              "observed": 9.99822915718166e-05,
+              "limit": 0.0001
+            },
+            "hot_leg": {
+              "observed": 0.0,
+              "limit": 0.0001
+            },
+            "sg_primary": {
+              "observed": 0.0,
+              "limit": 0.0001
+            },
+            "cold_leg": {
+              "observed": 0.0,
+              "limit": 0.0001
+            }
+          }
+        }
+      },
+      "csv_energy_sum_difference_j": 0.0,
+      "checks": {
+        "status_model_limit": true,
+        "width": true,
+        "accepted_constraints": true,
+        "checkpoint_restore_exact": true,
+        "csv_time_matches_checkpoint": true,
+        "csv_energy_matches_ledger": true,
+        "source_matches_current": true,
+        "hashes": true,
+        "not_full_acceptance": true,
+        "physical_crossing_not_claimed": true,
+        "energy_relative": true,
+        "mass_relative": true,
+        "boron_relative": true
+      }
+    }
+  ],
+  "numerical_boundary_checks_passed": true
+}

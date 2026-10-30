@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "validated": false,
+  "plant_referenced": false,
+  "source_sha256": "1a24385007ef55716aac6b0daafa510201c68ba19bd56b2d5f0f7d5164127593",
+  "main_suite": {
+    "passed": 299,
+    "deselected": 1,
+    "seconds": 114.13,
+    "warnings": 0
+  },
+  "excluded": "unchanged external OpenMC/MPI particle-run",
+  "coverage_measured": false,
+  "ruff": "passed",
+  "new_cold_start_tests": 17,
+  "newton_residual_threshold": 5e-14,
+  "warm_max_iterations": 8,
+  "energy_seed_max_iterations": 48,
+  "checkpoint_restore_and_resume_evidence": "validation/eos_restart_release_checks.json",
+  "restart_agreement_evidence": "validation/eos_restart_continuation_agreement.json",
+  "domain_limit_evidence": "artifacts/coastdown_1800s_eos_release/report.json",
+  "substep_diagnostic": "validation/coastdown_boiling_limit_probe.json",
+  "coastdown_1800s_accepted": false,
+  "exact_boiling_crossing_localized": false,
+  "next_requirement": "Separate boiling-capable model passport and independent validation; do not relax existing quality limit."
+}

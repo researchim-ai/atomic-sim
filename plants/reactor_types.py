@@ -54,7 +54,7 @@ MSR_PASSPORT = ModelPassport(
     status=ModelStatus.VERIFIED,
     phenomenon="Циркулирующее топливо: адвекция предшественников между зоной и петлёй",
     approximations=("одна группа предшественников", "мгновенное перемешивание в каждом объёме"),
-    applicability="Расход не меняет знак; разрушение контура не моделируется",
+    applicability="Расход не меняет знак; λ = 0 — чистый перенос без единственного стационара; разрушение контура не моделируется",
     data_sources=("Уравнения переноса предшественников с потоком топлива",),
 )
 
@@ -250,6 +250,10 @@ class MSRPrecursors:
         """Стационар при постоянном источнике в зоне. Сумма предшественников равна P/lambda."""
         if production_per_s < 0.0:
             raise DomainError("Источник предшественников MSR отрицателен")
+        if self.decay_constant == 0.0:
+            raise DomainError(
+                "При нулевом распаде стационар MSR не единственен: сумма растёт со скоростью источника"
+            )
         state = np.linalg.solve(self._exchange_matrix(), -np.array([production_per_s, 0.0]))
         return float(state[0]), float(state[1])
 
@@ -258,14 +262,31 @@ class MSRPrecursors:
         decay = self.decay_constant
         core = self.core_volume_m3
         loop = self.loop_volume_m3
-        if min(rate, decay, core, loop) <= 0.0:
-            raise DomainError("Расход, распад и объёмы MSR должны быть положительными")
+        if min(rate, core, loop) <= 0.0 or decay < 0.0:
+            raise DomainError("Расход и объёмы MSR положительны, распад неотрицателен")
         return np.array(
             [
                 [-decay - rate / core, rate / loop],
                 [rate / core, -decay - rate / loop],
             ]
         )
+
+    def _advance_pure_transport(
+        self, origin: np.ndarray, production_per_s: float, dt_s: float, matrix: np.ndarray
+    ) -> np.ndarray:
+        """y' = A y + b при вырожденной A. Линейный частный режим не обращает A."""
+        from scipy.linalg import expm
+
+        total = self.core_volume_m3 + self.loop_volume_m3
+        velocity = production_per_s / total * np.array([self.core_volume_m3, self.loop_volume_m3])
+        source = np.array([production_per_s, 0.0])
+        augmented = np.vstack([matrix, np.ones(2)])
+        offset, _, rank, _ = np.linalg.lstsq(
+            augmented, np.concatenate([velocity - source, [0.0]]), rcond=None
+        )
+        if int(rank) < 2:
+            raise DomainError("Перенос MSR без распада не отделил частный режим")
+        return expm(matrix * dt_s) @ (origin - offset) + velocity * dt_s + offset
 
     def derivatives(self, production_per_s: float = 0.0) -> tuple:
         exchange = self.flow_m3_s * (
@@ -283,7 +304,9 @@ class MSRPrecursors:
             raise DomainError("Шаг предшественников MSR отрицателен")
         matrix = self._exchange_matrix()
         origin = np.array([self.core_precursors, self.loop_precursors])
-        if production_per_s == 0.0:
+        if self.decay_constant == 0.0:
+            state = self._advance_pure_transport(origin, production_per_s, dt_s, matrix)
+        elif production_per_s == 0.0:
             state = expm(matrix * dt_s) @ origin
         else:
             particular = np.linalg.solve(matrix, -np.array([production_per_s, 0.0]))

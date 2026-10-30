@@ -11,7 +11,9 @@ PASSPORT = ModelPassport(
     phenomenon="Уравнение движения ротора генератора",
     approximations=("одна машина", "постоянная нагрузка на шаге", "нет сети из многих машин"),
     applicability="Скорость остаётся положительной",
-    data_sources=("2H/omega0 * domega/dt = P_mech - P_elec в записи через момент инерции J dw/dt = M_mech - M_elec",),
+    data_sources=(
+        "2H/omega0 * domega/dt = P_mech - P_elec в записи через момент инерции J dw/dt = M_mech - M_elec",
+    ),
 )
 
 
@@ -19,15 +21,31 @@ def electrical_power_w(torque_nm: float, omega_rad_s: float) -> float:
     return torque_nm * omega_rad_s
 
 
-def speed_derivative(inertia_kg_m2: float, mechanical_torque_nm: float, electrical_torque_nm: float) -> float:
+def speed_derivative(
+    inertia_kg_m2: float, mechanical_torque_nm: float, electrical_torque_nm: float
+) -> float:
     return (mechanical_torque_nm - electrical_torque_nm) / inertia_kg_m2
 
 
-def speed_after_constant_torques(omega0: float, inertia: float, mechanical_torque: float, electrical_torque: float, time_s: float) -> float:
+def shaft_work_j(
+    omega0: float, inertia: float, mechanical_torque: float, electrical_torque: float, time_s: float
+) -> float:
+    """Работа моментов на валу при постоянных моментах. Она равна изменению ½ J ω²."""
+    if inertia <= 0.0 or time_s < 0.0:
+        raise ValueError("Инерция вала положительна, время неотрицательно")
+    torque = mechanical_torque - electrical_torque
+    return torque * (omega0 * time_s + 0.5 * torque / inertia * time_s**2)
+
+
+def speed_after_constant_torques(
+    omega0: float, inertia: float, mechanical_torque: float, electrical_torque: float, time_s: float
+) -> float:
     return omega0 + speed_derivative(inertia, mechanical_torque, electrical_torque) * time_s
 
 
-def grid_electrical_torque_nm(connected: bool, mechanical_power_w: float, omega_rad_s: float) -> float:
+def grid_electrical_torque_nm(
+    connected: bool, mechanical_power_w: float, omega_rad_s: float
+) -> float:
     """При отключённой сети электрический момент равен нулю и не подменяется механическим."""
     if not connected:
         return 0.0

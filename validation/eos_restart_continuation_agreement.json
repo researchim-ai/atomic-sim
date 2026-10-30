@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "validated": false,
+  "plant_referenced": false,
+  "source_sha256": "2d584f19d04d44cb481092d591dccc609ea3966aa41dc62085b025bf829d8a56",
+  "checkpoint_sha256": "dc377728837be7252419cd70a5c24e228aee36be1a830cc52e0bc092435f6d94",
+  "budget_sha256": "6e31af969903ef14104e6b8a85cc7a45843dd67b7cc7a88f123b9714ff5fbd3b",
+  "reference_manifest_sha256": "611946fbd0e0afc543d4a2141dec24a1880097c58a2755c0611db9847063874d",
+  "comparison_time_s": 120.25,
+  "measured": {
+    "thermal_power_relative": 4.6729906517776077e-11,
+    "fuel_temperature_absolute_k": 6.139089236967266e-12,
+    "primary_pressure_absolute_pa": 9.689480066299438e-06,
+    "sg_pressure_absolute_pa": 1.3317912817001343e-07,
+    "mass_flow_absolute_kg_s": 2.7257128749624826e-06
+  },
+  "checks": {
+    "thermal_power_relative": true,
+    "fuel_temperature_absolute_k": true,
+    "primary_pressure_absolute_pa": true,
+    "sg_pressure_absolute_pa": true,
+    "mass_flow_absolute_kg_s": true
+  },
+  "numerical_restart_agreement": true
+}

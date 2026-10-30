@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-31",
+  "source_sha256": "14a04923468cee489e09e82ef4f62b278c4307cc3f321bc5bfaa672e763a68c1",
+  "model_id": "pressure-driven-wall-channel",
+  "model_status": "implemented",
+  "validated": false,
+  "plant_referenced": false,
+  "vver_1800s_accepted": false,
+  "full_suite": {
+    "passed": 392,
+    "deselected": 1,
+    "excluded": "test_openmc_particle_run_reports_k_and_mgxs",
+    "duration_s": 115.02
+  },
+  "ruff": "passed",
+  "installed_wheel_smoke": "passed",
+  "analytical_evidence": "validation/pressure_wall_analytic.json",
+  "horizon_evidence": "validation/pressure_wall_1800s_comparison.json",
+  "startup_evidence": "validation/pressure_wall_startup_comparison.json",
+  "restart_evidence": "validation/pressure_wall_restart.json",
+  "limitations": [
+    "Single-phase IF97 region 1, Mach <= 0.1",
+    "Internal fluid and wall energy only: total mechanical energy not qualified",
+    "Fixed horizontal geometry and prescribed C, UA, K",
+    "No boiling, pump, CHF, spatial-convergence acceptance or plant validation"
+  ],
+  "initial_fix": "Initial BDF coastdown errors exposed probe-order-dependent inverse EOS seeds; new component now uses fixed seeds and bounded exact-key cache. Parent FlowNetwork models unchanged."
+}

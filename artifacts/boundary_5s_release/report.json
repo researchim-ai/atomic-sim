@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "status": "model_limit",
+  "name": "boundary_5s_release",
+  "requested_duration_s": 1800.0,
+  "completed_time_s": 122.20260620117188,
+  "wall_time_s": 14.80092477600192,
+  "accepted_steps": 25,
+  "balance": {
+    "steps": 31,
+    "energy_max_abs_j": 392568.3258275986,
+    "energy_integral_j": -1709947.1105438333,
+    "energy_global_j": -1709947.1104354858,
+    "energy_relative": 1.015170612911014e-06,
+    "energy_scale_j": 1684393823745.7366,
+    "energy_net_relative": 2.414180999178213e-05,
+    "energy_throughput_j": 618384534323.9176,
+    "energy_normalization": "max(1 J, abs(initial stored energy), gross boundary throughput)",
+    "mass_drift_kg": -2.9103830456733704e-11,
+    "mass_relative": 2.1153265450566477e-16,
+    "boron_drift_kg": -2.842170943040401e-14,
+    "boron_relative": 7.085742051218338e-16,
+    "full_horizon_accepted": false
+  },
+  "budget_checks": {
+    "energy_relative": true,
+    "mass_relative": true,
+    "boron_relative": true
+  },
+  "numerical_acceptance": false,
+  "validated": false,
+  "plant_referenced": false,
+  "error": {
+    "class": "domain",
+    "type": "ModelLimitError",
+    "message": "Объёмное кипение в первичном контуре core вне паспорта ВВЭР",
+    "attempted_interval_s": [
+      120.0,
+      125.0
+    ],
+    "attempted_commands": []
+  },
+  "events": [
+    {
+      "kind": "command",
+      "t": 10.0,
+      "motor_off": true,
+      "scram": true
+    },
+    {
+      "kind": "rod_stop",
+      "t": 13.75,
+      "position": 1.0
+    },
+    {
+      "kind": "model_limit",
+      "scope": "integration_admissibility",
+      "t": 122.20260620117188,
+      "accepted_time_s": 122.20260620117188,
+      "failed_endpoint_s": 122.20268249511719,
+      "failed_attempt_start_s": 122.20260620117188,
+      "interval_width_s": 7.62939453125e-05,
+      "requested_time_tolerance_s": 0.0001,
+      "requested_endpoint_s": 125.0,
+      "attempts": 17,
+      "accepted_prefix_steps": 7,
+      "probe": {
+        "criterion": "primary_bulk_boiling",
+        "node": "core",
+        "observed": 0.00010000620382146859,
+        "limit": 0.0001,
+        "evaluation_time_s": 122.20265540687365,
+        "evaluation_phase": "rhs_probe"
+      },
+      "message": "Объёмное кипение в первичном контуре core вне паспорта ВВЭР",
+      "physical_crossing_localized": false,
+      "last_accepted_state": {
+        "primary_bulk_boiling": {
+          "core": {
+            "observed": 9.99825528150634e-05,
+            "limit": 0.0001
+          },
+          "hot_leg": {
+            "observed": 0.0,
+            "limit": 0.0001
+          },
+          "sg_primary": {
+            "observed": 0.0,
+            "limit": 0.0001
+          },
+          "cold_leg": {
+            "observed": 0.0,
+            "limit": 0.0001
+          }
+        }
+      }
+    }
+  ],
+  "model_boundary": {
+    "kind": "model_limit",
+    "scope": "integration_admissibility",
+    "t": 122.20260620117188,
+    "accepted_time_s": 122.20260620117188,
+    "failed_endpoint_s": 122.20268249511719,
+    "failed_attempt_start_s": 122.20260620117188,
+    "interval_width_s": 7.62939453125e-05,
+    "requested_time_tolerance_s": 0.0001,
+    "requested_endpoint_s": 125.0,
+    "attempts": 17,
+    "accepted_prefix_steps": 7,
+    "probe": {
+      "criterion": "primary_bulk_boiling",
+      "node": "core",
+      "observed": 0.00010000620382146859,
+      "limit": 0.0001,
+      "evaluation_time_s": 122.20265540687365,
+      "evaluation_phase": "rhs_probe"
+    },
+    "message": "Объёмное кипение в первичном контуре core вне паспорта ВВЭР",
+    "physical_crossing_localized": false,
+    "last_accepted_state": {
+      "primary_bulk_boiling": {
+        "core": {
+          "observed": 9.99825528150634e-05,
+          "limit": 0.0001
+        },
+        "hot_leg": {
+          "observed": 0.0,
+          "limit": 0.0001
+        },
+        "sg_primary": {
+          "observed": 0.0,
+          "limit": 0.0001
+        },
+        "cold_leg": {
+          "observed": 0.0,
+          "limit": 0.0001
+        }
+      }
+    }
+  },
+  "extrema": {
+    "time_s": {
+      "min": 0.0,
+      "max": 122.20260620117188
+    },
+    "fission_power_w": {
+      "min": 927361177.1857392,
+      "max": 3084395928.4953756
+    },
+    "thermal_power_w": {
+      "min": 1026098993.7038591,
+      "max": 3056893070.5514436
+    },
+    "electrical_power_w": {
+      "min": 753059502.5943352,
+      "max": 921971241.877685
+    },
+    "fuel_temperature_k": {
+      "min": 770.7199916811826,
+      "max": 900.0000000006963
+    },
+    "rod_insertion": {
+      "min": 0.25,
+      "max": 1.0
+    },
+    "reactivity": {
+      "min": -0.005990568233366517,
+      "max": 0.0010717357900533954
+    },
+    "primary_pressure_pa": {
+      "min": 15006014.866017073,
+      "max": 15877660.615088103
+    },
+    "sg_pressure_pa": {
+      "min": 5214887.16928946,
+      "max": 6400000.000004554
+    },
+    "mass_flow_kg_s": {
+      "min": 5699.200907184733,
+      "max": 18000.00000050812
+    },
+    "steam_flow_kg_s": {
+      "min": 950.4808679410387,
+      "max": 1166.2906465081658
+    },
+    "feed_flow_kg_s": {
+      "min": 947.7107779800618,
+      "max": 1166.2906465093845
+    },
+    "dump_flow_kg_s": {
+      "min": -7.565735583300636e-25,
+      "max": 1.583034184009854e-25
+    },
+    "pressurizer_heater_w": {
+      "min": 0.0,
+      "max": 2000000.0
+    },
+    "energy_residual_j": {
+      "min": -392568.3258275986,
+      "max": 247286.331615448
+    }
+  }
+}

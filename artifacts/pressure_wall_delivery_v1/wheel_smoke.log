@@ -1,0 +1,13 @@
+WARNING: The directory '/home/user/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Processing /home/user/workspace/atomic-sim/dist/atomic_sim-2.0.0-py3-none-any.whl
+Installing collected packages: atomic-sim
+Successfully installed atomic-sim-2.0.0
+{"status": "completed", "completed_time_s": 0.4, "output": "run"}
+{"status": "completed", "completed_time_s": 0.4, "output": "central_run"}
+{"status": "completed", "completed_time_s": 0.4, "output": "radau_run"}
+{"status": "completed", "completed_time_s": 4.0, "output": "scram_run"}
+{"status": "completed", "completed_time_s": 2.0, "numerical_acceptance": true}
+{"status": "completed", "completed_time_s": 2.0, "numerical_acceptance": true}
+{"status": "completed", "completed_time_s": 0.1, "numerical_acceptance": true}
+{"wheel_smoke": "passed", "model": "vver-lumped-loop", "duration_s": 0.4}
+{"verified_wheel": "/home/user/workspace/atomic-sim/dist/atomic_sim-2.0.0-py3-none-any.whl"}

@@ -9,25 +9,23 @@ from __future__ import annotations
 
 import hashlib
 import json
+from importlib.resources import files
 from pathlib import Path
 
 from core.status import DomainError
 
-_CATALOG = Path(__file__).with_name("sources.json")
 _ALLOWED_EXTERNAL = {"endf-b-nndc"}
 
 
 def load_sources() -> list:
-    payload = json.loads(_CATALOG.read_text(encoding="utf-8"))
+    payload = json.loads(files("data").joinpath("sources.json").read_text(encoding="utf-8"))
     return list(payload["sources"])
 
 
 def bundled_redistributable_ids() -> list:
     """Источники, которые и лежат в репозитории, и разрешены к распространению."""
     return [
-        item["id"]
-        for item in load_sources()
-        if item["bundled"] and item["redistribution_allowed"]
+        item["id"] for item in load_sources() if item["bundled"] and item["redistribution_allowed"]
     ]
 
 
@@ -45,7 +43,10 @@ def assert_bundled_checksum(source_id: str) -> dict:
     if not item["redistribution_allowed"]:
         raise DomainError("Источник %s нельзя распространять с этим кодом" % source_id)
     path = Path(item["path"])
-    digest = hashlib.sha256(path.read_bytes()).hexdigest()
+    if path.parts[0] != "data" or ".." in path.parts:
+        raise DomainError("Источник не является ресурсом пакета data")
+    resource = files("data").joinpath(*path.parts[1:])
+    digest = hashlib.sha256(resource.read_bytes()).hexdigest()
     if digest != item["sha256"]:
         raise DomainError("Контрольная сумма %s не совпала" % source_id)
     return item

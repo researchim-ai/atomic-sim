@@ -35,7 +35,9 @@ def diluted_boron_kg(
 ) -> float:
     """Постоянные масса и обмен: c(t) = c_in + (c0 - c_in) exp(-m t / M)."""
     if mass_kg <= 0.0 or exchange_kg_s < 0.0 or dt_s < 0.0:
-        raise DomainError("Масса бора, обмен и шаг должны быть неотрицательными, масса — положительной")
+        raise DomainError(
+            "Масса бора, обмен и шаг должны быть неотрицательными, масса — положительной"
+        )
     if inlet_fraction < 0.0:
         raise DomainError("Входная доля бора отрицательна")
     fraction = boron_kg / mass_kg
@@ -145,6 +147,11 @@ class Volume:
             )
         density = self.mass_kg / self.volume_m3
         energy = self.internal_energy_j / self.mass_kg
+        # Только точное совпадение запасов. Округление ключа исказило бы
+        # конечные разности якобиана интегратора.
+        key = (density, energy)
+        if getattr(self, "_thermo_key", None) == key and self.thermo is not None:
+            return self.thermo
         try:
             state = properties_rho_u(density, energy, self.pressure_pa, self.temperature_k)
         except DomainError as exc:
@@ -157,6 +164,7 @@ class Volume:
         self.temperature_k = state.T_k
         self.energy_mismatch_j_kg = state.energy_mismatch_j_kg
         self.volume_mismatch = state.volume_mismatch
+        self._thermo_key = key
         return state
 
     @property

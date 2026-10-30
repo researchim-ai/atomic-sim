@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "name": "vver_pilot_nominal_5s",
+  "requested_duration_s": 5.0,
+  "completed_time_s": 5.0,
+  "wall_time_s": 18.83568047100016,
+  "accepted_steps": 5,
+  "balance": {
+    "steps": 5,
+    "energy_max_abs_j": 2342.080880254507,
+    "energy_integral_j": 2138.8778690099716,
+    "energy_global_j": 2138.8778076171875,
+    "energy_relative": 0.2993420088606966,
+    "mass_drift_kg": 0.0,
+    "mass_relative": 0.0,
+    "boron_drift_kg": 7.105427357601002e-15,
+    "boron_relative": 1.7714355128045844e-16,
+    "full_horizon_accepted": false
+  },
+  "budget_checks": {
+    "mass_relative": true,
+    "energy_relative": false,
+    "boron_relative": true
+  },
+  "numerical_acceptance": false,
+  "validated": false,
+  "plant_referenced": false,
+  "error": null,
+  "events": [],
+  "extrema": {
+    "time_s": {
+      "min": 0.0,
+      "max": 5.0
+    },
+    "fission_power_w": {
+      "min": 3023461083.657713,
+      "max": 3023485898.872071
+    },
+    "thermal_power_w": {
+      "min": 3023461216.163669,
+      "max": 3023484439.169336
+    },
+    "electrical_power_w": {
+      "min": 921971229.5362074,
+      "max": 921971265.6746283
+    },
+    "fuel_temperature_k": {
+      "min": 899.9999966788092,
+      "max": 900.0000334002175
+    },
+    "rod_insertion": {
+      "min": 0.25,
+      "max": 0.25
+    },
+    "reactivity": {
+      "min": -3.976763131845473e-09,
+      "max": 4.4115227059364765e-08
+    },
+    "primary_pressure_pa": {
+      "min": 15877646.21502494,
+      "max": 15877660.615088103
+    },
+    "sg_pressure_pa": {
+      "min": 6399999.98453808,
+      "max": 6400000.472250501
+    },
+    "mass_flow_kg_s": {
+      "min": 17999.998852767993,
+      "max": 18000.000117388267
+    },
+    "steam_flow_kg_s": {
+      "min": 1166.2906238601931,
+      "max": 1166.2906745419455
+    },
+    "feed_flow_kg_s": {
+      "min": 1166.2904995805275,
+      "max": 1166.291077502712
+    },
+    "dump_flow_kg_s": {
+      "min": 0.0,
+      "max": 3.693067481451885e-23
+    },
+    "pressurizer_heater_w": {
+      "min": 0.0,
+      "max": 0.0
+    },
+    "energy_residual_j": {
+      "min": -227.40642994642258,
+      "max": 2342.080880254507
+    }
+  }
+}

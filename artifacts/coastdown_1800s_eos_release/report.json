@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "status": "failed",
+  "name": "coastdown_1800s_eos_release",
+  "requested_duration_s": 1800.0,
+  "completed_time_s": 120.0,
+  "wall_time_s": 6.022014821999619,
+  "accepted_steps": 24,
+  "balance": {
+    "steps": 24,
+    "energy_max_abs_j": 740559.4924020767,
+    "energy_integral_j": -2144479.0641122907,
+    "energy_global_j": -2144479.064163208,
+    "energy_relative": 1.2731458842530894e-06,
+    "energy_scale_j": 1684393823745.7366,
+    "energy_net_relative": 3.0312606088998197e-05,
+    "energy_throughput_j": 607257314906.7942,
+    "energy_normalization": "max(1 J, abs(initial stored energy), gross boundary throughput)",
+    "mass_drift_kg": -2.9103830456733704e-11,
+    "mass_relative": 2.1153265450566477e-16,
+    "boron_drift_kg": -1.4210854715202004e-14,
+    "boron_relative": 3.542871025609169e-16,
+    "full_horizon_accepted": false
+  },
+  "budget_checks": {
+    "energy_relative": true,
+    "mass_relative": true,
+    "boron_relative": true
+  },
+  "numerical_acceptance": false,
+  "validated": false,
+  "plant_referenced": false,
+  "error": {
+    "class": "domain",
+    "type": "DomainError",
+    "message": "Объёмное кипение в первичном контуре core вне паспорта ВВЭР",
+    "attempted_interval_s": [
+      120.0,
+      125.0
+    ],
+    "attempted_commands": []
+  },
+  "events": [
+    {
+      "kind": "command",
+      "t": 10.0,
+      "motor_off": true,
+      "scram": true
+    },
+    {
+      "kind": "rod_stop",
+      "t": 13.75,
+      "position": 1.0
+    }
+  ],
+  "extrema": {
+    "time_s": {
+      "min": 0.0,
+      "max": 120.0
+    },
+    "fission_power_w": {
+      "min": 927360992.342504,
+      "max": 3084396662.11476
+    },
+    "thermal_power_w": {
+      "min": 1026098818.9409156,
+      "max": 3056893794.29605
+    },
+    "electrical_power_w": {
+      "min": 753612990.5951867,
+      "max": 921971241.8786149
+    },
+    "fuel_temperature_k": {
+      "min": 770.7200562995889,
+      "max": 900.0000000071191
+    },
+    "rod_insertion": {
+      "min": 0.25,
+      "max": 1.0
+    },
+    "reactivity": {
+      "min": -0.005990568411945795,
+      "max": 0.0010717355665739122
+    },
+    "primary_pressure_pa": {
+      "min": 15006022.935950413,
+      "max": 15877660.615088103
+    },
+    "sg_pressure_pa": {
+      "min": 5218691.035773911,
+      "max": 6400000.000011159
+    },
+    "mass_flow_kg_s": {
+      "min": 5791.601351801098,
+      "max": 18000.000000506192
+    },
+    "steam_flow_kg_s": {
+      "min": 951.174524151115,
+      "max": 1166.2906465092863
+    },
+    "feed_flow_kg_s": {
+      "min": 948.4244189000773,
+      "max": 1166.2906465104363
+    },
+    "dump_flow_kg_s": {
+      "min": -5.16102419560586e-24,
+      "max": 4.618570704592216e-26
+    },
+    "pressurizer_heater_w": {
+      "min": 0.0,
+      "max": 2000000.0
+    },
+    "energy_residual_j": {
+      "min": -740559.4924020767,
+      "max": 433943.02653741837
+    }
+  }
+}

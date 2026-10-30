@@ -1,0 +1,10 @@
+{
+  "kind": "numerical_verification",
+  "time_tolerance_s": 0.0001,
+  "max_time_spread_s": 0.0002,
+  "energy_relative": 1e-05,
+  "mass_relative": 1e-06,
+  "boron_relative": 1e-06,
+  "physical_crossing_localized": false,
+  "note": "Chosen after diagnostic runs and before final verification series; not a physical event accuracy bound."
+}

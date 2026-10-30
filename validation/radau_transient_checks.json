@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "unique_tests_passed": 273,
+  "validated": false,
+  "plant_referenced": false,
+  "main_suite": {
+    "passed": 272,
+    "deselected": 1,
+    "seconds": 109.38,
+    "warnings": 0
+  },
+  "additional_test": "explicit command opt-in and matching timelines; test_hour_comparison.py 4 passed, 3 overlap main suite",
+  "excluded": "unchanged external OpenMC/MPI particle-run",
+  "ruff": "passed",
+  "coverage_measured": false,
+  "wheel_smoke": {
+    "installed_outside_checkout": true,
+    "legacy_cli": "passed",
+    "central_bdf_cli": "passed",
+    "radau_with_command_cli": "passed"
+  },
+  "numerical_evidence": [
+    "validation/radau_throttle_120s_result.json",
+    "validation/radau_throttle_120s_resolved_result.json"
+  ]
+}

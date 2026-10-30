@@ -1,0 +1,74 @@
+{
+  "id": "eos-stability-2026-10-30",
+  "kind": "numerical_verification",
+  "validated": false,
+  "plant_referenced": false,
+  "nominal_3600s_accepted": false,
+  "nominal_60s": {
+    "path": "artifacts/eos_nominal_60s_reference",
+    "status": "completed",
+    "wall_time_s": 169.24358118599957,
+    "balance": {
+      "steps": 12,
+      "energy_max_abs_j": 1188.948896318674,
+      "energy_integral_j": -452.98432913422585,
+      "energy_global_j": -452.9843006134033,
+      "energy_relative": 2.689301600536992e-10,
+      "energy_scale_j": 1684393823745.7366,
+      "energy_net_relative": 0.0023300235651122943,
+      "energy_throughput_j": 364797428847.73,
+      "energy_normalization": "max(1 J, abs(initial stored energy), gross boundary throughput)",
+      "mass_drift_kg": 1.4551915228366852e-10,
+      "mass_relative": 1.0576632725283238e-15,
+      "boron_drift_kg": -1.0658141036401503e-13,
+      "boron_relative": 2.6571532692068765e-15,
+      "full_horizon_accepted": false
+    },
+    "budget_checks": {
+      "mass_relative": true,
+      "energy_relative": true,
+      "boron_relative": true
+    }
+  },
+  "tight_20s": {
+    "path": "artifacts/eos_nominal_20s_tight",
+    "status": "completed",
+    "wall_time_s": 80.32206079000025,
+    "balance": {
+      "steps": 4,
+      "energy_max_abs_j": 46.03921741247177,
+      "energy_integral_j": -6.206714540719986,
+      "energy_global_j": -6.206899642944336,
+      "energy_relative": 3.684945619867864e-12,
+      "energy_scale_j": 1684393823745.7366,
+      "energy_net_relative": 0.0025420648242071423,
+      "energy_throughput_j": 121599069972.67503,
+      "energy_normalization": "max(1 J, abs(initial stored energy), gross boundary throughput)",
+      "mass_drift_kg": 1.1641532182693481e-10,
+      "mass_relative": 8.461306180226591e-16,
+      "boron_drift_kg": 2.1316282072803006e-14,
+      "boron_relative": 5.314306538413754e-16,
+      "full_horizon_accepted": false
+    }
+  },
+  "comparison_time_s": 20,
+  "observable_errors": {
+    "thermal_power_relative": 1.6185034447545611e-06,
+    "fuel_temperature_absolute_k": 7.0085333049974e-05,
+    "primary_pressure_absolute_pa": 3.3146414402872324,
+    "sg_pressure_absolute_pa": 0.9174916800111532,
+    "mass_flow_absolute_kg_s": 0.0004021708155050874
+  },
+  "observable_checks": {
+    "thermal_power_relative": true,
+    "fuel_temperature_absolute_k": true,
+    "primary_pressure_absolute_pa": true,
+    "sg_pressure_absolute_pa": true,
+    "mass_flow_absolute_kg_s": true
+  },
+  "comparison_passed": true,
+  "source_fingerprints": {
+    "nominal": "ef6342df9cf7211da4538ad1c2440b1b916a218f354a26b99caef360e5da3f5d",
+    "tight": "ef6342df9cf7211da4538ad1c2440b1b916a218f354a26b99caef360e5da3f5d"
+  }
+}

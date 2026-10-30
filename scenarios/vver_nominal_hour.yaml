@@ -1,0 +1,17 @@
+name: vver_nominal_hour_continuation
+schema_version: 1
+engine: vver
+model_id: vver-lumped-loop
+description: Часовой номинал с сохранением истории BDF; численная проверка, не экспериментальная валидация.
+duration_s: 3600.0
+step_s: 5.0
+solver:
+  rtol: 0.00001
+  atol: 0.0001
+  first_step_s: 5.0
+  continuation: true
+budgets:
+  energy_relative: 0.00001
+  mass_relative: 0.000001
+  boron_relative: 0.000001
+timeline: []

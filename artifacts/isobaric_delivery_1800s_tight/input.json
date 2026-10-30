@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "name": "isobaric_delivery_1800s_tight",
+  "engine": "isobaric-channel",
+  "duration_s": 1800.0,
+  "step_s": 2.5,
+  "timeline": [],
+  "channel": {
+    "cells": 4,
+    "total_volume_m3": 0.004,
+    "pressure_pa": 7000000.0,
+    "inlet_enthalpy_j_kg": 1167437.2138653353,
+    "inlet_mass_flow_kg_s": 1.0,
+    "heat_w": 300000.0,
+    "flow_decay_s": 600.0,
+    "heat_decay_s": 1200.0,
+    "initial_enthalpy_j_kg": [
+      1167437.2138653353,
+      1167437.2138653353,
+      1167437.2138653353,
+      1167437.2138653353
+    ]
+  },
+  "solver": {
+    "method": "Radau",
+    "rtol": 1e-08,
+    "max_step_s": 0.5
+  },
+  "budgets": {
+    "mass_relative": 1e-06,
+    "energy_relative": 1e-05
+  }
+}

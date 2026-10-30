@@ -1,0 +1,20 @@
+{
+  "validated": false,
+  "plant_referenced": false,
+  "checks": [
+    {
+      "run": "artifacts/pipe_geometry_delivery_120s",
+      "snapshot_exact": true,
+      "restarted_to_s": 120.1,
+      "mass_residual_kg": 3.265183262657345e-15,
+      "energy_residual_j": -1.8189894035458565e-11
+    },
+    {
+      "run": "artifacts/pipe_geometry_delivery_120s_tight",
+      "snapshot_exact": true,
+      "restarted_to_s": 120.1,
+      "mass_residual_kg": -1.3856103764364747e-15,
+      "energy_residual_j": -7.803464541211724e-09
+    }
+  ]
+}

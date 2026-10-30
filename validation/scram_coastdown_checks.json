@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "validated": false,
+  "plant_referenced": false,
+  "main_suite": {
+    "passed": 282,
+    "deselected": 1,
+    "seconds": 113.06,
+    "warnings": 0
+  },
+  "excluded": "unchanged external OpenMC/MPI particle-run",
+  "ruff": "passed",
+  "coverage_measured": false,
+  "wheel_smoke": {
+    "installed_outside_checkout": true,
+    "legacy_cli": "passed",
+    "central_bdf_cli": "passed",
+    "radau_cli": "passed",
+    "scram_4s_exact_rod_stop": "passed"
+  },
+  "restart_evidence": "validation/scram_coastdown_restart_checks.json",
+  "protected_coastdown_restart_accepted": false,
+  "coastdown_1800s_accepted": false,
+  "numerical_evidence": [
+    "validation/scram_60s_verified.json",
+    "validation/protected_coastdown_120s_verified.json"
+  ]
+}

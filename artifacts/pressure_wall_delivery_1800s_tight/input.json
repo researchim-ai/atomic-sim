@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "engine": "pressure-driven-wall-channel",
+  "name": "pressure_wall_1800s_tight",
+  "duration_s": 1800.0,
+  "step_s": 2.5,
+  "timeline": [],
+  "hydraulics": {
+    "cells": 2,
+    "total_volume_m3": 0.004,
+    "left_pressure_pa": 7020000.0,
+    "right_pressure_pa": 7000000.0,
+    "left_temperature_k": 500.0,
+    "right_temperature_k": 500.0,
+    "initial_pressure_pa": 7010000.0,
+    "initial_temperature_k": 500.0,
+    "area_m2": 0.001,
+    "junction_length_m": 1.0,
+    "loss_coefficient": 10.0,
+    "total_heat_capacity_j_k": 8000.0,
+    "total_ua_w_k": 1000.0,
+    "heat_w": 3000.0,
+    "initial_flow_kg_s": 0.0,
+    "initial_wall_temperature_k": 500.0
+  },
+  "solver": {
+    "method": "Radau",
+    "rtol": 1e-08,
+    "max_step_s": 0.5
+  },
+  "budgets": {
+    "mass_relative": 1e-06,
+    "energy_relative": 1e-05
+  }
+}

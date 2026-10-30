@@ -1,0 +1,17 @@
+{
+  "status": "checkpoint_error",
+  "phase": "restore",
+  "error": "\u041e\u0431\u044a\u0451\u043c hot_leg: \u041e\u0431\u0440\u0430\u0449\u0435\u043d\u0438\u0435 (rho, u) \u043d\u0435 \u0441\u043e\u0448\u043b\u043e\u0441\u044c; \u043f\u0440\u043e\u0435\u043a\u0446\u0438\u044f \u0440\u0430\u0437\u0440\u0435\u0448\u0435\u043d\u0430 \u0442\u043e\u043b\u044c\u043a\u043e \u0434\u043b\u044f \u0447\u0438\u0441\u043b\u0435\u043d\u043d\u043e\u0439 \u043f\u0440\u043e\u0431\u044b (rho=595.733, u=1.60182e+06, p_guess=1.58777e+07, T_guess=593.204)",
+  "error_class": "domain",
+  "source_sha256": "bdf4780a09773e18ca174c4811663da5390971c3809af12db859fb969dbf441f",
+  "input_sha256": "8ef3a1a3613d6e3edf6d703d7f6cea3bd7c9f74031d50a12af8a81859aea9289",
+  "start_time_s": 120.0,
+  "completed_time_s": 0.0,
+  "requested_step_s": 5.0,
+  "method": "Radau",
+  "rtol": 1e-05,
+  "atol": 0.0001,
+  "jacobian_relative_step": 1e-05,
+  "first_step_s": 1.0,
+  "profile": []
+}

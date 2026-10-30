@@ -1,0 +1,15 @@
+{
+  "id": "eos-precision-2026-10-30",
+  "kind": "numerical_verification",
+  "validated": false,
+  "plant_referenced": false,
+  "comparison_time_s": 20.0,
+  "observable_budgets": {
+    "thermal_power_relative": 0.0001,
+    "fuel_temperature_absolute_k": 0.01,
+    "primary_pressure_absolute_pa": 100.0,
+    "sg_pressure_absolute_pa": 100.0,
+    "mass_flow_absolute_kg_s": 0.05
+  },
+  "note": "BDF nominal comparison at rtol=1e-5 and 3e-6, same physical equations. These are numerical agreement budgets, not experimental accuracy. Full 3600 s not accepted."
+}

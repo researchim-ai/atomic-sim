@@ -8,20 +8,21 @@
     "plant_referenced": false,
     "nominal_horizon_3600_s_passed": false,
     "openmc_particles_executed": true,
-    "load_rejection_full_horizon_accepted": false
+    "load_rejection_full_horizon_accepted": false,
+    "nominal_60s_numerical_budget_passed": true
   },
   "python_requires": ">=3.10",
   "last_local_pytest": {
-    "passed": 133,
-    "seconds": 261.58,
+    "passed": 232,
+    "deselected": 1,
+    "seconds": 166.07,
     "python": "3.12.9",
-    "coverage_percent": 85,
-    "coverage_scope": "core physics components plants sdk instrumentation",
-    "inventory_not_acceptance": true
+    "inventory_not_acceptance": true,
+    "note": "Real OpenMC MPI test unchanged and excluded here; coverage not measured."
   },
   "error_budgets_are_targets_not_measured_on_the_plant": {
-    "integral_mass_relative": 1e-6,
-    "integral_energy_relative": 1e-5
+    "integral_mass_relative": 1e-06,
+    "integral_energy_relative": 1e-05
   },
   "integrated_model_ids": [
     "vver-lumped-loop",

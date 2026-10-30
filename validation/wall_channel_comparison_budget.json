@@ -1,0 +1,12 @@
+{
+  "kind": "numerical_verification",
+  "horizon_s": 1800,
+  "outlet_enthalpy_relative": 1e-05,
+  "outlet_quality_absolute": 1e-05,
+  "stored_mass_relative": 1e-05,
+  "mass_relative": 1e-06,
+  "energy_relative": 1e-05,
+  "validated": false,
+  "plant_referenced": false,
+  "wall_temperature_absolute_k": 0.001
+}

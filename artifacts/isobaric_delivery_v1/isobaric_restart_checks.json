@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "validated": false,
+  "plant_referenced": false,
+  "source_sha256": "26239485629a133ccc1f249e7c30f2c3653ed1000f0c219be92c7c9031c7e26f",
+  "checks": [
+    {
+      "artifact": "isobaric_delivery_1800s",
+      "checkpoint_sha256": "f7b5de38ff57d9b105ba8ea7c8cc3b282e821717499fb73f4dac28cf5e11c098",
+      "snapshot_exact": true,
+      "resumed_time_s": 1800.5,
+      "resumed_outlet_quality": 0.8214630514161599
+    },
+    {
+      "artifact": "isobaric_delivery_1800s_tight",
+      "checkpoint_sha256": "d25efdb6858648301de7476f65276105cd41eaa3078ed5f06bca9eef7faa773a",
+      "snapshot_exact": true,
+      "resumed_time_s": 1800.5,
+      "resumed_outlet_quality": 0.8214630514161273
+    }
+  ]
+}

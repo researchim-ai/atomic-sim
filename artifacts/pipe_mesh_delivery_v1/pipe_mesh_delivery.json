@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "kind": "steady_spatial_verification",
+  "validated": false,
+  "plant_referenced": false,
+  "source_sha256": "abae00e5ec826a89f9fbfdaf93b89170db57ffcd01c990c5f33145563fca4ce2",
+  "script_sha256": "775b90b55d242bec3d5826399d774609be5770b293cd0e7bde1ab657db522d91",
+  "reference_equations": "dh/dx=P/F; dp/dx=-K_total F\u00b2/(2 rho(p,h) A\u00b2), x in [0,1]",
+  "scope": "Steady first-order donor model; not transient mesh, acoustic or mechanical-energy qualification",
+  "cases": [
+    {
+      "heat_w": 0.0,
+      "reference_flow_kg_s": 1.055370995266533,
+      "reference_difference": {
+        "flow_kg_s": 1.4499512701604544e-13,
+        "pressure_pa": 5.587935447692871e-09
+      },
+      "rows": [
+        {
+          "cells": 4,
+          "total_length_m": 3.0,
+          "total_loss_coefficient": 30.0,
+          "total_volume_m3": 0.003,
+          "flow_error_kg_s": 1.3492511943269392e-06,
+          "pressure_max_error_pa": 0.0027398066595196724,
+          "enthalpy_max_error_j_kg": 1.7241109162569046e-07,
+          "fluid_temperature_max_error_k": 1.6575540939811617e-10,
+          "wall_temperature_max_error_k": 1.6575540939811617e-10,
+          "operator_residual": {
+            "mass_rate_kg_s": 0.0,
+            "fluid_energy_rate_w": 1.7730053514242172e-07,
+            "acceleration_kg_s2": 7.378524363351365e-10,
+            "wall_temperature_rate_k_s": 1.4210854715202004e-14,
+            "boundary_pressure_pa": 9.313225746154785e-10
+          }
+        },
+        {
+          "cells": 8,
+          "total_length_m": 3.0,
+          "total_loss_coefficient": 30.0,
+          "total_volume_m3": 0.003,
+          "flow_error_kg_s": 7.22815334253113e-07,
+          "pressure_max_error_pa": 0.0007991073653101921,
+          "enthalpy_max_error_j_kg": 7.217749953269958e-08,
+          "fluid_temperature_max_error_k": 4.575895218295045e-11,
+          "wall_temperature_max_error_k": 4.575895218295045e-11,
+          "operator_residual": {
+            "mass_rate_kg_s": 0.0,
+            "fluid_energy_rate_w": 1.471489667892456e-07,
+            "acceleration_kg_s2": 2.5495125252443055e-09,
+            "wall_temperature_rate_k_s": 2.1316282072803006e-14,
+            "boundary_pressure_pa": 0.0
+          }
+        },
+        {
+          "cells": 16,
+          "total_length_m": 3.0,
+          "total_loss_coefficient": 30.0,
+          "total_volume_m3": 0.003,
+          "flow_error_kg_s": 3.7345522008180865e-07,
+          "pressure_max_error_pa": 0.00021404679864645004,
+          "enthalpy_max_error_j_kg": 1.176958903670311e-07,
+          "fluid_temperature_max_error_k": 3.2798652682686225e-11,
+          "wall_temperature_max_error_k": 3.2798652682686225e-11,
+          "operator_residual": {
+            "mass_rate_kg_s": 0.0,
+            "fluid_energy_rate_w": 1.5844125300645828e-07,
+            "acceleration_kg_s2": 5.16144549086069e-09,
+            "wall_temperature_rate_k_s": 4.263256414560601e-14,
+            "boundary_pressure_pa": 9.313225746154785e-10
+          }
+        }
+      ],
+      "observed_orders": {
+        "flow_error_kg_s": [
+          0.9004599464846518,
+          0.9526918486937336
+        ],
+        "pressure_max_error_pa": [
+          1.7776128330107441,
+          1.9004630934272262
+        ]
+      },
+      "passed": true
+    },
+    {
+      "heat_w": 3000.0,
+      "reference_flow_kg_s": 1.0551117953790508,
+      "reference_difference": {
+        "flow_kg_s": 1.176836406102666e-14,
+        "pressure_pa": 4.6566128730773926e-09
+      },
+      "rows": [
+        {
+          "cells": 4,
+          "total_length_m": 3.0,
+          "total_loss_coefficient": 30.0,
+          "total_volume_m3": 0.003,
+          "flow_error_kg_s": 1.3404617607015723e-06,
+          "pressure_max_error_pa": 0.15658283233642578,
+          "enthalpy_max_error_j_kg": 355.41167189436965,
+          "fluid_temperature_max_error_k": 0.07688950642977943,
+          "wall_temperature_max_error_k": 0.07688950642977943,
+          "operator_residual": {
+            "mass_rate_kg_s": 0.0,
+            "fluid_energy_rate_w": 8.451752364635468e-08,
+            "acceleration_kg_s2": 2.0897835687113305e-09,
+            "wall_temperature_rate_k_s": 2.1316282072803006e-14,
+            "boundary_pressure_pa": 9.313225746154785e-10
+          }
+        },
+        {
+          "cells": 8,
+          "total_length_m": 3.0,
+          "total_loss_coefficient": 30.0,
+          "total_volume_m3": 0.003,
+          "flow_error_kg_s": 7.214979373948438e-07,
+          "pressure_max_error_pa": 0.03927088622003794,
+          "enthalpy_max_error_j_kg": 177.70604453771375,
+          "fluid_temperature_max_error_k": 0.03844834607559733,
+          "wall_temperature_max_error_k": 0.03844834607559733,
+          "operator_residual": {
+            "mass_rate_kg_s": 0.0,
+            "fluid_energy_rate_w": 1.1653173714876175e-07,
+            "acceleration_kg_s2": 3.047168623500814e-08,
+            "wall_temperature_rate_k_s": 4.263256414560601e-14,
+            "boundary_pressure_pa": 9.313225746154785e-10
+          }
+        },
+        {
+          "cells": 16,
+          "total_length_m": 3.0,
+          "total_loss_coefficient": 30.0,
+          "total_volume_m3": 0.003,
+          "flow_error_kg_s": 3.735658598014169e-07,
+          "pressure_max_error_pa": 0.009833365678787231,
+          "enthalpy_max_error_j_kg": 88.85308068408631,
+          "fluid_temperature_max_error_k": 0.019225072150561573,
+          "wall_temperature_max_error_k": 0.019225072150561573,
+          "operator_residual": {
+            "mass_rate_kg_s": 0.0,
+            "fluid_energy_rate_w": 1.457519829273224e-07,
+            "acceleration_kg_s2": 1.9054160050776165e-07,
+            "wall_temperature_rate_k_s": 1.6342482922482304e-13,
+            "boundary_pressure_pa": 0.0
+          }
+        }
+      ],
+      "observed_orders": {
+        "flow_error_kg_s": [
+          0.8936628887196977,
+          0.9496326572564592
+        ],
+        "pressure_max_error_pa": [
+          1.9953939843744053,
+          1.997702956147651
+        ],
+        "enthalpy_max_error_j_kg": [
+          0.9999983065702742,
+          0.9999990515197801
+        ],
+        "fluid_temperature_max_error_k": [
+          0.9998651789984517,
+          0.9999325268666196
+        ]
+      },
+      "passed": true
+    }
+  ],
+  "passed": true
+}

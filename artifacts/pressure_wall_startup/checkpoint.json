@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "model_id": "pressure-driven-wall-channel",
+  "model_version": "0.1.0",
+  "config": {
+    "cells": 2,
+    "total_volume_m3": 0.004,
+    "left_pressure_pa": 7020000.0,
+    "right_pressure_pa": 7000000.0,
+    "left_temperature_k": 500.0,
+    "right_temperature_k": 500.0,
+    "initial_pressure_pa": 7010000.0,
+    "initial_temperature_k": 500.0,
+    "area_m2": 0.001,
+    "junction_length_m": 1.0,
+    "loss_coefficient": 10.0,
+    "total_heat_capacity_j_k": 8000.0,
+    "total_ua_w_k": 1000.0,
+    "heat_w": 3000.0,
+    "initial_flow_kg_s": 0.0,
+    "initial_wall_temperature_k": 500.0
+  },
+  "time_s": 0.05,
+  "state": [
+    1.6707178522750066,
+    1617371.9518348647,
+    1.6707085773926027,
+    1617363.005133133,
+    0.3247119835697357,
+    0.318588133238514,
+    0.32471898081750666,
+    500.0186958182691,
+    500.0186873781849,
+    -1.7914050253750402e-07,
+    149.87610595173186
+  ]
+}

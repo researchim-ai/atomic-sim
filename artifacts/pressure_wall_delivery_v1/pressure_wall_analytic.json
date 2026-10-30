@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "kind": "numerical_verification",
+  "validated": false,
+  "plant_referenced": false,
+  "source_sha256": "14a04923468cee489e09e82ef4f62b278c4307cc3f321bc5bfaa672e763a68c1",
+  "script_sha256": "89b03b22a89cad1cb24a5a65c488be5d1212c3297456882e8197f0b080f38928",
+  "equation": "dF/dt=-k F abs(F); F(t)=F0/(1+k abs(F0)t), k=K/(2 rho A L)",
+  "horizon_s": 2.0,
+  "scope": "Equal-temperature/pressure reservoirs, uniform fluid, no heat; frictional mechanical energy is not in the internal-energy inventory",
+  "cases": [
+    {
+      "method": "BDF",
+      "initial_flow_kg_s": -2.0,
+      "rtol": 1e-05,
+      "exact_final_flow_kg_s": -0.08018561560285119,
+      "flow_error_kg_s": 2.799049467150372e-06,
+      "pressure_error_pa": 0.0,
+      "mass_residual_kg": 5.337104332217171e-16,
+      "energy_residual_j": 1.1760426156159462e-09
+    },
+    {
+      "method": "BDF",
+      "initial_flow_kg_s": -2.0,
+      "rtol": 1e-07,
+      "exact_final_flow_kg_s": -0.08018561560285119,
+      "flow_error_kg_s": 1.1802007066075149e-07,
+      "pressure_error_pa": 0.0,
+      "mass_residual_kg": 1.343232814979995e-16,
+      "energy_residual_j": 6.639196700258162e-10
+    },
+    {
+      "method": "BDF",
+      "initial_flow_kg_s": -2.0,
+      "rtol": 1e-09,
+      "exact_final_flow_kg_s": -0.08018561560285119,
+      "flow_error_kg_s": 4.524601775190984e-08,
+      "pressure_error_pa": 0.0,
+      "mass_residual_kg": 3.8479908576161407e-16,
+      "energy_residual_j": 1.0972052501244443e-09
+    },
+    {
+      "method": "BDF",
+      "initial_flow_kg_s": 2.0,
+      "rtol": 1e-05,
+      "exact_final_flow_kg_s": 0.08018561560285119,
+      "flow_error_kg_s": 2.7990478408262964e-06,
+      "pressure_error_pa": 0.0,
+      "mass_residual_kg": 9.663817069469365e-17,
+      "energy_residual_j": 4.792056825359945e-10
+    },
+    {
+      "method": "BDF",
+      "initial_flow_kg_s": 2.0,
+      "rtol": 1e-07,
+      "exact_final_flow_kg_s": 0.08018561560285119,
+      "flow_error_kg_s": 1.1800473630196873e-07,
+      "pressure_error_pa": 0.0,
+      "mass_residual_kg": 6.097166940878036e-16,
+      "energy_residual_j": 3.6953312345327134e-10
+    },
+    {
+      "method": "BDF",
+      "initial_flow_kg_s": 2.0,
+      "rtol": 1e-09,
+      "exact_final_flow_kg_s": 0.08018561560285119,
+      "flow_error_kg_s": 4.252870218490745e-08,
+      "pressure_error_pa": 0.0,
+      "mass_residual_kg": 5.731307479961392e-17,
+      "energy_residual_j": 1.0868161651510357e-09
+    },
+    {
+      "method": "Radau",
+      "initial_flow_kg_s": -2.0,
+      "rtol": 1e-05,
+      "exact_final_flow_kg_s": -0.08018561560285119,
+      "flow_error_kg_s": 2.1200655897501974e-08,
+      "pressure_error_pa": 0.0,
+      "mass_residual_kg": 4.953560956113714e-20,
+      "energy_residual_j": 4.819838605914477e-14
+    },
+    {
+      "method": "Radau",
+      "initial_flow_kg_s": -2.0,
+      "rtol": 1e-07,
+      "exact_final_flow_kg_s": -0.08018561560285119,
+      "flow_error_kg_s": 2.035383528387058e-10,
+      "pressure_error_pa": 0.0,
+      "mass_residual_kg": 2.131367992816149e-21,
+      "energy_residual_j": 2.000965882772636e-15
+    },
+    {
+      "method": "Radau",
+      "initial_flow_kg_s": -2.0,
+      "rtol": 1e-09,
+      "exact_final_flow_kg_s": -0.08018561560285119,
+      "flow_error_kg_s": 6.925432449733648e-12,
+      "pressure_error_pa": 0.0,
+      "mass_residual_kg": 1.208248828995801e-21,
+      "energy_residual_j": 1.179663533082418e-15
+    },
+    {
+      "method": "Radau",
+      "initial_flow_kg_s": 2.0,
+      "rtol": 1e-05,
+      "exact_final_flow_kg_s": 0.08018561560285119,
+      "flow_error_kg_s": 2.1200648805952405e-08,
+      "pressure_error_pa": 0.0,
+      "mass_residual_kg": 1.2963056537384948e-19,
+      "energy_residual_j": 2.085283192383599e-13
+    },
+    {
+      "method": "Radau",
+      "initial_flow_kg_s": 2.0,
+      "rtol": 1e-07,
+      "exact_final_flow_kg_s": 0.08018561560285119,
+      "flow_error_kg_s": 2.0252977073198508e-10,
+      "pressure_error_pa": 0.0,
+      "mass_residual_kg": 1.0811763430666504e-20,
+      "energy_residual_j": 1.0543505295593784e-14
+    },
+    {
+      "method": "Radau",
+      "initial_flow_kg_s": 2.0,
+      "rtol": 1e-09,
+      "exact_final_flow_kg_s": 0.08018561560285119,
+      "flow_error_kg_s": 6.9292349635929895e-12,
+      "pressure_error_pa": 0.0,
+      "mass_residual_kg": 2.8756039597667948e-21,
+      "energy_residual_j": 2.805998183222948e-15
+    }
+  ],
+  "coarse_to_fine_improvement": true,
+  "passed": true
+}

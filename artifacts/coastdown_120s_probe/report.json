@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "status": "failed",
+  "name": "coastdown_120s_probe",
+  "requested_duration_s": 120.0,
+  "completed_time_s": 79.0,
+  "wall_time_s": 6.2152188639993255,
+  "accepted_steps": 79,
+  "balance": {
+    "steps": 79,
+    "energy_max_abs_j": 705.4976967573166,
+    "energy_integral_j": 4081.507219955325,
+    "energy_global_j": 4081.507032394409,
+    "energy_relative": 2.4231310842247083e-09,
+    "energy_scale_j": 1684393823745.7366,
+    "energy_net_relative": 8.282784836852988e-07,
+    "energy_throughput_j": 481821670336.6205,
+    "energy_normalization": "max(1 J, abs(initial stored energy), gross boundary throughput)",
+    "mass_drift_kg": 2.9103830456733704e-11,
+    "mass_relative": 2.1153265450566477e-16,
+    "boron_drift_kg": 7.105427357601002e-15,
+    "boron_relative": 1.7714355128045844e-16,
+    "full_horizon_accepted": false
+  },
+  "budget_checks": {
+    "energy_relative": true,
+    "mass_relative": true,
+    "boron_relative": true
+  },
+  "numerical_acceptance": false,
+  "validated": false,
+  "plant_referenced": false,
+  "error": {
+    "class": "domain",
+    "type": "DomainError",
+    "message": "Объём core: Обращение (rho, u) не сошлось; проекция разрешена только для численной пробы (rho=579.184, u=1.63337e+06, p_guess=1.62731e+07, T_guess=621.850)",
+    "attempted_interval_s": [
+      79.0,
+      80.0
+    ],
+    "attempted_commands": []
+  },
+  "events": [
+    {
+      "kind": "command",
+      "t": 10.0,
+      "motor_off": true
+    }
+  ],
+  "extrema": {
+    "time_s": {
+      "min": 0.0,
+      "max": 79.0
+    },
+    "fission_power_w": {
+      "min": 3023463150.871914,
+      "max": 3112564469.0553007
+    },
+    "thermal_power_w": {
+      "min": 3023463150.8721857,
+      "max": 3108445017.9611015
+    },
+    "electrical_power_w": {
+      "min": 905000746.9688532,
+      "max": 921971241.8776991
+    },
+    "fuel_temperature_k": {
+      "min": 899.9999999999682,
+      "max": 923.5368570406403
+    },
+    "rod_insertion": {
+      "min": 0.24999999999999992,
+      "max": 0.25
+    },
+    "reactivity": {
+      "min": -1.8862605993697737e-05,
+      "max": 5.974938673532254e-05
+    },
+    "primary_pressure_pa": {
+      "min": 15877660.61505107,
+      "max": 16246962.007413285
+    },
+    "sg_pressure_pa": {
+      "min": 6279302.2209625,
+      "max": 6400000.000004323
+    },
+    "mass_flow_kg_s": {
+      "min": 7696.863848448871,
+      "max": 18000.000000515185
+    },
+    "steam_flow_kg_s": {
+      "min": 1144.4302508316282,
+      "max": 1166.2906465081803
+    },
+    "feed_flow_kg_s": {
+      "min": 1141.7998005170302,
+      "max": 1166.3339610833937
+    },
+    "dump_flow_kg_s": {
+      "min": -6.445664868956824e-26,
+      "max": 5.598516004515045e-25
+    },
+    "pressurizer_heater_w": {
+      "min": 0.0,
+      "max": 0.0
+    },
+    "energy_residual_j": {
+      "min": -705.4976967573166,
+      "max": 294.3990441262722
+    }
+  }
+}

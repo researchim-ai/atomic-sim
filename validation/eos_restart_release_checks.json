@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "validated": false,
+  "plant_referenced": false,
+  "source_sha256": "1a24385007ef55716aac6b0daafa510201c68ba19bd56b2d5f0f7d5164127593",
+  "checks": [
+    {
+      "artifact": "scram_60s_stops",
+      "checkpoint_sha256": "fbfc7402c1e28bbc8a5f17584de18f297c855038e1d824d215e256568615ca71",
+      "snapshot_exact": true,
+      "resumed_time_s": 60.25
+    },
+    {
+      "artifact": "scram_60s_stops_tight",
+      "checkpoint_sha256": "5ed6bf3f6b1d37f26a069ef2ada0235be1675768ba9e96e6da0bf6e221da37e3",
+      "snapshot_exact": true,
+      "resumed_time_s": 60.25
+    },
+    {
+      "artifact": "protected_coastdown_120s_stops",
+      "checkpoint_sha256": "dc377728837be7252419cd70a5c24e228aee36be1a830cc52e0bc092435f6d94",
+      "snapshot_exact": true,
+      "resumed_time_s": 120.25
+    },
+    {
+      "artifact": "protected_coastdown_120s_stops_tight",
+      "checkpoint_sha256": "f1d1db0fd8653a702221c430c331c371f76bfc676fe6f3af72131b5c186d7176",
+      "snapshot_exact": true,
+      "resumed_time_s": 120.25
+    },
+    {
+      "artifact": "protected_coastdown_1800s_stops",
+      "checkpoint_sha256": "24eb156c433f9503e1b02508432cfd9932706c1a415bd6887b86085d5d29e1c7",
+      "snapshot_exact": true,
+      "resumed_time_s": 120.25
+    }
+  ]
+}

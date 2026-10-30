@@ -1,0 +1,164 @@
+{
+  "document": "run_manifest",
+  "date": "2026-10-31",
+  "roadmap": "docs/INDUSTRIAL_STARTUP_ROADMAP_RU.md",
+  "roadmap_version": "1.0",
+  "validated": false,
+  "plant_referenced": false,
+  "modes": [
+    {
+      "id": "nominal_short",
+      "horizon_s": 0.5,
+      "status": "checked_short",
+      "accepted_full_horizon": false,
+      "evidence": "tests/test_protection_ledger.py и tests/test_horizon_ledger.py"
+    },
+    {
+      "id": "nominal_3600s",
+      "horizon_s": 3600,
+      "status": "numerically_verified",
+      "accepted_full_horizon": false,
+      "numerical_full_horizon_accepted": true,
+      "evidence": "validation/central_jacobian_hour_verified.json",
+      "note": "Numerical agreement and balances only; accepted_full_horizon remains false pending industrial qualification."
+    },
+    {
+      "id": "fast_transient_60s",
+      "horizon_s": 60,
+      "status": "numerically_verified",
+      "accepted_full_horizon": false,
+      "numerical_full_horizon_accepted": true,
+      "evidence": "validation/scram_60s_verified.json",
+      "note": "Prescribed SCRAM at 10 s, exact rod stop at 13.75 s; numerical verification only.",
+      "checkpoint_restore_exact": true,
+      "restart_evidence": "validation/scram_coastdown_restart_checks.json"
+    },
+    {
+      "id": "coastdown_1800s",
+      "horizon_s": 1800,
+      "status": "model_limit_refined",
+      "accepted_full_horizon": false,
+      "completed_time_s": 122.20260620117188,
+      "evidence": "artifacts/boundary_5s_accounted/report.json",
+      "note": "Controlled stop with accepted checkpoint; primary quality limit unchanged. Numerical admissibility interval is not a certified physical crossing; 1800 s remains unaccepted.",
+      "additional_evidence": "validation/domain_boundary_refinement.json",
+      "numerical_boundary_refined": true,
+      "physical_crossing_localized": false
+    },
+    {
+      "id": "load_rejection",
+      "horizon_s": 40,
+      "status": "historical_pre_dump",
+      "accepted_full_horizon": false,
+      "evidence": "validation/comp02_load_rejection.json"
+    },
+    {
+      "id": "natural_circulation_in_vver",
+      "status": "not_in_passport",
+      "accepted_full_horizon": false
+    },
+    {
+      "id": "nominal_60s_numerical",
+      "horizon_s": 60,
+      "status": "completed_numerical_budgets_met",
+      "accepted_full_horizon": false,
+      "evidence": "validation/eos_stability_result.json",
+      "note": "Historical short numerical verification; subsequent hour evidence is recorded in nominal_3600s."
+    },
+    {
+      "id": "nominal_20s_analytic_newton",
+      "horizon_s": 20,
+      "completed_time_s": 20,
+      "status": "completed_numerical_budgets_met",
+      "accepted_full_horizon": false,
+      "evidence": "validation/thermo_performance_result.json"
+    },
+    {
+      "id": "nominal_300s_attempt",
+      "horizon_s": 300,
+      "completed_time_s": 75,
+      "status": "wall_limit",
+      "accepted_full_horizon": false,
+      "evidence": "validation/thermo_performance_result.json"
+    },
+    {
+      "id": "throttle_98pct_120s",
+      "horizon_s": 120,
+      "status": "numerically_verified",
+      "numerical_full_horizon_accepted": true,
+      "accepted_full_horizon": false,
+      "evidence": "validation/radau_throttle_120s_resolved_result.json",
+      "note": "Prescribed 2% throttle reduction at 10 s; numerical agreement only, not all load rejection modes."
+    },
+    {
+      "id": "protected_coastdown_120s",
+      "horizon_s": 120,
+      "status": "numerically_verified",
+      "accepted_full_horizon": false,
+      "numerical_full_horizon_accepted": true,
+      "evidence": "validation/protected_coastdown_120s_verified.json",
+      "note": "Continuous trajectories, exact checkpoint restore and short continuation verified numerically; 1800 s and physical validation remain unaccepted.",
+      "checkpoint_restart_accepted": true,
+      "restart_evidence": "validation/eos_restart_release_checks.json",
+      "restart_agreement_evidence": "validation/eos_restart_continuation_agreement.json"
+    },
+    {
+      "id": "isobaric_prescribed_channel_1800s",
+      "model_id": "isobaric-heated-channel",
+      "horizon_s": 1800,
+      "status": "numerically_verified_component_case",
+      "accepted_full_horizon": false,
+      "numerical_full_horizon_accepted": true,
+      "validated": false,
+      "plant_referenced": false,
+      "evidence": "validation/isobaric_delivery_comparison.json",
+      "note": "Open fixed-pressure thermal component with synthetic flow/heat decay; does not qualify VVER coastdown."
+    },
+    {
+      "id": "isobaric_wall_channel_1800s",
+      "model_id": "isobaric-wall-heated-channel",
+      "horizon_s": 1800,
+      "status": "numerically_verified_component_case",
+      "accepted_full_horizon": false,
+      "numerical_full_horizon_accepted": true,
+      "validated": false,
+      "plant_referenced": false,
+      "evidence": "validation/wall_channel_1800s_comparison.json",
+      "restart_evidence": "validation/wall_channel_restart.json",
+      "note": "Prescribed fixed pressure, C and UA; synthetic source switch at 900 s; not VVER qualification."
+    },
+    {
+      "id": "pressure_driven_wall_channel_1800s",
+      "model_id": "pressure-driven-wall-channel",
+      "horizon_s": 1800,
+      "status": "numerically_verified_component_case",
+      "accepted_full_horizon": false,
+      "numerical_full_horizon_accepted": true,
+      "validated": false,
+      "plant_referenced": false,
+      "evidence": "validation/pressure_wall_1800s_comparison.json",
+      "startup_evidence": "validation/pressure_wall_startup_comparison.json",
+      "restart_evidence": "validation/pressure_wall_restart.json",
+      "note": "Single-phase low-Mach internal-energy component with dynamic junction momentum; mechanical energy and VVER coastdown are not qualified."
+    },
+    {
+      "id": "fixed_pipe_steady_mesh",
+      "model_id": "pressure-driven-wall-channel",
+      "status": "numerically_verified_steady_spatial_cases",
+      "cells": [
+        4,
+        8,
+        16
+      ],
+      "accepted_full_horizon": false,
+      "validated": false,
+      "plant_referenced": false,
+      "evidence": "validation/pipe_mesh_delivery.json",
+      "note": "Fixed total L, volume, K, heat and UA. Steady first-order donor scheme only; transient mesh and mechanical energy remain unqualified."
+    }
+  ],
+  "targets_not_measured_as_acceptance": {
+    "integral_mass_relative": 1e-06,
+    "integral_energy_relative": 1e-05
+  }
+}

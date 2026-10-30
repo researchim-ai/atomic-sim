@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-30",
+  "model_id": "isobaric-wall-heated-channel",
+  "model_status": "implemented",
+  "source_sha256": "225a40b4618d0c1455741984d81f8a6c6a1a6c2c1778270d01db01bf63581217",
+  "validated": false,
+  "plant_referenced": false,
+  "vver_1800s_accepted": false,
+  "full_suite": {
+    "passed": 363,
+    "deselected": 1,
+    "excluded": "test_openmc_particle_run_reports_k_and_mgxs",
+    "reason": "external OpenMC/MPI integration, unchanged"
+  },
+  "ruff": "passed",
+  "installed_wheel_smoke": "passed",
+  "analytical_evidence": "validation/wall_channel_analytic_20s.json",
+  "horizon_evidence": "validation/wall_channel_1800s_comparison.json",
+  "restart_evidence": "validation/wall_channel_restart.json",
+  "bare_channel_regression": "validation/isobaric_after_wall_comparison.json",
+  "limitations": [
+    "prescribed pressure, flow and external power",
+    "constant user-supplied heat capacity and UA",
+    "no momentum, CHF or experimental validation",
+    "not a full VVER coastdown acceptance"
+  ],
+  "initial_check_notes": [
+    "First suite run found missing test field in previous phenomenon matrix row; fixed and complete suite rerun passed.",
+    "Two-second analytic monotonicity check was below useful error scale; failed evidence retained, twenty-second convergence check passed."
+  ]
+}

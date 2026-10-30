@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "name": "vver_hour_after_endpoint_fix",
+  "engine": "vver",
+  "model_id": "vver-lumped-loop",
+  "description": "Часовой номинал с сохранением истории BDF; численная проверка, не экспериментальная валидация.",
+  "duration_s": 3600.0,
+  "step_s": 5.0,
+  "timeline": [],
+  "solver": {
+    "rtol": 1e-05,
+    "atol": 0.0001,
+    "first_step_s": 5.0,
+    "continuation": true,
+    "jacobian_relative_step": 1e-05
+  },
+  "budgets": {
+    "energy_relative": 1e-05,
+    "mass_relative": 1e-06,
+    "boron_relative": 1e-06
+  }
+}

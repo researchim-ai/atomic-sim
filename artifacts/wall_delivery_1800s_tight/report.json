@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "name": "isobaric_wall_shutdown_1800s tight",
+  "status": "completed",
+  "model_id": "isobaric-wall-heated-channel",
+  "requested_duration_s": 1800.0,
+  "completed_time_s": 1800.0,
+  "wall_time_s": 22.474990928000807,
+  "accepted_output_steps": 720,
+  "balance": {
+    "mass_relative": 4.123620497049811e-09,
+    "energy_relative": 1.9170896007819974e-09,
+    "max_mass_residual_kg": 1.2324295278753894e-08,
+    "max_energy_residual_j": 0.015609317953931168,
+    "final_mass_residual_kg": 1.0147691216994004e-08,
+    "final_energy_residual_j": 0.012850734506648908,
+    "normalization": "maximum sampled absolute residual / initial absolute inventory"
+  },
+  "budget_checks": {
+    "mass_relative": true,
+    "energy_relative": true
+  },
+  "numerical_acceptance": true,
+  "validated": false,
+  "plant_referenced": false,
+  "error": null,
+  "events": [
+    {
+      "kind": "heater_off",
+      "t": 900.0
+    }
+  ],
+  "extrema": {
+    "time_s": {
+      "min": 0.0,
+      "max": 1800.0
+    },
+    "pressure_pa": {
+      "min": 7000000.0,
+      "max": 7000000.0
+    },
+    "outlet_enthalpy_j_kg": {
+      "min": 1247437.2138653353,
+      "max": 1881674.766124248
+    },
+    "outlet_quality": {
+      "min": 0.0,
+      "max": 0.40809546500948973
+    },
+    "max_quality": {
+      "min": 0.0,
+      "max": 0.40809546500948973
+    },
+    "outlet_void": {
+      "min": 0.0,
+      "max": 0.9331724148792057
+    },
+    "outlet_temperature_k": {
+      "min": 555.2463026048234,
+      "max": 558.9800228057516
+    },
+    "inlet_mass_flow_kg_s": {
+      "min": 0.049787068367863944,
+      "max": 1.0
+    },
+    "outlet_mass_flow_kg_s": {
+      "min": 0.03061578492573901,
+      "max": 1.2614275777897164
+    },
+    "heat_w": {
+      "min": 0.0,
+      "max": 300000.0
+    },
+    "stored_mass_kg": {
+      "min": 0.6124375316262052,
+      "max": 2.988707444725126
+    },
+    "stored_energy_j": {
+      "min": 5516944.732821311,
+      "max": 8164115.544695848
+    },
+    "mass_residual_kg": {
+      "min": -1.8189392214651434e-09,
+      "max": 1.2324295278753894e-08
+    },
+    "energy_residual_j": {
+      "min": -0.0023059810046106577,
+      "max": 0.015609317953931168
+    },
+    "wall_energy_j": {
+      "min": 4441970.420838587,
+      "max": 4710479.027118401
+    },
+    "fluid_energy_j": {
+      "min": 931660.9486496384,
+      "max": 3709158.3843662264
+    },
+    "min_wall_temperature_k": {
+      "min": 555.2463026048234,
+      "max": 588.8098379603672
+    },
+    "max_wall_temperature_k": {
+      "min": 555.2463026048234,
+      "max": 588.8098943067858
+    },
+    "wall_to_fluid_w": {
+      "min": 0.0,
+      "max": 298298.5558404855
+    }
+  },
+  "scope": "open isobaric channel with prescribed heat/flow and optional fixed-UA wall; not reactor coastdown"
+}

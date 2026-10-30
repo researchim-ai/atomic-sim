@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "kind": "numerical_verification",
+  "validated": false,
+  "plant_referenced": false,
+  "horizon_s": 1800,
+  "comparison_times": 361,
+  "budget_sha256": "b0f86875c6438ecb25d7ffc4c17b937df430dba0bcfc1b9242f119c3feb0bd71",
+  "runs": {
+    "artifacts/isobaric_after_wall_1800s": {
+      "schema_version": 1,
+      "name": "isobaric_prescribed_decay_1800s",
+      "status": "completed",
+      "model_id": "isobaric-heated-channel",
+      "requested_duration_s": 1800.0,
+      "completed_time_s": 1800.0,
+      "wall_time_s": 7.18099106200043,
+      "accepted_output_steps": 360,
+      "balance": {
+        "mass_relative": 5.889352262088835e-08,
+        "energy_relative": 6.442978694064505e-08,
+        "max_mass_residual_kg": 1.826922706449352e-07,
+        "max_energy_residual_j": 0.23152719577774405,
+        "final_mass_residual_kg": 1.826922706449352e-07,
+        "final_energy_residual_j": 0.23152719577774405,
+        "normalization": "maximum sampled absolute residual / initial absolute inventory"
+      },
+      "budget_checks": {
+        "mass_relative": true,
+        "energy_relative": true
+      },
+      "numerical_acceptance": true,
+      "validated": false,
+      "plant_referenced": false,
+      "error": null,
+      "events": [],
+      "extrema": {
+        "time_s": {
+          "min": 0.0,
+          "max": 1800.0
+        },
+        "pressure_pa": {
+          "min": 7000000.0,
+          "max": 7000000.0
+        },
+        "outlet_enthalpy_j_kg": {
+          "min": 1167437.2138653353,
+          "max": 2503294.1331504514
+        },
+        "outlet_quality": {
+          "min": 0.0,
+          "max": 0.8210953601030613
+        },
+        "max_quality": {
+          "min": 0.0,
+          "max": 0.8210953601030613
+        },
+        "outlet_void": {
+          "min": 0.0,
+          "max": 0.9893564920043935
+        },
+        "outlet_temperature_k": {
+          "min": 539.7595995588308,
+          "max": 558.9800228057516
+        },
+        "inlet_mass_flow_kg_s": {
+          "min": 0.049787068367863944,
+          "max": 1.0
+        },
+        "outlet_mass_flow_kg_s": {
+          "min": 0.05011479876168783,
+          "max": 1.131797348620668
+        },
+        "heat_w": {
+          "min": 66939.04804452894,
+          "max": 300000.0
+        },
+        "stored_mass_kg": {
+          "min": 0.37689921287333655,
+          "max": 3.1020774868735383
+        },
+        "stored_energy_j": {
+          "min": 651544.1808547906,
+          "max": 3593480.698470025
+        },
+        "mass_residual_kg": {
+          "min": -6.731456858588558e-08,
+          "max": 1.826922706449352e-07
+        },
+        "energy_residual_j": {
+          "min": -0.08534105774015188,
+          "max": 0.23152719577774405
+        }
+      },
+      "scope": "open isobaric channel with prescribed heat/flow and optional fixed-UA wall; not reactor coastdown"
+    },
+    "artifacts/isobaric_delivery_1800s_tight": {
+      "schema_version": 1,
+      "name": "isobaric_delivery_1800s_tight",
+      "status": "completed",
+      "model_id": "isobaric-heated-channel",
+      "requested_duration_s": 1800.0,
+      "completed_time_s": 1800.0,
+      "wall_time_s": 9.983026953999797,
+      "accepted_output_steps": 720,
+      "balance": {
+        "mass_relative": 4.645255163117551e-09,
+        "energy_relative": 5.082799946235218e-09,
+        "max_mass_residual_kg": 1.4409941462290021e-08,
+        "max_energy_residual_j": 0.018264943500980735,
+        "final_mass_residual_kg": 1.4409895943146012e-08,
+        "final_energy_residual_j": 0.018264902755618095,
+        "normalization": "maximum sampled absolute residual / initial absolute inventory"
+      },
+      "budget_checks": {
+        "mass_relative": true,
+        "energy_relative": true
+      },
+      "numerical_acceptance": true,
+      "validated": false,
+      "plant_referenced": false,
+      "error": null,
+      "extrema": {
+        "time_s": {
+          "min": 0.0,
+          "max": 1800.0
+        },
+        "pressure_pa": {
+          "min": 7000000.0,
+          "max": 7000000.0
+        },
+        "outlet_enthalpy_j_kg": {
+          "min": 1167437.2138653353,
+          "max": 2503294.133150384
+        },
+        "outlet_quality": {
+          "min": 0.0,
+          "max": 0.8210953601030165
+        },
+        "max_quality": {
+          "min": 0.0,
+          "max": 0.8210953601030165
+        },
+        "outlet_void": {
+          "min": 0.0,
+          "max": 0.9893564920043904
+        },
+        "outlet_temperature_k": {
+          "min": 539.7595995588308,
+          "max": 558.9800228057516
+        },
+        "inlet_mass_flow_kg_s": {
+          "min": 0.049787068367863944,
+          "max": 1.0
+        },
+        "outlet_mass_flow_kg_s": {
+          "min": 0.050114798761690414,
+          "max": 1.2161364554402674
+        },
+        "heat_w": {
+          "min": 66939.04804452894,
+          "max": 300000.0
+        },
+        "stored_mass_kg": {
+          "min": 0.3768992128733388,
+          "max": 3.1020774868735383
+        },
+        "stored_energy_j": {
+          "min": 651544.1808547933,
+          "max": 3593480.698470025
+        },
+        "mass_residual_kg": {
+          "min": 0.0,
+          "max": 1.4409941462290021e-08
+        },
+        "energy_residual_j": {
+          "min": 0.0,
+          "max": 0.018264943500980735
+        }
+      },
+      "scope": "open isobaric channel; prescribed heat/flow, not a reactor coastdown"
+    }
+  },
+  "source_hashes": [
+    "225a40b4618d0c1455741984d81f8a6c6a1a6c2c1778270d01db01bf63581217",
+    "26239485629a133ccc1f249e7c30f2c3653ed1000f0c219be92c7c9031c7e26f"
+  ],
+  "measured": {
+    "outlet_enthalpy_relative": 6.775943937809192e-10,
+    "outlet_quality_absolute": 7.059341167181543e-10,
+    "stored_mass_relative": 7.001069259867882e-10
+  },
+  "checks": {
+    "outlet_enthalpy_relative": true,
+    "outlet_quality_absolute": true,
+    "stored_mass_relative": true,
+    "mass_relative": true,
+    "energy_relative": true
+  },
+  "passed": true,
+  "scope": "Open prescribed-pressure channel, not VVER coastdown acceptance"
+}

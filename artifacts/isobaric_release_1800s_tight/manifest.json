@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "source_sha256": "a9c6e6769c2f29e9e574e26827c70e1c0f8e219074fd9ecc3e79828b3566e44c",
+  "input_sha256": "59e0620b714a5b0c3d93f2234349efaa11c5136243c708affd288bb932350254",
+  "passport": {
+    "model_id": "isobaric-heated-channel",
+    "version": "0.1.0",
+    "status": "implemented",
+    "phenomenon": "Нестационарное равновесное кипение в открытом канале при заданном давлении",
+    "approximations": [
+      "одинаковое заданное давление во всех ячейках, акустика и импульс исключены",
+      "равновесные фазы без скольжения, донорная энтальпия и идеальное смешение ячейки",
+      "положительный или нулевой вход, только прямые межъячеечные потоки",
+      "нагрев предписан; стенка, кипящий теплообмен и CHF не предсказываются",
+      "нет геометрии блока, нейтроники, насоса и естественной циркуляции"
+    ],
+    "applicability": "IF97 области 1/2/4 до 16.529 МПа; без сверхкритической области",
+    "data_sources": [
+      "https://iapws.org/technical-guidance/release/IF97-Rev",
+      "Нестационарные балансы массы и внутренней энергии фиксированного объёма"
+    ],
+    "plant_referenced": false,
+    "notes": []
+  },
+  "python": "3.12.9",
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.2"
+  },
+  "solver": {
+    "method": "Radau",
+    "rtol": 1e-08,
+    "max_step_s": 0.5
+  },
+  "validated": false,
+  "plant_referenced": false,
+  "artifacts": {
+    "checkpoint.json": "d25efdb6858648301de7476f65276105cd41eaa3078ed5f06bca9eef7faa773a",
+    "input.json": "59e0620b714a5b0c3d93f2234349efaa11c5136243c708affd288bb932350254",
+    "report.json": "3bec07d520522db9ba645fea0326c009b987cb7bc45015bcb70b1d9b118f1a9a",
+    "report.md": "eac5b5cdbeed85b14338aea8555efef6247e80306655e6c8e5ed089b74d7801c",
+    "trajectory.csv": "b789db27c2ab8279acb66649739ff1d853df2d7470e8b8b026b10d8184245661"
+  }
+}

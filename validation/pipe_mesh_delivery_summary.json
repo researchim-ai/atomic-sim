@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-31",
+  "source_sha256": "abae00e5ec826a89f9fbfdaf93b89170db57ffcd01c990c5f33145563fca4ce2",
+  "model_id": "pressure-driven-wall-channel",
+  "model_status": "implemented",
+  "validated": false,
+  "plant_referenced": false,
+  "vver_1800s_accepted": false,
+  "full_suite": {
+    "passed": 408,
+    "deselected": 1,
+    "excluded": "test_openmc_particle_run_reports_k_and_mgxs",
+    "duration_s": 123.84
+  },
+  "ruff": "passed",
+  "installed_wheel_smoke": "passed",
+  "spatial_scope": "Steady donor discretization, constant total pipe geometry, 4/8/16 cells, heat 0/3000 W",
+  "geometry": "L=3m, A=0.001m2, V=0.003m3, K_total=30; half boundary junctions",
+  "spatial_evidence": "validation/pipe_mesh_delivery.json",
+  "temporal_evidence": "validation/pipe_geometry_comparison.json",
+  "restart_evidence": "validation/pipe_geometry_restart.json",
+  "legacy_readback": "validation/pipe_legacy_readback.json",
+  "legacy_coastdown": "validation/pipe_legacy_coastdown.json",
+  "compatibility": "Default scalar geometry and legacy checkpoint JSON unchanged; optional connection vectors are explicitly serialized",
+  "limitations": [
+    "Only steady spatial order verified; transient mesh convergence remains open",
+    "First-order thermal donor discretization",
+    "No total mechanical-energy acceptance, boiling pressure dynamics or plant validation"
+  ]
+}

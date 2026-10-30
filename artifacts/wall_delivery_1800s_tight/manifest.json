@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "source_sha256": "225a40b4618d0c1455741984d81f8a6c6a1a6c2c1778270d01db01bf63581217",
+  "input_sha256": "003edd3ca0bd7a7c7e6887160a584cfac949ee9ff54dbe92b7e5a6d4e644f1c5",
+  "passport": {
+    "model_id": "isobaric-wall-heated-channel",
+    "version": "0.1.0",
+    "status": "implemented",
+    "phenomenon": "Равновесное кипение с запасом энергии в сосредоточенной стенке",
+    "approximations": [
+      "открытый изобарический канал, импульс и динамика давления исключены",
+      "одна температура стенки на ячейку, постоянные C и UA заданы пользователем",
+      "внешняя мощность поступает в стенку; тепло стенка-жидкость внутреннее",
+      "нет корреляции кипящего теплообмена, CHF, напряжений и реальной геометрии блока",
+      "изменение расхода и мощности предписано, нейтроника и насос отсутствуют"
+    ],
+    "applicability": "IF97 области 1/2/4; прямые потоки, положительные температуры стенки",
+    "data_sources": [
+      "Баланс внутренней энергии и закон Q=UA(Tw-T)",
+      "https://iapws.org/technical-guidance/release/IF97-Rev"
+    ],
+    "plant_referenced": false,
+    "notes": []
+  },
+  "python": "3.12.9",
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.2"
+  },
+  "solver": {
+    "method": "Radau",
+    "rtol": 1e-08,
+    "max_step_s": 0.5
+  },
+  "validated": false,
+  "plant_referenced": false,
+  "artifacts": {
+    "checkpoint.json": "22d9e256a6395bc9fbffbe4dd5ffdc545f6470f5658dc085a7e950264019c343",
+    "input.json": "003edd3ca0bd7a7c7e6887160a584cfac949ee9ff54dbe92b7e5a6d4e644f1c5",
+    "report.json": "88956f656f9ebb00309c84e1ebfea6324a0a682dd577dcb57cb13836732a05f8",
+    "report.md": "eac5b5cdbeed85b14338aea8555efef6247e80306655e6c8e5ed089b74d7801c",
+    "trajectory.csv": "8d17a16cffc96c0f17c98310ea4f1d0bb05d0b95f09b834d7da7e7fd87e78db7"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "name": "boundary_5s_release",
+  "engine": "vver",
+  "model_id": "vver-lumped-loop",
+  "description": "Прикрытие турбины до 98% на 10 с, переход 120 с; численная проверка, не физическая валидация.",
+  "duration_s": 1800.0,
+  "step_s": 5.0,
+  "timeline": [
+    {
+      "t": 10.0,
+      "motor_off": true,
+      "scram": true
+    }
+  ],
+  "solver": {
+    "rtol": 1e-06,
+    "atol": 1e-05,
+    "method": "Radau",
+    "first_step_s": 5.0,
+    "continuation": true,
+    "jacobian_relative_step": 2e-06
+  },
+  "budgets": {
+    "energy_relative": 1e-05,
+    "mass_relative": 1e-06,
+    "boron_relative": 1e-06
+  },
+  "domain_boundary_tolerance_s": 0.0001
+}

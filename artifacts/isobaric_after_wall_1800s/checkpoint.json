@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "model_id": "isobaric-heated-channel",
+  "model_version": "0.1.0",
+  "config": {
+    "cells": 4,
+    "total_volume_m3": 0.004,
+    "pressure_pa": 7000000.0,
+    "inlet_enthalpy_j_kg": 1167437.2138653353,
+    "inlet_mass_flow_kg_s": 1.0,
+    "heat_w": 300000.0,
+    "flow_decay_s": 600.0,
+    "heat_decay_s": 1200.0,
+    "initial_enthalpy_j_kg": [
+      1167437.2138653353,
+      1167437.2138653353,
+      1167437.2138653353,
+      1167437.2138653353
+    ]
+  },
+  "time_s": 1800.0,
+  "state": [
+    1502531.4970144704,
+    1836561.0792079426,
+    2170090.9428585367,
+    2503294.1331504514,
+    -2.7251784566924724,
+    -2941936.7491424303
+  ]
+}

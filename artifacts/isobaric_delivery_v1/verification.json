@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_sha256": "26239485629a133ccc1f249e7c30f2c3653ed1000f0c219be92c7c9031c7e26f",
+  "wheel_smoke": "passed",
+  "installed_outside_checkout": true,
+  "new_cli_boiling_case": "passed",
+  "vver_legacy_cli_cases": "passed",
+  "model_status": "implemented",
+  "validated": false,
+  "plant_referenced": false,
+  "vver_1800s_accepted": false,
+  "files": {
+    "atomic_sim-2.0.0-py3-none-any.whl": "18f7cefb2686f89df8b81648457865722127dce82ee0f3628ef0b477524d7d02",
+    "isobaric_benchmarks_delivery.json": "9499abbc81f21e5dd463aa1ec420cb8c9968e4d1d7b4bca984b713af03c29c27",
+    "isobaric_delivery.json": "56fe226f4dff9a81761c96ea26a0d84675da64617ef090b1726b70442d31d1a0",
+    "isobaric_delivery_comparison.json": "7eb04676fd0d86065c976565e39c98c30fc39f2cc07154bc934cf75f9cb7537e",
+    "isobaric_restart_checks.json": "2fd2f4c19ffbd92c2df9fab965388564ce7ccd726d39daf76c749fe7da05b219",
+    "vver_hour_endpoint_fix_comparison.json": "1d3bf181daab520aa0e9cf88897a137627f31555fc323f976604ec4188d77e80"
+  }
+}

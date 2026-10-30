@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "validated": false,
+  "plant_referenced": false,
+  "note": "Failed RHS probes do not localize an exact domain crossing event. Last accepted states only.",
+  "runs": [
+    {
+      "step_s": 0.25,
+      "last_accepted_time_s": 122.0,
+      "last_accepted_core_quality": 3.086766563752016e-05,
+      "accepted_steps": 8,
+      "error": "Объёмное кипение в первичном контуре core вне паспорта ВВЭР",
+      "wall_time_s": 2.0813138650009932
+    },
+    {
+      "step_s": 0.125,
+      "last_accepted_time_s": 122.125,
+      "last_accepted_core_quality": 6.730191606770539e-05,
+      "accepted_steps": 17,
+      "error": "Объёмное кипение в первичном контуре core вне паспорта ВВЭР",
+      "wall_time_s": 2.9688501870004984
+    },
+    {
+      "step_s": 0.0625,
+      "last_accepted_time_s": 122.1875,
+      "last_accepted_core_quality": 9.305155381610973e-05,
+      "accepted_steps": 35,
+      "error": "Объёмное кипение в первичном контуре core вне паспорта ВВЭР",
+      "wall_time_s": 4.059348129998398
+    }
+  ],
+  "source_sha256": "2d584f19d04d44cb481092d591dccc609ea3966aa41dc62085b025bf829d8a56"
+}

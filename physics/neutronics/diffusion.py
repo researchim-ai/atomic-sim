@@ -732,6 +732,44 @@ def two_group_slab_k(
     return k_eigenvalue(removal, fission, tol=tol)
 
 
+def two_group_critical_buckling(
+    sigma_a: np.ndarray, scatter_12: float, nu_sigma_f: np.ndarray, diffusion_m: np.ndarray
+) -> float:
+    """Положительный B², при котором двухгрупповой k с chi=(1, 0) равен единице.
+
+    Обратного рассеяния нет. Подкритическая бесконечная среда корня не имеет.
+    """
+    absorption = np.asarray(sigma_a, dtype=float)
+    fission = np.asarray(nu_sigma_f, dtype=float)
+    diffusion = np.asarray(diffusion_m, dtype=float)
+    if (
+        scatter_12 < 0.0
+        or absorption.shape != (2,)
+        or fission.shape != (2,)
+        or diffusion.shape != (2,)
+        or np.any(absorption <= 0.0)
+        or np.any(diffusion <= 0.0)
+        or np.any(fission < 0.0)
+    ):
+        raise DomainError("Критический баклинг двух групп задан вне области")
+    fast_removal = absorption[0] + scatter_12
+    if fast_removal <= 0.0:
+        raise DomainError("Съём быстрой группы неположителен")
+    infinite = fission[0] / fast_removal + fission[1] * scatter_12 / (fast_removal * absorption[1])
+    if infinite <= 1.0:
+        raise DomainError("Двухгрупповая бесконечная среда не надкритична")
+    quadratic = diffusion[0] * diffusion[1]
+    linear = fast_removal * diffusion[1] + absorption[1] * diffusion[0] - fission[0] * diffusion[1]
+    constant = fast_removal * absorption[1] - fission[0] * absorption[1] - fission[1] * scatter_12
+    discriminant = linear**2 - 4.0 * quadratic * constant
+    if discriminant < 0.0:
+        raise DomainError("Дискриминант двухгруппового баклинга отрицателен")
+    buckling = (-linear + math.sqrt(discriminant)) / (2.0 * quadratic)
+    if buckling <= 0.0:
+        raise DomainError("Положительный критический баклинг двух групп не найден")
+    return float(buckling)
+
+
 def two_group_buckling_k(
     sigma_a: np.ndarray,
     scatter_12: float,
