@@ -176,6 +176,8 @@ def _run_channel_experiment(normalized, channel, output, *, wall_limit_s=None, c
             for begin, end, _ in experiment_intervals(intervals):
                 check_abort()
                 row = channel.advance(end - begin, **normalized["solver"])
+                if hasattr(channel, "last_events"):
+                    events.extend(channel.last_events)
                 steps += 1
                 record(row, writer)
                 stream.flush()
@@ -210,6 +212,18 @@ def _run_channel_experiment(normalized, channel, output, *, wall_limit_s=None, c
         "final_energy_residual_j": float(final["energy_residual_j"]),
         "normalization": "maximum sampled absolute residual / initial absolute inventory",
     }
+    if "mechanical_residual_j" in extrema:
+        balance["energy_absolute_j"] = max_energy
+        balance["mechanical_absolute_j"] = max(
+            abs(extrema["mechanical_residual_j"]["min"]),
+            abs(extrema["mechanical_residual_j"]["max"]),
+        )
+    if "momentum_residual_kg_m_s" in extrema:
+        balance["momentum_absolute_kg_m_s"] = max(
+            abs(extrema["momentum_residual_kg_m_s"]["min"]),
+            abs(extrema["momentum_residual_kg_m_s"]["max"]),
+        )
+        balance["energy_absolute_j"] = max_energy
     checks = {key: balance[key] <= limit for key, limit in normalized["budgets"].items()}
     report = {
         "schema_version": 1,
@@ -233,6 +247,8 @@ def _run_channel_experiment(normalized, channel, output, *, wall_limit_s=None, c
             "approximations": list(channel.passport.approximations),
         },
     }
+    if hasattr(channel, "solver_diagnostics"):
+        report["solver_diagnostics"] = channel.solver_diagnostics()
     _write_json(folder / "report.json", report)
     (folder / "report.md").write_text(
         "# Channel experiment\n\nStatus: **%s**. Time: %g / %g s.\n\n"

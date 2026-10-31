@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "scope": "numerical verification of fixed-bound Rusanov IF97 Euler component",
+  "friction_velocity_abs_m_s": 0.000001,
+  "energy_abs_j": 0.001,
+  "momentum_abs_kg_m_s": 0.0000001,
+  "smooth_truncation_min_order": 0.8,
+  "linear_mode_relative_error": 0.001,
+  "nonlinear_remainder_min_order": 1.4,
+  "validated": false,
+  "plant_referenced": false
+}

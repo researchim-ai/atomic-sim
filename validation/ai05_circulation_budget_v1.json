@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "scope": "Fixed constant-property uniform-area single-cycle circulation cases",
+  "mass_flow_abs_kg_s": 1e-08,
+  "temperature_abs_k": 1e-08,
+  "work_abs_j": 1e-06,
+  "energy_abs_j": 1e-05,
+  "local_energy_abs_w": 1e-06,
+  "pressure_cycle_abs_pa": 1e-06,
+  "event_time_abs_s": 1e-06,
+  "time_flow_abs_kg_s": 1e-08,
+  "time_temperature_abs_k": 1e-08,
+  "steady_momentum_rate_abs_pa": 1e-07,
+  "steady_thermal_rate_abs_w": 1e-06,
+  "ordinary_horizon_s": 10,
+  "steady_horizon_s": 100,
+  "pulse_horizon_s": 30,
+  "restart_extension_s": 1,
+  "validated": false,
+  "plant_referenced": false,
+  "pressure_abs_pa": 0.0001
+}

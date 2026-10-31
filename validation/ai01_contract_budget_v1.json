@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "kind": "numerical_environment_contract",
+  "created_before_formal_run": true,
+  "observation_absolute": 0.000001,
+  "reward_absolute": 0.000000000001,
+  "state_absolute": 0.00001,
+  "state_relative": 0.000000001,
+  "exact_fields": ["rng", "action_rng", "measurement_flags", "event_log", "termination_reason"],
+  "validated": false,
+  "plant_referenced": false
+}

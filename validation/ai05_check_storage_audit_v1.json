@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "cdb17ddbeb4207f29eb015dc4d4918eaa69413de1e7ab1e6cdd85c430988e9f0",
+  "verification_sha256": "cc1c646cca034945315787ceaaaea0882e121ab1ae62806d637ca32a4ad99c18",
+  "audit_script_sha256": "fd3c1426087607a6015fb58b5adf3b00f12917e3f904e60db971b54415e5f5b2",
+  "integrations": 24,
+  "case_families": 11,
+  "temporal_comparisons": [
+    {
+      "name": "analytic_release",
+      "metrics": {
+        "omega_abs_rad_s": 2.3376856006507296e-12,
+        "mass_flow_abs_kg_s": 8.867906409193438e-15,
+        "transfer_mass_abs_kg": 1.1449174941446927e-14,
+        "pressure_abs_pa": 1.8917489796876907e-10,
+        "temperature_abs_k": 1.7053025658242404e-13,
+        "boundary_work_abs_j": 1.1537437671904627e-12
+      }
+    },
+    {
+      "name": "blocked_backpressure",
+      "metrics": {
+        "omega_abs_rad_s": 0.0,
+        "mass_flow_abs_kg_s": 0.0,
+        "transfer_mass_abs_kg": 0.0,
+        "pressure_abs_pa": 0.0,
+        "temperature_abs_k": 0.0,
+        "boundary_work_abs_j": 0.0
+      }
+    },
+    {
+      "name": "blocked_shaft_decay",
+      "metrics": {
+        "omega_abs_rad_s": 1.9539925233402755e-14,
+        "mass_flow_abs_kg_s": 0.0,
+        "transfer_mass_abs_kg": 0.0,
+        "pressure_abs_pa": 0.0,
+        "temperature_abs_k": 0.0,
+        "boundary_work_abs_j": 0.0
+      }
+    },
+    {
+      "name": "braking_after_seat",
+      "metrics": {
+        "omega_abs_rad_s": 5.1514348342607263e-14,
+        "mass_flow_abs_kg_s": 1.4432899320127035e-14,
+        "transfer_mass_abs_kg": 3.108624468950438e-14,
+        "pressure_abs_pa": 1.3387762010097504e-09,
+        "temperature_abs_k": 1.8189894035458565e-12,
+        "boundary_work_abs_j": 1.5006662579253316e-11
+      }
+    },
+    {
+      "name": "equilibrium_threshold",
+      "metrics": {
+        "omega_abs_rad_s": 0.0,
+        "mass_flow_abs_kg_s": 0.0,
+        "transfer_mass_abs_kg": 0.0,
+        "pressure_abs_pa": 0.0,
+        "temperature_abs_k": 0.0,
+        "boundary_work_abs_j": 0.0
+      }
+    },
+    {
+      "name": "equilibrium_zero",
+      "metrics": {
+        "omega_abs_rad_s": 0.0,
+        "mass_flow_abs_kg_s": 0.0,
+        "transfer_mass_abs_kg": 0.0,
+        "pressure_abs_pa": 0.0,
+        "temperature_abs_k": 0.0,
+        "boundary_work_abs_j": 0.0
+      }
+    },
+    {
+      "name": "high_cracking",
+      "metrics": {
+        "omega_abs_rad_s": 4.263256414560601e-14,
+        "mass_flow_abs_kg_s": 0.0,
+        "transfer_mass_abs_kg": 0.0,
+        "pressure_abs_pa": 0.0,
+        "temperature_abs_k": 0.0,
+        "boundary_work_abs_j": 0.0
+      }
+    },
+    {
+      "name": "open_coast",
+      "metrics": {
+        "omega_abs_rad_s": 2.4868995751603507e-14,
+        "mass_flow_abs_kg_s": 1.021405182655144e-14,
+        "transfer_mass_abs_kg": 2.1316282072803006e-14,
+        "pressure_abs_pa": 1.280568540096283e-09,
+        "temperature_abs_k": 7.958078640513122e-13,
+        "boundary_work_abs_j": 4.661160346586257e-12
+      }
+    },
+    {
+      "name": "positive_initial_flow",
+      "metrics": {
+        "omega_abs_rad_s": 1.2545520178264269e-14,
+        "mass_flow_abs_kg_s": 1.6445178552260131e-15,
+        "transfer_mass_abs_kg": 1.2989609388114332e-14,
+        "pressure_abs_pa": 2.6193447411060333e-10,
+        "temperature_abs_k": 1.7053025658242404e-13,
+        "boundary_work_abs_j": 1.5347723092418164e-12
+      }
+    },
+    {
+      "name": "restart",
+      "metrics": {
+        "omega_abs_rad_s": 3.5988989566249074e-12,
+        "mass_flow_abs_kg_s": 1.826663820203578e-14,
+        "transfer_mass_abs_kg": 2.628453010800058e-14,
+        "pressure_abs_pa": 3.7834979593753815e-10,
+        "temperature_abs_k": 3.410605131648481e-13,
+        "boundary_work_abs_j": 2.6627589022609754e-12
+      }
+    },
+    {
+      "name": "thermal_closed",
+      "metrics": {
+        "omega_abs_rad_s": 0.0,
+        "mass_flow_abs_kg_s": 0.0,
+        "transfer_mass_abs_kg": 6.229636273933021e-30,
+        "pressure_abs_pa": 1.4551915228366852e-11,
+        "temperature_abs_k": 5.684341886080802e-14,
+        "boundary_work_abs_j": 0.0
+      }
+    }
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

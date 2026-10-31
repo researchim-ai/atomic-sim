@@ -1,0 +1,20 @@
+{
+  "validated": false,
+  "plant_referenced": false,
+  "checks": [
+    {
+      "run": "artifacts/batch10_muscl_pulse_8s_bounded",
+      "snapshot_exact": true,
+      "restarted_to_s": 8.01,
+      "mass_residual_kg": -1.0318352075544546e-15,
+      "energy_residual_j": 5.5952114053070545e-09
+    },
+    {
+      "run": "artifacts/batch10_muscl_pulse_8s_tight_bounded",
+      "snapshot_exact": true,
+      "restarted_to_s": 8.01,
+      "mass_residual_kg": -5.06213994333482e-15,
+      "energy_residual_j": 3.5943230614066124e-09
+    }
+  ]
+}

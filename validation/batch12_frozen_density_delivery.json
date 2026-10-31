@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "kind": "mechanical_subsystem_verification",
+  "validated": false,
+  "plant_referenced": false,
+  "source_sha256": "5e1cc2f97915c998053f931fedc9443ebfbf586f45332f9a7420f683881a30b9",
+  "script_sha256": "30fc2df6396ca44e30c0a8c07165a0c266c331571b667ce49c10c26daaa8a122",
+  "cases": [
+    {
+      "method": "BDF",
+      "sign": -1.0,
+      "rtol": 0.0001,
+      "flow_error_kg_s": 1.6150613634968725e-05,
+      "energy_residual_j": 0.0012013220241833267,
+      "dissipated_energy_j": 7.172299178673338,
+      "kinetic_energy_j": 0.011540961910535118,
+      "exact_flow_kg_s": -0.08018561560285119
+    },
+    {
+      "method": "BDF",
+      "sign": -1.0,
+      "rtol": 1e-06,
+      "flow_error_kg_s": 3.724999550203112e-07,
+      "energy_residual_j": -3.044882933878057e-05,
+      "dissipated_energy_j": 7.1710626500912795,
+      "kinetic_energy_j": 0.011545719639071994,
+      "exact_flow_kg_s": -0.08018561560285119
+    },
+    {
+      "method": "BDF",
+      "sign": -1.0,
+      "rtol": 1e-08,
+      "flow_error_kg_s": 9.301120887372782e-09,
+      "energy_residual_j": -7.045181069642581e-07,
+      "dissipated_energy_j": 7.171092498993912,
+      "kinetic_energy_j": 0.011545615047671067,
+      "exact_flow_kg_s": -0.08018561560285119
+    },
+    {
+      "method": "BDF",
+      "sign": 1.0,
+      "rtol": 0.0001,
+      "flow_error_kg_s": 1.6150613634968725e-05,
+      "energy_residual_j": 0.0012013220241833267,
+      "dissipated_energy_j": 7.172299178673338,
+      "kinetic_energy_j": 0.011540961910535118,
+      "exact_flow_kg_s": 0.08018561560285119
+    },
+    {
+      "method": "BDF",
+      "sign": 1.0,
+      "rtol": 1e-06,
+      "flow_error_kg_s": 3.724999550203112e-07,
+      "energy_residual_j": -3.044882933878057e-05,
+      "dissipated_energy_j": 7.1710626500912795,
+      "kinetic_energy_j": 0.011545719639071994,
+      "exact_flow_kg_s": 0.08018561560285119
+    },
+    {
+      "method": "BDF",
+      "sign": 1.0,
+      "rtol": 1e-08,
+      "flow_error_kg_s": 9.301120887372782e-09,
+      "energy_residual_j": -7.045181069642581e-07,
+      "dissipated_energy_j": 7.171092498993912,
+      "kinetic_energy_j": 0.011545615047671067,
+      "exact_flow_kg_s": 0.08018561560285119
+    },
+    {
+      "method": "Radau",
+      "sign": -1.0,
+      "rtol": 0.0001,
+      "flow_error_kg_s": 2.0052698113115497e-07,
+      "energy_residual_j": 2.6263541479387698e-05,
+      "dissipated_energy_j": 7.171119527478077,
+      "kinetic_energy_j": 0.011545554623091842,
+      "exact_flow_kg_s": -0.08018561560285119
+    },
+    {
+      "method": "Radau",
+      "sign": -1.0,
+      "rtol": 1e-06,
+      "flow_error_kg_s": 1.1620217010843703e-09,
+      "energy_residual_j": 5.18689473594236e-08,
+      "dissipated_energy_j": 7.17109325839406,
+      "kinetic_energy_j": 0.011545612034577168,
+      "exact_flow_kg_s": -0.08018561560285119
+    },
+    {
+      "method": "Radau",
+      "sign": -1.0,
+      "rtol": 1e-08,
+      "flow_error_kg_s": 2.9966445991291835e-12,
+      "energy_residual_j": 1.971622864971323e-10,
+      "dissipated_energy_j": 7.171093206388508,
+      "kinetic_energy_j": 0.01154561236834411,
+      "exact_flow_kg_s": -0.08018561560285119
+    },
+    {
+      "method": "Radau",
+      "sign": 1.0,
+      "rtol": 0.0001,
+      "flow_error_kg_s": 2.0052698113115497e-07,
+      "energy_residual_j": 2.6263541479387698e-05,
+      "dissipated_energy_j": 7.171119527478077,
+      "kinetic_energy_j": 0.011545554623091842,
+      "exact_flow_kg_s": 0.08018561560285119
+    },
+    {
+      "method": "Radau",
+      "sign": 1.0,
+      "rtol": 1e-06,
+      "flow_error_kg_s": 1.1620217010843703e-09,
+      "energy_residual_j": 5.18689473594236e-08,
+      "dissipated_energy_j": 7.17109325839406,
+      "kinetic_energy_j": 0.011545612034577168,
+      "exact_flow_kg_s": 0.08018561560285119
+    },
+    {
+      "method": "Radau",
+      "sign": 1.0,
+      "rtol": 1e-08,
+      "flow_error_kg_s": 2.9966445991291835e-12,
+      "energy_residual_j": 1.971622864971323e-10,
+      "dissipated_energy_j": 7.171093206388508,
+      "kinetic_energy_j": 0.01154561236834411,
+      "exact_flow_kg_s": 0.08018561560285119
+    }
+  ],
+  "passed": true,
+  "equation": "F(t)=F0/(1+beta abs(F0)t); K(t)-K(0)+integral(D dt)=0",
+  "scope": "Frozen density and thermodynamic background, exact uniform inertia/drag subsystem; no analytic solution or physical validation of the coupled heating water channel"
+}

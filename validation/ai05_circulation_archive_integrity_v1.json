@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "archive": "artifacts/ai05_circulation_delivery_v1",
+  "files_verified": 239,
+  "source_sha256": "11c7100e84c2b819b7c8acef47c26c298c210ac8ae668b9a7027518cb009ac5a",
+  "runtime_archive_source_matches": true,
+  "wheel_sha256": "d14a6dc32dcf63e9baabcaa39016226a2cc0491a235a03a2cf5bdc027ae611e7",
+  "validated": false,
+  "plant_referenced": false
+}

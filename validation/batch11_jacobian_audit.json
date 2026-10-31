@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "kind": "jacobian_numerical_verification",
+  "validated": false,
+  "plant_referenced": false,
+  "source_sha256": "6bbe5bf1a51e00d4e7e857d5625d5578a8b329d0caeedb1f0bf1deccc793b426",
+  "script_sha256": "2a80b5019eebd98eae0401b4e807b9a2e664a6cf7e0d9cee1c359022c13c4dce",
+  "cases": [
+    {
+      "scheme": "donor",
+      "flow_sign": -1.0,
+      "size": 19,
+      "nnz": 73,
+      "directional_scaled_errors": [
+        3.9785923225738205e-09,
+        1.8573139054037131e-09,
+        7.491259000902102e-09,
+        2.531655274898261e-09
+      ],
+      "energy_column_identity_max": 1.2732925824820995e-11,
+      "mass_column_identity_max": 0.0,
+      "counter_columns_zero": true,
+      "passed": true
+    },
+    {
+      "scheme": "donor",
+      "flow_sign": 1.0,
+      "size": 19,
+      "nnz": 73,
+      "directional_scaled_errors": [
+        3.9785923225738205e-09,
+        7.368031464135465e-10,
+        3.8923039037433995e-09,
+        2.531655274898261e-09
+      ],
+      "energy_column_identity_max": 1.2732925824820995e-11,
+      "mass_column_identity_max": 0.0,
+      "counter_columns_zero": true,
+      "passed": true
+    },
+    {
+      "scheme": "muscl_mc",
+      "flow_sign": -1.0,
+      "size": 19,
+      "nnz": 83,
+      "directional_scaled_errors": [
+        3.9785923225738205e-09,
+        9.646829643953104e-10,
+        4.703888406044854e-10,
+        2.531655274898261e-09
+      ],
+      "energy_column_identity_max": 1.4551915228366852e-11,
+      "mass_column_identity_max": 0.0,
+      "counter_columns_zero": true,
+      "passed": true
+    },
+    {
+      "scheme": "muscl_mc",
+      "flow_sign": 1.0,
+      "size": 19,
+      "nnz": 83,
+      "directional_scaled_errors": [
+        2.440704413951954e-08,
+        7.368031464135465e-10,
+        3.115304373397494e-09,
+        2.531655274898261e-09
+      ],
+      "energy_column_identity_max": 1.2732925824820995e-11,
+      "mass_column_identity_max": 0.0,
+      "counter_columns_zero": true,
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "scope": "Local directional differences away from limiter/flow ties and exact conservation column identities; nonsmooth points have a selected generalized derivative, not a unique classical derivative"
+}

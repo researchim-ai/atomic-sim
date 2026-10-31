@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "original_acceptance_thresholds_unchanged": true,
+  "internal_atol_scale_base": 0.1,
+  "internal_atol_scale_control": 0.01,
+  "source_runtime_changed": true,
+  "validated": false,
+  "plant_referenced": false,
+  "full_campaign_recompute_started": true
+}

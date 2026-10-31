@@ -1,0 +1,4591 @@
+{
+  "schema_version": 1,
+  "pack_id": "pwr-ai-research-v1",
+  "public_corpus": true,
+  "blind_test": false,
+  "physical_scope": "Reduced VVER, near-nominal two-second research tasks; no new plant qualification",
+  "splits": {
+    "train": [
+      {
+        "id": "train-hold-00",
+        "family": "hold",
+        "group_id": "eae47929e7fa4dfb0caeb8f7c1de217df8ec5ac3906ad0d79c4bdf22d2e06620",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10000,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.1,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-hold-01",
+        "family": "hold",
+        "group_id": "c1c90c2bc0cdbd8e65e76bee8234edcc63e64f1dd8d163e5902e398333f519e7",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10001,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.101,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-hold-02",
+        "family": "hold",
+        "group_id": "a05da8be77c428ecc7deebd794cfa35fea9cb27995920e200de4bce9513af682",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10002,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.10200000000000001,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-hold-03",
+        "family": "hold",
+        "group_id": "ead0c0502600bb365a835e3b476ed20509b123e093232a84ef0929b330a2bb59",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10003,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.10300000000000001,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-hold-04",
+        "family": "hold",
+        "group_id": "86383f2e5321530e80a9fec94f193f2c614281aeaa6ce97008c3a32caabb5c9f",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10004,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.10400000000000001,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-hold-05",
+        "family": "hold",
+        "group_id": "8db801eaaa2a000c2c8f9c8391d997d902744c66247d1461ecaa210ff9d0d001",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10005,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.10500000000000001,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-hold-06",
+        "family": "hold",
+        "group_id": "cf5991941696e92a700107254a89cab32f7fe048f6f1402fe0dccf8bc8912243",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10006,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.10600000000000001,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-hold-07",
+        "family": "hold",
+        "group_id": "999128df5aa70edb22dcb5232bb1ecb1d30555d2515d112287092cf910486d6c",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10007,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.10700000000000001,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-tracking-00",
+        "family": "tracking",
+        "group_id": "4f86dd29683fa0aafb844305958a8bf641303426b091c4a56b2f931ced418f22",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10100,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.9999,
+          "sensor_tau_s": 0.1,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-tracking-01",
+        "family": "tracking",
+        "group_id": "cf33f201533bf58b3c6b8b38e522319b7446d06cc8ce6f31769c577b985b1b36",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10101,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999899,
+          "sensor_tau_s": 0.101,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-tracking-02",
+        "family": "tracking",
+        "group_id": "85c8d832302a88bc59bc2983c2c1ff7b377194007177029235973e4742611257",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10102,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999898,
+          "sensor_tau_s": 0.10200000000000001,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-tracking-03",
+        "family": "tracking",
+        "group_id": "59ad6d3f2ed1b6296ca7948bf4c1ee204e26619ba1f1d924f9551ccf7fdb321f",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10103,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999897,
+          "sensor_tau_s": 0.10300000000000001,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-tracking-04",
+        "family": "tracking",
+        "group_id": "4199e4d3aa4eb55be32a606600862b44b2d63fb465b0f0e9fdeaabd4caad182c",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10104,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999896,
+          "sensor_tau_s": 0.10400000000000001,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-tracking-05",
+        "family": "tracking",
+        "group_id": "c279b79f669e2eea6988da03aa970710987342dee768fc7153d888dc1020bfa0",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10105,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999895,
+          "sensor_tau_s": 0.10500000000000001,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-tracking-06",
+        "family": "tracking",
+        "group_id": "2f7f6ddeeb2e320483a5cea28094110ee821f0b6f54be2df2cb0af9dfe8ff915",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10106,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999894,
+          "sensor_tau_s": 0.10600000000000001,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-tracking-07",
+        "family": "tracking",
+        "group_id": "be23684d7b57242fc380544942ebc94c91b775456298e4a981baf399fe765a25",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10107,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999893,
+          "sensor_tau_s": 0.10700000000000001,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-recovery-00",
+        "family": "recovery",
+        "group_id": "d3af6226bff086997c699c2f044d6e3b778da22681cc2a8dfccc31032e85bcf7",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10200,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.1,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.9999
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-recovery-01",
+        "family": "recovery",
+        "group_id": "a2f44128d8ce9901d9cd2e3578924d32da588306e632b53831273600c4613556",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10201,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.101,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999899
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-recovery-02",
+        "family": "recovery",
+        "group_id": "343d472d1ca9004f2999130f973e010aaec529c54e0e347a79a4b7d7d2803a1e",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10202,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.10200000000000001,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999898
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-recovery-03",
+        "family": "recovery",
+        "group_id": "aff457fb52c4715b583a81c9419bacc2d6c3fb612b0bfde1ee7718046b689400",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10203,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.10300000000000001,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999897
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-recovery-04",
+        "family": "recovery",
+        "group_id": "95c4746d5313cf16b706f23a476324ba6241756ea7f72aa9ccb7ead52ffa314f",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10204,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.10400000000000001,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999896
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-recovery-05",
+        "family": "recovery",
+        "group_id": "87e3ba03c9fbf0713fa4588d9ed3a12f48b5788ceb742bfe5a2b7ff1b25f1cab",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10205,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.10500000000000001,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999895
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-recovery-06",
+        "family": "recovery",
+        "group_id": "e6ece7ebf49eb1fcefd1b0905495c6de5ae2a88f7fb52a4668b0de54a47a59cb",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10206,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.10600000000000001,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999894
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-recovery-07",
+        "family": "recovery",
+        "group_id": "2afb69903c389f37c13e9b45d7417a714583ed587782e2d670217df1910d70f5",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10207,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.10700000000000001,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999893
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-diagnosis-00",
+        "family": "diagnosis",
+        "group_id": "eae47929e7fa4dfb0caeb8f7c1de217df8ec5ac3906ad0d79c4bdf22d2e06620",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10300,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.1,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-diagnosis-01",
+        "family": "diagnosis",
+        "group_id": "7581ee52d3ad6f6431843c3f4bc849e38932d6301eebbc309d724c20329d145f",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10301,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.101,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "open",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "sensor_fault"
+      },
+      {
+        "id": "train-diagnosis-02",
+        "family": "diagnosis",
+        "group_id": "a05da8be77c428ecc7deebd794cfa35fea9cb27995920e200de4bce9513af682",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10302,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.10200000000000001,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-diagnosis-03",
+        "family": "diagnosis",
+        "group_id": "061b3b05e6771fe692fb6b0574cc8693ecc137f37f88975bbac1133b48076f50",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10303,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.10300000000000001,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "stuck",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "sensor_fault"
+      },
+      {
+        "id": "train-diagnosis-04",
+        "family": "diagnosis",
+        "group_id": "86383f2e5321530e80a9fec94f193f2c614281aeaa6ce97008c3a32caabb5c9f",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10304,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.10400000000000001,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-diagnosis-05",
+        "family": "diagnosis",
+        "group_id": "af207dbb6a3f5d15555ce45754bc823c2fbaadc8fa3cc8bd7c9cc8236dfa1369",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10305,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.10500000000000001,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "open",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "sensor_fault"
+      },
+      {
+        "id": "train-diagnosis-06",
+        "family": "diagnosis",
+        "group_id": "cf5991941696e92a700107254a89cab32f7fe048f6f1402fe0dccf8bc8912243",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10306,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.10600000000000001,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "train-diagnosis-07",
+        "family": "diagnosis",
+        "group_id": "4c32364587b489f0d7ec92c9e0a7a838aaf71285078cdfc592d6fa0f6a613188",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 10307,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.10700000000000001,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "stuck",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "sensor_fault"
+      }
+    ],
+    "dev": [
+      {
+        "id": "dev-hold-00",
+        "family": "hold",
+        "group_id": "59eb0c07e63faf1f7554c79a76491a1f81081d5c3fbb9c1a619c81112d341d3e",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 20000,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.3,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "dev-hold-01",
+        "family": "hold",
+        "group_id": "6197175b12edc88276470d971a183e80a47204ad9f7f78ee9569e24b0cf3d6c0",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 20001,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.301,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "dev-hold-02",
+        "family": "hold",
+        "group_id": "353c6d3c93792e04b58e19c4cb054bf74eb1f58b5b66ddb53be4830c90dea4e9",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 20002,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.302,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "dev-hold-03",
+        "family": "hold",
+        "group_id": "e4dfdcf7a2e458d3e38264203d53ded033bf6321d97a5a303260ccd81fc6abb8",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 20003,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.303,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "dev-tracking-00",
+        "family": "tracking",
+        "group_id": "ad4bc1e3a73a7a7f3b9c77581651c963bf78b390a7ed3f2aaeb5fc3c23280d58",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 20100,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.9998,
+          "sensor_tau_s": 0.3,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "dev-tracking-01",
+        "family": "tracking",
+        "group_id": "f582a13dcb118cd6096dc4ec818dde65ce783236b666c8a9a02b15958d6d9f15",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 20101,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999799,
+          "sensor_tau_s": 0.301,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "dev-tracking-02",
+        "family": "tracking",
+        "group_id": "f5296dab686b69ecf336c87a85f6dd59ed481cc19dac10ab6ea2a338bd82396c",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 20102,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999798,
+          "sensor_tau_s": 0.302,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "dev-tracking-03",
+        "family": "tracking",
+        "group_id": "b84137e755a2fed6d537b2e11b4d3cf1a3e9646080cbd0d800f62f1abaf759c3",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 20103,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999797,
+          "sensor_tau_s": 0.303,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "dev-recovery-00",
+        "family": "recovery",
+        "group_id": "37a4b9385289397054cda2a5f5ae3ea60afaa0bfebc69ae800107b805d7f231f",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 20200,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.3,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.9998
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "dev-recovery-01",
+        "family": "recovery",
+        "group_id": "3ad426a26fe7e119b8451c8f0ca38224f71898e03f9e257813a96045d250c60b",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 20201,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.301,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999799
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "dev-recovery-02",
+        "family": "recovery",
+        "group_id": "3f3975eb2fc0c85949546267d26d3a0b43baf4576ec30bb39786225d1cbe7446",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 20202,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.302,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999798
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "dev-recovery-03",
+        "family": "recovery",
+        "group_id": "1dc6821003936f4e6131c190ed4771565ab929d2346528c3af6632796bcb7bb9",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 20203,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.303,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999797
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "dev-diagnosis-00",
+        "family": "diagnosis",
+        "group_id": "59eb0c07e63faf1f7554c79a76491a1f81081d5c3fbb9c1a619c81112d341d3e",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 20300,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.3,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "dev-diagnosis-01",
+        "family": "diagnosis",
+        "group_id": "13733fc036d087ad4f3591cc65449198acf31a4189a5a7039b813ad3047acfc3",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 20301,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.301,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "open",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "sensor_fault"
+      },
+      {
+        "id": "dev-diagnosis-02",
+        "family": "diagnosis",
+        "group_id": "353c6d3c93792e04b58e19c4cb054bf74eb1f58b5b66ddb53be4830c90dea4e9",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 20302,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.302,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "dev-diagnosis-03",
+        "family": "diagnosis",
+        "group_id": "7a82c24bc438dc0cd7b0ecd0cef89104a6104e71b0d0aeeb90809c46fc622ce0",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 20303,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.303,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "stuck",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "sensor_fault"
+      }
+    ],
+    "test": [
+      {
+        "id": "test-hold-00",
+        "family": "hold",
+        "group_id": "eaffac55be6772a677ce9a1c18652aa4415a16887492c203ccec5058f41393b1",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30000,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.5,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-hold-01",
+        "family": "hold",
+        "group_id": "e09d3b41a091dc180ff20a8a170f46443dae7a3a3b6aa3a4fe46aa69bdcfe5cc",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30001,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.501,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-hold-02",
+        "family": "hold",
+        "group_id": "0a3ab38907a966603f0a903c015d3db0d1d868720208931ef3b468c24a636c3b",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30002,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.502,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-hold-03",
+        "family": "hold",
+        "group_id": "f83c1c9c426c55fc920ee3035e1edd923969c0fcc66e40356bd2d945717ffba2",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30003,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.503,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-hold-04",
+        "family": "hold",
+        "group_id": "919fccdba6dcf79cde60bccffe5a250d2afcdebd0af7693183fe4db8488cb0c9",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30004,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.504,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-hold-05",
+        "family": "hold",
+        "group_id": "1d6b8239abc381baff83bcdd5b24b2de4b42e94dd1d0678be533aa033d354233",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30005,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.505,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-hold-06",
+        "family": "hold",
+        "group_id": "09fa73a00aab188030165acfc9c1e860aa5f5a407da34fa6d4794b124680bd13",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30006,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.506,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-hold-07",
+        "family": "hold",
+        "group_id": "2ac39164f6fcb6df8c2d2fed713dece19bbea5464096638958b1368458352f44",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30007,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.507,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-hold-08",
+        "family": "hold",
+        "group_id": "afb9be78d1f98719fe646a18bdd10bdbbb30bb69f288ad192126e2bdaa07dff2",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30008,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.508,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-hold-09",
+        "family": "hold",
+        "group_id": "80793477431e08f9f9f1cf390af6ce9eafe443d1e87e1774182236b222f148c2",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30009,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.509,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-hold-10",
+        "family": "hold",
+        "group_id": "bf057657b4bbd692a831653ede51c7ef0d9c5669fe17797eb83dc1e86825300c",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30010,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.51,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-hold-11",
+        "family": "hold",
+        "group_id": "423c042aea0bb1f0bd8e6424ffbadfcef78aad2e8315ddbeb781f08cd45ee7e3",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30011,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.511,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-hold-12",
+        "family": "hold",
+        "group_id": "5ee54d7d2fc8887ae8c5b4e4e0ad4058385608ff58975a4945412d102db04a48",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30012,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.512,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-hold-13",
+        "family": "hold",
+        "group_id": "1ed756b1aa83799f3eda4ee1709582693120c22c15242cdc80b10036fb684efc",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30013,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.513,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-hold-14",
+        "family": "hold",
+        "group_id": "22ea029701945f21ea11692fbc489df6e876402dac82457a9c3dfd97f2dae2ad",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30014,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.514,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-hold-15",
+        "family": "hold",
+        "group_id": "ab0927d97e7cc8efd777c5cd2f758d1e21b2c8344c8c9357d3c202cca2995d17",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30015,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.515,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-hold-16",
+        "family": "hold",
+        "group_id": "59cc0d1035fcec0912fecf3e73f39a3b6cd14f686a9d685faf3b94fe90bff24d",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30016,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.516,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-hold-17",
+        "family": "hold",
+        "group_id": "0206cca772cc189bde87afaa7162db16bce745ce608111932493c0ce757daec6",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30017,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.517,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-hold-18",
+        "family": "hold",
+        "group_id": "6f38eb3a2e1cd1ed7bb37b68f8476a2007273d8c5b9dc31e259f9849ba985fcb",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30018,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.518,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-hold-19",
+        "family": "hold",
+        "group_id": "ec6447e24315bdbd17305d67417ee739e0b69c633b6e70a023e6eb37bea2a354",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30019,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.519,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-tracking-00",
+        "family": "tracking",
+        "group_id": "04bcb04e2346c96c9728b7adb1cf72c52e4a090dd2008072e83d0842d0352249",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30100,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.9997,
+          "sensor_tau_s": 0.5,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-tracking-01",
+        "family": "tracking",
+        "group_id": "70f191b5bf4edecece1b87e85bc45a026d038f72f996a4610b085d172a3158b7",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30101,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999699,
+          "sensor_tau_s": 0.501,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-tracking-02",
+        "family": "tracking",
+        "group_id": "cc076a1baeeb44e82a41480bf9d213afb9878b43c8c5f1f08bb39dfd54a13724",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30102,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999698,
+          "sensor_tau_s": 0.502,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-tracking-03",
+        "family": "tracking",
+        "group_id": "be0f9f5074ff5c1135358dc83f34546125f82b8ae6936df733bbe444ef0fd50e",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30103,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999697,
+          "sensor_tau_s": 0.503,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-tracking-04",
+        "family": "tracking",
+        "group_id": "7bd736077d5d382d126366af8cbd5d37fa2cad11ae53c47cb453770e3d17e18e",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30104,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999696,
+          "sensor_tau_s": 0.504,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-tracking-05",
+        "family": "tracking",
+        "group_id": "91b5274ab25d146067ebb60548259375708c000f427006da98c385c4608d3062",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30105,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999695,
+          "sensor_tau_s": 0.505,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-tracking-06",
+        "family": "tracking",
+        "group_id": "85a43788d27674e7b5e921eadc423f87811fd06748c5a321cb99402766a89868",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30106,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999694,
+          "sensor_tau_s": 0.506,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-tracking-07",
+        "family": "tracking",
+        "group_id": "d42d303d9744fb07f15c6bfb078c49402c2418046f42b3adadbd5ee2908e0a61",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30107,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999693,
+          "sensor_tau_s": 0.507,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-tracking-08",
+        "family": "tracking",
+        "group_id": "79b16c5f58e60b771fcf07c0b0a93be1b34fc57d37adc798eb9d5861243ee43c",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30108,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999692,
+          "sensor_tau_s": 0.508,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-tracking-09",
+        "family": "tracking",
+        "group_id": "77d250b76421470902b540430a82b36c118ac6d48d9215fd9e3d2211545af784",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30109,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999691,
+          "sensor_tau_s": 0.509,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-tracking-10",
+        "family": "tracking",
+        "group_id": "7fd540b15e01ddebfb66833f674b8f528751f2efcea7f10f5af44a0e71f2b171",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30110,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.99969,
+          "sensor_tau_s": 0.51,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-tracking-11",
+        "family": "tracking",
+        "group_id": "5c117ad8dec10f22cc9ebfc89d137035c7d074d49fa410ad800be2cedd6c242e",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30111,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999689,
+          "sensor_tau_s": 0.511,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-tracking-12",
+        "family": "tracking",
+        "group_id": "d829acdc5e4cc30d7eb1e9a22eb1b154cdff2c2d0ad9cbff2d6c5e260618085d",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30112,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999688,
+          "sensor_tau_s": 0.512,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-tracking-13",
+        "family": "tracking",
+        "group_id": "67ce40f4dd2e09465d36a08b9d62a4b70e357f375cdf14d933e9d70e6a43ffdf",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30113,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999687,
+          "sensor_tau_s": 0.513,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-tracking-14",
+        "family": "tracking",
+        "group_id": "97dc7516ca2e97b63cb249587980c0916126d52192c57ee464263be416d134fa",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30114,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999686,
+          "sensor_tau_s": 0.514,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-tracking-15",
+        "family": "tracking",
+        "group_id": "2e24624f574e58b0d6fae6a1518a5f08b16b2db55bebb46bc3c2bcd8ee8650c1",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30115,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999685,
+          "sensor_tau_s": 0.515,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-tracking-16",
+        "family": "tracking",
+        "group_id": "62b0450688c079992bb717b1d8e772900be9e60b9848b3dc22a9d73e1d738aef",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30116,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999684,
+          "sensor_tau_s": 0.516,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-tracking-17",
+        "family": "tracking",
+        "group_id": "fa426d42a359a5142186279005a21df7166a65eeec7d5945a078879dba93526b",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30117,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999683,
+          "sensor_tau_s": 0.517,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-tracking-18",
+        "family": "tracking",
+        "group_id": "91e6ea83bf35bae2f0eb2eaa9d143c2bf171c845e7eaa5533bf6ed31cc934bdb",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30118,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999682,
+          "sensor_tau_s": 0.518,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-tracking-19",
+        "family": "tracking",
+        "group_id": "4dab36c5ea1445e3e32fcc28641a03d0c271fac7e6dcd4d3d5c8d7e34c23de01",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30119,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 0.999681,
+          "sensor_tau_s": 0.519,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-recovery-00",
+        "family": "recovery",
+        "group_id": "975e7a96853eeb0237c8ea4ad4c9511f417b4ad87c6bbee18647dc75de37892a",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30200,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.5,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.9997
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-recovery-01",
+        "family": "recovery",
+        "group_id": "18b9fcc8ad831c720093ff7ce3cbcfc88aec22269514c8934384aa7d5f9bb523",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30201,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.501,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999699
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-recovery-02",
+        "family": "recovery",
+        "group_id": "6238571dcd898ed0cca19431009c1d474cff520f5a09affa2f6d1497bca11516",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30202,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.502,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999698
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-recovery-03",
+        "family": "recovery",
+        "group_id": "2978d5fe1843e0323310a68fc63861297153520dc4b877dae935859c476c696c",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30203,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.503,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999697
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-recovery-04",
+        "family": "recovery",
+        "group_id": "ab3eaa243f956e09002e8d8b677519d5325e847e9ca79479a72e9e7acfd85e4e",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30204,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.504,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999696
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-recovery-05",
+        "family": "recovery",
+        "group_id": "92e0bbb07dee2608b86959545146c7b4ed2c4b2c23b5c2b6ab343287e2084b79",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30205,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.505,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999695
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-recovery-06",
+        "family": "recovery",
+        "group_id": "816a626132fdd43859ac2c362d307f47e982f4d8500138a848cb2eb27099b981",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30206,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.506,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999694
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-recovery-07",
+        "family": "recovery",
+        "group_id": "865f93f024afbfd8fcc4c246fe64bc5bce82083b61aac8d8b4bbea6d2914803b",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30207,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.507,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999693
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-recovery-08",
+        "family": "recovery",
+        "group_id": "06bdf0564454b3b452f4ebd174b3a3eb455d400479fa17b4c2447d6780d322e2",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30208,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.508,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999692
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-recovery-09",
+        "family": "recovery",
+        "group_id": "c95aa11a89e4294d816862eb43267eedfde916f485e3fb5dbf66ebbc80b1a711",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30209,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.509,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999691
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-recovery-10",
+        "family": "recovery",
+        "group_id": "1b44e1f34e75e0aaadb03ebe594befa9b0dfd53e5eb6850378635ccedde60a43",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30210,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.51,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.99969
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-recovery-11",
+        "family": "recovery",
+        "group_id": "dd36ff2799cd9ce6ed20d6e5fe092815413efaa0ae37c6cdbaef24d663976cef",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30211,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.511,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999689
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-recovery-12",
+        "family": "recovery",
+        "group_id": "7f2679b40969736dfd3137f164b78686bc51ea461c65d2a38b956f9a6fabf48c",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30212,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.512,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999688
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-recovery-13",
+        "family": "recovery",
+        "group_id": "1fd1abcc78675549a517779f663de7e0002f78d73398f87a91f6cc1c1608a61b",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30213,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.513,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999687
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-recovery-14",
+        "family": "recovery",
+        "group_id": "65d260c97ec9cb1d0686b24b4a54935d41772f913e251781980e91c09cee2ed7",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30214,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.514,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999686
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-recovery-15",
+        "family": "recovery",
+        "group_id": "8418a7c2284609ff5f9d06b699293fe00c3fe2dc46e4b08ed6b4505859cda32b",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30215,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.515,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999685
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-recovery-16",
+        "family": "recovery",
+        "group_id": "cf7999226371420db588f63bbf1b1939ff8e2a9667b530005aeb5a03a1879975",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30216,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.516,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999684
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-recovery-17",
+        "family": "recovery",
+        "group_id": "7621277d20927b562ca145ffdc5472578bc222eaa6348c129f29c4f73e9732bd",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30217,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.517,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999683
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-recovery-18",
+        "family": "recovery",
+        "group_id": "86ed9aebd42b4559ff809f244425a581fa1b4972feb72e9d177b1c752f28c253",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30218,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.518,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999682
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-recovery-19",
+        "family": "recovery",
+        "group_id": "3c436e7c13d098ab24ef653da243bbccd6915888232f4167351fc794abd46827",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30219,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.519,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [
+            {
+              "t": 0.875,
+              "commands": {
+                "throttle": 0.999681
+              }
+            }
+          ],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-diagnosis-00",
+        "family": "diagnosis",
+        "group_id": "eaffac55be6772a677ce9a1c18652aa4415a16887492c203ccec5058f41393b1",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30300,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.5,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-diagnosis-01",
+        "family": "diagnosis",
+        "group_id": "88a6b437d4e0ebfb32dc51888aaa1d65ab9dbbf5f4f34719020142e6e1a2571e",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30301,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.501,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "open",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "sensor_fault"
+      },
+      {
+        "id": "test-diagnosis-02",
+        "family": "diagnosis",
+        "group_id": "0a3ab38907a966603f0a903c015d3db0d1d868720208931ef3b468c24a636c3b",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30302,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.502,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-diagnosis-03",
+        "family": "diagnosis",
+        "group_id": "7f6b30345d8e20e612b93e4c01c61c6f0e5e9f77464e481030397903c78185cc",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30303,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.503,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "stuck",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "sensor_fault"
+      },
+      {
+        "id": "test-diagnosis-04",
+        "family": "diagnosis",
+        "group_id": "919fccdba6dcf79cde60bccffe5a250d2afcdebd0af7693183fe4db8488cb0c9",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30304,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.504,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-diagnosis-05",
+        "family": "diagnosis",
+        "group_id": "3125d6e0dea9e4e37735c7c8b216b0f97f3eff2d703c60a257485d2b4b167aaa",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30305,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.505,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "open",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "sensor_fault"
+      },
+      {
+        "id": "test-diagnosis-06",
+        "family": "diagnosis",
+        "group_id": "09fa73a00aab188030165acfc9c1e860aa5f5a407da34fa6d4794b124680bd13",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30306,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.506,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-diagnosis-07",
+        "family": "diagnosis",
+        "group_id": "b67026e86cba1eed190f00dc41669ac3b7be409a9e4c0df4e64fd1be7c46cd49",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30307,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.507,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "stuck",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "sensor_fault"
+      },
+      {
+        "id": "test-diagnosis-08",
+        "family": "diagnosis",
+        "group_id": "afb9be78d1f98719fe646a18bdd10bdbbb30bb69f288ad192126e2bdaa07dff2",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30308,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.508,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-diagnosis-09",
+        "family": "diagnosis",
+        "group_id": "c4e9cf35be47228d0bf5f2770cf08337d9bbbbd6e3bb3ba2a1be3cf9b9cac2bf",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30309,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.509,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "open",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "sensor_fault"
+      },
+      {
+        "id": "test-diagnosis-10",
+        "family": "diagnosis",
+        "group_id": "bf057657b4bbd692a831653ede51c7ef0d9c5669fe17797eb83dc1e86825300c",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30310,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.51,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-diagnosis-11",
+        "family": "diagnosis",
+        "group_id": "a194b620a37c9d991c78acc52e05bb25ff3dd3c905ce5b8e51e09bbdc9cf66f5",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30311,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.511,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "stuck",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "sensor_fault"
+      },
+      {
+        "id": "test-diagnosis-12",
+        "family": "diagnosis",
+        "group_id": "5ee54d7d2fc8887ae8c5b4e4e0ad4058385608ff58975a4945412d102db04a48",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30312,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.512,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-diagnosis-13",
+        "family": "diagnosis",
+        "group_id": "6793aa98a2293a3824dc83090942676a118d21599c47faf8df3c1f0c31d5b56a",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30313,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.513,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "open",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "sensor_fault"
+      },
+      {
+        "id": "test-diagnosis-14",
+        "family": "diagnosis",
+        "group_id": "22ea029701945f21ea11692fbc489df6e876402dac82457a9c3dfd97f2dae2ad",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30314,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.514,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-diagnosis-15",
+        "family": "diagnosis",
+        "group_id": "71c3fe985f41fb4bbc7f743e17a1f98754055bf1eb0406551c187eba3e311229",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30315,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.515,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "stuck",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "sensor_fault"
+      },
+      {
+        "id": "test-diagnosis-16",
+        "family": "diagnosis",
+        "group_id": "59cc0d1035fcec0912fecf3e73f39a3b6cd14f686a9d685faf3b94fe90bff24d",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30316,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.516,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-diagnosis-17",
+        "family": "diagnosis",
+        "group_id": "0e33da5ba189e72108b90de1538425617883506c6572acb611d5c014ee8724ee",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30317,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.517,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "open",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "sensor_fault"
+      },
+      {
+        "id": "test-diagnosis-18",
+        "family": "diagnosis",
+        "group_id": "6f38eb3a2e1cd1ed7bb37b68f8476a2007273d8c5b9dc31e259f9849ba985fcb",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30318,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.518,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "healthy"
+      },
+      {
+        "id": "test-diagnosis-19",
+        "family": "diagnosis",
+        "group_id": "e231bc7a36df746e45106db457d46d6492a962cb7fa31b4674a85504d47c8429",
+        "config": {
+          "schema_version": 1,
+          "engine": "vver",
+          "seed": 30319,
+          "task": "hold_power",
+          "episode_horizon_s": 2.0,
+          "action_dt_s": 0.25,
+          "target_power_fraction": 1.0,
+          "sensor_tau_s": 0.519,
+          "sensor_noise": 1e-06,
+          "action_channels": [
+            "rod_command"
+          ],
+          "method": "BDF",
+          "rtol": 0.0001,
+          "atol": 0.01,
+          "action_cost_weight": 0.0,
+          "violation_weight": 0.0,
+          "power_error_limit": 0.001,
+          "initial_commands": {},
+          "timeline": [],
+          "sensor_faults": [
+            "stuck",
+            "",
+            "",
+            ""
+          ]
+        },
+        "diagnosis_label": "sensor_fault"
+      }
+    ]
+  }
+}

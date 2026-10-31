@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "source_sha256": "65034f3484bb15d86ae5bd08edb1b8acf77b81b39d3e6915a543900d03f63a15",
+  "budget_sha256": "2ab065fe257bc8e4d35fb29d9a1b705fb9cfcdcfdc15027c32d4ba89acbbffd3",
+  "cases": [
+    {
+      "id": "two_capacity_0_forward",
+      "path": "artifacts/ai05_network_verification_v3/two_capacity_0_forward",
+      "accepted": true,
+      "checks": {
+        "completed": true,
+        "temperature": true,
+        "heat_flow": true,
+        "energy": true,
+        "temperature_residual": true,
+        "power_residual": true,
+        "restart": true
+      },
+      "max_temperature_error_k": 1.1368683772161603e-13,
+      "max_heat_flow_error_w": 2.2737367544323206e-12,
+      "max_temperature_residual_k": 0.0,
+      "max_power_residual_w": 9.094947017729282e-13,
+      "restart_time_s": 1010.0,
+      "restart_error_k": 1.1368683772161603e-13
+    },
+    {
+      "id": "two_capacity_0_reverse",
+      "path": "artifacts/ai05_network_verification_v3/two_capacity_0_reverse",
+      "accepted": true,
+      "checks": {
+        "completed": true,
+        "temperature": true,
+        "heat_flow": true,
+        "energy": true,
+        "temperature_residual": true,
+        "power_residual": true,
+        "restart": true
+      },
+      "max_temperature_error_k": 5.684341886080802e-14,
+      "max_heat_flow_error_w": 1.5916157281026244e-12,
+      "max_temperature_residual_k": 0.0,
+      "max_power_residual_w": 9.094947017729282e-13,
+      "restart_time_s": 1010.0,
+      "restart_error_k": 0.0
+    },
+    {
+      "id": "two_capacity_30_forward",
+      "path": "artifacts/ai05_network_verification_v3/two_capacity_30_forward",
+      "accepted": true,
+      "checks": {
+        "completed": true,
+        "temperature": true,
+        "heat_flow": true,
+        "energy": true,
+        "temperature_residual": true,
+        "power_residual": true,
+        "restart": true
+      },
+      "max_temperature_error_k": 1.1368683772161603e-13,
+      "max_heat_flow_error_w": 3.183231456205249e-12,
+      "max_temperature_residual_k": 0.0,
+      "max_power_residual_w": 9.094947017729282e-13,
+      "restart_time_s": 1010.0,
+      "restart_error_k": 5.684341886080802e-14
+    },
+    {
+      "id": "two_capacity_30_reverse",
+      "path": "artifacts/ai05_network_verification_v3/two_capacity_30_reverse",
+      "accepted": true,
+      "checks": {
+        "completed": true,
+        "temperature": true,
+        "heat_flow": true,
+        "energy": true,
+        "temperature_residual": true,
+        "power_residual": true,
+        "restart": true
+      },
+      "max_temperature_error_k": 5.684341886080802e-14,
+      "max_heat_flow_error_w": 1.5916157281026244e-12,
+      "max_temperature_residual_k": 0.0,
+      "max_power_residual_w": 9.094947017729282e-13,
+      "restart_time_s": 1010.0,
+      "restart_error_k": 5.684341886080802e-14
+    },
+    {
+      "id": "ai05_star_mode",
+      "path": "artifacts/ai05_network_verification_v3/ai05_star_mode",
+      "accepted": true,
+      "checks": {
+        "completed": true,
+        "temperature": true,
+        "heat_flow": true,
+        "energy": true,
+        "temperature_residual": true,
+        "power_residual": true,
+        "restart": true
+      },
+      "max_temperature_error_k": 2.2737367544323206e-13,
+      "max_heat_flow_error_w": 6.181775795371745e-13,
+      "max_temperature_residual_k": 5.684341886080802e-14,
+      "max_power_residual_w": 5.186815199435992e-13,
+      "restart_time_s": 1010.0,
+      "restart_error_k": 2.8421709430404007e-13
+    }
+  ],
+  "all_cases_accepted": true,
+  "validated": false,
+  "plant_referenced": false,
+  "reference": "Independent two-capacity forced exponential and three-branch antisymmetric mode",
+  "scope": "Closed constant-coefficient thermal network, not equipment or VVER qualification"
+}

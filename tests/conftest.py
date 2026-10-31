@@ -2,9 +2,23 @@
 Pytest configuration and fixtures
 """
 
+import numpy as np
 import pytest
 import torch
-import numpy as np
+
+
+def pytest_collection_modifyitems(items):
+    long_files = {
+        "test_simulator.py",
+        "test_integration.py",
+        "test_transient_convergence.py",
+        "test_muscl_total_initialization.py",
+    }
+    for item in items:
+        if item.name == "test_openmc_particle_run_reports_k_and_mgxs":
+            item.add_marker(pytest.mark.external_integration)
+        if item.path.name in long_files:
+            item.add_marker(pytest.mark.long_running)
 
 
 @pytest.fixture

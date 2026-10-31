@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "archive": "artifacts/ai04_hllc_delivery_v1",
+  "files_verified": 339,
+  "source_sha256": "2ff1540ae60cd022bd2e5db2e3e09185e5eef15209825cfa60094e1ef94b130d",
+  "runtime_archive_source_matches": true,
+  "wheel_sha256": "bf34bf0d89862e55acdf6fb5dc94b08c46e983f8228b5aefec3689d11af600c2",
+  "validated": false,
+  "plant_referenced": false
+}

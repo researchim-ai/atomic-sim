@@ -1,0 +1,1500 @@
+{
+  "schema_version": 1,
+  "plan_id": "atomic-ai-industrial-v1",
+  "date": "2026-11-01",
+  "version": "1.12.0",
+  "human_document": "docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md",
+  "status": "in_progress",
+  "validated": false,
+  "plant_referenced": false,
+  "package_status_values": [
+    "planned",
+    "ready",
+    "in_progress",
+    "partial",
+    "awaiting_external_evidence",
+    "accepted",
+    "rejected"
+  ],
+  "task_status_values": [
+    "planned",
+    "in_progress",
+    "implemented",
+    "accepted",
+    "awaiting_external_evidence"
+  ],
+  "next_execution_batch": [
+    "AI-05"
+  ],
+  "historical_baseline_evidence": "validation/muscl_total_initialization_delivery_v1.json",
+  "execution_policy": "Work by accepted packages, preserve prior evidence, no automatic promotion from test counts. Dependencies are package-closure requirements; independent tasks may begin earlier.",
+  "packages": [
+    {
+      "id": "AI-00",
+      "title": "Единая база, паспорта и правила приёмки",
+      "priority": "P0",
+      "deps": [],
+      "scope": "docs/, validation/, core/status.py, CI",
+      "tasks": [
+        {
+          "id": "AI-00.01",
+          "description": "Зафиксировать текущий source fingerprint, зависимости и baseline с точным списком выполненных и исключённых тестов.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai00_ai01_delivery_v1.json",
+            "docs/AI_00_01_DELIVERY_RU.md"
+          ]
+        },
+        {
+          "id": "AI-00.02",
+          "description": "Связать режимы установки и компонентов с паспортами, бюджетами, горизонтами и существующими свидетельствами; убрать противоречивые заявления о готовности.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai00_ai01_delivery_v1.json",
+            "docs/AI_00_01_DELIVERY_RU.md"
+          ]
+        },
+        {
+          "id": "AI-00.03",
+          "description": "Разделить numerical verification, inter-code comparison, experimental validation и plant reference; согласовать политику статусов в коде и документации.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai00_ai01_delivery_v1.json",
+            "docs/AI_00_01_DELIVERY_RU.md"
+          ]
+        },
+        {
+          "id": "AI-00.04",
+          "description": "Версионировать benchmark input, метрики, нормы и пороги до запуска; изменение порога создаёт новую версию с обоснованием.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai00_ai01_delivery_v1.json",
+            "docs/AI_00_01_DELIVERY_RU.md"
+          ]
+        },
+        {
+          "id": "AI-00.05",
+          "description": "Разделить быстрые, длинные, внешние OpenMC/MPI и установочные проверки; отсутствующий внешний запуск явно отражать в результате.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai00_ai01_delivery_v1.json",
+            "docs/AI_00_01_DELIVERY_RU.md"
+          ]
+        },
+        {
+          "id": "AI-00.06",
+          "description": "Сохранить все прежние принятые и непринятые результаты; определить один актуальный журнал работ и формат закрытия пакета.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai00_ai01_delivery_v1.json",
+            "docs/AI_00_01_DELIVERY_RU.md"
+          ]
+        }
+      ],
+      "acceptance": [
+        "У каждого заявленного принятого режима есть существующий input, паспорт, бюджет, отчёт и fingerprint; у непринятого — причина и последняя допустимая точка.",
+        "Локальный baseline и installed-wheel smoke воспроизводятся; внешний OpenMC/MPI имеет самостоятельный статус, а не исчезает из отчёта.",
+        "Исторические документы обозначены как исторические; ни число тестов, ни межкодовое сравнение не повышают экспериментальный статус автоматически."
+      ],
+      "artifacts": [
+        "baseline текущей ревизии",
+        "реестр требований → тесты → артефакты",
+        "согласованная validation policy"
+      ],
+      "status": "accepted",
+      "evidence": [
+        "validation/ai00_ai01_delivery_v1.json",
+        "docs/AI_00_01_DELIVERY_RU.md"
+      ]
+    },
+    {
+      "id": "AI-01",
+      "title": "Полноценный контракт среды для ИИ",
+      "priority": "P0",
+      "deps": [
+        "AI-00"
+      ],
+      "scope": "agent_envs/, instrumentation/, sdk/, scenarios/",
+      "tasks": [
+        {
+          "id": "AI-01.01",
+          "description": "Ввести версионируемый EnvConfig: engine, допустимая задача, физический горизонт, интервал решений, solver policy и seed.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai00_ai01_delivery_v1.json",
+            "docs/AI_00_01_DELIVERY_RU.md"
+          ]
+        },
+        {
+          "id": "AI-01.02",
+          "description": "Строго проверять форму, тип, конечность и диапазон действий; разделить ошибочную команду и физическое насыщение привода.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai00_ai01_delivery_v1.json",
+            "docs/AI_00_01_DELIVERY_RU.md"
+          ]
+        },
+        {
+          "id": "AI-01.03",
+          "description": "Выделить advance и read: чтение наблюдения не меняет время датчика, RNG или физическое состояние; reset не делает скрытый шаг.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai00_ai01_delivery_v1.json",
+            "docs/AI_00_01_DELIVERY_RU.md"
+          ]
+        },
+        {
+          "id": "AI-01.04",
+          "description": "Задать observation schema с единицами, нормировкой, отметками времени и масками качества; скрытая истина доступна только evaluator.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai00_ai01_delivery_v1.json",
+            "docs/AI_00_01_DELIVERY_RU.md"
+          ]
+        },
+        {
+          "id": "AI-01.05",
+          "description": "Подключить только уже поддержанные SDK-команды; новые каналы управления добавлять с паспортом привода и явным приоритетом защиты.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai00_ai01_delivery_v1.json",
+            "docs/AI_00_01_DELIVERY_RU.md"
+          ]
+        },
+        {
+          "id": "AI-01.06",
+          "description": "Разделить task terminal, time limit, model limit, solver error и program error; определить terminated/truncated и диагностический reason.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai00_ai01_delivery_v1.json",
+            "docs/AI_00_01_DELIVERY_RU.md"
+          ]
+        },
+        {
+          "id": "AI-01.07",
+          "description": "Версионировать reward decomposition: слежение, управляющее воздействие и нарушения; не позволять раннему отказу улучшать итоговый рейтинг.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai00_ai01_delivery_v1.json",
+            "docs/AI_00_01_DELIVERY_RU.md"
+          ]
+        },
+        {
+          "id": "AI-01.08",
+          "description": "Сохранять полный episode snapshot: установка, датчики, приводы, RNG, сценарная очередь, цели, накопленные метрики и номер решения.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai00_ai01_delivery_v1.json",
+            "docs/AI_00_01_DELIVERY_RU.md"
+          ]
+        },
+        {
+          "id": "AI-01.09",
+          "description": "Обеспечить изоляцию seed и совместное существование нескольких сред, включая независимый action-space RNG.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai00_ai01_delivery_v1.json",
+            "docs/AI_00_01_DELIVERY_RU.md"
+          ]
+        },
+        {
+          "id": "AI-01.10",
+          "description": "Добавить контрактные проверки Gymnasium, повтор/reset, межпроцессный restart и совпадение SDK/CLI/env для одной последовательности команд.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai00_ai01_delivery_v1.json",
+            "docs/AI_00_01_DELIVERY_RU.md"
+          ]
+        }
+      ],
+      "acceptance": [
+        "Один config + seed + журнал действий воспроизводит физическую траекторию и метрики в заранее заданных допусках; шум и дискретные события воспроизводятся точно в одинаковой среде.",
+        "Повторное чтение не сдвигает время или RNG; плохой датчик остаётся явно помеченным, не превращается в хорошее скрытое измерение.",
+        "Ошибочные действия не меняют принятое состояние; все причины завершения проверены отдельно; физический горизонт задан в секундах вместо жёстких 50 шагов."
+      ],
+      "artifacts": [
+        "versioned EnvConfig и observation/action schema",
+        "episode replay и checkpoint",
+        "отчёт Gymnasium/SDK parity"
+      ],
+      "status": "accepted",
+      "evidence": [
+        "validation/ai00_ai01_delivery_v1.json",
+        "docs/AI_00_01_DELIVERY_RU.md"
+      ]
+    },
+    {
+      "id": "AI-02",
+      "title": "Честный benchmark и эталонные агенты",
+      "priority": "P0",
+      "deps": [
+        "AI-01"
+      ],
+      "scope": "agent_envs/, scenarios/, control/, validation/, dataset_builders/",
+      "tasks": [
+        {
+          "id": "AI-02.01",
+          "description": "Определить четыре семейства задач в действующем паспорте: удержание, слежение за допустимой целью, восстановление после возмущения и диагностика измерительного отказа.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai02_delivery_v1.json",
+            "docs/AI_02_BENCHMARK_RU.md"
+          ]
+        },
+        {
+          "id": "AI-02.02",
+          "description": "Создать train/dev/test manifests с разделением по семействам параметров и конфигураций, а не только случайным seed.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai02_delivery_v1.json",
+            "docs/AI_02_BENCHMARK_RU.md"
+          ]
+        },
+        {
+          "id": "AI-02.03",
+          "description": "Зафиксировать первый test pack: 20 эпизодов на семейство, всего 80; не включать физически неподдержанные сценарии.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai02_delivery_v1.json",
+            "docs/AI_02_BENCHMARK_RU.md"
+          ]
+        },
+        {
+          "id": "AI-02.04",
+          "description": "Реализовать baseline hold, настроенный PID с anti-windup и rule-based controller; настройка выполняется только на train/dev.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai02_delivery_v1.json",
+            "docs/AI_02_BENCHMARK_RU.md"
+          ]
+        },
+        {
+          "id": "AI-02.05",
+          "description": "Реализовать evaluator вне процесса политики: IAE/RMSE, время нарушения, пики, стоимость действий, число защит, полнота горизонта и вычислительное время.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai02_delivery_v1.json",
+            "docs/AI_02_BENCHMARK_RU.md"
+          ]
+        },
+        {
+          "id": "AI-02.06",
+          "description": "Проверить reward hacking: выгодный отказ интегратора, раннее окончание, скрытая истина, NaN, нарушение диапазона и чтение test-настроек.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai02_delivery_v1.json",
+            "docs/AI_02_BENCHMARK_RU.md"
+          ]
+        },
+        {
+          "id": "AI-02.07",
+          "description": "Сохранить сырые эпизоды, причинные журналы и provenance; автоматические объяснения помечать как производные, не экспертную истину.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai02_delivery_v1.json",
+            "docs/AI_02_BENCHMARK_RU.md"
+          ]
+        },
+        {
+          "id": "AI-02.08",
+          "description": "Добавить подключение внешней политики, доверительные интервалы и парные сравнения на одинаковых сценариях; публиковать и неудачные эпизоды.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai02_delivery_v1.json",
+            "docs/AI_02_BENCHMARK_RU.md"
+          ]
+        }
+      ],
+      "acceptance": [
+        "Все три baseline проходят один evaluator на одном замороженном test pack; оценка исключает настройку на test и не выдаёт незавершённый эпизод за успешный.",
+        "Reward и независимые эксплуатационные метрики опубликованы раздельно; преимущество обученной политики не требуется для закрытия инфраструктуры.",
+        "Один запуск восстанавливает отчёт из сырых эпизодов и хешей; отсутствие закрытого test pack явно фиксируется до публикации leaderboard."
+      ],
+      "artifacts": [
+        "benchmark v1, 80 held-out episodes",
+        "три baseline policies",
+        "машинный отчёт и protocol evaluation"
+      ],
+      "status": "accepted",
+      "evidence": [
+        "validation/ai02_delivery_v1.json",
+        "docs/AI_02_BENCHMARK_RU.md"
+      ]
+    },
+    {
+      "id": "AI-03",
+      "title": "Полный однофазный импульс и согласованная механика",
+      "priority": "P0",
+      "deps": [
+        "AI-00"
+      ],
+      "scope": "physics/hydraulics/, core/, sdk/",
+      "tasks": [
+        {
+          "id": "AI-03.01",
+          "description": "Вывести выбранную консервативную однофазную систему с конвекцией импульса, внутренней/полной энергией, силами и граничными потоками в SI.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai03_delivery_v1.json",
+            "docs/AI_03_EULER_LIQUID_RU.md"
+          ]
+        },
+        {
+          "id": "AI-03.02",
+          "description": "Зафиксировать размещение переменных, дискретизацию импульсного переноса и работу на границах; проверить число условий и характеристический смысл входа/выхода.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai03_delivery_v1.json",
+            "docs/AI_03_EULER_LIQUID_RU.md"
+          ]
+        },
+        {
+          "id": "AI-03.03",
+          "description": "Вывести совместимые потоки кинетической энергии, давления и диссипации до реализации; исключить двойной учёт механической мощности.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai03_delivery_v1.json",
+            "docs/AI_03_EULER_LIQUID_RU.md"
+          ]
+        },
+        {
+          "id": "AI-03.04",
+          "description": "Добавить отдельный engine/model_id и новую схему snapshot при изменении состава/смысла состояния; сохранить прежнюю редуцированную модель.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai03_delivery_v1.json",
+            "docs/AI_03_EULER_LIQUID_RU.md"
+          ]
+        },
+        {
+          "id": "AI-03.05",
+          "description": "Реализовать реверс, нулевой расход и допустимую потерю сопротивления без произвольного clipping.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai03_delivery_v1.json",
+            "docs/AI_03_EULER_LIQUID_RU.md"
+          ]
+        },
+        {
+          "id": "AI-03.06",
+          "description": "Реализовать разреженный якобиан и масштабирование для новой постановки; проверить его независимыми производными и балансными тождествами.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai03_delivery_v1.json",
+            "docs/AI_03_EULER_LIQUID_RU.md"
+          ]
+        },
+        {
+          "id": "AI-03.07",
+          "description": "Принять аналитические/изготовленные решения, невязку стационара, ограниченное возмущение, сохранение и граничные режимы.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai03_delivery_v1.json",
+            "docs/AI_03_EULER_LIQUID_RU.md"
+          ]
+        },
+        {
+          "id": "AI-03.08",
+          "description": "Провести анализ применимости low-Mach и акустики; включать акустические задачи в паспорт только после отдельного доказательства пригодности схемы.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai03_delivery_v1.json",
+            "docs/AI_03_EULER_LIQUID_RU.md"
+          ]
+        }
+      ],
+      "acceptance": [
+        "В уравнении импульса действительно присутствует конвективный член; глобальное энергетическое тождество и баланс на интерфейсах подтверждены независимо.",
+        "Новые benchmark имеют собственные предварительные бюджеты, минимум три уровня временного уточнения и контролируемый отказ вне паспорта.",
+        "Прежние результаты compatible_total не переименованы в доказательство новой модели; новая постановка имеет собственный набор evidence."
+      ],
+      "artifacts": [
+        "документ уравнений и дискретизации",
+        "новый engine и migration policy",
+        "аналитические/изготовленные механические benchmarks"
+      ],
+      "status": "accepted",
+      "evidence": [
+        "validation/ai03_delivery_v1.json",
+        "docs/AI_03_EULER_LIQUID_RU.md"
+      ]
+    },
+    {
+      "id": "AI-04",
+      "title": "Пространственная и временная квалификация канала",
+      "priority": "P0",
+      "deps": [
+        "AI-03"
+      ],
+      "scope": "physics/hydraulics/, scripts/, validation/",
+      "tasks": [
+        {
+          "id": "AI-04.01",
+          "description": "Добавить портовые наблюдения на одних физических координатах и интегралы по областям; не сравнивать последнюю ячейку как один и тот же выход на разных сетках.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai04_delivery_v2.json",
+            "artifacts/ai04_qualification_v6/qualification.json",
+            "validation/ai04_qualification_audit_v5.json",
+            "validation/ai04_refinement_audit_v4.json",
+            "validation/ai04_qualified_sdk_v1.json",
+            "validation/ai04_stale_admission_v2.json",
+            "validation/ai04_legacy_evidence_integrity_v4.json",
+            "docs/AI_04_FRONT_REFINEMENT_RU.md"
+          ]
+        },
+        {
+          "id": "AI-04.02",
+          "description": "Зафиксировать набор: гладкий перенос, нагретый стационар, тепловой импульс, запуск потока, реверс и один негладкий переход.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai04_delivery_v2.json",
+            "artifacts/ai04_qualification_v6/qualification.json",
+            "validation/ai04_qualification_audit_v5.json",
+            "validation/ai04_refinement_audit_v4.json",
+            "validation/ai04_qualified_sdk_v1.json",
+            "validation/ai04_stale_admission_v2.json",
+            "validation/ai04_legacy_evidence_integrity_v4.json",
+            "docs/AI_04_FRONT_REFINEMENT_RU.md"
+          ]
+        },
+        {
+          "id": "AI-04.03",
+          "description": "Для гладких случаев использовать не менее трёх равномерных сеток при одинаковой трубе и параметрах; предусмотреть четвёртую сетку при неасимптотическом порядке.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai04_delivery_v2.json",
+            "artifacts/ai04_qualification_v6/qualification.json",
+            "validation/ai04_qualification_audit_v5.json",
+            "validation/ai04_refinement_audit_v4.json",
+            "validation/ai04_qualified_sdk_v1.json",
+            "validation/ai04_stale_admission_v2.json",
+            "validation/ai04_legacy_evidence_integrity_v4.json",
+            "docs/AI_04_FRONT_REFINEMENT_RU.md"
+          ]
+        },
+        {
+          "id": "AI-04.04",
+          "description": "Отдельно уточнять время на самой тонкой сетке; стартовый критерий time/spatial error <=0.1, с размерными допусками в manifest.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai04_delivery_v2.json",
+            "artifacts/ai04_qualification_v6/qualification.json",
+            "validation/ai04_qualification_audit_v5.json",
+            "validation/ai04_refinement_audit_v4.json",
+            "validation/ai04_qualified_sdk_v1.json",
+            "validation/ai04_stale_admission_v2.json",
+            "validation/ai04_legacy_evidence_integrity_v4.json",
+            "docs/AI_04_FRONT_REFINEMENT_RU.md"
+          ]
+        },
+        {
+          "id": "AI-04.05",
+          "description": "Считать L1/L2/Linf и интегралы, портовые потоки, пики и времена событий; описать теоретически ожидаемый порядок выбранной полной схемы.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai04_delivery_v2.json",
+            "artifacts/ai04_qualification_v6/qualification.json",
+            "validation/ai04_qualification_audit_v5.json",
+            "validation/ai04_refinement_audit_v4.json",
+            "validation/ai04_qualified_sdk_v1.json",
+            "validation/ai04_stale_admission_v2.json",
+            "validation/ai04_legacy_evidence_integrity_v4.json",
+            "docs/AI_04_FRONT_REFINEMENT_RU.md"
+          ]
+        },
+        {
+          "id": "AI-04.06",
+          "description": "Проверить фронты, неотрицательность запасов, паразитные колебания, ошибки EOS и выход из области; ограничитель не объявлять автоматически TVD для implicit coupling. Отдельно измерить low-Mach диффузию фиксированного Rusanov; при недостаточной точности реализовать и принять новую схему.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai04_delivery_v2.json",
+            "artifacts/ai04_qualification_v6/qualification.json",
+            "validation/ai04_qualification_audit_v5.json",
+            "validation/ai04_refinement_audit_v4.json",
+            "validation/ai04_qualified_sdk_v1.json",
+            "validation/ai04_stale_admission_v2.json",
+            "validation/ai04_legacy_evidence_integrity_v4.json",
+            "docs/AI_04_FRONT_REFINEMENT_RU.md"
+          ]
+        },
+        {
+          "id": "AI-04.07",
+          "description": "Принять точность и стоимость сеток по каждому режиму; сохранить непройденные случаи и определить минимальную разрешённую сетку для agent tasks.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai04_delivery_v2.json",
+            "artifacts/ai04_qualification_v6/qualification.json",
+            "validation/ai04_qualification_audit_v5.json",
+            "validation/ai04_refinement_audit_v4.json",
+            "validation/ai04_qualified_sdk_v1.json",
+            "validation/ai04_stale_admission_v2.json",
+            "validation/ai04_legacy_evidence_integrity_v4.json",
+            "docs/AI_04_FRONT_REFINEMENT_RU.md"
+          ]
+        }
+      ],
+      "acceptance": [
+        "Каждая заявленная область режима имеет отделённую временную и пространственную ошибку; сравнение выполняется на одинаковой физической геометрии и портах.",
+        "Порядок не подгоняется к результату; второй порядок всего канала не следует из теста скалярного MC-оператора.",
+        "Имеется машинная матрица accepted/rejected по задачам, сеткам, метрикам и бюджету, пригодная для ограничения генератора эпизодов."
+      ],
+      "artifacts": [
+        "mesh/time qualification matrix",
+        "версионированные критерии",
+        "профили, порты и raw trajectories"
+      ],
+      "status": "accepted",
+      "evidence": [
+        "validation/ai04_delivery_v2.json",
+        "artifacts/ai04_qualification_v6/qualification.json",
+        "validation/ai04_qualification_audit_v5.json",
+        "validation/ai04_refinement_audit_v4.json",
+        "validation/ai04_qualified_sdk_v1.json",
+        "validation/ai04_stale_admission_v2.json",
+        "validation/ai04_legacy_evidence_integrity_v4.json",
+        "docs/AI_04_FRONT_REFINEMENT_RU.md"
+      ]
+    },
+    {
+      "id": "AI-05",
+      "title": "Сборка сети и оборудование системной установки",
+      "priority": "P0",
+      "deps": [
+        "AI-04"
+      ],
+      "scope": "core/assembly.py, components/, coupling/, plants/, sdk/",
+      "tasks": [
+        {
+          "id": "AI-05.01",
+          "description": "Ввести версионируемую топологию компонентов и типизированные массовые, энергетические и управляющие порты с единицами.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai05_delivery_v2.json",
+            "validation/ai05_network_verification_v2.json",
+            "artifacts/ai05_network_verification_v3/verification.json",
+            "validation/network_topology_schema_v1.json",
+            "docs/AI_05_NETWORK_COMPILER_RU.md",
+            "tests/test_network_compiler.py",
+            "validation/ai05_ai04_gate_status_v2.json"
+          ]
+        },
+        {
+          "id": "AI-05.02",
+          "description": "Проверять связность, направление, структурную вырожденность и несовместимые паспорта до интегрирования.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai05_delivery_v2.json",
+            "validation/ai05_network_verification_v2.json",
+            "artifacts/ai05_network_verification_v3/verification.json",
+            "validation/network_topology_schema_v1.json",
+            "docs/AI_05_NETWORK_COMPILER_RU.md",
+            "tests/test_network_compiler.py",
+            "validation/ai05_ai04_gate_status_v2.json"
+          ]
+        },
+        {
+          "id": "AI-05.03",
+          "description": "Решать согласованную инициализацию сети с размерными невязками и диагностикой, а не подбором скрытой предыстории.",
+          "status": "in_progress",
+          "evidence": [
+            "validation/ai05_delivery_v2.json",
+            "validation/ai05_network_verification_v2.json",
+            "artifacts/ai05_network_verification_v3/verification.json",
+            "validation/network_topology_schema_v1.json",
+            "docs/AI_05_NETWORK_COMPILER_RU.md",
+            "tests/test_network_compiler.py",
+            "validation/ai05_ai04_gate_status_v2.json",
+            "validation/ai05_delivery_v3.json",
+            "validation/ai05_circulation_verification_v1.json",
+            "validation/ai05_circulation_audit_v1.json",
+            "validation/ai05_network_verification_v3.json",
+            "docs/AI_05_CIRCULATION_LOOP_RU.md",
+            "tests/test_circulation_loop.py",
+            "validation/ai05_ai04_gate_status_v3.json",
+            "validation/ai05_delivery_v4.json",
+            "validation/ai05_pump_verification_v1.json",
+            "validation/ai05_pump_audit_v1.json",
+            "docs/AI_05_DISPLACEMENT_PUMP_RU.md",
+            "tests/test_pump_loop.py",
+            "validation/ai05_ai04_gate_status_v4.json",
+            "validation/ai05_delivery_v5.json",
+            "validation/ai05_valve_verification_v1.json",
+            "validation/ai05_valve_audit_v1.json",
+            "docs/AI_05_MODULATING_VALVE_RU.md",
+            "tests/test_valved_pump_loop.py",
+            "validation/ai05_ai04_gate_status_v5.json",
+            "validation/ai05_delivery_v6.json",
+            "validation/ai05_storage_verification_v1.json",
+            "validation/ai05_storage_audit_v1.json",
+            "validation/ai05_storage_event_regression_v1.json",
+            "docs/AI_05_GAS_STORAGE_RU.md",
+            "tests/test_gas_storage_pair.py",
+            "validation/ai05_ai04_gate_status_v6.json",
+            "validation/ai05_delivery_v7.json",
+            "validation/ai05_inertial_storage_verification_v1.json",
+            "validation/ai05_inertial_storage_audit_v1.json",
+            "validation/ai05_inertial_storage_equilibrium_regression_v1.json",
+            "docs/AI_05_INERTIAL_STORAGE_RU.md",
+            "tests/test_inertial_storage_pair.py",
+            "validation/ai05_ai04_gate_status_v7.json",
+            "validation/ai05_delivery_v8.json",
+            "validation/ai05_pump_storage_verification_v1.json",
+            "validation/ai05_pump_storage_audit_v1.json",
+            "docs/AI_05_PUMP_STORAGE_RU.md",
+            "tests/test_pump_storage_pair.py",
+            "validation/ai05_ai04_gate_status_v8.json"
+          ],
+          "remaining": "Given/steady initialization with dimensional residuals implemented for a constant-property single cycle; general branched/compressible EOS and equipment initialization remain open"
+        },
+        {
+          "id": "AI-05.04",
+          "description": "Подключить насос с валом, напором, моментом и мощностью; поддержанные квадранты и обратный ход объявить явно.",
+          "status": "accepted",
+          "evidence": [
+            "validation/ai05_delivery_v4.json",
+            "validation/ai05_pump_verification_v1.json",
+            "validation/ai05_pump_audit_v1.json",
+            "docs/AI_05_DISPLACEMENT_PUMP_RU.md",
+            "tests/test_pump_loop.py",
+            "validation/ai05_ai04_gate_status_v4.json"
+          ],
+          "accepted_scope": "AI-05.04: reduced constant-displacement, linear-leakage signed machine; not manufacturer/centrifugal/plant qualification"
+        },
+        {
+          "id": "AI-05.05",
+          "description": "Принять клапан, обратный клапан, накопительные объёмы и компенсатор с работой границы и точными событиями.",
+          "status": "in_progress",
+          "evidence": [
+            "validation/ai05_delivery_v5.json",
+            "validation/ai05_valve_verification_v1.json",
+            "validation/ai05_valve_audit_v1.json",
+            "docs/AI_05_MODULATING_VALVE_RU.md",
+            "tests/test_valved_pump_loop.py",
+            "validation/ai05_ai04_gate_status_v5.json",
+            "validation/ai05_delivery_v6.json",
+            "validation/ai05_storage_verification_v1.json",
+            "validation/ai05_storage_audit_v1.json",
+            "validation/ai05_storage_event_regression_v1.json",
+            "docs/AI_05_GAS_STORAGE_RU.md",
+            "tests/test_gas_storage_pair.py",
+            "validation/ai05_ai04_gate_status_v6.json",
+            "validation/ai05_delivery_v7.json",
+            "validation/ai05_inertial_storage_verification_v1.json",
+            "validation/ai05_inertial_storage_audit_v1.json",
+            "validation/ai05_inertial_storage_equilibrium_regression_v1.json",
+            "docs/AI_05_INERTIAL_STORAGE_RU.md",
+            "tests/test_inertial_storage_pair.py",
+            "validation/ai05_ai04_gate_status_v7.json",
+            "validation/ai05_delivery_v8.json",
+            "validation/ai05_pump_storage_verification_v1.json",
+            "validation/ai05_pump_storage_audit_v1.json",
+            "docs/AI_05_PUMP_STORAGE_RU.md",
+            "tests/test_pump_storage_pair.py",
+            "validation/ai05_ai04_gate_status_v8.json"
+          ],
+          "remaining": "Gas stores now coupled to displacement pump/shaft with reciprocal energy ports; inertial check-valve contact, general network and steam pressurizer remain open"
+        },
+        {
+          "id": "AI-05.06",
+          "description": "Принять теплообменник с двумя потоками и стенкой, турбину/вал/генератор и теплоотвод с энергией каждого запаса.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-05.07",
+          "description": "Добавить гидростатику и совместно нагреваемую гравитационную петлю; отдельный компонентный тест не выдавать за естественную циркуляцию ВВЭР.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-05.08",
+          "description": "Обеспечить чистый/транзакционный residual, полный rollback и согласованное переинициализирование после переключений; DAE backend вводить только для неустранимых ограничений.",
+          "status": "in_progress",
+          "evidence": [
+            "validation/ai05_delivery_v2.json",
+            "validation/ai05_network_verification_v2.json",
+            "artifacts/ai05_network_verification_v3/verification.json",
+            "validation/network_topology_schema_v1.json",
+            "docs/AI_05_NETWORK_COMPILER_RU.md",
+            "tests/test_network_compiler.py",
+            "validation/ai05_ai04_gate_status_v2.json",
+            "validation/ai05_delivery_v3.json",
+            "validation/ai05_circulation_verification_v1.json",
+            "validation/ai05_circulation_audit_v1.json",
+            "validation/ai05_network_verification_v3.json",
+            "docs/AI_05_CIRCULATION_LOOP_RU.md",
+            "tests/test_circulation_loop.py",
+            "validation/ai05_ai04_gate_status_v3.json",
+            "validation/ai05_delivery_v4.json",
+            "validation/ai05_pump_verification_v1.json",
+            "validation/ai05_pump_audit_v1.json",
+            "docs/AI_05_DISPLACEMENT_PUMP_RU.md",
+            "tests/test_pump_loop.py",
+            "validation/ai05_ai04_gate_status_v4.json",
+            "validation/ai05_delivery_v5.json",
+            "validation/ai05_valve_verification_v1.json",
+            "validation/ai05_valve_audit_v1.json",
+            "docs/AI_05_MODULATING_VALVE_RU.md",
+            "tests/test_valved_pump_loop.py",
+            "validation/ai05_ai04_gate_status_v5.json",
+            "validation/ai05_delivery_v6.json",
+            "validation/ai05_storage_verification_v1.json",
+            "validation/ai05_storage_audit_v1.json",
+            "validation/ai05_storage_event_regression_v1.json",
+            "docs/AI_05_GAS_STORAGE_RU.md",
+            "tests/test_gas_storage_pair.py",
+            "validation/ai05_ai04_gate_status_v6.json",
+            "validation/ai05_delivery_v7.json",
+            "validation/ai05_inertial_storage_verification_v1.json",
+            "validation/ai05_inertial_storage_audit_v1.json",
+            "validation/ai05_inertial_storage_equilibrium_regression_v1.json",
+            "docs/AI_05_INERTIAL_STORAGE_RU.md",
+            "tests/test_inertial_storage_pair.py",
+            "validation/ai05_ai04_gate_status_v7.json",
+            "validation/ai05_delivery_v8.json",
+            "validation/ai05_pump_storage_verification_v1.json",
+            "validation/ai05_pump_storage_audit_v1.json",
+            "docs/AI_05_PUMP_STORAGE_RU.md",
+            "tests/test_pump_storage_pair.py",
+            "validation/ai05_ai04_gate_status_v8.json"
+          ],
+          "remaining": "Transactional coupled assembly and atomic resistance/torque controls implemented; general switched topology/equipment scope remains open"
+        }
+      ],
+      "acceptance": [
+        "Во всей собранной сети внутренние массовые и энергетические потоки сокращаются попарно; работа насоса/вала/границ учтена однократно.",
+        "Ошибочная топология и несовместимые компоненты отклоняются до старта; отказ интегратора не оставляет частично принятую сеть.",
+        "Каждый используемый компонент имеет собственные стационарные/переходные эталоны и паспорт; подтверждён restart сборки."
+      ],
+      "artifacts": [
+        "network schema и compiler/assembler",
+        "паспорта оборудования",
+        "компонентные и сетевые qualification reports"
+      ],
+      "status": "partial",
+      "evidence": [
+        "validation/ai05_delivery_v2.json",
+        "validation/ai05_network_verification_v2.json",
+        "artifacts/ai05_network_verification_v3/verification.json",
+        "validation/network_topology_schema_v1.json",
+        "docs/AI_05_NETWORK_COMPILER_RU.md",
+        "tests/test_network_compiler.py",
+        "validation/ai05_ai04_gate_status_v2.json",
+        "validation/ai05_delivery_v3.json",
+        "validation/ai05_circulation_verification_v1.json",
+        "validation/ai05_circulation_audit_v1.json",
+        "validation/ai05_network_verification_v3.json",
+        "docs/AI_05_CIRCULATION_LOOP_RU.md",
+        "tests/test_circulation_loop.py",
+        "validation/ai05_ai04_gate_status_v3.json",
+        "validation/ai05_delivery_v4.json",
+        "validation/ai05_pump_verification_v1.json",
+        "validation/ai05_pump_audit_v1.json",
+        "docs/AI_05_DISPLACEMENT_PUMP_RU.md",
+        "tests/test_pump_loop.py",
+        "validation/ai05_ai04_gate_status_v4.json",
+        "validation/ai05_delivery_v5.json",
+        "validation/ai05_valve_verification_v1.json",
+        "validation/ai05_valve_audit_v1.json",
+        "docs/AI_05_MODULATING_VALVE_RU.md",
+        "tests/test_valved_pump_loop.py",
+        "validation/ai05_ai04_gate_status_v5.json",
+        "validation/ai05_delivery_v6.json",
+        "validation/ai05_storage_verification_v1.json",
+        "validation/ai05_storage_audit_v1.json",
+        "validation/ai05_storage_event_regression_v1.json",
+        "docs/AI_05_GAS_STORAGE_RU.md",
+        "tests/test_gas_storage_pair.py",
+        "validation/ai05_ai04_gate_status_v6.json",
+        "validation/ai05_delivery_v7.json",
+        "validation/ai05_inertial_storage_verification_v1.json",
+        "validation/ai05_inertial_storage_audit_v1.json",
+        "validation/ai05_inertial_storage_equilibrium_regression_v1.json",
+        "docs/AI_05_INERTIAL_STORAGE_RU.md",
+        "tests/test_inertial_storage_pair.py",
+        "validation/ai05_ai04_gate_status_v7.json",
+        "validation/ai05_delivery_v8.json",
+        "validation/ai05_pump_storage_verification_v1.json",
+        "validation/ai05_pump_storage_audit_v1.json",
+        "docs/AI_05_PUMP_STORAGE_RU.md",
+        "tests/test_pump_storage_pair.py",
+        "validation/ai05_ai04_gate_status_v8.json"
+      ]
+    },
+    {
+      "id": "AI-06",
+      "title": "Динамическая двухфазность HEM",
+      "priority": "P0",
+      "deps": [
+        "AI-05"
+      ],
+      "scope": "physics/materials/, physics/hydraulics/, components/, sdk/",
+      "tasks": [
+        {
+          "id": "AI-06.01",
+          "description": "Определить новую HEM-постановку с динамическими давлением и запасами; существующий изобарический кипящий канал сохранить как отдельный компонент.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-06.02",
+          "description": "Реализовать согласованный EOS/inverse EOS в допустимых однофазных и равновесных двухфазных областях с производными.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-06.03",
+          "description": "Реализовать консервативные массу, импульс, полную энергию и нагрев стенки с едиными межъячеечными потоками.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-06.04",
+          "description": "Обработать появление/исчезновение фазы, насыщение, сухой выход и отказ вне области без незаявленного сглаживания.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-06.05",
+          "description": "Версионировать корреляции трения и теплообмена с источником, диапазоном и неопределённостью; неподдержанные CHF/post-CHF режимы отклонять.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-06.06",
+          "description": "Принять независимые отдельные задачи кипения, конденсации, flashing и ограниченного blowdown; без данных оставлять статус numerical verification.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-06.07",
+          "description": "Исследовать сетку/время, положительность и чувствительность к замыканиям; выполнить restart через поддержанную смену фаз.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-06.08",
+          "description": "Предоставить отдельный engine и границы использования; drift-flux/two-fluid оставить следующим расширением, если HEM не обеспечивает нужную точность.",
+          "status": "planned",
+          "evidence": []
+        }
+      ],
+      "acceptance": [
+        "Давление и паросодержание являются результатом динамики, не фиксированным внешним условием; фазовые/глобальные балансы пройдены.",
+        "Для каждого принятого режима определены допустимые фазы, сетка и замыкания; кипение не становится поддержанным изменением порога старой модели.",
+        "HEM не объявляется drift-flux/two-fluid, а отсутствие независимого эксперимента не скрывается за количеством тестов."
+      ],
+      "artifacts": [
+        "HEM engine и паспорт",
+        "phase-boundary benchmarks",
+        "отчёт замыканий и данных"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "AI-07",
+      "title": "Связанная PWR/ВВЭР: длительные режимы",
+      "priority": "P0",
+      "deps": [
+        "AI-06"
+      ],
+      "scope": "plants/vver.py, coupling/, control/, scenarios/, validation/",
+      "tasks": [
+        {
+          "id": "AI-07.01",
+          "description": "Версионировать эталонную конфигурацию контуров, высот, оборудования, мощностей и теплоотвода с происхождением параметров.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-07.02",
+          "description": "Интегрировать принятые сетевые/фазовые компоненты и ядерный источник с остаточным теплом; компонентный тест не переносить автоматически на установку.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-07.03",
+          "description": "Принять номинал 3600 с на двух точностях с локальными и глобальными балансами.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-07.04",
+          "description": "Принять SCRAM и быстрые возмущения минимум 60 с, включая точные упоры и действия защит.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-07.05",
+          "description": "Принять выбег насоса и теплоотвод 1800 с; отдельно принять естественную циркуляцию только при наличии плавучести в связанном паспорте.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-07.06",
+          "description": "Принять полный сброс нагрузки до поддержанного устойчивого состояния/останова, а также питание ПГ и изменение стока на собственных горизонтах.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-07.07",
+          "description": "Проверить события на трёх шагах вывода, приоритет защит, несколько одновременных команд и рестарты в каждой фазе перехода.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-07.08",
+          "description": "Обновить model card и допустимый генератор agent scenarios; непройденный полный горизонт не заменять успешным коротким префиксом.",
+          "status": "planned",
+          "evidence": []
+        }
+      ],
+      "acceptance": [
+        "Все заявленные горизонты завершены в расширенном паспорте с исходными/заранее версионированными бюджетами и независимым временным контролем.",
+        "Исторический останов выбега около 122.2026 с остаётся непринятым результатом старого паспорта; новая приёмка имеет отдельный evidence.",
+        "Полный сброс и естественная циркуляция не объявлены поддержанными только по тесту компонента или знаку расхода."
+      ],
+      "artifacts": [
+        "системная qualification matrix",
+        "длительные сценарии и checkpoints",
+        "обновлённый model card установки"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "AI-08",
+      "title": "Пространственная зона и происхождение ядерных данных",
+      "priority": "P1",
+      "deps": [
+        "AI-04",
+        "AI-05"
+      ],
+      "scope": "physics/neutronics/, physics/depletion/, coupling/, data/, validation/",
+      "tasks": [
+        {
+          "id": "AI-08.01",
+          "description": "Разделить учебные коэффициенты и согласованный набор данных целевой модели; фиксировать библиотеки, лицензии, группы, оси и нормировки.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-08.02",
+          "description": "Квалифицировать реальный OpenMC subprocess pipeline, geometry/material input, MGXS/statepoint и статистическую ошибку на отдельном runner.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-08.03",
+          "description": "Принять неоднородную многогрупповую 1D-диффузию и локальные предшественники с независимыми k/source/transient эталонами.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-08.04",
+          "description": "Связать радиальный твэл и каналы через консервативное отображение мощности/температуры и критерии итерационной сходимости.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-08.05",
+          "description": "Добавить таблицы обратных связей T/плотность/бор/состав; отклонять запросы вне покрытой таблицы вместо неограниченной экстраполяции.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-08.06",
+          "description": "Принять выгорание, predictor-corrector, CRAM и остаточное тепло на независимых составах и энергетических балансах.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-08.07",
+          "description": "Исследовать пики мощности, положения стержня между узлами и родственные сеточные артефакты; 2D/3D вводить по измеренной потребности задачи.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-08.08",
+          "description": "Создать spatial-agent tasks только для принятого связанного scope и явно маркировать модельную fidelity каждого эпизода.",
+          "status": "planned",
+          "evidence": []
+        }
+      ],
+      "acceptance": [
+        "k, формы/пики мощности и составы сравниваются с независимыми reference с раздельными статистической, сеточной и групповой ошибками.",
+        "Таблицы и происхождение данных воспроизводимы; учебная группа параметров не переименована в топливо реального блока.",
+        "Связанная динамика принята отдельно от статической осевой задачи; неизвестная таблица или неподдержанный режим дают явный отказ."
+      ],
+      "artifacts": [
+        "data provenance manifest",
+        "OpenMC/spatial/depletion benchmark pack",
+        "принятые spatial tasks"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "AI-09",
+      "title": "Независимые данные, калибровка и неопределённость",
+      "priority": "P0",
+      "deps": [
+        "AI-00",
+        "AI-07"
+      ],
+      "scope": "data/, validation/, model cards; данные и принятая конфигурация AI-07",
+      "tasks": [
+        {
+          "id": "AI-09.01",
+          "description": "Согласовать intended use, измеряемые выходы, режимы, требуемую точность и критерии клиента до калибровки.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-09.02",
+          "description": "Найти разрешённые отдельные эксперименты и системные ряды; сохранить исходные файлы, лицензии, конфигурацию, единицы и качество измерений.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-09.03",
+          "description": "Разделить calibration/validation по физическим случаям; исключить подгонку и последующую проверку на одной кривой.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-09.04",
+          "description": "Реализовать reference import и независимые метрики по полям, интегралам, пикам и времени событий.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-09.05",
+          "description": "Оценить чувствительность и идентифицируемость параметров; не компенсировать неизвестную физику произвольным коэффициентом.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-09.06",
+          "description": "Разделить неопределённость данных, параметров, замыканий, сетки и интегратора; проверить покрытие интервалов на held-out случаях.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-09.07",
+          "description": "Хранить межкодовое сравнение отдельно от эксперимента; определить scope-specific promotion implemented/verified/validated/plant_referenced.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-09.08",
+          "description": "Выпустить validation report с отказавшими случаями, границами применимости и независимым техническим разбором.",
+          "status": "planned",
+          "evidence": []
+        }
+      ],
+      "acceptance": [
+        "Статус validated разрешён только указанному scope после проверки на независимых измерениях с неопределённостью; plant_referenced требует данных и конфигурации конкретного объекта.",
+        "Отсутствие разрешённых измерений блокирует только повышение физического статуса, а не реализацию replay/evaluator/import инфраструктуры.",
+        "Для каждой промышленной заявки зафиксированы допустимая ошибка и ограничивающие случаи; данные/рецензирование не выдумываются агентом."
+      ],
+      "artifacts": [
+        "разрешённый reference data pack",
+        "calibration/validation split",
+        "UQ и scope-specific validation report"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "AI-10",
+      "title": "Производительность и массовое обучение",
+      "priority": "P1",
+      "deps": [
+        "AI-02"
+      ],
+      "scope": "agent_envs/, core/, physics/materials/, benchmark tooling",
+      "tasks": [
+        {
+          "id": "AI-10.01",
+          "description": "Снять CPU/memory profile настоящего ядра по фиксированным задачам и оборудованию; отдельно измерять старт, EOS, Jacobian, интегратор и отчёт.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-10.02",
+          "description": "Создать воспроизводимый performance harness: simulated_seconds/wall_second, episode/s, p50/p95, RSS и scaling efficiency.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-10.03",
+          "description": "Оптимизировать измеренные узкие места EOS/матриц/аллоцирования без ослабления EOS и физических допусков.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-10.04",
+          "description": "Реализовать синхронные/асинхронные worker environments одного ядра с детерминированными seed, лимитами памяти и изоляцией отказов.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-10.05",
+          "description": "Сравнить 1/2/4/8 worker при одинаковом общем числе CPU; учитывать oversubscription и разный horizon, публиковать эффективность.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-10.06",
+          "description": "Добавить отмену, deadline, resume и checkpoint больших rollout jobs; один плохой эпизод не должен уничтожать всю кампанию.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-10.07",
+          "description": "Создать cost/accuracy tiers; surrogate или legacy batch оформлять отдельной fidelity с собственным паспортом и обязательным control replay на основном ядре.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-10.08",
+          "description": "Поставить предварительный performance goal: минимум 2x к замороженному baseline на целевом workload и машине; если не достигнут, пакет остаётся частичным.",
+          "status": "planned",
+          "evidence": []
+        }
+      ],
+      "acceptance": [
+        "Ускорение измерено серийно на сопоставимом оборудовании при одинаковых физических задачах и допусках; ошибки состояния/событий остаются в прежнем бюджете.",
+        "Массовые эпизоды восстанавливаются индивидуально; изоляция seed/ошибок подтверждена; скорость старой редуцированной batch-ветки не приписана основному ядру.",
+        "2x — инженерная цель этого пакета, не текущее свойство и не обещание превосходства над внешним продуктом."
+      ],
+      "artifacts": [
+        "frozen performance baseline",
+        "vector rollout runner",
+        "accuracy/performance report"
+      ],
+      "status": "ready",
+      "evidence": []
+    },
+    {
+      "id": "AI-11",
+      "title": "Рабочее место инженера и интеграция ИИ",
+      "priority": "P1",
+      "deps": [
+        "AI-02",
+        "AI-05"
+      ],
+      "scope": "sdk/, GUI, experiment storage, integrations",
+      "tasks": [
+        {
+          "id": "AI-11.01",
+          "description": "Создать проект с versioned model/scenario/data/agent config и переносимыми относительными ссылками на артефакты.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-11.02",
+          "description": "Дать редактор параметров/топологии только в рамках принятых схем; при запуске показывать паспорт, ограничения и ошибочные связи.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-11.03",
+          "description": "Реализовать headless job API: validate, initialize, run, pause/checkpoint, resume, cancel, inspect и export.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-11.04",
+          "description": "Добавить сравнение экспериментов, локальные/глобальные ledger, события и диагностику причин останова.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-11.05",
+          "description": "Добавить подключаемую agent policy с разрешёнными наблюдениями/действиями и ограничением времени решения.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-11.06",
+          "description": "Экспортировать отчёты и траектории со схемой/единицами/хешами; воспроизводить проект на другой машине.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-11.07",
+          "description": "Выбрать один востребованный интеграционный путь; FMI/co-simulation принимать только после round-trip и балансов интерфейса.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-11.08",
+          "description": "Проверить полный пользовательский маршрут: создать задачу, подключить baseline, выполнить кампанию, сравнить результат и повторить из архива.",
+          "status": "planned",
+          "evidence": []
+        }
+      ],
+      "acceptance": [
+        "SDK, UI и agent вызывают одну версионированную расчётную семантику; маршруты проверяются одной и той же контрольной задачей.",
+        "Пользователь видит причину отказа, scope и provenance без чтения исходников; неподдержанные режимы не доступны как якобы принятые.",
+        "Для выбранной интеграции есть исполняемый пример и контракт; весь перечень внешних протоколов не становится обязательным условием MVP."
+      ],
+      "artifacts": [
+        "project format и job API",
+        "инженерный UI",
+        "один принятый интеграционный пример"
+      ],
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "AI-12",
+      "title": "Воспроизводимая промышленная поставка",
+      "priority": "P0",
+      "deps": [
+        "AI-02"
+      ],
+      "scope": "pyproject.toml, CI, scripts/verify_wheel.py, docs/, release tooling",
+      "tasks": [
+        {
+          "id": "AI-12.01",
+          "description": "Определить supported matrix ОС/Python/зависимостей и lock/constraints; проверить минимальные и выбранные поддерживаемые версии.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-12.02",
+          "description": "Проверить wheel и все заявленные ресурсы из изолированного окружения вне checkout, включая JSON/YAML сценарии и CLI.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-12.03",
+          "description": "Разделить portable и внешние OpenMC/MPI runners, длинные физические benchmarks и hardware-specific performance jobs.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-12.04",
+          "description": "Обеспечить regression gates нового ядра и API, линтер/типы по актуальным модулям, а не только legacy-папкам.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-12.05",
+          "description": "Добавить schema compatibility, migration tests, golden projects и запрет тихого изменения смысла старого snapshot.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-12.06",
+          "description": "Собирать version/source/dependency/SBOM/license manifest, контрольные суммы и архив evidence; provenance подписи вводить для реального канала поставки.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-12.07",
+          "description": "Ограничить ресурсы job/policy runner, защитить загрузку пользовательских данных и разделить trusted/untrusted код политики.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-12.08",
+          "description": "Подготовить установку, troubleshooting, release notes, recovery и полный runbook контрольного проекта.",
+          "status": "planned",
+          "evidence": []
+        }
+      ],
+      "acceptance": [
+        "Установка и контрольный проект воспроизводятся на каждой заявленной платформе; непроверенные платформы явно не заявляются поддержанными.",
+        "Релиз содержит исходные критерии, все обязательные evidence и список exclusions; старые принятые проекты проходят compatibility policy.",
+        "Этот пакет закрывает поставку software scope; промышленный физический статус дополнительно требует AI-07/AI-09 для соответствующей заявки."
+      ],
+      "artifacts": [
+        "release candidate wheel + constraints",
+        "CI/platform matrix",
+        "release dossier и runbook"
+      ],
+      "status": "ready",
+      "evidence": []
+    },
+    {
+      "id": "AI-13",
+      "title": "Платный пилот и измеримое преимущество",
+      "priority": "P1",
+      "deps": [
+        "AI-07",
+        "AI-09",
+        "AI-11",
+        "AI-12"
+      ],
+      "scope": "pilot project, workload, reports; участие пользователя/партнёров",
+      "tasks": [
+        {
+          "id": "AI-13.01",
+          "description": "Выбрать один use case: виртуальные испытания регуляторов/диагностики либо подготовка воспроизводимых данных; зафиксировать конкретного покупателя.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-13.02",
+          "description": "Получить двух design partners и один оплачиваемый пилот; коммуникации и договорённости выполняет пользователь/уполномоченная команда.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-13.03",
+          "description": "Зафиксировать baseline рабочего процесса клиента и одинаковые модель, сценарии, точность, оборудование и трудозатраты для сравнения.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-13.04",
+          "description": "Измерить время подготовки эксперимента/кампании, стоимость обучения, полноту воспроизводимости и качество поиска отказов на held-out задачах.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-13.05",
+          "description": "Принять пилот по письменному scope/критериям; задокументировать неудачные случаи, поддержку, стоимость и повторяемость внедрения.",
+          "status": "planned",
+          "evidence": []
+        },
+        {
+          "id": "AI-13.06",
+          "description": "Публиковать только подтверждённое преимущество на конкретном workload; следующую технологию/тип реактора добавлять по потребности и отдельной квалификации.",
+          "status": "planned",
+          "evidence": []
+        }
+      ],
+      "acceptance": [
+        "Есть воспроизводимый клиентский кейс и сравнение с реальным baseline; универсальное «лучше всех симуляторов» не используется как технический критерий.",
+        "Платёж, доступ к данным, отзывы и независимое принятие подтверждены реальными внешними материалами, а не созданы агентом.",
+        "Исследовательский ранний пилот возможен раньше AI-07/AI-09 с явно ограниченным scope; закрытие этого промышленного пакета требует всех зависимостей."
+      ],
+      "artifacts": [
+        "принятый pilot scope",
+        "paid-pilot acceptance и измерения",
+        "план повторяемой поставки"
+      ],
+      "status": "planned",
+      "evidence": []
+    }
+  ],
+  "current_baseline_evidence": "validation/ai05_baseline_v8.json",
+  "execution_history": [
+    {
+      "packages": [
+        "AI-00",
+        "AI-01"
+      ],
+      "evidence": "validation/ai00_ai01_delivery_v1.json",
+      "next": "AI-02"
+    },
+    {
+      "packages": [
+        "AI-02"
+      ],
+      "evidence": "validation/ai02_delivery_v1.json",
+      "next": "AI-03"
+    },
+    {
+      "packages": [
+        "AI-03"
+      ],
+      "evidence": "validation/ai03_delivery_v1.json",
+      "next": "AI-04"
+    },
+    {
+      "packages": [
+        "AI-04"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai04_delivery_v1.json",
+      "next": "AI-04"
+    },
+    {
+      "packages": [
+        "AI-04"
+      ],
+      "status": "accepted",
+      "evidence": "validation/ai04_delivery_v2.json",
+      "next": "AI-05"
+    },
+    {
+      "packages": [
+        "AI-05"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai05_delivery_v1.json",
+      "next": "AI-05"
+    },
+    {
+      "packages": [
+        "AI-05"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai05_delivery_v2.json",
+      "note": "Reject ambiguous global equation IDs; reverified unchanged physical fixtures",
+      "next": "AI-05"
+    },
+    {
+      "packages": [
+        "AI-05"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai05_delivery_v3.json",
+      "note": "24 circulation bundles, 13 reference families; AI-05.03/08 advanced, 2/8 tasks accepted unchanged",
+      "next": "AI-05"
+    },
+    {
+      "packages": [
+        "AI-05"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai05_delivery_v4.json",
+      "note": "AI-05.04 accepted for signed displacement pump/shaft; 3/8 tasks accepted, general network and other equipment open",
+      "next": "AI-05"
+    },
+    {
+      "packages": [
+        "AI-05"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai05_delivery_v5.json",
+      "note": "AI-05.05 advanced: finite-leakage valve; 3/8 accepted unchanged, check valve and storage open",
+      "next": "AI-05"
+    },
+    {
+      "packages": [
+        "AI-05"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai05_delivery_v6.json",
+      "note": "AI-05.05 advanced: dynamic gas storage/boundary work/check threshold; 3/8 accepted unchanged",
+      "next": "AI-05"
+    },
+    {
+      "packages": [
+        "AI-05"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai05_delivery_v7.json",
+      "note": "Inertial storage coupling and exact equilibrium verified; 3/8 accepted unchanged",
+      "next": "AI-05"
+    },
+    {
+      "packages": [
+        "AI-05"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai05_delivery_v8.json",
+      "note": "Coupled pump/shaft, inertia and gas stores verified; 3/8 accepted unchanged",
+      "next": "AI-05"
+    }
+  ]
+}

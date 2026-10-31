@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-31",
+  "package": "AI-05",
+  "status": "partial",
+  "scope": "Constant-property nonlinear single-cycle circulation, thermal coupling, ideal head controls and exact kinetic/pressure-work/friction energy bookkeeping",
+  "tasks_accepted": [
+    "AI-05.01",
+    "AI-05.02"
+  ],
+  "tasks_in_progress": [
+    "AI-05.03",
+    "AI-05.08"
+  ],
+  "baseline": "validation/ai05_baseline_v3.json",
+  "source_sha256": "11c7100e84c2b819b7c8acef47c26c298c210ac8ae668b9a7027518cb009ac5a",
+  "evidence": [
+    "validation/ai05_circulation_verification_v1.json",
+    "validation/ai05_circulation_audit_v1.json",
+    "validation/ai05_network_verification_v3.json",
+    "docs/AI_05_CIRCULATION_LOOP_RU.md",
+    "tests/test_circulation_loop.py",
+    "validation/ai05_ai04_gate_status_v3.json"
+  ],
+  "models": [
+    "incompressible-loop-segment",
+    "linear-thermal-capacity",
+    "linear-thermal-conductance",
+    "linear-thermal-junction3"
+  ],
+  "network_model": "incompressible-thermal-circulation-loop",
+  "validated": false,
+  "plant_referenced": false,
+  "industrial_plant_qualified": false,
+  "ai04_current_checkout_admitted": false,
+  "next_package": "AI-05",
+  "remaining": [
+    "General branched/compressible EOS hydraulic network and initialization",
+    "Real pump/shaft characteristics, valves, storage and pressurizer",
+    "Two-stream heat exchanger and turbine/generator",
+    "Gravity-driven circulation and equipment/topology switching"
+  ],
+  "previous_delivery": "validation/ai05_delivery_v2.json",
+  "analytic_case_families": 13,
+  "primary_circulation_bundles": 24,
+  "linear_analytic_cases": 5,
+  "horizons_s": {
+    "ordinary": 10,
+    "wall_pulse": 30,
+    "steady": 100,
+    "linear": 1000,
+    "restart_extension": 1
+  }
+}

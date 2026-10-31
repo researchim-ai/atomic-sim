@@ -1,0 +1,46 @@
+{
+  "validated": false,
+  "plant_referenced": false,
+  "checks": [
+    {
+      "run": "artifacts/batch11_muscl_n4_analytic",
+      "snapshot_exact": true,
+      "restarted_to_s": 8.01,
+      "mode": "analytic",
+      "energy_residual_j": -4.343746695667505e-09,
+      "mass_residual_kg": -9.215718466126788e-16
+    },
+    {
+      "run": "artifacts/batch11_muscl_n8_analytic",
+      "snapshot_exact": true,
+      "restarted_to_s": 8.01,
+      "mode": "analytic",
+      "energy_residual_j": 2.1391315385699272e-09,
+      "mass_residual_kg": 5.60293998697059e-15
+    },
+    {
+      "run": "artifacts/batch11_muscl_n16_analytic",
+      "snapshot_exact": true,
+      "restarted_to_s": 8.01,
+      "mode": "analytic",
+      "energy_residual_j": 5.144102033227682e-09,
+      "mass_residual_kg": -1.7371087207562752e-15
+    },
+    {
+      "run": "artifacts/batch11_muscl_n16_tight_analytic",
+      "snapshot_exact": true,
+      "restarted_to_s": 8.01,
+      "mode": "analytic",
+      "energy_residual_j": 1.8189894035458565e-11,
+      "mass_residual_kg": 5.224770269207646e-16
+    },
+    {
+      "run": "artifacts/batch11_muscl_n4_central",
+      "snapshot_exact": true,
+      "restarted_to_s": 8.01,
+      "mode": "finite_difference",
+      "energy_residual_j": 6.726622814312577e-09,
+      "mass_residual_kg": -1.7136899538305883e-15
+    }
+  ]
+}

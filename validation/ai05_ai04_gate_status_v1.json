@@ -1,0 +1,10 @@
+{
+  "source_sha256": "70ef75d08ecac719e239ddee394df66a4847983930a8550333dbde678d5fc633",
+  "old_qualification": "artifacts/ai04_qualification_v6",
+  "current_source_admitted": false,
+  "reason": "Qualification requires matching runtime source",
+  "frozen_delivery": "artifacts/ai04_refinement_delivery_v2",
+  "note": "Global runtime fingerprint changes on adding network code; frozen AI-04 evidence is retained, not silently rebound",
+  "validated": false,
+  "plant_referenced": false
+}

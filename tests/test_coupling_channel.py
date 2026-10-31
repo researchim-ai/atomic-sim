@@ -61,12 +61,15 @@ def test_agent_clips_sensors_and_does_not_hide_bugs():
     env.reset(seed=1)
     env.power_sensor.value = 10.0
     env.power_sensor.tau_s = 1.0e9
-    observed = env._observe()
+    # Contract 2.1 reads a cache. Saturation updates only on an accepted step.
+    assert env._observe()[0] == pytest.approx(1.0)
+    assert env.plant.time_s == 0.0
+    observed = env.step(np.array([0.0], dtype=np.float32))[0]
     assert observed[0] == pytest.approx(1.5)
     assert env.sensor_saturated
     assert env.observation_space.contains(observed)
 
-    def bug(_self, _dt, rtol=1e-4, atol=1e-2):
+    def bug(_self, _dt, rtol=1e-4, atol=1e-2, method="BDF"):
         raise ValueError("программная ошибка")
 
     env.plant.advance = bug.__get__(env.plant, type(env.plant))
@@ -76,7 +79,7 @@ def test_agent_clips_sensors_and_does_not_hide_bugs():
     boiling = PWRPlantEnv(sensor_noise=0.0)
     boiling.reset(seed=2)
 
-    def out(_self, _dt, rtol=1e-4, atol=1e-2):
+    def out(_self, _dt, rtol=1e-4, atol=1e-2, method="BDF"):
         raise DomainError("кипение")
 
     boiling.plant.advance = out.__get__(boiling.plant, type(boiling.plant))

@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "source_sha256": "4b9bf9ca9cb09dc9d585852426c871a0649df1f855efc80d264ae5578b9939d5",
+  "budget_sha256": "2015aabecf1bea54ce8ad06cdf9a080b26a9991371d0cc61150b47d9c815a62b",
+  "runs": {
+    "base": "artifacts/ai05_circulation_verification_v3/head_switch",
+    "tight": "artifacts/ai05_circulation_verification_v3/head_switch_tight"
+  },
+  "verification": "artifacts/ai05_circulation_verification_v3/verification.json",
+  "validated": false,
+  "plant_referenced": false
+}

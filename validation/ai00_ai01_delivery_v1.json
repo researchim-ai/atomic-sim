@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-31",
+  "packages_accepted": [
+    "AI-00",
+    "AI-01"
+  ],
+  "tasks_accepted": 16,
+  "source_sha256": "09a10573a6774a11a1853b2eb7bab1fe6a49047b744049f8637e6ab0dded53cb",
+  "contract_version": "2.1.0",
+  "baseline": "validation/ai00_ai01_baseline_v1.json",
+  "evidence_integrity": "validation/ai00_evidence_integrity_v2.json",
+  "contract_verification": "artifacts/ai01_contract_v1/report.json",
+  "budget": "validation/ai01_contract_budget_v1.json",
+  "tests_passed": 598,
+  "tests_deselected": 1,
+  "new_tests": 45,
+  "installed_wheel_cli_verified": true,
+  "ci_config_validated": true,
+  "remote_ci_executed": false,
+  "initial_regressions": [
+    "Legacy test expected sampling on read; migrated to pure read + accepted-step sampling with same saturation/error assertions",
+    "External marker description conflicted with existing packaging-boundary check; corrected without adding external dependencies"
+  ],
+  "next_package": "AI-02",
+  "validated": false,
+  "plant_referenced": false,
+  "limitations": [
+    "Only reduced VVER physical passport; no momentum-convection/two-phase extension",
+    "Formal episode contract cases are short, not new 3600-second physics qualification",
+    "In-process Python policies remain trusted; no completed held-out agent benchmark",
+    "State restart within declared tolerances; integrator history not serialized",
+    "Current-wheel dependencies inherited; platform matrix and clean-environment qualification remain AI-12"
+  ],
+  "accepted_task_ids": [
+    "AI-00.01",
+    "AI-00.02",
+    "AI-00.03",
+    "AI-00.04",
+    "AI-00.05",
+    "AI-00.06",
+    "AI-01.01",
+    "AI-01.02",
+    "AI-01.03",
+    "AI-01.04",
+    "AI-01.05",
+    "AI-01.06",
+    "AI-01.07",
+    "AI-01.08",
+    "AI-01.09",
+    "AI-01.10"
+  ]
+}

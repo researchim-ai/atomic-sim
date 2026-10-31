@@ -1,0 +1,190 @@
+{
+  "passed": true,
+  "checks": {
+    "friction_finest": true,
+    "friction_improves": true,
+    "conserved_energy": true,
+    "conserved_momentum": true,
+    "truncation_order": true,
+    "linear_mode": true,
+    "nonlinear_remainder": true
+  },
+  "drag": [
+    {
+      "method": "BDF",
+      "sign": -1,
+      "rtol": 1e-06,
+      "velocity_max_error_m_s": 2.1983211895282295e-06,
+      "total_energy_residual_j": 0.0,
+      "momentum_residual_kg_m_s": 4.440892098500626e-15
+    },
+    {
+      "method": "BDF",
+      "sign": -1,
+      "rtol": 1e-08,
+      "velocity_max_error_m_s": 9.812900469974295e-08,
+      "total_energy_residual_j": 0.0,
+      "momentum_residual_kg_m_s": 1.7763568394002505e-15
+    },
+    {
+      "method": "BDF",
+      "sign": -1,
+      "rtol": 1e-10,
+      "velocity_max_error_m_s": 4.326288716161031e-08,
+      "total_energy_residual_j": 0.0,
+      "momentum_residual_kg_m_s": 8.881784197001252e-16,
+      "refinement_improved": true
+    },
+    {
+      "method": "BDF",
+      "sign": 1,
+      "rtol": 1e-06,
+      "velocity_max_error_m_s": 2.198321178648044e-06,
+      "total_energy_residual_j": 0.0,
+      "momentum_residual_kg_m_s": 3.552713678800501e-15
+    },
+    {
+      "method": "BDF",
+      "sign": 1,
+      "rtol": 1e-08,
+      "velocity_max_error_m_s": 1.5851223504614875e-07,
+      "total_energy_residual_j": 0.0,
+      "momentum_residual_kg_m_s": 2.6645352591003757e-15
+    },
+    {
+      "method": "BDF",
+      "sign": 1,
+      "rtol": 1e-10,
+      "velocity_max_error_m_s": 4.326289448908227e-08,
+      "total_energy_residual_j": 9.313225746154785e-10,
+      "momentum_residual_kg_m_s": 3.552713678800501e-15,
+      "refinement_improved": true
+    },
+    {
+      "method": "Radau",
+      "sign": -1,
+      "rtol": 1e-06,
+      "velocity_max_error_m_s": 5.650113155120096e-09,
+      "total_energy_residual_j": 0.0,
+      "momentum_residual_kg_m_s": 8.881784197001252e-16
+    },
+    {
+      "method": "Radau",
+      "sign": -1,
+      "rtol": 1e-08,
+      "velocity_max_error_m_s": 2.953054467624838e-11,
+      "total_energy_residual_j": 0.0,
+      "momentum_residual_kg_m_s": 1.7763568394002505e-15
+    },
+    {
+      "method": "Radau",
+      "sign": -1,
+      "rtol": 1e-10,
+      "velocity_max_error_m_s": 3.0866975642140915e-12,
+      "total_energy_residual_j": 0.0,
+      "momentum_residual_kg_m_s": 4.440892098500626e-15,
+      "refinement_improved": true
+    },
+    {
+      "method": "Radau",
+      "sign": 1,
+      "rtol": 1e-06,
+      "velocity_max_error_m_s": 5.650113266142398e-09,
+      "total_energy_residual_j": 0.0,
+      "momentum_residual_kg_m_s": 8.881784197001252e-16
+    },
+    {
+      "method": "Radau",
+      "sign": 1,
+      "rtol": 1e-08,
+      "velocity_max_error_m_s": 2.9530600187399614e-11,
+      "total_energy_residual_j": 0.0,
+      "momentum_residual_kg_m_s": 8.881784197001252e-16
+    },
+    {
+      "method": "Radau",
+      "sign": 1,
+      "rtol": 1e-10,
+      "velocity_max_error_m_s": 3.0866975642140915e-12,
+      "total_energy_residual_j": 0.0,
+      "momentum_residual_kg_m_s": 2.6645352591003757e-15,
+      "refinement_improved": true
+    }
+  ],
+  "truncation": [
+    {
+      "cells": 8,
+      "l1_residual_per_length": [
+        0.3368418580902018,
+        51.9313169118177,
+        630919.4637903203
+      ]
+    },
+    {
+      "cells": 16,
+      "l1_residual_per_length": [
+        0.1736192038923506,
+        26.993026566239376,
+        329372.32233558217
+      ],
+      "orders": [
+        0.9561448958691469,
+        0.944018064172042,
+        0.9377365301800912
+      ]
+    },
+    {
+      "cells": 32,
+      "l1_residual_per_length": [
+        0.08729170665706087,
+        13.627439058497961,
+        166635.24962668176
+      ],
+      "orders": [
+        0.9920100330212002,
+        0.9860722780014055,
+        0.9830257109829252
+      ]
+    }
+  ],
+  "linear_mode": {
+    "duration_s": 0.0001,
+    "continuum_eigenvalues_m_s": [
+      -1258.04250236131,
+      0.5000000000000079,
+      1259.0425023613113
+    ],
+    "expected_eigenvalues_m_s": [
+      -1258.0425023613107,
+      0.5,
+      1259.0425023613107
+    ],
+    "rows": [
+      {
+        "amplitude": 0.0003,
+        "max_scaled_nonlinear_vs_linear_error": 3.2091551263373076e-08,
+        "relative_to_amplitude": 0.00010697183754457692
+      },
+      {
+        "amplitude": 0.00015,
+        "max_scaled_nonlinear_vs_linear_error": 8.022708262356463e-09,
+        "relative_to_amplitude": 5.348472174904309e-05,
+        "amplitude_order": 2.0000322881024473
+      },
+      {
+        "amplitude": 7.5e-05,
+        "max_scaled_nonlinear_vs_linear_error": 2.0056542445060427e-09,
+        "relative_to_amplitude": 2.6742056593413904e-05,
+        "amplitude_order": 2.000016415429608
+      }
+    ],
+    "scope": "Linearized semidiscrete Fourier mode, including numerical diffusion; not acoustic spatial qualification"
+  },
+  "budget_sha256": "cccd154dc580191796b48dc8fc88f1521c68082eca8e4ac8fa1189f340b1cbd5",
+  "source_sha256": "1af4c7c069c6fe49c726953ba1f87a0cb7fef336a55d32ed9613daf0114936fb",
+  "script_sha256": "e7aa67606d5e5329c78011eea55d544712f4f5428105843baf17ee382762877a",
+  "validated": false,
+  "plant_referenced": false,
+  "full_nonlinear_spatial_qualification": false,
+  "acoustic_qualified": false
+}

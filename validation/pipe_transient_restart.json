@@ -1,0 +1,70 @@
+{
+  "validated": false,
+  "plant_referenced": false,
+  "checks": [
+    {
+      "run": "artifacts/pipe_wall_pulse_n4_delivery",
+      "snapshot_exact": true,
+      "restarted_to_s": 8.01,
+      "energy_residual_j": -1.1168594937771559e-09,
+      "mass_residual_kg": -2.050659989039083e-15,
+      "wall_time_s": 16.709126924999964
+    },
+    {
+      "run": "artifacts/pipe_wall_pulse_n8_delivery",
+      "snapshot_exact": true,
+      "restarted_to_s": 8.01,
+      "energy_residual_j": 8.149072527885437e-10,
+      "mass_residual_kg": 1.8295911660692887e-15,
+      "wall_time_s": 35.575143744
+    },
+    {
+      "run": "artifacts/pipe_wall_pulse_n16_delivery",
+      "snapshot_exact": true,
+      "restarted_to_s": 8.01,
+      "energy_residual_j": -3.983586793765426e-09,
+      "mass_residual_kg": -1.2652639352905837e-16,
+      "wall_time_s": 78.90760015199999
+    },
+    {
+      "run": "artifacts/pipe_wall_pulse_n16_tight_delivery",
+      "snapshot_exact": true,
+      "restarted_to_s": 8.01,
+      "energy_residual_j": -2.764863893389702e-10,
+      "mass_residual_kg": -1.6841996547389826e-15,
+      "wall_time_s": 175.30629345
+    },
+    {
+      "run": "artifacts/pipe_smooth_pulse_n4_delivery",
+      "snapshot_exact": true,
+      "restarted_to_s": 8.01,
+      "energy_residual_j": 4.16184775531292e-09,
+      "mass_residual_kg": 5.110712200662171e-15,
+      "wall_time_s": 16.579654368999968
+    },
+    {
+      "run": "artifacts/pipe_smooth_pulse_n8_delivery",
+      "snapshot_exact": true,
+      "restarted_to_s": 8.01,
+      "energy_residual_j": -1.5934347175061703e-09,
+      "mass_residual_kg": -1.6719481701898964e-15,
+      "wall_time_s": 32.731509643000095
+    },
+    {
+      "run": "artifacts/pipe_smooth_pulse_n16_delivery",
+      "snapshot_exact": true,
+      "restarted_to_s": 8.01,
+      "energy_residual_j": 4.3655745685100555e-10,
+      "mass_residual_kg": 2.467644144577008e-15,
+      "wall_time_s": 66.6285062579999
+    },
+    {
+      "run": "artifacts/pipe_smooth_pulse_n16_tight_delivery",
+      "snapshot_exact": true,
+      "restarted_to_s": 8.01,
+      "energy_residual_j": -2.0700099412351847e-09,
+      "mass_residual_kg": 9.939965517347105e-16,
+      "wall_time_s": 133.53169633000005
+    }
+  ]
+}

@@ -1,0 +1,489 @@
+{
+  "schema_version": 1,
+  "source_sha256": "2b7560e5fcde43fe118866872cd7793e583f5ce521d7f3d8ec7f0dedf03093cd",
+  "budget_sha256": "25da9ae87c65ba3d77ca6b319df3a1033c6150dd8374b4354c6b39d12dda353f",
+  "script_sha256": "41a64fddf98997246bdb0d6377ae2d3cc8855ab9ea3ccb626d38e02eaabc32b4",
+  "all_cases_accepted": true,
+  "integrations": 24,
+  "case_families": 11,
+  "cases": [
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 7.394529433213393e-12,
+        "omega_abs_rad_s": 1.751487843648647e-12,
+        "temperature_abs_k": 9.663381206337363e-13,
+        "integral_abs_j": 1.723954312637943e-12,
+        "energy_abs_j": 3.5397711428686307e-09,
+        "power_transfer_abs_w": 1.0408340855860843e-16,
+        "pressure_abs_pa": 4.6566128730773926e-09,
+        "event_time_abs_s": 0.0
+      },
+      "restart_energy_abs_j": 7.815970093361102e-14,
+      "events": [],
+      "name": "trip_positive",
+      "policy": "base",
+      "folder": "artifacts/ai05_pump_verification_v1/trip_positive_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 3.108624468950438e-14,
+        "omega_abs_rad_s": 2.842170943040401e-14,
+        "temperature_abs_k": 9.663381206337363e-13,
+        "integral_abs_j": 1.4566126083082054e-13,
+        "energy_abs_j": 3.5396644504359642e-09,
+        "power_transfer_abs_w": 8.326672684688674e-17,
+        "pressure_abs_pa": 9.313225746154785e-10,
+        "event_time_abs_s": 0.0
+      },
+      "restart_energy_abs_j": 3.5638159090467525e-14,
+      "events": [],
+      "name": "trip_positive",
+      "policy": "tight",
+      "folder": "artifacts/ai05_pump_verification_v1/trip_positive_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 7.394529433213393e-12,
+        "omega_abs_rad_s": 1.751487843648647e-12,
+        "temperature_abs_k": 9.663381206337363e-13,
+        "integral_abs_j": 1.723954312637943e-12,
+        "energy_abs_j": 3.5397711428686307e-09,
+        "power_transfer_abs_w": 1.0408340855860843e-16,
+        "pressure_abs_pa": 4.6566128730773926e-09,
+        "event_time_abs_s": 0.0
+      },
+      "restart_energy_abs_j": 7.815970093361102e-14,
+      "events": [],
+      "name": "trip_negative",
+      "policy": "base",
+      "folder": "artifacts/ai05_pump_verification_v1/trip_negative_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 3.108624468950438e-14,
+        "omega_abs_rad_s": 2.842170943040401e-14,
+        "temperature_abs_k": 9.663381206337363e-13,
+        "integral_abs_j": 1.4566126083082054e-13,
+        "energy_abs_j": 3.5396644504359642e-09,
+        "power_transfer_abs_w": 8.326672684688674e-17,
+        "pressure_abs_pa": 9.313225746154785e-10,
+        "event_time_abs_s": 0.0
+      },
+      "restart_energy_abs_j": 3.5638159090467525e-14,
+      "events": [],
+      "name": "trip_negative",
+      "policy": "tight",
+      "folder": "artifacts/ai05_pump_verification_v1/trip_negative_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 7.394529433213393e-12,
+        "omega_abs_rad_s": 3.340883125702021e-12,
+        "temperature_abs_k": 7.389644451905042e-13,
+        "integral_abs_j": 3.6841640849161195e-12,
+        "energy_abs_j": 3.560764127996663e-09,
+        "power_transfer_abs_w": 4.163336342344337e-17,
+        "pressure_abs_pa": 4.6566128730773926e-09,
+        "event_time_abs_s": 1.3138823362623953e-11
+      },
+      "restart_energy_abs_j": 2.1316282072803006e-12,
+      "events": [
+        {
+          "kind": "shaft_zero",
+          "t": 6.80582869116352,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.109413284280081,
+          "direction": -1
+        }
+      ],
+      "name": "reverse_positive",
+      "policy": "base",
+      "folder": "artifacts/ai05_pump_verification_v1/reverse_positive_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 3.2677055505914154e-12,
+        "omega_abs_rad_s": 2.852384994866952e-12,
+        "temperature_abs_k": 7.389644451905042e-13,
+        "integral_abs_j": 3.0659919048048323e-12,
+        "energy_abs_j": 3.5599505010530663e-09,
+        "power_transfer_abs_w": 8.326672684688674e-17,
+        "pressure_abs_pa": 1.862645149230957e-09,
+        "event_time_abs_s": 1.3586465286152816e-11
+      },
+      "restart_energy_abs_j": 7.105427357601002e-15,
+      "events": [
+        {
+          "kind": "shaft_zero",
+          "t": 6.805828691169686,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.109413284280529,
+          "direction": -1
+        }
+      ],
+      "name": "reverse_positive",
+      "policy": "tight",
+      "folder": "artifacts/ai05_pump_verification_v1/reverse_positive_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 7.394529433213393e-12,
+        "omega_abs_rad_s": 3.340883125702021e-12,
+        "temperature_abs_k": 7.389644451905042e-13,
+        "integral_abs_j": 3.6841640849161195e-12,
+        "energy_abs_j": 3.560764127996663e-09,
+        "power_transfer_abs_w": 4.163336342344337e-17,
+        "pressure_abs_pa": 4.6566128730773926e-09,
+        "event_time_abs_s": 1.3138823362623953e-11
+      },
+      "restart_energy_abs_j": 2.1316282072803006e-12,
+      "events": [
+        {
+          "kind": "shaft_zero",
+          "t": 6.80582869116352,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.109413284280081,
+          "direction": 1
+        }
+      ],
+      "name": "reverse_negative",
+      "policy": "base",
+      "folder": "artifacts/ai05_pump_verification_v1/reverse_negative_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 3.2677055505914154e-12,
+        "omega_abs_rad_s": 2.852384994866952e-12,
+        "temperature_abs_k": 7.389644451905042e-13,
+        "integral_abs_j": 3.0659919048048323e-12,
+        "energy_abs_j": 3.5599505010530663e-09,
+        "power_transfer_abs_w": 8.326672684688674e-17,
+        "pressure_abs_pa": 1.862645149230957e-09,
+        "event_time_abs_s": 1.3586465286152816e-11
+      },
+      "restart_energy_abs_j": 7.105427357601002e-15,
+      "events": [
+        {
+          "kind": "shaft_zero",
+          "t": 6.805828691169686,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.109413284280529,
+          "direction": 1
+        }
+      ],
+      "name": "reverse_negative",
+      "policy": "tight",
+      "folder": "artifacts/ai05_pump_verification_v1/reverse_negative_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 9.821587987346447e-13,
+        "omega_abs_rad_s": 2.970956813896919e-13,
+        "temperature_abs_k": 5.115907697472721e-13,
+        "integral_abs_j": 1.1304290836733344e-12,
+        "energy_abs_j": 3.5250487112614692e-09,
+        "power_transfer_abs_w": 2.42861286636753e-17,
+        "pressure_abs_pa": 9.313225746154785e-10,
+        "event_time_abs_s": 0.0
+      },
+      "restart_energy_abs_j": 1.9184653865522705e-13,
+      "events": [],
+      "name": "startup_positive",
+      "policy": "base",
+      "folder": "artifacts/ai05_pump_verification_v1/startup_positive_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 6.661338147750939e-15,
+        "omega_abs_rad_s": 1.0658141036401503e-14,
+        "temperature_abs_k": 5.115907697472721e-13,
+        "integral_abs_j": 3.197442310920451e-14,
+        "energy_abs_j": 3.524913694263887e-09,
+        "power_transfer_abs_w": 1.734723475976807e-17,
+        "pressure_abs_pa": 0.0,
+        "event_time_abs_s": 0.0
+      },
+      "restart_energy_abs_j": 1.7763568394002505e-14,
+      "events": [],
+      "name": "startup_positive",
+      "policy": "tight",
+      "folder": "artifacts/ai05_pump_verification_v1/startup_positive_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 9.821587987346447e-13,
+        "omega_abs_rad_s": 2.970956813896919e-13,
+        "temperature_abs_k": 5.115907697472721e-13,
+        "integral_abs_j": 1.1304290836733344e-12,
+        "energy_abs_j": 3.5250487112614692e-09,
+        "power_transfer_abs_w": 2.42861286636753e-17,
+        "pressure_abs_pa": 9.313225746154785e-10,
+        "event_time_abs_s": 0.0
+      },
+      "restart_energy_abs_j": 1.9184653865522705e-13,
+      "events": [],
+      "name": "startup_negative",
+      "policy": "base",
+      "folder": "artifacts/ai05_pump_verification_v1/startup_negative_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 6.661338147750939e-15,
+        "omega_abs_rad_s": 1.0658141036401503e-14,
+        "temperature_abs_k": 5.115907697472721e-13,
+        "integral_abs_j": 3.197442310920451e-14,
+        "energy_abs_j": 3.524913694263887e-09,
+        "power_transfer_abs_w": 1.734723475976807e-17,
+        "pressure_abs_pa": 0.0,
+        "event_time_abs_s": 0.0
+      },
+      "restart_energy_abs_j": 1.7763568394002505e-14,
+      "events": [],
+      "name": "startup_negative",
+      "policy": "tight",
+      "folder": "artifacts/ai05_pump_verification_v1/startup_negative_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 1.328971654945832e-13,
+        "omega_abs_rad_s": 1.2762013668066174e-13,
+        "temperature_abs_k": 1.8189894035458565e-12,
+        "integral_abs_j": 7.502887200416808e-13,
+        "energy_abs_j": 3.528240796746296e-09,
+        "power_transfer_abs_w": 1.3877787807814457e-17,
+        "pressure_abs_pa": 9.313225746154785e-10,
+        "event_time_abs_s": 0.0
+      },
+      "restart_energy_abs_j": 1.117066508737885e-12,
+      "events": [],
+      "name": "backdrive_positive",
+      "policy": "base",
+      "folder": "artifacts/ai05_pump_verification_v1/backdrive_positive_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 7.049916206369744e-15,
+        "omega_abs_rad_s": 2.7755575615628914e-15,
+        "temperature_abs_k": 1.8189894035458565e-12,
+        "integral_abs_j": 2.120525977034049e-14,
+        "energy_abs_j": 3.5282457892804597e-09,
+        "power_transfer_abs_w": 6.776263578034403e-20,
+        "pressure_abs_pa": 0.0,
+        "event_time_abs_s": 0.0
+      },
+      "restart_energy_abs_j": 3.3693534073897524e-14,
+      "events": [],
+      "name": "backdrive_positive",
+      "policy": "tight",
+      "folder": "artifacts/ai05_pump_verification_v1/backdrive_positive_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 1.328971654945832e-13,
+        "omega_abs_rad_s": 1.2762013668066174e-13,
+        "temperature_abs_k": 1.8189894035458565e-12,
+        "integral_abs_j": 7.502887200416808e-13,
+        "energy_abs_j": 3.528240796746296e-09,
+        "power_transfer_abs_w": 1.3877787807814457e-17,
+        "pressure_abs_pa": 9.313225746154785e-10,
+        "event_time_abs_s": 0.0
+      },
+      "restart_energy_abs_j": 1.117066508737885e-12,
+      "events": [],
+      "name": "backdrive_negative",
+      "policy": "base",
+      "folder": "artifacts/ai05_pump_verification_v1/backdrive_negative_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 7.049916206369744e-15,
+        "omega_abs_rad_s": 2.7755575615628914e-15,
+        "temperature_abs_k": 1.8189894035458565e-12,
+        "integral_abs_j": 2.120525977034049e-14,
+        "energy_abs_j": 3.5282457892804597e-09,
+        "power_transfer_abs_w": 6.776263578034403e-20,
+        "pressure_abs_pa": 0.0,
+        "event_time_abs_s": 0.0
+      },
+      "restart_energy_abs_j": 3.3693534073897524e-14,
+      "events": [],
+      "name": "backdrive_negative",
+      "policy": "tight",
+      "folder": "artifacts/ai05_pump_verification_v1/backdrive_negative_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 0.0,
+        "omega_abs_rad_s": 0.0,
+        "temperature_abs_k": 0.0,
+        "integral_abs_j": 1.0345502232667059e-11,
+        "energy_abs_j": 4.75122163834385e-11,
+        "power_transfer_abs_w": 1.3877787807814457e-17,
+        "pressure_abs_pa": 0.0,
+        "event_time_abs_s": 0.0
+      },
+      "restart_energy_abs_j": 7.254641332110623e-12,
+      "events": [],
+      "name": "steady_positive",
+      "policy": "base",
+      "folder": "artifacts/ai05_pump_verification_v1/steady_positive_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 0.0,
+        "omega_abs_rad_s": 0.0,
+        "temperature_abs_k": 0.0,
+        "integral_abs_j": 1.787725523172412e-11,
+        "energy_abs_j": 4.5645265345228836e-11,
+        "power_transfer_abs_w": 1.3877787807814457e-17,
+        "pressure_abs_pa": 0.0,
+        "event_time_abs_s": 0.0
+      },
+      "restart_energy_abs_j": 9.121592370320286e-12,
+      "events": [],
+      "name": "steady_positive",
+      "policy": "tight",
+      "folder": "artifacts/ai05_pump_verification_v1/steady_positive_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 0.0,
+        "omega_abs_rad_s": 0.0,
+        "temperature_abs_k": 0.0,
+        "integral_abs_j": 1.0345502232667059e-11,
+        "energy_abs_j": 4.75122163834385e-11,
+        "power_transfer_abs_w": 1.3877787807814457e-17,
+        "pressure_abs_pa": 0.0,
+        "event_time_abs_s": 0.0
+      },
+      "restart_energy_abs_j": 7.254641332110623e-12,
+      "events": [],
+      "name": "steady_negative",
+      "policy": "base",
+      "folder": "artifacts/ai05_pump_verification_v1/steady_negative_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 0.0,
+        "omega_abs_rad_s": 0.0,
+        "temperature_abs_k": 0.0,
+        "integral_abs_j": 1.787725523172412e-11,
+        "energy_abs_j": 4.5645265345228836e-11,
+        "power_transfer_abs_w": 1.3877787807814457e-17,
+        "pressure_abs_pa": 0.0,
+        "event_time_abs_s": 0.0
+      },
+      "restart_energy_abs_j": 9.121592370320286e-12,
+      "events": [],
+      "name": "steady_negative",
+      "policy": "tight",
+      "folder": "artifacts/ai05_pump_verification_v1/steady_negative_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 0.0,
+        "omega_abs_rad_s": 0.0,
+        "temperature_abs_k": 0.0,
+        "integral_abs_j": 0.0,
+        "energy_abs_j": 0.0,
+        "power_transfer_abs_w": 0.0,
+        "pressure_abs_pa": 0.0,
+        "event_time_abs_s": 0.0
+      },
+      "restart_energy_abs_j": 0.0,
+      "events": [],
+      "name": "steady_zero",
+      "policy": "base",
+      "folder": "artifacts/ai05_pump_verification_v1/steady_zero_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 0.0,
+        "omega_abs_rad_s": 0.0,
+        "temperature_abs_k": 0.0,
+        "integral_abs_j": 0.0,
+        "energy_abs_j": 0.0,
+        "power_transfer_abs_w": 0.0,
+        "pressure_abs_pa": 0.0,
+        "event_time_abs_s": 0.0
+      },
+      "restart_energy_abs_j": 0.0,
+      "events": [],
+      "name": "steady_zero",
+      "policy": "tight",
+      "folder": "artifacts/ai05_pump_verification_v1/steady_zero_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 2.6044810752523517e-10,
+        "omega_abs_rad_s": 3.946281079691971e-10,
+        "temperature_abs_k": 2.3874235921539366e-12,
+        "integral_abs_j": 1.525108928035479e-09,
+        "energy_abs_j": 5.217142273750142e-09,
+        "power_transfer_abs_w": 9.020562075079397e-17,
+        "pressure_abs_pa": 1.8440186977386475e-07,
+        "event_time_abs_s": 0.0
+      },
+      "restart_energy_abs_j": 5.326938889993471e-11,
+      "events": [],
+      "name": "trip_positive",
+      "policy": "bdf",
+      "folder": "artifacts/ai05_pump_verification_v1/trip_positive_bdf"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 2.6044810752523517e-10,
+        "omega_abs_rad_s": 3.946281079691971e-10,
+        "temperature_abs_k": 2.3874235921539366e-12,
+        "integral_abs_j": 1.525108928035479e-09,
+        "energy_abs_j": 5.217142273750142e-09,
+        "power_transfer_abs_w": 9.020562075079397e-17,
+        "pressure_abs_pa": 1.8440186977386475e-07,
+        "event_time_abs_s": 0.0
+      },
+      "restart_energy_abs_j": 5.326938889993471e-11,
+      "events": [],
+      "name": "trip_negative",
+      "policy": "bdf",
+      "folder": "artifacts/ai05_pump_verification_v1/trip_negative_bdf"
+    }
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

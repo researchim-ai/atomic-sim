@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "original_criteria_unchanged": true,
+  "original_budget_sha256": "e3a9e90ce76d43fd19651eb58c42610d3504c5bd5bef84e8958bc369d1172d00",
+  "new_budget_sha256": "e0cfc57b4c425ded08697b913c97a01fa43108ab2151e4e110ede959f8ef7ae0",
+  "diagnostic": "scripts/diagnose_contact_orders.py",
+  "diagnostic_orders": [
+    0.1819135888,
+    0.5333993381,
+    0.3355610402,
+    0.4884663106,
+    0.4574748371
+  ],
+  "diagnostic_is_euler_qualification": false,
+  "closure_policy_sha256": "6afcdc8d69b9f241d15e2f46670ea7e5552aa82c81fdc1c15cb6cb0b4f6977b9",
+  "retained_rejected_sequences": [
+    [
+      16,
+      32,
+      64
+    ],
+    [
+      32,
+      64,
+      128
+    ]
+  ],
+  "new_required_sequence": [
+    128,
+    256,
+    512
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

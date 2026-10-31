@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-31",
+  "package": "AI-04",
+  "status": "accepted",
+  "scope": "Listed numerical component fixtures only; coarse front cases remain rejected",
+  "tasks_accepted": 7,
+  "source_sha256": "01a9c2e01534b2ddc5d6d0ef11b0a356d9d3c8ddc8200a3cf9f582adf84a425f",
+  "model_id": "contact-euler-liquid-channel",
+  "model_status": "implemented",
+  "baseline": "validation/ai04_baseline_v2.json",
+  "evidence": [
+    "artifacts/ai04_qualification_v6/qualification.json",
+    "validation/ai04_qualification_audit_v5.json",
+    "validation/ai04_refinement_audit_v4.json",
+    "validation/ai04_qualified_sdk_v1.json",
+    "validation/ai04_stale_admission_v2.json",
+    "validation/ai04_legacy_evidence_integrity_v4.json",
+    "docs/AI_04_FRONT_REFINEMENT_RU.md"
+  ],
+  "closure_policy": "validation/ai04_closure_policy_v3.json",
+  "qualification_checks_accepted": [
+    "smooth_negative",
+    "smooth_positive",
+    "step_negative_asymptotic",
+    "step_positive_asymptotic",
+    "contact_diffusion_comparison",
+    "stationary_contact",
+    "heated_steady",
+    "wall_pulse",
+    "startup",
+    "reversal"
+  ],
+  "qualification_checks_rejected": [
+    "step_negative",
+    "step_negative_refined",
+    "step_positive",
+    "step_positive_refined"
+  ],
+  "component_runs": 44,
+  "max_case_wall_time_s": 141.1538092089977,
+  "admitted_fixtures": [
+    {
+      "case": "smooth_negative",
+      "cells": 64
+    },
+    {
+      "case": "smooth_positive",
+      "cells": 64
+    },
+    {
+      "case": "step_negative_asymptotic",
+      "cells": 512
+    },
+    {
+      "case": "step_positive_asymptotic",
+      "cells": 512
+    },
+    {
+      "case": "stationary_contact",
+      "cells": 32
+    },
+    {
+      "case": "heated_steady",
+      "cells": 32
+    },
+    {
+      "case": "wall_pulse",
+      "cells": 32
+    },
+    {
+      "case": "startup",
+      "cells": 32
+    },
+    {
+      "case": "reversal",
+      "cells": 32
+    }
+  ],
+  "front_grids": [
+    128,
+    256,
+    512
+  ],
+  "front_orders": {
+    "step_negative_asymptotic": [
+      0.48845931249811264,
+      0.4574544566799908
+    ],
+    "step_positive_asymptotic": [
+      0.48845930997424897,
+      0.4574544632838968
+    ]
+  },
+  "original_numerical_thresholds_unchanged": true,
+  "validated": false,
+  "plant_referenced": false,
+  "acoustic_qualified": false,
+  "industrial_plant_qualified": false,
+  "next_package": "AI-05",
+  "limitations": [
+    "Exact admitted fixtures; no extrapolation to other grids, parameters or horizons",
+    "Coarse moving fronts remain rejected at 16/32/64 and 32/64/128",
+    "Exterior-state numerical boundaries are not exact physical pressure ports",
+    "No global positivity/TVD/acoustic/experimental/plant qualification",
+    "No new VVER or PWRPlantEnv integration; old VVER 1800 s coastdown remains unaccepted"
+  ]
+}

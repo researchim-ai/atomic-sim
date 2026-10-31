@@ -1,0 +1,19 @@
+# Stable bytes for source fingerprints and JSON manifests across checkouts.
+* text=auto eol=lf
+
+*.png -text
+*.jpg -text
+*.jpeg -text
+*.gif -text
+*.ico -text
+*.pdf -text
+*.whl -text
+*.zip -text
+*.gz -text
+*.7z -text
+*.h5 -text
+*.npy -text
+*.npz -text
+*.pt -text
+*.pth -text
+*.ckpt -text

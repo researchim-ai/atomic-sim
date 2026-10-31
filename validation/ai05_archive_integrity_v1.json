@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "archive": "artifacts/ai05_network_delivery_v1",
+  "files_verified": 151,
+  "source_sha256": "65034f3484bb15d86ae5bd08edb1b8acf77b81b39d3e6915a543900d03f63a15",
+  "runtime_archive_source_matches": true,
+  "previous_runtime_source_verified": true,
+  "wheel_sha256": "a4a828604db7eb33bdabc7c07173cc2b45e017f028e310cfe5443232312f7329",
+  "validated": false,
+  "plant_referenced": false
+}

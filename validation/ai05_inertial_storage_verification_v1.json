@@ -1,0 +1,1345 @@
+{
+  "schema_version": 1,
+  "source_sha256": "ddb3ebf7abdd792134598bfe4c757dae804531f0cb7deaf29c82d13bb495261a",
+  "budget_sha256": "4999b94965bc2b528af5850bb93363d94df470f5abb43e68cc7f732281aca01a",
+  "script_sha256": "f1cefd2bb473b08edc8288cdbe9d95b921fa3e0849b1de3363f032bbf4229afd",
+  "reference_sha256": "c642b3c526cda1240f9417fd310eaa94e3e2ad4055c85c3d6347533fe9bd1ee3",
+  "coefficient_reference_sha256": "eff39b43261a3af757a631e1674819b99dffadc27f84fe991662df139baca441",
+  "integrations": 24,
+  "case_families": 11,
+  "all_cases_accepted": true,
+  "cases": [
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 7.275222091429612e-13,
+        "mass_flow_abs_kg_s": 8.93951579428176e-13,
+        "pressure_abs_pa": 3.1781382858753204e-08,
+        "temperature_abs_k": 1.2505552149377763e-11,
+        "boundary_work_abs_j": 1.3322321024133998e-10,
+        "energy_abs_j": 4.654349822219572e-09,
+        "local_energy_abs_w": 9.313225746154785e-10,
+        "link_energy_abs_w": 5.662030844177934e-10,
+        "event_time_abs_s": 1.5987211554602254e-13,
+        "nonlinear_period_abs_s": 1.2576606422953773e-12,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.524254934388313,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 5.04850986877695,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.5727648031652315,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.097019737553556,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.621274671942032,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.145529606330381,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.66978454071899,
+          "direction": -1
+        }
+      ],
+      "lossless_half_period_s": 2.524254934388247,
+      "restart_energy_abs_j": 3.085176558670355e-11,
+      "name": "lossless_forward",
+      "policy": "base",
+      "folder": "artifacts/ai05_inertial_storage_verification_v2/lossless_forward_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.2363443602225743e-12,
+        "mass_flow_abs_kg_s": 1.5121237595394632e-12,
+        "pressure_abs_pa": 6.06232788413763e-08,
+        "temperature_abs_k": 2.3021584638627246e-11,
+        "boundary_work_abs_j": 2.51095144676583e-10,
+        "energy_abs_j": 2.8640272375923814e-09,
+        "local_energy_abs_w": 4.656612873077393e-10,
+        "link_energy_abs_w": 6.052687240298837e-10,
+        "event_time_abs_s": 2.0605739337042905e-13,
+        "nonlinear_period_abs_s": 1.2185807918285718e-12,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.5242549343884155,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 5.048509868776899,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.572764803165021,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.097019737553468,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.621274671941984,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.145529606330411,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.66978454071895,
+          "direction": -1
+        }
+      ],
+      "lossless_half_period_s": 2.524254934388247,
+      "restart_energy_abs_j": 6.713207767461427e-11,
+      "name": "lossless_forward",
+      "policy": "tight",
+      "folder": "artifacts/ai05_inertial_storage_verification_v2/lossless_forward_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 7.275222091429612e-13,
+        "mass_flow_abs_kg_s": 8.93951579428176e-13,
+        "pressure_abs_pa": 3.1781382858753204e-08,
+        "temperature_abs_k": 1.2505552149377763e-11,
+        "boundary_work_abs_j": 1.3322321024133998e-10,
+        "energy_abs_j": 4.6543087162120855e-09,
+        "local_energy_abs_w": 9.313225746154785e-10,
+        "link_energy_abs_w": 5.662030844177934e-10,
+        "event_time_abs_s": 1.5987211554602254e-13,
+        "nonlinear_period_abs_s": 1.2576606422953773e-12,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.524254934388313,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 5.04850986877695,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.5727648031652315,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.097019737553556,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.621274671942032,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.145529606330381,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.66978454071899,
+          "direction": 1
+        }
+      ],
+      "lossless_half_period_s": 2.524254934388247,
+      "restart_energy_abs_j": 3.085176558670355e-11,
+      "name": "lossless_reverse",
+      "policy": "base",
+      "folder": "artifacts/ai05_inertial_storage_verification_v2/lossless_reverse_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.2363443602225743e-12,
+        "mass_flow_abs_kg_s": 1.5121237595394632e-12,
+        "pressure_abs_pa": 6.06232788413763e-08,
+        "temperature_abs_k": 2.3021584638627246e-11,
+        "boundary_work_abs_j": 2.51095144676583e-10,
+        "energy_abs_j": 2.8640130267376662e-09,
+        "local_energy_abs_w": 4.656612873077393e-10,
+        "link_energy_abs_w": 6.052687240298837e-10,
+        "event_time_abs_s": 2.0605739337042905e-13,
+        "nonlinear_period_abs_s": 1.2185807918285718e-12,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.5242549343884155,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 5.048509868776899,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.572764803165021,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.097019737553468,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.621274671941984,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.145529606330411,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.66978454071895,
+          "direction": 1
+        }
+      ],
+      "lossless_half_period_s": 2.524254934388247,
+      "restart_energy_abs_j": 6.713207767461427e-11,
+      "name": "lossless_reverse",
+      "policy": "tight",
+      "folder": "artifacts/ai05_inertial_storage_verification_v2/lossless_reverse_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.1166090274628004e-10,
+        "mass_flow_abs_kg_s": 1.4411860593810388e-10,
+        "pressure_abs_pa": 3.316235961392522e-06,
+        "temperature_abs_k": 2.0007178136438597e-09,
+        "boundary_work_abs_j": 1.7013860542647308e-08,
+        "energy_abs_j": 6.09580297350476e-09,
+        "local_energy_abs_w": 4.656612873077393e-10,
+        "link_energy_abs_w": 4.947633414076336e-10,
+        "event_time_abs_s": 6.66311450459034e-11,
+        "nonlinear_period_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.543094147721383,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 5.078268199771099,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.637686495450647,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.190019798536019,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.759357099402036,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.322627229232799,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.8984303446227,
+          "direction": -1
+        }
+      ],
+      "lossless_half_period_s": null,
+      "restart_energy_abs_j": 4.4850345659597224e-10,
+      "name": "damped_forward",
+      "policy": "base",
+      "folder": "artifacts/ai05_inertial_storage_verification_v2/damped_forward_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.1183365344891172e-10,
+        "mass_flow_abs_kg_s": 1.4454587526913087e-10,
+        "pressure_abs_pa": 3.3275282476097345e-06,
+        "temperature_abs_k": 2.0054358174093068e-09,
+        "boundary_work_abs_j": 1.704989927020506e-08,
+        "energy_abs_j": 1.667975624286555e-08,
+        "local_energy_abs_w": 9.313225746154785e-10,
+        "link_energy_abs_w": 5.595381935563637e-10,
+        "event_time_abs_s": 6.6709304746837e-11,
+        "nonlinear_period_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.543094147721411,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 5.078268199771068,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.637686495450596,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.190019798535921,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.759357099402113,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.322627229232653,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.89843034462262,
+          "direction": -1
+        }
+      ],
+      "lossless_half_period_s": null,
+      "restart_energy_abs_j": 1.1668623400851175e-08,
+      "name": "damped_forward",
+      "policy": "tight",
+      "folder": "artifacts/ai05_inertial_storage_verification_v2/damped_forward_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.1166090274628004e-10,
+        "mass_flow_abs_kg_s": 1.4411860593810388e-10,
+        "pressure_abs_pa": 3.316235961392522e-06,
+        "temperature_abs_k": 2.0007178136438597e-09,
+        "boundary_work_abs_j": 1.7013860542647308e-08,
+        "energy_abs_j": 6.09577455179533e-09,
+        "local_energy_abs_w": 4.656612873077393e-10,
+        "link_energy_abs_w": 4.947633414076336e-10,
+        "event_time_abs_s": 6.66311450459034e-11,
+        "nonlinear_period_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.543094147721383,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 5.078268199771099,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.637686495450647,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.190019798536019,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.759357099402036,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.322627229232799,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.8984303446227,
+          "direction": 1
+        }
+      ],
+      "lossless_half_period_s": null,
+      "restart_energy_abs_j": 7.157154868764337e-10,
+      "name": "damped_reverse",
+      "policy": "base",
+      "folder": "artifacts/ai05_inertial_storage_verification_v2/damped_reverse_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.1183365344891172e-10,
+        "mass_flow_abs_kg_s": 1.4454587526913087e-10,
+        "pressure_abs_pa": 3.3275282476097345e-06,
+        "temperature_abs_k": 2.0054358174093068e-09,
+        "boundary_work_abs_j": 1.704989927020506e-08,
+        "energy_abs_j": 1.667969939944669e-08,
+        "local_energy_abs_w": 9.313225746154785e-10,
+        "link_energy_abs_w": 5.595381935563637e-10,
+        "event_time_abs_s": 6.6709304746837e-11,
+        "nonlinear_period_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.543094147721411,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 5.078268199771068,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.637686495450596,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.190019798535921,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.759357099402113,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.322627229232653,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.89843034462262,
+          "direction": 1
+        }
+      ],
+      "lossless_half_period_s": null,
+      "restart_energy_abs_j": 1.120280224142789e-08,
+      "name": "damped_reverse",
+      "policy": "tight",
+      "folder": "artifacts/ai05_inertial_storage_verification_v2/damped_reverse_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 2.9675373269810734e-11,
+        "mass_flow_abs_kg_s": 3.574607276846109e-11,
+        "pressure_abs_pa": 9.189534466713667e-07,
+        "temperature_abs_k": 5.424567461886909e-10,
+        "boundary_work_abs_j": 4.5210413190943655e-09,
+        "energy_abs_j": 1.8679164881518773e-08,
+        "local_energy_abs_w": 9.313225746154785e-10,
+        "link_energy_abs_w": 8.643539217700891e-10,
+        "event_time_abs_s": 4.416023102749023e-12,
+        "nonlinear_period_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 0.2873388214065518,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 2.824206313625276,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 5.353069361254198,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.908896250875284,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.457371239170772,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 13.024456381435286,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.585204537207602,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 18.15950501492664,
+          "direction": -1
+        }
+      ],
+      "lossless_half_period_s": null,
+      "restart_energy_abs_j": 1.8679164881518773e-08,
+      "name": "opposed_forward",
+      "policy": "base",
+      "folder": "artifacts/ai05_inertial_storage_verification_v2/opposed_forward_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 3.0035529618999135e-11,
+        "mass_flow_abs_kg_s": 3.636690948383148e-11,
+        "pressure_abs_pa": 9.224750101566315e-07,
+        "temperature_abs_k": 5.472884367918596e-10,
+        "boundary_work_abs_j": 4.561172772810096e-09,
+        "energy_abs_j": 4.1972625375308326e-08,
+        "local_energy_abs_w": 9.313225746154785e-10,
+        "link_energy_abs_w": 8.65085780787922e-10,
+        "event_time_abs_s": 4.355626970209414e-12,
+        "nonlinear_period_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 0.2873388214065517,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 2.824206313625243,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 5.353069361254146,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.908896250875392,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.457371239170664,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 13.024456381435225,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.585204537207447,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 18.159505014926488,
+          "direction": -1
+        }
+      ],
+      "lossless_half_period_s": null,
+      "restart_energy_abs_j": 4.187345581385671e-08,
+      "name": "opposed_forward",
+      "policy": "tight",
+      "folder": "artifacts/ai05_inertial_storage_verification_v2/opposed_forward_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 2.9675373269810734e-11,
+        "mass_flow_abs_kg_s": 3.574607276846109e-11,
+        "pressure_abs_pa": 9.189534466713667e-07,
+        "temperature_abs_k": 5.424567461886909e-10,
+        "boundary_work_abs_j": 4.5210413190943655e-09,
+        "energy_abs_j": 1.8580324834260864e-08,
+        "local_energy_abs_w": 9.313225746154785e-10,
+        "link_energy_abs_w": 8.643539217700891e-10,
+        "event_time_abs_s": 4.416023102749023e-12,
+        "nonlinear_period_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 0.2873388214065518,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 2.824206313625276,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 5.353069361254198,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.908896250875284,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.457371239170772,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 13.024456381435286,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.585204537207602,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 18.15950501492664,
+          "direction": 1
+        }
+      ],
+      "lossless_half_period_s": null,
+      "restart_energy_abs_j": 1.6118443468826626e-08,
+      "name": "opposed_reverse",
+      "policy": "base",
+      "folder": "artifacts/ai05_inertial_storage_verification_v2/opposed_reverse_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 3.002043058586423e-11,
+        "mass_flow_abs_kg_s": 3.633260359237056e-11,
+        "pressure_abs_pa": 9.238719940185547e-07,
+        "temperature_abs_k": 5.487095222633798e-10,
+        "boundary_work_abs_j": 4.573280421027448e-09,
+        "energy_abs_j": 2.9420231584253997e-08,
+        "local_energy_abs_w": 4.656612873077393e-10,
+        "link_energy_abs_w": 3.9950975860847393e-10,
+        "event_time_abs_s": 4.344968829173013e-12,
+        "nonlinear_period_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 0.2873388214065518,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 2.8242063136252664,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 5.35306936125414,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.908896250875248,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.457371239170625,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 13.024456381435215,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.585204537207405,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 18.159505014926612,
+          "direction": 1
+        }
+      ],
+      "lossless_half_period_s": null,
+      "restart_energy_abs_j": 2.7923952927721984e-08,
+      "name": "opposed_reverse",
+      "policy": "tight",
+      "folder": "artifacts/ai05_inertial_storage_verification_v2/opposed_reverse_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 2.0555113167119998e-11,
+        "mass_flow_abs_kg_s": 3.452104574419579e-11,
+        "pressure_abs_pa": 6.236950866878033e-07,
+        "temperature_abs_k": 6.508571459562518e-10,
+        "boundary_work_abs_j": 3.776449375436641e-09,
+        "energy_abs_j": 1.3813235000270652e-08,
+        "local_energy_abs_w": 6.559730536537245e-10,
+        "link_energy_abs_w": 4.97605512350674e-10,
+        "event_time_abs_s": 4.4497738826976274e-11,
+        "nonlinear_period_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.789500408478107,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 5.41247858127185,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 8.11100890151873,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.779261611386127,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 13.474537711716026,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 16.155986463133704,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 18.84994175134381,
+          "direction": -1
+        }
+      ],
+      "lossless_half_period_s": null,
+      "restart_energy_abs_j": 1.2295913620619103e-08,
+      "name": "thermal_forward",
+      "policy": "base",
+      "folder": "artifacts/ai05_inertial_storage_verification_v2/thermal_forward_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 2.1459722887584576e-11,
+        "mass_flow_abs_kg_s": 3.339288567882903e-11,
+        "pressure_abs_pa": 6.208720151335001e-07,
+        "temperature_abs_k": 4.912976692139637e-10,
+        "boundary_work_abs_j": 3.354557520651724e-09,
+        "energy_abs_j": 4.495336725085508e-08,
+        "local_energy_abs_w": 6.558593668160029e-10,
+        "link_energy_abs_w": 5.130189606461499e-10,
+        "event_time_abs_s": 4.2881254103122046e-11,
+        "nonlinear_period_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.789500408478016,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 5.412478581272201,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 8.11100890151899,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.779261611387108,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 13.474537711717565,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 16.15598646313532,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 18.849941751346027,
+          "direction": -1
+        }
+      ],
+      "lossless_half_period_s": null,
+      "restart_energy_abs_j": 4.0108716348186135e-08,
+      "name": "thermal_forward",
+      "policy": "tight",
+      "folder": "artifacts/ai05_inertial_storage_verification_v2/thermal_forward_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 2.0550672275021498e-11,
+        "mass_flow_abs_kg_s": 3.452408844917265e-11,
+        "pressure_abs_pa": 6.238988135010004e-07,
+        "temperature_abs_k": 6.501750249299221e-10,
+        "boundary_work_abs_j": 3.771560841414612e-09,
+        "energy_abs_j": 3.876380105793942e-08,
+        "local_energy_abs_w": 5.463789420900866e-10,
+        "link_energy_abs_w": 4.973959022436247e-10,
+        "event_time_abs_s": 4.4504844254333875e-11,
+        "nonlinear_period_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.7895004084781068,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 5.412478581271829,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 8.11100890151872,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.779261611386119,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 13.474537711716023,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 16.155986463133697,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 18.849941751343803,
+          "direction": 1
+        }
+      ],
+      "lossless_half_period_s": null,
+      "restart_energy_abs_j": 3.420109351282008e-08,
+      "name": "thermal_reverse",
+      "policy": "base",
+      "folder": "artifacts/ai05_inertial_storage_verification_v2/thermal_reverse_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 2.142730437526552e-11,
+        "mass_flow_abs_kg_s": 3.3402482169098136e-11,
+        "pressure_abs_pa": 6.204936653375626e-07,
+        "temperature_abs_k": 4.946514309267513e-10,
+        "boundary_work_abs_j": 3.3536480259499513e-09,
+        "energy_abs_j": 3.0750015866942704e-08,
+        "local_energy_abs_w": 5.47174749954138e-10,
+        "link_energy_abs_w": 4.6145487431203946e-10,
+        "event_time_abs_s": 4.290257038519485e-11,
+        "nonlinear_period_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.7895004084780153,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 5.412478581272203,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 8.111008901519,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.779261611387106,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 13.474537711717554,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 16.1559864631353,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 18.849941751345984,
+          "direction": 1
+        }
+      ],
+      "lossless_half_period_s": null,
+      "restart_energy_abs_j": 3.0750015866942704e-08,
+      "name": "thermal_reverse",
+      "policy": "tight",
+      "folder": "artifacts/ai05_inertial_storage_verification_v2/thermal_reverse_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 2.1367352331935763e-11,
+        "mass_flow_abs_kg_s": 2.8770819060497388e-11,
+        "pressure_abs_pa": 5.759939085692167e-07,
+        "temperature_abs_k": 3.658442437881604e-10,
+        "boundary_work_abs_j": 3.2185312193178106e-09,
+        "energy_abs_j": 8.059509126051578e-09,
+        "local_energy_abs_w": 4.656612873077393e-10,
+        "link_energy_abs_w": 5.318518958574714e-10,
+        "event_time_abs_s": 3.1105784614737786e-11,
+        "nonlinear_period_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.543094147721383,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 5.078137215705814,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.789777571153792,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.394851365618127,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 13.048795944283588,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.641067035320006,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 18.234895002661865,
+          "direction": -1
+        }
+      ],
+      "lossless_half_period_s": null,
+      "restart_energy_abs_j": 1.0341351108777985e-09,
+      "name": "resistance_switch",
+      "policy": "base",
+      "folder": "artifacts/ai05_inertial_storage_verification_v2/resistance_switch_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 2.142686028605567e-11,
+        "mass_flow_abs_kg_s": 2.8796701134758962e-11,
+        "pressure_abs_pa": 5.774199962615967e-07,
+        "temperature_abs_k": 3.646505319920834e-10,
+        "boundary_work_abs_j": 3.2365505830966868e-09,
+        "energy_abs_j": 1.960729179018017e-08,
+        "local_energy_abs_w": 4.656612873077393e-10,
+        "link_energy_abs_w": 5.595381935563637e-10,
+        "event_time_abs_s": 3.114841717888339e-11,
+        "nonlinear_period_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.543094147721411,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 5.078137215705788,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.78977757115364,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.3948513656181,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 13.048795944283546,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.641067035319868,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 18.234895002661695,
+          "direction": -1
+        }
+      ],
+      "lossless_half_period_s": null,
+      "restart_energy_abs_j": 5.9184914191767746e-09,
+      "name": "resistance_switch",
+      "policy": "tight",
+      "folder": "artifacts/ai05_inertial_storage_verification_v2/resistance_switch_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 0.0,
+        "mass_flow_abs_kg_s": 0.0,
+        "pressure_abs_pa": 0.0,
+        "temperature_abs_k": 0.0,
+        "boundary_work_abs_j": 0.0,
+        "energy_abs_j": 0.0,
+        "local_energy_abs_w": 0.0,
+        "link_energy_abs_w": 0.0,
+        "event_time_abs_s": 0.0,
+        "nonlinear_period_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [],
+      "lossless_half_period_s": null,
+      "restart_energy_abs_j": 0.0,
+      "name": "equilibrium",
+      "policy": "base",
+      "folder": "artifacts/ai05_inertial_storage_verification_v2/equilibrium_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 0.0,
+        "mass_flow_abs_kg_s": 0.0,
+        "pressure_abs_pa": 0.0,
+        "temperature_abs_k": 0.0,
+        "boundary_work_abs_j": 0.0,
+        "energy_abs_j": 0.0,
+        "local_energy_abs_w": 0.0,
+        "link_energy_abs_w": 0.0,
+        "event_time_abs_s": 0.0,
+        "nonlinear_period_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [],
+      "lossless_half_period_s": null,
+      "restart_energy_abs_j": 0.0,
+      "name": "equilibrium",
+      "policy": "tight",
+      "folder": "artifacts/ai05_inertial_storage_verification_v2/equilibrium_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.4886719244475155e-14,
+        "mass_flow_abs_kg_s": 1.2288469395695112e-14,
+        "pressure_abs_pa": 2.473825588822365e-10,
+        "temperature_abs_k": 4.547473508864641e-13,
+        "boundary_work_abs_j": 1.4886824412085886e-12,
+        "energy_abs_j": 3.987052870403987e-13,
+        "local_energy_abs_w": 7.105427357601002e-15,
+        "link_energy_abs_w": 1.1515386401820497e-14,
+        "event_time_abs_s": 3.6125413771515014e-10,
+        "nonlinear_period_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 3.2518573375524125,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 6.50371467510377,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 9.755572012652301,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 13.007429350202749,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 16.25928668775469,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 19.51114402530704,
+          "direction": 1
+        }
+      ],
+      "lossless_half_period_s": null,
+      "restart_energy_abs_j": 5.431413485810989e-18,
+      "name": "small_signal",
+      "policy": "base",
+      "folder": "artifacts/ai05_inertial_storage_verification_v2/small_signal_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.5050332128566796e-14,
+        "mass_flow_abs_kg_s": 1.2333833092218263e-14,
+        "pressure_abs_pa": 2.473825588822365e-10,
+        "temperature_abs_k": 4.547473508864641e-13,
+        "boundary_work_abs_j": 1.5050556287365957e-12,
+        "energy_abs_j": 3.9870527550288353e-13,
+        "local_energy_abs_w": 7.105427357601002e-15,
+        "link_energy_abs_w": 8.417354258546486e-15,
+        "event_time_abs_s": 3.6622793686547084e-10,
+        "nonlinear_period_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 3.2518573375527917,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 6.503714675104341,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 9.755572012655993,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 13.007429350207723,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 16.259286687760493,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 19.511144025313076,
+          "direction": 1
+        }
+      ],
+      "lossless_half_period_s": null,
+      "restart_energy_abs_j": 1.0490900098438535e-18,
+      "name": "small_signal",
+      "policy": "tight",
+      "folder": "artifacts/ai05_inertial_storage_verification_v2/small_signal_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.7171730704035326e-10,
+        "mass_flow_abs_kg_s": 2.5398921854602463e-10,
+        "pressure_abs_pa": 7.735681720077991e-06,
+        "temperature_abs_k": 9.426059932593489e-09,
+        "boundary_work_abs_j": 9.599813211025321e-08,
+        "energy_abs_j": 1.7499530713394051e-07,
+        "local_energy_abs_w": 9.313225746154785e-10,
+        "link_energy_abs_w": 6.87787604647383e-10,
+        "event_time_abs_s": 1.1453593629084935e-10,
+        "nonlinear_period_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.543094147701242,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 5.078268199772171,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.63768649542456,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.190019798529868,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.759357099366744,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.322627229220135,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.898430344574795,
+          "direction": -1
+        }
+      ],
+      "lossless_half_period_s": null,
+      "restart_energy_abs_j": 1.723979554668631e-07,
+      "name": "damped_forward",
+      "policy": "bdf",
+      "folder": "artifacts/ai05_inertial_storage_verification_v2/damped_forward_bdf"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.7349321979054366e-10,
+        "mass_flow_abs_kg_s": 2.5784280266449855e-10,
+        "pressure_abs_pa": 8.166272891685367e-06,
+        "temperature_abs_k": 9.790255717234686e-09,
+        "boundary_work_abs_j": 9.819507340580458e-08,
+        "energy_abs_j": 1.562209206440457e-07,
+        "local_energy_abs_w": 9.313225746154785e-10,
+        "link_energy_abs_w": 6.354099468808272e-10,
+        "event_time_abs_s": 1.1615952644206118e-10,
+        "nonlinear_period_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.543094147701242,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 5.07826819977183,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.637686495423932,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.190019798529624,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.759357099364458,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.32262722921803,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.89843034457317,
+          "direction": 1
+        }
+      ],
+      "lossless_half_period_s": null,
+      "restart_energy_abs_j": 1.5198263447757654e-07,
+      "name": "damped_reverse",
+      "policy": "bdf",
+      "folder": "artifacts/ai05_inertial_storage_verification_v2/damped_reverse_bdf"
+    }
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

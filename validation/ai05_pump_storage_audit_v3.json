@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "8ddc77a972d44679b9424d0501f62cf6d3c8909397a4dc59132eeb383b5ecd04",
+  "verification_sha256": "40fd2e44f88672c0f000a67329891c996f4b336ca04e3528c331b70c3e311d46",
+  "audit_script_sha256": "28459b70899c5ef55c181a6b58f9180a978a5d89dc698f8de407eb85186bde7a",
+  "integrations": 24,
+  "case_families": 11,
+  "temporal_comparisons": [
+    {
+      "name": "backdrive_negative",
+      "metrics": {
+        "omega_abs_rad_s": 5.413447468072263e-13,
+        "mass_flow_abs_kg_s": 7.517181321858857e-13,
+        "transfer_mass_abs_kg": 5.553335569175033e-13,
+        "pressure_abs_pa": 1.9237631931900978e-08,
+        "temperature_abs_k": 1.2164491636212915e-11,
+        "boundary_work_abs_j": 1.0092549018736463e-10
+      }
+    },
+    {
+      "name": "backdrive_positive",
+      "metrics": {
+        "omega_abs_rad_s": 7.038813976123492e-13,
+        "mass_flow_abs_kg_s": 1.0700884622849571e-12,
+        "transfer_mass_abs_kg": 7.782663402622347e-13,
+        "pressure_abs_pa": 1.9586877897381783e-08,
+        "temperature_abs_k": 1.5802470443304628e-11,
+        "boundary_work_abs_j": 1.3176304491935298e-10
+      }
+    },
+    {
+      "name": "braking_negative",
+      "metrics": {
+        "omega_abs_rad_s": 5.799805080641818e-13,
+        "mass_flow_abs_kg_s": 7.189804307472514e-13,
+        "transfer_mass_abs_kg": 6.328271240363392e-13,
+        "pressure_abs_pa": 1.9819708541035652e-08,
+        "temperature_abs_k": 1.1880274541908875e-11,
+        "boundary_work_abs_j": 9.893597052723635e-11
+      }
+    },
+    {
+      "name": "braking_positive",
+      "metrics": {
+        "omega_abs_rad_s": 7.416289804496046e-13,
+        "mass_flow_abs_kg_s": 9.530154443382344e-13,
+        "transfer_mass_abs_kg": 7.498446308318307e-13,
+        "pressure_abs_pa": 2.4418113753199577e-08,
+        "temperature_abs_k": 1.5120349416974932e-11,
+        "boundary_work_abs_j": 1.256239556823857e-10
+      }
+    },
+    {
+      "name": "driven_negative",
+      "metrics": {
+        "omega_abs_rad_s": 6.998845947236987e-13,
+        "mass_flow_abs_kg_s": 5.74651437545981e-13,
+        "transfer_mass_abs_kg": 6.664668816824815e-13,
+        "pressure_abs_pa": 1.461012288928032e-08,
+        "temperature_abs_k": 1.3244516594568267e-11,
+        "boundary_work_abs_j": 1.1019096746167634e-10
+      }
+    },
+    {
+      "name": "driven_positive",
+      "metrics": {
+        "omega_abs_rad_s": 7.247535904753022e-13,
+        "mass_flow_abs_kg_s": 8.897327319346005e-13,
+        "transfer_mass_abs_kg": 7.194245199571014e-13,
+        "pressure_abs_pa": 2.3632310330867767e-08,
+        "temperature_abs_k": 1.3812950783176348e-11,
+        "boundary_work_abs_j": 1.1525003174028825e-10
+      }
+    },
+    {
+      "name": "equilibrium",
+      "metrics": {
+        "omega_abs_rad_s": 0.0,
+        "mass_flow_abs_kg_s": 0.0,
+        "transfer_mass_abs_kg": 0.0,
+        "pressure_abs_pa": 0.0,
+        "temperature_abs_k": 0.0,
+        "boundary_work_abs_j": 0.0
+      }
+    },
+    {
+      "name": "motor_start_equal_pressure",
+      "metrics": {
+        "omega_abs_rad_s": 1.1546319456101628e-14,
+        "mass_flow_abs_kg_s": 1.26777928433075e-14,
+        "transfer_mass_abs_kg": 1.3385126340637044e-14,
+        "pressure_abs_pa": 2.0372681319713593e-10,
+        "temperature_abs_k": 1.7053025658242404e-13,
+        "boundary_work_abs_j": 1.3486989303146402e-12
+      }
+    },
+    {
+      "name": "thermal_positive",
+      "metrics": {
+        "omega_abs_rad_s": 1.106670310946356e-12,
+        "mass_flow_abs_kg_s": 1.110861402864316e-12,
+        "transfer_mass_abs_kg": 1.6360246490876307e-12,
+        "pressure_abs_pa": 3.018067218363285e-08,
+        "temperature_abs_k": 5.093170329928398e-11,
+        "boundary_work_abs_j": 3.8107828004285693e-10
+      }
+    },
+    {
+      "name": "trip_negative",
+      "metrics": {
+        "omega_abs_rad_s": 6.998845947236987e-13,
+        "mass_flow_abs_kg_s": 5.693223670277803e-13,
+        "transfer_mass_abs_kg": 6.664668816824815e-13,
+        "pressure_abs_pa": 1.4959368854761124e-08,
+        "temperature_abs_k": 1.3244516594568267e-11,
+        "boundary_work_abs_j": 1.1033307600882836e-10
+      }
+    },
+    {
+      "name": "trip_positive",
+      "metrics": {
+        "omega_abs_rad_s": 3.326228181776969e-13,
+        "mass_flow_abs_kg_s": 3.9324099532223045e-13,
+        "transfer_mass_abs_kg": 3.5926817076870066e-13,
+        "pressure_abs_pa": 1.4319084584712982e-08,
+        "temperature_abs_k": 6.821210263296962e-12,
+        "boundary_work_abs_j": 5.678657544194721e-11
+      }
+    }
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

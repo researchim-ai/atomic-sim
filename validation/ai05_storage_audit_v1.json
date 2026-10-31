@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "fd2c6801febff59d1c5af3b9ac1f50b349005b952dcd64e6ee4bdb3ccc230ad1",
+  "verification_sha256": "e2fb74bbeb26cd59e8f2679873c52c3b88e86465591e946d8c1f4c6d65407f82",
+  "audit_script_sha256": "82ccc98324b533dde8b8b3f67109b3cd7bd8b441c25082d5c9e43cb384619c4a",
+  "integrations": 24,
+  "case_families": 11,
+  "temporal_comparisons": [
+    {
+      "name": "adiabatic_forward",
+      "metrics": {
+        "transfer_mass_abs_kg": 1.4876988529977098e-13,
+        "pressure_abs_pa": 3.899913281202316e-09,
+        "temperature_abs_k": 3.069544618483633e-12,
+        "boundary_work_abs_j": 2.5636381906224415e-11
+      }
+    },
+    {
+      "name": "adiabatic_reverse",
+      "metrics": {
+        "transfer_mass_abs_kg": 1.4832579608992091e-13,
+        "pressure_abs_pa": 3.92901711165905e-09,
+        "temperature_abs_k": 3.069544618483633e-12,
+        "boundary_work_abs_j": 2.566480361565482e-11
+      }
+    },
+    {
+      "name": "check_forward",
+      "metrics": {
+        "transfer_mass_abs_kg": 1.474376176702208e-13,
+        "pressure_abs_pa": 3.8708094507455826e-09,
+        "temperature_abs_k": 3.069544618483633e-12,
+        "boundary_work_abs_j": 2.5409008230781183e-11
+      }
+    },
+    {
+      "name": "check_reverse_blocked",
+      "metrics": {
+        "transfer_mass_abs_kg": 0.0,
+        "pressure_abs_pa": 0.0,
+        "temperature_abs_k": 0.0,
+        "boundary_work_abs_j": 0.0
+      }
+    },
+    {
+      "name": "cooling_check_closure",
+      "metrics": {
+        "transfer_mass_abs_kg": 1.038910394353531e-17,
+        "pressure_abs_pa": 3.3032847568392754e-09,
+        "temperature_abs_k": 1.0231815394945443e-11,
+        "boundary_work_abs_j": 1.0389608722232314e-15
+      }
+    },
+    {
+      "name": "equilibrium",
+      "metrics": {
+        "transfer_mass_abs_kg": 4.443721996655821e-33,
+        "pressure_abs_pa": 0.0,
+        "temperature_abs_k": 0.0,
+        "boundary_work_abs_j": 1.0987105312032384e-32
+      }
+    },
+    {
+      "name": "heated_check_opening",
+      "metrics": {
+        "transfer_mass_abs_kg": 6.995096922237715e-16,
+        "pressure_abs_pa": 3.055902197957039e-10,
+        "temperature_abs_k": 8.526512829121202e-13,
+        "boundary_work_abs_j": 6.99544656685043e-14
+      }
+    },
+    {
+      "name": "isolated_heating",
+      "metrics": {
+        "transfer_mass_abs_kg": 3.0228612958819807e-29,
+        "pressure_abs_pa": 2.9103830456733704e-11,
+        "temperature_abs_k": 5.684341886080802e-14,
+        "boundary_work_abs_j": 0.0
+      }
+    },
+    {
+      "name": "isolation",
+      "metrics": {
+        "transfer_mass_abs_kg": 1.7963408538435033e-13,
+        "pressure_abs_pa": 4.2782630771398544e-09,
+        "temperature_abs_k": 2.7853275241795927e-12,
+        "boundary_work_abs_j": 3.9904080040287226e-11
+      }
+    },
+    {
+      "name": "thermal_forward",
+      "metrics": {
+        "transfer_mass_abs_kg": 8.126832540256146e-14,
+        "pressure_abs_pa": 3.958120942115784e-09,
+        "temperature_abs_k": 6.252776074688882e-12,
+        "boundary_work_abs_j": 1.5859313862165436e-11
+      }
+    },
+    {
+      "name": "thermal_reverse",
+      "metrics": {
+        "transfer_mass_abs_kg": 8.171241461241152e-14,
+        "pressure_abs_pa": 3.958120942115784e-09,
+        "temperature_abs_k": 6.252776074688882e-12,
+        "boundary_work_abs_j": 1.5859313862165436e-11
+      }
+    }
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

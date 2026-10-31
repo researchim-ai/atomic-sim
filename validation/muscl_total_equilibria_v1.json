@@ -1,0 +1,237 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "cells": 3,
+      "heat_w": 0.0,
+      "sign": -1,
+      "flow_kg_s": -1.8279593896769537,
+      "measured": {
+        "mass_rate_kg_s": 0.0,
+        "internal_energy_rate_w": 2.2918281151172466e-09,
+        "flow_rate_kg_s2": 6.440768629545346e-10,
+        "wall_rate_k_s": 1.4210854715202004e-14
+      },
+      "tolerances": {
+        "mass_rate_kg_s": 1e-12,
+        "internal_energy_rate_w": 0.001,
+        "flow_rate_kg_s2": 1e-06,
+        "wall_rate_k_s": 1e-09
+      },
+      "passed": true
+    },
+    {
+      "cells": 3,
+      "heat_w": 0.0,
+      "sign": 1,
+      "flow_kg_s": 1.8279593896769537,
+      "measured": {
+        "mass_rate_kg_s": 0.0,
+        "internal_energy_rate_w": 2.2918281151172466e-09,
+        "flow_rate_kg_s2": 6.440768629545346e-10,
+        "wall_rate_k_s": 1.4210854715202004e-14
+      },
+      "tolerances": {
+        "mass_rate_kg_s": 1e-12,
+        "internal_energy_rate_w": 0.001,
+        "flow_rate_kg_s2": 1e-06,
+        "wall_rate_k_s": 1e-09
+      },
+      "passed": true
+    },
+    {
+      "cells": 3,
+      "heat_w": 3000.0,
+      "sign": -1,
+      "flow_kg_s": -1.8276916973825101,
+      "measured": {
+        "mass_rate_kg_s": 0.0,
+        "internal_energy_rate_w": 1.290481872729364e-09,
+        "flow_rate_kg_s2": 4.039695795654552e-09,
+        "wall_rate_k_s": 1.4239276424632408e-14
+      },
+      "tolerances": {
+        "mass_rate_kg_s": 1e-12,
+        "internal_energy_rate_w": 0.001,
+        "flow_rate_kg_s2": 1e-06,
+        "wall_rate_k_s": 1e-09
+      },
+      "passed": true
+    },
+    {
+      "cells": 3,
+      "heat_w": 3000.0,
+      "sign": 1,
+      "flow_kg_s": 1.8276916973825101,
+      "measured": {
+        "mass_rate_kg_s": 0.0,
+        "internal_energy_rate_w": 1.290481872729364e-09,
+        "flow_rate_kg_s2": 4.039695795654552e-09,
+        "wall_rate_k_s": 1.4239276424632408e-14
+      },
+      "tolerances": {
+        "mass_rate_kg_s": 1e-12,
+        "internal_energy_rate_w": 0.001,
+        "flow_rate_kg_s2": 1e-06,
+        "wall_rate_k_s": 1e-09
+      },
+      "passed": true
+    },
+    {
+      "cells": 8,
+      "heat_w": 0.0,
+      "sign": -1,
+      "flow_kg_s": -1.2186383665033167,
+      "measured": {
+        "mass_rate_kg_s": 0.0,
+        "internal_energy_rate_w": 3.3156352416370072e-09,
+        "flow_rate_kg_s2": 3.7459855472358565e-09,
+        "wall_rate_k_s": 3.552713678800501e-14
+      },
+      "tolerances": {
+        "mass_rate_kg_s": 1e-12,
+        "internal_energy_rate_w": 0.001,
+        "flow_rate_kg_s2": 1e-06,
+        "wall_rate_k_s": 1e-09
+      },
+      "passed": true
+    },
+    {
+      "cells": 8,
+      "heat_w": 0.0,
+      "sign": 1,
+      "flow_kg_s": 1.2186383665033167,
+      "measured": {
+        "mass_rate_kg_s": 0.0,
+        "internal_energy_rate_w": 3.3156352416370072e-09,
+        "flow_rate_kg_s2": 3.7459855472358565e-09,
+        "wall_rate_k_s": 3.552713678800501e-14
+      },
+      "tolerances": {
+        "mass_rate_kg_s": 1e-12,
+        "internal_energy_rate_w": 0.001,
+        "flow_rate_kg_s2": 1e-06,
+        "wall_rate_k_s": 1e-09
+      },
+      "passed": true
+    },
+    {
+      "cells": 8,
+      "heat_w": 3000.0,
+      "sign": -1,
+      "flow_kg_s": -1.2183453588433364,
+      "measured": {
+        "mass_rate_kg_s": 0.0,
+        "internal_energy_rate_w": 9.709904662892664e-09,
+        "flow_rate_kg_s2": 5.125221165750796e-08,
+        "wall_rate_k_s": 9.237055564881302e-14
+      },
+      "tolerances": {
+        "mass_rate_kg_s": 1e-12,
+        "internal_energy_rate_w": 0.001,
+        "flow_rate_kg_s2": 1e-06,
+        "wall_rate_k_s": 1e-09
+      },
+      "passed": true
+    },
+    {
+      "cells": 8,
+      "heat_w": 3000.0,
+      "sign": 1,
+      "flow_kg_s": 1.2183453588433364,
+      "measured": {
+        "mass_rate_kg_s": 0.0,
+        "internal_energy_rate_w": 9.709904662892664e-09,
+        "flow_rate_kg_s2": 5.125221165750796e-08,
+        "wall_rate_k_s": 9.237055564881302e-14
+      },
+      "tolerances": {
+        "mass_rate_kg_s": 1e-12,
+        "internal_energy_rate_w": 0.001,
+        "flow_rate_kg_s2": 1e-06,
+        "wall_rate_k_s": 1e-09
+      },
+      "passed": true
+    },
+    {
+      "cells": 16,
+      "heat_w": 0.0,
+      "sign": -1,
+      "flow_kg_s": -0.8866893375535073,
+      "measured": {
+        "mass_rate_kg_s": 0.0,
+        "internal_energy_rate_w": 1.6795472887352646e-09,
+        "flow_rate_kg_s2": 4.684259086692085e-09,
+        "wall_rate_k_s": 3.552713678800501e-14
+      },
+      "tolerances": {
+        "mass_rate_kg_s": 1e-12,
+        "internal_energy_rate_w": 0.001,
+        "flow_rate_kg_s2": 1e-06,
+        "wall_rate_k_s": 1e-09
+      },
+      "passed": true
+    },
+    {
+      "cells": 16,
+      "heat_w": 0.0,
+      "sign": 1,
+      "flow_kg_s": 0.8866893375535073,
+      "measured": {
+        "mass_rate_kg_s": 0.0,
+        "internal_energy_rate_w": 1.6795472887352646e-09,
+        "flow_rate_kg_s2": 4.684259086692085e-09,
+        "wall_rate_k_s": 3.552713678800501e-14
+      },
+      "tolerances": {
+        "mass_rate_kg_s": 1e-12,
+        "internal_energy_rate_w": 0.001,
+        "flow_rate_kg_s2": 1e-06,
+        "wall_rate_k_s": 1e-09
+      },
+      "passed": true
+    },
+    {
+      "cells": 16,
+      "heat_w": 3000.0,
+      "sign": -1,
+      "flow_kg_s": -0.8863875285900041,
+      "measured": {
+        "mass_rate_kg_s": 0.0,
+        "internal_energy_rate_w": 1.4230895485785842e-08,
+        "flow_rate_kg_s2": 1.757110336863358e-07,
+        "wall_rate_k_s": 1.7763568394002505e-13
+      },
+      "tolerances": {
+        "mass_rate_kg_s": 1e-12,
+        "internal_energy_rate_w": 0.001,
+        "flow_rate_kg_s2": 1e-06,
+        "wall_rate_k_s": 1e-09
+      },
+      "passed": true
+    },
+    {
+      "cells": 16,
+      "heat_w": 3000.0,
+      "sign": 1,
+      "flow_kg_s": 0.8863875285900041,
+      "measured": {
+        "mass_rate_kg_s": 0.0,
+        "internal_energy_rate_w": 1.4230895485785842e-08,
+        "flow_rate_kg_s2": 1.757110336863358e-07,
+        "wall_rate_k_s": 1.7763568394002505e-13
+      },
+      "tolerances": {
+        "mass_rate_kg_s": 1e-12,
+        "internal_energy_rate_w": 0.001,
+        "flow_rate_kg_s2": 1e-06,
+        "wall_rate_k_s": 1e-09
+      },
+      "passed": true
+    }
+  ],
+  "source_sha256": "375ef3719d714ec9755c6c44af39a8f40ce9a3793b0efc06f0553cd55c505436",
+  "validated": false,
+  "plant_referenced": false,
+  "scope": "Discrete steady production RHS, not mesh accuracy or experimental validation"
+}

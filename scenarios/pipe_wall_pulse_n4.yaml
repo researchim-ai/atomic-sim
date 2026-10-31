@@ -1,0 +1,54 @@
+schema_version: 1
+name: pipe_wall_pulse_n4
+engine: pressure-driven-wall-channel
+duration_s: 8.0
+step_s: 0.2
+hydraulics:
+  cells: 4
+  total_volume_m3: 0.003
+  left_pressure_pa: 7020000.0
+  right_pressure_pa: 7000000.0
+  left_temperature_k: 500.0
+  right_temperature_k: 500.0
+  initial_pressure_pa: 7010000.0
+  initial_temperature_k: 500.0
+  area_m2: 0.001
+  junction_length_m: 0.75
+  loss_coefficient: 7.5
+  total_heat_capacity_j_k: 8000.0
+  total_ua_w_k: 1000.0
+  heat_w: 0.0
+  initial_flow_kg_s: 1.0553723445177274
+  initial_wall_temperature_k: 500.0
+  junction_lengths_m:
+  - 0.375
+  - 0.75
+  - 0.75
+  - 0.75
+  - 0.375
+  junction_loss_coefficients:
+  - 3.75
+  - 7.5
+  - 7.5
+  - 7.5
+  - 3.75
+  initial_pressure_profile_pa:
+  - 7017500.022828932
+  - 7012500.053876959
+  - 7007500.055704245
+  - 7002500.0283093145
+  initial_temperature_profile_k:
+  - 500.00013113494174
+  - 500.0003933762739
+  - 500.0006555800635
+  - 500.0009177464141
+  initial_wall_temperature_profile_k:
+  - 505.00013113494174
+  - 505.0003933762739
+  - 505.0006555800635
+  - 505.0009177464141
+solver:
+  method: Radau
+  rtol: 1.0e-07
+  max_step_s: 0.1
+  jacobian_relative_step: 1.0e-05

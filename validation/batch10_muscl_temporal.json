@@ -1,0 +1,283 @@
+{
+  "schema_version": 1,
+  "kind": "numerical_verification",
+  "validated": false,
+  "plant_referenced": false,
+  "horizon_s": 8,
+  "comparison_times": 41,
+  "measured": {
+    "flow_absolute_kg_s": 1.7051454825889323e-07,
+    "pressure_absolute_pa": 0.15245597064495087,
+    "fluid_temperature_absolute_k": 2.0650833221225184e-07,
+    "wall_temperature_absolute_k": 6.014653308739071e-08
+  },
+  "checks": {
+    "flow_absolute_kg_s": true,
+    "pressure_absolute_pa": true,
+    "fluid_temperature_absolute_k": true,
+    "wall_temperature_absolute_k": true,
+    "mass_relative": true,
+    "energy_relative": true
+  },
+  "passed": true,
+  "budget_sha256": "15f281f2ad79f3085d50ec164ad7a6ac32fc9af2ca514f748464aa9b02b202a7",
+  "source_hashes": [
+    "70313ceb4acf9ac354b2a72a135a53a417028735f12bb6007b6ca8663db4cdfd",
+    "70313ceb4acf9ac354b2a72a135a53a417028735f12bb6007b6ca8663db4cdfd"
+  ],
+  "runs": {
+    "artifacts/batch10_muscl_pulse_8s_bounded": {
+      "schema_version": 1,
+      "name": "pipe_sin2_pulse_n4_muscl_mc",
+      "status": "completed",
+      "model_id": "pressure-driven-wall-channel",
+      "requested_duration_s": 8.0,
+      "completed_time_s": 8.0,
+      "wall_time_s": 45.39900954800032,
+      "accepted_output_steps": 40,
+      "balance": {
+        "mass_relative": 6.359240301783681e-16,
+        "energy_relative": 1.1280669263570082e-15,
+        "max_mass_residual_kg": 1.593668773336443e-15,
+        "max_energy_residual_j": 7.2941475082188845e-09,
+        "final_mass_residual_kg": -1.3611074073383023e-15,
+        "final_energy_residual_j": 6.370100891217589e-09,
+        "normalization": "maximum sampled absolute residual / initial absolute inventory"
+      },
+      "budget_checks": {
+        "mass_relative": true,
+        "energy_relative": true
+      },
+      "numerical_acceptance": true,
+      "validated": false,
+      "plant_referenced": false,
+      "error": null,
+      "events": [],
+      "extrema": {
+        "time_s": {
+          "min": 0.0,
+          "max": 8.0
+        },
+        "inlet_mass_flow_kg_s": {
+          "min": 1.0547422603950327,
+          "max": 1.0553723445177274
+        },
+        "outlet_mass_flow_kg_s": {
+          "min": 1.0549424167050336,
+          "max": 1.056239202624102
+        },
+        "min_pressure_pa": {
+          "min": 7002434.112631559,
+          "max": 7002505.306141633
+        },
+        "max_pressure_pa": {
+          "min": 7017432.544502108,
+          "max": 7017503.712922198
+        },
+        "min_temperature_k": {
+          "min": 500.0001311349418,
+          "max": 500.0225658555808
+        },
+        "max_temperature_k": {
+          "min": 500.00091774641396,
+          "max": 500.73804843355276
+        },
+        "right_cell_temperature_k": {
+          "min": 500.00091774641396,
+          "max": 500.73804843355276
+        },
+        "midpoint_pressure_pa": {
+          "min": 7009776.654060948,
+          "max": 7010010.719015043
+        },
+        "mean_wall_temperature_k": {
+          "min": 502.02665622707724,
+          "max": 505.0005244594233
+        },
+        "min_wall_temperature_k": {
+          "min": 500.54799779162926,
+          "max": 501.46459722900903
+        },
+        "max_wall_temperature_k": {
+          "min": 503.43387366468426,
+          "max": 508.53618948599626
+        },
+        "heat_w": {
+          "min": 0.0,
+          "max": 0.0
+        },
+        "wall_to_fluid_w": {
+          "min": 1817.432007354938,
+          "max": 5000.000000000043
+        },
+        "max_mach": {
+          "min": 0.0010038468974466644,
+          "max": 0.0010069421732425618
+        },
+        "stored_mass_kg": {
+          "min": 2.5043577628996854,
+          "max": 2.506067859850241
+        },
+        "stored_energy_j": {
+          "min": 6443869.445815712,
+          "max": 6466059.183008481
+        },
+        "mass_residual_kg": {
+          "min": -1.593668773336443e-15,
+          "max": 6.229825683101708e-16
+        },
+        "energy_residual_j": {
+          "min": 0.0,
+          "max": 7.2941475082188845e-09
+        }
+      },
+      "scope": {
+        "model_id": "pressure-driven-wall-channel",
+        "approximations": [
+          "\u0441\u043c\u0435\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0435 \u043d\u0435\u043f\u043e\u0434\u0432\u0438\u0436\u043d\u044b\u0435 \u043e\u0431\u044a\u0451\u043c\u044b IF97, \u0434\u043e\u043d\u043e\u0440\u043d\u0430\u044f \u044d\u043d\u0442\u0430\u043b\u044c\u043f\u0438\u044f",
+          "\u0436\u0438\u0434\u043a\u043e\u0441\u0442\u044c \u0431\u0435\u0437 \u043a\u0438\u043f\u0435\u043d\u0438\u044f, \u0433\u043e\u0440\u0438\u0437\u043e\u043d\u0442\u0430\u043b\u044c\u043d\u044b\u0435 \u0441\u043e\u0435\u0434\u0438\u043d\u0435\u043d\u0438\u044f",
+          "\u0441\u043e\u0441\u0440\u0435\u0434\u043e\u0442\u043e\u0447\u0435\u043d\u043d\u044b\u0439 \u0438\u043c\u043f\u0443\u043b\u044c\u0441, \u0437\u0430\u0434\u0430\u043d\u043d\u044b\u0435 \u043c\u0435\u0441\u0442\u043d\u044b\u0435 \u0441\u043e\u043f\u0440\u043e\u0442\u0438\u0432\u043b\u0435\u043d\u0438\u044f",
+          "\u0432\u043d\u0443\u0442\u0440\u0435\u043d\u043d\u044f\u044f \u044d\u043d\u0435\u0440\u0433\u0438\u044f \u0438 \u044d\u043d\u0442\u0430\u043b\u044c\u043f\u0438\u0439\u043d\u044b\u0435 \u043f\u043e\u0442\u043e\u043a\u0438 \u0431\u0435\u0437 \u0437\u0430\u043f\u0430\u0441\u0430 \u043a\u0438\u043d\u0435\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u044d\u043d\u0435\u0440\u0433\u0438\u0438",
+          "\u043f\u043e\u0441\u0442\u043e\u044f\u043d\u043d\u044b\u0435 C/UA; \u0431\u0435\u0437 \u043d\u0430\u0441\u043e\u0441\u0430, CHF \u0438 \u043d\u0435\u0439\u0442\u0440\u043e\u043d\u0438\u043a\u0438"
+        ]
+      },
+      "solver_diagnostics": {
+        "accepted_rhs_evaluations": 29959,
+        "accepted_jacobian_evaluations": 26,
+        "accepted_lu_decompositions": 1260,
+        "accepted_solver_steps": 3954,
+        "accepted_output_intervals": 40,
+        "failed_output_intervals": 0,
+        "failed_rhs_evaluations": 0,
+        "scope": "Process-local solver RHS calls, including numerical Jacobian probes, split by accepted/failed output intervals; counters reset on checkpoint restore; preflight/observation calls excluded"
+      }
+    },
+    "artifacts/batch10_muscl_pulse_8s_tight_bounded": {
+      "schema_version": 1,
+      "name": "pipe_sin2_pulse_n4_tight_muscl_mc",
+      "status": "completed",
+      "model_id": "pressure-driven-wall-channel",
+      "requested_duration_s": 8.0,
+      "completed_time_s": 8.0,
+      "wall_time_s": 68.77861602699977,
+      "accepted_output_steps": 40,
+      "balance": {
+        "mass_relative": 2.7115568756690523e-15,
+        "energy_relative": 6.97622186782939e-16,
+        "max_mass_residual_kg": 6.7953455362701476e-15,
+        "max_energy_residual_j": 4.510866347118281e-09,
+        "final_mass_residual_kg": -4.8628635840319845e-15,
+        "final_energy_residual_j": 3.0340743251144886e-09,
+        "normalization": "maximum sampled absolute residual / initial absolute inventory"
+      },
+      "budget_checks": {
+        "mass_relative": true,
+        "energy_relative": true
+      },
+      "numerical_acceptance": true,
+      "validated": false,
+      "plant_referenced": false,
+      "error": null,
+      "events": [],
+      "extrema": {
+        "time_s": {
+          "min": 0.0,
+          "max": 8.0
+        },
+        "inlet_mass_flow_kg_s": {
+          "min": 1.0547423353180705,
+          "max": 1.0553723445177274
+        },
+        "outlet_mass_flow_kg_s": {
+          "min": 1.0549424040626647,
+          "max": 1.0562391269853042
+        },
+        "min_pressure_pa": {
+          "min": 7002434.166109671,
+          "max": 7002505.456960251
+        },
+        "max_pressure_pa": {
+          "min": 7017432.597831957,
+          "max": 7017503.865378168
+        },
+        "min_temperature_k": {
+          "min": 500.0001311349418,
+          "max": 500.02256588708485
+        },
+        "max_temperature_k": {
+          "min": 500.00091774641396,
+          "max": 500.7380484117192
+        },
+        "right_cell_temperature_k": {
+          "min": 500.00091774641396,
+          "max": 500.7380484117192
+        },
+        "midpoint_pressure_pa": {
+          "min": 7009776.629053581,
+          "max": 7010010.679283004
+        },
+        "mean_wall_temperature_k": {
+          "min": 502.02665623712085,
+          "max": 505.0005244594233
+        },
+        "min_wall_temperature_k": {
+          "min": 500.54799779163096,
+          "max": 501.46459722900903
+        },
+        "max_wall_temperature_k": {
+          "min": 503.43387370095365,
+          "max": 508.53618948599626
+        },
+        "heat_w": {
+          "min": 0.0,
+          "max": 0.0
+        },
+        "wall_to_fluid_w": {
+          "min": 1817.432016879323,
+          "max": 5000.000000000043
+        },
+        "max_mach": {
+          "min": 0.0010038468974466644,
+          "max": 0.001006942173243069
+        },
+        "stored_mass_kg": {
+          "min": 2.5043577628997618,
+          "max": 2.506067859850241
+        },
+        "stored_energy_j": {
+          "min": 6443869.44590004,
+          "max": 6466059.183008481
+        },
+        "mass_residual_kg": {
+          "min": -6.7953455362701476e-15,
+          "max": 0.0
+        },
+        "energy_residual_j": {
+          "min": -1.6517560652573593e-09,
+          "max": 4.510866347118281e-09
+        }
+      },
+      "scope": {
+        "model_id": "pressure-driven-wall-channel",
+        "approximations": [
+          "\u0441\u043c\u0435\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0435 \u043d\u0435\u043f\u043e\u0434\u0432\u0438\u0436\u043d\u044b\u0435 \u043e\u0431\u044a\u0451\u043c\u044b IF97, \u0434\u043e\u043d\u043e\u0440\u043d\u0430\u044f \u044d\u043d\u0442\u0430\u043b\u044c\u043f\u0438\u044f",
+          "\u0436\u0438\u0434\u043a\u043e\u0441\u0442\u044c \u0431\u0435\u0437 \u043a\u0438\u043f\u0435\u043d\u0438\u044f, \u0433\u043e\u0440\u0438\u0437\u043e\u043d\u0442\u0430\u043b\u044c\u043d\u044b\u0435 \u0441\u043e\u0435\u0434\u0438\u043d\u0435\u043d\u0438\u044f",
+          "\u0441\u043e\u0441\u0440\u0435\u0434\u043e\u0442\u043e\u0447\u0435\u043d\u043d\u044b\u0439 \u0438\u043c\u043f\u0443\u043b\u044c\u0441, \u0437\u0430\u0434\u0430\u043d\u043d\u044b\u0435 \u043c\u0435\u0441\u0442\u043d\u044b\u0435 \u0441\u043e\u043f\u0440\u043e\u0442\u0438\u0432\u043b\u0435\u043d\u0438\u044f",
+          "\u0432\u043d\u0443\u0442\u0440\u0435\u043d\u043d\u044f\u044f \u044d\u043d\u0435\u0440\u0433\u0438\u044f \u0438 \u044d\u043d\u0442\u0430\u043b\u044c\u043f\u0438\u0439\u043d\u044b\u0435 \u043f\u043e\u0442\u043e\u043a\u0438 \u0431\u0435\u0437 \u0437\u0430\u043f\u0430\u0441\u0430 \u043a\u0438\u043d\u0435\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u044d\u043d\u0435\u0440\u0433\u0438\u0438",
+          "\u043f\u043e\u0441\u0442\u043e\u044f\u043d\u043d\u044b\u0435 C/UA; \u0431\u0435\u0437 \u043d\u0430\u0441\u043e\u0441\u0430, CHF \u0438 \u043d\u0435\u0439\u0442\u0440\u043e\u043d\u0438\u043a\u0438"
+        ]
+      },
+      "solver_diagnostics": {
+        "accepted_rhs_evaluations": 44696,
+        "accepted_jacobian_evaluations": 27,
+        "accepted_lu_decompositions": 1542,
+        "accepted_solver_steps": 6030,
+        "accepted_output_intervals": 40,
+        "failed_output_intervals": 0,
+        "failed_rhs_evaluations": 0,
+        "scope": "Process-local solver RHS calls, including numerical Jacobian probes, split by accepted/failed output intervals; counters reset on checkpoint restore; preflight/observation calls excluded"
+      }
+    }
+  },
+  "scope": "Single-phase low-Mach internal-energy channel; not total mechanical-energy qualification"
+}

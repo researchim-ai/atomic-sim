@@ -22,7 +22,12 @@ def load(folder, horizon):
     report = json.loads((folder / "report.json").read_text())
     if (
         spec["engine"]
-        not in ("isobaric-channel", "isobaric-wall-channel", "pressure-driven-wall-channel")
+        not in (
+            "isobaric-channel",
+            "isobaric-wall-channel",
+            "pressure-driven-wall-channel",
+            "compatible-total-energy-channel",
+        )
         or spec["duration_s"] != horizon
         or report["status"] != "completed"
         or report["requested_duration_s"] != horizon
@@ -46,6 +51,7 @@ def load(folder, horizon):
         "isobaric-channel": IsobaricChannel,
         "isobaric-wall-channel": WallChannel,
         "pressure-driven-wall-channel": DynamicWallChannel,
+        "compatible-total-energy-channel": DynamicWallChannel,
     }[spec["engine"]]
     if payload["time_s"] != horizon or model.from_snapshot(payload).snapshot() != payload:
         raise ValueError("Channel checkpoint does not restore exactly")
@@ -55,6 +61,29 @@ def load(folder, horizon):
         "energy_relative": max(abs(row["energy_residual_j"]) for row in rows)
         / max(abs(rows[0]["stored_energy_j"]), 1.0),
     }
+    if spec["engine"] == "compatible-total-energy-channel":
+        initial_k = rows[0]["kinetic_energy_j"]
+        for row in rows:
+            mechanical = (
+                row["kinetic_energy_j"]
+                - initial_k
+                - row["pressure_work_integral_j"]
+                + row["dissipation_integral_j"]
+                - row["density_work_integral_j"]
+            )
+            if not math.isclose(
+                mechanical, row["mechanical_residual_j"], rel_tol=1e-12, abs_tol=1e-12
+            ):
+                raise ValueError("Mechanical inventory and work ledger disagree")
+            if not math.isclose(
+                row["thermal_energy_j"] + row["kinetic_energy_j"],
+                row["stored_energy_j"],
+                rel_tol=1e-14,
+                abs_tol=2e-8,
+            ):
+                raise ValueError("Thermal/kinetic energy decomposition disagrees")
+        recomputed["energy_absolute_j"] = max(abs(row["energy_residual_j"]) for row in rows)
+        recomputed["mechanical_absolute_j"] = max(abs(row["mechanical_residual_j"]) for row in rows)
     if not all(
         math.isclose(value, report["balance"][key], rel_tol=1e-12, abs_tol=1e-15)
         for key, value in recomputed.items()

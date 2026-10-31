@@ -52,6 +52,7 @@ class ImplicitContinuation:
         jacobian_relative_step: float | None = None,
         method: str = "BDF",
         initial_target: float | None = None,
+        jacobian=None,
     ):
         if not np.isfinite(horizon) or horizon <= t0 or not np.isfinite(max_step) or max_step <= 0:
             raise SolverError("Недопустимый горизонт или шаг continuation")
@@ -64,7 +65,9 @@ class ImplicitContinuation:
             raise SolverError("Continuation поддерживает BDF и Radau")
         engine = BDF if method == "BDF" else Radau
         self.method = method
-        self.jacobian = None
+        if jacobian is not None and (not callable(jacobian) or jacobian_relative_step is not None):
+            raise SolverError("Choose one callable or central-difference Jacobian")
+        self.jacobian = jacobian
         if jacobian_relative_step is not None:
             from core.jacobian import CentralJacobian
 
@@ -120,7 +123,7 @@ class ImplicitContinuation:
         except BaseException:
             self._failed = True
             raise
-        jac_calls = 0 if self.jacobian is None else self.jacobian.rhs_evaluations
+        jac_calls = getattr(self.jacobian, "rhs_evaluations", 0)
         counts = (solver.nfev + jac_calls, solver.njev, solver.nlu)
         delta = tuple(int(new - old) for new, old in zip(counts, self._reported))
         legacy_delta = solver.nfev - self._reported_nfev

@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "run": "artifacts/muscl_total_heated_forward_v1",
+      "exact_snapshot_roundtrip": true,
+      "time_s": 8.01,
+      "energy_residual_j": 5.604306352324784e-09,
+      "mechanical_residual_j": -5.711764150843554e-12
+    },
+    {
+      "run": "artifacts/muscl_total_heated_reverse_v1",
+      "exact_snapshot_roundtrip": true,
+      "time_s": 8.01,
+      "energy_residual_j": 3.3505784813314676e-09,
+      "mechanical_residual_j": -5.441635315094062e-12
+    },
+    {
+      "run": "artifacts/muscl_total_heated_tight_v1",
+      "exact_snapshot_roundtrip": true,
+      "time_s": 8.01,
+      "energy_residual_j": -5.788024282082915e-09,
+      "mechanical_residual_j": -1.0088229351282868e-12
+    }
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

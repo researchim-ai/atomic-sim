@@ -1,0 +1,610 @@
+{
+  "passed": true,
+  "matrix_sha256": "e8f5ec146bd950ab3349abdf55c936bea62a3f66afff6f560c38de1b813ddba9",
+  "source_sha256": "7b1eb8cd2fa474db943cb658de3facb153f9719147f873a4a6c57c048eaa0f01",
+  "runs": [
+    {
+      "case": "heated_steady_16",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.15649454328202766,
+        "internal_energy_j": 151643.42522869835
+      },
+      "max_mach": 3.8122267916256973e-06,
+      "sampled_temperature_tv_k": 0.507127292395694,
+      "balances": {
+        "energy_abs_j": 1.1752464256105537e-09,
+        "momentum_abs_kg_m_s": 2.643445296743983e-18,
+        "mass_relative": 2.305803969238644e-16
+      }
+    },
+    {
+      "case": "heated_steady_32",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.07824727163526084,
+        "internal_energy_j": 75817.65507378225
+      },
+      "max_mach": 3.8122800663568035e-06,
+      "sampled_temperature_tv_k": 0.5240384337221826,
+      "balances": {
+        "energy_abs_j": 2.1127285385358656e-09,
+        "momentum_abs_kg_m_s": 4.995435892290742e-18,
+        "mass_relative": 2.787203394647778e-16
+      }
+    },
+    {
+      "case": "heated_steady_32_tight",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.07824727163526084,
+        "internal_energy_j": 75817.65507378211
+      },
+      "max_mach": 3.8122800663568035e-06,
+      "sampled_temperature_tv_k": 0.5240384337221826,
+      "balances": {
+        "energy_abs_j": 2.081385244811972e-09,
+        "momentum_abs_kg_m_s": 3.53476881564152e-18,
+        "mass_relative": 4.563933019820605e-16
+      }
+    },
+    {
+      "case": "heated_steady_8",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.312989086643163,
+        "internal_energy_j": 303319.3051956329
+      },
+      "max_mach": 3.8121202624834575e-06,
+      "sampled_temperature_tv_k": 0.47330628870150804,
+      "balances": {
+        "energy_abs_j": 1.177680667319606e-09,
+        "momentum_abs_kg_m_s": 2.6925391276819365e-18,
+        "mass_relative": 2.375724649543451e-16
+      }
+    },
+    {
+      "case": "reversal_16",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.15662856837724914,
+        "internal_energy_j": 151627.40003389155
+      },
+      "max_mach": 6.00851462685924e-06,
+      "sampled_temperature_tv_k": 0.002805961144417779,
+      "balances": {
+        "energy_abs_j": 6.965659869924163e-10,
+        "momentum_abs_kg_m_s": 1.0408340855860843e-17,
+        "mass_relative": 3.5391517353097757e-16
+      }
+    },
+    {
+      "case": "reversal_32",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.07831428104793377,
+        "internal_energy_j": 75813.69695020672
+      },
+      "max_mach": 6.308973272527376e-06,
+      "sampled_temperature_tv_k": 0.002827868063548067,
+      "balances": {
+        "energy_abs_j": 2.0158799966492943e-09,
+        "momentum_abs_kg_m_s": 1.734723475976807e-17,
+        "mass_relative": 7.40276430523162e-16
+      }
+    },
+    {
+      "case": "reversal_32_tight",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.07831428104792586,
+        "internal_energy_j": 75813.69695019927
+      },
+      "max_mach": 6.308973309047627e-06,
+      "sampled_temperature_tv_k": 0.0028278681168103503,
+      "balances": {
+        "energy_abs_j": 1.6470355907035814e-09,
+        "momentum_abs_kg_m_s": 1.3877787807814457e-17,
+        "mass_relative": 6.165777390670555e-16
+      }
+    },
+    {
+      "case": "reversal_8",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.31325728041679113,
+        "internal_energy_j": 303254.9403473024
+      },
+      "max_mach": 5.295319161346979e-06,
+      "sampled_temperature_tv_k": 0.002555258457846321,
+      "balances": {
+        "energy_abs_j": 6.377959364326489e-10,
+        "momentum_abs_kg_m_s": 3.469446951953614e-18,
+        "mass_relative": 2.5922944048469495e-16
+      }
+    },
+    {
+      "case": "rusanov_smooth_32",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.07831259493623008,
+        "internal_energy_j": 75811.62605652225
+      },
+      "max_mach": 0.0007945935713654215,
+      "sampled_temperature_tv_k": 0.03778627878006091,
+      "balances": {
+        "energy_abs_j": 9.313225746154785e-10,
+        "momentum_abs_kg_m_s": 8.881784197001252e-16,
+        "mass_relative": 3.5441471091791275e-16
+      }
+    },
+    {
+      "case": "smooth_negative_16",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.15662523757518185,
+        "internal_energy_j": 151623.3437404627
+      },
+      "max_mach": 0.0007945931166492302,
+      "sampled_temperature_tv_k": 0.03510303076109267,
+      "balances": {
+        "energy_abs_j": 9.313225746154785e-10,
+        "momentum_abs_kg_m_s": 1.3322676295501878e-15,
+        "mass_relative": 3.544147109179126e-16
+      }
+    },
+    {
+      "case": "smooth_negative_32",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.07831259493623008,
+        "internal_energy_j": 75811.62605652225
+      },
+      "max_mach": 0.0007945935713654215,
+      "sampled_temperature_tv_k": 0.03778627878006091,
+      "balances": {
+        "energy_abs_j": 9.313225746154785e-10,
+        "momentum_abs_kg_m_s": 8.881784197001252e-16,
+        "mass_relative": 3.5441471091791275e-16
+      }
+    },
+    {
+      "case": "smooth_negative_64",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.0391562944650353,
+        "internal_energy_j": 37905.80725994397
+      },
+      "max_mach": 0.0007945936858705048,
+      "sampled_temperature_tv_k": 0.03895481629348296,
+      "balances": {
+        "energy_abs_j": 9.313225746154785e-10,
+        "momentum_abs_kg_m_s": 1.3322676295501878e-15,
+        "mass_relative": 1.7720735545895632e-16
+      }
+    },
+    {
+      "case": "smooth_negative_64_tight",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.0391562944650353,
+        "internal_energy_j": 37905.80725994397
+      },
+      "max_mach": 0.0007945936858705048,
+      "sampled_temperature_tv_k": 0.03895481629348296,
+      "balances": {
+        "energy_abs_j": 1.862645149230957e-09,
+        "momentum_abs_kg_m_s": 1.3322676295501878e-15,
+        "mass_relative": 5.316220663768689e-16
+      }
+    },
+    {
+      "case": "smooth_positive_16",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.15662523757518185,
+        "internal_energy_j": 151623.3437404627
+      },
+      "max_mach": 0.0007945931166492302,
+      "sampled_temperature_tv_k": 0.03510303076109267,
+      "balances": {
+        "energy_abs_j": 0.0,
+        "momentum_abs_kg_m_s": 8.881784197001252e-16,
+        "mass_relative": 3.544147109179126e-16
+      }
+    },
+    {
+      "case": "smooth_positive_32",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.07831259493623008,
+        "internal_energy_j": 75811.62605652225
+      },
+      "max_mach": 0.0007945935713654215,
+      "sampled_temperature_tv_k": 0.03778627878006091,
+      "balances": {
+        "energy_abs_j": 9.313225746154785e-10,
+        "momentum_abs_kg_m_s": 1.3322676295501878e-15,
+        "mass_relative": 3.5441471091791275e-16
+      }
+    },
+    {
+      "case": "smooth_positive_64",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.0391562944650353,
+        "internal_energy_j": 37905.80725994397
+      },
+      "max_mach": 0.0007945936858705048,
+      "sampled_temperature_tv_k": 0.03895481629348296,
+      "balances": {
+        "energy_abs_j": 9.313225746154785e-10,
+        "momentum_abs_kg_m_s": 8.881784197001252e-16,
+        "mass_relative": 1.7720735545895632e-16
+      }
+    },
+    {
+      "case": "smooth_positive_64_tight",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.0391562944650353,
+        "internal_energy_j": 37905.80725994397
+      },
+      "max_mach": 0.0007945936858705048,
+      "sampled_temperature_tv_k": 0.03895481629348296,
+      "balances": {
+        "energy_abs_j": 1.862645149230957e-09,
+        "momentum_abs_kg_m_s": 8.881784197001252e-16,
+        "mass_relative": 7.088294218358253e-16
+      }
+    },
+    {
+      "case": "startup_16",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.15662897902043363,
+        "internal_energy_j": 151627.80100586987
+      },
+      "max_mach": 4.882682984185866e-06,
+      "sampled_temperature_tv_k": 0.001372634929225569,
+      "balances": {
+        "energy_abs_j": 1.293880035709347e-09,
+        "momentum_abs_kg_m_s": 3.469446951953614e-18,
+        "mass_relative": 2.9180540670748937e-16
+      }
+    },
+    {
+      "case": "startup_32",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.07831448797357568,
+        "internal_energy_j": 75813.89900247012
+      },
+      "max_mach": 5.029668769337078e-06,
+      "sampled_temperature_tv_k": 0.0013833265568905517,
+      "balances": {
+        "energy_abs_j": 1.960656783358671e-09,
+        "momentum_abs_kg_m_s": 3.469446951953614e-18,
+        "mass_relative": 6.223812075058746e-16
+      }
+    },
+    {
+      "case": "startup_32_tight",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.07831448797356608,
+        "internal_energy_j": 75813.8990024607
+      },
+      "max_mach": 5.029668790406298e-06,
+      "sampled_temperature_tv_k": 0.0013833266237952557,
+      "balances": {
+        "energy_abs_j": 2.125691292447938e-09,
+        "momentum_abs_kg_m_s": 6.938893903907228e-18,
+        "mass_relative": 5.95814139173132e-16
+      }
+    },
+    {
+      "case": "startup_8",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.31325802831942173,
+        "internal_energy_j": 303255.67063576216
+      },
+      "max_mach": 4.533791635633295e-06,
+      "sampled_temperature_tv_k": 0.0012500039600240598,
+      "balances": {
+        "energy_abs_j": 1.520112487121884e-09,
+        "momentum_abs_kg_m_s": 3.469446951953614e-18,
+        "mass_relative": 1.8305607176959066e-16
+      }
+    },
+    {
+      "case": "stationary_contact_32",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.07831258692415187,
+        "internal_energy_j": 75811.61066691815
+      },
+      "max_mach": 2.708050521892186e-16,
+      "sampled_temperature_tv_k": 0.020000000156699116,
+      "balances": {
+        "energy_abs_j": 9.313225746154785e-10,
+        "momentum_abs_kg_m_s": 3.2881300251422214e-25,
+        "mass_relative": 8.86036777486074e-16
+      }
+    },
+    {
+      "case": "step_negative_16",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.15662517383280006,
+        "internal_energy_j": 151623.22132022274
+      },
+      "max_mach": 0.0007945937247238325,
+      "sampled_temperature_tv_k": 0.0359454831272501,
+      "balances": {
+        "energy_abs_j": 1.862645149230957e-09,
+        "momentum_abs_kg_m_s": 4.440892098500626e-16,
+        "mass_relative": 3.544147109944298e-16
+      }
+    },
+    {
+      "case": "step_negative_32",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.07831258691399404,
+        "internal_energy_j": 75811.610657208
+      },
+      "max_mach": 0.0007945937246654085,
+      "sampled_temperature_tv_k": 0.03918472456575728,
+      "balances": {
+        "energy_abs_j": 1.862645149230957e-09,
+        "momentum_abs_kg_m_s": 2.220446049250313e-15,
+        "mass_relative": 1.0632441329832889e-15
+      }
+    },
+    {
+      "case": "step_negative_64",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.03915629345818761,
+        "internal_energy_j": 37905.80532966283
+      },
+      "max_mach": 0.0007945937245274004,
+      "sampled_temperature_tv_k": 0.039966768096519445,
+      "balances": {
+        "energy_abs_j": 1.862645149230957e-09,
+        "momentum_abs_kg_m_s": 3.552713678800501e-15,
+        "mass_relative": 8.860367774860738e-16
+      }
+    },
+    {
+      "case": "step_negative_64_tight",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.03915629345818717,
+        "internal_energy_j": 37905.8053296648
+      },
+      "max_mach": 0.000794593724527143,
+      "sampled_temperature_tv_k": 0.03996676836658253,
+      "balances": {
+        "energy_abs_j": 9.313225746154785e-10,
+        "momentum_abs_kg_m_s": 3.1086244689504383e-15,
+        "mass_relative": 1.2404514884805034e-15
+      }
+    },
+    {
+      "case": "step_negative_refined_128",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.019578146729656607,
+        "internal_energy_j": 18952.90266538098
+      },
+      "max_mach": 0.0007945937243999473,
+      "sampled_temperature_tv_k": 0.039999944865655834,
+      "balances": {
+        "energy_abs_j": 7.450580596923828e-09,
+        "momentum_abs_kg_m_s": 2.220446049250313e-15,
+        "mass_relative": 1.063244132983289e-15
+      }
+    },
+    {
+      "case": "step_negative_refined_128_tight",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.01957814672965665,
+        "internal_energy_j": 18952.902665381003
+      },
+      "max_mach": 0.0007945937243992551,
+      "sampled_temperature_tv_k": 0.039999944878161386,
+      "balances": {
+        "energy_abs_j": 7.450580596923828e-09,
+        "momentum_abs_kg_m_s": 3.1086244689504383e-15,
+        "mass_relative": 1.063244132983289e-15
+      }
+    },
+    {
+      "case": "step_positive_16",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.1566251738328007,
+        "internal_energy_j": 151623.22132022463
+      },
+      "max_mach": 0.0007945937247238325,
+      "sampled_temperature_tv_k": 0.03594558827904848,
+      "balances": {
+        "energy_abs_j": 1.862645149230957e-09,
+        "momentum_abs_kg_m_s": 4.440892098500626e-16,
+        "mass_relative": 3.544147109944298e-16
+      }
+    },
+    {
+      "case": "step_positive_32",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.07831258691399633,
+        "internal_energy_j": 75811.61065720936
+      },
+      "max_mach": 0.0007945937246654097,
+      "sampled_temperature_tv_k": 0.03918475014631895,
+      "balances": {
+        "energy_abs_j": 1.862645149230957e-09,
+        "momentum_abs_kg_m_s": 2.220446049250313e-15,
+        "mass_relative": 1.0632441329832889e-15
+      }
+    },
+    {
+      "case": "step_positive_64",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.039156293458187226,
+        "internal_energy_j": 37905.80532966325
+      },
+      "max_mach": 0.0007945937245273842,
+      "sampled_temperature_tv_k": 0.03996676927272347,
+      "balances": {
+        "energy_abs_j": 1.862645149230957e-09,
+        "momentum_abs_kg_m_s": 2.6645352591003757e-15,
+        "mass_relative": 1.4176588439777182e-15
+      }
+    },
+    {
+      "case": "step_positive_64_tight",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.03915629345818817,
+        "internal_energy_j": 37905.80532966318
+      },
+      "max_mach": 0.0007945937245269305,
+      "sampled_temperature_tv_k": 0.03996676942335853,
+      "balances": {
+        "energy_abs_j": 1.862645149230957e-09,
+        "momentum_abs_kg_m_s": 3.552713678800501e-15,
+        "mass_relative": 1.0632441329832887e-15
+      }
+    },
+    {
+      "case": "step_positive_refined_128",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.019578146729656604,
+        "internal_energy_j": 18952.902665380763
+      },
+      "max_mach": 0.0007945937243998133,
+      "sampled_temperature_tv_k": 0.03999994485258185,
+      "balances": {
+        "energy_abs_j": 7.450580596923828e-09,
+        "momentum_abs_kg_m_s": 1.7763568394002505e-15,
+        "mass_relative": 1.063244132983289e-15
+      }
+    },
+    {
+      "case": "step_positive_refined_128_tight",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.019578146729656604,
+        "internal_energy_j": 18952.902665380978
+      },
+      "max_mach": 0.000794593724399462,
+      "sampled_temperature_tv_k": 0.03999994490419567,
+      "balances": {
+        "energy_abs_j": 7.450580596923828e-09,
+        "momentum_abs_kg_m_s": 2.220446049250313e-15,
+        "mass_relative": 1.063244132983289e-15
+      }
+    },
+    {
+      "case": "wall_pulse_16",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.15645563020079745,
+        "internal_energy_j": 151643.42522869835
+      },
+      "max_mach": 4.114978118415099e-06,
+      "sampled_temperature_tv_k": 0.5088451440893209,
+      "balances": {
+        "energy_abs_j": 2.2004940092301695e-09,
+        "momentum_abs_kg_m_s": 2.0006918214146574e-18,
+        "mass_relative": 5.87563536798145e-16
+      }
+    },
+    {
+      "case": "wall_pulse_32",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.07822781424442991,
+        "internal_energy_j": 75817.65507378228
+      },
+      "max_mach": 4.125112352978675e-06,
+      "sampled_temperature_tv_k": 0.5275588412770844,
+      "balances": {
+        "energy_abs_j": 1.034777596942149e-09,
+        "momentum_abs_kg_m_s": 5.310896579284463e-18,
+        "mass_relative": 2.2253533090647348e-16
+      }
+    },
+    {
+      "case": "wall_pulse_32_tight",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.07822781424441375,
+        "internal_energy_j": 75817.65507378228
+      },
+      "max_mach": 4.125112353145079e-06,
+      "sampled_temperature_tv_k": 0.527558841363259,
+      "balances": {
+        "energy_abs_j": 1.2533121207525255e-09,
+        "momentum_abs_kg_m_s": 4.186036825330752e-18,
+        "mass_relative": 2.77070878303567e-16
+      }
+    },
+    {
+      "case": "wall_pulse_8",
+      "accepted": true,
+      "minima": {
+        "mass_kg": 0.3129112672826768,
+        "internal_energy_j": 303319.3051956329
+      },
+      "max_mach": 4.094708739647071e-06,
+      "sampled_temperature_tv_k": 0.47411806372139154,
+      "balances": {
+        "energy_abs_j": 6.888285497552715e-10,
+        "momentum_abs_kg_m_s": 2.0036564367300475e-18,
+        "mass_relative": 4.0825407078251835e-16
+      }
+    }
+  ],
+  "admitted": [
+    {
+      "case": "smooth_negative",
+      "cells": 64
+    },
+    {
+      "case": "smooth_positive",
+      "cells": 64
+    },
+    {
+      "case": "stationary_contact",
+      "cells": 32
+    },
+    {
+      "case": "heated_steady",
+      "cells": 32
+    },
+    {
+      "case": "wall_pulse",
+      "cells": 32
+    },
+    {
+      "case": "startup",
+      "cells": 32
+    },
+    {
+      "case": "reversal",
+      "cells": 32
+    }
+  ],
+  "validated": false,
+  "plant_referenced": false,
+  "note": "Sampled admissibility and balances; no global positivity/TVD proof"
+}

@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "archive": "artifacts/ai04_refinement_delivery_v2",
+  "files_verified": 678,
+  "source_sha256": "01a9c2e01534b2ddc5d6d0ef11b0a356d9d3c8ddc8200a3cf9f582adf84a425f",
+  "runtime_archive_source_matches": true,
+  "wheel_sha256": "8800b1825696c4599a63b72e91e635f9643a2f51a8c962ab7c24ecf28b0aa81a",
+  "validated": false,
+  "plant_referenced": false
+}

@@ -5,6 +5,12 @@ on:
     branches: [ main, dev ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      run_external:
+        description: Run external tests on a preconfigured atomic-openmc runner
+        type: boolean
+        default: false
 
 jobs:
   test:
@@ -26,9 +32,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
-    - name: Run tests
+    - name: Run fast portable tests
       run: |
-        pytest tests/ -q --cov=core --cov=physics --cov=components --cov=plants --cov=sdk --cov=instrumentation --cov-report=term-missing --cov-fail-under=80
+        pytest tests/ -q -m "not external_integration and not long_running" --cov=core --cov=physics --cov=components --cov=plants --cov=sdk --cov=instrumentation --cov-report= --cov-fail-under=0
+
+    - name: Run long numerical and legacy workloads
+      run: |
+        pytest tests/ -q -m "long_running and not external_integration" --cov=core --cov=physics --cov=components --cov=plants --cov=sdk --cov=instrumentation --cov-append --cov-report=term-missing --cov-fail-under=80
     
     - name: Run smoke benchmark
       run: |
@@ -37,7 +47,7 @@ jobs:
     - name: Check code quality
       run: |
         pip install ruff black
-        ruff check reactor/ sdk/ scenarios/ agent_envs/pwr_env.py --ignore E501
+        ruff check reactor/ sdk/ scenarios/ agent_envs/ --ignore E501
         black --check reactor/ tests/ --line-length 100
 
     - name: Build wheel and import the shared session
@@ -50,6 +60,14 @@ jobs:
     - name: Exercise installed experiment CLI outside checkout
       run: |
         python scripts/verify_wheel.py dist/atomic_sim-*.whl
+
+  external-integration:
+    if: github.event_name == 'workflow_dispatch' && inputs.run_external
+    runs-on: [self-hosted, linux, atomic-openmc]
+    steps:
+    - uses: actions/checkout@v3
+    - name: Run real external integration on provisioned runtime
+      run: python -m pytest -q -m external_integration
 
   performance:
     runs-on: ubuntu-latest
@@ -69,15 +87,15 @@ jobs:
     
     - name: Performance benchmark
       run: |
-        python -c "
-from reactor import ReactorSimulator
-import time
-sim = ReactorSimulator()
-start = time.time()
-history = sim.run(100.0)
-elapsed = time.time() - start
-steps = len(history['time'])
-print(f'Performance: {steps/elapsed:.0f} steps/sec')
-assert steps/elapsed > 1000, 'Performance regression!'
-        "
+        python - <<'PY'
+        from reactor import ReactorSimulator
+        import time
+        sim = ReactorSimulator()
+        start = time.time()
+        history = sim.run(100.0)
+        elapsed = time.time() - start
+        steps = len(history['time'])
+        print(f'Performance: {steps/elapsed:.0f} steps/sec')
+        assert steps/elapsed > 1000, 'Performance regression!'
+        PY
 

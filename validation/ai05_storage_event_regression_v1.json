@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "kind": "regression_reproduction",
+  "old_source_sha256": "73d022a3bf683f2258595ce2005f7af4263b90b1fa1168c793cdd8b59b0949ef",
+  "current_source_sha256": "fd2c6801febff59d1c5af3b9ac1f50b349005b952dcd64e6ee4bdb3ccc230ad1",
+  "before_fix": "1 failed, 1 passed; tight continuation misses check event",
+  "after_fix": "30 passed including both analytic event cases",
+  "frozen_failed_source": "artifacts/ai05_storage_event_regression_v1/failed_runtime_source.zip",
+  "sha256": {
+    "failed_runtime_source.zip": "dd63b5e1ae5ddea2babff391e0b09b7f24d4c17f7576b16257fc02a62fcf989f",
+    "after_fix.log": "a80acd35c7d18e5d82ec078600c69af92b065efe959dc97182bcf541432a1600",
+    "gas_storage_pair_before_fix.py": "27595fe44f60cea4adc784e5a5ca855fce6929de29e4865382cc90f7eddb24f7",
+    "source.json": "d7e6ab40b14f6b80f1134d129ceaf71e57847ab67e2be86cd36a4cc239089c8e",
+    "before_fix.log": "1fcc37e95b06c973ad3de00e1c2a41bf33a6474d9f8892cc9d0812e9bfa2bcea",
+    "test_gas_storage_pair_regression.py": "2d463b58e8ad2868c902db0953113186bbdacf0c3ea015421bee7a7fc70abdc7",
+    "storage_references_before_fix.py": "1faf651afdc71cff7fa4d2eb90de17045e3d2258a9031b9b93f2684e2fa42105"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

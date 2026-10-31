@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-31",
+  "source_sha256": "2ff1540ae60cd022bd2e5db2e3e09185e5eef15209825cfa60094e1ef94b130d",
+  "python": "3.12.9",
+  "platform": "Linux-6.17.0-22-generic-x86_64-with-glibc2.39",
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.2",
+    "gymnasium": "1.2.0",
+    "torch": "2.7.0",
+    "atomic-sim": "2.0.0"
+  },
+  "tests_passed": 668,
+  "new_tests": 23,
+  "tests_deselected": 1,
+  "external_test_status": "OpenMC/MPI not executed",
+  "installed_wheel_verified": true,
+  "wheel_environment": "Temporary venv with system-site-packages; outside checkout",
+  "validated": false,
+  "plant_referenced": false
+}

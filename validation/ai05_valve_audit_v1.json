@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "4b9bf9ca9cb09dc9d585852426c871a0649df1f855efc80d264ae5578b9939d5",
+  "verification_sha256": "cd66fde0d11365cbcdd90884005b5499b10afa704d9fab9113fed299b9d10397",
+  "audit_script_sha256": "0f9f36728af63b87f608b478d24b52773753eaf3dccd4609faac8925e8c639f1",
+  "integrations": 20,
+  "case_families": 9,
+  "temporal_comparisons": [
+    {
+      "name": "closed_leaking_negative",
+      "metrics": {
+        "mass_flow_abs_kg_s": 0.0,
+        "omega_abs_rad_s": 0.0,
+        "temperature_abs_k": 0.0,
+        "integral_abs_j": 1.1681322575896047e-11,
+        "opening_abs": 0.0
+      }
+    },
+    {
+      "name": "closed_leaking_positive",
+      "metrics": {
+        "mass_flow_abs_kg_s": 0.0,
+        "omega_abs_rad_s": 0.0,
+        "temperature_abs_k": 0.0,
+        "integral_abs_j": 1.1681322575896047e-11,
+        "opening_abs": 0.0
+      }
+    },
+    {
+      "name": "cycle_negative",
+      "metrics": {
+        "mass_flow_abs_kg_s": 1.1926459819733282e-11,
+        "omega_abs_rad_s": 1.680433570072637e-12,
+        "temperature_abs_k": 5.684341886080802e-14,
+        "integral_abs_j": 1.5436540934388177e-12,
+        "opening_abs": 0.0
+      }
+    },
+    {
+      "name": "cycle_positive",
+      "metrics": {
+        "mass_flow_abs_kg_s": 1.1925571641313581e-11,
+        "omega_abs_rad_s": 1.666222715357435e-12,
+        "temperature_abs_k": 5.684341886080802e-14,
+        "integral_abs_j": 1.5560885913146194e-12,
+        "opening_abs": 0.0
+      }
+    },
+    {
+      "name": "fast_actuator",
+      "metrics": {
+        "mass_flow_abs_kg_s": 7.264411294727324e-12,
+        "omega_abs_rad_s": 2.360778239562933e-12,
+        "temperature_abs_k": 0.0,
+        "integral_abs_j": 3.247180302423658e-12,
+        "opening_abs": 0.0
+      }
+    },
+    {
+      "name": "open_positive",
+      "metrics": {
+        "mass_flow_abs_kg_s": 0.0,
+        "omega_abs_rad_s": 0.0,
+        "temperature_abs_k": 0.0,
+        "integral_abs_j": 1.5660361896152608e-11,
+        "opening_abs": 0.0
+      }
+    },
+    {
+      "name": "reverse_negative",
+      "metrics": {
+        "mass_flow_abs_kg_s": 1.1926459819733282e-11,
+        "omega_abs_rad_s": 1.680433570072637e-12,
+        "temperature_abs_k": 5.684341886080802e-14,
+        "integral_abs_j": 1.5436540934388177e-12,
+        "opening_abs": 0.0
+      }
+    },
+    {
+      "name": "reverse_positive",
+      "metrics": {
+        "mass_flow_abs_kg_s": 1.1925571641313581e-11,
+        "omega_abs_rad_s": 1.666222715357435e-12,
+        "temperature_abs_k": 5.684341886080802e-14,
+        "integral_abs_j": 1.5560885913146194e-12,
+        "opening_abs": 0.0
+      }
+    },
+    {
+      "name": "slow_actuator",
+      "metrics": {
+        "mass_flow_abs_kg_s": 1.1445067116255814e-11,
+        "omega_abs_rad_s": 2.533084852984757e-12,
+        "temperature_abs_k": 0.0,
+        "integral_abs_j": 1.748934330692009e-12,
+        "opening_abs": 0.0
+      }
+    }
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

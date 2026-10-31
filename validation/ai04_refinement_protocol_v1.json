@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "original_criteria_unchanged": true,
+  "old_budget_sha256": "e3a9e90ce76d43fd19651eb58c42610d3504c5bd5bef84e8958bc369d1172d00",
+  "new_budget_sha256": "1d6da7570025517c5299f177108c388706885939e9eee6d97c59c69d8a6f09e0",
+  "additional_grids": [
+    128
+  ],
+  "refined_admission_grids": [
+    32,
+    64,
+    128
+  ],
+  "retained_rejected_grids": [
+    16,
+    32,
+    64
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

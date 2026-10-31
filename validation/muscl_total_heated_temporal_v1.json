@@ -1,0 +1,399 @@
+{
+  "schema_version": 1,
+  "kind": "numerical_verification",
+  "validated": false,
+  "plant_referenced": false,
+  "horizon_s": 8,
+  "comparison_times": 41,
+  "measured": {
+    "flow_absolute_kg_s": 7.29098956764318e-08,
+    "pressure_absolute_pa": 0.09913224447518587,
+    "fluid_temperature_absolute_k": 2.0514107745839283e-08,
+    "wall_temperature_absolute_k": 5.6843418860808015e-12,
+    "kinetic_energy_absolute_j": 1.5784529239226686e-10,
+    "work_integral_absolute_j": 8.603251444583293e-11
+  },
+  "checks": {
+    "flow_absolute_kg_s": true,
+    "pressure_absolute_pa": true,
+    "fluid_temperature_absolute_k": true,
+    "wall_temperature_absolute_k": true,
+    "kinetic_energy_absolute_j": true,
+    "work_integral_absolute_j": true,
+    "mass_relative": true,
+    "energy_relative": true,
+    "mechanical_absolute_j": true,
+    "energy_absolute_j": true
+  },
+  "passed": true,
+  "budget_sha256": "c865a6661a8947b0cbf33e793b0dda571a71ec40f2843d63ecd17b1a219d17e7",
+  "source_hashes": [
+    "375ef3719d714ec9755c6c44af39a8f40ce9a3793b0efc06f0553cd55c505436",
+    "375ef3719d714ec9755c6c44af39a8f40ce9a3793b0efc06f0553cd55c505436"
+  ],
+  "runs": {
+    "artifacts/muscl_total_heated_forward_v1": {
+      "schema_version": 1,
+      "name": "total_energy_wall_pulse",
+      "status": "completed",
+      "model_id": "compatible-total-energy-liquid-channel",
+      "requested_duration_s": 8.0,
+      "completed_time_s": 8.0,
+      "wall_time_s": 31.865870973997517,
+      "accepted_output_steps": 40,
+      "balance": {
+        "mass_relative": 5.958305029925879e-16,
+        "energy_relative": 9.304538377400354e-16,
+        "max_mass_residual_kg": 1.4924585005349211e-15,
+        "max_energy_residual_j": 6.020854925736785e-09,
+        "final_mass_residual_kg": -1.2145774837268863e-15,
+        "final_energy_residual_j": 5.4551492212340236e-09,
+        "normalization": "maximum sampled absolute residual / initial absolute inventory",
+        "energy_absolute_j": 6.020854925736785e-09,
+        "mechanical_absolute_j": 6.137890922516126e-12
+      },
+      "budget_checks": {
+        "mass_relative": true,
+        "energy_relative": true,
+        "mechanical_absolute_j": true,
+        "energy_absolute_j": true
+      },
+      "numerical_acceptance": true,
+      "validated": false,
+      "plant_referenced": false,
+      "error": null,
+      "events": [],
+      "extrema": {
+        "time_s": {
+          "min": 0.0,
+          "max": 8.0
+        },
+        "inlet_mass_flow_kg_s": {
+          "min": 1.0549590161836582,
+          "max": 1.0551855406234307
+        },
+        "outlet_mass_flow_kg_s": {
+          "min": 1.0550591417019226,
+          "max": 1.0554327834866795
+        },
+        "min_pressure_pa": {
+          "min": 7003334.917707572,
+          "max": 7003347.407747623
+        },
+        "max_pressure_pa": {
+          "min": 7016667.876987429,
+          "max": 7016679.893089981
+        },
+        "min_temperature_k": {
+          "min": 500.10269728943007,
+          "max": 500.1655835996131
+        },
+        "max_temperature_k": {
+          "min": 500.5133095880407,
+          "max": 500.76301391743044
+        },
+        "right_cell_temperature_k": {
+          "min": 500.5133095880407,
+          "max": 500.76301391743044
+        },
+        "midpoint_pressure_pa": {
+          "min": 7010002.51482227,
+          "max": 7010016.651289432
+        },
+        "mean_wall_temperature_k": {
+          "min": 504.1154349653229,
+          "max": 505.3080152340229
+        },
+        "min_wall_temperature_k": {
+          "min": 503.86330788684916,
+          "max": 505.10269728943086
+        },
+        "max_wall_temperature_k": {
+          "min": 504.36625624481263,
+          "max": 505.5133095880407
+        },
+        "heat_w": {
+          "min": 3000.0,
+          "max": 3000.0
+        },
+        "wall_to_fluid_w": {
+          "min": 3724.636745592969,
+          "max": 5000.000000000284
+        },
+        "max_mach": {
+          "min": 0.0010060349971101699,
+          "max": 0.0010070999295869634
+        },
+        "stored_mass_kg": {
+          "min": 2.5042152618179916,
+          "max": 2.504837353977306
+        },
+        "stored_energy_j": {
+          "min": 6461973.284464463,
+          "max": 6470879.780947268
+        },
+        "mass_residual_kg": {
+          "min": -1.2145774837268863e-15,
+          "max": 1.4924585005349211e-15
+        },
+        "energy_residual_j": {
+          "min": 0.0,
+          "max": 6.020854925736785e-09
+        },
+        "kinetic_energy_j": {
+          "min": 1.9999969251901064,
+          "max": 2.000030076292859
+        },
+        "thermal_energy_j": {
+          "min": 6461971.284466233,
+          "max": 6470877.780947268
+        },
+        "pressure_work_w": {
+          "min": 25.27201875269723,
+          "max": 25.274340902842226
+        },
+        "dissipation_w": {
+          "min": 25.27201875270185,
+          "max": 25.2743701552603
+        },
+        "density_work_w": {
+          "min": -3.8945160890910973e-05,
+          "max": 0.0002954342051860053
+        },
+        "kinetic_rate_w": {
+          "min": -9.346292963862898e-05,
+          "max": 4.186064797774009e-07
+        },
+        "kinetic_boundary_power_w": {
+          "min": -0.0027306779456071073,
+          "max": -0.0014126417106286038
+        },
+        "pressure_work_integral_j": {
+          "min": 0.0,
+          "max": 202.189978143105
+        },
+        "dissipation_integral_j": {
+          "min": 0.0,
+          "max": 202.19016958512051
+        },
+        "density_work_integral_j": {
+          "min": 0.0,
+          "max": 0.00036662221756184196
+        },
+        "mechanical_residual_j": {
+          "min": -6.137890922516126e-12,
+          "max": 0.0
+        },
+        "mechanical_identity_residual_w": {
+          "min": -6.565016949120969e-15,
+          "max": 3.5206221415278773e-15
+        }
+      },
+      "scope": {
+        "model_id": "compatible-total-energy-liquid-channel",
+        "approximations": [
+          "\u043e\u0434\u043d\u043e\u0444\u0430\u0437\u043d\u0430\u044f \u0436\u0438\u0434\u043a\u043e\u0441\u0442\u044c IF97 region 1, \u0440\u0430\u0432\u043d\u043e\u043c\u0435\u0440\u043d\u0430\u044f \u0433\u043e\u0440\u0438\u0437\u043e\u043d\u0442\u0430\u043b\u044c\u043d\u0430\u044f \u0442\u0440\u0443\u0431\u0430",
+          "\u0441\u043e\u0441\u0440\u0435\u0434\u043e\u0442\u043e\u0447\u0435\u043d\u043d\u044b\u0439 \u0438\u043c\u043f\u0443\u043b\u044c\u0441 \u0431\u0435\u0437 \u043a\u043e\u043d\u0432\u0435\u043a\u0442\u0438\u0432\u043d\u043e\u0433\u043e \u0447\u043b\u0435\u043d\u0430; \u043d\u0435 \u043f\u043e\u043b\u043d\u044b\u0439 Euler/Navier-Stokes",
+          "\u043a\u0438\u043d\u0435\u0442\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u044d\u043d\u0435\u0440\u0433\u0438\u044f \u043d\u0430 \u0434\u0432\u043e\u0439\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0445 \u043e\u0431\u044a\u0451\u043c\u0430\u0445, \u0440\u0430\u0441\u043f\u0440\u0435\u0434\u0435\u043b\u0435\u043d\u0438\u0435 \u043a \u0441\u043e\u0441\u0435\u0434\u043d\u0438\u043c \u044f\u0447\u0435\u0439\u043a\u0430\u043c",
+          "\u043f\u043e\u043b\u043d\u0430\u044f \u044d\u043d\u0442\u0430\u043b\u044c\u043f\u0438\u044f \u043d\u0430 \u0433\u0440\u0430\u043d\u0438\u0446\u0430\u0445; \u0434\u0438\u0441\u0441\u0438\u043f\u0430\u0446\u0438\u044f \u0438 \u0440\u0430\u0431\u043e\u0442\u0430 \u043f\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u0438 \u0443\u0447\u0438\u0442\u044b\u0432\u0430\u044e\u0442\u0441\u044f \u043e\u0434\u043d\u043e\u043a\u0440\u0430\u0442\u043d\u043e",
+          "\u043f\u043e\u0441\u0442\u043e\u044f\u043d\u043d\u044b\u0435 \u0437\u0430\u0434\u0430\u043d\u043d\u044b\u0435 C/UA/K; \u0431\u0435\u0437 \u043d\u0430\u0441\u043e\u0441\u0430, CHF, \u044d\u043d\u0442\u0440\u043e\u043f\u0438\u0439\u043d\u043e\u0439 \u0438 \u0430\u043a\u0443\u0441\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u043a\u0432\u0430\u043b\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u0438"
+        ]
+      },
+      "solver_diagnostics": {
+        "accepted_rhs_evaluations": 23186,
+        "accepted_jacobian_evaluations": 23,
+        "accepted_lu_decompositions": 1666,
+        "accepted_solver_steps": 3105,
+        "accepted_output_intervals": 40,
+        "failed_output_intervals": 0,
+        "failed_rhs_evaluations": 0,
+        "analytic_jacobian_calls": 23,
+        "analytic_jacobian_successes": 23,
+        "last_analytic_jacobian_nnz": 90,
+        "scope": "Process-local solver RHS callbacks, including numerical probes, split by accepted/failed intervals; analytic-Jacobian preparation is separate; counters reset on restore; preflight/observation calls excluded"
+      }
+    },
+    "artifacts/muscl_total_heated_tight_v1": {
+      "schema_version": 1,
+      "name": "total_energy_wall_pulse_tight",
+      "status": "completed",
+      "model_id": "compatible-total-energy-liquid-channel",
+      "requested_duration_s": 8.0,
+      "completed_time_s": 8.0,
+      "wall_time_s": 42.32372846100043,
+      "accepted_output_steps": 40,
+      "balance": {
+        "mass_relative": 7.89679393890289e-16,
+        "energy_relative": 1.3945387721037635e-15,
+        "max_mass_residual_kg": 1.9780184434825543e-15,
+        "max_energy_residual_j": 9.023892744153272e-09,
+        "final_mass_residual_kg": -1.9780184434825543e-15,
+        "final_energy_residual_j": -5.14955900143832e-09,
+        "normalization": "maximum sampled absolute residual / initial absolute inventory",
+        "energy_absolute_j": 9.023892744153272e-09,
+        "mechanical_absolute_j": 1.3670296990751785e-12
+      },
+      "budget_checks": {
+        "mass_relative": true,
+        "energy_relative": true,
+        "mechanical_absolute_j": true,
+        "energy_absolute_j": true
+      },
+      "numerical_acceptance": true,
+      "validated": false,
+      "plant_referenced": false,
+      "error": null,
+      "events": [],
+      "extrema": {
+        "time_s": {
+          "min": 0.0,
+          "max": 8.0
+        },
+        "inlet_mass_flow_kg_s": {
+          "min": 1.0549590705033571,
+          "max": 1.0551855406234307
+        },
+        "outlet_mass_flow_kg_s": {
+          "min": 1.055059141701943,
+          "max": 1.0554327300341866
+        },
+        "min_pressure_pa": {
+          "min": 7003334.917707572,
+          "max": 7003347.426783494
+        },
+        "max_pressure_pa": {
+          "min": 7016667.876987429,
+          "max": 7016679.912013674
+        },
+        "min_temperature_k": {
+          "min": 500.10269728943007,
+          "max": 500.1655836066808
+        },
+        "max_temperature_k": {
+          "min": 500.5133095880407,
+          "max": 500.7630139173726
+        },
+        "right_cell_temperature_k": {
+          "min": 500.5133095880407,
+          "max": 500.7630139173726
+        },
+        "midpoint_pressure_pa": {
+          "min": 7010002.51482227,
+          "max": 7010016.634442357
+        },
+        "mean_wall_temperature_k": {
+          "min": 504.1154349653225,
+          "max": 505.3080152340229
+        },
+        "min_wall_temperature_k": {
+          "min": 503.8633078868497,
+          "max": 505.10269728943086
+        },
+        "max_wall_temperature_k": {
+          "min": 504.36625624481195,
+          "max": 505.5133095880407
+        },
+        "heat_w": {
+          "min": 3000.0,
+          "max": 3000.0
+        },
+        "wall_to_fluid_w": {
+          "min": 3724.6367455931018,
+          "max": 5000.000000000284
+        },
+        "max_mach": {
+          "min": 0.0010060349971101699,
+          "max": 0.0010070999295869949
+        },
+        "stored_mass_kg": {
+          "min": 2.504215261818099,
+          "max": 2.504837353977306
+        },
+        "stored_energy_j": {
+          "min": 6461973.284464456,
+          "max": 6470879.780947268
+        },
+        "mass_residual_kg": {
+          "min": -1.9780184434825543e-15,
+          "max": 6.971148918538672e-16
+        },
+        "energy_residual_j": {
+          "min": -9.023892744153272e-09,
+          "max": 4.311573320592288e-11
+        },
+        "kinetic_energy_j": {
+          "min": 1.9999969251901077,
+          "max": 2.00003007627492
+        },
+        "thermal_energy_j": {
+          "min": 6461971.284466227,
+          "max": 6470877.780947268
+        },
+        "pressure_work_w": {
+          "min": 25.27201875269723,
+          "max": 25.274340902841672
+        },
+        "dissipation_w": {
+          "min": 25.27201875270185,
+          "max": 25.27437015526015
+        },
+        "density_work_w": {
+          "min": -3.8945161055992904e-05,
+          "max": 0.0002953853325580698
+        },
+        "kinetic_rate_w": {
+          "min": -9.348756730105309e-05,
+          "max": 4.1860679833314313e-07
+        },
+        "kinetic_boundary_power_w": {
+          "min": -0.0027304197043775957,
+          "max": -0.0014126417106286038
+        },
+        "pressure_work_integral_j": {
+          "min": 0.0,
+          "max": 202.18997814310669
+        },
+        "dissipation_integral_j": {
+          "min": 0.0,
+          "max": 202.1901695851279
+        },
+        "density_work_integral_j": {
+          "min": 0.0,
+          "max": 0.0003666222185104927
+        },
+        "mechanical_residual_j": {
+          "min": -1.3670296990751785e-12,
+          "max": 0.0
+        },
+        "mechanical_identity_residual_w": {
+          "min": -5.072615199793514e-15,
+          "max": 4.0606115746331245e-15
+        }
+      },
+      "scope": {
+        "model_id": "compatible-total-energy-liquid-channel",
+        "approximations": [
+          "\u043e\u0434\u043d\u043e\u0444\u0430\u0437\u043d\u0430\u044f \u0436\u0438\u0434\u043a\u043e\u0441\u0442\u044c IF97 region 1, \u0440\u0430\u0432\u043d\u043e\u043c\u0435\u0440\u043d\u0430\u044f \u0433\u043e\u0440\u0438\u0437\u043e\u043d\u0442\u0430\u043b\u044c\u043d\u0430\u044f \u0442\u0440\u0443\u0431\u0430",
+          "\u0441\u043e\u0441\u0440\u0435\u0434\u043e\u0442\u043e\u0447\u0435\u043d\u043d\u044b\u0439 \u0438\u043c\u043f\u0443\u043b\u044c\u0441 \u0431\u0435\u0437 \u043a\u043e\u043d\u0432\u0435\u043a\u0442\u0438\u0432\u043d\u043e\u0433\u043e \u0447\u043b\u0435\u043d\u0430; \u043d\u0435 \u043f\u043e\u043b\u043d\u044b\u0439 Euler/Navier-Stokes",
+          "\u043a\u0438\u043d\u0435\u0442\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u044d\u043d\u0435\u0440\u0433\u0438\u044f \u043d\u0430 \u0434\u0432\u043e\u0439\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0445 \u043e\u0431\u044a\u0451\u043c\u0430\u0445, \u0440\u0430\u0441\u043f\u0440\u0435\u0434\u0435\u043b\u0435\u043d\u0438\u0435 \u043a \u0441\u043e\u0441\u0435\u0434\u043d\u0438\u043c \u044f\u0447\u0435\u0439\u043a\u0430\u043c",
+          "\u043f\u043e\u043b\u043d\u0430\u044f \u044d\u043d\u0442\u0430\u043b\u044c\u043f\u0438\u044f \u043d\u0430 \u0433\u0440\u0430\u043d\u0438\u0446\u0430\u0445; \u0434\u0438\u0441\u0441\u0438\u043f\u0430\u0446\u0438\u044f \u0438 \u0440\u0430\u0431\u043e\u0442\u0430 \u043f\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u0438 \u0443\u0447\u0438\u0442\u044b\u0432\u0430\u044e\u0442\u0441\u044f \u043e\u0434\u043d\u043e\u043a\u0440\u0430\u0442\u043d\u043e",
+          "\u043f\u043e\u0441\u0442\u043e\u044f\u043d\u043d\u044b\u0435 \u0437\u0430\u0434\u0430\u043d\u043d\u044b\u0435 C/UA/K; \u0431\u0435\u0437 \u043d\u0430\u0441\u043e\u0441\u0430, CHF, \u044d\u043d\u0442\u0440\u043e\u043f\u0438\u0439\u043d\u043e\u0439 \u0438 \u0430\u043a\u0443\u0441\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u043a\u0432\u0430\u043b\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u0438"
+        ]
+      },
+      "solver_diagnostics": {
+        "accepted_rhs_evaluations": 31365,
+        "accepted_jacobian_evaluations": 16,
+        "accepted_lu_decompositions": 1228,
+        "accepted_solver_steps": 4363,
+        "accepted_output_intervals": 40,
+        "failed_output_intervals": 0,
+        "failed_rhs_evaluations": 0,
+        "analytic_jacobian_calls": 16,
+        "analytic_jacobian_successes": 16,
+        "last_analytic_jacobian_nnz": 90,
+        "scope": "Process-local solver RHS callbacks, including numerical probes, split by accepted/failed intervals; analytic-Jacobian preparation is separate; counters reset on restore; preflight/observation calls excluded"
+      }
+    }
+  },
+  "scope": "Specific compatible total-energy liquid case; not full momentum-convection, acoustic, entropy or plant qualification"
+}

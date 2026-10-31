@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-31",
+  "package": "AI-03",
+  "status": "accepted",
+  "tasks_accepted": 8,
+  "model_id": "conservative-euler-liquid-channel",
+  "model_status": "implemented",
+  "snapshot_schema": 3,
+  "source_sha256": "4a80c474a46a642602db0215c48af128cad62886af62086f594cfda4470a27e0",
+  "baseline": "validation/ai03_baseline_v1.json",
+  "evidence": [
+    "validation/ai03_euler_reference_delivery_v1.json",
+    "validation/ai03_euler_temporal_delivery_v1.json",
+    "validation/ai03_euler_reflection_delivery_v1.json",
+    "validation/ai03_euler_restart_delivery_v1.json",
+    "validation/ai03_evidence_integrity_v1.json"
+  ],
+  "momentum_convection_implemented": true,
+  "conservative_total_energy_implemented": true,
+  "sparse_analytic_jacobian_verified": true,
+  "analytic_drag_cases": 12,
+  "smooth_truncation_grids": [
+    8,
+    16,
+    32
+  ],
+  "linearized_mode_amplitudes": 3,
+  "component_transients": 4,
+  "transient_horizon_s": 1.0,
+  "restart_time_s": 1.01,
+  "validated": false,
+  "plant_referenced": false,
+  "full_nonlinear_spatial_qualification": false,
+  "acoustic_qualified": false,
+  "industrial_plant_qualified": false,
+  "next_package": "AI-04",
+  "limitations": [
+    "Fixed-bound Rusanov can strongly overdiffuse low-Mach transport",
+    "Exterior-state numerical Riemann boundaries are not exact pressure/temperature ports",
+    "No gravity, variable area, two-phase flow or implicit positivity proof",
+    "Not integrated into VVER or agent environment",
+    "Truncation and linearized-mode tests are not full transient spatial/acoustic qualification"
+  ]
+}

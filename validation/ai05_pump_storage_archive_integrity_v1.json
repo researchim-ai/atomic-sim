@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "archive": "artifacts/ai05_pump_storage_delivery_v1",
+  "files_verified": 1030,
+  "source_sha256": "5ccba66aa4c4667f7b749783db379adf7d12b2ab8cdec65089e0357a025e59e6",
+  "runtime_archive_source_matches": true,
+  "wheel_sha256": "4633274c03a7bed3bd53060771ab994bd5506f6e399fe64e1769cc52c983954e",
+  "validated": false,
+  "plant_referenced": false
+}

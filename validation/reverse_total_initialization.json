@@ -1,0 +1,56 @@
+{
+  "scope": "Reverse steady compatible-total donor initialization; mixed SI component RHS threshold, not experimental validation",
+  "validated": false,
+  "plant_referenced": false,
+  "passed": true,
+  "cases": [
+    {
+      "cells": 1,
+      "heat_w": 0.0,
+      "flow_kg_s": -2.5851307012277323,
+      "max_physical_rhs_component": 2.1910539243623914e-07,
+      "criterion": 0.001,
+      "passed": true
+    },
+    {
+      "cells": 1,
+      "heat_w": 3000.0,
+      "flow_kg_s": -2.5850270664702806,
+      "max_physical_rhs_component": 1.252461540382499e-07,
+      "criterion": 0.001,
+      "passed": true
+    },
+    {
+      "cells": 3,
+      "heat_w": 0.0,
+      "flow_kg_s": -1.8279593895771709,
+      "max_physical_rhs_component": 2.1435661489890818e-07,
+      "criterion": 0.001,
+      "passed": true
+    },
+    {
+      "cells": 3,
+      "heat_w": 3000.0,
+      "flow_kg_s": -1.8277866820815432,
+      "max_physical_rhs_component": 1.5954267827602425e-07,
+      "criterion": 0.001,
+      "passed": true
+    },
+    {
+      "cells": 8,
+      "heat_w": 0.0,
+      "flow_kg_s": -1.2186383664753557,
+      "max_physical_rhs_component": 1.7372236459458277e-07,
+      "criterion": 0.001,
+      "passed": true
+    },
+    {
+      "cells": 8,
+      "heat_w": 3000.0,
+      "flow_kg_s": -1.2184440159855572,
+      "max_physical_rhs_component": 1.5545295894633937e-07,
+      "criterion": 0.001,
+      "passed": true
+    }
+  ]
+}

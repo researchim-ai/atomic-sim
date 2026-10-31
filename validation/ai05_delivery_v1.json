@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-31",
+  "package": "AI-05",
+  "status": "partial",
+  "scope": "Typed constant-coefficient component contracts and closed thermal networks",
+  "tasks_accepted": [
+    "AI-05.01",
+    "AI-05.02"
+  ],
+  "tasks_in_progress": [
+    "AI-05.03",
+    "AI-05.08"
+  ],
+  "baseline": "validation/ai05_baseline_v1.json",
+  "source_sha256": "70ef75d08ecac719e239ddee394df66a4847983930a8550333dbde678d5fc633",
+  "evidence": [
+    "validation/ai05_network_verification_v1.json",
+    "artifacts/ai05_network_verification_v2/verification.json",
+    "validation/network_topology_schema_v1.json",
+    "docs/AI_05_NETWORK_COMPILER_RU.md",
+    "tests/test_network_compiler.py",
+    "validation/ai05_ai04_gate_status_v1.json"
+  ],
+  "models": [
+    "linear-thermal-capacity",
+    "linear-thermal-conductance",
+    "linear-thermal-junction3"
+  ],
+  "network_model": "compiled-linear-thermal-network",
+  "analytic_cases": 5,
+  "horizon_s": 1000,
+  "restart_time_s": 1010,
+  "validated": false,
+  "plant_referenced": false,
+  "industrial_plant_qualified": false,
+  "ai04_current_checkout_admitted": false,
+  "next_package": "AI-05",
+  "remaining": [
+    "Nonlinear hydraulic network initialization and physical port closures",
+    "Pump/shaft, valves, storage and pressurizer",
+    "Two-stream heat exchanger and turbine/generator",
+    "Gravity loop and switched-network reinitialization"
+  ]
+}

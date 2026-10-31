@@ -1,0 +1,167 @@
+{
+  "kind": "instrumented_solver_profile",
+  "source_sha256": "6bbe5bf1a51e00d4e7e857d5625d5578a8b329d0caeedb1f0bf1deccc793b426",
+  "validated": false,
+  "plant_referenced": false,
+  "scope": "Single n4 analytic-Jacobian 0.02 s step, cProfile overhead present; not a controlled throughput benchmark",
+  "instrumented_wall_time_s": 2.630046932999903,
+  "solver_diagnostics": {
+    "accepted_rhs_evaluations": 1431,
+    "accepted_jacobian_evaluations": 2,
+    "accepted_lu_decompositions": 72,
+    "accepted_solver_steps": 190,
+    "accepted_output_intervals": 1,
+    "failed_output_intervals": 0,
+    "failed_rhs_evaluations": 0,
+    "analytic_jacobian_calls": 2,
+    "analytic_jacobian_successes": 2,
+    "last_analytic_jacobian_nnz": 77,
+    "scope": "Process-local solver RHS callbacks, including numerical probes, split by accepted/failed intervals; analytic-Jacobian preparation is separate; counters reset on restore; preflight/observation calls excluded"
+  },
+  "top_project_functions": [
+    {
+      "file": "physics/hydraulics/dynamic_channel.py",
+      "line": 450,
+      "function": "advance",
+      "calls": 1,
+      "own_s": 2.769e-05,
+      "cumulative_s": 2.6300119470000003
+    },
+    {
+      "file": "core/solvers.py",
+      "line": 39,
+      "function": "integrate",
+      "calls": 1,
+      "own_s": 2.3462e-05,
+      "cumulative_s": 2.6296877000000003
+    },
+    {
+      "file": "physics/hydraulics/dynamic_channel.py",
+      "line": 431,
+      "function": "_counted_derivatives",
+      "calls": 1431,
+      "own_s": 0.0005847490000000001,
+      "cumulative_s": 2.58530833
+    },
+    {
+      "file": "physics/hydraulics/dynamic_channel.py",
+      "line": 428,
+      "function": "derivatives",
+      "calls": 1431,
+      "own_s": 0.001603337,
+      "cumulative_s": 2.584723581
+    },
+    {
+      "file": "physics/hydraulics/dynamic_channel.py",
+      "line": 367,
+      "function": "rates",
+      "calls": 1434,
+      "own_s": 0.034985197,
+      "cumulative_s": 2.5835916770000003
+    },
+    {
+      "file": "physics/hydraulics/dynamic_channel.py",
+      "line": 336,
+      "function": "_load",
+      "calls": 1435,
+      "own_s": 0.014772758,
+      "cumulative_s": 1.7614956400000001
+    },
+    {
+      "file": "physics/hydraulics/dynamic_channel.py",
+      "line": 32,
+      "function": "_liquid_state",
+      "calls": 5553,
+      "own_s": 0.0018351420000000001,
+      "cumulative_s": 1.720371966
+    },
+    {
+      "file": "physics/materials/iapws.py",
+      "line": 1306,
+      "function": "properties_rho_u",
+      "calls": 5553,
+      "own_s": 0.0038258840000000003,
+      "cumulative_s": 1.718536824
+    },
+    {
+      "file": "physics/materials/iapws.py",
+      "line": 1215,
+      "function": "_invert_liquid_local",
+      "calls": 5553,
+      "own_s": 0.06370066,
+      "cumulative_s": 1.71471094
+    },
+    {
+      "file": "physics/materials/iapws.py",
+      "line": 479,
+      "function": "_region1_raw",
+      "calls": 44426,
+      "own_s": 1.121071181,
+      "cumulative_s": 1.6113463090000002
+    },
+    {
+      "file": "physics/materials/iapws.py",
+      "line": 678,
+      "function": "_pack",
+      "calls": 5553,
+      "own_s": 0.008498471,
+      "cumulative_s": 0.44980081600000005
+    },
+    {
+      "file": "physics/hydraulics/dynamic_channel.py",
+      "line": 68,
+      "function": "_check_face_liquid",
+      "calls": 5673,
+      "own_s": 0.005564963,
+      "cumulative_s": 0.43013937100000005
+    },
+    {
+      "file": "physics/hydraulics/dynamic_channel.py",
+      "line": 52,
+      "function": "_face_liquid_bounds",
+      "calls": 5551,
+      "own_s": 0.010405724,
+      "cumulative_s": 0.424574408
+    },
+    {
+      "file": "physics/materials/iapws.py",
+      "line": 665,
+      "function": "conductivity_w_m_k",
+      "calls": 5553,
+      "own_s": 0.23134577,
+      "cumulative_s": 0.241028184
+    },
+    {
+      "file": "physics/hydraulics/dynamic_channel.py",
+      "line": 42,
+      "function": "_sound_speed",
+      "calls": 5551,
+      "own_s": 0.009859959000000001,
+      "cumulative_s": 0.20984803100000002
+    },
+    {
+      "file": "physics/materials/iapws.py",
+      "line": 651,
+      "function": "viscosity_pa_s",
+      "calls": 5553,
+      "own_s": 0.18151504000000002,
+      "cumulative_s": 0.19169823800000002
+    },
+    {
+      "file": "physics/hydraulics/reconstruction.py",
+      "line": 30,
+      "function": "face_values",
+      "calls": 2870,
+      "own_s": 0.024575274,
+      "cumulative_s": 0.079864368
+    },
+    {
+      "file": "physics/hydraulics/network.py",
+      "line": 249,
+      "function": "derivatives",
+      "calls": 1434,
+      "own_s": 0.022400469000000003,
+      "cumulative_s": 0.043295836000000004
+    }
+  ]
+}

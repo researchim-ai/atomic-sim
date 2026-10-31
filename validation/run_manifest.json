@@ -1,6 +1,6 @@
 {
   "document": "run_manifest",
-  "date": "2026-10-31",
+  "date": "2026-11-01",
   "roadmap": "docs/INDUSTRIAL_STARTUP_ROADMAP_RU.md",
   "roadmap_version": "1.0",
   "validated": false,
@@ -155,6 +155,253 @@
       "plant_referenced": false,
       "evidence": "validation/pipe_mesh_delivery.json",
       "note": "Fixed total L, volume, K, heat and UA. Steady first-order donor scheme only; transient mesh and mechanical energy remain unqualified."
+    },
+    {
+      "id": "pipe_thermal_transient_mesh_diagnostic",
+      "model_id": "pressure-driven-wall-channel",
+      "status": "diagnostic_not_accepted",
+      "cells": [
+        4,
+        8,
+        16
+      ],
+      "horizon_s": 8,
+      "numerical_full_horizon_accepted": false,
+      "accepted_full_horizon": false,
+      "validated": false,
+      "plant_referenced": false,
+      "evidence": "validation/pipe_uniform_transient_diagnostic.json",
+      "note": "All eight integrations and restarts complete; both uniform and smooth pulse cases fail instantaneous outlet mesh order and midpoint pressure temporal criterion. No transient spatial qualification.",
+      "smooth_evidence": "validation/pipe_smooth_transient_diagnostic.json",
+      "restart_evidence": "validation/pipe_transient_restart.json"
+    },
+    {
+      "id": "muscl_wall_pulse_n4_8s",
+      "model_id": "pressure-driven-wall-channel",
+      "status": "numerically_verified_temporal_component_case",
+      "horizon_s": 8,
+      "accepted_full_horizon": false,
+      "numerical_full_horizon_accepted": true,
+      "validated": false,
+      "plant_referenced": false,
+      "evidence": "validation/batch10_muscl_temporal.json",
+      "restart_evidence": "validation/batch10_restart.json",
+      "note": "Same-grid temporal comparison only; full nonlinear MUSCL spatial order and mechanical energy are unqualified."
+    },
+    {
+      "id": "muscl_thermal_mesh_analytic_jacobian_8s",
+      "model_id": "pressure-driven-wall-channel",
+      "status": "numerically_verified_specific_thermal_transient_case",
+      "horizon_s": 8,
+      "cells": [
+        4,
+        8,
+        16
+      ],
+      "accepted_full_horizon": false,
+      "numerical_full_horizon_accepted": true,
+      "validated": false,
+      "plant_referenced": false,
+      "evidence": "validation/batch11_muscl_transient_mesh.json",
+      "jacobian_evidence": "validation/batch11_jacobian_audit.json",
+      "restart_evidence": "validation/batch11_restart.json",
+      "note": "Specific sampled thermal self-convergence and finest-grid time control; not full nonlinear spatial, acoustic, mechanical-energy or plant qualification."
+    },
+    {
+      "id": "compatible_total_energy_wall_pulse_8s",
+      "model_id": "compatible-total-energy-liquid-channel",
+      "status": "numerically_verified_reduced_total_energy_case",
+      "horizon_s": 8,
+      "accepted_full_horizon": false,
+      "numerical_full_horizon_accepted": true,
+      "validated": false,
+      "plant_referenced": false,
+      "evidence": "validation/batch12_total_temporal.json",
+      "mechanical_reference": "validation/batch12_frozen_density_delivery.json",
+      "jacobian_evidence": "validation/batch12_jacobian_audit.json",
+      "restart_evidence": "validation/batch12_restart.json",
+      "note": "Discrete total-energy closure of reduced momentum model only; not full momentum convection, entropy, acoustic, spatial or plant qualification."
+    },
+    {
+      "id": "conservative_euler_liquid_component_1s",
+      "horizon_s": 1.0,
+      "status": "numerical_component_verified",
+      "numerical_full_horizon_accepted": true,
+      "accepted_full_horizon": false,
+      "evidence": "validation/ai03_euler_temporal_delivery_v1.json",
+      "additional_evidence": [
+        "validation/ai03_euler_reference_delivery_v1.json",
+        "validation/ai03_euler_reflection_delivery_v1.json",
+        "validation/ai03_euler_restart_delivery_v1.json"
+      ],
+      "note": "Separate conservative Euler liquid component, fixed-bound Rusanov and prescribed exterior-state Riemann boundaries. Not VVER, nonlinear spatial, acoustic or experimental qualification."
+    },
+    {
+      "id": "contact_euler_resolved_front_0p3s",
+      "model_id": "contact-euler-liquid-channel",
+      "horizon_s": 0.3,
+      "completed_time_s": 0.3,
+      "status": "numerical_component_spatial_temporal_verified",
+      "numerical_full_horizon_accepted": true,
+      "accepted_full_horizon": false,
+      "validated": false,
+      "plant_referenced": false,
+      "evidence": "validation/ai04_qualified_sdk_v1.json",
+      "additional_evidence": [
+        "validation/ai04_refinement_audit_v4.json",
+        "validation/ai04_qualification_audit_v5.json"
+      ],
+      "note": "Exact periodic 512-cell contact fixture, explicit absolute tolerances, mesh/time controls. Coarser front fixtures rejected. No VVER, acoustic, physical pressure-port or plant qualification."
+    },
+    {
+      "id": "compiled_linear_thermal_network_1000s",
+      "model_id": "compiled-linear-thermal-network",
+      "status": "numerically_verified_linear_component_network",
+      "horizon_s": 1000,
+      "completed_time_s": 1000,
+      "numerical_full_horizon_accepted": true,
+      "accepted_full_horizon": false,
+      "validated": false,
+      "plant_referenced": false,
+      "evidence": "validation/ai05_network_verification_v8.json",
+      "note": "Fixed linear thermal fixtures with typed ports and consistent initialization; not hydraulic equipment or plant qualification",
+      "historical_evidence": [
+        "validation/ai05_network_verification_v1.json",
+        "validation/ai05_network_verification_v2.json",
+        "validation/ai05_network_verification_v3.json",
+        "validation/ai05_network_verification_v4.json",
+        "validation/ai05_network_verification_v5.json",
+        "validation/ai05_network_verification_v6.json",
+        "validation/ai05_network_verification_v7.json"
+      ]
+    },
+    {
+      "id": "reduced_circulation_head_switch_10s",
+      "model_id": "incompressible-thermal-circulation-loop",
+      "horizon_s": 10,
+      "completed_time_s": 10,
+      "status": "numerically_verified_reduced_circulation_case",
+      "numerical_full_horizon_accepted": true,
+      "accepted_full_horizon": false,
+      "validated": false,
+      "plant_referenced": false,
+      "evidence": "validation/ai05_circulation_case_delivery_v6.json",
+      "additional_evidence": [
+        "validation/ai05_circulation_verification_v6.json",
+        "validation/ai05_circulation_audit_v7.json"
+      ],
+      "note": "Fixed constant-property single-cycle ideal-head switching case; not real pump, compressible network, acoustics or plant qualification",
+      "historical_evidence": [
+        "validation/ai05_circulation_case_delivery_v1.json",
+        "validation/ai05_circulation_case_delivery_v2.json",
+        "validation/ai05_circulation_case_delivery_v3.json",
+        "validation/ai05_circulation_case_delivery_v4.json",
+        "validation/ai05_circulation_case_delivery_v5.json"
+      ]
+    },
+    {
+      "id": "displacement_pump_trip_20s",
+      "model_id": "displacement-pump-circulation-loop",
+      "horizon_s": 20,
+      "completed_time_s": 20,
+      "status": "numerically_verified_fixed_case",
+      "numerical_full_horizon_accepted": true,
+      "numerical_acceptance": true,
+      "accepted_full_horizon": false,
+      "evidence": "validation/ai05_pump_case_delivery_v5.json",
+      "additional_evidence": [
+        "validation/ai05_pump_verification_v5.json",
+        "validation/ai05_pump_audit_v6.json"
+      ],
+      "validated": false,
+      "plant_referenced": false,
+      "note": "Signed reduced displacement pump/shaft with passive leakage and drag; no centrifugal/manufacturer/plant qualification",
+      "historical_evidence": [
+        "validation/ai05_pump_case_delivery_v1.json",
+        "validation/ai05_pump_case_delivery_v2.json",
+        "validation/ai05_pump_case_delivery_v3.json",
+        "validation/ai05_pump_case_delivery_v4.json"
+      ]
+    },
+    {
+      "id": "finite_leakage_valve_cycle_20s",
+      "model_id": "valved-displacement-pump-circulation-loop",
+      "horizon_s": 20,
+      "completed_time_s": 20,
+      "status": "numerically_verified_fixed_case",
+      "numerical_full_horizon_accepted": true,
+      "accepted_full_horizon": false,
+      "evidence": "validation/ai05_valve_case_delivery_v4.json",
+      "additional_evidence": [
+        "validation/ai05_valve_verification_v4.json",
+        "validation/ai05_valve_audit_v5.json"
+      ],
+      "validated": false,
+      "plant_referenced": false,
+      "note": "Finite-leakage modulating valve and exact signal actuator; not perfect isolation/check valve/storage/plant qualification",
+      "historical_evidence": [
+        "validation/ai05_valve_case_delivery_v1.json",
+        "validation/ai05_valve_case_delivery_v2.json",
+        "validation/ai05_valve_case_delivery_v3.json"
+      ]
+    },
+    {
+      "id": "gas_cushion_storage_isolation_20s",
+      "model_id": "gas-cushion-transfer-pair",
+      "horizon_s": 20,
+      "completed_time_s": 20,
+      "status": "numerically_verified_fixed_case",
+      "numerical_full_horizon_accepted": true,
+      "accepted_full_horizon": false,
+      "evidence": "validation/ai05_storage_case_delivery_v3.json",
+      "additional_evidence": [
+        "validation/ai05_storage_verification_v3.json",
+        "validation/ai05_storage_audit_v4.json"
+      ],
+      "validated": false,
+      "plant_referenced": false,
+      "note": "Two gas cushions, constant-density liquid, boundary work and zero-inertia line; not steam pressurizer/inertial shutoff/plant qualification",
+      "historical_evidence": [
+        "validation/ai05_storage_case_delivery_v1.json",
+        "validation/ai05_storage_case_delivery_v2.json"
+      ]
+    },
+    {
+      "id": "inertial_gas_storage_resistance_switch_20s",
+      "model_id": "inertial-gas-storage-pair",
+      "horizon_s": 20,
+      "completed_time_s": 20,
+      "status": "numerically_verified_fixed_case",
+      "numerical_full_horizon_accepted": true,
+      "accepted_full_horizon": false,
+      "evidence": "validation/ai05_inertial_storage_case_delivery_v2.json",
+      "additional_evidence": [
+        "validation/ai05_inertial_storage_verification_v2.json",
+        "validation/ai05_inertial_storage_audit_v2.json"
+      ],
+      "validated": false,
+      "plant_referenced": false,
+      "note": "Ideal kinetic inertance and gas storage; no resolved pipe/contact/pump/steam pressurizer/plant qualification",
+      "historical_evidence": [
+        "validation/ai05_inertial_storage_case_delivery_v1.json"
+      ]
+    },
+    {
+      "id": "pump_shaft_storage_trip_20s",
+      "model_id": "pump-shaft-gas-storage-pair",
+      "horizon_s": 20,
+      "completed_time_s": 20,
+      "status": "numerically_verified_fixed_case",
+      "numerical_full_horizon_accepted": true,
+      "accepted_full_horizon": false,
+      "evidence": "validation/ai05_pump_storage_case_delivery_v1.json",
+      "additional_evidence": [
+        "validation/ai05_pump_storage_verification_v1.json",
+        "validation/ai05_pump_storage_audit_v1.json"
+      ],
+      "validated": false,
+      "plant_referenced": false,
+      "note": "Reduced pump/shaft and gas stores, explicit leakage thermal port; no contact/manufacturer/steam pressurizer/plant qualification"
     }
   ],
   "targets_not_measured_as_acceptance": {

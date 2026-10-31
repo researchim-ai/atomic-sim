@@ -1,0 +1,650 @@
+{
+  "schema_version": 1,
+  "source_sha256": "fd2c6801febff59d1c5af3b9ac1f50b349005b952dcd64e6ee4bdb3ccc230ad1",
+  "budget_sha256": "825c714e1db1eb9ee230958cc70f42a7404a7bf870c64866a08ec5a28cb7a642",
+  "script_sha256": "f0a1af1496969a720745c74cb5a782dd476de4fbf00108daf67cc73890d3c253",
+  "reference_sha256": "eff39b43261a3af757a631e1674819b99dffadc27f84fe991662df139baca441",
+  "integrations": 24,
+  "case_families": 11,
+  "all_cases_accepted": true,
+  "cases": [
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.4299672557172016e-13,
+        "pressure_abs_pa": 3.958120942115784e-09,
+        "temperature_abs_k": 3.524291969370097e-12,
+        "boundary_work_abs_j": 2.5124791136477143e-11,
+        "energy_abs_j": 7.3298167535540415e-09,
+        "local_energy_abs_w": 0.0,
+        "event_time_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [],
+      "quadrature": [
+        {
+          "t": 0.1,
+          "transfer_mass_abs_kg": 2.7755575615628914e-17
+        },
+        {
+          "t": 1,
+          "transfer_mass_abs_kg": 1.1102230246251565e-16
+        },
+        {
+          "t": 3,
+          "transfer_mass_abs_kg": 6.661338147750939e-16
+        }
+      ],
+      "restart_energy_abs_j": 2.8035174182150513e-09,
+      "name": "adiabatic_forward",
+      "policy": "base",
+      "folder": "artifacts/ai05_storage_verification_v2/adiabatic_forward_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.021405182655144e-14,
+        "pressure_abs_pa": 2.6193447411060333e-10,
+        "temperature_abs_k": 6.821210263296962e-13,
+        "boundary_work_abs_j": 2.2168933355715126e-12,
+        "energy_abs_j": 5.53755796772748e-09,
+        "local_energy_abs_w": 0.0,
+        "event_time_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [],
+      "quadrature": [
+        {
+          "t": 0.1,
+          "transfer_mass_abs_kg": 2.7755575615628914e-17
+        },
+        {
+          "t": 1,
+          "transfer_mass_abs_kg": 1.1102230246251565e-16
+        },
+        {
+          "t": 3,
+          "transfer_mass_abs_kg": 6.661338147750939e-16
+        }
+      ],
+      "restart_energy_abs_j": 2.7655460144160315e-09,
+      "name": "adiabatic_forward",
+      "policy": "tight",
+      "folder": "artifacts/ai05_storage_verification_v2/adiabatic_forward_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.4344081478157023e-13,
+        "pressure_abs_pa": 3.987224772572517e-09,
+        "temperature_abs_k": 3.524291969370097e-12,
+        "boundary_work_abs_j": 2.509636942704674e-11,
+        "energy_abs_j": 8.105743631858786e-09,
+        "local_energy_abs_w": 0.0,
+        "event_time_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [],
+      "quadrature": [
+        {
+          "t": 0.1,
+          "transfer_mass_abs_kg": 2.7755575615628914e-17
+        },
+        {
+          "t": 1,
+          "transfer_mass_abs_kg": 1.1102230246251565e-16
+        },
+        {
+          "t": 3,
+          "transfer_mass_abs_kg": 6.661338147750939e-16
+        }
+      ],
+      "restart_energy_abs_j": 3.269292392360512e-09,
+      "name": "adiabatic_reverse",
+      "policy": "base",
+      "folder": "artifacts/ai05_storage_verification_v2/adiabatic_reverse_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 9.769962616701378e-15,
+        "pressure_abs_pa": 2.6193447411060333e-10,
+        "temperature_abs_k": 6.252776074688882e-13,
+        "boundary_work_abs_j": 2.5011104298755527e-12,
+        "energy_abs_j": 1.1689152756844123e-08,
+        "local_energy_abs_w": 0.0,
+        "event_time_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [],
+      "quadrature": [
+        {
+          "t": 0.1,
+          "transfer_mass_abs_kg": 2.7755575615628914e-17
+        },
+        {
+          "t": 1,
+          "transfer_mass_abs_kg": 1.1102230246251565e-16
+        },
+        {
+          "t": 3,
+          "transfer_mass_abs_kg": 6.661338147750939e-16
+        }
+      ],
+      "restart_energy_abs_j": 6.547907105414197e-09,
+      "name": "adiabatic_reverse",
+      "policy": "tight",
+      "folder": "artifacts/ai05_storage_verification_v2/adiabatic_reverse_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.7674750552032492e-13,
+        "pressure_abs_pa": 4.249159246683121e-09,
+        "temperature_abs_k": 3.0127011996228248e-12,
+        "boundary_work_abs_j": 3.950617610826157e-11,
+        "energy_abs_j": 4.795793984158081e-09,
+        "local_energy_abs_w": 0.0,
+        "event_time_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [],
+      "quadrature": [
+        {
+          "t": 0.1,
+          "transfer_mass_abs_kg": 2.7755575615628914e-17
+        },
+        {
+          "t": 1,
+          "transfer_mass_abs_kg": 1.1102230246251565e-16
+        },
+        {
+          "t": 3,
+          "transfer_mass_abs_kg": 2.220446049250313e-16
+        }
+      ],
+      "restart_energy_abs_j": 1.8920331967819948e-09,
+      "name": "isolation",
+      "policy": "base",
+      "folder": "artifacts/ai05_storage_verification_v2/isolation_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.1546319456101628e-14,
+        "pressure_abs_pa": 2.0372681319713593e-10,
+        "temperature_abs_k": 5.115907697472721e-13,
+        "boundary_work_abs_j": 1.0800249583553523e-12,
+        "energy_abs_j": 7.158263315432123e-09,
+        "local_energy_abs_w": 0.0,
+        "event_time_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [],
+      "quadrature": [
+        {
+          "t": 0.1,
+          "transfer_mass_abs_kg": 2.7755575615628914e-17
+        },
+        {
+          "t": 1,
+          "transfer_mass_abs_kg": 1.1102230246251565e-16
+        },
+        {
+          "t": 3,
+          "transfer_mass_abs_kg": 2.220446049250313e-16
+        }
+      ],
+      "restart_energy_abs_j": 1.4047145668882877e-09,
+      "name": "isolation",
+      "policy": "tight",
+      "folder": "artifacts/ai05_storage_verification_v2/isolation_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.4699352846037073e-13,
+        "pressure_abs_pa": 4.045432433485985e-09,
+        "temperature_abs_k": 3.524291969370097e-12,
+        "boundary_work_abs_j": 2.637534635141492e-11,
+        "energy_abs_j": 5.618431941911695e-09,
+        "local_energy_abs_w": 0.0,
+        "event_time_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [],
+      "quadrature": [
+        {
+          "t": 0.1,
+          "transfer_mass_abs_kg": 2.0816681711721685e-16
+        },
+        {
+          "t": 1,
+          "transfer_mass_abs_kg": 3.3306690738754696e-16
+        },
+        {
+          "t": 3,
+          "transfer_mass_abs_kg": 4.440892098500626e-16
+        }
+      ],
+      "restart_energy_abs_j": 4.773482942255214e-09,
+      "name": "check_forward",
+      "policy": "base",
+      "folder": "artifacts/ai05_storage_verification_v2/check_forward_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 5.329070518200751e-15,
+        "pressure_abs_pa": 3.4924596548080444e-10,
+        "temperature_abs_k": 7.958078640513122e-13,
+        "boundary_work_abs_j": 1.7053025658242404e-12,
+        "energy_abs_j": 7.851738814679265e-09,
+        "local_energy_abs_w": 0.0,
+        "event_time_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [],
+      "quadrature": [
+        {
+          "t": 0.1,
+          "transfer_mass_abs_kg": 2.0816681711721685e-16
+        },
+        {
+          "t": 1,
+          "transfer_mass_abs_kg": 3.3306690738754696e-16
+        },
+        {
+          "t": 3,
+          "transfer_mass_abs_kg": 4.440892098500626e-16
+        }
+      ],
+      "restart_energy_abs_j": 3.3151081879623234e-10,
+      "name": "check_forward",
+      "policy": "tight",
+      "folder": "artifacts/ai05_storage_verification_v2/check_forward_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 0.0,
+        "pressure_abs_pa": 0.0,
+        "temperature_abs_k": 5.684341886080802e-14,
+        "boundary_work_abs_j": 0.0,
+        "energy_abs_j": 1.4210854715202008e-12,
+        "local_energy_abs_w": 0.0,
+        "event_time_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [],
+      "quadrature": [
+        {
+          "t": 0.1,
+          "transfer_mass_abs_kg": 0.0
+        },
+        {
+          "t": 1,
+          "transfer_mass_abs_kg": 0.0
+        },
+        {
+          "t": 3,
+          "transfer_mass_abs_kg": 0.0
+        }
+      ],
+      "restart_energy_abs_j": 0.0,
+      "name": "check_reverse_blocked",
+      "policy": "base",
+      "folder": "artifacts/ai05_storage_verification_v2/check_reverse_blocked_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 0.0,
+        "pressure_abs_pa": 0.0,
+        "temperature_abs_k": 5.684341886080802e-14,
+        "boundary_work_abs_j": 0.0,
+        "energy_abs_j": 1.4210854715202008e-12,
+        "local_energy_abs_w": 0.0,
+        "event_time_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [],
+      "quadrature": [
+        {
+          "t": 0.1,
+          "transfer_mass_abs_kg": 0.0
+        },
+        {
+          "t": 1,
+          "transfer_mass_abs_kg": 0.0
+        },
+        {
+          "t": 3,
+          "transfer_mass_abs_kg": 0.0
+        }
+      ],
+      "restart_energy_abs_j": 0.0,
+      "name": "check_reverse_blocked",
+      "policy": "tight",
+      "folder": "artifacts/ai05_storage_verification_v2/check_reverse_blocked_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 8.171241461241152e-14,
+        "pressure_abs_pa": 3.958120942115784e-09,
+        "temperature_abs_k": 6.423306331271306e-12,
+        "boundary_work_abs_j": 1.6825651982799172e-11,
+        "energy_abs_j": 4.524395080807153e-09,
+        "local_energy_abs_w": 1.1402789823478088e-10,
+        "event_time_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [],
+      "quadrature": [],
+      "restart_energy_abs_j": 2.8040858524036594e-09,
+      "name": "thermal_forward",
+      "policy": "base",
+      "folder": "artifacts/ai05_storage_verification_v2/thermal_forward_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.1102230246251565e-14,
+        "pressure_abs_pa": 2.3283064365386963e-10,
+        "temperature_abs_k": 7.958078640513122e-13,
+        "boundary_work_abs_j": 5.6843418860808015e-12,
+        "energy_abs_j": 5.998231245030183e-09,
+        "local_energy_abs_w": 1.1175416148034856e-10,
+        "event_time_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [],
+      "quadrature": [],
+      "restart_energy_abs_j": 4.5906745071988553e-10,
+      "name": "thermal_forward",
+      "policy": "tight",
+      "folder": "artifacts/ai05_storage_verification_v2/thermal_forward_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 8.215650382226158e-14,
+        "pressure_abs_pa": 3.958120942115784e-09,
+        "temperature_abs_k": 6.423306331271306e-12,
+        "boundary_work_abs_j": 1.6825651982799172e-11,
+        "energy_abs_j": 7.472863217117265e-09,
+        "local_energy_abs_w": 1.1402789823478088e-10,
+        "event_time_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [],
+      "quadrature": [],
+      "restart_energy_abs_j": 4.6658215069328435e-09,
+      "name": "thermal_reverse",
+      "policy": "base",
+      "folder": "artifacts/ai05_storage_verification_v2/thermal_reverse_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 7.549516567451064e-15,
+        "pressure_abs_pa": 2.9103830456733704e-10,
+        "temperature_abs_k": 7.389644451905042e-13,
+        "boundary_work_abs_j": 6.0254023992456496e-12,
+        "energy_abs_j": 5.741412678617053e-09,
+        "local_energy_abs_w": 1.1175416148034856e-10,
+        "event_time_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [],
+      "quadrature": [],
+      "restart_energy_abs_j": 4.670027919928543e-09,
+      "name": "thermal_reverse",
+      "policy": "tight",
+      "folder": "artifacts/ai05_storage_verification_v2/thermal_reverse_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.1232461536745623e-13,
+        "pressure_abs_pa": 1.6007106751203537e-09,
+        "temperature_abs_k": 1.3642420526593924e-12,
+        "boundary_work_abs_j": 4.069988790433854e-11,
+        "energy_abs_j": 2.663227860466577e-09,
+        "local_energy_abs_w": 1.4210854715202004e-14,
+        "event_time_abs_s": 6.51792397832196e-10,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "check_threshold",
+          "t": 6.384566802246584,
+          "direction": 1
+        }
+      ],
+      "quadrature": [],
+      "restart_energy_abs_j": 1.2278178473934531e-11,
+      "name": "heated_check_opening",
+      "policy": "base",
+      "folder": "artifacts/ai05_storage_verification_v2/heated_check_opening_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.1162510567523246e-13,
+        "pressure_abs_pa": 1.6007106751203537e-09,
+        "temperature_abs_k": 1.3642420526593924e-12,
+        "boundary_work_abs_j": 5.2523319027386606e-11,
+        "energy_abs_j": 2.3155735107138753e-09,
+        "local_energy_abs_w": 0.0,
+        "event_time_abs_s": 6.410960651237474e-10,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "check_threshold",
+          "t": 6.384566802235888,
+          "direction": 1
+        }
+      ],
+      "quadrature": [],
+      "restart_energy_abs_j": 2.319211489520967e-11,
+      "name": "heated_check_opening",
+      "policy": "tight",
+      "folder": "artifacts/ai05_storage_verification_v2/heated_check_opening_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.5599388771439714e-14,
+        "pressure_abs_pa": 3.536115400493145e-09,
+        "temperature_abs_k": 1.0516032489249483e-11,
+        "boundary_work_abs_j": 1.5600174227738681e-12,
+        "energy_abs_j": 2.6802098318512435e-09,
+        "local_energy_abs_w": 7.105427357601002e-15,
+        "event_time_abs_s": 1.8772526935717515e-13,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "check_threshold",
+          "t": 0.0012507507156922708,
+          "direction": -1
+        }
+      ],
+      "quadrature": [],
+      "restart_energy_abs_j": 5.9032716120456e-15,
+      "name": "cooling_check_closure",
+      "policy": "base",
+      "folder": "artifacts/ai05_storage_verification_v2/cooling_check_closure_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.558899966749618e-14,
+        "pressure_abs_pa": 5.675246939063072e-10,
+        "temperature_abs_k": 1.3642420526593924e-12,
+        "boundary_work_abs_j": 1.5589784619016449e-12,
+        "energy_abs_j": 2.7521878109837417e-09,
+        "local_energy_abs_w": 7.105427357601002e-15,
+        "event_time_abs_s": 2.1230998729915296e-13,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "check_threshold",
+          "t": 0.001250750715667686,
+          "direction": -1
+        }
+      ],
+      "quadrature": [],
+      "restart_energy_abs_j": 6.942180391742575e-15,
+      "name": "cooling_check_closure",
+      "policy": "tight",
+      "folder": "artifacts/ai05_storage_verification_v2/cooling_check_closure_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 5.674230717964611e-33,
+        "pressure_abs_pa": 1.4551915228366852e-11,
+        "temperature_abs_k": 5.684341886080802e-14,
+        "boundary_work_abs_j": 7.640410488037692e-14,
+        "energy_abs_j": 9.473903143468005e-13,
+        "local_energy_abs_w": 0.0,
+        "event_time_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [],
+      "quadrature": [],
+      "restart_energy_abs_j": 0.0,
+      "name": "equilibrium",
+      "policy": "base",
+      "folder": "artifacts/ai05_storage_verification_v2/equilibrium_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.2305087213087907e-33,
+        "pressure_abs_pa": 1.4551915228366852e-11,
+        "temperature_abs_k": 5.684341886080802e-14,
+        "boundary_work_abs_j": 7.635291838282886e-14,
+        "energy_abs_j": 9.473903143468005e-13,
+        "local_energy_abs_w": 0.0,
+        "event_time_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [],
+      "quadrature": [],
+      "restart_energy_abs_j": 7.573064690121713e-29,
+      "name": "equilibrium",
+      "policy": "tight",
+      "folder": "artifacts/ai05_storage_verification_v2/equilibrium_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 6.552720585278783e-30,
+        "pressure_abs_pa": 3.7834979593753815e-10,
+        "temperature_abs_k": 1.1368683772161603e-12,
+        "boundary_work_abs_j": 7.457856554538012e-11,
+        "energy_abs_j": 2.36445885093417e-09,
+        "local_energy_abs_w": 0.0,
+        "event_time_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [],
+      "quadrature": [],
+      "restart_energy_abs_j": 7.275957614183426e-12,
+      "name": "isolated_heating",
+      "policy": "base",
+      "folder": "artifacts/ai05_storage_verification_v2/isolated_heating_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 3.126193347742185e-29,
+        "pressure_abs_pa": 3.7834979593753815e-10,
+        "temperature_abs_k": 1.1368683772161603e-12,
+        "boundary_work_abs_j": 1.418811734765768e-10,
+        "energy_abs_j": 2.363094608881511e-09,
+        "local_energy_abs_w": 0.0,
+        "event_time_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [],
+      "quadrature": [],
+      "restart_energy_abs_j": 2.9103830456733704e-11,
+      "name": "isolated_heating",
+      "policy": "tight",
+      "folder": "artifacts/ai05_storage_verification_v2/isolated_heating_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.4763745781465332e-12,
+        "pressure_abs_pa": 6.85686245560646e-08,
+        "temperature_abs_k": 7.742073648842052e-11,
+        "boundary_work_abs_j": 1.2941256954945857e-09,
+        "energy_abs_j": 9.710817039376707e-09,
+        "local_energy_abs_w": 0.0,
+        "event_time_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [],
+      "quadrature": [
+        {
+          "t": 0.1,
+          "transfer_mass_abs_kg": 2.7755575615628914e-17
+        },
+        {
+          "t": 1,
+          "transfer_mass_abs_kg": 1.1102230246251565e-16
+        },
+        {
+          "t": 3,
+          "transfer_mass_abs_kg": 6.661338147750939e-16
+        }
+      ],
+      "restart_energy_abs_j": 8.109680038614897e-09,
+      "name": "adiabatic_forward",
+      "policy": "bdf",
+      "folder": "artifacts/ai05_storage_verification_v2/adiabatic_forward_bdf"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.4753753774243705e-12,
+        "pressure_abs_pa": 6.851041689515114e-08,
+        "temperature_abs_k": 7.833023119019344e-11,
+        "boundary_work_abs_j": 1.3093881534587126e-09,
+        "energy_abs_j": 1.126855408983829e-08,
+        "local_energy_abs_w": 0.0,
+        "event_time_abs_s": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [],
+      "quadrature": [
+        {
+          "t": 0.1,
+          "transfer_mass_abs_kg": 2.7755575615628914e-17
+        },
+        {
+          "t": 1,
+          "transfer_mass_abs_kg": 1.1102230246251565e-16
+        },
+        {
+          "t": 3,
+          "transfer_mass_abs_kg": 6.661338147750939e-16
+        }
+      ],
+      "restart_energy_abs_j": 8.581082511227578e-10,
+      "name": "adiabatic_reverse",
+      "policy": "bdf",
+      "folder": "artifacts/ai05_storage_verification_v2/adiabatic_reverse_bdf"
+    }
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

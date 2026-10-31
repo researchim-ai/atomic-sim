@@ -1,0 +1,776 @@
+{
+  "schema_version": 1,
+  "source_sha256": "4b9bf9ca9cb09dc9d585852426c871a0649df1f855efc80d264ae5578b9939d5",
+  "budget_sha256": "2015aabecf1bea54ce8ad06cdf9a080b26a9991371d0cc61150b47d9c815a62b",
+  "script_sha256": "264b4eb6ba5e3630f1c9ded885644261c7b8f0ca7e67deadddc0a353776a1c93",
+  "reference_sha256": "bf1983a8bb2ce685eb5532e853103798db82f47805089ff22ff4659990cfab6e",
+  "cases": [
+    {
+      "id": "drag_forward",
+      "accepted": true,
+      "base": {
+        "path": "artifacts/ai05_circulation_verification_v3/drag_forward",
+        "accepted": true,
+        "checks": {
+          "mass_flow_abs_kg_s": true,
+          "temperature_abs_k": true,
+          "work_abs_j": true,
+          "energy_abs_j": true,
+          "local_energy_abs_w": true,
+          "pressure_cycle_abs_pa": true,
+          "pressure_abs_pa": true,
+          "event_time_abs_s": true,
+          "completed": true,
+          "event_count": true,
+          "restart": true
+        },
+        "metrics": {
+          "mass_flow_abs_kg_s": 2.1616042289451798e-13,
+          "temperature_abs_k": 5.684341886080802e-14,
+          "work_abs_j": 0.0,
+          "energy_abs_j": 1.7685852782278744e-13,
+          "local_energy_abs_w": 3.469446951953614e-18,
+          "pressure_cycle_abs_pa": 1.0658141036401503e-14,
+          "pressure_abs_pa": 0.0,
+          "event_time_abs_s": 0.0
+        },
+        "restart_error_k": 0.0
+      },
+      "tight": {
+        "path": "artifacts/ai05_circulation_verification_v3/drag_forward_tight",
+        "accepted": true,
+        "checks": {
+          "mass_flow_abs_kg_s": true,
+          "temperature_abs_k": true,
+          "work_abs_j": true,
+          "energy_abs_j": true,
+          "local_energy_abs_w": true,
+          "pressure_cycle_abs_pa": true,
+          "pressure_abs_pa": true,
+          "event_time_abs_s": true,
+          "completed": true,
+          "event_count": true,
+          "restart": true
+        },
+        "metrics": {
+          "mass_flow_abs_kg_s": 8.992806499463768e-15,
+          "temperature_abs_k": 5.684341886080802e-14,
+          "work_abs_j": 0.0,
+          "energy_abs_j": 3.774758283725532e-15,
+          "local_energy_abs_w": 6.938893903907228e-18,
+          "pressure_cycle_abs_pa": 1.0658141036401503e-14,
+          "pressure_abs_pa": 0.0,
+          "event_time_abs_s": 0.0
+        },
+        "restart_error_k": 0.0
+      },
+      "time_error": {
+        "time_flow_abs_kg_s": 2.2515322939398175e-13,
+        "time_temperature_abs_k": 0.0
+      }
+    },
+    {
+      "id": "drag_reverse",
+      "accepted": true,
+      "base": {
+        "path": "artifacts/ai05_circulation_verification_v3/drag_reverse",
+        "accepted": true,
+        "checks": {
+          "mass_flow_abs_kg_s": true,
+          "temperature_abs_k": true,
+          "work_abs_j": true,
+          "energy_abs_j": true,
+          "local_energy_abs_w": true,
+          "pressure_cycle_abs_pa": true,
+          "pressure_abs_pa": true,
+          "event_time_abs_s": true,
+          "completed": true,
+          "event_count": true,
+          "restart": true
+        },
+        "metrics": {
+          "mass_flow_abs_kg_s": 2.1616042289451798e-13,
+          "temperature_abs_k": 5.684341886080802e-14,
+          "work_abs_j": 0.0,
+          "energy_abs_j": 1.7685852782278744e-13,
+          "local_energy_abs_w": 3.469446951953614e-18,
+          "pressure_cycle_abs_pa": 1.0658141036401503e-14,
+          "pressure_abs_pa": 0.0,
+          "event_time_abs_s": 0.0
+        },
+        "restart_error_k": 0.0
+      },
+      "tight": {
+        "path": "artifacts/ai05_circulation_verification_v3/drag_reverse_tight",
+        "accepted": true,
+        "checks": {
+          "mass_flow_abs_kg_s": true,
+          "temperature_abs_k": true,
+          "work_abs_j": true,
+          "energy_abs_j": true,
+          "local_energy_abs_w": true,
+          "pressure_cycle_abs_pa": true,
+          "pressure_abs_pa": true,
+          "event_time_abs_s": true,
+          "completed": true,
+          "event_count": true,
+          "restart": true
+        },
+        "metrics": {
+          "mass_flow_abs_kg_s": 8.992806499463768e-15,
+          "temperature_abs_k": 5.684341886080802e-14,
+          "work_abs_j": 0.0,
+          "energy_abs_j": 3.774758283725532e-15,
+          "local_energy_abs_w": 6.938893903907228e-18,
+          "pressure_cycle_abs_pa": 1.0658141036401503e-14,
+          "pressure_abs_pa": 0.0,
+          "event_time_abs_s": 0.0
+        },
+        "restart_error_k": 0.0
+      },
+      "time_error": {
+        "time_flow_abs_kg_s": 2.2515322939398175e-13,
+        "time_temperature_abs_k": 0.0
+      }
+    },
+    {
+      "id": "driven_forward",
+      "accepted": true,
+      "base": {
+        "path": "artifacts/ai05_circulation_verification_v3/driven_forward",
+        "accepted": true,
+        "checks": {
+          "mass_flow_abs_kg_s": true,
+          "temperature_abs_k": true,
+          "work_abs_j": true,
+          "energy_abs_j": true,
+          "local_energy_abs_w": true,
+          "pressure_cycle_abs_pa": true,
+          "pressure_abs_pa": true,
+          "event_time_abs_s": true,
+          "completed": true,
+          "event_count": true,
+          "restart": true
+        },
+        "metrics": {
+          "mass_flow_abs_kg_s": 5.148592663317686e-11,
+          "temperature_abs_k": 5.115907697472721e-13,
+          "work_abs_j": 4.7066350816749036e-11,
+          "energy_abs_j": 1.546140993013978e-11,
+          "local_energy_abs_w": 2.331407955580289e-09,
+          "pressure_cycle_abs_pa": 2.7284841053187847e-12,
+          "pressure_abs_pa": 0.0,
+          "event_time_abs_s": 0.0
+        },
+        "restart_error_k": 6.252776074688882e-13
+      },
+      "tight": {
+        "path": "artifacts/ai05_circulation_verification_v3/driven_forward_tight",
+        "accepted": true,
+        "checks": {
+          "mass_flow_abs_kg_s": true,
+          "temperature_abs_k": true,
+          "work_abs_j": true,
+          "energy_abs_j": true,
+          "local_energy_abs_w": true,
+          "pressure_cycle_abs_pa": true,
+          "pressure_abs_pa": true,
+          "event_time_abs_s": true,
+          "completed": true,
+          "event_count": true,
+          "restart": true
+        },
+        "metrics": {
+          "mass_flow_abs_kg_s": 1.5516476992161188e-12,
+          "temperature_abs_k": 5.115907697472721e-13,
+          "work_abs_j": 6.139089236967266e-12,
+          "energy_abs_j": 5.343281372915953e-12,
+          "local_energy_abs_w": 2.6466260294455424e-09,
+          "pressure_cycle_abs_pa": 1.8189894035458565e-12,
+          "pressure_abs_pa": 0.0,
+          "event_time_abs_s": 0.0
+        },
+        "restart_error_k": 6.252776074688882e-13
+      },
+      "time_error": {
+        "time_flow_abs_kg_s": 5.126565838509123e-11,
+        "time_temperature_abs_k": 0.0
+      }
+    },
+    {
+      "id": "driven_reverse",
+      "accepted": true,
+      "base": {
+        "path": "artifacts/ai05_circulation_verification_v3/driven_reverse",
+        "accepted": true,
+        "checks": {
+          "mass_flow_abs_kg_s": true,
+          "temperature_abs_k": true,
+          "work_abs_j": true,
+          "energy_abs_j": true,
+          "local_energy_abs_w": true,
+          "pressure_cycle_abs_pa": true,
+          "pressure_abs_pa": true,
+          "event_time_abs_s": true,
+          "completed": true,
+          "event_count": true,
+          "restart": true
+        },
+        "metrics": {
+          "mass_flow_abs_kg_s": 5.148592663317686e-11,
+          "temperature_abs_k": 5.684341886080801e-13,
+          "work_abs_j": 4.7066350816749036e-11,
+          "energy_abs_j": 1.546140993013978e-11,
+          "local_energy_abs_w": 2.331407955580289e-09,
+          "pressure_cycle_abs_pa": 2.7284841053187847e-12,
+          "pressure_abs_pa": 0.0,
+          "event_time_abs_s": 0.0
+        },
+        "restart_error_k": 6.252776074688882e-13
+      },
+      "tight": {
+        "path": "artifacts/ai05_circulation_verification_v3/driven_reverse_tight",
+        "accepted": true,
+        "checks": {
+          "mass_flow_abs_kg_s": true,
+          "temperature_abs_k": true,
+          "work_abs_j": true,
+          "energy_abs_j": true,
+          "local_energy_abs_w": true,
+          "pressure_cycle_abs_pa": true,
+          "pressure_abs_pa": true,
+          "event_time_abs_s": true,
+          "completed": true,
+          "event_count": true,
+          "restart": true
+        },
+        "metrics": {
+          "mass_flow_abs_kg_s": 1.5516476992161188e-12,
+          "temperature_abs_k": 5.684341886080801e-13,
+          "work_abs_j": 6.139089236967266e-12,
+          "energy_abs_j": 5.343281372915953e-12,
+          "local_energy_abs_w": 2.645993646410716e-09,
+          "pressure_cycle_abs_pa": 1.8189894035458565e-12,
+          "pressure_abs_pa": 0.0,
+          "event_time_abs_s": 0.0
+        },
+        "restart_error_k": 6.252776074688882e-13
+      },
+      "time_error": {
+        "time_flow_abs_kg_s": 5.126565838509123e-11,
+        "time_temperature_abs_k": 0.0
+      }
+    },
+    {
+      "id": "reversal_forward",
+      "accepted": true,
+      "base": {
+        "path": "artifacts/ai05_circulation_verification_v3/reversal_forward",
+        "accepted": true,
+        "checks": {
+          "mass_flow_abs_kg_s": true,
+          "temperature_abs_k": true,
+          "work_abs_j": true,
+          "energy_abs_j": true,
+          "local_energy_abs_w": true,
+          "pressure_cycle_abs_pa": true,
+          "pressure_abs_pa": true,
+          "event_time_abs_s": true,
+          "completed": true,
+          "event_count": true,
+          "restart": true
+        },
+        "metrics": {
+          "mass_flow_abs_kg_s": 3.76090270037821e-11,
+          "temperature_abs_k": 6.252776074688882e-13,
+          "work_abs_j": 4.89421836391557e-11,
+          "energy_abs_j": 1.4638956713497464e-11,
+          "local_energy_abs_w": 2.6493083282730368e-09,
+          "pressure_cycle_abs_pa": 2.7284841053187847e-12,
+          "pressure_abs_pa": 0.0,
+          "event_time_abs_s": 8.26561041833429e-14
+        },
+        "restart_error_k": 9.663381206337363e-13
+      },
+      "tight": {
+        "path": "artifacts/ai05_circulation_verification_v3/reversal_forward_tight",
+        "accepted": true,
+        "checks": {
+          "mass_flow_abs_kg_s": true,
+          "temperature_abs_k": true,
+          "work_abs_j": true,
+          "energy_abs_j": true,
+          "local_energy_abs_w": true,
+          "pressure_cycle_abs_pa": true,
+          "pressure_abs_pa": true,
+          "event_time_abs_s": true,
+          "completed": true,
+          "event_count": true,
+          "restart": true
+        },
+        "metrics": {
+          "mass_flow_abs_kg_s": 3.055333763768431e-13,
+          "temperature_abs_k": 6.252776074688882e-13,
+          "work_abs_j": 3.183231456205249e-12,
+          "energy_abs_j": 3.069544618483633e-12,
+          "local_energy_abs_w": 2.6469777480997436e-09,
+          "pressure_cycle_abs_pa": 1.8189894035458565e-12,
+          "pressure_abs_pa": 0.0,
+          "event_time_abs_s": 2.989275493803234e-14
+        },
+        "restart_error_k": 9.663381206337363e-13
+      },
+      "time_error": {
+        "time_flow_abs_kg_s": 3.743494403352088e-11,
+        "time_temperature_abs_k": 0.0
+      }
+    },
+    {
+      "id": "reversal_reverse",
+      "accepted": true,
+      "base": {
+        "path": "artifacts/ai05_circulation_verification_v3/reversal_reverse",
+        "accepted": true,
+        "checks": {
+          "mass_flow_abs_kg_s": true,
+          "temperature_abs_k": true,
+          "work_abs_j": true,
+          "energy_abs_j": true,
+          "local_energy_abs_w": true,
+          "pressure_cycle_abs_pa": true,
+          "pressure_abs_pa": true,
+          "event_time_abs_s": true,
+          "completed": true,
+          "event_count": true,
+          "restart": true
+        },
+        "metrics": {
+          "mass_flow_abs_kg_s": 3.76090270037821e-11,
+          "temperature_abs_k": 6.252776074688882e-13,
+          "work_abs_j": 4.89421836391557e-11,
+          "energy_abs_j": 1.4638956713497464e-11,
+          "local_energy_abs_w": 2.4716015900594357e-09,
+          "pressure_cycle_abs_pa": 2.7284841053187847e-12,
+          "pressure_abs_pa": 0.0,
+          "event_time_abs_s": 8.26561041833429e-14
+        },
+        "restart_error_k": 1.1937117960769683e-12
+      },
+      "tight": {
+        "path": "artifacts/ai05_circulation_verification_v3/reversal_reverse_tight",
+        "accepted": true,
+        "checks": {
+          "mass_flow_abs_kg_s": true,
+          "temperature_abs_k": true,
+          "work_abs_j": true,
+          "energy_abs_j": true,
+          "local_energy_abs_w": true,
+          "pressure_cycle_abs_pa": true,
+          "pressure_abs_pa": true,
+          "event_time_abs_s": true,
+          "completed": true,
+          "event_count": true,
+          "restart": true
+        },
+        "metrics": {
+          "mass_flow_abs_kg_s": 3.055333763768431e-13,
+          "temperature_abs_k": 6.252776074688882e-13,
+          "work_abs_j": 3.183231456205249e-12,
+          "energy_abs_j": 3.069544618483633e-12,
+          "local_energy_abs_w": 2.346816074805247e-09,
+          "pressure_cycle_abs_pa": 1.8189894035458565e-12,
+          "pressure_abs_pa": 0.0,
+          "event_time_abs_s": 2.989275493803234e-14
+        },
+        "restart_error_k": 1.1937117960769683e-12
+      },
+      "time_error": {
+        "time_flow_abs_kg_s": 3.743494403352088e-11,
+        "time_temperature_abs_k": 0.0
+      }
+    },
+    {
+      "id": "head_switch",
+      "accepted": true,
+      "base": {
+        "path": "artifacts/ai05_circulation_verification_v3/head_switch",
+        "accepted": true,
+        "checks": {
+          "mass_flow_abs_kg_s": true,
+          "temperature_abs_k": true,
+          "work_abs_j": true,
+          "energy_abs_j": true,
+          "local_energy_abs_w": true,
+          "pressure_cycle_abs_pa": true,
+          "pressure_abs_pa": true,
+          "event_time_abs_s": true,
+          "completed": true,
+          "event_count": true,
+          "restart": true
+        },
+        "metrics": {
+          "mass_flow_abs_kg_s": 4.959410659921559e-11,
+          "temperature_abs_k": 8.526512829121202e-13,
+          "work_abs_j": 1.1641532182693481e-10,
+          "energy_abs_j": 8.151346264639869e-11,
+          "local_energy_abs_w": 2.3186323971913225e-09,
+          "pressure_cycle_abs_pa": 3.637978807091713e-12,
+          "pressure_abs_pa": 0.0,
+          "event_time_abs_s": 8.704148513061227e-14
+        },
+        "restart_error_k": 3.410605131648481e-13
+      },
+      "tight": {
+        "path": "artifacts/ai05_circulation_verification_v3/head_switch_tight",
+        "accepted": true,
+        "checks": {
+          "mass_flow_abs_kg_s": true,
+          "temperature_abs_k": true,
+          "work_abs_j": true,
+          "energy_abs_j": true,
+          "local_energy_abs_w": true,
+          "pressure_cycle_abs_pa": true,
+          "pressure_abs_pa": true,
+          "event_time_abs_s": true,
+          "completed": true,
+          "event_count": true,
+          "restart": true
+        },
+        "metrics": {
+          "mass_flow_abs_kg_s": 3.8546943414985435e-13,
+          "temperature_abs_k": 8.526512829121202e-13,
+          "work_abs_j": 1.3642420526593924e-12,
+          "energy_abs_j": 4.433786671143025e-12,
+          "local_energy_abs_w": 2.331411508293968e-09,
+          "pressure_cycle_abs_pa": 3.637978807091713e-12,
+          "pressure_abs_pa": 0.0,
+          "event_time_abs_s": 3.1086244689504383e-15
+        },
+        "restart_error_k": 3.410605131648481e-13
+      },
+      "time_error": {
+        "time_flow_abs_kg_s": 4.937739106480876e-11,
+        "time_temperature_abs_k": 0.0
+      }
+    },
+    {
+      "id": "heated_steady",
+      "accepted": true,
+      "base": {
+        "path": "artifacts/ai05_circulation_verification_v3/heated_steady",
+        "accepted": true,
+        "checks": {
+          "mass_flow_abs_kg_s": true,
+          "temperature_abs_k": true,
+          "work_abs_j": true,
+          "energy_abs_j": true,
+          "local_energy_abs_w": true,
+          "pressure_cycle_abs_pa": true,
+          "pressure_abs_pa": true,
+          "event_time_abs_s": true,
+          "completed": true,
+          "event_count": true,
+          "restart": true
+        },
+        "metrics": {
+          "mass_flow_abs_kg_s": 0.0,
+          "temperature_abs_k": 2.8421709430404007e-13,
+          "work_abs_j": 2.6921043172478676e-10,
+          "energy_abs_j": 2.601154847070575e-10,
+          "local_energy_abs_w": 1.3938730826890055e-09,
+          "pressure_cycle_abs_pa": 9.094947017729282e-13,
+          "pressure_abs_pa": 0.0,
+          "event_time_abs_s": 0.0
+        },
+        "restart_error_k": 2.8421709430404007e-13
+      },
+      "tight": {
+        "path": "artifacts/ai05_circulation_verification_v3/heated_steady_tight",
+        "accepted": true,
+        "checks": {
+          "mass_flow_abs_kg_s": true,
+          "temperature_abs_k": true,
+          "work_abs_j": true,
+          "energy_abs_j": true,
+          "local_energy_abs_w": true,
+          "pressure_cycle_abs_pa": true,
+          "pressure_abs_pa": true,
+          "event_time_abs_s": true,
+          "completed": true,
+          "event_count": true,
+          "restart": true
+        },
+        "metrics": {
+          "mass_flow_abs_kg_s": 0.0,
+          "temperature_abs_k": 2.8421709430404007e-13,
+          "work_abs_j": 1.3233147910796106e-10,
+          "energy_abs_j": 4.5929482439532876e-10,
+          "local_energy_abs_w": 1.3938730826890055e-09,
+          "pressure_cycle_abs_pa": 9.094947017729282e-13,
+          "pressure_abs_pa": 0.0,
+          "event_time_abs_s": 0.0
+        },
+        "restart_error_k": 2.8421709430404007e-13
+      },
+      "time_error": {
+        "time_flow_abs_kg_s": 0.0,
+        "time_temperature_abs_k": 0.0
+      }
+    },
+    {
+      "id": "wall_pulse_forward",
+      "accepted": true,
+      "base": {
+        "path": "artifacts/ai05_circulation_verification_v3/wall_pulse_forward",
+        "accepted": true,
+        "checks": {
+          "mass_flow_abs_kg_s": true,
+          "temperature_abs_k": true,
+          "work_abs_j": true,
+          "energy_abs_j": true,
+          "local_energy_abs_w": true,
+          "pressure_cycle_abs_pa": true,
+          "pressure_abs_pa": true,
+          "event_time_abs_s": true,
+          "completed": true,
+          "event_count": true,
+          "restart": true
+        },
+        "metrics": {
+          "mass_flow_abs_kg_s": 0.0,
+          "temperature_abs_k": 5.684341886080802e-14,
+          "work_abs_j": 8.185452315956354e-12,
+          "energy_abs_j": 6.480149750132114e-12,
+          "local_energy_abs_w": 4.1936374373108265e-09,
+          "pressure_cycle_abs_pa": 9.094947017729282e-13,
+          "pressure_abs_pa": 0.0,
+          "event_time_abs_s": 0.0
+        },
+        "restart_error_k": 0.0
+      },
+      "tight": {
+        "path": "artifacts/ai05_circulation_verification_v3/wall_pulse_forward_tight",
+        "accepted": true,
+        "checks": {
+          "mass_flow_abs_kg_s": true,
+          "temperature_abs_k": true,
+          "work_abs_j": true,
+          "energy_abs_j": true,
+          "local_energy_abs_w": true,
+          "pressure_cycle_abs_pa": true,
+          "pressure_abs_pa": true,
+          "event_time_abs_s": true,
+          "completed": true,
+          "event_count": true,
+          "restart": true
+        },
+        "metrics": {
+          "mass_flow_abs_kg_s": 0.0,
+          "temperature_abs_k": 5.684341886080802e-14,
+          "work_abs_j": 1.77351466845721e-11,
+          "energy_abs_j": 1.6996182239381596e-11,
+          "local_energy_abs_w": 4.374541617835348e-09,
+          "pressure_cycle_abs_pa": 9.094947017729282e-13,
+          "pressure_abs_pa": 0.0,
+          "event_time_abs_s": 0.0
+        },
+        "restart_error_k": 0.0
+      },
+      "time_error": {
+        "time_flow_abs_kg_s": 0.0,
+        "time_temperature_abs_k": 5.684341886080802e-14
+      }
+    },
+    {
+      "id": "wall_pulse_reverse",
+      "accepted": true,
+      "base": {
+        "path": "artifacts/ai05_circulation_verification_v3/wall_pulse_reverse",
+        "accepted": true,
+        "checks": {
+          "mass_flow_abs_kg_s": true,
+          "temperature_abs_k": true,
+          "work_abs_j": true,
+          "energy_abs_j": true,
+          "local_energy_abs_w": true,
+          "pressure_cycle_abs_pa": true,
+          "pressure_abs_pa": true,
+          "event_time_abs_s": true,
+          "completed": true,
+          "event_count": true,
+          "restart": true
+        },
+        "metrics": {
+          "mass_flow_abs_kg_s": 0.0,
+          "temperature_abs_k": 5.684341886080802e-14,
+          "work_abs_j": 8.185452315956354e-12,
+          "energy_abs_j": 5.7980287238024175e-12,
+          "local_energy_abs_w": 4.013216425846622e-09,
+          "pressure_cycle_abs_pa": 9.094947017729282e-13,
+          "pressure_abs_pa": 0.0,
+          "event_time_abs_s": 0.0
+        },
+        "restart_error_k": 0.0
+      },
+      "tight": {
+        "path": "artifacts/ai05_circulation_verification_v3/wall_pulse_reverse_tight",
+        "accepted": true,
+        "checks": {
+          "mass_flow_abs_kg_s": true,
+          "temperature_abs_k": true,
+          "work_abs_j": true,
+          "energy_abs_j": true,
+          "local_energy_abs_w": true,
+          "pressure_cycle_abs_pa": true,
+          "pressure_abs_pa": true,
+          "event_time_abs_s": true,
+          "completed": true,
+          "event_count": true,
+          "restart": true
+        },
+        "metrics": {
+          "mass_flow_abs_kg_s": 0.0,
+          "temperature_abs_k": 5.684341886080802e-14,
+          "work_abs_j": 1.750777300912887e-11,
+          "energy_abs_j": 1.688249540165998e-11,
+          "local_energy_abs_w": 4.013216425846622e-09,
+          "pressure_cycle_abs_pa": 9.094947017729282e-13,
+          "pressure_abs_pa": 0.0,
+          "event_time_abs_s": 0.0
+        },
+        "restart_error_k": 0.0
+      },
+      "time_error": {
+        "time_flow_abs_kg_s": 0.0,
+        "time_temperature_abs_k": 5.684341886080802e-14
+      }
+    },
+    {
+      "id": "nonuniform_transport",
+      "accepted": true,
+      "base": {
+        "path": "artifacts/ai05_circulation_verification_v3/nonuniform_transport",
+        "accepted": true,
+        "checks": {
+          "mass_flow_abs_kg_s": true,
+          "temperature_abs_k": true,
+          "work_abs_j": true,
+          "energy_abs_j": true,
+          "local_energy_abs_w": true,
+          "pressure_cycle_abs_pa": true,
+          "pressure_abs_pa": true,
+          "event_time_abs_s": true,
+          "completed": true,
+          "event_count": true,
+          "restart": true
+        },
+        "metrics": {
+          "mass_flow_abs_kg_s": 1.1855405546157272e-11,
+          "temperature_abs_k": 2.859223968698643e-11,
+          "work_abs_j": 2.991384917550022e-11,
+          "energy_abs_j": 2.1242385628283955e-10,
+          "local_energy_abs_w": 4.455159796634689e-09,
+          "pressure_cycle_abs_pa": 2.2737367544323206e-12,
+          "pressure_abs_pa": 5.587935447692871e-09,
+          "event_time_abs_s": 2.609024107869118e-15
+        },
+        "restart_error_k": 8.526512829121202e-13
+      },
+      "tight": {
+        "path": "artifacts/ai05_circulation_verification_v3/nonuniform_transport_tight",
+        "accepted": true,
+        "checks": {
+          "mass_flow_abs_kg_s": true,
+          "temperature_abs_k": true,
+          "work_abs_j": true,
+          "energy_abs_j": true,
+          "local_energy_abs_w": true,
+          "pressure_cycle_abs_pa": true,
+          "pressure_abs_pa": true,
+          "event_time_abs_s": true,
+          "completed": true,
+          "event_count": true,
+          "restart": true
+        },
+        "metrics": {
+          "mass_flow_abs_kg_s": 7.016609515630989e-14,
+          "temperature_abs_k": 1.5916157281026244e-12,
+          "work_abs_j": 1.9326762412674725e-12,
+          "energy_abs_j": 3.2520119930268265e-10,
+          "local_energy_abs_w": 3.74893716070801e-09,
+          "pressure_cycle_abs_pa": 2.2737367544323206e-12,
+          "pressure_abs_pa": 0.0,
+          "event_time_abs_s": 4.163336342344337e-17
+        },
+        "restart_error_k": 8.526512829121202e-13
+      },
+      "time_error": {
+        "time_flow_abs_kg_s": 1.1819878409369267e-11,
+        "time_temperature_abs_k": 2.7000623958883807e-11
+      }
+    },
+    {
+      "id": "bdf_drag_forward",
+      "path": "artifacts/ai05_circulation_verification_v3/bdf_drag_forward",
+      "accepted": true,
+      "checks": {
+        "mass_flow_abs_kg_s": true,
+        "temperature_abs_k": true,
+        "work_abs_j": true,
+        "energy_abs_j": true,
+        "local_energy_abs_w": true,
+        "pressure_cycle_abs_pa": true,
+        "pressure_abs_pa": true,
+        "event_time_abs_s": true,
+        "completed": true,
+        "event_count": true,
+        "restart": true
+      },
+      "metrics": {
+        "mass_flow_abs_kg_s": 2.4528568065562695e-10,
+        "temperature_abs_k": 5.684341886080802e-14,
+        "work_abs_j": 0.0,
+        "energy_abs_j": 2.9763705389207473e-10,
+        "local_energy_abs_w": 3.469446951953614e-18,
+        "pressure_cycle_abs_pa": 2.1316282072803006e-14,
+        "pressure_abs_pa": 0.0,
+        "event_time_abs_s": 0.0
+      },
+      "restart_error_k": 0.0
+    },
+    {
+      "id": "bdf_drag_reverse",
+      "path": "artifacts/ai05_circulation_verification_v3/bdf_drag_reverse",
+      "accepted": true,
+      "checks": {
+        "mass_flow_abs_kg_s": true,
+        "temperature_abs_k": true,
+        "work_abs_j": true,
+        "energy_abs_j": true,
+        "local_energy_abs_w": true,
+        "pressure_cycle_abs_pa": true,
+        "pressure_abs_pa": true,
+        "event_time_abs_s": true,
+        "completed": true,
+        "event_count": true,
+        "restart": true
+      },
+      "metrics": {
+        "mass_flow_abs_kg_s": 2.4528568065562695e-10,
+        "temperature_abs_k": 5.684341886080802e-14,
+        "work_abs_j": 0.0,
+        "energy_abs_j": 2.9763705389207473e-10,
+        "local_energy_abs_w": 3.469446951953614e-18,
+        "pressure_cycle_abs_pa": 2.1316282072803006e-14,
+        "pressure_abs_pa": 0.0,
+        "event_time_abs_s": 0.0
+      },
+      "restart_error_k": 0.0
+    }
+  ],
+  "integrations": 24,
+  "all_cases_accepted": true,
+  "validated": false,
+  "plant_referenced": false,
+  "scope": "Fixed reduced constant-property single-cycle cases, ideal body head; no actual pump, compressible network or plant validation"
+}

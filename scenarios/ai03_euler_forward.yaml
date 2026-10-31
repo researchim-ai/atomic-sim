@@ -1,0 +1,30 @@
+schema_version: 1
+engine: conservative-euler-liquid-channel
+name: ai03_euler_forward
+duration_s: 1.0
+step_s: 0.1
+channel:
+  cells: 3
+  total_length_m: 3.0
+  area_m2: 0.001
+  left_pressure_pa: 7020000.0
+  right_pressure_pa: 7000000.0
+  left_temperature_k: 500.0
+  right_temperature_k: 500.0
+  left_velocity_m_s: 0.0
+  right_velocity_m_s: 0.0
+  initial_pressure_pa: 7010000.0
+  initial_temperature_k: 500.0
+  initial_velocity_m_s: 0.0
+  initial_wall_temperature_k: 502.0
+  total_loss_coefficient: 30.0
+  total_heat_capacity_j_k: 8000.0
+  total_ua_w_k: 1000.0
+  heat_w: 0.0
+  wave_speed_bound_m_s: 2500.0
+  boundary: reservoir
+solver:
+  method: Radau
+  jacobian_mode: analytic
+  rtol: 1.0e-07
+  max_step_s: 0.02

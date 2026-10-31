@@ -1,0 +1,22 @@
+{
+  "artifacts/ai03_euler_forward_v1": {
+    "passed": true,
+    "time_s": 1.0,
+    "schema_version": 3
+  },
+  "artifacts/ai03_euler_tight_v1": {
+    "passed": true,
+    "time_s": 1.0,
+    "schema_version": 3
+  },
+  "artifacts/ai03_euler_reverse_v1": {
+    "passed": true,
+    "time_s": 1.0,
+    "schema_version": 3
+  },
+  "artifacts/ai03_euler_reversal_v1": {
+    "passed": true,
+    "time_s": 1.0,
+    "schema_version": 3
+  }
+}

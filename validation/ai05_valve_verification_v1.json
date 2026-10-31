@@ -1,0 +1,438 @@
+{
+  "schema_version": 1,
+  "source_sha256": "4b9bf9ca9cb09dc9d585852426c871a0649df1f855efc80d264ae5578b9939d5",
+  "budget_sha256": "821ae85112326afc30b6cf1cb66bd34af08210432214709c7331e3105c62f75d",
+  "script_sha256": "2be92188cfc390ff36045fdc54095a26411ec5b3bd3e60efbd63431ddbb023bc",
+  "reference_sha256": "b73199e833c5e2d748795ca675888178eb2222b03d65dfd00f5c2ebb3c26f9bc",
+  "integrations": 20,
+  "case_families": 9,
+  "all_cases_accepted": true,
+  "cases": [
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 1.1965317625595162e-11,
+        "omega_abs_rad_s": 1.687538997430238e-12,
+        "temperature_abs_k": 6.252776074688882e-13,
+        "integral_abs_j": 1.5800694086465228e-12,
+        "energy_abs_j": 2.9329427775337535e-09,
+        "power_transfer_abs_w": 1.3877787807814457e-16,
+        "pressure_abs_pa": 1.0244548320770264e-08,
+        "event_time_abs_s": 0.0,
+        "opening_abs": 1.4627411966134513e-17
+      },
+      "restart_energy_abs_j": 1.5347723092418164e-12,
+      "events": [],
+      "name": "cycle_positive",
+      "policy": "base",
+      "folder": "artifacts/ai05_valve_verification_v1/cycle_positive_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 6.572520305780927e-14,
+        "omega_abs_rad_s": 2.6645352591003757e-14,
+        "temperature_abs_k": 6.252776074688882e-13,
+        "integral_abs_j": 9.947598300641403e-14,
+        "energy_abs_j": 2.93286461783282e-09,
+        "power_transfer_abs_w": 1.3877787807814457e-16,
+        "pressure_abs_pa": 9.313225746154785e-10,
+        "event_time_abs_s": 0.0,
+        "opening_abs": 1.4627411966134513e-17
+      },
+      "restart_energy_abs_j": 5.728750807065808e-14,
+      "events": [],
+      "name": "cycle_positive",
+      "policy": "tight",
+      "folder": "artifacts/ai05_valve_verification_v1/cycle_positive_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 1.196565069250255e-11,
+        "omega_abs_rad_s": 1.687538997430238e-12,
+        "temperature_abs_k": 6.252776074688882e-13,
+        "integral_abs_j": 1.5760726057578722e-12,
+        "energy_abs_j": 2.9329569883884687e-09,
+        "power_transfer_abs_w": 1.3877787807814457e-16,
+        "pressure_abs_pa": 1.0244548320770264e-08,
+        "event_time_abs_s": 0.0,
+        "opening_abs": 1.4627411966134513e-17
+      },
+      "restart_energy_abs_j": 1.4992451724538114e-12,
+      "events": [],
+      "name": "cycle_negative",
+      "policy": "base",
+      "folder": "artifacts/ai05_valve_verification_v1/cycle_negative_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 6.494804694057166e-14,
+        "omega_abs_rad_s": 3.907985046680551e-14,
+        "temperature_abs_k": 6.252776074688882e-13,
+        "integral_abs_j": 1.1368683772161603e-13,
+        "energy_abs_j": 2.932793563559244e-09,
+        "power_transfer_abs_w": 1.1102230246251565e-16,
+        "pressure_abs_pa": 9.313225746154785e-10,
+        "event_time_abs_s": 0.0,
+        "opening_abs": 1.4627411966134513e-17
+      },
+      "restart_energy_abs_j": 1.0658141036401503e-13,
+      "events": [],
+      "name": "cycle_negative",
+      "policy": "tight",
+      "folder": "artifacts/ai05_valve_verification_v1/cycle_negative_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 7.298384119280854e-12,
+        "omega_abs_rad_s": 2.4424906541753444e-12,
+        "temperature_abs_k": 7.389644451905042e-13,
+        "integral_abs_j": 3.559819106158102e-12,
+        "energy_abs_j": 2.659288789175207e-09,
+        "power_transfer_abs_w": 3.3306690738754696e-16,
+        "pressure_abs_pa": 4.6566128730773926e-09,
+        "event_time_abs_s": 0.0,
+        "opening_abs": 5.148200222412013e-131
+      },
+      "restart_energy_abs_j": 1.0649259252204502e-12,
+      "events": [],
+      "name": "fast_actuator",
+      "policy": "base",
+      "folder": "artifacts/ai05_valve_verification_v1/fast_actuator_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 1.630917623174355e-13,
+        "omega_abs_rad_s": 1.0658141036401503e-13,
+        "temperature_abs_k": 7.389644451905042e-13,
+        "integral_abs_j": 3.126388037344441e-13,
+        "energy_abs_j": 2.659792386339177e-09,
+        "power_transfer_abs_w": 1.1102230246251565e-16,
+        "pressure_abs_pa": 0.0,
+        "event_time_abs_s": 0.0,
+        "opening_abs": 5.148200222412013e-131
+      },
+      "restart_energy_abs_j": 4.973799150320701e-14,
+      "events": [],
+      "name": "fast_actuator",
+      "policy": "tight",
+      "folder": "artifacts/ai05_valve_verification_v1/fast_actuator_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 1.1507239605634823e-11,
+        "omega_abs_rad_s": 2.5579538487363607e-12,
+        "temperature_abs_k": 7.958078640513122e-13,
+        "integral_abs_j": 2.091660178393795e-12,
+        "energy_abs_j": 2.8526443429655046e-09,
+        "power_transfer_abs_w": 8.326672684688674e-17,
+        "pressure_abs_pa": 7.450580596923828e-09,
+        "event_time_abs_s": 0.0,
+        "opening_abs": 0.0
+      },
+      "restart_energy_abs_j": 4.902744876744691e-13,
+      "events": [],
+      "name": "slow_actuator",
+      "policy": "base",
+      "folder": "artifacts/ai05_valve_verification_v1/slow_actuator_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 1.0658141036401503e-13,
+        "omega_abs_rad_s": 3.730349362740526e-14,
+        "temperature_abs_k": 7.958078640513122e-13,
+        "integral_abs_j": 8.526512829121202e-14,
+        "energy_abs_j": 2.853543179526241e-09,
+        "power_transfer_abs_w": 1.1102230246251565e-16,
+        "pressure_abs_pa": 9.313225746154785e-10,
+        "event_time_abs_s": 0.0,
+        "opening_abs": 0.0
+      },
+      "restart_energy_abs_j": 4.263256414560601e-14,
+      "events": [],
+      "name": "slow_actuator",
+      "policy": "tight",
+      "folder": "artifacts/ai05_valve_verification_v1/slow_actuator_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 1.1965317625595162e-11,
+        "omega_abs_rad_s": 1.687538997430238e-12,
+        "temperature_abs_k": 7.389644451905042e-13,
+        "integral_abs_j": 2.070343896320992e-12,
+        "energy_abs_j": 2.9329427775337535e-09,
+        "power_transfer_abs_w": 1.3877787807814457e-16,
+        "pressure_abs_pa": 1.0244548320770264e-08,
+        "event_time_abs_s": 1.3455903058456897e-11,
+        "opening_abs": 1.4627411966134513e-17
+      },
+      "restart_energy_abs_j": 1.6484591469634324e-12,
+      "events": [
+        {
+          "kind": "shaft_zero",
+          "t": 15.422275124340581,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.725524353188659,
+          "direction": -1
+        }
+      ],
+      "name": "reverse_positive",
+      "policy": "base",
+      "folder": "artifacts/ai05_valve_verification_v1/reverse_positive_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 2.958674971687003e-13,
+        "omega_abs_rad_s": 1.6342482922482304e-13,
+        "temperature_abs_k": 7.389644451905042e-13,
+        "integral_abs_j": 1.9895196601282805e-13,
+        "energy_abs_j": 3.0736440059797587e-09,
+        "power_transfer_abs_w": 1.3877787807814457e-16,
+        "pressure_abs_pa": 9.313225746154785e-10,
+        "event_time_abs_s": 1.4939161019356106e-11,
+        "opening_abs": 1.4627411966134513e-17
+      },
+      "restart_energy_abs_j": 9.903189379656396e-14,
+      "events": [
+        {
+          "kind": "shaft_zero",
+          "t": 15.422275124342212,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.725524353190142,
+          "direction": -1
+        }
+      ],
+      "name": "reverse_positive",
+      "policy": "tight",
+      "folder": "artifacts/ai05_valve_verification_v1/reverse_positive_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 1.196565069250255e-11,
+        "omega_abs_rad_s": 1.687538997430238e-12,
+        "temperature_abs_k": 7.389644451905042e-13,
+        "integral_abs_j": 2.077893412888443e-12,
+        "energy_abs_j": 2.9329569883884687e-09,
+        "power_transfer_abs_w": 1.3877787807814457e-16,
+        "pressure_abs_pa": 1.0244548320770264e-08,
+        "event_time_abs_s": 1.3436363133223495e-11,
+        "opening_abs": 1.4627411966134513e-17
+      },
+      "restart_energy_abs_j": 1.6768808563938364e-12,
+      "events": [
+        {
+          "kind": "shaft_zero",
+          "t": 15.422275124340581,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.72552435318864,
+          "direction": 1
+        }
+      ],
+      "name": "reverse_negative",
+      "policy": "base",
+      "folder": "artifacts/ai05_valve_verification_v1/reverse_negative_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 2.965266920895715e-13,
+        "omega_abs_rad_s": 1.6986412276764895e-13,
+        "temperature_abs_k": 7.389644451905042e-13,
+        "integral_abs_j": 1.6697754290362354e-13,
+        "energy_abs_j": 3.0734810252397438e-09,
+        "power_transfer_abs_w": 1.1102230246251565e-16,
+        "pressure_abs_pa": 9.313225746154785e-10,
+        "event_time_abs_s": 1.4942713733034907e-11,
+        "opening_abs": 1.4627411966134513e-17
+      },
+      "restart_energy_abs_j": 8.526512829121202e-14,
+      "events": [
+        {
+          "kind": "shaft_zero",
+          "t": 15.422275124342216,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.725524353190146,
+          "direction": 1
+        }
+      ],
+      "name": "reverse_negative",
+      "policy": "tight",
+      "folder": "artifacts/ai05_valve_verification_v1/reverse_negative_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 0.0,
+        "omega_abs_rad_s": 0.0,
+        "temperature_abs_k": 0.0,
+        "integral_abs_j": 9.72022462519817e-12,
+        "energy_abs_j": 4.979483492206782e-11,
+        "power_transfer_abs_w": 1.3877787807814457e-17,
+        "pressure_abs_pa": 0.0,
+        "event_time_abs_s": 0.0,
+        "opening_abs": 0.0
+      },
+      "restart_energy_abs_j": 1.5099033134902129e-12,
+      "events": [],
+      "name": "closed_leaking_positive",
+      "policy": "base",
+      "folder": "artifacts/ai05_valve_verification_v1/closed_leaking_positive_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 0.0,
+        "omega_abs_rad_s": 0.0,
+        "temperature_abs_k": 0.0,
+        "integral_abs_j": 2.1401547201094218e-11,
+        "energy_abs_j": 6.129141638666624e-11,
+        "power_transfer_abs_w": 1.3877787807814457e-17,
+        "pressure_abs_pa": 0.0,
+        "event_time_abs_s": 0.0,
+        "opening_abs": 0.0
+      },
+      "restart_energy_abs_j": 1.3002932064409833e-11,
+      "events": [],
+      "name": "closed_leaking_positive",
+      "policy": "tight",
+      "folder": "artifacts/ai05_valve_verification_v1/closed_leaking_positive_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 0.0,
+        "omega_abs_rad_s": 0.0,
+        "temperature_abs_k": 5.684341886080802e-14,
+        "integral_abs_j": 9.72022462519817e-12,
+        "energy_abs_j": 9.037037784764834e-11,
+        "power_transfer_abs_w": 1.3877787807814457e-17,
+        "pressure_abs_pa": 0.0,
+        "event_time_abs_s": 0.0,
+        "opening_abs": 0.0
+      },
+      "restart_energy_abs_j": 2.227551476607914e-12,
+      "events": [],
+      "name": "closed_leaking_negative",
+      "policy": "base",
+      "folder": "artifacts/ai05_valve_verification_v1/closed_leaking_negative_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 0.0,
+        "omega_abs_rad_s": 0.0,
+        "temperature_abs_k": 5.684341886080802e-14,
+        "integral_abs_j": 2.1401547201094218e-11,
+        "energy_abs_j": 7.7982065249671e-11,
+        "power_transfer_abs_w": 1.3877787807814457e-17,
+        "pressure_abs_pa": 0.0,
+        "event_time_abs_s": 0.0,
+        "opening_abs": 0.0
+      },
+      "restart_energy_abs_j": 1.4573231510439655e-11,
+      "events": [],
+      "name": "closed_leaking_negative",
+      "policy": "tight",
+      "folder": "artifacts/ai05_valve_verification_v1/closed_leaking_negative_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 0.0,
+        "omega_abs_rad_s": 0.0,
+        "temperature_abs_k": 5.684341886080802e-14,
+        "integral_abs_j": 1.9952040020143613e-11,
+        "energy_abs_j": 1.6137491343215515e-10,
+        "power_transfer_abs_w": 3.469446951953614e-18,
+        "pressure_abs_pa": 0.0,
+        "event_time_abs_s": 0.0,
+        "opening_abs": 0.0
+      },
+      "restart_energy_abs_j": 9.86233317235019e-12,
+      "events": [],
+      "name": "open_positive",
+      "policy": "base",
+      "folder": "artifacts/ai05_valve_verification_v1/open_positive_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 0.0,
+        "omega_abs_rad_s": 0.0,
+        "temperature_abs_k": 5.684341886080802e-14,
+        "integral_abs_j": 2.4357404981856234e-11,
+        "energy_abs_j": 1.4981793583501712e-10,
+        "power_transfer_abs_w": 3.469446951953614e-18,
+        "pressure_abs_pa": 0.0,
+        "event_time_abs_s": 0.0,
+        "opening_abs": 0.0
+      },
+      "restart_energy_abs_j": 1.6928680679484387e-12,
+      "events": [],
+      "name": "open_positive",
+      "policy": "tight",
+      "folder": "artifacts/ai05_valve_verification_v1/open_positive_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 2.968321144436459e-10,
+        "omega_abs_rad_s": 1.6188650420190243e-10,
+        "temperature_abs_k": 1.4210854715202004e-12,
+        "integral_abs_j": 1.4057368602493625e-09,
+        "energy_abs_j": 3.1897187113827385e-09,
+        "power_transfer_abs_w": 1.1102230246251565e-16,
+        "pressure_abs_pa": 1.8812716007232666e-07,
+        "event_time_abs_s": 0.0,
+        "opening_abs": 1.4627411966134513e-17
+      },
+      "restart_energy_abs_j": 1.7005064023578598e-09,
+      "events": [],
+      "name": "cycle_positive",
+      "policy": "bdf",
+      "folder": "artifacts/ai05_valve_verification_v1/cycle_positive_bdf"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "mass_flow_abs_kg_s": 2.968321144436459e-10,
+        "omega_abs_rad_s": 2.2330759463784489e-10,
+        "temperature_abs_k": 1.3642420526593924e-12,
+        "integral_abs_j": 1.4057368602493625e-09,
+        "energy_abs_j": 2.202369842052576e-09,
+        "power_transfer_abs_w": 1.1102230246251565e-16,
+        "pressure_abs_pa": 1.8812716007232666e-07,
+        "event_time_abs_s": 0.0,
+        "opening_abs": 1.4627411966134513e-17
+      },
+      "restart_energy_abs_j": 2.2259882825892419e-10,
+      "events": [],
+      "name": "cycle_negative",
+      "policy": "bdf",
+      "folder": "artifacts/ai05_valve_verification_v1/cycle_negative_bdf"
+    }
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

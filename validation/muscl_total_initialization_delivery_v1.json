@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "implemented": "Bidirectional discrete MUSCL total-energy steady initializer",
+  "source_sha256": "375ef3719d714ec9755c6c44af39a8f40ce9a3793b0efc06f0553cd55c505436",
+  "tests_passed": 553,
+  "tests_deselected": 1,
+  "deselected_reason": "external OpenMC/MPI test not executed",
+  "new_tests": 19,
+  "steady_cases": 12,
+  "completed_transient_runs": 3,
+  "transient_horizon_s": 8,
+  "restart_time_s": 8.01,
+  "installed_wheel_verified": true,
+  "validated": false,
+  "plant_referenced": false,
+  "full_nonlinear_spatial_qualification": false,
+  "full_momentum_convection_qualified": false,
+  "remaining": [
+    "momentum convection",
+    "total-energy spatial qualification",
+    "two-phase closures",
+    "independent experimental and plant validation"
+  ]
+}

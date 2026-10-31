@@ -1,0 +1,155 @@
+{
+  "policies": {
+    "hold": {
+      "episodes": 80,
+      "completed": 80,
+      "completion_rate": 1.0,
+      "mean_iae_completed_s": 0.00015730630998001086,
+      "diagnosis_accuracy": 0.875,
+      "total_wall_time_s": 37.2728094449958,
+      "failure_cases": [],
+      "by_family": {
+        "diagnosis": {
+          "episodes": 20,
+          "completed": 20,
+          "mean_iae_completed_s": 2.677386090610412e-11,
+          "diagnosis_accuracy": 0.5
+        },
+        "hold": {
+          "episodes": 20,
+          "completed": 20,
+          "mean_iae_completed_s": 2.677386090610412e-11,
+          "diagnosis_accuracy": null
+        },
+        "recovery": {
+          "episodes": 20,
+          "completed": 20,
+          "mean_iae_completed_s": 1.0225207378804224e-05,
+          "diagnosis_accuracy": null
+        },
+        "tracking": {
+          "episodes": 20,
+          "completed": 20,
+          "mean_iae_completed_s": 0.0006189999789935174,
+          "diagnosis_accuracy": null
+        }
+      }
+    },
+    "pid": {
+      "episodes": 80,
+      "completed": 80,
+      "completion_rate": 1.0,
+      "mean_iae_completed_s": 0.00015462815291619574,
+      "diagnosis_accuracy": 1.0,
+      "total_wall_time_s": 34.24584360302106,
+      "failure_cases": [],
+      "by_family": {
+        "diagnosis": {
+          "episodes": 20,
+          "completed": 20,
+          "mean_iae_completed_s": 4.326975822088741e-09,
+          "diagnosis_accuracy": 1.0
+        },
+        "hold": {
+          "episodes": 20,
+          "completed": 20,
+          "mean_iae_completed_s": 9.360627899190899e-09,
+          "diagnosis_accuracy": null
+        },
+        "recovery": {
+          "episodes": 20,
+          "completed": 20,
+          "mean_iae_completed_s": 1.0106801740164539e-05,
+          "diagnosis_accuracy": null
+        },
+        "tracking": {
+          "episodes": 20,
+          "completed": 20,
+          "mean_iae_completed_s": 0.0006083921223208971,
+          "diagnosis_accuracy": null
+        }
+      }
+    },
+    "rule": {
+      "episodes": 80,
+      "completed": 80,
+      "completion_rate": 1.0,
+      "mean_iae_completed_s": 0.00014876600034422724,
+      "diagnosis_accuracy": 1.0,
+      "total_wall_time_s": 34.64846301500074,
+      "failure_cases": [],
+      "by_family": {
+        "diagnosis": {
+          "episodes": 20,
+          "completed": 20,
+          "mean_iae_completed_s": 2.677386090610412e-11,
+          "diagnosis_accuracy": 1.0
+        },
+        "hold": {
+          "episodes": 20,
+          "completed": 20,
+          "mean_iae_completed_s": 2.677386090610412e-11,
+          "diagnosis_accuracy": null
+        },
+        "recovery": {
+          "episodes": 20,
+          "completed": 20,
+          "mean_iae_completed_s": 1.0225207378804224e-05,
+          "diagnosis_accuracy": null
+        },
+        "tracking": {
+          "episodes": 20,
+          "completed": 20,
+          "mean_iae_completed_s": 0.0005848387404503829,
+          "diagnosis_accuracy": null
+        }
+      }
+    }
+  },
+  "paired": [
+    {
+      "a": "hold",
+      "b": "pid",
+      "common_completed": 80,
+      "mean_delta_iae_s": 2.6781570638151344e-06,
+      "ci95": [
+        2.6190558797057133e-06,
+        2.7343208460129438e-06
+      ]
+    },
+    {
+      "a": "hold",
+      "b": "rule",
+      "common_completed": 80,
+      "mean_delta_iae_s": 8.540309635783616e-06,
+      "ci95": [
+        8.540309635783616e-06,
+        8.540309635783616e-06
+      ]
+    },
+    {
+      "a": "pid",
+      "b": "rule",
+      "common_completed": 80,
+      "mean_delta_iae_s": 5.862152571968482e-06,
+      "ci95": [
+        5.803714012960368e-06,
+        5.91892319996545e-06
+      ]
+    }
+  ],
+  "bootstrap": {
+    "seed": 2026,
+    "resamples": 2000,
+    "method": "paired case resampling stratified by family, percentile 95%; public corpus only"
+  },
+  "ranking_rule": "completion rate first; IAE only on common completed cases; reward is diagnostic",
+  "validated": false,
+  "plant_referenced": false,
+  "public_corpus": true,
+  "blind_test": false,
+  "split": "test",
+  "source_sha256": "15c5dadaea64dbb276481dec43b6fa31a76e2675decdfe6192f8ce94a772ed3f",
+  "recorded_episodes": 240,
+  "all_episodes_completed": true
+}

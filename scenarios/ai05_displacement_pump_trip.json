@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "engine": "displacement-pump-circulation-loop",
+  "name": "ai05_displacement_pump_trip",
+  "loop": {
+    "model": {
+      "topology": {
+        "schema_version": 1,
+        "nodes": [
+          {
+            "id": "s0",
+            "model_id": "incompressible-loop-segment",
+            "model_version": "1.0.0",
+            "parameters": {
+              "length_m": 1,
+              "loss_coefficient": 10,
+              "wall_capacity_j_k": 1000,
+              "fluid_wall_ua_w_k": 0,
+              "ambient_ua_w_k": 0,
+              "wall_power_w": 0,
+              "drive_pressure_pa": 0
+            }
+          },
+          {
+            "id": "s1",
+            "model_id": "incompressible-loop-segment",
+            "model_version": "1.0.0",
+            "parameters": {
+              "length_m": 1,
+              "loss_coefficient": 10,
+              "wall_capacity_j_k": 1000,
+              "fluid_wall_ua_w_k": 0,
+              "ambient_ua_w_k": 0,
+              "wall_power_w": 0,
+              "drive_pressure_pa": 0
+            }
+          },
+          {
+            "id": "s2",
+            "model_id": "incompressible-loop-segment",
+            "model_version": "1.0.0",
+            "parameters": {
+              "length_m": 1,
+              "loss_coefficient": 10,
+              "wall_capacity_j_k": 1000,
+              "fluid_wall_ua_w_k": 0,
+              "ambient_ua_w_k": 0,
+              "wall_power_w": 0,
+              "drive_pressure_pa": 0
+            }
+          }
+        ],
+        "connections": [
+          {
+            "id": "e0",
+            "from": "s0.right",
+            "to": "s1.left"
+          },
+          {
+            "id": "e1",
+            "from": "s1.right",
+            "to": "s2.left"
+          },
+          {
+            "id": "e2",
+            "from": "s2.right",
+            "to": "s0.left"
+          }
+        ]
+      },
+      "fluid": {
+        "density_kg_m3": 1000,
+        "heat_capacity_j_kg_k": 4200,
+        "area_m2": 0.01
+      },
+      "reference": {
+        "segment": "s0",
+        "pressure_pa": 7000000.0
+      },
+      "ambient_temperature_k": 300,
+      "energy_tolerance_j": 1e-05
+    },
+    "initialization": {
+      "mode": "given",
+      "mass_flow_kg_s": 0.5,
+      "fluid_temperature_k": {
+        "s0": 300,
+        "s1": 300,
+        "s2": 300
+      },
+      "wall_temperature_k": {
+        "s0": 300,
+        "s1": 300,
+        "s2": 300
+      }
+    }
+  },
+  "pump": {
+    "segment": "s0",
+    "displacement_m3_rad": 0.0001,
+    "leakage_m3_s_pa": 1e-06,
+    "inertia_kg_m2": 0.1,
+    "drag_nm_s_rad": 0.02
+  },
+  "initial_omega_rad_s": 20,
+  "motor_torque_nm": 0.2,
+  "duration_s": 20,
+  "step_s": 0.5,
+  "solver": {
+    "method": "Radau",
+    "rtol": 1e-09,
+    "max_step_s": 0.05,
+    "atol_scale": 0.1
+  },
+  "timeline": [
+    {
+      "t": 5,
+      "motor_torque_nm": 0
+    }
+  ]
+}

@@ -21,6 +21,8 @@ wheels/
 *.egg
 
 # Virtual Environment
+.venv/
+.venv-*/
 venv/
 env/
 ENV/
@@ -43,13 +45,63 @@ ENV/
 results/
 outputs/
 site/
+
+# Local numerical campaigns and frozen delivery bundles. Keep their index/docs.
+/artifacts/*
+!/artifacts/README.md
+
+# Local training runs and generated model checkpoints
+/runs/
+/checkpoints/
+/wandb/
+/mlruns/
+/tensorboard/
+lightning_logs/
+ray_results/
+*.ckpt
+events.out.tfevents.*
+
+# Distribution archives and execution logs (not source/reference JSON)
+*.whl
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.log
+*.log.*
+*.prof
+*.lprof
+
+# Local credentials/configuration; templates remain versionable
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+.direnv/
+.aws/
+*.pem
+*.key
+*.p12
+*.pfx
 # OS
 .DS_Store
 Thumbs.db
 
 # Testing
 .pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.hypothesis/
+.tox/
+.nox/
+.cache/
 .coverage
+.coverage.*
+coverage.xml
+junit*.xml
+test-results/
 htmlcov/
 
 # Examples output

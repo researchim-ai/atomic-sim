@@ -1,0 +1,11 @@
+{
+  "kind": "phase_guard_microbenchmark",
+  "validated": false,
+  "plant_referenced": false,
+  "source_sha256": "70313ceb4acf9ac354b2a72a135a53a417028735f12bb6007b6ca8663db4cdfd",
+  "checks": 200,
+  "full_inverse_s": 0.2892541630003507,
+  "exact_interval_s": 0.011981717999788088,
+  "ratio": 24.14129284343585,
+  "scope": "Uncached distinct liquid inputs; local timing only, not whole-solver or cross-product performance"
+}

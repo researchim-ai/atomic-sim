@@ -8,7 +8,11 @@ from dataclasses import fields
 from pathlib import Path
 
 from core.status import DomainError
-from physics.hydraulics.dynamic_channel import DynamicConfig, DynamicWallChannel
+from physics.hydraulics.dynamic_channel import (
+    DynamicConfig,
+    DynamicWallChannel,
+    validate_absolute_tolerances,
+)
 from sdk.channel_experiment import _run_channel_experiment
 from sdk.experiment import _number
 
@@ -29,8 +33,11 @@ def validate_dynamic_experiment(spec):
         raise ValueError("Unknown pressure-driven experiment fields")
     if type(spec.get("schema_version")) is not int or spec["schema_version"] != 1:
         raise ValueError("Expected schema_version 1")
-    if spec.get("engine") != "pressure-driven-wall-channel":
-        raise ValueError("Expected pressure-driven-wall-channel engine")
+    if spec.get("engine") not in (
+        "pressure-driven-wall-channel",
+        "compatible-total-energy-channel",
+    ):
+        raise ValueError("Expected a supported pressure-driven channel engine")
     if not isinstance(spec.get("name"), str) or not spec["name"].strip():
         raise ValueError("Experiment name required")
     if not isinstance(spec.get("timeline", []), list) or spec.get("timeline", []):
@@ -42,14 +49,28 @@ def validate_dynamic_experiment(spec):
         config = DynamicConfig(**raw)
     except TypeError as exc:
         raise ValueError("Incomplete hydraulics configuration") from exc
+    compatible = config.energy_formulation == "compatible_total"
+    if (spec["engine"] == "compatible-total-energy-channel") != compatible:
+        raise ValueError("Engine must explicitly match the energy formulation")
     solver, budgets = spec.get("solver", {}), spec.get("budgets", {})
-    if not isinstance(solver, dict) or set(solver) - {"method", "rtol", "max_step_s"}:
+    if not isinstance(solver, dict) or set(solver) - {
+        "method",
+        "rtol",
+        "max_step_s",
+        "jacobian_relative_step",
+        "absolute_tolerances",
+        "jacobian_mode",
+    }:
         raise ValueError("Unknown solver fields")
     if solver.get("method", "Radau") not in ("BDF", "Radau"):
         raise ValueError("Expected BDF or Radau")
-    if not isinstance(budgets, dict) or set(budgets) - {"mass_relative", "energy_relative"}:
+    budget_defaults = [("mass_relative", 1e-6), ("energy_relative", 1e-5)]
+    if compatible:
+        budget_defaults.append(("mechanical_absolute_j", 1e-4))
+        budget_defaults.append(("energy_absolute_j", 1e-3))
+    if not isinstance(budgets, dict) or set(budgets) - {k for k, _ in budget_defaults}:
         raise ValueError("Unknown balance budgets")
-    return dict(
+    result = dict(
         schema_version=1,
         engine=spec["engine"],
         name=spec["name"],
@@ -63,10 +84,25 @@ def validate_dynamic_experiment(spec):
             max_step_s=_number(solver.get("max_step_s", 0.1), "max_step_s", 1e-6, 5.0),
         ),
         budgets={
-            k: _number(budgets.get(k, v), k, 0.0, 1.0)
-            for k, v in [("mass_relative", 1e-6), ("energy_relative", 1e-5)]
+            k: _number(budgets.get(k, v), k, 0.0, 1e12 if k.endswith("_absolute_j") else 1.0)
+            for k, v in budget_defaults
         },
     )
+    if "jacobian_relative_step" in solver:
+        result["solver"]["jacobian_relative_step"] = _number(
+            solver["jacobian_relative_step"], "jacobian_relative_step", 1e-10, 1e-2
+        )
+    if "absolute_tolerances" in solver:
+        result["solver"]["absolute_tolerances"] = validate_absolute_tolerances(
+            solver["absolute_tolerances"], include_mechanical=compatible
+        )
+    if "jacobian_mode" in solver:
+        if solver["jacobian_mode"] not in ("finite_difference", "analytic") or (
+            solver["jacobian_mode"] == "analytic" and "jacobian_relative_step" in solver
+        ):
+            raise ValueError("Choose an analytic Jacobian or a finite-difference step")
+        result["solver"]["jacobian_mode"] = solver["jacobian_mode"]
+    return result
 
 
 def run_dynamic_experiment(spec, output, **options):
@@ -86,7 +122,11 @@ def main(argv=None):
     args = parser.parse_args(argv)
     try:
         report = run_dynamic_experiment(
-            yaml.safe_load(args.scenario.read_text()),
+            (
+                json.loads(args.scenario.read_text())
+                if args.scenario.suffix.lower() == ".json"
+                else yaml.safe_load(args.scenario.read_text())
+            ),
             args.output,
             wall_limit_s=args.wall_limit_s,
             cancel_file=args.cancel_file,

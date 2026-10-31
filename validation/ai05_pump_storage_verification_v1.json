@@ -1,0 +1,1609 @@
+{
+  "schema_version": 1,
+  "source_sha256": "5ccba66aa4c4667f7b749783db379adf7d12b2ab8cdec65089e0357a025e59e6",
+  "budget_sha256": "bd57dcfc8b95d20b690b2f43fcb67ae956cec25f06ea7554f4adefc912cab9b9",
+  "script_sha256": "0555d8df0138758d9e8da6a95b24d965ca4371231ebb46aed4e1b3225b2146a8",
+  "reference_sha256": "cf2a383edd75e0461b1ee079046ac43705fbddad788e10aa2dd08e793069b317",
+  "coefficient_reference_sha256": "eff39b43261a3af757a631e1674819b99dffadc27f84fe991662df139baca441",
+  "integrations": 24,
+  "case_families": 11,
+  "all_cases_accepted": true,
+  "cases": [
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.0197753752549943e-10,
+        "mass_flow_abs_kg_s": 1.3028184087104933e-10,
+        "pressure_abs_pa": 2.871965989470482e-06,
+        "temperature_abs_k": 1.8362698028795421e-09,
+        "boundary_work_abs_j": 1.530810322947218e-08,
+        "energy_abs_j": 1.2378400526813493e-08,
+        "local_energy_abs_w": 6.982272537925382e-10,
+        "link_energy_abs_w": 5.390035084928968e-10,
+        "event_time_abs_s": 1.865707588422083e-11,
+        "omega_abs_rad_s": 8.51363424203555e-11,
+        "shaft_energy_abs_j": 8.326672684688674e-14,
+        "power_transfer_abs_w": 8.881784197001252e-16,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.395137428632696,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 4.930586753992371,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.498389512435771,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.05672765966354,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.636956173045554,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.208131951042168,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.794921412308803,
+          "direction": -1
+        }
+      ],
+      "restart_energy_abs_j": 6.638906313582993e-09,
+      "name": "driven_positive",
+      "policy": "base",
+      "folder": "artifacts/ai05_pump_storage_verification_v1/driven_positive_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.0241851811088054e-10,
+        "mass_flow_abs_kg_s": 1.3105955209979925e-10,
+        "pressure_abs_pa": 2.8856447897851467e-06,
+        "temperature_abs_k": 1.8470132090442348e-09,
+        "boundary_work_abs_j": 1.539746108392137e-08,
+        "energy_abs_j": 2.7744373909399656e-08,
+        "local_energy_abs_w": 6.983214007050265e-10,
+        "link_energy_abs_w": 3.914522039849544e-10,
+        "event_time_abs_s": 1.8850698779715458e-11,
+        "omega_abs_rad_s": 8.520473215867241e-11,
+        "shaft_energy_abs_j": 3.446132268436486e-13,
+        "power_transfer_abs_w": 1.7763568394002505e-15,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.395137428632677,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 4.93058675399234,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.498389512435747,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.056727659663434,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.636956173045423,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.208131951041974,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.794921412308433,
+          "direction": -1
+        }
+      ],
+      "restart_energy_abs_j": 1.0583974585642864e-08,
+      "name": "driven_positive",
+      "policy": "tight",
+      "folder": "artifacts/ai05_pump_storage_verification_v1/driven_positive_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 2.993738590362227e-11,
+        "mass_flow_abs_kg_s": 9.539200332420172e-11,
+        "pressure_abs_pa": 9.558279998600483e-07,
+        "temperature_abs_k": 5.793481250293553e-10,
+        "boundary_work_abs_j": 4.831463229493238e-09,
+        "energy_abs_j": 2.264894050085786e-08,
+        "local_energy_abs_w": 6.981739630873562e-10,
+        "link_energy_abs_w": 4.0037306803242245e-10,
+        "event_time_abs_s": 1.7637447058405087e-11,
+        "omega_abs_rad_s": 2.985345304296061e-11,
+        "shaft_energy_abs_j": 1.3145040611561853e-13,
+        "power_transfer_abs_w": 1.7763568394002505e-15,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.3951374286326987,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 4.930586753992373,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.498389512435774,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.056727659663544,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.636956173045592,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.208131951042198,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.79492141230883,
+          "direction": 1
+        }
+      ],
+      "restart_energy_abs_j": 1.64166564786683e-08,
+      "name": "driven_negative",
+      "policy": "base",
+      "folder": "artifacts/ai05_pump_storage_verification_v1/driven_negative_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 2.9747759811016294e-11,
+        "mass_flow_abs_kg_s": 9.516064845838113e-11,
+        "pressure_abs_pa": 9.530049283057451e-07,
+        "temperature_abs_k": 5.825313564855605e-10,
+        "boundary_work_abs_j": 4.8583501666144e-09,
+        "energy_abs_j": 5.3076654182859784e-08,
+        "local_energy_abs_w": 6.982787681408809e-10,
+        "link_energy_abs_w": 4.5136516746424604e-10,
+        "event_time_abs_s": 1.7683632336229493e-11,
+        "omega_abs_rad_s": 2.9672264645341784e-11,
+        "shaft_energy_abs_j": 4.902744876744691e-13,
+        "power_transfer_abs_w": 1.7763568394002505e-15,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.3951374286324305,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 4.93058675399248,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.498389512435897,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.056727659663597,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.636956173045592,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.208131951042152,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.794921412308614,
+          "direction": 1
+        }
+      ],
+      "restart_energy_abs_j": 3.925802616322471e-08,
+      "name": "driven_negative",
+      "policy": "tight",
+      "folder": "artifacts/ai05_pump_storage_verification_v1/driven_negative_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 9.673062351112094e-11,
+        "mass_flow_abs_kg_s": 1.2589695952414104e-10,
+        "pressure_abs_pa": 3.202992957085371e-06,
+        "temperature_abs_k": 1.9146568774885964e-09,
+        "boundary_work_abs_j": 1.5972204892023e-08,
+        "energy_abs_j": 3.1950619927556545e-08,
+        "local_energy_abs_w": 6.982272537925382e-10,
+        "link_energy_abs_w": 3.929585545847658e-10,
+        "event_time_abs_s": 1.0669687355857604e-10,
+        "omega_abs_rad_s": 8.589706723682866e-11,
+        "shaft_energy_abs_j": 2.1671553440683056e-13,
+        "power_transfer_abs_w": 4.440892098500626e-16,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.395137428632696,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 4.930586753992371,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.496819667564439,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.057960436307802,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.606152803961733,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 14.401075044771895,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.221547414835568,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 15.951312786344712,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.85260151567324,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 19.257600571887384,
+          "direction": -1
+        }
+      ],
+      "restart_energy_abs_j": 2.4731608760930612e-08,
+      "name": "trip_positive",
+      "policy": "base",
+      "folder": "artifacts/ai05_pump_storage_verification_v1/trip_positive_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 9.670308998011024e-11,
+        "mass_flow_abs_kg_s": 1.2629020051946327e-10,
+        "pressure_abs_pa": 3.202992957085371e-06,
+        "temperature_abs_k": 1.915907432703534e-09,
+        "boundary_work_abs_j": 1.598266408109339e-08,
+        "energy_abs_j": 1.3793748365742431e-08,
+        "local_energy_abs_w": 6.983214007050265e-10,
+        "link_energy_abs_w": 3.914522039849544e-10,
+        "event_time_abs_s": 1.063540366885718e-10,
+        "omega_abs_rad_s": 8.595546496792394e-11,
+        "shaft_energy_abs_j": 2.2737367544323206e-13,
+        "power_transfer_abs_w": 1.7763568394002505e-15,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.395137428632677,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 4.93058675399234,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.496819667564398,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.057960436307715,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.606152803961624,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 14.401075044771572,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.22154741483541,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 15.951312786345055,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.852601515673005,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 19.25760057188719,
+          "direction": -1
+        }
+      ],
+      "restart_energy_abs_j": 3.288761263320339e-09,
+      "name": "trip_positive",
+      "policy": "tight",
+      "folder": "artifacts/ai05_pump_storage_verification_v1/trip_positive_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 9.666534239727298e-11,
+        "mass_flow_abs_kg_s": 1.258437798412615e-10,
+        "pressure_abs_pa": 3.2018288038671017e-06,
+        "temperature_abs_k": 1.915395841933787e-09,
+        "boundary_work_abs_j": 1.5962712041073246e-08,
+        "energy_abs_j": 1.0758519408682332e-08,
+        "local_energy_abs_w": 6.981739630873562e-10,
+        "link_energy_abs_w": 4.530704700300703e-10,
+        "event_time_abs_s": 1.0666667549230624e-10,
+        "omega_abs_rad_s": 8.58468851561156e-11,
+        "shaft_energy_abs_j": 1.1723955140041653e-13,
+        "power_transfer_abs_w": 1.7763568394002505e-15,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.3951374286326987,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 4.930586753992373,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.496819667564395,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.057960436307845,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.606152803961766,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 14.40107504477193,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.221547414835602,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 15.951312786344744,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.85260151567328,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 19.257600571887416,
+          "direction": 1
+        }
+      ],
+      "restart_energy_abs_j": 5.174531025886608e-09,
+      "name": "trip_negative",
+      "policy": "base",
+      "folder": "artifacts/ai05_pump_storage_verification_v1/trip_negative_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 9.654188559693466e-11,
+        "mass_flow_abs_kg_s": 1.258535498038782e-10,
+        "pressure_abs_pa": 3.2013922464102507e-06,
+        "temperature_abs_k": 1.9205117496312596e-09,
+        "boundary_work_abs_j": 1.6005515135475434e-08,
+        "energy_abs_j": 4.479250748090635e-08,
+        "local_energy_abs_w": 6.982787681408809e-10,
+        "link_energy_abs_w": 3.1300828595703933e-10,
+        "event_time_abs_s": 1.0628475877183519e-10,
+        "omega_abs_rad_s": 8.583311839061025e-11,
+        "shaft_energy_abs_j": 3.517186542012496e-13,
+        "power_transfer_abs_w": 1.7763568394002505e-15,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.3951374286324305,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 4.93058675399248,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.496819667564551,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.057960436307882,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.606152803961782,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 14.401075044771643,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.221547414835566,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 15.951312786345126,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.85260151567315,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 19.257600571887345,
+          "direction": 1
+        }
+      ],
+      "restart_energy_abs_j": 2.884805283542846e-08,
+      "name": "trip_negative",
+      "policy": "tight",
+      "folder": "artifacts/ai05_pump_storage_verification_v1/trip_negative_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.6914025735559335e-11,
+        "mass_flow_abs_kg_s": 2.09152695163084e-11,
+        "pressure_abs_pa": 5.066103767603636e-07,
+        "temperature_abs_k": 3.0661340133519843e-10,
+        "boundary_work_abs_j": 2.5594317776267417e-09,
+        "energy_abs_j": 7.664731072054565e-09,
+        "local_energy_abs_w": 7.819031810907262e-10,
+        "link_energy_abs_w": 4.969944455979203e-10,
+        "event_time_abs_s": 8.199663170671556e-12,
+        "omega_abs_rad_s": 1.6845191908032575e-11,
+        "shaft_energy_abs_j": 1.0658141036401503e-13,
+        "power_transfer_abs_w": 8.881784197001252e-16,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.393061636641972,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 4.221764320248567,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 4.933434183556907,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.504000627146236,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.067372111525545,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.651774562773861,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.22791598040913,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.819292644055672,
+          "direction": -1
+        }
+      ],
+      "restart_energy_abs_j": 1.0859366739168763e-09,
+      "name": "braking_positive",
+      "policy": "base",
+      "folder": "artifacts/ai05_pump_storage_verification_v1/braking_positive_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.7494006243623517e-11,
+        "mass_flow_abs_kg_s": 2.1546264772354107e-11,
+        "pressure_abs_pa": 5.190959200263023e-07,
+        "temperature_abs_k": 3.154809746774845e-10,
+        "boundary_work_abs_j": 2.6335555958212353e-09,
+        "energy_abs_j": 2.018562383909739e-08,
+        "local_energy_abs_w": 7.819048880586266e-10,
+        "link_energy_abs_w": 9.614691265369402e-10,
+        "event_time_abs_s": 8.562039965909207e-12,
+        "omega_abs_rad_s": 1.7286616582623537e-11,
+        "shaft_energy_abs_j": 9.237055564881302e-14,
+        "power_transfer_abs_w": 8.881784197001252e-16,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.3930616366419715,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 4.221764320248442,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 4.933434183556898,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.50400062714617,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.067372111525213,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.651774562773499,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.227915980408723,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.819292644055235,
+          "direction": -1
+        }
+      ],
+      "restart_energy_abs_j": 1.855569564668258e-08,
+      "name": "braking_positive",
+      "policy": "tight",
+      "folder": "artifacts/ai05_pump_storage_verification_v1/braking_positive_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 2.0523582833220644e-11,
+        "mass_flow_abs_kg_s": 2.536471033209864e-11,
+        "pressure_abs_pa": 5.796900950372219e-07,
+        "temperature_abs_k": 3.7198333302512765e-10,
+        "boundary_work_abs_j": 3.0992737265478354e-09,
+        "energy_abs_j": 6.742924441027753e-09,
+        "local_energy_abs_w": 9.313225746154785e-10,
+        "link_energy_abs_w": 5.03552755048986e-10,
+        "event_time_abs_s": 1.2715162256426993e-11,
+        "omega_abs_rad_s": 1.807709537615665e-11,
+        "shaft_energy_abs_j": 9.947598300641403e-14,
+        "power_transfer_abs_w": 1.7763568394002505e-15,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.3930616366419972,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 4.221764320248569,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 4.933434183556931,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.504000627146236,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.067372111525332,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.65177456277365,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.227915980408918,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.81929264405546,
+          "direction": 1
+        }
+      ],
+      "restart_energy_abs_j": 4.348333249026837e-09,
+      "name": "braking_negative",
+      "policy": "base",
+      "folder": "artifacts/ai05_pump_storage_verification_v1/braking_negative_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 2.071232074740692e-11,
+        "mass_flow_abs_kg_s": 2.552580369297175e-11,
+        "pressure_abs_pa": 5.846086423844099e-07,
+        "temperature_abs_k": 3.744844434550032e-10,
+        "boundary_work_abs_j": 3.1199078875943087e-09,
+        "energy_abs_j": 1.3077249505499822e-08,
+        "local_energy_abs_w": 6.320275414140042e-10,
+        "link_energy_abs_w": 4.960618582572351e-10,
+        "event_time_abs_s": 1.2851941733060812e-11,
+        "omega_abs_rad_s": 1.8174795002323663e-11,
+        "shaft_energy_abs_j": 1.7408297026122455e-13,
+        "power_transfer_abs_w": 8.881784197001252e-16,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.3930616366419724,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 4.221764320248444,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 4.9334341835568996,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.504000627146189,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.067372111525232,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.651774562773513,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.227915980408739,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.819292644055253,
+          "direction": 1
+        }
+      ],
+      "restart_energy_abs_j": 3.001474624397815e-10,
+      "name": "braking_negative",
+      "policy": "tight",
+      "folder": "artifacts/ai05_pump_storage_verification_v1/braking_negative_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 4.7968740091164364e-11,
+        "mass_flow_abs_kg_s": 5.6303184337025414e-11,
+        "pressure_abs_pa": 1.3601093087345362e-06,
+        "temperature_abs_k": 8.220695235650055e-10,
+        "boundary_work_abs_j": 7.23122184353997e-09,
+        "energy_abs_j": 7.203273644229569e-09,
+        "local_energy_abs_w": 9.313225746154785e-10,
+        "link_energy_abs_w": 5.611333619981451e-10,
+        "event_time_abs_s": 3.0958346997067565e-11,
+        "omega_abs_rad_s": 4.187147850664985e-11,
+        "shaft_energy_abs_j": 8.526512829121202e-14,
+        "power_transfer_abs_w": 1.7763568394002505e-15,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 1.9991028290915354,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 3.3295179245268907,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 4.516802652469346,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 5.481470365298229,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.078937563723111,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 8.25482579400693,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 9.628971092168939,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 10.700933839372384,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.206843267273157,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 13.335971443396092,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 14.774278694391075,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 15.877217741169131,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.360593574950553,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 18.476329279839916,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 19.938264981696555,
+          "direction": 1
+        }
+      ],
+      "restart_energy_abs_j": 2.860880643495989e-09,
+      "name": "backdrive_positive",
+      "policy": "base",
+      "folder": "artifacts/ai05_pump_storage_verification_v1/backdrive_positive_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 4.822942045734635e-11,
+        "mass_flow_abs_kg_s": 5.67743074775251e-11,
+        "pressure_abs_pa": 1.3732060324400663e-06,
+        "temperature_abs_k": 8.278107088699471e-10,
+        "boundary_work_abs_j": 7.280675617948873e-09,
+        "energy_abs_j": 2.077806438016694e-08,
+        "local_energy_abs_w": 9.313225746154785e-10,
+        "link_energy_abs_w": 7.522231726397877e-10,
+        "event_time_abs_s": 3.133848736069922e-11,
+        "omega_abs_rad_s": 4.2196052207899015e-11,
+        "shaft_energy_abs_j": 3.410605131648481e-13,
+        "power_transfer_abs_w": 1.7763568394002505e-15,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 1.9991028290915283,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 3.3295179245270488,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 4.516802652469324,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 5.48147036529845,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.078937563723158,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 8.254825794007017,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 9.628971092168856,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 10.700933839372352,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.206843267273056,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 13.335971443395982,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 14.77427869439088,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 15.87721774116897,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.360593574950173,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 18.476329279839558,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 19.938264981696037,
+          "direction": 1
+        }
+      ],
+      "restart_energy_abs_j": 1.6253678181143982e-08,
+      "name": "backdrive_positive",
+      "policy": "tight",
+      "folder": "artifacts/ai05_pump_storage_verification_v1/backdrive_positive_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 5.083800047600562e-11,
+        "mass_flow_abs_kg_s": 6.723033241229359e-11,
+        "pressure_abs_pa": 1.4694523997604847e-06,
+        "temperature_abs_k": 9.287077773478813e-10,
+        "boundary_work_abs_j": 7.736957741144579e-09,
+        "energy_abs_j": 2.1061549504430843e-08,
+        "local_energy_abs_w": 9.313225746154785e-10,
+        "link_energy_abs_w": 5.146318926563254e-10,
+        "event_time_abs_s": 3.61630725365103e-11,
+        "omega_abs_rad_s": 5.004198444513719e-11,
+        "shaft_energy_abs_j": 1.8474111129762605e-13,
+        "power_transfer_abs_w": 3.552713678800501e-15,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 1.9991028290915358,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 3.3295179245268915,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 4.516802652469351,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 5.48147036529822,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.0789375637231124,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 8.254825794007118,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 9.628971092168975,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 10.700933839372427,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.206843267273198,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 13.335971443396131,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 14.774278694391105,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 15.877217741169188,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.360593574950435,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 18.47632927983975,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 19.938264981696342,
+          "direction": -1
+        }
+      ],
+      "restart_energy_abs_j": 2.0890446483790015e-08,
+      "name": "backdrive_negative",
+      "policy": "base",
+      "folder": "artifacts/ai05_pump_storage_verification_v1/backdrive_negative_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 5.114975110132036e-11,
+        "mass_flow_abs_kg_s": 6.78238576412582e-11,
+        "pressure_abs_pa": 1.4801917131990194e-06,
+        "temperature_abs_k": 9.382006282976363e-10,
+        "boundary_work_abs_j": 7.816254310455406e-09,
+        "energy_abs_j": 2.6034877920189103e-08,
+        "local_energy_abs_w": 6.63136212608606e-10,
+        "link_energy_abs_w": 5.038849337779538e-10,
+        "event_time_abs_s": 3.6358471788844327e-11,
+        "omega_abs_rad_s": 5.0447632182759605e-11,
+        "shaft_energy_abs_j": 1.6342482922482304e-13,
+        "power_transfer_abs_w": 1.7763568394002505e-15,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 1.9991028290915274,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 3.3295179245270425,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 4.516802652469322,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 5.48147036529829,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.0789375637233665,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 8.254825794007017,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 9.628971092168856,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 10.700933839372356,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.206843267273056,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 13.335971443395973,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 14.774278694390874,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 15.877217741168964,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.36059357495017,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 18.476329279839554,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 19.938264981696026,
+          "direction": -1
+        }
+      ],
+      "restart_energy_abs_j": 2.3706869911599426e-08,
+      "name": "backdrive_negative",
+      "policy": "tight",
+      "folder": "artifacts/ai05_pump_storage_verification_v1/backdrive_negative_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 2.531574949671267e-11,
+        "mass_flow_abs_kg_s": 1.8703275039833045e-11,
+        "pressure_abs_pa": 5.302135832607746e-07,
+        "temperature_abs_k": 9.562199920765124e-10,
+        "boundary_work_abs_j": 5.307583705871366e-09,
+        "energy_abs_j": 5.320316631696187e-08,
+        "local_energy_abs_w": 6.269829100347124e-10,
+        "link_energy_abs_w": 2.6429347599332687e-10,
+        "event_time_abs_s": 5.7628568583822926e-11,
+        "omega_abs_rad_s": 1.6855850049068977e-11,
+        "shaft_energy_abs_j": 1.1723955140041653e-13,
+        "power_transfer_abs_w": 1.7763568394002505e-15,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.6425772803753165,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 5.262724053366861,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.962716204029873,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.632189046548513,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 13.327526593995298,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 16.00967679459985,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 18.702992076660045,
+          "direction": -1
+        }
+      ],
+      "restart_energy_abs_j": 4.070921022503171e-08,
+      "name": "thermal_positive",
+      "policy": "base",
+      "folder": "artifacts/ai05_pump_storage_verification_v1/thermal_positive_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 2.5576429862894656e-11,
+        "mass_flow_abs_kg_s": 1.981413644269736e-11,
+        "pressure_abs_pa": 5.490437615662813e-07,
+        "temperature_abs_k": 9.445670912100468e-10,
+        "boundary_work_abs_j": 5.070887709734961e-09,
+        "energy_abs_j": 4.2791839405253995e-08,
+        "local_energy_abs_w": 7.921182598735754e-10,
+        "link_energy_abs_w": 5.764633215221693e-10,
+        "event_time_abs_s": 6.112443884376262e-11,
+        "omega_abs_rad_s": 1.7962520360015333e-11,
+        "shaft_energy_abs_j": 3.055333763768431e-13,
+        "power_transfer_abs_w": 1.7763568394002505e-15,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.642577280375411,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 5.262724053367094,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.962716204029938,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.632189046548522,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 13.327526593995344,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 16.009676794599137,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 18.70299207665655,
+          "direction": -1
+        }
+      ],
+      "restart_energy_abs_j": 3.6384449231263716e-08,
+      "name": "thermal_positive",
+      "policy": "tight",
+      "folder": "artifacts/ai05_pump_storage_verification_v1/thermal_positive_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 2.921274333544943e-14,
+        "mass_flow_abs_kg_s": 1.6188439477815564e-14,
+        "pressure_abs_pa": 4.3655745685100555e-10,
+        "temperature_abs_k": 1.1368683772161603e-12,
+        "boundary_work_abs_j": 2.9247715360725124e-12,
+        "energy_abs_j": 1.7985765585204483e-09,
+        "local_energy_abs_w": 2.094713291711514e-12,
+        "link_energy_abs_w": 1.8420854034847944e-12,
+        "event_time_abs_s": 1.802114013571554e-12,
+        "omega_abs_rad_s": 2.4868995751603507e-14,
+        "shaft_energy_abs_j": 3.381669944069188e-14,
+        "power_transfer_abs_w": 1.6653345369377348e-16,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 4.841937125874139,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.736375939566435,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 11.145783403408425,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 14.34503961396343,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.626002936628606,
+          "direction": -1
+        }
+      ],
+      "restart_energy_abs_j": 5.457559838079051e-11,
+      "name": "motor_start_equal_pressure",
+      "policy": "base",
+      "folder": "artifacts/ai05_pump_storage_verification_v1/motor_start_equal_pressure_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 2.9601321394068236e-14,
+        "mass_flow_abs_kg_s": 1.7236971398826295e-14,
+        "pressure_abs_pa": 4.220055416226387e-10,
+        "temperature_abs_k": 1.0800249583553523e-12,
+        "boundary_work_abs_j": 2.956745959181717e-12,
+        "energy_abs_j": 2.1213514452000926e-09,
+        "local_energy_abs_w": 3.637978807091713e-12,
+        "link_energy_abs_w": 1.2035635617475837e-12,
+        "event_time_abs_s": 3.582911745070305e-12,
+        "omega_abs_rad_s": 2.4868995751603507e-14,
+        "shaft_energy_abs_j": 6.411711439557877e-14,
+        "power_transfer_abs_w": 1.1102230246251565e-16,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 4.841937125874154,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.736375939566035,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 11.14578340340978,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 14.3450396139668,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.62600293662973,
+          "direction": -1
+        }
+      ],
+      "restart_energy_abs_j": 7.203384590204198e-12,
+      "name": "motor_start_equal_pressure",
+      "policy": "tight",
+      "folder": "artifacts/ai05_pump_storage_verification_v1/motor_start_equal_pressure_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 0.0,
+        "mass_flow_abs_kg_s": 0.0,
+        "pressure_abs_pa": 0.0,
+        "temperature_abs_k": 0.0,
+        "boundary_work_abs_j": 0.0,
+        "energy_abs_j": 0.0,
+        "local_energy_abs_w": 0.0,
+        "link_energy_abs_w": 0.0,
+        "event_time_abs_s": 0.0,
+        "omega_abs_rad_s": 0.0,
+        "shaft_energy_abs_j": 0.0,
+        "power_transfer_abs_w": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [],
+      "restart_energy_abs_j": 0.0,
+      "name": "equilibrium",
+      "policy": "base",
+      "folder": "artifacts/ai05_pump_storage_verification_v1/equilibrium_base"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 0.0,
+        "mass_flow_abs_kg_s": 0.0,
+        "pressure_abs_pa": 0.0,
+        "temperature_abs_k": 0.0,
+        "boundary_work_abs_j": 0.0,
+        "energy_abs_j": 0.0,
+        "local_energy_abs_w": 0.0,
+        "link_energy_abs_w": 0.0,
+        "event_time_abs_s": 0.0,
+        "omega_abs_rad_s": 0.0,
+        "shaft_energy_abs_j": 0.0,
+        "power_transfer_abs_w": 0.0,
+        "mass_abs_kg": 0.0
+      },
+      "events": [],
+      "restart_energy_abs_j": 0.0,
+      "name": "equilibrium",
+      "policy": "tight",
+      "folder": "artifacts/ai05_pump_storage_verification_v1/equilibrium_tight"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.1660516996414572e-10,
+        "mass_flow_abs_kg_s": 1.7558254850058574e-10,
+        "pressure_abs_pa": 6.502959877252579e-06,
+        "temperature_abs_k": 7.109235866664676e-09,
+        "boundary_work_abs_j": 7.376678468062892e-08,
+        "energy_abs_j": 1.3433964340947568e-07,
+        "local_energy_abs_w": 8.333593815024187e-10,
+        "link_energy_abs_w": 7.134417501220014e-10,
+        "event_time_abs_s": 8.983036536847067e-11,
+        "omega_abs_rad_s": 1.0062084498940749e-10,
+        "shaft_energy_abs_j": 1.5513279549850267e-10,
+        "power_transfer_abs_w": 1.7763568394002505e-15,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.3951374286076748,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 4.930586753988578,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.496819667530433,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.057960436301576,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.606152803933696,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 14.401075044728513,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.221547414828867,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 15.951312786392888,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.852601515705082,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 19.2576005719364,
+          "direction": -1
+        }
+      ],
+      "restart_energy_abs_j": 1.3274096133386593e-07,
+      "name": "trip_positive",
+      "policy": "bdf",
+      "folder": "artifacts/ai05_pump_storage_verification_v1/trip_positive_bdf"
+    },
+    {
+      "accepted": true,
+      "metrics": {
+        "transfer_mass_abs_kg": 1.0752732038099566e-10,
+        "mass_flow_abs_kg_s": 1.735668275770763e-10,
+        "pressure_abs_pa": 6.142450729385018e-06,
+        "temperature_abs_k": 7.007429303484969e-09,
+        "boundary_work_abs_j": 7.332164386752993e-08,
+        "energy_abs_j": 1.51246734247934e-07,
+        "local_energy_abs_w": 5.910461009506207e-10,
+        "link_energy_abs_w": 4.2716763459793583e-10,
+        "event_time_abs_s": 8.360601100321219e-11,
+        "omega_abs_rad_s": 9.272049794617487e-11,
+        "shaft_energy_abs_j": 1.5165468880695698e-10,
+        "power_transfer_abs_w": 1.7763568394002505e-15,
+        "mass_abs_kg": 0.0
+      },
+      "events": [
+        {
+          "kind": "flow_zero",
+          "t": 2.3951374286077765,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 4.930586753988807,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 7.496819667531921,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 10.057960436305123,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 12.606152803936705,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 14.40107504473612,
+          "direction": 1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 15.22154741483187,
+          "direction": -1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 15.95131278639344,
+          "direction": -1
+        },
+        {
+          "kind": "flow_zero",
+          "t": 17.852601515713328,
+          "direction": 1
+        },
+        {
+          "kind": "shaft_zero",
+          "t": 19.25760057194842,
+          "direction": 1
+        }
+      ],
+      "restart_energy_abs_j": 1.49196885956826e-07,
+      "name": "trip_negative",
+      "policy": "bdf",
+      "folder": "artifacts/ai05_pump_storage_verification_v1/trip_negative_bdf"
+    }
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

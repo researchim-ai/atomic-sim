@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "source_sha256": "4b9bf9ca9cb09dc9d585852426c871a0649df1f855efc80d264ae5578b9939d5",
+  "wheel_sha256": "7dc0d6185ff1f1d9c724893c0662e4bcfd27d3232ca2c6e8bc7dbfd6e37858e6",
+  "wheel_environment": "Temporary system-site-packages venv outside checkout; inherited dependencies",
+  "runtime_byte_coverage_verified": true,
+  "installed_source_fingerprint_matches": true,
+  "valve_cli_mixed_commands_and_restart_verified": true,
+  "log": "/tmp/ai05-valve-release-wheel-check.log",
+  "validated": false,
+  "plant_referenced": false
+}

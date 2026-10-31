@@ -124,6 +124,19 @@ nav:
       - Расширенные возможности: ADVANCED_FEATURES.md
       - Производительность: PERFORMANCE.md
   - Разработка:
+      - План промышленной платформы для ИИ: AI_INDUSTRIAL_EXECUTION_PLAN_RU.md
+      - Контракт ИИ-среды и база приёмки: AI_00_01_DELIVERY_RU.md
+      - Benchmark агентов и baseline: AI_02_BENCHMARK_RU.md
+      - Консервативная однофазная механика: AI_03_EULER_LIQUID_RU.md
+      - HLLC и сеточная квалификация: AI_04_HLLC_QUALIFICATION_RU.md
+      - Уточнение фронта и допуск SDK: AI_04_FRONT_REFINEMENT_RU.md
+      - Топология и линейная сеть: AI_05_NETWORK_COMPILER_RU.md
+      - Нелинейная циркуляция: AI_05_CIRCULATION_LOOP_RU.md
+      - Объёмный насос и вал: AI_05_DISPLACEMENT_PUMP_RU.md
+      - Регулирующий клапан: AI_05_MODULATING_VALVE_RU.md
+      - Газовые накопители: AI_05_GAS_STORAGE_RU.md
+      - Инерционная связь накопителей: AI_05_INERTIAL_STORAGE_RU.md
+      - Насос, вал и накопители: AI_05_PUMP_STORAGE_RU.md
       - Промышленный продукт и стартап: INDUSTRIAL_STARTUP_ROADMAP_RU.md
       - Запуск пилотного эксперимента: PILOT_EXPERIMENTS_RU.md
       - Результаты пилотной поставки: PILOT_DELIVERY_RU.md
@@ -139,6 +152,13 @@ nav:
       - Тепловая инерция стенки: WALL_CHANNEL_RU.md
       - Давление и импульс канала: PRESSURE_DRIVEN_CHANNEL_RU.md
       - Сетка и геометрия трубы: PIPE_MESH_RU.md
+      - Инициализация и переходная проверка: TRANSIENT_INITIALIZATION_RU.md
+      - Пакет 10 задач по переносу: BATCH10_TRANSPORT_RU.md
+      - Пакет 10 задач по якобиану: BATCH11_ANALYTIC_JACOBIAN_RU.md
+      - Пакет 10 задач по полной энергии: BATCH12_TOTAL_ENERGY_RU.md
+      - Обратное равновесие полной энергии: REVERSE_TOTAL_INITIALIZATION_RU.md
+      - Зеркальный тепловой переход: TOTAL_ENERGY_REFLECTION_RU.md
+      - Стационарный MUSCL полной энергии: MUSCL_TOTAL_EQUILIBRIUM_RU.md
       - Технический план: PRODUCT_DEVELOPMENT_PLAN_RU.md
       - Руководство по вкладу: CONTRIBUTING.md
       - История изменений: CHANGELOG.md

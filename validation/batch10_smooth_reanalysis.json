@@ -1,0 +1,568 @@
+{
+  "schema_version": 1,
+  "kind": "thermal_transient_self_convergence",
+  "validated": false,
+  "plant_referenced": false,
+  "source_sha256": "70313ceb4acf9ac354b2a72a135a53a417028735f12bb6007b6ca8663db4cdfd",
+  "script_sha256": "341b846ce401114c2ee9d25abfb6863a0f33f04fee93c74a18c9641cecd93d68",
+  "source_hashes": [
+    "1a1c2909e02857c19461969766c081cd00e5ac8c59d320c318b17ad1acf8f66f",
+    "1a1c2909e02857c19461969766c081cd00e5ac8c59d320c318b17ad1acf8f66f",
+    "1a1c2909e02857c19461969766c081cd00e5ac8c59d320c318b17ad1acf8f66f",
+    "1a1c2909e02857c19461969766c081cd00e5ac8c59d320c318b17ad1acf8f66f"
+  ],
+  "horizon_s": 8.0,
+  "comparison_times": 41,
+  "physical_pipe": {
+    "total_length_m": 3.0,
+    "total_loss_coefficient": 30.0,
+    "total_volume_m3": 0.003,
+    "area_m2": 0.001,
+    "left_pressure_pa": 7020000.0,
+    "right_pressure_pa": 7000000.0,
+    "left_temperature_k": 500.0,
+    "right_temperature_k": 500.0,
+    "total_heat_capacity_j_k": 8000.0,
+    "total_ua_w_k": 1000.0,
+    "heat_w": 0.0,
+    "wall_mean_pulse_k": 5.0,
+    "wall_pulse_shape": "sin2",
+    "enthalpy_transport": "donor"
+  },
+  "grids": [
+    4,
+    8,
+    16,
+    16
+  ],
+  "acceptance_criteria": {
+    "norm": "sampled_Linf_response",
+    "minimum_order": 0.7,
+    "maximum_temporal_spatial_ratio": 0.1,
+    "maximum_pressure_temporal_pa": 1.0,
+    "maximum_flow_temporal_kg_s": 1e-05
+  },
+  "criteria_sha256": "89b23c15416c04dd3cd20716729a1e58e1114b11bd84abc43758015d1d8f6919",
+  "metrics": {
+    "right_cell_temperature_k": {
+      "observed_order": 0.35643127770175503,
+      "temporal_to_spatial_ratio": 2.9542453163386472e-06,
+      "difference_4_8_k": 0.06554458581922518,
+      "difference_8_16_k": 0.051196505378925394,
+      "temporal_difference_16_k": 1.512470362285967e-07,
+      "additional_diagnostics_not_used_for_acceptance": [
+        {
+          "l1_k_s": 0.16171769986085566,
+          "l2_k": 0.02941766050807597,
+          "signed_integral_k_s": -0.10268505029146127,
+          "max_difference_time_s": 2.0
+        },
+        {
+          "l1_k_s": 0.10035007889360373,
+          "l2_k": 0.020048324505190167,
+          "signed_integral_k_s": -0.051605793894844966,
+          "max_difference_time_s": 2.0
+        }
+      ]
+    },
+    "mean_wall_temperature_k": {
+      "observed_order": 0.9141109101654574,
+      "temporal_to_spatial_ratio": 6.3993531610834964e-09,
+      "difference_4_8_k": 0.017692691427100726,
+      "difference_8_16_k": 0.009388994828611885,
+      "temporal_difference_16_k": 6.008349373587407e-11,
+      "additional_diagnostics_not_used_for_acceptance": [
+        {
+          "l1_k_s": 0.05598762818382283,
+          "l2_k": 0.009387383692049518,
+          "signed_integral_k_s": 0.05358236588325553,
+          "max_difference_time_s": 8.0
+        },
+        {
+          "l1_k_s": 0.031796385863896146,
+          "l2_k": 0.005200880528444553,
+          "signed_integral_k_s": 0.03005379383501463,
+          "max_difference_time_s": 8.0
+        }
+      ]
+    }
+  },
+  "diagnostics": {
+    "midpoint_pressure_temporal_pa": 1.7325609344989061,
+    "flow_temporal_kg_s": 3.889616962959863e-06
+  },
+  "checks": {
+    "right_cell_temperature_k": false,
+    "mean_wall_temperature_k": true,
+    "temporal_pressure": false,
+    "temporal_flow": true
+  },
+  "passed": false,
+  "runs": {
+    "artifacts/pipe_smooth_pulse_n4_delivery": {
+      "schema_version": 1,
+      "name": "pipe_sin2_pulse_n4",
+      "status": "completed",
+      "model_id": "pressure-driven-wall-channel",
+      "requested_duration_s": 8.0,
+      "completed_time_s": 8.0,
+      "wall_time_s": 16.579654368999968,
+      "accepted_output_steps": 40,
+      "balance": {
+        "mass_relative": 2.700221948401433e-15,
+        "energy_relative": 6.776489319771167e-16,
+        "max_mass_residual_kg": 6.766939439351027e-15,
+        "max_energy_residual_j": 4.381718099466525e-09,
+        "final_mass_residual_kg": 5.170560160583371e-15,
+        "final_energy_residual_j": 4.0490704122930765e-09,
+        "normalization": "maximum sampled absolute residual / initial absolute inventory"
+      },
+      "budget_checks": {
+        "mass_relative": true,
+        "energy_relative": true
+      },
+      "numerical_acceptance": true,
+      "validated": false,
+      "plant_referenced": false,
+      "error": null,
+      "events": [],
+      "extrema": {
+        "time_s": {
+          "min": 0.0,
+          "max": 8.0
+        },
+        "inlet_mass_flow_kg_s": {
+          "min": 1.054709840072207,
+          "max": 1.0553723445177274
+        },
+        "outlet_mass_flow_kg_s": {
+          "min": 1.0549976728243167,
+          "max": 1.0561283267874617
+        },
+        "min_pressure_pa": {
+          "min": 7002435.415471472,
+          "max": 7002504.339252521
+        },
+        "max_pressure_pa": {
+          "min": 7017434.489387943,
+          "max": 7017503.573113555
+        },
+        "min_temperature_k": {
+          "min": 500.0001311349418,
+          "max": 500.0587729389812
+        },
+        "max_temperature_k": {
+          "min": 500.00091774641396,
+          "max": 500.68850381513596
+        },
+        "right_cell_temperature_k": {
+          "min": 500.00091774641396,
+          "max": 500.68850381513596
+        },
+        "midpoint_pressure_pa": {
+          "min": 7009780.7088481765,
+          "max": 7010009.698284576
+        },
+        "mean_wall_temperature_k": {
+          "min": 502.0582469097011,
+          "max": 505.0005244594233
+        },
+        "min_wall_temperature_k": {
+          "min": 500.56554805555595,
+          "max": 501.46459722900903
+        },
+        "max_wall_temperature_k": {
+          "min": 503.4686218946479,
+          "max": 508.53618948599626
+        },
+        "heat_w": {
+          "min": 0.0,
+          "max": 0.0
+        },
+        "wall_to_fluid_w": {
+          "min": 1792.9285133869826,
+          "max": 5000.000000000043
+        },
+        "max_mach": {
+          "min": 0.0010038468974466644,
+          "max": 0.0010067119535056765
+        },
+        "stored_mass_kg": {
+          "min": 2.504276526828118,
+          "max": 2.506067859850241
+        },
+        "stored_energy_j": {
+          "min": 6444552.305237176,
+          "max": 6466059.183008481
+        },
+        "mass_residual_kg": {
+          "min": 0.0,
+          "max": 6.766939439351027e-15
+        },
+        "energy_residual_j": {
+          "min": 0.0,
+          "max": 4.381718099466525e-09
+        }
+      },
+      "scope": {
+        "model_id": "pressure-driven-wall-channel",
+        "approximations": [
+          "\u0441\u043c\u0435\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0435 \u043d\u0435\u043f\u043e\u0434\u0432\u0438\u0436\u043d\u044b\u0435 \u043e\u0431\u044a\u0451\u043c\u044b IF97, \u0434\u043e\u043d\u043e\u0440\u043d\u0430\u044f \u044d\u043d\u0442\u0430\u043b\u044c\u043f\u0438\u044f",
+          "\u0436\u0438\u0434\u043a\u043e\u0441\u0442\u044c \u0431\u0435\u0437 \u043a\u0438\u043f\u0435\u043d\u0438\u044f, \u0433\u043e\u0440\u0438\u0437\u043e\u043d\u0442\u0430\u043b\u044c\u043d\u044b\u0435 \u0441\u043e\u0435\u0434\u0438\u043d\u0435\u043d\u0438\u044f",
+          "\u0441\u043e\u0441\u0440\u0435\u0434\u043e\u0442\u043e\u0447\u0435\u043d\u043d\u044b\u0439 \u0438\u043c\u043f\u0443\u043b\u044c\u0441, \u0437\u0430\u0434\u0430\u043d\u043d\u044b\u0435 \u043c\u0435\u0441\u0442\u043d\u044b\u0435 \u0441\u043e\u043f\u0440\u043e\u0442\u0438\u0432\u043b\u0435\u043d\u0438\u044f",
+          "\u0432\u043d\u0443\u0442\u0440\u0435\u043d\u043d\u044f\u044f \u044d\u043d\u0435\u0440\u0433\u0438\u044f \u0438 \u044d\u043d\u0442\u0430\u043b\u044c\u043f\u0438\u0439\u043d\u044b\u0435 \u043f\u043e\u0442\u043e\u043a\u0438 \u0431\u0435\u0437 \u0437\u0430\u043f\u0430\u0441\u0430 \u043a\u0438\u043d\u0435\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u044d\u043d\u0435\u0440\u0433\u0438\u0438",
+          "\u043f\u043e\u0441\u0442\u043e\u044f\u043d\u043d\u044b\u0435 C/UA; \u0431\u0435\u0437 \u043d\u0430\u0441\u043e\u0441\u0430, CHF \u0438 \u043d\u0435\u0439\u0442\u0440\u043e\u043d\u0438\u043a\u0438"
+        ]
+      }
+    },
+    "artifacts/pipe_smooth_pulse_n8_delivery": {
+      "schema_version": 1,
+      "name": "pipe_sin2_pulse_n8",
+      "status": "completed",
+      "model_id": "pressure-driven-wall-channel",
+      "requested_duration_s": 8.0,
+      "completed_time_s": 8.0,
+      "wall_time_s": 32.731509643000095,
+      "accepted_output_steps": 40,
+      "balance": {
+        "mass_relative": 9.050636581689693e-16,
+        "energy_relative": 4.796394287895031e-16,
+        "max_mass_residual_kg": 2.2681509448396753e-15,
+        "max_energy_residual_j": 3.1013769330456853e-09,
+        "final_mass_residual_kg": -1.9234830742065334e-15,
+        "final_energy_residual_j": -8.512870408594608e-10,
+        "normalization": "maximum sampled absolute residual / initial absolute inventory"
+      },
+      "budget_checks": {
+        "mass_relative": true,
+        "energy_relative": true
+      },
+      "numerical_acceptance": true,
+      "validated": false,
+      "plant_referenced": false,
+      "error": null,
+      "events": [],
+      "extrema": {
+        "time_s": {
+          "min": 0.0,
+          "max": 8.0
+        },
+        "inlet_mass_flow_kg_s": {
+          "min": 1.0545222790593929,
+          "max": 1.0553717180818674
+        },
+        "outlet_mass_flow_kg_s": {
+          "min": 1.0549631186373243,
+          "max": 1.056368660790386
+        },
+        "min_pressure_pa": {
+          "min": 7001204.557086028,
+          "max": 7001267.183793068
+        },
+        "max_pressure_pa": {
+          "min": 7018704.110824435,
+          "max": 7018766.61036873
+        },
+        "min_temperature_k": {
+          "min": 500.0000655686128,
+          "max": 500.0084783431322
+        },
+        "max_temperature_k": {
+          "min": 500.00098328223476,
+          "max": 500.75322568376765
+        },
+        "right_cell_temperature_k": {
+          "min": 500.00098328223476,
+          "max": 500.7359192131467
+        },
+        "midpoint_pressure_pa": {
+          "min": 7009711.710040531,
+          "max": 7010087.003516307
+        },
+        "mean_wall_temperature_k": {
+          "min": 502.0405542170883,
+          "max": 505.0005244582376
+        },
+        "min_wall_temperature_k": {
+          "min": 500.1436166289476,
+          "max": 500.38066790605643
+        },
+        "max_wall_temperature_k": {
+          "min": 503.80845816667824,
+          "max": 509.6199876952191
+        },
+        "heat_w": {
+          "min": 0.0,
+          "max": 0.0
+        },
+        "wall_to_fluid_w": {
+          "min": 1806.1341969651962,
+          "max": 5000.000000000078
+        },
+        "max_mach": {
+          "min": 0.0010038523246066505,
+          "max": 0.0010069814877547978
+        },
+        "stored_mass_kg": {
+          "min": 2.5043437066989505,
+          "max": 2.506067859832492
+        },
+        "stored_energy_j": {
+          "min": 6444173.806533825,
+          "max": 6466059.182984246
+        },
+        "mass_residual_kg": {
+          "min": -2.2681509448396753e-15,
+          "max": 2.129589907196028e-15
+        },
+        "energy_residual_j": {
+          "min": -3.1013769330456853e-09,
+          "max": 1.6856347428984009e-09
+        }
+      },
+      "scope": {
+        "model_id": "pressure-driven-wall-channel",
+        "approximations": [
+          "\u0441\u043c\u0435\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0435 \u043d\u0435\u043f\u043e\u0434\u0432\u0438\u0436\u043d\u044b\u0435 \u043e\u0431\u044a\u0451\u043c\u044b IF97, \u0434\u043e\u043d\u043e\u0440\u043d\u0430\u044f \u044d\u043d\u0442\u0430\u043b\u044c\u043f\u0438\u044f",
+          "\u0436\u0438\u0434\u043a\u043e\u0441\u0442\u044c \u0431\u0435\u0437 \u043a\u0438\u043f\u0435\u043d\u0438\u044f, \u0433\u043e\u0440\u0438\u0437\u043e\u043d\u0442\u0430\u043b\u044c\u043d\u044b\u0435 \u0441\u043e\u0435\u0434\u0438\u043d\u0435\u043d\u0438\u044f",
+          "\u0441\u043e\u0441\u0440\u0435\u0434\u043e\u0442\u043e\u0447\u0435\u043d\u043d\u044b\u0439 \u0438\u043c\u043f\u0443\u043b\u044c\u0441, \u0437\u0430\u0434\u0430\u043d\u043d\u044b\u0435 \u043c\u0435\u0441\u0442\u043d\u044b\u0435 \u0441\u043e\u043f\u0440\u043e\u0442\u0438\u0432\u043b\u0435\u043d\u0438\u044f",
+          "\u0432\u043d\u0443\u0442\u0440\u0435\u043d\u043d\u044f\u044f \u044d\u043d\u0435\u0440\u0433\u0438\u044f \u0438 \u044d\u043d\u0442\u0430\u043b\u044c\u043f\u0438\u0439\u043d\u044b\u0435 \u043f\u043e\u0442\u043e\u043a\u0438 \u0431\u0435\u0437 \u0437\u0430\u043f\u0430\u0441\u0430 \u043a\u0438\u043d\u0435\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u044d\u043d\u0435\u0440\u0433\u0438\u0438",
+          "\u043f\u043e\u0441\u0442\u043e\u044f\u043d\u043d\u044b\u0435 C/UA; \u0431\u0435\u0437 \u043d\u0430\u0441\u043e\u0441\u0430, CHF \u0438 \u043d\u0435\u0439\u0442\u0440\u043e\u043d\u0438\u043a\u0438"
+        ]
+      }
+    },
+    "artifacts/pipe_smooth_pulse_n16_delivery": {
+      "schema_version": 1,
+      "name": "pipe_sin2_pulse_n16",
+      "status": "completed",
+      "model_id": "pressure-driven-wall-channel",
+      "requested_duration_s": 8.0,
+      "completed_time_s": 8.0,
+      "wall_time_s": 66.6285062579999,
+      "accepted_output_steps": 40,
+      "balance": {
+        "mass_relative": 1.1936716726856787e-15,
+        "energy_relative": 4.259085602275552e-16,
+        "max_mass_residual_kg": 2.9914222141047553e-15,
+        "max_energy_residual_j": 2.7539499569684267e-09,
+        "final_mass_residual_kg": 2.3964120618447105e-15,
+        "final_energy_residual_j": 1.6370904631912708e-09,
+        "normalization": "maximum sampled absolute residual / initial absolute inventory"
+      },
+      "budget_checks": {
+        "mass_relative": true,
+        "energy_relative": true
+      },
+      "numerical_acceptance": true,
+      "validated": false,
+      "plant_referenced": false,
+      "error": null,
+      "events": [],
+      "extrema": {
+        "time_s": {
+          "min": 0.0,
+          "max": 8.0
+        },
+        "inlet_mass_flow_kg_s": {
+          "min": 1.0547260460177013,
+          "max": 1.0553713687217532
+        },
+        "outlet_mass_flow_kg_s": {
+          "min": 1.054938903744634,
+          "max": 1.056235753829597
+        },
+        "min_pressure_pa": {
+          "min": 7000602.536417011,
+          "max": 7000626.147447381
+        },
+        "max_pressure_pa": {
+          "min": 7019352.250002475,
+          "max": 7019375.847423962
+        },
+        "min_temperature_k": {
+          "min": 500.0000327845698,
+          "max": 500.0011618055943
+        },
+        "max_temperature_k": {
+          "min": 500.00101604926095,
+          "max": 500.7830784789746
+        },
+        "right_cell_temperature_k": {
+          "min": 500.00101604926095,
+          "max": 500.76989188496606
+        },
+        "midpoint_pressure_pa": {
+          "min": 7009780.087608711,
+          "max": 7010009.659793113
+        },
+        "mean_wall_temperature_k": {
+          "min": 502.03116522196706,
+          "max": 505.00052445794495
+        },
+        "min_wall_temperature_k": {
+          "min": 500.0358261347829,
+          "max": 500.09610638255367
+        },
+        "max_wall_temperature_k": {
+          "min": 503.87308865440053,
+          "max": 509.90448366004875
+        },
+        "heat_w": {
+          "min": 0.0,
+          "max": 0.0
+        },
+        "wall_to_fluid_w": {
+          "min": 1811.95885384048,
+          "max": 5000.000000000033
+        },
+        "max_mach": {
+          "min": 0.0010038550038526778,
+          "max": 0.0010070993089157131
+        },
+        "stored_mass_kg": {
+          "min": 2.5043736545123347,
+          "max": 2.5060678598280397
+        },
+        "stored_energy_j": {
+          "min": 6443982.017152077,
+          "max": 6466059.182978246
+        },
+        "mass_residual_kg": {
+          "min": 0.0,
+          "max": 2.9914222141047553e-15
+        },
+        "energy_residual_j": {
+          "min": -2.41016095969826e-10,
+          "max": 2.7539499569684267e-09
+        }
+      },
+      "scope": {
+        "model_id": "pressure-driven-wall-channel",
+        "approximations": [
+          "\u0441\u043c\u0435\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0435 \u043d\u0435\u043f\u043e\u0434\u0432\u0438\u0436\u043d\u044b\u0435 \u043e\u0431\u044a\u0451\u043c\u044b IF97, \u0434\u043e\u043d\u043e\u0440\u043d\u0430\u044f \u044d\u043d\u0442\u0430\u043b\u044c\u043f\u0438\u044f",
+          "\u0436\u0438\u0434\u043a\u043e\u0441\u0442\u044c \u0431\u0435\u0437 \u043a\u0438\u043f\u0435\u043d\u0438\u044f, \u0433\u043e\u0440\u0438\u0437\u043e\u043d\u0442\u0430\u043b\u044c\u043d\u044b\u0435 \u0441\u043e\u0435\u0434\u0438\u043d\u0435\u043d\u0438\u044f",
+          "\u0441\u043e\u0441\u0440\u0435\u0434\u043e\u0442\u043e\u0447\u0435\u043d\u043d\u044b\u0439 \u0438\u043c\u043f\u0443\u043b\u044c\u0441, \u0437\u0430\u0434\u0430\u043d\u043d\u044b\u0435 \u043c\u0435\u0441\u0442\u043d\u044b\u0435 \u0441\u043e\u043f\u0440\u043e\u0442\u0438\u0432\u043b\u0435\u043d\u0438\u044f",
+          "\u0432\u043d\u0443\u0442\u0440\u0435\u043d\u043d\u044f\u044f \u044d\u043d\u0435\u0440\u0433\u0438\u044f \u0438 \u044d\u043d\u0442\u0430\u043b\u044c\u043f\u0438\u0439\u043d\u044b\u0435 \u043f\u043e\u0442\u043e\u043a\u0438 \u0431\u0435\u0437 \u0437\u0430\u043f\u0430\u0441\u0430 \u043a\u0438\u043d\u0435\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u044d\u043d\u0435\u0440\u0433\u0438\u0438",
+          "\u043f\u043e\u0441\u0442\u043e\u044f\u043d\u043d\u044b\u0435 C/UA; \u0431\u0435\u0437 \u043d\u0430\u0441\u043e\u0441\u0430, CHF \u0438 \u043d\u0435\u0439\u0442\u0440\u043e\u043d\u0438\u043a\u0438"
+        ]
+      }
+    },
+    "artifacts/pipe_smooth_pulse_n16_tight_delivery": {
+      "schema_version": 1,
+      "name": "pipe_sin2_pulse_n16_tight",
+      "status": "completed",
+      "model_id": "pressure-driven-wall-channel",
+      "requested_duration_s": 8.0,
+      "completed_time_s": 8.0,
+      "wall_time_s": 133.53169633000005,
+      "accepted_output_steps": 40,
+      "balance": {
+        "mass_relative": 8.873257948890317e-16,
+        "energy_relative": 6.757149020254871e-16,
+        "max_mass_residual_kg": 2.2236986557677696e-15,
+        "max_energy_residual_j": 4.369212547317147e-09,
+        "final_mass_residual_kg": 5.157549734513545e-16,
+        "final_energy_residual_j": -2.699380274862051e-09,
+        "normalization": "maximum sampled absolute residual / initial absolute inventory"
+      },
+      "budget_checks": {
+        "mass_relative": true,
+        "energy_relative": true
+      },
+      "numerical_acceptance": true,
+      "validated": false,
+      "plant_referenced": false,
+      "error": null,
+      "events": [],
+      "extrema": {
+        "time_s": {
+          "min": 0.0,
+          "max": 8.0
+        },
+        "inlet_mass_flow_kg_s": {
+          "min": 1.0547221721628224,
+          "max": 1.0553713687217532
+        },
+        "outlet_mass_flow_kg_s": {
+          "min": 1.0549389037484744,
+          "max": 1.05623964344656
+        },
+        "min_pressure_pa": {
+          "min": 7000601.801256302,
+          "max": 7000626.201728602
+        },
+        "max_pressure_pa": {
+          "min": 7019351.5186639065,
+          "max": 7019375.901839489
+        },
+        "min_temperature_k": {
+          "min": 500.0000327845698,
+          "max": 500.0011617942096
+        },
+        "max_temperature_k": {
+          "min": 500.00101604926095,
+          "max": 500.783078472651
+        },
+        "right_cell_temperature_k": {
+          "min": 500.00101604926095,
+          "max": 500.76989187594666
+        },
+        "midpoint_pressure_pa": {
+          "min": 7009780.924623866,
+          "max": 7010010.211673932
+        },
+        "mean_wall_temperature_k": {
+          "min": 502.0311652219669,
+          "max": 505.00052445794495
+        },
+        "min_wall_temperature_k": {
+          "min": 500.03582613478244,
+          "max": 500.09610638255367
+        },
+        "max_wall_temperature_k": {
+          "min": 503.8730886544011,
+          "max": 509.90448366004875
+        },
+        "heat_w": {
+          "min": 0.0,
+          "max": 0.0
+        },
+        "wall_to_fluid_w": {
+          "min": 1811.9588538403132,
+          "max": 5000.000000000033
+        },
+        "max_mach": {
+          "min": 0.0010038550038526778,
+          "max": 0.0010070993088944049
+        },
+        "stored_mass_kg": {
+          "min": 2.504373654518768,
+          "max": 2.5060678598280397
+        },
+        "stored_energy_j": {
+          "min": 6443982.017152075,
+          "max": 6466059.182978246
+        },
+        "mass_residual_kg": {
+          "min": 0.0,
+          "max": 2.2236986557677696e-15
+        },
+        "energy_residual_j": {
+          "min": -4.369212547317147e-09,
+          "max": 0.0
+        }
+      },
+      "scope": {
+        "model_id": "pressure-driven-wall-channel",
+        "approximations": [
+          "\u0441\u043c\u0435\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0435 \u043d\u0435\u043f\u043e\u0434\u0432\u0438\u0436\u043d\u044b\u0435 \u043e\u0431\u044a\u0451\u043c\u044b IF97, \u0434\u043e\u043d\u043e\u0440\u043d\u0430\u044f \u044d\u043d\u0442\u0430\u043b\u044c\u043f\u0438\u044f",
+          "\u0436\u0438\u0434\u043a\u043e\u0441\u0442\u044c \u0431\u0435\u0437 \u043a\u0438\u043f\u0435\u043d\u0438\u044f, \u0433\u043e\u0440\u0438\u0437\u043e\u043d\u0442\u0430\u043b\u044c\u043d\u044b\u0435 \u0441\u043e\u0435\u0434\u0438\u043d\u0435\u043d\u0438\u044f",
+          "\u0441\u043e\u0441\u0440\u0435\u0434\u043e\u0442\u043e\u0447\u0435\u043d\u043d\u044b\u0439 \u0438\u043c\u043f\u0443\u043b\u044c\u0441, \u0437\u0430\u0434\u0430\u043d\u043d\u044b\u0435 \u043c\u0435\u0441\u0442\u043d\u044b\u0435 \u0441\u043e\u043f\u0440\u043e\u0442\u0438\u0432\u043b\u0435\u043d\u0438\u044f",
+          "\u0432\u043d\u0443\u0442\u0440\u0435\u043d\u043d\u044f\u044f \u044d\u043d\u0435\u0440\u0433\u0438\u044f \u0438 \u044d\u043d\u0442\u0430\u043b\u044c\u043f\u0438\u0439\u043d\u044b\u0435 \u043f\u043e\u0442\u043e\u043a\u0438 \u0431\u0435\u0437 \u0437\u0430\u043f\u0430\u0441\u0430 \u043a\u0438\u043d\u0435\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u044d\u043d\u0435\u0440\u0433\u0438\u0438",
+          "\u043f\u043e\u0441\u0442\u043e\u044f\u043d\u043d\u044b\u0435 C/UA; \u0431\u0435\u0437 \u043d\u0430\u0441\u043e\u0441\u0430, CHF \u0438 \u043d\u0435\u0439\u0442\u0440\u043e\u043d\u0438\u043a\u0438"
+        ]
+      }
+    }
+  },
+  "scope": "Thermal response self-convergence, not an exact transient error bound, pressure spatial qualification or mechanical-energy validation"
+}

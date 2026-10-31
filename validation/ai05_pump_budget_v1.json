@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "model_id": "displacement-pump-circulation-loop",
+  "mass_flow_abs_kg_s": 1e-8,
+  "omega_abs_rad_s": 1e-8,
+  "temperature_abs_k": 1e-8,
+  "integral_abs_j": 1e-7,
+  "energy_abs_j": 1e-5,
+  "power_transfer_abs_w": 1e-6,
+  "pressure_abs_pa": 1e-4,
+  "event_time_abs_s": 1e-6,
+  "steady_momentum_abs_pa": 1e-7,
+  "steady_shaft_abs_nm": 1e-9,
+  "steady_thermal_abs_w": 1e-6,
+  "restart_extension_s": 1,
+  "validated": false,
+  "plant_referenced": false
+}

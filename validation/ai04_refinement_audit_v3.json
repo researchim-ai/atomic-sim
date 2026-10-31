@@ -1,0 +1,119 @@
+{
+  "passed": true,
+  "all_refined_accepted": false,
+  "all_asymptotic_accepted": false,
+  "all_time_resolved_accepted": false,
+  "entries": [
+    {
+      "id": "step_negative_refined",
+      "accepted": false,
+      "checks": {
+        "completed": true,
+        "spatial": true,
+        "order": false,
+        "temporal": true,
+        "pressure": true,
+        "bounds": true
+      },
+      "orders": [
+        0.5333906238540074,
+        0.33555730485630736
+      ],
+      "time_linf_k": 6.550891384904389e-08,
+      "temperature_l1_k": 0.0008275393396517394
+    },
+    {
+      "id": "step_negative_asymptotic",
+      "accepted": false,
+      "checks": {
+        "completed": true,
+        "spatial": true,
+        "order": true,
+        "temporal": false,
+        "pressure": true,
+        "bounds": true
+      },
+      "orders": [
+        0.4884584783498171,
+        0.45743851602194435
+      ],
+      "time_linf_k": 1.6701322351764247e-06,
+      "temperature_l1_k": 0.00042958121337655086
+    },
+    {
+      "id": "step_negative_time_resolved",
+      "accepted": false,
+      "checks": {
+        "completed": true,
+        "spatial": true,
+        "order": true,
+        "temporal": false,
+        "pressure": true,
+        "bounds": true
+      },
+      "orders": [
+        0.4884584783498171,
+        0.45747320213604104
+      ],
+      "time_linf_k": 1.0759757742562215e-06,
+      "temperature_l1_k": 0.0004295708852590785
+    },
+    {
+      "id": "step_positive_refined",
+      "accepted": false,
+      "checks": {
+        "completed": true,
+        "spatial": true,
+        "order": false,
+        "temporal": true,
+        "pressure": true,
+        "bounds": true
+      },
+      "orders": [
+        0.5333906248873561,
+        0.3355573014043794
+      ],
+      "time_linf_k": 6.547509201482171e-08,
+      "temperature_l1_k": 0.0008275393404000297
+    },
+    {
+      "id": "step_positive_asymptotic",
+      "accepted": false,
+      "checks": {
+        "completed": true,
+        "spatial": true,
+        "order": true,
+        "temporal": false,
+        "pressure": true,
+        "bounds": true
+      },
+      "orders": [
+        0.48845848095938305,
+        0.4574385177474762
+      ],
+      "time_linf_k": 1.670110464147001e-06,
+      "temperature_l1_k": 0.0004295812124741616
+    },
+    {
+      "id": "step_positive_time_resolved",
+      "accepted": false,
+      "checks": {
+        "completed": true,
+        "spatial": true,
+        "order": true,
+        "temporal": false,
+        "pressure": true,
+        "bounds": true
+      },
+      "orders": [
+        0.48845848095938305,
+        0.4574732003921504
+      ],
+      "time_linf_k": 1.0759504220914096e-06,
+      "temperature_l1_k": 0.00042957088538975174
+    }
+  ],
+  "source_sha256": "d1a6e4518aed2fc889dd28ce0cb258838fa2c40b1e7e2b2e6f5e859098c352bf",
+  "validated": false,
+  "plant_referenced": false
+}

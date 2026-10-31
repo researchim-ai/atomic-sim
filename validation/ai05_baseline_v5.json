@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-31",
+  "source_sha256": "4b9bf9ca9cb09dc9d585852426c871a0649df1f855efc80d264ae5578b9939d5",
+  "python": "3.12.9",
+  "platform": "Linux-6.17.0-22-generic-x86_64-with-glibc2.39",
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.2",
+    "gymnasium": "1.2.0",
+    "torch": "2.7.0",
+    "atomic-sim": "2.0.0"
+  },
+  "tests_passed": 824,
+  "new_tests": 27,
+  "tests_deselected": 1,
+  "external_test_status": "OpenMC/MPI not executed",
+  "installed_wheel_verified": true,
+  "wheel_environment": "Temporary system-site-packages venv outside checkout",
+  "validated": false,
+  "plant_referenced": false,
+  "wheel_status": "Installed CLI/checkpoint/restart verified; final release SHA in ai05_valve_installed_v1.json"
+}

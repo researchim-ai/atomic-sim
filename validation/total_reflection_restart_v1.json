@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "run": "artifacts/total_reflection_forward_v1",
+      "exact_snapshot_roundtrip": true,
+      "continued_time_s": 16.009999999999998,
+      "energy_residual_j": 7.457856554538012e-10,
+      "mechanical_residual_j": -5.677413508937967e-12
+    },
+    {
+      "run": "artifacts/total_reflection_reverse_v1",
+      "exact_snapshot_roundtrip": true,
+      "continued_time_s": 16.009999999999998,
+      "energy_residual_j": 3.9108272176235914e-09,
+      "mechanical_residual_j": -5.46930926383863e-12
+    }
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-31",
+  "package": "AI-05",
+  "status": "partial",
+  "scope": "Finite-leakage modulating valve with exact first-order signal actuator in signed pump/shaft circulation; AI-05.05 partial",
+  "tasks_accepted": [
+    "AI-05.01",
+    "AI-05.02",
+    "AI-05.04"
+  ],
+  "tasks_in_progress": [
+    "AI-05.03",
+    "AI-05.05",
+    "AI-05.08"
+  ],
+  "baseline": "validation/ai05_baseline_v5.json",
+  "source_sha256": "4b9bf9ca9cb09dc9d585852426c871a0649df1f855efc80d264ae5578b9939d5",
+  "evidence": [
+    "validation/ai05_valve_verification_v1.json",
+    "validation/ai05_valve_audit_v1.json",
+    "docs/AI_05_MODULATING_VALVE_RU.md",
+    "tests/test_valved_pump_loop.py",
+    "validation/ai05_ai04_gate_status_v5.json",
+    "validation/ai05_pump_verification_v2.json",
+    "validation/ai05_pump_audit_v2.json",
+    "validation/ai05_circulation_verification_v3.json",
+    "validation/ai05_circulation_audit_v3.json",
+    "validation/ai05_network_verification_v5.json"
+  ],
+  "models": [
+    "incompressible-loop-segment",
+    "linear-thermal-capacity",
+    "linear-thermal-conductance",
+    "linear-thermal-junction3",
+    "displacement-pump-circulation-loop",
+    "valved-displacement-pump-circulation-loop"
+  ],
+  "network_model": "valved-displacement-pump-circulation-loop",
+  "validated": false,
+  "plant_referenced": false,
+  "industrial_plant_qualified": false,
+  "ai04_current_checkout_admitted": false,
+  "next_package": "AI-05",
+  "remaining": [
+    "General branched/compressible EOS network and initialization",
+    "Perfect shutoff/check-valve contact, storage and pressurizer",
+    "Two-stream heat exchanger and turbine/generator",
+    "Gravity-driven circulation and equipment/topology switching",
+    "Manufacturer/calibration data and centrifugal pump characteristics outside admitted displacement model"
+  ],
+  "previous_delivery": "validation/ai05_delivery_v4.json",
+  "primary_circulation_bundles": 24,
+  "linear_analytic_cases": 5,
+  "horizons_s": {
+    "ordinary": 10,
+    "wall_pulse": 30,
+    "steady": 100,
+    "linear": 1000,
+    "restart_extension": 1,
+    "pump_transient": 20,
+    "pump_steady": 100,
+    "valve_transient": 20,
+    "valve_steady": 100
+  },
+  "pump_case_families": 11,
+  "pump_primary_bundles": 24,
+  "accepted_pump_scope": "AI-05.04: reduced constant-displacement, linear-leakage signed machine; not manufacturer/centrifugal/plant qualification",
+  "valve_case_families": 9,
+  "valve_primary_bundles": 20,
+  "circulation_reference_families": 13
+}

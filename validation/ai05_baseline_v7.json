@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-01",
+  "source_sha256": "ddb3ebf7abdd792134598bfe4c757dae804531f0cb7deaf29c82d13bb495261a",
+  "python": "3.12.9",
+  "platform": "Linux-6.17.0-22-generic-x86_64-with-glibc2.39",
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.2",
+    "gymnasium": "1.2.0",
+    "torch": "2.7.0",
+    "atomic-sim": "2.0.0"
+  },
+  "tests_passed": 883,
+  "new_tests": 29,
+  "tests_deselected": 1,
+  "external_test_status": "OpenMC/MPI not executed",
+  "installed_wheel_verified": true,
+  "wheel_environment": "Temporary system-site-packages venv outside checkout",
+  "validated": false,
+  "plant_referenced": false,
+  "wheel_status": "Installed inertial-storage CLI/resistance switch/restart verified; release SHA in ai05_inertial_storage_installed_v1.json",
+  "additional_regression": "Exact equilibrium test failed before fix and passed after anchored reconstruction"
+}

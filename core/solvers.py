@@ -49,6 +49,7 @@ def integrate(
     dense_output: bool = False,
     first_step: Optional[float] = None,
     jacobian_relative_step: Optional[float] = None,
+    jacobian=None,
 ) -> IntegrationResult:
     """Интегрировать ODE. При несходимости поднимает SolverError."""
     if method not in ("BDF", "Radau", "LSODA"):
@@ -71,12 +72,20 @@ def integrate(
         if isinstance(first_step, bool) or not np.isfinite(first_step) or first_step <= 0.0:
             raise SolverError("Первый шаг должен быть положительным конечным числом")
         kwargs["first_step"] = min(float(first_step), abs(float(t_span[1]) - float(t_span[0])))
-    jacobian = None
+    if jacobian is not None and (
+        not callable(jacobian)
+        or jacobian_relative_step is not None
+        or method not in ("BDF", "Radau")
+    ):
+        raise SolverError("Callable Jacobian requires BDF/Radau and excludes central differences")
+    central_jacobian = None
+    if jacobian is not None:
+        kwargs["jac"] = jacobian
     if jacobian_relative_step is not None:
         from core.jacobian import CentralJacobian
 
-        jacobian = CentralJacobian(rhs, jacobian_relative_step)
-        kwargs["jac"] = jacobian
+        central_jacobian = CentralJacobian(rhs, jacobian_relative_step)
+        kwargs["jac"] = central_jacobian
     sol = solve_ivp(**kwargs)
     if not sol.success:
         raise SolverError(sol.message)
@@ -87,7 +96,8 @@ def integrate(
         message=sol.message,
         success=True,
         dense=sol.sol if dense_output else None,
-        n_rhs_evaluations=int(sol.nfev) + (0 if jacobian is None else jacobian.rhs_evaluations),
+        n_rhs_evaluations=int(sol.nfev)
+        + (0 if central_jacobian is None else central_jacobian.rhs_evaluations),
         n_jacobian_evaluations=int(getattr(sol, "njev", 0)),
         n_lu_decompositions=int(getattr(sol, "nlu", 0)),
         n_accepted_steps=int(sol.t.size - 1) if t_eval is None else None,

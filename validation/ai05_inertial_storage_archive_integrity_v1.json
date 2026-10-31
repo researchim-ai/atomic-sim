@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "archive": "artifacts/ai05_inertial_storage_delivery_v1",
+  "files_verified": 989,
+  "source_sha256": "ddb3ebf7abdd792134598bfe4c757dae804531f0cb7deaf29c82d13bb495261a",
+  "runtime_archive_source_matches": true,
+  "wheel_sha256": "e0a52e3291694b66227e34a4b7e45f2140777cb711a44767b4e9975d200a901d",
+  "failed_source_frozen_and_regression_verified": true,
+  "validated": false,
+  "plant_referenced": false
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "scope": "Constant-coefficient closed thermal networks only",
+  "temperature_abs_k": 1e-09,
+  "heat_flow_abs_w": 1e-07,
+  "energy_abs_j": 1e-05,
+  "residual_temperature_abs_k": 1e-09,
+  "residual_power_abs_w": 1e-07,
+  "horizon_s": 1000,
+  "restart_extension_s": 10,
+  "validated": false,
+  "plant_referenced": false
+}

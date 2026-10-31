@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "source_sha256": "11c7100e84c2b819b7c8acef47c26c298c210ac8ae668b9a7027518cb009ac5a",
+  "wheel_sha256": "d14a6dc32dcf63e9baabcaa39016226a2cc0491a235a03a2cf5bdc027ae611e7",
+  "wheel_environment": "Temporary system-site-packages venv outside checkout",
+  "runtime_byte_coverage_verified": true,
+  "installed_source_fingerprint_matches": true,
+  "circulation_cli_and_restart_verified": true,
+  "log": "/tmp/ai05-circulation-release-wheel-check.log",
+  "validated": false,
+  "plant_referenced": false
+}

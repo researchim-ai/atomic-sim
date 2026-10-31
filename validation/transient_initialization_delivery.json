@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-31",
+  "model_id": "pressure-driven-wall-channel",
+  "model_status": "implemented",
+  "source_sha256": "1a1c2909e02857c19461969766c081cd00e5ac8c59d320c318b17ad1acf8f66f",
+  "validated": false,
+  "plant_referenced": false,
+  "vver_1800s_accepted": false,
+  "software_checks_passed": true,
+  "transient_mesh_accepted": false,
+  "integrations_completed": 8,
+  "checkpoint_restores_and_continuations": 8,
+  "full_suite": {
+    "passed": 435,
+    "deselected": 1,
+    "excluded": "test_openmc_particle_run_reports_k_and_mgxs",
+    "duration_s": 127.44
+  },
+  "ruff": "passed",
+  "installed_wheel_smoke": "passed",
+  "implemented": [
+    "Explicit initial pressure, fluid-temperature and wall-temperature profiles",
+    "Forward steady initializer with true inventory reference",
+    "Optional central Jacobian in dynamic SDK",
+    "Reproducible uniform and smooth 40 kJ pulse generator",
+    "Hash-checked convergence gate retaining failed evidence"
+  ],
+  "cases": {
+    "uniform": {
+      "accepted": false,
+      "metrics": {
+        "right_cell_temperature_k": {
+          "difference_4_8_k": 0.04557358294795222,
+          "difference_8_16_k": 0.03318502271832813,
+          "observed_order": 0.4576655363177739,
+          "temporal_difference_16_k": 5.304486876411829e-07,
+          "temporal_to_spatial_ratio": 1.5984581120934882e-05
+        },
+        "mean_wall_temperature_k": {
+          "difference_4_8_k": 0.01769285670178533,
+          "difference_8_16_k": 0.009312587957026608,
+          "observed_order": 0.925912953611543,
+          "temporal_difference_16_k": 6.002665031701326e-11,
+          "temporal_to_spatial_ratio": 6.445753918675365e-09
+        }
+      },
+      "diagnostics": {
+        "midpoint_pressure_temporal_pa": 3.0770655712112784,
+        "flow_temporal_kg_s": 4.847616168923707e-06
+      },
+      "evidence": "validation/pipe_uniform_transient_diagnostic.json"
+    },
+    "smooth": {
+      "accepted": false,
+      "metrics": {
+        "right_cell_temperature_k": {
+          "difference_4_8_k": 0.06554458581922518,
+          "difference_8_16_k": 0.051196505378925394,
+          "observed_order": 0.35643127770175503,
+          "temporal_difference_16_k": 1.512470362285967e-07,
+          "temporal_to_spatial_ratio": 2.9542453163386472e-06
+        },
+        "mean_wall_temperature_k": {
+          "difference_4_8_k": 0.017692691427100726,
+          "difference_8_16_k": 0.009388994828611885,
+          "observed_order": 0.9141109101654574,
+          "temporal_difference_16_k": 6.008349373587407e-11,
+          "temporal_to_spatial_ratio": 6.3993531610834964e-09
+        }
+      },
+      "diagnostics": {
+        "midpoint_pressure_temporal_pa": 1.7325609344989061,
+        "flow_temporal_kg_s": 3.889616962959863e-06
+      },
+      "evidence": "validation/pipe_smooth_transient_diagnostic.json"
+    }
+  },
+  "restart_evidence": "validation/pipe_transient_restart.json",
+  "legacy_readback_evidence": "validation/transient_legacy_bundle_readback.json",
+  "limitations": [
+    "Instantaneous outlet thermal mesh order does not pass the predeclared threshold on 4/8/16 cells",
+    "Midpoint pressure temporal discrepancy exceeds 1 Pa in both cases",
+    "No exact transient error bound, complete mechanical energy or plant validation"
+  ]
+}

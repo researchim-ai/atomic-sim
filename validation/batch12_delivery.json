@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-31",
+  "source_sha256": "5e1cc2f97915c998053f931fedc9443ebfbf586f45332f9a7420f683881a30b9",
+  "model_id": "compatible-total-energy-liquid-channel",
+  "model_status": "implemented",
+  "validated": false,
+  "plant_referenced": false,
+  "vver_1800s_accepted": false,
+  "tasks_completed": 10,
+  "tasks": [
+    {
+      "id": "T01",
+      "title": "Dual-volume kinetic inventory and positive allocation",
+      "status": "implemented_and_checked",
+      "evidence": "physics/hydraulics/mechanical_energy.py"
+    },
+    {
+      "id": "T02",
+      "title": "Pressure, drag and density work identity",
+      "status": "implemented_and_checked",
+      "evidence": "tests/test_compatible_energy.py"
+    },
+    {
+      "id": "T03",
+      "title": "Total enthalpy port flux and internal cancellation",
+      "status": "implemented_and_checked",
+      "evidence": "tests/test_compatible_energy.py"
+    },
+    {
+      "id": "T04",
+      "title": "Opt-in compatible total-energy operator",
+      "status": "implemented_and_checked",
+      "evidence": "physics/hydraulics/dynamic_channel.py"
+    },
+    {
+      "id": "T05",
+      "title": "Independent work integrals and absolute acceptance budgets",
+      "status": "implemented_and_checked",
+      "evidence": "validation/batch12_total_temporal.json"
+    },
+    {
+      "id": "T06",
+      "title": "Explicit engine and schema-2 checkpoint compatibility",
+      "status": "implemented_and_checked",
+      "evidence": "tests/test_compatible_energy.py"
+    },
+    {
+      "id": "T07",
+      "title": "Analytic correction and nonlinear energy-column identity",
+      "status": "implemented_and_checked",
+      "evidence": "validation/batch12_jacobian_audit.json"
+    },
+    {
+      "id": "T08",
+      "title": "Compatible steady donor initializer and generator",
+      "status": "implemented_and_checked",
+      "evidence": "physics/hydraulics/total_energy_initialization.py"
+    },
+    {
+      "id": "T09",
+      "title": "Frozen-density reference, nonlinear time control and reversal",
+      "status": "implemented_and_checked",
+      "evidence": "validation/batch12_frozen_density_delivery.json"
+    },
+    {
+      "id": "T10",
+      "title": "Full regression, installed wheel and verified archive",
+      "status": "implemented_and_checked",
+      "evidence": "artifacts/batch12_total_energy_v1/verification.json"
+    }
+  ],
+  "software_checks_passed": true,
+  "reduced_semidiscrete_total_energy_balance_verified": true,
+  "specific_nonlinear_cases_accepted": true,
+  "full_momentum_energy_physics_qualified": false,
+  "full_nonlinear_spatial_qualification": false,
+  "unique_tests_passed": 522,
+  "full_suite": {
+    "passed": 520,
+    "deselected": 1,
+    "excluded": "test_openmc_particle_run_reports_k_and_mgxs",
+    "duration_s": 143.36
+  },
+  "additional_cli_tests_passed": 2,
+  "ruff": "passed",
+  "installed_wheel_smoke": "passed",
+  "evidence": {
+    "temporal": "validation/batch12_total_temporal.json",
+    "mechanics_reference": "validation/batch12_frozen_density_delivery.json",
+    "jacobian": "validation/batch12_jacobian_audit.json",
+    "reversal": "validation/batch12_reversal_check.json",
+    "restart": "validation/batch12_restart.json"
+  },
+  "method_origin": "Own semidiscrete compatible closure of reduced lumped momentum model; not an implementation of published full Euler schemes",
+  "limitations": [
+    "Momentum convection is not included",
+    "No entropy/positivity, acoustic or new-mode spatial qualification",
+    "Fixed C/UA/losses and single-phase IF97 region 1, Mach<=0.1",
+    "No experimental plant validation or full VVER coastdown qualification"
+  ]
+}

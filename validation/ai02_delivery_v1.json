@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-31",
+  "package": "AI-02",
+  "status": "accepted",
+  "tasks_accepted": 8,
+  "source_sha256": "15c5dadaea64dbb276481dec43b6fa31a76e2675decdfe6192f8ce94a772ed3f",
+  "baseline": "validation/ai02_baseline_v1.json",
+  "acceptance_budget_sha256": "006183c79ef51a5b110843c93d438ab661af43ec7803e94c4d1df10d652be248",
+  "pack_sha256": "65f056dd9e9a86be4f1488906daca84308efc9421ed8c82d84978a6c71edc765",
+  "public_corpus": true,
+  "blind_test": false,
+  "episode_horizon_s": 2.0,
+  "split_counts": {
+    "train": 32,
+    "dev": 16,
+    "test": 80
+  },
+  "tuning_episodes": 112,
+  "test_episodes": 240,
+  "test_episodes_completed": 240,
+  "report_rebuilt_exactly": true,
+  "adversarial_episodes": 16,
+  "adversarial_successes": 0,
+  "report": "validation/ai02_recomputed_delivery_v1.json",
+  "selected_pid": {
+    "kp": 0.01,
+    "ki": 0.0001,
+    "kd": 0.0,
+    "output_limit": 0.0005
+  },
+  "next_package": "AI-03",
+  "validated": false,
+  "plant_referenced": false,
+  "limitations": [
+    "Public research corpus, not blind evaluation or learned-policy qualification",
+    "Near-nominal 2-second tasks; no new long-horizon or physical model validation",
+    "Diagnosis uses explicit sensor-quality flags, not latent-fault inference",
+    "Trusted policy subprocess, not an OS sandbox",
+    "Metrics use endpoint quadrature and sampled peaks",
+    "Original pre-guard campaign emitted SciPy BDF RuntimeWarning; logs retained without inferred cause"
+  ]
+}

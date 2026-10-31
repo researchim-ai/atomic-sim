@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "experiment": "artifacts/ai04_qualified_front_v1",
+  "case": "step_positive_asymptotic",
+  "cells": 512,
+  "final_time_s": 0.3,
+  "final_temperature_difference_k": 6.787104211980477e-11,
+  "source_sha256": "01a9c2e01534b2ddc5d6d0ef11b0a356d9d3c8ddc8200a3cf9f582adf84a425f",
+  "rejected_scopes_checked": 4,
+  "admission_checksum_verified": true,
+  "validated": false,
+  "plant_referenced": false,
+  "qualification": "artifacts/ai04_qualification_v6/qualification.json",
+  "budget_sha256": "08e98b7f03a5771486a1dea2d257f359a76fd55375839cd7c1edc8a5876d6168"
+}

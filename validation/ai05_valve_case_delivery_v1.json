@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "source_sha256": "4b9bf9ca9cb09dc9d585852426c871a0649df1f855efc80d264ae5578b9939d5",
+  "budget_sha256": "821ae85112326afc30b6cf1cb66bd34af08210432214709c7331e3105c62f75d",
+  "runs": {
+    "base": "artifacts/ai05_valve_verification_v1/cycle_positive_base",
+    "tight": "artifacts/ai05_valve_verification_v1/cycle_positive_tight"
+  },
+  "verification": "artifacts/ai05_valve_verification_v1/verification.json",
+  "validated": false,
+  "plant_referenced": false
+}

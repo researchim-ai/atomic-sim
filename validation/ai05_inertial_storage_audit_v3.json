@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "cdb17ddbeb4207f29eb015dc4d4918eaa69413de1e7ab1e6cdd85c430988e9f0",
+  "verification_sha256": "ea21b672c31800718f362b1b5eb54a7a30243ab17818891313f9a866f622936f",
+  "audit_script_sha256": "f4ca3be5c1aeaf218045794f47feef265fcb96ea2c02b1e7fd798289802e59a3",
+  "integrations": 24,
+  "case_families": 11,
+  "temporal_comparisons": [
+    {
+      "name": "damped_forward",
+      "metrics": {
+        "mass_flow_abs_kg_s": 6.552536291337674e-13,
+        "transfer_mass_abs_kg": 5.619948950652542e-13,
+        "pressure_abs_pa": 1.8451828509569168e-08,
+        "temperature_abs_k": 1.1084466677857563e-11,
+        "boundary_work_abs_j": 9.262635103368666e-11
+      }
+    },
+    {
+      "name": "damped_reverse",
+      "metrics": {
+        "mass_flow_abs_kg_s": 6.552536291337674e-13,
+        "transfer_mass_abs_kg": 5.619948950652542e-13,
+        "pressure_abs_pa": 1.8451828509569168e-08,
+        "temperature_abs_k": 1.1084466677857563e-11,
+        "boundary_work_abs_j": 9.262635103368666e-11
+      }
+    },
+    {
+      "name": "equilibrium",
+      "metrics": {
+        "mass_flow_abs_kg_s": 0.0,
+        "transfer_mass_abs_kg": 0.0,
+        "pressure_abs_pa": 0.0,
+        "temperature_abs_k": 0.0,
+        "boundary_work_abs_j": 0.0
+      }
+    },
+    {
+      "name": "lossless_forward",
+      "metrics": {
+        "mass_flow_abs_kg_s": 1.1906031716080179e-12,
+        "transfer_mass_abs_kg": 1.0675904604795505e-12,
+        "pressure_abs_pa": 5.24159986525774e-08,
+        "temperature_abs_k": 2.0236257114447653e-11,
+        "boundary_work_abs_j": 2.057518599940522e-10
+      }
+    },
+    {
+      "name": "lossless_reverse",
+      "metrics": {
+        "mass_flow_abs_kg_s": 1.1906031716080179e-12,
+        "transfer_mass_abs_kg": 1.0675904604795505e-12,
+        "pressure_abs_pa": 5.24159986525774e-08,
+        "temperature_abs_k": 2.0236257114447653e-11,
+        "boundary_work_abs_j": 2.057518599940522e-10
+      }
+    },
+    {
+      "name": "opposed_forward",
+      "metrics": {
+        "mass_flow_abs_kg_s": 6.976641486744484e-13,
+        "transfer_mass_abs_kg": 5.488942633746774e-13,
+        "pressure_abs_pa": 1.9121216610074043e-08,
+        "temperature_abs_k": 1.1937117960769683e-11,
+        "boundary_work_abs_j": 9.958966984413564e-11
+      }
+    },
+    {
+      "name": "opposed_reverse",
+      "metrics": {
+        "mass_flow_abs_kg_s": 6.235012506294879e-13,
+        "transfer_mass_abs_kg": 5.022648963404208e-13,
+        "pressure_abs_pa": 1.6123522073030472e-08,
+        "temperature_abs_k": 1.2050804798491299e-11,
+        "boundary_work_abs_j": 1.0049916454590857e-10
+      }
+    },
+    {
+      "name": "resistance_switch",
+      "metrics": {
+        "mass_flow_abs_kg_s": 2.7400304247748863e-13,
+        "transfer_mass_abs_kg": 2.2648549702353193e-13,
+        "pressure_abs_pa": 5.966285243630409e-09,
+        "temperature_abs_k": 6.139089236967266e-12,
+        "boundary_work_abs_j": 5.1301185521879233e-11
+      }
+    },
+    {
+      "name": "small_signal",
+      "metrics": {
+        "mass_flow_abs_kg_s": 2.281906759903085e-16,
+        "transfer_mass_abs_kg": 2.227086787556787e-16,
+        "pressure_abs_pa": 2.9103830456733704e-11,
+        "temperature_abs_k": 5.684341886080802e-14,
+        "boundary_work_abs_j": 2.2282523048922087e-14
+      }
+    },
+    {
+      "name": "thermal_forward",
+      "metrics": {
+        "mass_flow_abs_kg_s": 1.380950909180001e-12,
+        "transfer_mass_abs_kg": 3.4448000008069357e-12,
+        "pressure_abs_pa": 4.676985554397106e-08,
+        "temperature_abs_k": 1.595594767422881e-10,
+        "boundary_work_abs_j": 4.978346623829566e-10
+      }
+    },
+    {
+      "name": "thermal_reverse",
+      "metrics": {
+        "mass_flow_abs_kg_s": 1.3812284649361573e-12,
+        "transfer_mass_abs_kg": 3.391509295624928e-12,
+        "pressure_abs_pa": 4.618777893483639e-08,
+        "temperature_abs_k": 1.5552359400317073e-10,
+        "boundary_work_abs_j": 4.945945875078905e-10
+      }
+    }
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

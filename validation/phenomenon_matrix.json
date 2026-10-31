@@ -66,6 +66,144 @@
       "test": "tests/test_pipe_mesh_reference.py",
       "evidence": "validation/pipe_mesh_delivery.json",
       "model_id": "pressure-driven-wall-channel"
+    },
+    {
+      "phenomenon": "profiled-equilibrium-and-transient-convergence-diagnostics",
+      "test": "tests/test_channel_initialization.py",
+      "evidence": "validation/pipe_uniform_transient_diagnostic.json",
+      "model_id": "pressure-driven-wall-channel",
+      "numerical_acceptance": false
+    },
+    {
+      "phenomenon": "muscl-conservative-interface-and-signed-energy",
+      "test": "tests/test_muscl_channel.py",
+      "evidence": "validation/batch10_muscl_temporal.json",
+      "model_id": "pressure-driven-wall-channel"
+    },
+    {
+      "phenomenon": "scalar-periodic-mc-accuracy-and-ssp-bounds",
+      "test": "tests/test_reconstruction.py",
+      "evidence": "validation/batch10_advection_verified.json"
+    },
+    {
+      "phenomenon": "analytic-liquid-and-signed-sparse-channel-jacobian",
+      "test": "tests/test_analytic_channel_jacobian.py",
+      "evidence": "validation/batch11_jacobian_audit.json"
+    },
+    {
+      "phenomenon": "analytic-mode-temporal-equivalence-and-specific-thermal-mesh-case",
+      "test": "tests/test_analytic_jacobian_sdk.py",
+      "evidence": "validation/batch11_muscl_transient_mesh.json",
+      "model_id": "pressure-driven-wall-channel"
+    },
+    {
+      "phenomenon": "compatible-total-energy-and-mechanical-ledger",
+      "test": "tests/test_compatible_energy.py",
+      "evidence": "validation/batch12_total_temporal.json",
+      "model_id": "compatible-total-energy-liquid-channel"
+    },
+    {
+      "phenomenon": "frozen-density-inertia-dissipation-reference",
+      "test": "tests/test_compatible_energy.py",
+      "evidence": "validation/batch12_frozen_density_delivery.json"
+    },
+    {
+      "phenomenon": "conservative-euler-momentum-convection-total-energy",
+      "test": "tests/test_euler_channel.py",
+      "model_id": "conservative-euler-liquid-channel",
+      "evidence": "validation/ai03_euler_reference_delivery_v1.json",
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "phenomenon": "hllc-contact-transport-and-case-scoped-grid-time-admission",
+      "model_id": "contact-euler-liquid-channel",
+      "test": "tests/test_hllc_channel.py",
+      "additional_test": "tests/test_euler_qualification.py",
+      "evidence": "validation/ai04_delivery_v1.json",
+      "numerical_acceptance": "case-scoped matrix; moving discontinuities rejected",
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "phenomenon": "resolved-hllc-front-absolute-tolerance-and-qualified-sdk-admission",
+      "model_id": "contact-euler-liquid-channel",
+      "test": "tests/test_hllc_refinement.py",
+      "additional_test": "tests/test_euler_absolute_tolerance.py",
+      "evidence": "validation/ai04_qualified_sdk_v1.json",
+      "numerical_acceptance": "Exact 512-cell fixtures in qualification v6 only",
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "phenomenon": "typed-linear-network-assembly-initialization-conservative-thermal-transients",
+      "model_id": "compiled-linear-thermal-network",
+      "test": "tests/test_network_compiler.py",
+      "evidence": "validation/ai05_network_verification_v8.json",
+      "numerical_acceptance": "Five fixed linear thermal fixtures only",
+      "validated": false,
+      "plant_referenced": false,
+      "historical_evidence": "validation/ai05_network_verification_v1.json",
+      "previous_revision_evidence": "validation/ai05_network_verification_v7.json"
+    },
+    {
+      "phenomenon": "incompressible-circulation-kinetic-friction-pressure-work-initialization-and-switch",
+      "model_id": "incompressible-thermal-circulation-loop",
+      "test": "tests/test_circulation_loop.py",
+      "evidence": "validation/ai05_circulation_verification_v6.json",
+      "numerical_acceptance": "13 fixed reduced-model case families; no pump/plant qualification",
+      "validated": false,
+      "plant_referenced": false,
+      "previous_revision_evidence": "validation/ai05_circulation_verification_v5.json"
+    },
+    {
+      "phenomenon": "displacement-pump-shaft-reciprocal-power-passive-leakage-bearing-heat-and-motor-trip",
+      "model_id": "displacement-pump-circulation-loop",
+      "test": "tests/test_pump_loop.py",
+      "evidence": "validation/ai05_pump_verification_v5.json",
+      "numerical_acceptance": "11 fixed reduced-model families, 24 bundles; no centrifugal/manufacturer/plant qualification",
+      "validated": false,
+      "plant_referenced": false,
+      "previous_revision_evidence": "validation/ai05_pump_verification_v4.json"
+    },
+    {
+      "phenomenon": "finite-leakage-valve-closure-reopening-exact-actuator-passive-dissipation",
+      "model_id": "valved-displacement-pump-circulation-loop",
+      "test": "tests/test_valved_pump_loop.py",
+      "evidence": "validation/ai05_valve_verification_v4.json",
+      "numerical_acceptance": "9 fixed case families, 20 bundles; no perfect isolation/check valve/plant qualification",
+      "validated": false,
+      "plant_referenced": false,
+      "previous_revision_evidence": "validation/ai05_valve_verification_v3.json"
+    },
+    {
+      "phenomenon": "gas-cushion-liquid-storage-boundary-work-and-zero-inertia-check-isolation",
+      "model_id": "gas-cushion-transfer-pair",
+      "test": "tests/test_gas_storage_pair.py",
+      "evidence": "validation/ai05_storage_verification_v3.json",
+      "numerical_acceptance": "11 fixed families, 24 bundles; no inertial contact/steam pressurizer/plant qualification",
+      "validated": false,
+      "plant_referenced": false,
+      "previous_revision_evidence": "validation/ai05_storage_verification_v2.json"
+    },
+    {
+      "phenomenon": "gas-storage-kinetic-inertance-reversal-lossless-period-and-exact-equilibrium",
+      "model_id": "inertial-gas-storage-pair",
+      "test": "tests/test_inertial_storage_pair.py",
+      "evidence": "validation/ai05_inertial_storage_verification_v2.json",
+      "numerical_acceptance": "11 fixed families, 24 bundles; ideal inertance, no resolved pipe/contact/plant qualification",
+      "validated": false,
+      "plant_referenced": false,
+      "previous_revision_evidence": "validation/ai05_inertial_storage_verification_v1.json"
+    },
+    {
+      "phenomenon": "coupled-displacement-pump-shaft-gas-storage-reciprocal-power-thermal-leak-port-and-atomic-controls",
+      "model_id": "pump-shaft-gas-storage-pair",
+      "test": "tests/test_pump_storage_pair.py",
+      "evidence": "validation/ai05_pump_storage_verification_v1.json",
+      "numerical_acceptance": "11 fixed families, 24 bundles; no manufacturer/contact/steam pressurizer/plant qualification",
+      "validated": false,
+      "plant_referenced": false
     }
   ]
 }

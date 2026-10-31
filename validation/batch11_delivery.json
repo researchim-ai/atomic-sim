@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-31",
+  "model_id": "pressure-driven-wall-channel",
+  "model_status": "implemented",
+  "source_sha256": "6bbe5bf1a51e00d4e7e857d5625d5578a8b329d0caeedb1f0bf1deccc793b426",
+  "validated": false,
+  "plant_referenced": false,
+  "vver_1800s_accepted": false,
+  "tasks_completed": 10,
+  "tasks": [
+    {
+      "id": "T01",
+      "title": "SI IF97 conserved-state derivatives",
+      "status": "implemented_and_checked",
+      "evidence": "physics/hydraulics/liquid_derivatives.py"
+    },
+    {
+      "id": "T02",
+      "title": "Piecewise MC face Jacobian",
+      "status": "implemented_and_checked",
+      "evidence": "physics/hydraulics/reconstruction.py"
+    },
+    {
+      "id": "T03",
+      "title": "Sparse coupled channel Jacobian",
+      "status": "implemented_and_checked",
+      "evidence": "physics/hydraulics/channel_jacobian.py"
+    },
+    {
+      "id": "T04",
+      "title": "BDF/Radau custom Jacobian callback",
+      "status": "implemented_and_checked",
+      "evidence": "core/continuation.py"
+    },
+    {
+      "id": "T05",
+      "title": "SDK Jacobian choice and history policy",
+      "status": "implemented_and_checked",
+      "evidence": "tests/test_analytic_jacobian_sdk.py"
+    },
+    {
+      "id": "T06",
+      "title": "Directional and conservation-column audit",
+      "status": "implemented_and_checked",
+      "evidence": "validation/batch11_jacobian_audit.json"
+    },
+    {
+      "id": "T07",
+      "title": "Analytic attempts/successes and sparsity telemetry",
+      "status": "implemented_and_checked",
+      "evidence": "physics/hydraulics/dynamic_channel.py"
+    },
+    {
+      "id": "T08",
+      "title": "Strict central/analytic equivalence audit",
+      "status": "implemented_and_checked",
+      "evidence": "validation/batch11_jacobian_equivalence.json"
+    },
+    {
+      "id": "T09",
+      "title": "MUSCL specific thermal mesh/time case",
+      "status": "implemented_and_checked",
+      "evidence": "validation/batch11_muscl_transient_mesh.json"
+    },
+    {
+      "id": "T10",
+      "title": "Regression and installed hashed delivery",
+      "status": "implemented_and_checked",
+      "evidence": "artifacts/batch11_analytic_delivery_v1/verification.json"
+    }
+  ],
+  "software_checks_passed": true,
+  "specific_thermal_mesh_case_accepted": true,
+  "full_nonlinear_spatial_qualification": false,
+  "full_mechanical_energy_qualified": false,
+  "unique_tests_passed": 492,
+  "full_suite": {
+    "passed": 488,
+    "deselected": 1,
+    "excluded": "test_openmc_particle_run_reports_k_and_mgxs",
+    "duration_s": 185.02
+  },
+  "additional_audit_tests": 1,
+  "additional_periodic_and_nonsmooth_tests": 3,
+  "ruff": "passed",
+  "installed_wheel_smoke": "passed",
+  "evidence": {
+    "jacobian": "validation/batch11_jacobian_audit.json",
+    "mode_equivalence": "validation/batch11_jacobian_equivalence.json",
+    "thermal_mesh": "validation/batch11_muscl_transient_mesh.json",
+    "restart": "validation/batch11_restart.json",
+    "legacy": "validation/batch11_legacy_readback.json"
+  },
+  "limitations": [
+    "Only one sampled thermal transient self-convergence case accepted",
+    "Right-cell temperature is a mesh-dependent outlet approximation, not a reconstructed port temperature",
+    "Generalized derivatives selected at limiter/flow ties",
+    "No significant wall-time speedup demonstrated on n4",
+    "No full mechanical energy, acoustic or plant validation"
+  ]
+}

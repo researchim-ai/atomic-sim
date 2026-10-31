@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "source_sha256": "2b7560e5fcde43fe118866872cd7793e583f5ce521d7f3d8ec7f0dedf03093cd",
+  "wheel_sha256": "eb14160aec22730921d916cede9f04f598b027faf72eaf1ae3405dceeb3d3d5c",
+  "wheel_environment": "Temporary system-site-packages venv outside checkout; inherited dependencies",
+  "runtime_byte_coverage_verified": true,
+  "installed_source_fingerprint_matches": true,
+  "pump_cli_torque_command_and_restart_verified": true,
+  "log": "/tmp/ai05-pump-release-wheel-check.log",
+  "validated": false,
+  "plant_referenced": false
+}

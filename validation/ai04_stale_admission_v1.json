@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "rejected_before_output": true,
+  "reason": "Qualification requires matching runtime source",
+  "validated": false,
+  "plant_referenced": false
+}

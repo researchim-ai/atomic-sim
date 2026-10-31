@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "checks": {
+    "pressure_pa": true,
+    "temperature_k": true,
+    "energy_j": true,
+    "flow_kg_s": true,
+    "final_state_scaled": true
+  },
+  "measured": {
+    "pressure_pa": 0.011877821758389473,
+    "temperature_k": 2.4531345843570307e-09,
+    "energy_j": 1.0174699127674103e-05,
+    "flow_kg_s": 7.68274044382622e-09
+  },
+  "tolerances": {
+    "flow_kg_s": 1e-06,
+    "pressure_pa": 1.0,
+    "temperature_k": 1e-05,
+    "energy_j": 0.001
+  },
+  "final_state_scaled": 1.1507317665784844e-13,
+  "source_sha256": "9dc67366d5fc7c1b4d0b5744c007467deb61f92762469b0d2690751baf96d507",
+  "validated": false,
+  "plant_referenced": false,
+  "scope": "Discrete reflection symmetry for an 8-second reduced liquid pipe; not physical validation"
+}

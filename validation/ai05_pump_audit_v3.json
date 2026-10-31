@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "fd2c6801febff59d1c5af3b9ac1f50b349005b952dcd64e6ee4bdb3ccc230ad1",
+  "verification_sha256": "17f046f2037a7478cc4784aa3d72a3b5523b4100bbbaf5936d958abe1e4db8b4",
+  "audit_script_sha256": "0f9f36728af63b87f608b478d24b52773753eaf3dccd4609faac8925e8c639f1",
+  "integrations": 24,
+  "case_families": 11,
+  "temporal_comparisons": [
+    {
+      "name": "backdrive_negative",
+      "metrics": {
+        "mass_flow_abs_kg_s": 1.3235593177007843e-13,
+        "omega_abs_rad_s": 1.2484457911909885e-13,
+        "temperature_abs_k": 5.684341886080802e-14,
+        "integral_abs_j": 7.308043059595093e-13
+      }
+    },
+    {
+      "name": "backdrive_positive",
+      "metrics": {
+        "mass_flow_abs_kg_s": 1.3235593177007843e-13,
+        "omega_abs_rad_s": 1.2484457911909885e-13,
+        "temperature_abs_k": 5.684341886080802e-14,
+        "integral_abs_j": 7.308043059595093e-13
+      }
+    },
+    {
+      "name": "reverse_negative",
+      "metrics": {
+        "mass_flow_abs_kg_s": 7.365441589968214e-12,
+        "omega_abs_rad_s": 1.723066134218243e-12,
+        "temperature_abs_k": 0.0,
+        "integral_abs_j": 1.1861622795095172e-12
+      }
+    },
+    {
+      "name": "reverse_positive",
+      "metrics": {
+        "mass_flow_abs_kg_s": 7.365441589968214e-12,
+        "omega_abs_rad_s": 1.723066134218243e-12,
+        "temperature_abs_k": 0.0,
+        "integral_abs_j": 1.1861622795095172e-12
+      }
+    },
+    {
+      "name": "startup_negative",
+      "metrics": {
+        "mass_flow_abs_kg_s": 9.76829728216444e-13,
+        "omega_abs_rad_s": 2.948752353404416e-13,
+        "temperature_abs_k": 0.0,
+        "integral_abs_j": 3.979039320256561e-13
+      }
+    },
+    {
+      "name": "startup_positive",
+      "metrics": {
+        "mass_flow_abs_kg_s": 9.76829728216444e-13,
+        "omega_abs_rad_s": 2.948752353404416e-13,
+        "temperature_abs_k": 0.0,
+        "integral_abs_j": 3.979039320256561e-13
+      }
+    },
+    {
+      "name": "steady_negative",
+      "metrics": {
+        "mass_flow_abs_kg_s": 0.0,
+        "omega_abs_rad_s": 0.0,
+        "temperature_abs_k": 0.0,
+        "integral_abs_j": 9.15179043659009e-12
+      }
+    },
+    {
+      "name": "steady_positive",
+      "metrics": {
+        "mass_flow_abs_kg_s": 0.0,
+        "omega_abs_rad_s": 0.0,
+        "temperature_abs_k": 0.0,
+        "integral_abs_j": 9.15179043659009e-12
+      }
+    },
+    {
+      "name": "steady_zero",
+      "metrics": {
+        "mass_flow_abs_kg_s": 0.0,
+        "omega_abs_rad_s": 0.0,
+        "temperature_abs_k": 0.0,
+        "integral_abs_j": 0.0
+      }
+    },
+    {
+      "name": "trip_negative",
+      "metrics": {
+        "mass_flow_abs_kg_s": 7.365441589968214e-12,
+        "omega_abs_rad_s": 1.723066134218243e-12,
+        "temperature_abs_k": 0.0,
+        "integral_abs_j": 1.1861622795095172e-12
+      }
+    },
+    {
+      "name": "trip_positive",
+      "metrics": {
+        "mass_flow_abs_kg_s": 7.365441589968214e-12,
+        "omega_abs_rad_s": 1.723066134218243e-12,
+        "temperature_abs_k": 0.0,
+        "integral_abs_j": 1.1861622795095172e-12
+      }
+    }
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

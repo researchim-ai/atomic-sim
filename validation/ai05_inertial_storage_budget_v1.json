@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "model_id": "inertial-gas-storage-pair",
+  "transfer_mass_abs_kg": 1e-8,
+  "mass_flow_abs_kg_s": 1e-8,
+  "pressure_abs_pa": 0.001,
+  "temperature_abs_k": 1e-7,
+  "boundary_work_abs_j": 1e-5,
+  "energy_abs_j": 1e-5,
+  "local_energy_abs_w": 1e-6,
+  "link_energy_abs_w": 1e-6,
+  "event_time_abs_s": 1e-6,
+  "nonlinear_period_abs_s": 1e-6,
+  "mass_abs_kg": 1e-12,
+  "restart_extension_s": 1,
+  "validated": false,
+  "plant_referenced": false
+}

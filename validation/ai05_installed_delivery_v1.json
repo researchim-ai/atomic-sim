@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "source_sha256": "65034f3484bb15d86ae5bd08edb1b8acf77b81b39d3e6915a543900d03f63a15",
+  "wheel_sha256": "a4a828604db7eb33bdabc7c07173cc2b45e017f028e310cfe5443232312f7329",
+  "installed_fingerprint_matches_checkout": true,
+  "network_cli_verified": true,
+  "checkpoint_restart_verified": true,
+  "environment": "Temporary system-site-packages venv outside checkout",
+  "validated": false,
+  "plant_referenced": false
+}

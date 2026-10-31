@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "package": "AI-04",
+  "scope": "Case-scoped numerical component qualification; excludes coarser rejected front fixtures",
+  "required_accepted_entries": [
+    "smooth_negative",
+    "smooth_positive",
+    "step_negative_asymptotic",
+    "step_positive_asymptotic",
+    "contact_diffusion_comparison",
+    "stationary_contact",
+    "heated_steady",
+    "wall_pulse",
+    "startup",
+    "reversal"
+  ],
+  "required_rejected_entries": [
+    "step_negative",
+    "step_positive",
+    "step_negative_refined",
+    "step_positive_refined"
+  ],
+  "required_checks": [
+    "completed",
+    "spatial",
+    "order",
+    "temporal",
+    "pressure",
+    "bounds"
+  ],
+  "front_admitted_cells": [
+    512
+  ],
+  "front_grids": [
+    128,
+    256,
+    512
+  ],
+  "original_thresholds_must_remain_equal_to": "validation/ai04_qualification_budget_v1.json",
+  "cost_budget_s": 180,
+  "validated": false,
+  "plant_referenced": false
+}

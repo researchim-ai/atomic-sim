@@ -55,6 +55,17 @@ atomic-sim = "generate_dataset:main"
 atomic-experiment = "sdk.experiment:main"
 atomic-channel-experiment = "sdk.channel_experiment:main"
 atomic-dynamic-experiment = "sdk.dynamic_experiment:main"
+atomic-agent-replay = "agent_envs.replay:main"
+atomic-agent-benchmark = "agent_envs.benchmark:main"
+atomic-euler-experiment = "sdk.euler_experiment:main"
+atomic-network-experiment = "sdk.network_experiment:main"
+atomic-circulation-experiment = "sdk.circulation_experiment:main"
+atomic-pump-experiment = "sdk.pump_experiment:main"
+atomic-valve-experiment = "sdk.pump_experiment:main"
+atomic-storage-experiment = "sdk.storage_experiment:main"
+atomic-inertial-storage-experiment = "sdk.storage_experiment:main"
+atomic-pump-storage-experiment = "sdk.pump_storage_experiment:main"
+atomic-check-storage-experiment = "sdk.check_storage_experiment:main"
 
 [project.urls]
 Homepage = "https://github.com/researchim-ai/atomic-sim"
@@ -65,7 +76,7 @@ py-modules = ["generate_dataset"]
 
 [tool.setuptools.package-data]
 data = ["sources.json"]
-scenarios = ["*.yaml"]
+scenarios = ["*.yaml", "*.json"]
 validation = ["*.json"]
 
 [tool.setuptools.packages.find]
@@ -94,6 +105,10 @@ python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
 addopts = "-v"
+markers = [
+    "external_integration: requires a configured external transport/MPI runtime and data",
+    "long_running: explicit numerical or legacy workloads excluded from the fast lane",
+]
 
 [tool.black]
 line-length = 100

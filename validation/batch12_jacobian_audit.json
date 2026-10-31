@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "kind": "compatible_energy_jacobian_verification",
+  "source_sha256": "5e1cc2f97915c998053f931fedc9443ebfbf586f45332f9a7420f683881a30b9",
+  "script_sha256": "8fb5d5e49c21c751c15ed4f9c58eb220be5aed4a98b541dbd40ef56c8edc3731",
+  "validated": false,
+  "plant_referenced": false,
+  "cases": [
+    {
+      "scheme": "donor",
+      "sign": -1.0,
+      "size": 18,
+      "nnz": 86,
+      "directional_scaled_errors": [
+        2.5074541341250116e-10,
+        9.000380507250648e-09,
+        7.831917728253893e-08
+      ],
+      "full_energy_rate_residual_w": -5.820766091346741e-11,
+      "nonlinear_energy_column_identity": 1.1641532182693481e-10,
+      "zero_integral_columns": true
+    },
+    {
+      "scheme": "donor",
+      "sign": 1.0,
+      "size": 18,
+      "nnz": 86,
+      "directional_scaled_errors": [
+        1.4137159016920665e-09,
+        7.222665325296502e-09,
+        4.3669812150295336e-10
+      ],
+      "full_energy_rate_residual_w": 0.0,
+      "nonlinear_energy_column_identity": 3.1468516681343317e-10,
+      "zero_integral_columns": true
+    },
+    {
+      "scheme": "muscl_mc",
+      "sign": -1.0,
+      "size": 18,
+      "nnz": 90,
+      "directional_scaled_errors": [
+        4.464880903349736e-10,
+        2.100100719548657e-09,
+        7.831917728253893e-08
+      ],
+      "full_energy_rate_residual_w": -5.820766091346741e-11,
+      "nonlinear_energy_column_identity": 1.1641532182693481e-10,
+      "zero_integral_columns": true
+    },
+    {
+      "scheme": "muscl_mc",
+      "sign": 1.0,
+      "size": 18,
+      "nnz": 90,
+      "directional_scaled_errors": [
+        1.4137159016920665e-09,
+        4.0230132946633665e-09,
+        6.638327983854573e-10
+      ],
+      "full_energy_rate_residual_w": -5.820766091346741e-11,
+      "nonlinear_energy_column_identity": 3.643787493956552e-10,
+      "zero_integral_columns": true
+    }
+  ],
+  "passed": true,
+  "identity": "J.T grad(E) + Hess(E) f = grad(boundary total-enthalpy power)",
+  "scope": "Piecewise local derivatives away from sign/limiter switches; reduced discrete model, not physical validation"
+}

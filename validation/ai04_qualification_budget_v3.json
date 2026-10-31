@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "scope": "numerical HLLC qualification of explicitly listed IF97 component cases",
+  "duration_contact_s": 0.3,
+  "contact_amplitude_k": 0.01,
+  "smooth_linf_k": 0.0005,
+  "smooth_min_order": 0.8,
+  "step_l1_k": 0.002,
+  "step_min_order": 0.35,
+  "contact_pressure_abs_pa": 1.0,
+  "overshoot_k": 1e-05,
+  "time_spatial_ratio": 0.1,
+  "temperature_floor_k": 1e-07,
+  "temperature_time_abs_k": 1e-06,
+  "diffusion_error_ratio_max": 0.25,
+  "self_temperature_l1_k": 0.01,
+  "self_min_order": 0.4,
+  "self_pressure_l1_pa": 1000.0,
+  "self_velocity_l1_m_s": 0.001,
+  "event_time_error_s": 0.0001,
+  "energy_abs_j": 0.001,
+  "momentum_abs_kg_m_s": 1e-07,
+  "mass_relative": 1e-06,
+  "case_wall_limit_s": 180.0,
+  "validated": false,
+  "plant_referenced": false,
+  "protocol_version": 3,
+  "step_refinement_grids": [
+    32,
+    64,
+    128
+  ],
+  "step_refinement_reason": "Observed coarse-grid pre-asymptotic order 0.182; add a fourth grid and restrict new admission to refined fixtures. Original coarse rejection and all numerical thresholds retained.",
+  "step_asymptotic_grids": [
+    128,
+    256,
+    512
+  ],
+  "step_asymptotic_reason": "FFT-exact donor diagnostic reproduces 64/128 order 0.33556; pre-register 128/256/512 Euler sequence. Keep all earlier rejections and all original thresholds including 180 s per-case wall budget."
+}

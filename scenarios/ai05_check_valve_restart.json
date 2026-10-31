@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "engine": "check-valve-pump-storage",
+  "name": "ai05_check_valve_restart",
+  "model": {
+    "plant_configuration": {
+      "hydraulic_configuration": {
+        "storage_configuration": {
+          "fluid": {
+            "density_kg_m3": 1000,
+            "liquid_cv_j_kg_k": 4200
+          },
+          "vessels": [
+            {
+              "id": "left",
+              "total_volume_m3": 0.02,
+              "initial_liquid_mass_kg": 10,
+              "initial_liquid_temperature_k": 300,
+              "initial_gas_pressure_pa": 99000,
+              "initial_gas_temperature_k": 300,
+              "gas_gamma": 1.4,
+              "gas_liquid_ua_w_k": 0,
+              "gas_ambient_ua_w_k": 0,
+              "liquid_heater_w": 0
+            },
+            {
+              "id": "right",
+              "total_volume_m3": 0.02,
+              "initial_liquid_mass_kg": 10,
+              "initial_liquid_temperature_k": 300,
+              "initial_gas_pressure_pa": 100000,
+              "initial_gas_temperature_k": 300,
+              "gas_gamma": 1.4,
+              "gas_liquid_ua_w_k": 0,
+              "gas_ambient_ua_w_k": 0,
+              "liquid_heater_w": 0
+            }
+          ],
+          "connection": {
+            "kind": "bidirectional",
+            "conductance_m3_s_pa": 0,
+            "cracking_pressure_pa": 0
+          },
+          "ambient_temperature_k": 300,
+          "energy_tolerance_j": 1e-05
+        },
+        "line": {
+          "inertance_m_inv": 30000,
+          "resistance_pa_s2_kg2": 1000
+        },
+        "initial_mass_flow_kg_s": 0
+      },
+      "pump": {
+        "displacement_m3_rad": 0.0001,
+        "leakage_m3_s_pa": 1e-06,
+        "inertia_kg_m2": 0.1,
+        "drag_nm_s_rad": 0.02,
+        "leak_heat_vessel": "left"
+      },
+      "initial_omega_rad_s": 0,
+      "motor_torque_nm": 1
+    },
+    "cracking_pressure_pa": 100
+  },
+  "duration_s": 20,
+  "step_s": 0.5,
+  "solver": {
+    "method": "Radau",
+    "rtol": 1e-10,
+    "max_step_s": 0.02,
+    "atol_scale": 0.01
+  },
+  "timeline": [
+    {
+      "t": 4,
+      "controls": {
+        "resistance_pa_s2_kg2": 1000,
+        "motor_torque_nm": 0
+      }
+    },
+    {
+      "t": 10,
+      "controls": {
+        "resistance_pa_s2_kg2": 1000,
+        "motor_torque_nm": 1
+      }
+    }
+  ]
+}

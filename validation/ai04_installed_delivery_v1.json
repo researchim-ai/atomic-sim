@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "wheel_sha256": "8800b1825696c4599a63b72e91e635f9643a2f51a8c962ab7c24ecf28b0aa81a",
+  "source_sha256": "01a9c2e01534b2ddc5d6d0ef11b0a356d9d3c8ddc8200a3cf9f582adf84a425f",
+  "installed_source_matches_checkout": true,
+  "installed_qualified_fixtures": 9,
+  "environment": "Temporary system-site-packages venv outside checkout",
+  "validated": false,
+  "plant_referenced": false
+}

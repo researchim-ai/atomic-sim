@@ -1,0 +1,323 @@
+{
+  "schema_version": 1,
+  "kind": "jacobian_equivalence_verification",
+  "validated": false,
+  "plant_referenced": false,
+  "horizon_s": 8,
+  "comparison_times": 41,
+  "measured": {
+    "flow_absolute_kg_s": 2.160261525219198e-08,
+    "pressure_absolute_pa": 0.011073185130953789,
+    "fluid_temperature_absolute_k": 2.0076782902833656e-07,
+    "wall_temperature_absolute_k": 5.5933014664333314e-08
+  },
+  "checks": {
+    "flow_absolute_kg_s": true,
+    "pressure_absolute_pa": true,
+    "fluid_temperature_absolute_k": true,
+    "wall_temperature_absolute_k": true,
+    "mass_relative": true,
+    "energy_relative": true,
+    "analytic_callback_used": true,
+    "sparse_callback_recorded": true,
+    "central_callback_used": true
+  },
+  "passed": true,
+  "budget_sha256": "15f281f2ad79f3085d50ec164ad7a6ac32fc9af2ca514f748464aa9b02b202a7",
+  "source_hashes": [
+    "6bbe5bf1a51e00d4e7e857d5625d5578a8b329d0caeedb1f0bf1deccc793b426",
+    "6bbe5bf1a51e00d4e7e857d5625d5578a8b329d0caeedb1f0bf1deccc793b426"
+  ],
+  "runs": {
+    "artifacts/batch11_muscl_n4_analytic": {
+      "schema_version": 1,
+      "name": "batch11_muscl_n4_analytic",
+      "status": "completed",
+      "model_id": "pressure-driven-wall-channel",
+      "requested_duration_s": 8.0,
+      "completed_time_s": 8.0,
+      "wall_time_s": 46.55979049200005,
+      "accepted_output_steps": 40,
+      "balance": {
+        "mass_relative": 1.086725336012683e-15,
+        "energy_relative": 1.750279526993669e-15,
+        "max_mass_residual_kg": 2.7234074370663386e-15,
+        "max_energy_residual_j": 1.1317411008349154e-08,
+        "final_mass_residual_kg": -6.343666911212686e-16,
+        "final_energy_residual_j": -5.162291927263141e-09,
+        "normalization": "maximum sampled absolute residual / initial absolute inventory"
+      },
+      "budget_checks": {
+        "mass_relative": true,
+        "energy_relative": true
+      },
+      "numerical_acceptance": true,
+      "validated": false,
+      "plant_referenced": false,
+      "error": null,
+      "events": [],
+      "extrema": {
+        "time_s": {
+          "min": 0.0,
+          "max": 8.0
+        },
+        "inlet_mass_flow_kg_s": {
+          "min": 1.0547422600611345,
+          "max": 1.0553723445177274
+        },
+        "outlet_mass_flow_kg_s": {
+          "min": 1.054942416699054,
+          "max": 1.0562392027205505
+        },
+        "min_pressure_pa": {
+          "min": 7002434.112383835,
+          "max": 7002505.302057339
+        },
+        "max_pressure_pa": {
+          "min": 7017432.544262542,
+          "max": 7017503.708765152
+        },
+        "min_temperature_k": {
+          "min": 500.0001311349418,
+          "max": 500.02256585472236
+        },
+        "max_temperature_k": {
+          "min": 500.00091774641396,
+          "max": 500.7380484100338
+        },
+        "right_cell_temperature_k": {
+          "min": 500.00091774641396,
+          "max": 500.7380484100338
+        },
+        "midpoint_pressure_pa": {
+          "min": 7009776.654174577,
+          "max": 7010010.719484827
+        },
+        "mean_wall_temperature_k": {
+          "min": 502.0266562362074,
+          "max": 505.0005244594233
+        },
+        "min_wall_temperature_k": {
+          "min": 500.54799779162954,
+          "max": 501.46459722900903
+        },
+        "max_wall_temperature_k": {
+          "min": 503.4338736976504,
+          "max": 508.53618948599626
+        },
+        "heat_w": {
+          "min": 0.0,
+          "max": 0.0
+        },
+        "wall_to_fluid_w": {
+          "min": 1817.4320160157863,
+          "max": 5000.000000000043
+        },
+        "max_mach": {
+          "min": 0.0010038468974466644,
+          "max": 0.0010069421732422736
+        },
+        "stored_mass_kg": {
+          "min": 2.5043577628997196,
+          "max": 2.506067859850241
+        },
+        "stored_energy_j": {
+          "min": 6443869.445892349,
+          "max": 6466059.183008481
+        },
+        "mass_residual_kg": {
+          "min": -9.483516402730707e-16,
+          "max": 2.7234074370663386e-15
+        },
+        "energy_residual_j": {
+          "min": -1.1317411008349154e-08,
+          "max": 0.0
+        }
+      },
+      "scope": {
+        "model_id": "pressure-driven-wall-channel",
+        "approximations": [
+          "\u0441\u043c\u0435\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0435 \u043d\u0435\u043f\u043e\u0434\u0432\u0438\u0436\u043d\u044b\u0435 \u043e\u0431\u044a\u0451\u043c\u044b IF97, \u0434\u043e\u043d\u043e\u0440\u043d\u0430\u044f \u044d\u043d\u0442\u0430\u043b\u044c\u043f\u0438\u044f",
+          "\u0436\u0438\u0434\u043a\u043e\u0441\u0442\u044c \u0431\u0435\u0437 \u043a\u0438\u043f\u0435\u043d\u0438\u044f, \u0433\u043e\u0440\u0438\u0437\u043e\u043d\u0442\u0430\u043b\u044c\u043d\u044b\u0435 \u0441\u043e\u0435\u0434\u0438\u043d\u0435\u043d\u0438\u044f",
+          "\u0441\u043e\u0441\u0440\u0435\u0434\u043e\u0442\u043e\u0447\u0435\u043d\u043d\u044b\u0439 \u0438\u043c\u043f\u0443\u043b\u044c\u0441, \u0437\u0430\u0434\u0430\u043d\u043d\u044b\u0435 \u043c\u0435\u0441\u0442\u043d\u044b\u0435 \u0441\u043e\u043f\u0440\u043e\u0442\u0438\u0432\u043b\u0435\u043d\u0438\u044f",
+          "\u0432\u043d\u0443\u0442\u0440\u0435\u043d\u043d\u044f\u044f \u044d\u043d\u0435\u0440\u0433\u0438\u044f \u0438 \u044d\u043d\u0442\u0430\u043b\u044c\u043f\u0438\u0439\u043d\u044b\u0435 \u043f\u043e\u0442\u043e\u043a\u0438 \u0431\u0435\u0437 \u0437\u0430\u043f\u0430\u0441\u0430 \u043a\u0438\u043d\u0435\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u044d\u043d\u0435\u0440\u0433\u0438\u0438",
+          "\u043f\u043e\u0441\u0442\u043e\u044f\u043d\u043d\u044b\u0435 C/UA; \u0431\u0435\u0437 \u043d\u0430\u0441\u043e\u0441\u0430, CHF \u0438 \u043d\u0435\u0439\u0442\u0440\u043e\u043d\u0438\u043a\u0438"
+        ]
+      },
+      "solver_diagnostics": {
+        "accepted_rhs_evaluations": 29051,
+        "accepted_jacobian_evaluations": 29,
+        "accepted_lu_decompositions": 1342,
+        "accepted_solver_steps": 3963,
+        "accepted_output_intervals": 40,
+        "failed_output_intervals": 0,
+        "failed_rhs_evaluations": 0,
+        "analytic_jacobian_calls": 29,
+        "analytic_jacobian_successes": 29,
+        "last_analytic_jacobian_nnz": 83,
+        "scope": "Process-local solver RHS callbacks, including numerical probes, split by accepted/failed intervals; analytic-Jacobian preparation is separate; counters reset on restore; preflight/observation calls excluded"
+      }
+    },
+    "artifacts/batch11_muscl_n4_central": {
+      "schema_version": 1,
+      "name": "batch11_muscl_n4_central",
+      "status": "completed",
+      "model_id": "pressure-driven-wall-channel",
+      "requested_duration_s": 8.0,
+      "completed_time_s": 8.0,
+      "wall_time_s": 46.60147365900002,
+      "accepted_output_steps": 40,
+      "balance": {
+        "mass_relative": 6.359240301783681e-16,
+        "energy_relative": 1.1280669263570082e-15,
+        "max_mass_residual_kg": 1.593668773336443e-15,
+        "max_energy_residual_j": 7.2941475082188845e-09,
+        "final_mass_residual_kg": -1.3611074073383023e-15,
+        "final_energy_residual_j": 6.370100891217589e-09,
+        "normalization": "maximum sampled absolute residual / initial absolute inventory"
+      },
+      "budget_checks": {
+        "mass_relative": true,
+        "energy_relative": true
+      },
+      "numerical_acceptance": true,
+      "validated": false,
+      "plant_referenced": false,
+      "error": null,
+      "events": [],
+      "extrema": {
+        "time_s": {
+          "min": 0.0,
+          "max": 8.0
+        },
+        "inlet_mass_flow_kg_s": {
+          "min": 1.0547422603950327,
+          "max": 1.0553723445177274
+        },
+        "outlet_mass_flow_kg_s": {
+          "min": 1.0549424167050336,
+          "max": 1.056239202624102
+        },
+        "min_pressure_pa": {
+          "min": 7002434.112631559,
+          "max": 7002505.306141633
+        },
+        "max_pressure_pa": {
+          "min": 7017432.544502108,
+          "max": 7017503.712922198
+        },
+        "min_temperature_k": {
+          "min": 500.0001311349418,
+          "max": 500.0225658555808
+        },
+        "max_temperature_k": {
+          "min": 500.00091774641396,
+          "max": 500.73804843355276
+        },
+        "right_cell_temperature_k": {
+          "min": 500.00091774641396,
+          "max": 500.73804843355276
+        },
+        "midpoint_pressure_pa": {
+          "min": 7009776.654060948,
+          "max": 7010010.719015043
+        },
+        "mean_wall_temperature_k": {
+          "min": 502.02665622707724,
+          "max": 505.0005244594233
+        },
+        "min_wall_temperature_k": {
+          "min": 500.54799779162926,
+          "max": 501.46459722900903
+        },
+        "max_wall_temperature_k": {
+          "min": 503.43387366468426,
+          "max": 508.53618948599626
+        },
+        "heat_w": {
+          "min": 0.0,
+          "max": 0.0
+        },
+        "wall_to_fluid_w": {
+          "min": 1817.432007354938,
+          "max": 5000.000000000043
+        },
+        "max_mach": {
+          "min": 0.0010038468974466644,
+          "max": 0.0010069421732425618
+        },
+        "stored_mass_kg": {
+          "min": 2.5043577628996854,
+          "max": 2.506067859850241
+        },
+        "stored_energy_j": {
+          "min": 6443869.445815712,
+          "max": 6466059.183008481
+        },
+        "mass_residual_kg": {
+          "min": -1.593668773336443e-15,
+          "max": 6.229825683101708e-16
+        },
+        "energy_residual_j": {
+          "min": 0.0,
+          "max": 7.2941475082188845e-09
+        }
+      },
+      "scope": {
+        "model_id": "pressure-driven-wall-channel",
+        "approximations": [
+          "\u0441\u043c\u0435\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0435 \u043d\u0435\u043f\u043e\u0434\u0432\u0438\u0436\u043d\u044b\u0435 \u043e\u0431\u044a\u0451\u043c\u044b IF97, \u0434\u043e\u043d\u043e\u0440\u043d\u0430\u044f \u044d\u043d\u0442\u0430\u043b\u044c\u043f\u0438\u044f",
+          "\u0436\u0438\u0434\u043a\u043e\u0441\u0442\u044c \u0431\u0435\u0437 \u043a\u0438\u043f\u0435\u043d\u0438\u044f, \u0433\u043e\u0440\u0438\u0437\u043e\u043d\u0442\u0430\u043b\u044c\u043d\u044b\u0435 \u0441\u043e\u0435\u0434\u0438\u043d\u0435\u043d\u0438\u044f",
+          "\u0441\u043e\u0441\u0440\u0435\u0434\u043e\u0442\u043e\u0447\u0435\u043d\u043d\u044b\u0439 \u0438\u043c\u043f\u0443\u043b\u044c\u0441, \u0437\u0430\u0434\u0430\u043d\u043d\u044b\u0435 \u043c\u0435\u0441\u0442\u043d\u044b\u0435 \u0441\u043e\u043f\u0440\u043e\u0442\u0438\u0432\u043b\u0435\u043d\u0438\u044f",
+          "\u0432\u043d\u0443\u0442\u0440\u0435\u043d\u043d\u044f\u044f \u044d\u043d\u0435\u0440\u0433\u0438\u044f \u0438 \u044d\u043d\u0442\u0430\u043b\u044c\u043f\u0438\u0439\u043d\u044b\u0435 \u043f\u043e\u0442\u043e\u043a\u0438 \u0431\u0435\u0437 \u0437\u0430\u043f\u0430\u0441\u0430 \u043a\u0438\u043d\u0435\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u044d\u043d\u0435\u0440\u0433\u0438\u0438",
+          "\u043f\u043e\u0441\u0442\u043e\u044f\u043d\u043d\u044b\u0435 C/UA; \u0431\u0435\u0437 \u043d\u0430\u0441\u043e\u0441\u0430, CHF \u0438 \u043d\u0435\u0439\u0442\u0440\u043e\u043d\u0438\u043a\u0438"
+        ]
+      },
+      "solver_diagnostics": {
+        "accepted_rhs_evaluations": 29959,
+        "accepted_jacobian_evaluations": 26,
+        "accepted_lu_decompositions": 1260,
+        "accepted_solver_steps": 3954,
+        "accepted_output_intervals": 40,
+        "failed_output_intervals": 0,
+        "failed_rhs_evaluations": 0,
+        "analytic_jacobian_calls": 0,
+        "analytic_jacobian_successes": 0,
+        "last_analytic_jacobian_nnz": 0,
+        "scope": "Process-local solver RHS callbacks, including numerical probes, split by accepted/failed intervals; analytic-Jacobian preparation is separate; counters reset on restore; preflight/observation calls excluded"
+      }
+    }
+  },
+  "scope": "Same sampled trajectory and numerical settings; callback counts are not all EOS work; wall times are diagnostic, not a controlled speed benchmark",
+  "work": {
+    "analytic": {
+      "accepted_rhs_evaluations": 29051,
+      "accepted_jacobian_evaluations": 29,
+      "accepted_lu_decompositions": 1342,
+      "accepted_solver_steps": 3963,
+      "accepted_output_intervals": 40,
+      "failed_output_intervals": 0,
+      "failed_rhs_evaluations": 0,
+      "analytic_jacobian_calls": 29,
+      "analytic_jacobian_successes": 29,
+      "last_analytic_jacobian_nnz": 83,
+      "scope": "Process-local solver RHS callbacks, including numerical probes, split by accepted/failed intervals; analytic-Jacobian preparation is separate; counters reset on restore; preflight/observation calls excluded"
+    },
+    "central": {
+      "accepted_rhs_evaluations": 29959,
+      "accepted_jacobian_evaluations": 26,
+      "accepted_lu_decompositions": 1260,
+      "accepted_solver_steps": 3954,
+      "accepted_output_intervals": 40,
+      "failed_output_intervals": 0,
+      "failed_rhs_evaluations": 0,
+      "analytic_jacobian_calls": 0,
+      "analytic_jacobian_successes": 0,
+      "last_analytic_jacobian_nnz": 0,
+      "scope": "Process-local solver RHS callbacks, including numerical probes, split by accepted/failed intervals; analytic-Jacobian preparation is separate; counters reset on restore; preflight/observation calls excluded"
+    },
+    "central_to_analytic_rhs_callback_ratio": 1.0312553784723417,
+    "analytic_wall_time_s": 46.55979049200005,
+    "central_wall_time_s": 46.60147365900002
+  }
+}

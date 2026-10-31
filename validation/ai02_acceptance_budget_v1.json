@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "scope": "public near-nominal research benchmark, not blind or plant-qualified",
+  "test_cases": 80,
+  "test_cases_per_family": 20,
+  "baseline_policies": ["hold", "pid", "rule"],
+  "required_recorded_test_episodes": 240,
+  "required_completed_baseline_test_episodes": 240,
+  "training_candidates": 3,
+  "training_cases_per_candidate": 32,
+  "development_cases": 16,
+  "test_used_for_tuning": false,
+  "report_rebuild": "exact JSON equality after canonical ordering",
+  "bootstrap_resamples": 2000,
+  "bootstrap_seed": 2026,
+  "superiority_required": false,
+  "validated": false,
+  "plant_referenced": false
+}

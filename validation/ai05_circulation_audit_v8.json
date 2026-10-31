@@ -1,0 +1,133 @@
+{
+  "passed": true,
+  "source_sha256": "cdb17ddbeb4207f29eb015dc4d4918eaa69413de1e7ab1e6cdd85c430988e9f0",
+  "verification_sha256": "67cd74063658363696dd7a4fcd0ac0f61dd6b4d2317c54f308a0578186cd50ab",
+  "integrations": 24,
+  "cases": [
+    {
+      "id": "drag_forward",
+      "passed": true,
+      "samples": 21
+    },
+    {
+      "id": "drag_forward_tight",
+      "passed": true,
+      "samples": 21
+    },
+    {
+      "id": "drag_reverse",
+      "passed": true,
+      "samples": 21
+    },
+    {
+      "id": "drag_reverse_tight",
+      "passed": true,
+      "samples": 21
+    },
+    {
+      "id": "driven_forward",
+      "passed": true,
+      "samples": 21
+    },
+    {
+      "id": "driven_forward_tight",
+      "passed": true,
+      "samples": 21
+    },
+    {
+      "id": "driven_reverse",
+      "passed": true,
+      "samples": 21
+    },
+    {
+      "id": "driven_reverse_tight",
+      "passed": true,
+      "samples": 21
+    },
+    {
+      "id": "reversal_forward",
+      "passed": true,
+      "samples": 21
+    },
+    {
+      "id": "reversal_forward_tight",
+      "passed": true,
+      "samples": 21
+    },
+    {
+      "id": "reversal_reverse",
+      "passed": true,
+      "samples": 21
+    },
+    {
+      "id": "reversal_reverse_tight",
+      "passed": true,
+      "samples": 21
+    },
+    {
+      "id": "head_switch",
+      "passed": true,
+      "samples": 22
+    },
+    {
+      "id": "head_switch_tight",
+      "passed": true,
+      "samples": 22
+    },
+    {
+      "id": "heated_steady",
+      "passed": true,
+      "samples": 21
+    },
+    {
+      "id": "heated_steady_tight",
+      "passed": true,
+      "samples": 21
+    },
+    {
+      "id": "wall_pulse_forward",
+      "passed": true,
+      "samples": 61
+    },
+    {
+      "id": "wall_pulse_forward_tight",
+      "passed": true,
+      "samples": 61
+    },
+    {
+      "id": "wall_pulse_reverse",
+      "passed": true,
+      "samples": 61
+    },
+    {
+      "id": "wall_pulse_reverse_tight",
+      "passed": true,
+      "samples": 61
+    },
+    {
+      "id": "nonuniform_transport",
+      "passed": true,
+      "samples": 21
+    },
+    {
+      "id": "nonuniform_transport_tight",
+      "passed": true,
+      "samples": 21
+    },
+    {
+      "id": "bdf_drag_forward",
+      "passed": true,
+      "samples": 21
+    },
+    {
+      "id": "bdf_drag_reverse",
+      "passed": true,
+      "samples": 21
+    }
+  ],
+  "maximum_recomputed_energy_residual_j": 3.811314319701609e-09,
+  "maximum_energy_temperature_roundoff_j": 3.5205971471441444e-09,
+  "all_cases_accepted": true,
+  "validated": false,
+  "plant_referenced": false
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-01",
+  "source_sha256": "5ccba66aa4c4667f7b749783db379adf7d12b2ab8cdec65089e0357a025e59e6",
+  "python": "3.12.9",
+  "platform": "Linux-6.17.0-22-generic-x86_64-with-glibc2.39",
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.2",
+    "gymnasium": "1.2.0",
+    "torch": "2.7.0",
+    "atomic-sim": "2.0.0"
+  },
+  "tests_passed": 914,
+  "new_tests": 31,
+  "tests_deselected": 1,
+  "external_test_status": "OpenMC/MPI not executed",
+  "installed_wheel_verified": true,
+  "wheel_environment": "Temporary system-site-packages venv outside checkout",
+  "validated": false,
+  "plant_referenced": false,
+  "wheel_status": "Installed coupled pump-storage CLI/atomic controls/restart verified; release SHA in ai05_pump_storage_installed_v1.json",
+  "additional_regression": "Exact coupled equilibrium, reciprocal thermal/mechanical ports and nonlinear energy identity passed"
+}

@@ -1,0 +1,83 @@
+{
+  "passed": true,
+  "all_refined_accepted": false,
+  "all_asymptotic_accepted": true,
+  "all_time_resolved_accepted": false,
+  "entries": [
+    {
+      "id": "step_negative_refined",
+      "accepted": false,
+      "checks": {
+        "completed": true,
+        "spatial": true,
+        "order": false,
+        "temporal": true,
+        "pressure": true,
+        "bounds": true
+      },
+      "orders": [
+        0.533390621594303,
+        0.3355573597875899
+      ],
+      "time_linf_k": 2.65104063146282e-08,
+      "temperature_l1_k": 0.0008275393089740568
+    },
+    {
+      "id": "step_negative_asymptotic",
+      "accepted": true,
+      "checks": {
+        "completed": true,
+        "spatial": true,
+        "order": true,
+        "temporal": true,
+        "pressure": true,
+        "bounds": true
+      },
+      "orders": [
+        0.48845931249811264,
+        0.4574544566799908
+      ],
+      "time_linf_k": 3.1808025369173265e-07,
+      "temperature_l1_k": 0.0004295762025640082
+    },
+    {
+      "id": "step_positive_refined",
+      "accepted": false,
+      "checks": {
+        "completed": true,
+        "spatial": true,
+        "order": false,
+        "temporal": true,
+        "pressure": true,
+        "bounds": true
+      },
+      "orders": [
+        0.5333906233530386,
+        0.3355573602099518
+      ],
+      "time_linf_k": 2.6434179289935855e-08,
+      "temperature_l1_k": 0.0008275393089309802
+    },
+    {
+      "id": "step_positive_asymptotic",
+      "accepted": true,
+      "checks": {
+        "completed": true,
+        "spatial": true,
+        "order": true,
+        "temporal": true,
+        "pressure": true,
+        "bounds": true
+      },
+      "orders": [
+        0.48845930997424897,
+        0.4574544632838968
+      ],
+      "time_linf_k": 3.1809821621209267e-07,
+      "temperature_l1_k": 0.00042957620132677565
+    }
+  ],
+  "source_sha256": "01a9c2e01534b2ddc5d6d0ef11b0a356d9d3c8ddc8200a3cf9f582adf84a425f",
+  "validated": false,
+  "plant_referenced": false
+}

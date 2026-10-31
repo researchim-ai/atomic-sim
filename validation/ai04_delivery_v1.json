@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-31",
+  "package": "AI-04",
+  "status": "partial",
+  "tasks_accepted": 6,
+  "tasks_implemented_not_accepted": [
+    "AI-04.03"
+  ],
+  "source_sha256": "2ff1540ae60cd022bd2e5db2e3e09185e5eef15209825cfa60094e1ef94b130d",
+  "model_id": "contact-euler-liquid-channel",
+  "model_status": "implemented",
+  "snapshot_schema": 4,
+  "baseline": "validation/ai04_baseline_v1.json",
+  "evidence": [
+    "artifacts/ai04_qualification_v2/qualification.json",
+    "validation/ai04_qualification_audit_v1.json",
+    "validation/ai04_legacy_evidence_integrity_v1.json",
+    "validation/ai04_legacy_euler_readback_v1.json",
+    "docs/AI_04_HLLC_QUALIFICATION_RU.md"
+  ],
+  "qualification_cases_accepted": [
+    "smooth_negative",
+    "smooth_positive",
+    "contact_diffusion_comparison",
+    "stationary_contact",
+    "heated_steady",
+    "wall_pulse",
+    "startup",
+    "reversal"
+  ],
+  "qualification_cases_rejected": [
+    "step_negative",
+    "step_positive"
+  ],
+  "component_runs": 34,
+  "admitted_fixtures": [
+    {
+      "case": "smooth_negative",
+      "cells": 64
+    },
+    {
+      "case": "smooth_positive",
+      "cells": 64
+    },
+    {
+      "case": "stationary_contact",
+      "cells": 32
+    },
+    {
+      "case": "heated_steady",
+      "cells": 32
+    },
+    {
+      "case": "wall_pulse",
+      "cells": 32
+    },
+    {
+      "case": "startup",
+      "cells": 32
+    },
+    {
+      "case": "reversal",
+      "cells": 32
+    }
+  ],
+  "hllc_to_rusanov_l1_error_ratio": 0.05950285692803637,
+  "validated": false,
+  "plant_referenced": false,
+  "acoustic_qualified": false,
+  "industrial_plant_qualified": false,
+  "next_package": "AI-04",
+  "remaining": [
+    "Fourth grid for non-asymptotic front convergence; current runtime cap is 64 cells",
+    "Preserve rejected 16/32/64 front results and qualify any extended grid in a fresh source-frozen campaign"
+  ],
+  "limitations": [
+    "Case-specific numerical qualification, not physical/experimental validation",
+    "Exterior-state boundaries are not exact physical pressure/temperature ports",
+    "No all-speed/acoustic/positivity/TVD guarantee",
+    "Gate admits exact component fixtures only; no integration into VVER or PWRPlantEnv",
+    "Legacy VVER 1800 s coastdown remains unaccepted"
+  ]
+}

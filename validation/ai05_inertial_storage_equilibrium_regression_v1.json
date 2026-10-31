@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "old_source_sha256": "f2135763a1fb36a8436d4631fbacd3447244fe516e90ffa9f09de2a0b49d1d65",
+  "current_source_sha256": "ddb3ebf7abdd792134598bfe4c757dae804531f0cb7deaf29c82d13bb495261a",
+  "reason": "Anchored thermodynamic reconstruction preserves exact equilibrium; no event filter",
+  "before_fix": "1 failed, 28 deselected",
+  "after_fix": "29 passed",
+  "sha256": {
+    "inertial_storage_pair_before_fix.py": "d046a0c6f3e8845e0c5220e90c9b6a9483f0f79647b17e7ad45e9c86dc60a068",
+    "after_fix.log": "55227ea62ad2686e6ed6b5037a6086760f1ee3faeca7419480507c2d62d8fa15",
+    "test_inertial_storage_pair.py": "8779a7279fbdb3ff7f48545a5acbf3bb9a62d08e904fe6c8f0c273dc3b3981d7",
+    "source.json": "b2f56d0fc77668823ac999fbbb73bca94f646e64891b6b74182922ee2e69f79b",
+    "before_fix_runtime.zip": "c98b13bb6f7d4396568192eb8fb8749deefddf32f245bcb40d49dfb1703332bb",
+    "before_fix.log": "cfefa4ecb2899c15685c0825086dbf1c5bd1b8dc61f6cd4a92f967a72aa98e7a"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

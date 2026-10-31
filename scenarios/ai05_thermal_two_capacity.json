@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "engine": "compiled-linear-thermal-network",
+  "name": "ai05_two_capacity",
+  "duration_s": 1000,
+  "step_s": 100,
+  "energy_tolerance_j": 1e-05,
+  "initial_temperature_k": {
+    "hot": 330,
+    "cold": 300
+  },
+  "topology": {
+    "schema_version": 1,
+    "nodes": [
+      {
+        "id": "hot",
+        "model_id": "linear-thermal-capacity",
+        "model_version": "1.0.0",
+        "parameters": {
+          "heat_capacity_j_k": 1000,
+          "source_w": 30
+        }
+      },
+      {
+        "id": "cold",
+        "model_id": "linear-thermal-capacity",
+        "model_version": "1.0.0",
+        "parameters": {
+          "heat_capacity_j_k": 2000,
+          "source_w": 0
+        }
+      },
+      {
+        "id": "link",
+        "model_id": "linear-thermal-conductance",
+        "model_version": "1.0.0",
+        "parameters": {
+          "ua_w_k": 20
+        }
+      }
+    ],
+    "connections": [
+      {
+        "id": "hot_link",
+        "from": "hot.thermal",
+        "to": "link.left"
+      },
+      {
+        "id": "link_cold",
+        "from": "link.right",
+        "to": "cold.thermal"
+      }
+    ]
+  }
+}

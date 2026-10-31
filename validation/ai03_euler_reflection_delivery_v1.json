@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "runs": [
+    "artifacts/ai03_euler_forward_v1",
+    "artifacts/ai03_euler_reverse_v1"
+  ],
+  "checks": {
+    "pressure_abs_pa": true,
+    "temperature_abs_k": true,
+    "energy_abs_j": true,
+    "velocity_abs_m_s": true,
+    "final_state_scaled": true
+  },
+  "measured": {
+    "pressure_abs_pa": 7.16187059879303e-07,
+    "temperature_abs_k": 2.2737367544323206e-13,
+    "energy_abs_j": 1.862645149230957e-09,
+    "velocity_abs_m_s": 1.8951767238872819e-13,
+    "final_state_scaled": 2.560084005968366e-13
+  },
+  "reflection": true,
+  "source_sha256": "4a80c474a46a642602db0215c48af128cad62886af62086f594cfda4470a27e0",
+  "validated": false,
+  "plant_referenced": false,
+  "scope": "Specific Euler numerical case; no full spatial/acoustic/plant qualification",
+  "budget_sha256": "18d2d7145d18cb28746d97c9502959995877790033dab536a47191f80bb43d3a"
+}

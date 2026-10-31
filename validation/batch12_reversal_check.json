@@ -1,0 +1,10 @@
+{
+  "validated": false,
+  "plant_referenced": false,
+  "passed": true,
+  "initial_inlet_kg_s": -1.0,
+  "final_inlet_kg_s": 1.0553331251822842,
+  "initial_outlet_kg_s": -1.0,
+  "final_outlet_kg_s": 1.055334483542982,
+  "scope": "Signs at sampled endpoints prove reversal; no exact zero-crossing localization claimed"
+}

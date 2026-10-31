@@ -187,6 +187,7 @@ def _source_fingerprint() -> str:
         "components",
         "control",
         "instrumentation",
+        "agent_envs",
         "data",
         "scenarios",
     ):

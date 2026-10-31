@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "kind": "transport_operator_verification",
+  "validated": false,
+  "plant_referenced": false,
+  "source_sha256": "98dafd565b0cab1ff9373890477f558edf129f90ddec370d2829c533a0368625",
+  "script_sha256": "8200cdea005b2cde346cede66fbd0c1f9f162bdf29a5134a20ebd9c77b97617b",
+  "equation": "u_t + a u_x = 0, periodic unit interval; exact advected cell averages",
+  "smooth_cases": [
+    {
+      "speed": -1.0,
+      "scheme": "donor",
+      "rows": [
+        {
+          "cells": 32,
+          "l1_error": 0.018148744725461956,
+          "mass_error": 0.0
+        },
+        {
+          "cells": 64,
+          "l1_error": 0.009441789839681487,
+          "mass_error": 0.0
+        },
+        {
+          "cells": 128,
+          "l1_error": 0.0048144205849382435,
+          "mass_error": 1.1102230246251565e-16
+        }
+      ],
+      "observed_orders": [
+        0.9427374902011487,
+        0.9716981907308113
+      ],
+      "passed": true
+    },
+    {
+      "speed": -1.0,
+      "scheme": "muscl_mc",
+      "rows": [
+        {
+          "cells": 32,
+          "l1_error": 0.001447405949145851,
+          "mass_error": 0.0
+        },
+        {
+          "cells": 64,
+          "l1_error": 0.00036400447532185937,
+          "mass_error": 0.0
+        },
+        {
+          "cells": 128,
+          "l1_error": 8.805945890097162e-05,
+          "mass_error": 2.220446049250313e-16
+        }
+      ],
+      "observed_orders": [
+        1.9914415133829488,
+        2.047406303534727
+      ],
+      "passed": true
+    },
+    {
+      "speed": 1.0,
+      "scheme": "donor",
+      "rows": [
+        {
+          "cells": 32,
+          "l1_error": 0.01814874472546196,
+          "mass_error": 0.0
+        },
+        {
+          "cells": 64,
+          "l1_error": 0.009441789839681467,
+          "mass_error": 0.0
+        },
+        {
+          "cells": 128,
+          "l1_error": 0.004814420584938248,
+          "mass_error": 0.0
+        }
+      ],
+      "observed_orders": [
+        0.9427374902011519,
+        0.9716981907308071
+      ],
+      "passed": true
+    },
+    {
+      "speed": 1.0,
+      "scheme": "muscl_mc",
+      "rows": [
+        {
+          "cells": 32,
+          "l1_error": 0.0014474059491458337,
+          "mass_error": 0.0
+        },
+        {
+          "cells": 64,
+          "l1_error": 0.00036400447532187324,
+          "mass_error": 0.0
+        },
+        {
+          "cells": 128,
+          "l1_error": 8.805945890085366e-05,
+          "mass_error": 1.1102230246251565e-16
+        }
+      ],
+      "observed_orders": [
+        1.9914415133828764,
+        2.047406303536715
+      ],
+      "passed": true
+    }
+  ],
+  "discontinuous_cases": [
+    {
+      "speed": -1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "total_variation_before": 2.0,
+      "total_variation_after": 1.9999999999999993,
+      "mass_error": 2.7755575615628914e-17
+    },
+    {
+      "speed": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "total_variation_before": 2.0,
+      "total_variation_after": 2.0,
+      "mass_error": 0.0
+    }
+  ],
+  "passed": true,
+  "scope": "Constant-coefficient scalar transport, SSPRK3 CFL<=0.5; not TVD/second-order qualification of implicit IF97 channel"
+}

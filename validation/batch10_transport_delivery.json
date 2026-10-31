@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-31",
+  "source_sha256": "70313ceb4acf9ac354b2a72a135a53a417028735f12bb6007b6ca8663db4cdfd",
+  "model_status": "implemented",
+  "validated": false,
+  "plant_referenced": false,
+  "vver_1800s_accepted": false,
+  "tasks_completed": 10,
+  "tasks": [
+    {
+      "id": "T01",
+      "title": "Conservative signed MUSCL/MC reconstruction",
+      "status": "implemented_and_checked",
+      "evidence": "tests/test_reconstruction.py"
+    },
+    {
+      "id": "T02",
+      "title": "Coupled IF97 enthalpy flux correction",
+      "status": "implemented_and_checked",
+      "evidence": "tests/test_muscl_channel.py"
+    },
+    {
+      "id": "T03",
+      "title": "Exact liquid face bounds, geometry and snapshot compatibility",
+      "status": "implemented_and_checked",
+      "evidence": "tests/test_muscl_channel.py"
+    },
+    {
+      "id": "T04",
+      "title": "Per-component absolute tolerances and policy changes",
+      "status": "implemented_and_checked",
+      "evidence": "tests/test_muscl_channel.py"
+    },
+    {
+      "id": "T05",
+      "title": "Actual solver RHS/probe counts and rollback diagnostics",
+      "status": "implemented_and_checked",
+      "evidence": "tests/test_batch10_diagnostics.py"
+    },
+    {
+      "id": "T06",
+      "title": "Exact scalar advection convergence and SSP bounds",
+      "status": "implemented_and_checked",
+      "evidence": "validation/batch10_advection_verified.json"
+    },
+    {
+      "id": "T07",
+      "title": "Doubling-grid diagnostics with unchanged acceptance norm",
+      "status": "implemented_and_checked",
+      "evidence": "scripts/verify_pipe_transient.py"
+    },
+    {
+      "id": "T08",
+      "title": "Scheme-aware reproducible generator and safe CLI",
+      "status": "implemented_and_checked",
+      "evidence": "scripts/generate_pipe_pulse.py"
+    },
+    {
+      "id": "T09",
+      "title": "Nonlinear same-grid temporal verification and restart",
+      "status": "implemented_and_checked",
+      "evidence": "validation/batch10_muscl_temporal.json"
+    },
+    {
+      "id": "T10",
+      "title": "Full tests, installed wheel and hashed delivery",
+      "status": "implemented_and_checked",
+      "evidence": "artifacts/batch10_transport_v1/verification.json"
+    }
+  ],
+  "software_checks_passed": true,
+  "scalar_transport_case_accepted": true,
+  "coupled_temporal_case_accepted": true,
+  "full_nonlinear_spatial_qualification": false,
+  "full_suite": {
+    "passed": 468,
+    "deselected": 1,
+    "excluded": "test_openmc_particle_run_reports_k_and_mgxs",
+    "duration_s": 136.02
+  },
+  "ruff": "passed",
+  "installed_wheel_smoke": "passed",
+  "restart_evidence": "validation/batch10_restart.json",
+  "phase_guard_evidence": "validation/batch10_phase_guard.json",
+  "unchanged_failed_cases": [
+    "validation/batch10_uniform_reanalysis.json",
+    "validation/batch10_smooth_reanalysis.json"
+  ],
+  "limitations": [
+    "Second-order scalar operator does not establish second-order IF97 dynamics",
+    "Same-grid nonlinear temporal comparison only; full nonlinear spatial qualification remains open",
+    "No total mechanical-energy acceptance or experimental plant validation"
+  ],
+  "model_id": "pressure-driven-wall-channel"
+}

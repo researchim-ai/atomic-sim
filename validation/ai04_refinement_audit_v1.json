@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "all_refined_accepted": false,
+  "entries": [
+    {
+      "id": "step_negative_refined",
+      "accepted": false,
+      "checks": {
+        "completed": true,
+        "spatial": true,
+        "order": false,
+        "temporal": true,
+        "pressure": true,
+        "bounds": true
+      },
+      "orders": [
+        0.5333906238540074,
+        0.33555730485630736
+      ],
+      "time_linf_k": 6.550891384904389e-08,
+      "temperature_l1_k": 0.0008275393396517394
+    },
+    {
+      "id": "step_positive_refined",
+      "accepted": false,
+      "checks": {
+        "completed": true,
+        "spatial": true,
+        "order": false,
+        "temporal": true,
+        "pressure": true,
+        "bounds": true
+      },
+      "orders": [
+        0.5333906248873561,
+        0.3355573014043794
+      ],
+      "time_linf_k": 6.547509201482171e-08,
+      "temperature_l1_k": 0.0008275393404000297
+    }
+  ],
+  "source_sha256": "7b1eb8cd2fa474db943cb658de3facb153f9719147f873a4a6c57c048eaa0f01",
+  "validated": false,
+  "plant_referenced": false
+}

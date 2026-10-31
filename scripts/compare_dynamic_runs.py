@@ -13,7 +13,7 @@ def compare(run, reference, budgets):
     budget = json.loads(p.read_text())
     a, b = (load(folder, budget["horizon_s"]) for folder in (run, reference))
     if (
-        a[0]["engine"] != "pressure-driven-wall-channel"
+        a[0]["engine"] not in ("pressure-driven-wall-channel", "compatible-total-energy-channel")
         or a[0]["engine"] != b[0]["engine"]
         or a[0]["hydraulics"] != b[0]["hydraulics"]
     ):
@@ -26,6 +26,14 @@ def compare(run, reference, budgets):
         "fluid_temperature_absolute_k": ("min_temperature_k", "max_temperature_k"),
         "wall_temperature_absolute_k": ("min_wall_temperature_k", "max_wall_temperature_k"),
     }
+    compatible = a[0]["engine"] == "compatible-total-energy-channel"
+    if compatible:
+        fields["kinetic_energy_absolute_j"] = ("kinetic_energy_j",)
+        fields["work_integral_absolute_j"] = (
+            "pressure_work_integral_j",
+            "dissipation_integral_j",
+            "density_work_integral_j",
+        )
     measured = {
         key: max(abs(row[field] - b[2][t][field]) for t, row in a[2].items() for field in fs)
         for key, fs in fields.items()
@@ -37,6 +45,15 @@ def compare(run, reference, budgets):
             for key in ("mass_relative", "energy_relative")
         }
     )
+    if compatible:
+        checks["mechanical_absolute_j"] = (
+            a[3]["mechanical_absolute_j"] <= budget["mechanical_absolute_j"]
+            and b[3]["mechanical_absolute_j"] <= budget["mechanical_absolute_j"]
+        )
+        checks["energy_absolute_j"] = (
+            a[3]["energy_absolute_j"] <= budget["energy_absolute_j"]
+            and b[3]["energy_absolute_j"] <= budget["energy_absolute_j"]
+        )
     return dict(
         schema_version=1,
         kind="numerical_verification",
@@ -50,7 +67,11 @@ def compare(run, reference, budgets):
         budget_sha256=hashlib.sha256(p.read_bytes()).hexdigest(),
         source_hashes=[a[4]["source_sha256"], b[4]["source_sha256"]],
         runs={str(run): a[1], str(reference): b[1]},
-        scope="Single-phase low-Mach internal-energy channel; not total mechanical-energy qualification",
+        scope=(
+            "Specific compatible total-energy liquid case; not full momentum-convection, acoustic, entropy or plant qualification"
+            if compatible
+            else "Single-phase low-Mach internal-energy channel; not total mechanical-energy qualification"
+        ),
     )
 
 

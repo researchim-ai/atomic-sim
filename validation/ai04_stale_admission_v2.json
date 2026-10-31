@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "rejected_before_output": true,
+  "reason": "Qualification requires matching runtime source",
+  "source_sha256": "01a9c2e01534b2ddc5d6d0ef11b0a356d9d3c8ddc8200a3cf9f582adf84a425f",
+  "validated": false,
+  "plant_referenced": false
+}

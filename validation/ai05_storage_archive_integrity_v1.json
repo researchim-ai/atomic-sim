@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "archive": "artifacts/ai05_storage_delivery_v1",
+  "files_verified": 786,
+  "source_sha256": "fd2c6801febff59d1c5af3b9ac1f50b349005b952dcd64e6ee4bdb3ccc230ad1",
+  "runtime_archive_source_matches": true,
+  "wheel_sha256": "25a861a55aa1ccabf539099034d65b12a8f9442215ce2fa83fbc425048726313",
+  "failed_source_frozen_and_regression_verified": true,
+  "validated": false,
+  "plant_referenced": false
+}

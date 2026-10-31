@@ -1,0 +1,9 @@
+{
+  "source_sha256": "2b7560e5fcde43fe118866872cd7793e583f5ce521d7f3d8ec7f0dedf03093cd",
+  "current_source_admitted": false,
+  "old_qualification": "artifacts/ai04_qualification_v6",
+  "reason": "Qualification requires matching runtime source",
+  "frozen_delivery": "artifacts/ai04_refinement_delivery_v2",
+  "validated": false,
+  "plant_referenced": false
+}

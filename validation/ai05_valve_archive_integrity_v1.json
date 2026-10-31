@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "archive": "artifacts/ai05_valve_delivery_v1",
+  "files_verified": 499,
+  "source_sha256": "4b9bf9ca9cb09dc9d585852426c871a0649df1f855efc80d264ae5578b9939d5",
+  "runtime_archive_source_matches": true,
+  "wheel_sha256": "7dc0d6185ff1f1d9c724893c0662e4bcfd27d3232ca2c6e8bc7dbfd6e37858e6",
+  "validated": false,
+  "plant_referenced": false
+}

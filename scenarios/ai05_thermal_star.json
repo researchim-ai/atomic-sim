@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "engine": "compiled-linear-thermal-network",
+  "name": "ai05_star_mode",
+  "duration_s": 1000,
+  "step_s": 100,
+  "energy_tolerance_j": 1e-05,
+  "initial_temperature_k": {
+    "a": 310,
+    "b": 300,
+    "c": 290
+  },
+  "topology": {
+    "schema_version": 1,
+    "nodes": [
+      {
+        "id": "a",
+        "model_id": "linear-thermal-capacity",
+        "model_version": "1.0.0",
+        "parameters": {
+          "heat_capacity_j_k": 1000,
+          "source_w": 0
+        }
+      },
+      {
+        "id": "link_a",
+        "model_id": "linear-thermal-conductance",
+        "model_version": "1.0.0",
+        "parameters": {
+          "ua_w_k": 10
+        }
+      },
+      {
+        "id": "b",
+        "model_id": "linear-thermal-capacity",
+        "model_version": "1.0.0",
+        "parameters": {
+          "heat_capacity_j_k": 1000,
+          "source_w": 0
+        }
+      },
+      {
+        "id": "link_b",
+        "model_id": "linear-thermal-conductance",
+        "model_version": "1.0.0",
+        "parameters": {
+          "ua_w_k": 10
+        }
+      },
+      {
+        "id": "c",
+        "model_id": "linear-thermal-capacity",
+        "model_version": "1.0.0",
+        "parameters": {
+          "heat_capacity_j_k": 1000,
+          "source_w": 0
+        }
+      },
+      {
+        "id": "link_c",
+        "model_id": "linear-thermal-conductance",
+        "model_version": "1.0.0",
+        "parameters": {
+          "ua_w_k": 10
+        }
+      },
+      {
+        "id": "junction",
+        "model_id": "linear-thermal-junction3",
+        "model_version": "1.0.0",
+        "parameters": {}
+      }
+    ],
+    "connections": [
+      {
+        "id": "capacity_a",
+        "from": "a.thermal",
+        "to": "link_a.left"
+      },
+      {
+        "id": "junction_a",
+        "from": "link_a.right",
+        "to": "junction.a"
+      },
+      {
+        "id": "capacity_b",
+        "from": "b.thermal",
+        "to": "link_b.left"
+      },
+      {
+        "id": "junction_b",
+        "from": "link_b.right",
+        "to": "junction.b"
+      },
+      {
+        "id": "capacity_c",
+        "from": "c.thermal",
+        "to": "link_c.left"
+      },
+      {
+        "id": "junction_c",
+        "from": "link_c.right",
+        "to": "junction.c"
+      }
+    ]
+  }
+}

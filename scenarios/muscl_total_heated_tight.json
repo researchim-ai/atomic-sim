@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "engine": "compatible-total-energy-channel",
+  "name": "total_energy_wall_pulse_tight",
+  "duration_s": 8.0,
+  "step_s": 0.2,
+  "timeline": [],
+  "hydraulics": {
+    "cells": 3,
+    "total_volume_m3": 0.003,
+    "left_pressure_pa": 7020000.0,
+    "right_pressure_pa": 7000000.0,
+    "left_temperature_k": 500.0,
+    "right_temperature_k": 500.0,
+    "initial_pressure_pa": 7010000.0,
+    "initial_temperature_k": 500.0,
+    "area_m2": 0.001,
+    "junction_length_m": 1.0,
+    "loss_coefficient": 10.0,
+    "total_heat_capacity_j_k": 8000.0,
+    "total_ua_w_k": 1000.0,
+    "heat_w": 3000.0,
+    "initial_flow_kg_s": 1.0551855406234307,
+    "initial_wall_temperature_k": 500.0,
+    "junction_lengths_m": [
+      0.5,
+      1.0,
+      1.0,
+      0.5
+    ],
+    "junction_loss_coefficients": [
+      5.0,
+      10.0,
+      10.0,
+      5.0
+    ],
+    "initial_pressure_profile_pa": [
+      7016667.877008918,
+      7010002.514822399,
+      7003334.917707611
+    ],
+    "initial_temperature_profile_k": [
+      500.10269728943086,
+      500.3080388245972,
+      500.5133095880407
+    ],
+    "initial_wall_temperature_profile_k": [
+      505.10269728943086,
+      505.3080388245972,
+      505.5133095880407
+    ],
+    "enthalpy_transport": "muscl_mc",
+    "energy_formulation": "compatible_total"
+  },
+  "solver": {
+    "method": "Radau",
+    "rtol": 1e-09,
+    "max_step_s": 0.05,
+    "absolute_tolerances": {
+      "mass_kg": 1e-12,
+      "energy_j": 1e-05,
+      "flow_kg_s": 1e-09,
+      "wall_temperature_k": 1e-09,
+      "boundary_mass_kg": 1e-12,
+      "boundary_energy_j": 1e-05,
+      "mechanical_work_j": 1e-08
+    },
+    "jacobian_mode": "analytic"
+  },
+  "budgets": {
+    "mass_relative": 1e-06,
+    "energy_relative": 1e-05,
+    "mechanical_absolute_j": 0.0001,
+    "energy_absolute_j": 0.001
+  }
+}

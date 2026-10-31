@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-31",
+  "package": "AI-05",
+  "status": "partial",
+  "scope": "Two gas-cushion liquid stores with dynamic gas energy, p*dV work and memoryless check/isolating zero-inertia line; AI-05.05 partial",
+  "tasks_accepted": [
+    "AI-05.01",
+    "AI-05.02",
+    "AI-05.04"
+  ],
+  "tasks_in_progress": [
+    "AI-05.03",
+    "AI-05.05",
+    "AI-05.08"
+  ],
+  "baseline": "validation/ai05_baseline_v6.json",
+  "source_sha256": "fd2c6801febff59d1c5af3b9ac1f50b349005b952dcd64e6ee4bdb3ccc230ad1",
+  "evidence": [
+    "validation/ai05_storage_verification_v1.json",
+    "validation/ai05_storage_audit_v1.json",
+    "validation/ai05_storage_event_regression_v1.json",
+    "docs/AI_05_GAS_STORAGE_RU.md",
+    "tests/test_gas_storage_pair.py",
+    "validation/ai05_ai04_gate_status_v6.json",
+    "validation/ai05_valve_verification_v2.json",
+    "validation/ai05_valve_audit_v2.json",
+    "validation/ai05_pump_verification_v3.json",
+    "validation/ai05_pump_audit_v3.json",
+    "validation/ai05_circulation_verification_v4.json",
+    "validation/ai05_circulation_audit_v4.json",
+    "validation/ai05_network_verification_v6.json"
+  ],
+  "models": [
+    "incompressible-loop-segment",
+    "linear-thermal-capacity",
+    "linear-thermal-conductance",
+    "linear-thermal-junction3",
+    "displacement-pump-circulation-loop",
+    "valved-displacement-pump-circulation-loop",
+    "gas-cushion-transfer-pair"
+  ],
+  "network_model": "gas-cushion-transfer-pair",
+  "validated": false,
+  "plant_referenced": false,
+  "industrial_plant_qualified": false,
+  "ai04_current_checkout_admitted": false,
+  "next_package": "AI-05",
+  "remaining": [
+    "General branched/compressible EOS network and initialization",
+    "Inertial-line check-valve contact/reclosure, coupling storage to pump network and steam pressurizer",
+    "Two-stream heat exchanger and turbine/generator",
+    "Gravity-driven circulation and equipment/topology switching",
+    "Manufacturer/calibration data and centrifugal pump characteristics outside admitted displacement model"
+  ],
+  "previous_delivery": "validation/ai05_delivery_v5.json",
+  "primary_circulation_bundles": 24,
+  "linear_analytic_cases": 5,
+  "horizons_s": {
+    "ordinary": 10,
+    "wall_pulse": 30,
+    "steady": 100,
+    "linear": 1000,
+    "restart_extension": 1,
+    "pump_transient": 20,
+    "pump_steady": 100,
+    "valve_transient": 20,
+    "valve_steady": 100,
+    "storage_transient": 20,
+    "storage_steady": 100
+  },
+  "pump_case_families": 11,
+  "pump_primary_bundles": 24,
+  "accepted_pump_scope": "AI-05.04: reduced constant-displacement, linear-leakage signed machine; not manufacturer/centrifugal/plant qualification",
+  "valve_case_families": 9,
+  "valve_primary_bundles": 20,
+  "circulation_reference_families": 13,
+  "storage_case_families": 11,
+  "storage_primary_bundles": 24,
+  "failed_attempts": [
+    {
+      "folder": "artifacts/ai05_storage_verification_v1",
+      "accepted": false,
+      "reason": "Pressure-amplitude filter missed tight-step check crossing; regression reproduced against frozen old source"
+    }
+  ]
+}

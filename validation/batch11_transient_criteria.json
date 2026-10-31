@@ -1,0 +1,7 @@
+{
+  "norm": "sampled_Linf_response",
+  "minimum_order": 0.7,
+  "maximum_temporal_spatial_ratio": 0.1,
+  "maximum_pressure_temporal_pa": 1.0,
+  "maximum_flow_temporal_kg_s": 1e-05
+}
