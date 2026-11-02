@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "signature": {
+    "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+    "drivers": {
+      "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928",
+      "scripts/hydraulic_graph_references.py": "7552f64999bd352127f799893f1a30eeee6e650c62302f1619f47434141dc726",
+      "scripts/qualify_hydraulic_graph.py": "2c5464b99dd2879582f805d210a0b9f1f0b45531b577d1e133b119a600bc0a15"
+    },
+    "budget_sha256": "59acc80c07e047a3b3a63607e6eeaf5a9936cbc359f880aed5b82d34c6386d50",
+    "python": "3.12.9",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2"
+  },
+  "cases": 18,
+  "maximum_nodes": 128,
+  "qualification_sha256": "49b16ec9af9f8d2c9da4f88ef66ccf58f3f176ebd24671b62ee66a4f52cc3986",
+  "validated": false,
+  "plant_referenced": false
+}

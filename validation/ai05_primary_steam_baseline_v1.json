@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "source_sha256": "68fb24c86a58c0c01072961c14bd3b9eff7a0a9b813dcab96e683dfed4b71f95",
+  "python": "3.12.9",
+  "platform": "Linux-6.17.0-22-generic-x86_64-with-glibc2.39",
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.2",
+    "gymnasium": "1.2.0",
+    "torch": "2.7.0",
+    "atomic-sim": "2.0.0"
+  },
+  "tests_passed": 1161,
+  "new_tests": 34,
+  "tests_deselected": 1,
+  "focused_tests_passed": 34,
+  "test_command": "python -m pytest -m 'not external_integration' -q",
+  "regression_log": "artifacts/ai05_primary_steam_release_v1/regression.log",
+  "regression_log_sha256": "03dc89a30c58510a28c171c9bce399ea3553652ca6a6223381f85b606954671d",
+  "external_test_status": "OpenMC/MPI not executed",
+  "installed_wheel_verified": true,
+  "installed_evidence": "validation/ai05_primary_steam_installed_v1.json",
+  "code_quality": {
+    "ruff": "passed",
+    "ruff_format": "passed",
+    "black": "not run: not installed"
+  },
+  "remote_ci_matrix": "not executed locally",
+  "accepted_tasks": 42,
+  "total_tasks": 109,
+  "ai05_accepted_tasks": 3,
+  "ai05_total_tasks": 8,
+  "validated": false,
+  "plant_referenced": false,
+  "scope": "Software regression, analytic thermal-port check and a 5-second development scenario; full coupled numerical qualification remains open",
+  "independent_assembly_qualification": false,
+  "last_completed_numerical_qualification": "validation/ai05_steam_refinement_delivery_v1.json"
+}

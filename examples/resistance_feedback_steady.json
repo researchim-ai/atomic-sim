@@ -1,0 +1,124 @@
+{
+  "format": "atomic-resistance-feedback-steady",
+  "schema_version": 1,
+  "steady_input": {
+    "format": "atomic-thermal-hydraulic-steady",
+    "schema_version": 1,
+    "hydraulic": {
+      "format": "atomic-hydraulic-steady",
+      "schema_version": 1,
+      "density_kg_m3": 1000,
+      "gravity_m_s2": 9.81,
+      "nodes": [
+        {
+          "id": "hot",
+          "elevation_m": 0,
+          "pressure_pa": 201200
+        },
+        {
+          "id": "cold",
+          "elevation_m": 0,
+          "pressure_pa": 201200
+        },
+        {
+          "id": "mix",
+          "elevation_m": 0,
+          "injection_kg_s": 0.0
+        },
+        {
+          "id": "outlet",
+          "elevation_m": 0,
+          "pressure_pa": 198800
+        }
+      ],
+      "edges": [
+        {
+          "id": "e0",
+          "from": "hot",
+          "to": "mix",
+          "linear_pa_s_kg": 1389.564826217213,
+          "quadratic_pa_s2_kg2": 0,
+          "pressure_gain_pa": 0
+        },
+        {
+          "id": "e1",
+          "from": "cold",
+          "to": "mix",
+          "linear_pa_s_kg": 568.8397283097469,
+          "quadratic_pa_s2_kg2": 0,
+          "pressure_gain_pa": 0
+        },
+        {
+          "id": "e2",
+          "from": "mix",
+          "to": "outlet",
+          "linear_pa_s_kg": 405.37196610938565,
+          "quadratic_pa_s2_kg2": 0,
+          "pressure_gain_pa": 0
+        }
+      ]
+    },
+    "thermal": {
+      "medium": "mixing-liquid",
+      "heat_capacity_j_kg_k": 1000,
+      "enthalpy_reference_temperature_k": 300,
+      "min_temperature_k": 250,
+      "max_temperature_k": 500,
+      "nodes": {
+        "hot": {
+          "heat_power_w": 0,
+          "ambient_ua_w_k": 0,
+          "ambient_temperature_k": 300,
+          "supply_temperature_k": 400
+        },
+        "cold": {
+          "heat_power_w": 0,
+          "ambient_ua_w_k": 0,
+          "ambient_temperature_k": 300,
+          "supply_temperature_k": 300
+        },
+        "mix": {
+          "heat_power_w": 0,
+          "ambient_ua_w_k": 0,
+          "ambient_temperature_k": 300,
+          "supply_temperature_k": 300
+        },
+        "outlet": {
+          "heat_power_w": 0,
+          "ambient_ua_w_k": 0,
+          "ambient_temperature_k": 300,
+          "supply_temperature_k": 300
+        }
+      }
+    }
+  },
+  "resistance_laws": {
+    "e0": {
+      "kind": "exponential_endpoint_mean_v1",
+      "reference_temperature_k": 330.0,
+      "temperature_coefficient_per_k": -0.004,
+      "minimum_multiplier": 0.1,
+      "maximum_multiplier": 10.0
+    },
+    "e1": {
+      "kind": "exponential_endpoint_mean_v1",
+      "reference_temperature_k": 330.0,
+      "temperature_coefficient_per_k": -0.004,
+      "minimum_multiplier": 0.1,
+      "maximum_multiplier": 10.0
+    },
+    "e2": {
+      "kind": "exponential_endpoint_mean_v1",
+      "reference_temperature_k": 330.0,
+      "temperature_coefficient_per_k": -0.004,
+      "minimum_multiplier": 0.1,
+      "maximum_multiplier": 10.0
+    }
+  },
+  "initial_temperatures_k": {
+    "hot": 335.0,
+    "cold": 335.0,
+    "mix": 335.0,
+    "outlet": 335.0
+  }
+}

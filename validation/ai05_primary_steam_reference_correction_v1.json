@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "old_qualification_accepted": false,
+  "unchanged_physical_limits": true,
+  "unchanged_production_runtime": true,
+  "old_failed_cases": [
+    {
+      "name": "motor_reverse",
+      "policy": "coarse",
+      "power_absolute_w": 0.0030068159103393555
+    },
+    {
+      "name": "motor_reverse",
+      "policy": "medium",
+      "power_absolute_w": 0.003007635474205017
+    },
+    {
+      "name": "motor_reverse",
+      "policy": "fine",
+      "power_absolute_w": 0.0030077993869781494
+    }
+  ],
+  "reference_convergence": "validation/ai05_primary_steam_reference_convergence_v1.json",
+  "file_sha256": {
+    "artifacts/ai05_primary_steam_qualification_v3/qualification.json": "592543b24b24e7c908f713dd4bf240c245311815e1bf383c3fa87aa8e3776eef",
+    "validation/ai05_primary_steam_budget_v2.json": "4b22dce5f52a8e85fac1ade861632537364a203f213ee84d5de8806fd36e9b88",
+    "validation/ai05_primary_steam_budget_v3.json": "081a9ae178dcb1f14d8722f9d57c3a89c5b5112b77b621813f91989fc206c087",
+    "validation/ai05_primary_steam_reference_convergence_v1.json": "f61e3ee48d76094253470acfa182e97d599a59578669ffd2d04e609227729431"
+  }
+}

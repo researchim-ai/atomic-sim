@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "accepted": false,
+  "stage": "independent_reference",
+  "case": "64_near_zero",
+  "failure": "MINPACK step-size stopping left dimensional reference residual above the declared strict reference limit",
+  "resolution": "Full mixed-system Newton polishing; production mass/pressure/power and reference-comparison tolerances retained",
+  "superseded_by": "validation/ai05_hydraulic_graph_audit_v1.json",
+  "evidence_sha256": {
+    "artifacts/ai05_hydraulic_graph_qualification_v1.log": "d72d18729e90ec9926ef5e15ef644b106d84f37bb0294f06a4ac3c0efce47f70",
+    "artifacts/ai05_hydraulic_graph_qualification_v1/budget.json": "971fb5636e8a35aa38abacea893dc89bab02a3e8f974d978cebf36942b8066da",
+    "artifacts/ai05_hydraulic_graph_qualification_v1/drivers/hydraulic_graph_references.py": "480a386d3d4527204ce185c1426874a379c821c814b4c7d930748c9d4841a1b3",
+    "artifacts/ai05_hydraulic_graph_qualification_v1/drivers/qualify_hydraulic_graph.py": "2c5464b99dd2879582f805d210a0b9f1f0b45531b577d1e133b119a600bc0a15",
+    "artifacts/ai05_hydraulic_graph_qualification_v1/drivers/solve_hydraulic_graph.py": "5d47180edbc8e10e11807069fb000fae80cd4ebcf9cd3879102686f5e578cc8e"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

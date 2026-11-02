@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "archive_sha256": "464cbb7b37f366c1d355b55014670133ebcce3722a5df98b0b4f41f010d54bb6",
+  "manifest_sha256": "c4a3ebeeb9da177bd4cdb2577beff4331e791a50658f92170ba97716c79351f0",
+  "archive": "artifacts/ai05_hydraulic_graph_release_v1.tar.gz",
+  "cases": 18,
+  "maximum_nodes": 128,
+  "archived_audit_identical": true,
+  "byte_identical_archive_rebuild": true,
+  "checkout_pythonpath_removed": true,
+  "installed_wheel_sha256": "a25ec260331cf57bef3f6c620bf1ef141f604b1d85e17787a1d4eee7e2f18201",
+  "scope": "Archived engineering scripts execute with a freshly installed offline no-deps wheel outside checkout; inherited system Python/numpy/scipy dependencies",
+  "publisher_authenticated": false,
+  "validated": false,
+  "plant_referenced": false
+}

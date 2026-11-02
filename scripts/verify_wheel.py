@@ -391,6 +391,82 @@ if sys.argv[3]:
             admitted += 1
     assert admitted > 0
     print(json.dumps({"installed_qualified_fixtures": admitted}))
+from physics.thermal.two_stream_exchanger import TwoStreamExchanger
+exchanger_spec = json.loads(files("scenarios").joinpath("ai05_exchanger_counterflow.json").read_text())
+Path("exchanger.json").write_text(json.dumps(exchanger_spec))
+exchanger_executable = Path(sys.executable).with_name("atomic-exchanger-experiment")
+subprocess.run([str(exchanger_executable), "exchanger.json", "--output", "exchanger_run"], check=True)
+exchanger_report = json.loads(Path("exchanger_run/report.json").read_text())
+assert exchanger_report["numerical_acceptance"] and exchanger_report["completed_time_s"] == 120
+assert len(exchanger_report["events"]) == 3
+exchanger_checkpoint = json.loads(Path("exchanger_run/checkpoint.json").read_text())
+assert TwoStreamExchanger.from_snapshot(exchanger_checkpoint).snapshot() == exchanger_checkpoint
+exchanger_spec["duration_s"] = 125
+Path("exchanger_extended.json").write_text(json.dumps(exchanger_spec))
+subprocess.run([str(exchanger_executable), "exchanger_extended.json", "--output", "exchanger_resumed",
+                "--resume", "exchanger_run/checkpoint.json"], check=True)
+assert json.loads(Path("exchanger_resumed/report.json").read_text())["completed_time_s"] == 125
+from physics.thermal.coupled_pump_exchanger import CoupledPumpExchanger
+coupled_spec = json.loads(files("scenarios").joinpath("ai05_coupled_pump_exchanger.json").read_text())
+Path("coupled_exchanger.json").write_text(json.dumps(coupled_spec))
+coupled_executable = Path(sys.executable).with_name("atomic-coupled-exchanger-experiment")
+subprocess.run([str(coupled_executable), "coupled_exchanger.json", "--output", "coupled_exchanger_run"], check=True)
+coupled_report = json.loads(Path("coupled_exchanger_run/report.json").read_text())
+assert coupled_report["numerical_acceptance"] and coupled_report["completed_time_s"] == 20
+assert len(coupled_report["events"]) == 2
+coupled_checkpoint = json.loads(Path("coupled_exchanger_run/checkpoint.json").read_text())
+assert CoupledPumpExchanger.from_snapshot(coupled_checkpoint).snapshot() == coupled_checkpoint
+coupled_spec["duration_s"] = 21
+Path("coupled_exchanger_extended.json").write_text(json.dumps(coupled_spec))
+subprocess.run([str(coupled_executable), "coupled_exchanger_extended.json", "--output", "coupled_exchanger_resumed",
+                "--resume", "coupled_exchanger_run/checkpoint.json"], check=True)
+assert json.loads(Path("coupled_exchanger_resumed/report.json").read_text())["completed_time_s"] == 21
+from physics.power.steam_turbine_train import SteamTurbineTrain
+turbine_spec = json.loads(files("scenarios").joinpath("ai05_turbine_load_rejection.json").read_text())
+Path("turbine.json").write_text(json.dumps(turbine_spec))
+turbine_executable = Path(sys.executable).with_name("atomic-turbine-experiment")
+subprocess.run([str(turbine_executable), "turbine.json", "--output", "turbine_run"], check=True)
+turbine_report = json.loads(Path("turbine_run/report.json").read_text())
+assert turbine_report["numerical_acceptance"] and turbine_report["completed_time_s"] == 20
+turbine_checkpoint = json.loads(Path("turbine_run/checkpoint.json").read_text())
+assert SteamTurbineTrain.from_snapshot(turbine_checkpoint).snapshot() == turbine_checkpoint
+turbine_spec["duration_s"] = 21
+Path("turbine_extended.json").write_text(json.dumps(turbine_spec))
+subprocess.run([str(turbine_executable), "turbine_extended.json", "--output", "turbine_resumed",
+                "--resume", "turbine_run/checkpoint.json"], check=True)
+assert json.loads(Path("turbine_resumed/report.json").read_text())["completed_time_s"] == 21
+turbine_spec["duration_s"] = 120
+Path("turbine_boundary.json").write_text(json.dumps(turbine_spec))
+bounded = subprocess.run([str(turbine_executable), "turbine_boundary.json", "--output", "turbine_bounded"])
+assert bounded.returncode == 2
+assert json.loads(Path("turbine_bounded/report.json").read_text())["status"] == "domain_exit"
+from physics.power.steam_cycle import SteamPowerCycle
+cycle_spec = json.loads(files("scenarios").joinpath("ai05_dynamic_steam_cycle.json").read_text())
+Path("steam_cycle.json").write_text(json.dumps(cycle_spec))
+cycle_executable = Path(sys.executable).with_name("atomic-steam-cycle-experiment")
+subprocess.run([str(cycle_executable), "steam_cycle.json", "--output", "steam_cycle_run"], check=True)
+assert json.loads(Path("steam_cycle_run/report.json").read_text())["numerical_acceptance"]
+cycle_checkpoint = json.loads(Path("steam_cycle_run/checkpoint.json").read_text())
+assert SteamPowerCycle.from_snapshot(cycle_checkpoint).snapshot() == cycle_checkpoint
+cycle_spec["duration_s"] = 10.1
+Path("steam_cycle_extended.json").write_text(json.dumps(cycle_spec))
+subprocess.run([str(cycle_executable), "steam_cycle_extended.json", "--output", "steam_cycle_resumed",
+                "--resume", "steam_cycle_run/checkpoint.json"], check=True)
+assert json.loads(Path("steam_cycle_resumed/report.json").read_text())["completed_time_s"] == 10.1
+from physics.power.primary_steam import PrimarySteamCycle
+primary_spec = json.loads(files("scenarios").joinpath("ai05_primary_steam.json").read_text())
+Path("primary_steam.json").write_text(json.dumps(primary_spec))
+primary_executable = Path(sys.executable).with_name("atomic-primary-steam-experiment")
+subprocess.run([str(primary_executable), "primary_steam.json", "--output", "primary_steam_run"], check=True)
+primary_report = json.loads(Path("primary_steam_run/report.json").read_text())
+assert primary_report["numerical_acceptance"] and primary_report["completed_time_s"] == 5
+primary_checkpoint = json.loads(Path("primary_steam_run/checkpoint.json").read_text())
+assert PrimarySteamCycle.from_snapshot(primary_checkpoint).snapshot() == primary_checkpoint
+primary_spec["duration_s"] = 5.1
+Path("primary_steam_extended.json").write_text(json.dumps(primary_spec))
+subprocess.run([str(primary_executable), "primary_steam_extended.json", "--output", "primary_steam_resumed",
+                "--resume", "primary_steam_run/checkpoint.json"], check=True)
+assert json.loads(Path("primary_steam_resumed/report.json").read_text())["completed_time_s"] == 5.1
 plant = create_session()
 plant.set_sink_temperature_k(310.0)
 restored = create_session()
@@ -473,6 +549,24 @@ def main():
             "scenarios/ai05_pump_storage_trip.json",
             "physics/hydraulics/check_pump_storage.py",
             "sdk/check_storage_experiment.py",
+            "physics/thermal/two_stream_exchanger.py",
+            "sdk/exchanger_experiment.py",
+            "physics/thermal/coupled_pump_exchanger.py",
+            "sdk/coupled_exchanger_experiment.py",
+            "physics/power/steam_turbine_train.py",
+            "sdk/turbine_experiment.py",
+            "physics/power/steam_cycle.py",
+            "sdk/boundary_job.py",
+            "core/solver_trace.py",
+            "core/bounded_step.py",
+            "physics/power/primary_steam.py",
+            "sdk/primary_steam_experiment.py",
+            "scenarios/ai05_primary_steam.json",
+            "sdk/steam_cycle_experiment.py",
+            "scenarios/ai05_dynamic_steam_cycle.json",
+            "scenarios/ai05_turbine_load_rejection.json",
+            "scenarios/ai05_coupled_pump_exchanger.json",
+            "scenarios/ai05_exchanger_counterflow.json",
             "scenarios/ai05_check_valve_restart.json",
             "scenarios/ai05_thermal_two_capacity.json",
             "scenarios/ai05_thermal_star.json",

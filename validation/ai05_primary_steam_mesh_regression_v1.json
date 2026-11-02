@@ -1,0 +1,25 @@
+{
+  "passed": false,
+  "reason": "Actual speed-margin coarse/medium maximum-step ratio1.7914223905390343 below required2; campaign stopped before final verdict",
+  "complete_packets_preserved": 48,
+  "measured_steps_s": [
+    0.000895711195269518,
+    0.0005000000000000004,
+    0.0001250000000000001
+  ],
+  "new_steps_s": [
+    0.0005,
+    0.000125,
+    3.125e-05
+  ],
+  "error_limits_unchanged": true,
+  "schema_version": 1,
+  "regression_reproduced": true,
+  "scope": "Rejected completed speed-margin family; old campaign stopped before full qualification",
+  "criterion_minimum_ratio_unchanged": 2,
+  "file_sha256": {
+    "artifacts/ai05_primary_steam_qualification_v2/rejection.json": "6b116c32c36a515dd96719e709359bf022e34d4ac7b29fdcb8ac5513e395b98c",
+    "validation/ai05_primary_steam_budget_v1.json": "debdd20b6cc69e8aa677152908f338031f80e75bd288a4a344237f8900c8f47d",
+    "validation/ai05_primary_steam_budget_v2.json": "4b22dce5f52a8e85fac1ade861632537364a203f213ee84d5de8806fd36e9b88"
+  }
+}

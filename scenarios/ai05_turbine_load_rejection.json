@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "engine": "saturated-steam-turbine-generator",
+  "name": "ai05_turbine_load_rejection",
+  "model": {
+    "inlet_pressure_pa": 6000000,
+    "outlet_pressure_pa": 8000,
+    "isentropic_efficiency": 0.85,
+    "inertia_kg_m2": 5000,
+    "bearing_drag_nm_s_rad": 1,
+    "generator_efficiency": 0.97,
+    "min_omega_rad_s": 100,
+    "max_omega_rad_s": 400,
+    "energy_tolerance_j": 0.001
+  },
+  "controls": {"mass_flow_kg_s": 10, "generator_conductance_nm_s_rad": 80, "generator_connected": true},
+  "initial_omega_rad_s": 300,
+  "duration_s": 20,
+  "step_s": 0.5,
+  "timeline": [
+    {"t": 5.3, "controls": {"mass_flow_kg_s": 10, "generator_conductance_nm_s_rad": 80, "generator_connected": false}}
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "status": "accepted_within_declared_scope",
+  "task_ids": [
+    "AI-05.03",
+    "AI-05.08"
+  ],
+  "task_status": "in_progress",
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "signature": {
+    "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+    "drivers": {
+      "scripts/nonlinear_thermal_graph.py": "c916cca461bc772fa83b9992af39698de8650c70e9125508397129bac2bacd69",
+      "scripts/solve_resistance_feedback.py": "bdeca10ffbf0f88b1490d96ec489018867219d37a09f5210c34c834859cc9cd4",
+      "scripts/solve_thermal_graph.py": "a83be295f1d6d05a82290584d65d0dbc5bc47009a3b0674bb1a10102d10d4f6a",
+      "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928"
+    },
+    "budgets": {
+      "validation/ai05_nonlinear_graph_budget_v1.json": "00379da9d966b507c4d7cc2ecf125f7b60932c42cdb6eaaa36ff04215bc7463c",
+      "validation/ai05_resistance_feedback_budget_v2.json": "53a5f6719611803fe5ef44dd1626bfc3dca7d7d37f06602de0b9cdd12e5ee56c",
+      "validation/ai05_thermal_graph_budget_v1.json": "bc5d1cba46ec4804359891046de0da5db9eff71f62ad0689bcd85cdf98a80f4c",
+      "validation/ai05_hydraulic_graph_budget_v1.json": "59acc80c07e047a3b3a63607e6eeaf5a9936cbc359f880aed5b82d34c6386d50"
+    },
+    "python": "3.12.9",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2",
+    "qualification_drivers": {
+      "scripts/nonlinear_graph_references.py": "f53d2d30139471481cbc8bcf2a36971960680897384002ccd5929a4426a54f70",
+      "scripts/qualify_nonlinear_graph.py": "0992573b68c486bd9eeff27878230b7f5123519a9cceedbcd7f013f7a6ab90ef",
+      "scripts/hydraulic_graph_references.py": "7552f64999bd352127f799893f1a30eeee6e650c62302f1619f47434141dc726",
+      "scripts/resistance_feedback_references.py": "a715c7b5d3cb812dff3b48bc0e2c882b8cb0fe5c1a36087a01439585fdcf3f55",
+      "scripts/thermal_graph_references.py": "dea3e83695c58bbfe61f329f2bd357751ad9463513b2f8de4f3a47fb05e1e011"
+    }
+  },
+  "scope": "Constant-rho/cp finite-volume thermal ODE with instantaneous monotone hydraulic equilibrium at temperature-dependent user resistance; autonomous fixed commands and negligible fluid inertia",
+  "cases": 10,
+  "production_mesh_trajectories": 30,
+  "independent_ivps": 20,
+  "horizon_s": 120,
+  "maximum_nodes_tested": 8,
+  "maximum_nodes_supported": 32,
+  "maximum_edges_supported": 128,
+  "software_tests": 1598,
+  "new_tests": 60,
+  "excluded_tests": 1,
+  "mesh_metric_maxima": {
+    "reference_temperature_error_k": 1.0038831987913e-08,
+    "reference_energy_error_j": 0.00024434924125671387,
+    "reference_flow_error_kg_s": 3.0263258565810247e-10,
+    "maximum_energy_error_j": 1.1920928955078125e-07
+  },
+  "split_metric_maxima": {
+    "maximum_mesh_temperature_difference_k": 1.196855237139971e-08,
+    "maximum_split_temperature_difference_k": 0.0,
+    "maximum_split_energy_difference_j": 0.0
+  },
+  "measured_maximum_steps_s": {
+    "pipe_negative": [
+      0.5,
+      0.25,
+      0.125
+    ],
+    "pipe_constant": [
+      0.5,
+      0.25,
+      0.125
+    ],
+    "pipe_positive": [
+      0.5,
+      0.25,
+      0.125
+    ],
+    "pipe_reverse": [
+      0.5,
+      0.25,
+      0.125
+    ],
+    "cycle_cooling": [
+      0.5,
+      0.25,
+      0.125
+    ],
+    "cycle_adiabatic": [
+      0.5,
+      0.25,
+      0.125
+    ],
+    "idle_heating": [
+      0.5,
+      0.25,
+      0.125
+    ],
+    "two_supplies_positive": [
+      0.5,
+      0.25,
+      0.125
+    ],
+    "8_mixed_negative": [
+      0.5,
+      0.25,
+      0.125
+    ],
+    "bridge_reversal": [
+      0.5,
+      0.25,
+      0.125
+    ]
+  },
+  "adaptive_restart_values_identical": true,
+  "bridge_reversal": {
+    "initial_kg_s": 0.9090909090909117,
+    "final_kg_s": -0.157799795195926,
+    "boundary_pressures_unchanged": true,
+    "verified": true
+  },
+  "numerical_method": "Adaptive Dormand-Prince5(4), increment-based state and scaled external-energy integral",
+  "interval_admission": "Local temperature/law box, strong-monotonicity hydraulic flow norm bound including mass/momentum residuals, pressure and stream bounds and full-interval derivative enclosure; conservative numerical check, not directed-rounding formal interval arithmetic or exact event timing",
+  "transactional_state": "Rates/snapshot pure; all advance/restore candidate observations and invariants validated before temperature/time/energy/proposal commit",
+  "near_zero_exchange_policy": "Finite positive inventories and explicit initial state need no stationary thermal gauge. No flow clipping; stationary exchange-resolution policy remains unchanged in old model.",
+  "physical_runtime_unchanged": true,
+  "portable_cold_audit_identical": true,
+  "portable_tests_passed": 60,
+  "cli_restart_completed_s": 120,
+  "byte_identical_archive_rebuild": true,
+  "remaining": [
+    "Scheduled command timeline and consistent regime switching",
+    "Fluid momentum inertia and compressible pressure/inventory dynamics",
+    "Variable density/EOS and calibrated material/heat-transfer correlations",
+    "General registered component backend and DAE reinitialization",
+    "Heated gravity loop/natural-circulation qualification",
+    "Experimental/plant validation; resolved constraints/SBOM/signing/platform matrix"
+  ],
+  "evidence_sha256": {
+    "validation/ai05_nonlinear_graph_baseline_v1.json": "78828ef69946eef1f33e57f4f089d5f0e7028afe6b39a3b201c145188f1f05bf",
+    "validation/ai05_nonlinear_graph_audit_v1.json": "3990e4fafdeda306e86a61ba7d5e1f2fc8d079ed6bc94e79351a049070bf00ad",
+    "validation/ai05_nonlinear_graph_portable_replay_v2.json": "851e1a021171e72e16fd1665f0e687cdc4dae8a8d695eda96bf682daff89bdc8",
+    "artifacts/ai05_nonlinear_graph_release_v2.json": "f700a17a1f2d6a32acb958e9d65d6fd9474b0718d2d88c5895851338b1528f0b",
+    "artifacts/ai05_nonlinear_graph_portable_audit_v2.json": "3990e4fafdeda306e86a61ba7d5e1f2fc8d079ed6bc94e79351a049070bf00ad",
+    "artifacts/ai05_nonlinear_graph_portable_audit_v2.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "artifacts/ai05_nonlinear_graph_portable_restart_v2.json": "afce4075ddf3585c506d31f1ee043dc060a2caa845e1a412180f8ba143765483"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

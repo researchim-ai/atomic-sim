@@ -1,0 +1,16 @@
+{
+  "format": "atomic-hydraulic-steady",
+  "schema_version": 1,
+  "density_kg_m3": 1000,
+  "gravity_m_s2": 9.81,
+  "nodes": [
+    {"id": "supply", "elevation_m": 0, "pressure_pa": 200000},
+    {"id": "junction", "elevation_m": 0, "injection_kg_s": 0},
+    {"id": "return", "elevation_m": 0, "pressure_pa": 100000}
+  ],
+  "edges": [
+    {"id": "first", "from": "supply", "to": "junction", "linear_pa_s_kg": 1000, "quadratic_pa_s2_kg2": 100, "pressure_gain_pa": 0},
+    {"id": "second", "from": "junction", "to": "return", "linear_pa_s_kg": 1000, "quadratic_pa_s2_kg2": 100, "pressure_gain_pa": 0},
+    {"id": "parallel", "from": "supply", "to": "junction", "linear_pa_s_kg": 2000, "quadratic_pa_s2_kg2": 200, "pressure_gain_pa": 0}
+  ]
+}

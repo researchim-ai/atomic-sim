@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "2927346a5c1192ee4a59cfd378be0fa157d160b706f4dab3057dc1a3b7eb1d82",
+  "verification_sha256": "b6fe7296487bb588c3fcf9f514f90bcb8d2b079790cd949bcd888ced1ca030d6",
+  "audit_script_sha256": "b21a06d6f825b1e051a46a0a9483ba4f13fa6e9109d6acbf9b06364996a0e7ca",
+  "integrations": 22,
+  "case_families": 10,
+  "temporal_comparisons": [
+    {
+      "name": "feed_loss",
+      "pressure_absolute_pa": 2.514570951461792e-08
+    },
+    {
+      "name": "heater_step",
+      "pressure_absolute_pa": 7.548806024715304e-11
+    },
+    {
+      "name": "isolated",
+      "pressure_absolute_pa": 0.0
+    },
+    {
+      "name": "load_rejection",
+      "pressure_absolute_pa": 0.0
+    },
+    {
+      "name": "nominal",
+      "pressure_absolute_pa": 0.0
+    },
+    {
+      "name": "phase_margin",
+      "pressure_absolute_pa": 0.0
+    },
+    {
+      "name": "pressure_margin",
+      "pressure_absolute_pa": 1.0244548320770264e-08
+    },
+    {
+      "name": "sink_warming",
+      "pressure_absolute_pa": 1.0822986951097846e-10
+    },
+    {
+      "name": "speed_margin",
+      "pressure_absolute_pa": 0.0
+    },
+    {
+      "name": "valve_reduction",
+      "pressure_absolute_pa": 0.0
+    }
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

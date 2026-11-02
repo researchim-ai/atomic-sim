@@ -66,6 +66,11 @@ atomic-storage-experiment = "sdk.storage_experiment:main"
 atomic-inertial-storage-experiment = "sdk.storage_experiment:main"
 atomic-pump-storage-experiment = "sdk.pump_storage_experiment:main"
 atomic-check-storage-experiment = "sdk.check_storage_experiment:main"
+atomic-exchanger-experiment = "sdk.exchanger_experiment:main"
+atomic-coupled-exchanger-experiment = "sdk.coupled_exchanger_experiment:main"
+atomic-turbine-experiment = "sdk.turbine_experiment:main"
+atomic-steam-cycle-experiment = "sdk.steam_cycle_experiment:main"
+atomic-primary-steam-experiment = "sdk.primary_steam_experiment:main"
 
 [project.urls]
 Homepage = "https://github.com/researchim-ai/atomic-sim"

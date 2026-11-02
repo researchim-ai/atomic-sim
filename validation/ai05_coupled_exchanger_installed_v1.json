@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "5f72d31a063f59380d8b54adf358e107ac1e7ecfb8ad8262b20229e6bac61069",
+  "wheel": "artifacts/ai05_coupled_exchanger_release_v1/atomic_sim-2.0.0-py3-none-any.whl",
+  "wheel_sha256": "d468f85d43536b091bd032095d11826e2c7d315ba3c09f1f10cc32bfa0f70c31",
+  "sdist": "artifacts/ai05_coupled_exchanger_release_v1/atomic_sim-2.0.0.tar.gz",
+  "sdist_sha256": "8b630f28ba7bcee8f11019a83997b79aa9b5a55ea065b7dd8d0172684425a8e6",
+  "smoke_driver_sha256": "cac3fb1fc74ec22fe35ebe3ccfe8e7a4a47559381f83341487d551c47af0ed75",
+  "log": "artifacts/ai05_coupled_exchanger_release_v1/installed-wheel.log",
+  "log_sha256": "04a35af745df2e5e26c9e50fd7d944b38e421e872806f72dae05b7f285c5b951",
+  "environment": "Temporary system-site-packages venv outside checkout; offline wheel installation without dependency resolution",
+  "checks": [
+    "Installed source fingerprint equals checkout",
+    "Required runtime/scenario resources present",
+    "Full previous CLI smoke",
+    "Coupled exchanger CLI 20s, two atomic commands",
+    "Snapshot roundtrip",
+    "CLI continuation from 20s to 21s"
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "scope": "Steady constant-density/cp enthalpy graph with user-declared exponential linear-resistance feedback from endpoint mean temperature; no water-property correlation or global uniqueness claim",
+  "maximum_iterations": 200,
+  "relaxation": 0.5,
+  "maximum_temperature_fixed_point_error_k": 1e-09,
+  "maximum_relative_resistance_error": 1e-12,
+  "maximum_constitutive_pressure_residual_pa": 1e-06,
+  "maximum_reference_temperature_error_k": 1e-06,
+  "maximum_reference_pressure_error_pa": 1e-05,
+  "maximum_reference_flow_error_kg_s": 1e-08,
+  "validated": false,
+  "plant_referenced": false,
+  "maximum_constitutive_node_energy_residual_w": 1e-05,
+  "maximum_constitutive_edge_energy_residual_w": 1e-05,
+  "revision_reason": "Add dimensional energy admission at resistance recomputed from returned temperature; pressure, closure, component and reference criteria unchanged."
+}

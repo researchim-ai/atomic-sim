@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "scope": "Fixed hydraulics and constant-property finite-volume thermal nodes; affine transient energy, certified interval admission and transactional steps",
+  "maximum_step_s": 10,
+  "maximum_internal_steps": 10000,
+  "minimum_internal_step_s": 1e-09,
+  "maximum_duration_s": 100000,
+  "maximum_energy_error_j": 0.0001,
+  "maximum_reference_temperature_error_k": 1e-06,
+  "maximum_reference_energy_error_j": 0.1,
+  "maximum_reference_method_energy_difference_j": 0.01,
+  "maximum_restart_temperature_error_k": 1e-09,
+  "validated": false,
+  "plant_referenced": false
+}

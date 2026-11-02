@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-01",
+  "package": "AI-05",
+  "status": "partial",
+  "task": "AI-05.06",
+  "task_status": "in_progress",
+  "scope": "Fixed-pressure saturated-steam expansion, kinetic-energy rotor, explicit generator electricity/losses, operating-speed bounds and exact physical-domain termination; prescribed mass flow",
+  "source_sha256": "61ac7724e95eb68ccd1571e8789a6481d318bfb66c6b27a4b88651c8709b51e0",
+  "baseline": "validation/ai05_turbine_baseline_v1.json",
+  "evidence": [
+    "validation/ai05_turbine_baseline_v1.json",
+    "validation/ai05_turbine_installed_v1.json",
+    "validation/ai05_turbine_budget_v1.json",
+    "validation/ai05_turbine_audit_v1.json",
+    "validation/ai05_historical_driver_recovery_v1.json",
+    "validation/ai05_historical_frozen_replay_v1.json",
+    "docs/AI_05_STEAM_TURBINE_TRAIN_RU.md"
+  ],
+  "file_sha256": {
+    "validation/ai05_turbine_baseline_v1.json": "a9e8ec90ac0271dc6308d5c10f1d7dc9416e6fad75c384a9adbfce5e2bc9eb11",
+    "validation/ai05_turbine_installed_v1.json": "a4f2852c863640a62effbc13c235f5964dc01b9872fcac9eafbaba045368f851",
+    "validation/ai05_turbine_budget_v1.json": "1eb3e7f8f431463475dadb5e7941e749f57b12761ec06eb143a758ecf881390c",
+    "validation/ai05_turbine_audit_v1.json": "48cdc500b5f54ae28e93b4a42ba3fb99fae6c6ae65f78c6c69b6e0202512ba5a",
+    "validation/ai05_historical_driver_recovery_v1.json": "865c5727d7a8892ec9fd99ca58c3d730b030a02c87a28c4d0a5b4ad0bdc01045",
+    "validation/ai05_historical_frozen_replay_v1.json": "c2e0c2a57c5c8be7f64839952db83aab22050b9086ed7e7382f5cf9ffaab726e",
+    "physics/power/__init__.py": "e3c86a884b9280a91c23f038faf98494b27444df92291b253be6d3499b2f37ff",
+    "physics/power/steam_turbine_train.py": "06e7675c65bc92ba707891b6cb8d6a0d86e7fb28ea2472628ca1266408fc2822",
+    "sdk/turbine_experiment.py": "a1976f4faeca7e63106e0719bd4b51f1647637c25ee315a13ab385a70481e79b",
+    "scenarios/ai05_turbine_load_rejection.json": "a09f9ba76b15680e5dd9b3cdcb03b253f374412e245a676c4a8ba4b4440d8112",
+    "scripts/turbine_references.py": "e0b484df035435b31054bcfd3595bf2c1047ebaae4960636b70f6409603dc4d5",
+    "scripts/verify_turbine.py": "f6a63b4424e0f01986c0357768818da140cc28b2994d2b98272aed6a2ce2408d",
+    "scripts/audit_turbine.py": "5b7f3f89f3355165df9a7e4ac1b571f731fa7b52e578ddf8cc75129336659897",
+    "tests/test_steam_turbine_train.py": "c9dd7491a43e6ced44ea388594eccbc79f821fc4607dcc3b46db91c1854069cd",
+    "tests/test_turbine_evidence.py": "7fe4125734b18f6c56029e54e457f87b79b23e51605f6a40e0edd52e99f9e0b7",
+    "scripts/verify_wheel.py": "d80f481e29195313b54879c838e3e639f2410fee23a9e3254b4aee1b76a1f4b7"
+  },
+  "verification": "artifacts/ai05_turbine_verification_v1/verification.json",
+  "verification_sha256": "4f55d9e44a3746e9993a624ef40ebad7efdaacfd3de9b6d1f2be9fe81a1f3e46",
+  "numerical_acceptance": {
+    "case_families": 12,
+    "primary_integrations": 24,
+    "temporal_subdivision": true,
+    "reference": "Independent speed-variable DOP853 and separately calculated IF97 entropy-based work",
+    "reference_eos_dependency": "Both use existing IF97 backend; not an independent EOS qualification",
+    "recovery_extension_s": 1,
+    "physical_exits_are_expected_outcomes": true
+  },
+  "tasks_accepted": [
+    "AI-05.01",
+    "AI-05.02",
+    "AI-05.04"
+  ],
+  "tasks_in_progress": [
+    "AI-05.03",
+    "AI-05.05",
+    "AI-05.06",
+    "AI-05.08"
+  ],
+  "remaining": [
+    "Integration with dynamic steam-generator and condenser inventories/ports",
+    "Integrated power-train mode acceptance",
+    "General compressible and branched network, gravity and phase-change extensions",
+    "Manufacturer turbine/flow maps, cold start/stall and real electrical network dynamics",
+    "Independent experimental and plant qualification"
+  ],
+  "artifact_storage": "Local ignored runtime archives, raw bundles and frozen scripts must be transferred together for independent replay; JSON summaries alone are insufficient",
+  "frozen_scripts_sha256": {
+    "artifacts/ai05_turbine_release_v1/frozen_scripts/audit_turbine.py": "5b7f3f89f3355165df9a7e4ac1b571f731fa7b52e578ddf8cc75129336659897",
+    "artifacts/ai05_turbine_release_v1/frozen_scripts/turbine_references.py": "e0b484df035435b31054bcfd3595bf2c1047ebaae4960636b70f6409603dc4d5",
+    "artifacts/ai05_turbine_release_v1/frozen_scripts/verify_turbine.py": "f6a63b4424e0f01986c0357768818da140cc28b2994d2b98272aed6a2ce2408d",
+    "artifacts/ai05_turbine_release_v1/frozen_scripts/verify_wheel.py": "d80f481e29195313b54879c838e3e639f2410fee23a9e3254b4aee1b76a1f4b7"
+  },
+  "prior_evidence_policy": "Old source fingerprints retained; 54 previous bundles replayed from their original sdists and exact recovered drivers; no current-source admission rebound",
+  "validated": false,
+  "plant_referenced": false
+}

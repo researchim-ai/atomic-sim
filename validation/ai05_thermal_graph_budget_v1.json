@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "scope": "Steady incompressible resistor graphs with constant cp, well-mixed zero-storage nodes, advection, receiver-deposited friction heat and nodal heat/ambient exchange",
+  "maximum_scaled_condition": 1000000000000.0,
+  "minimum_resolved_external_flow_kg_s": 1e-08,
+  "maximum_node_energy_residual_w": 1e-05,
+  "maximum_edge_energy_residual_w": 1e-05,
+  "maximum_global_energy_residual_w": 1e-05,
+  "maximum_reference_temperature_error_k": 1e-06,
+  "validated": false,
+  "plant_referenced": false
+}

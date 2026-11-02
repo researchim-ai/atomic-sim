@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "snapshots_checked": 24,
+  "original_source_sha256": "61ac7724e95eb68ccd1571e8789a6481d318bfb66c6b27a4b88651c8709b51e0",
+  "current_source_sha256": "2927346a5c1192ee4a59cfd378be0fa157d160b706f4dab3057dc1a3b7eb1d82",
+  "scope": "Exact restoration of old schema-1 turbine checkpoint observations after SDK runner refactor; not a rebind of old physical admission or a universal schema migration claim"
+}

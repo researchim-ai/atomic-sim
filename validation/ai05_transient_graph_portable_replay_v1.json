@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "archive_sha256": "762e5018dbbde9767bab8c660a047cdf506d5a921ee0f5b670df403a6929ca24",
+  "manifest_sha256": "98990aba31dac3513669302c60a50e53d4f76a66d195c674559ffeae897f2d8a",
+  "archive": "artifacts/ai05_transient_graph_release_v1.tar.gz",
+  "cases": 22,
+  "independent_ivps": 44,
+  "maximum_nodes": 128,
+  "horizon_s": 120,
+  "archived_audit_identical": true,
+  "byte_identical_archive_rebuild": true,
+  "checkout_pythonpath_removed": true,
+  "installed_wheel_sha256": "a25ec260331cf57bef3f6c620bf1ef141f604b1d85e17787a1d4eee7e2f18201",
+  "focused_tests_replayed": 37,
+  "cli_restart_completed_s": 120,
+  "scope": "Archived transient engineering scripts execute with freshly installed offline no-deps SDK wheel outside checkout; inherited Python/numpy/scipy/pytest dependencies",
+  "publisher_authenticated": false,
+  "validated": false,
+  "plant_referenced": false
+}

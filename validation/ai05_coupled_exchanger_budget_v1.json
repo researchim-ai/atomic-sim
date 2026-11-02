@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "scope": "Two constant-property inertial pump cycles and shared wall; fixed before formal runs",
+  "temperature_absolute_k": 0.000001,
+  "flow_absolute_kg_s": 0.00000001,
+  "omega_absolute_rad_s": 0.00000001,
+  "energy_absolute_j": 0.0001,
+  "reference_energy_absolute_j": 0.001,
+  "heat_integral_absolute_j": 0.001,
+  "power_residual_absolute_w": 0.000001,
+  "temporal_temperature_absolute_k": 0.000001,
+  "restart_temperature_absolute_k": 0.000001,
+  "validated": false,
+  "plant_referenced": false
+}

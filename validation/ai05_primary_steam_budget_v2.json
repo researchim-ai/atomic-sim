@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "scope": "Constant-property subcooled primary loop and equilibrium steam cycle; independent numerical verification only",
+  "limits": {
+    "primary_flow_absolute_kg_s": 1e-06,
+    "primary_omega_absolute_rad_s": 1e-06,
+    "steam_omega_absolute_rad_s": 1e-06,
+    "temperature_absolute_k": 1e-06,
+    "pressure_absolute_pa": 0.1,
+    "quality_absolute": 1e-09,
+    "mass_absolute_kg": 1e-08,
+    "inventory_energy_absolute_j": 0.01,
+    "energy_integral_absolute_j": 0.01,
+    "energy_balance_absolute_j": 0.01,
+    "reference_energy_balance_absolute_j": 0.01,
+    "power_balance_absolute_w": 1e-05,
+    "power_absolute_w": 0.001,
+    "boundary_time_absolute_s": 1e-05,
+    "torque_absolute_nm": 1e-06,
+    "specific_energy_absolute_j_kg": 0.001,
+    "specific_entropy_absolute_j_kg_k": 1e-06,
+    "volume_absolute_m3": 1e-09,
+    "flow_acceleration_absolute_kg_s2": 1e-06,
+    "kinetic_energy_absolute_j": 0.01,
+    "stored_energy_absolute_j": 0.01
+  },
+  "reference": {
+    "method": "DOP853",
+    "relative_tolerance": 2e-12,
+    "max_step_s": 0.025,
+    "final_physical_root_extrapolation_s": 1e-05,
+    "shared_backend": "IF97 material library only; independent equations, absolute states and two-variable steam equilibrium root",
+    "cache_policy": "Bounded cache of identical physical IVPs only, key includes all physical data, horizon, commands and absolute initial state; every packet assessment recomputed"
+  },
+  "levels": [
+    "coarse",
+    "medium",
+    "fine"
+  ],
+  "fixed_solver": {
+    "method": "Radau",
+    "rtol": 1e-11,
+    "atol_scale": 0.001
+  },
+  "coarse_step_s": {
+    "default": 0.02,
+    "primary_pressure_margin": 2.5e-05,
+    "primary_subcooling_margin": 5e-05,
+    "steam_speed_margin": 0.0005,
+    "steam_phase_margin": 0.001
+  },
+  "step_ratio": 4,
+  "minimum_measured_step_ratio": 2,
+  "long_horizons_s": {
+    "long_nominal": 120,
+    "long_heater": 60,
+    "long_cycling": 120
+  },
+  "validated": false,
+  "plant_referenced": false,
+  "solver_policy_note": "Tighter solver tolerance/caps meet the unchanged absolute 0.001 W total-enthalpy face-flux budget; the development rtol=1e-8 pilot was rejected by that check.",
+  "revision_reason": "Tighten speed-margin caps to .0005/.000125/.00003125 s; original maximum-step ratio1.791 was rejected. All physical/error budgets and required ratio2 unchanged."
+}

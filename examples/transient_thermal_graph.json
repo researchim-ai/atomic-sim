@@ -1,0 +1,95 @@
+{
+  "format": "atomic-thermal-graph-transient",
+  "schema_version": 1,
+  "steady_input": {
+    "format": "atomic-thermal-hydraulic-steady",
+    "schema_version": 1,
+    "hydraulic": {
+      "format": "atomic-hydraulic-steady",
+      "schema_version": 1,
+      "density_kg_m3": 1000,
+      "gravity_m_s2": 9.81,
+      "nodes": [
+        {
+          "id": "a",
+          "elevation_m": 0,
+          "pressure_pa": 200000
+        },
+        {
+          "id": "b",
+          "elevation_m": 0,
+          "pressure_pa": 200000
+        },
+        {
+          "id": "c",
+          "elevation_m": 0,
+          "pressure_pa": 200000
+        }
+      ],
+      "edges": [
+        {
+          "id": "e0",
+          "from": "a",
+          "to": "b",
+          "linear_pa_s_kg": 1000,
+          "quadratic_pa_s2_kg2": 0,
+          "pressure_gain_pa": 3000
+        },
+        {
+          "id": "e1",
+          "from": "b",
+          "to": "c",
+          "linear_pa_s_kg": 1000,
+          "quadratic_pa_s2_kg2": 0,
+          "pressure_gain_pa": 3000
+        },
+        {
+          "id": "e2",
+          "from": "c",
+          "to": "a",
+          "linear_pa_s_kg": 1000,
+          "quadratic_pa_s2_kg2": 0,
+          "pressure_gain_pa": 3000
+        }
+      ]
+    },
+    "thermal": {
+      "medium": "limiting-liquid",
+      "heat_capacity_j_kg_k": 1000,
+      "enthalpy_reference_temperature_k": 300,
+      "min_temperature_k": 250,
+      "max_temperature_k": 500,
+      "nodes": {
+        "a": {
+          "heat_power_w": 0,
+          "ambient_ua_w_k": 10,
+          "ambient_temperature_k": 300,
+          "supply_temperature_k": 300
+        },
+        "b": {
+          "heat_power_w": 0,
+          "ambient_ua_w_k": 10,
+          "ambient_temperature_k": 300,
+          "supply_temperature_k": 300
+        },
+        "c": {
+          "heat_power_w": 0,
+          "ambient_ua_w_k": 10,
+          "ambient_temperature_k": 300,
+          "supply_temperature_k": 300
+        }
+      }
+    }
+  },
+  "volumes_m3": {
+    "a": 1.0,
+    "b": 1.25,
+    "c": 1.5
+  },
+  "initial_temperatures_k": {
+    "a": 305.9,
+    "b": 303.60151152934066,
+    "c": 298.81926581726424
+  },
+  "max_step_s": 1.0
+}

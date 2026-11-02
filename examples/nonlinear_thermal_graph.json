@@ -1,0 +1,161 @@
+{
+  "format": "atomic-nonlinear-thermal-graph",
+  "schema_version": 1,
+  "steady_input": {
+    "format": "atomic-thermal-hydraulic-steady",
+    "schema_version": 1,
+    "hydraulic": {
+      "format": "atomic-hydraulic-steady",
+      "schema_version": 1,
+      "density_kg_m3": 1000.0,
+      "gravity_m_s2": 9.81,
+      "nodes": [
+        {
+          "id": "supply",
+          "elevation_m": 0.0,
+          "pressure_pa": 200000.0
+        },
+        {
+          "id": "a",
+          "elevation_m": 0.0,
+          "injection_kg_s": 0.0
+        },
+        {
+          "id": "b",
+          "elevation_m": 0.0,
+          "injection_kg_s": 0.0
+        },
+        {
+          "id": "outlet",
+          "elevation_m": 0.0,
+          "pressure_pa": 190000.0
+        }
+      ],
+      "edges": [
+        {
+          "id": "sa",
+          "from": "supply",
+          "to": "a",
+          "linear_pa_s_kg": 500.0,
+          "quadratic_pa_s2_kg2": 0.0,
+          "pressure_gain_pa": 0.0
+        },
+        {
+          "id": "ao",
+          "from": "a",
+          "to": "outlet",
+          "linear_pa_s_kg": 1000.0,
+          "quadratic_pa_s2_kg2": 0.0,
+          "pressure_gain_pa": 0.0
+        },
+        {
+          "id": "sb",
+          "from": "supply",
+          "to": "b",
+          "linear_pa_s_kg": 1000.0,
+          "quadratic_pa_s2_kg2": 0.0,
+          "pressure_gain_pa": 0.0
+        },
+        {
+          "id": "bo",
+          "from": "b",
+          "to": "outlet",
+          "linear_pa_s_kg": 1000.0,
+          "quadratic_pa_s2_kg2": 0.0,
+          "pressure_gain_pa": 0.0
+        },
+        {
+          "id": "bridge",
+          "from": "a",
+          "to": "b",
+          "linear_pa_s_kg": 1000.0,
+          "quadratic_pa_s2_kg2": 0.0,
+          "pressure_gain_pa": 0.0
+        }
+      ]
+    },
+    "thermal": {
+      "medium": "test-liquid",
+      "heat_capacity_j_kg_k": 1000.0,
+      "enthalpy_reference_temperature_k": 300.0,
+      "min_temperature_k": 250.0,
+      "max_temperature_k": 500.0,
+      "nodes": {
+        "supply": {
+          "heat_power_w": 0.0,
+          "ambient_ua_w_k": 0.0,
+          "ambient_temperature_k": 300.0,
+          "supply_temperature_k": 300.0
+        },
+        "a": {
+          "heat_power_w": 600000.0,
+          "ambient_ua_w_k": 0.0,
+          "ambient_temperature_k": 300.0,
+          "supply_temperature_k": 300.0
+        },
+        "b": {
+          "heat_power_w": 0.0,
+          "ambient_ua_w_k": 0.0,
+          "ambient_temperature_k": 300.0,
+          "supply_temperature_k": 300.0
+        },
+        "outlet": {
+          "heat_power_w": 0.0,
+          "ambient_ua_w_k": 0.0,
+          "ambient_temperature_k": 300.0,
+          "supply_temperature_k": 300.0
+        }
+      }
+    }
+  },
+  "resistance_laws": {
+    "sa": {
+      "kind": "exponential_endpoint_mean_v1",
+      "reference_temperature_k": 300.0,
+      "temperature_coefficient_per_k": 0.02,
+      "minimum_multiplier": 0.1,
+      "maximum_multiplier": 10.0
+    },
+    "ao": {
+      "kind": "exponential_endpoint_mean_v1",
+      "reference_temperature_k": 300.0,
+      "temperature_coefficient_per_k": 0.0,
+      "minimum_multiplier": 0.1,
+      "maximum_multiplier": 10.0
+    },
+    "sb": {
+      "kind": "exponential_endpoint_mean_v1",
+      "reference_temperature_k": 300.0,
+      "temperature_coefficient_per_k": 0.0,
+      "minimum_multiplier": 0.1,
+      "maximum_multiplier": 10.0
+    },
+    "bo": {
+      "kind": "exponential_endpoint_mean_v1",
+      "reference_temperature_k": 300.0,
+      "temperature_coefficient_per_k": 0.0,
+      "minimum_multiplier": 0.1,
+      "maximum_multiplier": 10.0
+    },
+    "bridge": {
+      "kind": "exponential_endpoint_mean_v1",
+      "reference_temperature_k": 300.0,
+      "temperature_coefficient_per_k": 0.0,
+      "minimum_multiplier": 0.1,
+      "maximum_multiplier": 10.0
+    }
+  },
+  "volumes_m3": {
+    "supply": 0.5,
+    "a": 0.5,
+    "b": 0.5,
+    "outlet": 0.5
+  },
+  "initial_temperatures_k": {
+    "supply": 300.0,
+    "a": 300.0,
+    "b": 300.0,
+    "outlet": 300.0
+  },
+  "max_step_s": 0.5
+}

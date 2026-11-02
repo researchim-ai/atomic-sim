@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "scope": "Portable steady evidence replay from transferred archive and archived tools, outside checkout; inherited dependency environment",
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "archive": "artifacts/ai12_primary_steam_steady_release_v5.tar.gz",
+  "archive_sha256": "cd5b8be85811b80fca11f02da9b461fff1ea766b32f6d0d534a3ce1592068867",
+  "manifest_sha256": "71bf7e8c4ab62a1139d8f58a141540c2a05885e646350af8a9c74d2b469e562d",
+  "files": 151,
+  "uncompressed_bytes": 10762051,
+  "standalone_tools_cwd": "/tmp/ai12-portable-tools-v5",
+  "checkout_pythonpath_removed": true,
+  "numerical_acceptance_recomputed": true,
+  "integrations": 14,
+  "case_families": 7,
+  "archived_audit_identical": true,
+  "evidence": {
+    "artifacts/ai12_primary_steam_portable_replay_v5/replay.json": "80b11fef4deb6276f25123f70f2afa410b8057a877baf98080397068d1070592",
+    "artifacts/ai12_primary_steam_portable_replay_v5/steady-audit.json": "b487f61e75cc0383ced4e47d60b1279fea9dd7fcaa77deacefe93686677ac9c0",
+    "artifacts/ai12_primary_steam_portable_replay_v5/steady-audit.log": "77fd0d3e4de6a5bff8c7a227b75d3b91cbff49d2fbab510d5fe79664b9a51125"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

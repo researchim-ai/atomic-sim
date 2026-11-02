@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "engine": "equilibrium-steam-power-cycle",
+  "name": "ai05_dynamic_steam_cycle",
+  "model": {
+    "steam_generator": {
+      "volume_m3": 1.0,
+      "initial_pressure_pa": 6000000.0,
+      "initial_quality": 0.1,
+      "min_pressure_pa": 4000000.0,
+      "max_pressure_pa": 8000000.0,
+      "min_quality": 0.01,
+      "max_quality": 0.4
+    },
+    "condenser": {
+      "volume_m3": 10.0,
+      "initial_pressure_pa": 8000.0,
+      "initial_quality": 0.001,
+      "min_pressure_pa": 4000.0,
+      "max_pressure_pa": 20000.0,
+      "min_quality": 1e-05,
+      "max_quality": 0.01
+    },
+    "hot_wall": {
+      "heat_capacity_j_k": 200000.0,
+      "fluid_ua_w_k": 20000.0,
+      "initial_temperature_k": 561.752193264889
+    },
+    "cold_wall": {
+      "heat_capacity_j_k": 100000.0,
+      "fluid_ua_w_k": 20000.0,
+      "ambient_ua_w_k": 20000.0,
+      "initial_temperature_k": 305.61761081601657
+    },
+    "turbine": {
+      "isentropic_efficiency": 0.85,
+      "inertia_kg_m2": 50.0,
+      "bearing_drag_nm_s_rad": 0.01,
+      "generator_efficiency": 0.97,
+      "min_omega_rad_s": 100.0,
+      "max_omega_rad_s": 400.0,
+      "initial_omega_rad_s": 300.0
+    },
+    "feed_efficiency": 0.8,
+    "energy_tolerance_j": 0.001,
+    "mass_tolerance_kg": 1e-08,
+    "min_pressure_difference_pa": 1000.0,
+    "steam_conductance_kg_s_pa": 1.6688918558077436e-08
+  },
+  "controls": {
+    "feed_mass_flow_kg_s": 0.10000000000000116,
+    "generator_conductance_nm_s_rad": 0.8813573194611202,
+    "heater_power_w": 260315.6501767842,
+    "valve_opening": 1.0,
+    "sink_temperature_k": 296.5751689336496,
+    "generator_connected": true
+  },
+  "duration_s": 10,
+  "step_s": 0.5,
+  "solver": {
+    "method": "Radau",
+    "rtol": 1e-08,
+    "max_step_s": 0.1,
+    "atol_scale": 0.1
+  },
+  "timeline": [
+    {
+      "t": 2.3,
+      "controls": {
+        "feed_mass_flow_kg_s": 0.10000000000000116,
+        "generator_conductance_nm_s_rad": 0.8813573194611202,
+        "heater_power_w": 286347.2151944626,
+        "valve_opening": 1.0,
+        "sink_temperature_k": 296.5751689336496,
+        "generator_connected": true
+      }
+    },
+    {
+      "t": 6.7,
+      "controls": {
+        "feed_mass_flow_kg_s": 0.10000000000000116,
+        "generator_conductance_nm_s_rad": 0.8813573194611202,
+        "heater_power_w": 286347.2151944626,
+        "valve_opening": 1.0,
+        "sink_temperature_k": 296.5751689336496,
+        "generator_connected": false
+      }
+    }
+  ]
+}

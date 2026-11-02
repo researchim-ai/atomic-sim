@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "source_sha256": "9f1e461d7cf9db1517fd26849443e06338fb0b464af92f7a88c273ac404ae22b",
+  "passed": true,
+  "scope": "One local 100-second steady workload; no training throughput qualification",
+  "same_input_and_solver_tolerances": true,
+  "solver": {
+    "method": "Radau",
+    "rtol": 1e-09,
+    "max_step_s": 0.1,
+    "atol_scale": 0.01
+  },
+  "stages": {
+    "before": {
+      "solver_statistics": {
+        "available": true,
+        "segments": 100,
+        "scipy_segments": 100,
+        "reported_mesh_steps": 21266,
+        "max_reported_step_s": 0.10000000000000009,
+        "scipy_nfev": 545419,
+        "scipy_njev": 14023,
+        "scipy_nlu": 150962
+      },
+      "wall_time_s": 36.32197685000028,
+      "energy_absolute_j": 6.832856084166502e-07
+    },
+    "root_only": {
+      "solver_statistics": {
+        "available": true,
+        "segments": 100,
+        "scipy_segments": 100,
+        "reported_mesh_steps": 21554,
+        "max_reported_step_s": 0.10000000000000009,
+        "scipy_nfev": 552076,
+        "scipy_njev": 14213,
+        "scipy_nlu": 152546
+      },
+      "wall_time_s": 36.625743010000406,
+      "energy_absolute_j": 9.012442180974071e-07
+    },
+    "stable_heat_increments": {
+      "solver_statistics": {
+        "available": true,
+        "segments": 100,
+        "scipy_segments": 100,
+        "reported_mesh_steps": 1201,
+        "max_reported_step_s": 0.10000000000000142,
+        "scipy_nfev": 8607,
+        "scipy_njev": 100,
+        "scipy_nlu": 2402
+      },
+      "wall_time_s": 0.9829935929992644,
+      "energy_absolute_j": 4.5962224247682636e-07
+    }
+  },
+  "maximum_trajectory_differences": {
+    "root_only": {
+      "pressure_pa": 0.0,
+      "temperature_k": 0.0,
+      "quality": 0.0,
+      "omega_rad_s": 0.0
+    },
+    "stable_heat_increments": {
+      "pressure_pa": 0.0,
+      "temperature_k": 0.0,
+      "quality": 0.0,
+      "omega_rad_s": 0.0
+    }
+  },
+  "comparison_limits": {
+    "pressure_pa": 0.1,
+    "temperature_k": 1e-06,
+    "quality": 1e-09,
+    "omega_rad_s": 1e-06
+  },
+  "root_only_fixes_performance": false,
+  "fix": "Algebraically identical reference heat plus small wall/temperature increments; no EOS linearization or tolerance relaxation",
+  "aborted_campaign": "artifacts/ai05_steam_cycle_refinement_v1 is incomplete and not accepted",
+  "file_sha256": {
+    "artifacts/ai05_steam_cycle_eos_precision_regression_v1/before.json": "2cc68a5eaa74bf937be209117e56a19da554335ce89a713065e82bb1d37cf3ed",
+    "artifacts/ai05_steam_cycle_eos_precision_regression_v1/runtime_before.zip": "4b579495bf0c3267cfd190eb97abf6aa777f4b7a32e74299e67d470808dd759a",
+    "artifacts/ai05_steam_cycle_eos_precision_regression_v1/steam_cycle_before.py": "3bffdf62ea488a9f05d3045b3bc5a6eb101e5844d22cee91272dc09403f65a28",
+    "artifacts/ai05_steam_cycle_eos_precision_regression_v1/steam_cycle_after_root_only.py": "07bb2f53d787bd650244764c0a6867ea0b27a059c93ff6e6d0d9420f087e3b2b",
+    "artifacts/ai05_steam_cycle_refinement_v1/long_nominal_coarse/input.json": "4e10a3ac7c10ecfd33a308e43fb541febf90fb26a82e1b135608978d57369ce0",
+    "artifacts/ai05_steam_cycle_refinement_v1/long_nominal_coarse/report.json": "6f2f4fe2fa911401e85cc5408102bfbe72b3981f95bc09313a5685ddc3e14a44",
+    "artifacts/ai05_steam_cycle_refinement_v1/long_nominal_coarse/trajectory.json": "8bb569cf4c69accc051fbe57d7fc7796ceb4c3bf4b261cffd393c271cc70afc4",
+    "artifacts/ai05_steam_cycle_refinement_v1/long_nominal_coarse/solver_trace.json": "645594d04fa0f0f4679f2a821a8ec07327102908bb33582ce0ee862e40b8ff37",
+    "artifacts/ai05_steam_cycle_eos_precision_regression_v1/after_coarse/input.json": "c3ad76d4cf7908c8d1389b5f4a056b75dedea821808d6438947ac38905b63c71",
+    "artifacts/ai05_steam_cycle_eos_precision_regression_v1/after_coarse/report.json": "67fe06cc39179f6a00cfa1d65ff72aefc99fcf628877f8528cd62bc1436d4848",
+    "artifacts/ai05_steam_cycle_eos_precision_regression_v1/after_coarse/trajectory.json": "102f0eb97dbf79012b508312a523e67272544d69bf76667d0feb1db1c251831e",
+    "artifacts/ai05_steam_cycle_eos_precision_regression_v1/after_coarse/solver_trace.json": "64668f1eaf6634823f54abefb5f03a7570715280e236d23e7e02a4f2570dc2d3",
+    "artifacts/ai05_steam_cycle_eos_precision_regression_v1/after_stable_walls/input.json": "d06560a9bbd7be0369ae7d53cbdbe570ab3202b7a60d4a8d5bf392ae552a1d8b",
+    "artifacts/ai05_steam_cycle_eos_precision_regression_v1/after_stable_walls/report.json": "538f91d565d855930c36c715972c624cf522fb7afe70338cb33ce71433b36ef7",
+    "artifacts/ai05_steam_cycle_eos_precision_regression_v1/after_stable_walls/trajectory.json": "4eb06b423175ffb4e8fae8ee02e55f7a2985786b5b42aa1e96399579a3afb19e",
+    "artifacts/ai05_steam_cycle_eos_precision_regression_v1/after_stable_walls/solver_trace.json": "954eae56b0583779b19e6adfb7f58f7111892f0bede9bd7a67276958f9eb7f48",
+    "physics/power/steam_cycle.py": "2c6861e5bd37d558b463c04dd7a74f92aad6ba02f6b28b438efc9e18996cc667",
+    "artifacts/ai05_steam_cycle_refinement_v1/long_nominal_coarse/manifest.json": "d8df719b3a71f47322d95faca79039280f1a6ef566cbf7e337861e9cd3851345",
+    "artifacts/ai05_steam_cycle_eos_precision_regression_v1/after_coarse/manifest.json": "9bccc0fb2a42ab6dca060d8abc2f1cd6402f939cb49ca0b892deaf25ffe0b620",
+    "artifacts/ai05_steam_cycle_eos_precision_regression_v1/after_stable_walls/manifest.json": "af7fe17e912033566a7358b5ba9218a194a6b75eba520292dbafd808a4f6d4f1"
+  },
+  "validated": false,
+  "plant_referenced": false,
+  "test_evidence": [
+    "tests/test_steam_cycle.py: cold-inventory sub-joule inversion and sub-ULP hot/cold wall derivatives"
+  ]
+}

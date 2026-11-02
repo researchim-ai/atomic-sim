@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "2bc50690ea9007f7d5f982922e2932dd41b527a2430f9c7af298bec38f0bdd00",
+  "verification_sha256": "e419b2b0e53466c3f88742aa24c2fa4f8aa85616cea6c7d17bc12751a25d4057",
+  "audit_script_sha256": "bc456f1b347e67bce7dd5a245036e031da75f7d015a50b3eb161db80f1eceff9",
+  "integrations": 26,
+  "case_families": 13,
+  "temporal_comparisons": [
+    {
+      "name": "ambient_heater",
+      "temperature_absolute_k": 1.1368683772161603e-13
+    },
+    {
+      "name": "antisymmetric",
+      "temperature_absolute_k": 5.684341886080802e-14
+    },
+    {
+      "name": "cocurrent",
+      "temperature_absolute_k": 1.1368683772161603e-13
+    },
+    {
+      "name": "counterflow",
+      "temperature_absolute_k": 1.1368683772161603e-13
+    },
+    {
+      "name": "initial_command",
+      "temperature_absolute_k": 1.1368683772161603e-13
+    },
+    {
+      "name": "one_stopped",
+      "temperature_absolute_k": 1.1368683772161603e-13
+    },
+    {
+      "name": "reverse",
+      "temperature_absolute_k": 1.1368683772161603e-13
+    },
+    {
+      "name": "stagnant",
+      "temperature_absolute_k": 1.1368683772161603e-13
+    },
+    {
+      "name": "steady",
+      "temperature_absolute_k": 0.0
+    },
+    {
+      "name": "switching",
+      "temperature_absolute_k": 2.2737367544323206e-13
+    },
+    {
+      "name": "symmetric",
+      "temperature_absolute_k": 1.1368683772161603e-13
+    },
+    {
+      "name": "tank",
+      "temperature_absolute_k": 5.684341886080802e-14
+    },
+    {
+      "name": "unequal_cells",
+      "temperature_absolute_k": 1.1368683772161603e-13
+    }
+  ],
+  "spatial_refinement": {
+    "passed": true,
+    "levels": [
+      {
+        "cells": 2,
+        "outlet_temperature_k": [
+          353.66863905325437,
+          306.3313609467455
+        ],
+        "continuum_temperature_k": [
+          351.95246544376107,
+          308.04753455623893
+        ],
+        "error_k": 1.71617360949341,
+        "steady_residual_w": 8.526512829121202e-11
+      },
+      {
+        "cells": 4,
+        "outlet_temperature_k": [
+          352.87012982372124,
+          307.12987017627864
+        ],
+        "continuum_temperature_k": [
+          351.95246544376107,
+          308.04753455623893
+        ],
+        "error_k": 0.9176643799602857,
+        "steady_residual_w": 8.526512829121202e-11
+      },
+      {
+        "cells": 8,
+        "outlet_temperature_k": [
+          352.42808933573514,
+          307.57191066426486
+        ],
+        "continuum_temperature_k": [
+          351.95246544376107,
+          308.04753455623893
+        ],
+        "error_k": 0.47562389197406674,
+        "steady_residual_w": 1.7053025658242404e-10
+      }
+    ],
+    "error_ratios": [
+      1.8701538895600174,
+      1.929390838949531
+    ],
+    "scope": "Cocurrent equal-capacity-rate continuum reference; not a general mesh qualification"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

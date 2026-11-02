@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "package": "AI-05",
+  "status": "partial",
+  "task": "AI-05.06",
+  "task_status": "in_progress",
+  "scope": "Conservative fixed-volume equilibrium steam-generator/condenser inventories, finite-capacity walls, empirical pressure-driven admission, prescribed feed with pump work, turbine/rotor/generator and explicit heat rejection",
+  "source_sha256": "2927346a5c1192ee4a59cfd378be0fa157d160b706f4dab3057dc1a3b7eb1d82",
+  "baseline": "validation/ai05_steam_cycle_baseline_v1.json",
+  "evidence": [
+    "validation/ai05_steam_cycle_baseline_v1.json",
+    "validation/ai05_steam_cycle_installed_v1.json",
+    "validation/ai05_steam_cycle_budget_v1.json",
+    "validation/ai05_steam_cycle_audit_v3.json",
+    "validation/ai05_turbine_audit_v2.json",
+    "validation/ai05_steam_cycle_recovery_regression_v1.json",
+    "validation/ai05_steam_cycle_time_alignment_regression_v1.json",
+    "validation/ai05_steam_cycle_reference_segments_v1.json",
+    "validation/ai05_turbine_snapshot_compatibility_v1.json",
+    "docs/AI_05_DYNAMIC_STEAM_CYCLE_RU.md"
+  ],
+  "file_sha256": {
+    "validation/ai05_steam_cycle_baseline_v1.json": "29210b361c3f1693040bcf4291e016559e68967977e411cad5e8b3138f68f1c2",
+    "validation/ai05_steam_cycle_installed_v1.json": "bd87932e248b0d9aaa50fb1ed503d879443aa4b963f0763410115b0fd17700c2",
+    "validation/ai05_steam_cycle_budget_v1.json": "298bab8d635462e1265a8cf728bcf82502ce66331ddea4f69ce4499203baf0ec",
+    "validation/ai05_steam_cycle_audit_v3.json": "2f9b9fa00a80bf808ededf9fd9b33140095c275d3b66d532362e7551ae603d4d",
+    "validation/ai05_turbine_audit_v2.json": "9586a56ffbe7d7f7454e906aa4911b7c548ff081b817a2c9974067de3cfc5a7b",
+    "validation/ai05_steam_cycle_recovery_regression_v1.json": "23af34e069358e978e281be7a2ab00ab6f40021ee2728b57dd0321703440d93b",
+    "validation/ai05_steam_cycle_time_alignment_regression_v1.json": "af7173fb6677f7f81950f2c7030094b45d7353e7a847d9717efe601cbd430738",
+    "validation/ai05_steam_cycle_reference_segments_v1.json": "480ddc742a86c522087059451bc6a7d01e60c4fa7655be18397cff947d93f190",
+    "validation/ai05_turbine_snapshot_compatibility_v1.json": "77e2256989860effd29b5b296bb13527361cd191b4d9e60106cb4555d37cf038",
+    "physics/power/steam_cycle.py": "e021901f4d5ec9e7dacd1e7429f0c212077f11b82be778224cd9faa793a41cc7",
+    "sdk/boundary_job.py": "513fdbb483fa99e32af2761397e4d5689905a660592e2788b868437185e63cc6",
+    "sdk/steam_cycle_experiment.py": "6b23f4e7b6fc5e25f5016c65eb4d750af081290c3d7ddfbe02e022b834b825ac",
+    "sdk/turbine_experiment.py": "2e3a4540fc854e06bd82c997d6f4211b8516e917f4816cd2d7c13326806fc48d",
+    "scenarios/ai05_dynamic_steam_cycle.json": "311196a0ee7e13945a21a9199c1e55f0f354eab21411d6742a7a4a68d65a1325",
+    "scripts/steam_cycle_references.py": "1b7f2c153cc0a2e339afae0e3c2b8f0a79303d1a7f31df44c4491a161d39ca16",
+    "scripts/verify_steam_cycle.py": "3b5eafd1b3b9ae5b35145b9b59548bf5333ac546c3cf1acb5f901ac78786ccbc",
+    "scripts/audit_steam_cycle.py": "b21a06d6f825b1e051a46a0a9483ba4f13fa6e9109d6acbf9b06364996a0e7ca",
+    "scripts/verify_turbine.py": "f6a63b4424e0f01986c0357768818da140cc28b2994d2b98272aed6a2ce2408d",
+    "scripts/verify_wheel.py": "543d91e346e3c7689757e4e31ecfcaed18235b856509276321d6ad900670a995",
+    "tests/test_steam_cycle.py": "7c7cbff03e4827b49b98e2abfa95aa37d3290f08d380781ce4c51c99d178b730",
+    "tests/test_steam_cycle_evidence.py": "eb1f06343a6439745fcf46f59cbb1a8950f3e965aef147b010ee4ec191cfa280"
+  },
+  "verification": "artifacts/ai05_steam_cycle_verification_v7/verification.json",
+  "verification_sha256": "04edc44034209ae04147dac015ad409ae015cea033500f3280af724d5e9bdf74",
+  "numerical_verification": {
+    "case_families": 10,
+    "primary_integrations": 22,
+    "radau_time_policies": 2,
+    "bdf_additional_cases": 2,
+    "reference": "Absolute-inventory DOP853 with independent two-variable log(p),x equilibrium root; shared IF97 backend",
+    "checkpoint_extensions": "Pressure, temperature, quality, mass, energy and rotor speed checked; boundary cases use explicit returning commands",
+    "report_reconstruction": "Reconstruct stored states and powers instead of trusting reported residuals",
+    "current_turbine_integrations": 24
+  },
+  "frozen_scripts_sha256": {
+    "artifacts/ai05_steam_cycle_release_v2/frozen_scripts_final/audit_steam_cycle.py": "b21a06d6f825b1e051a46a0a9483ba4f13fa6e9109d6acbf9b06364996a0e7ca",
+    "artifacts/ai05_steam_cycle_release_v2/frozen_scripts_final/audit_turbine.py": "5b7f3f89f3355165df9a7e4ac1b571f731fa7b52e578ddf8cc75129336659897",
+    "artifacts/ai05_steam_cycle_release_v2/frozen_scripts_final/steam_cycle_references.py": "1b7f2c153cc0a2e339afae0e3c2b8f0a79303d1a7f31df44c4491a161d39ca16",
+    "artifacts/ai05_steam_cycle_release_v2/frozen_scripts_final/turbine_references.py": "e0b484df035435b31054bcfd3595bf2c1047ebaae4960636b70f6409603dc4d5",
+    "artifacts/ai05_steam_cycle_release_v2/frozen_scripts_final/verify_steam_cycle.py": "3b5eafd1b3b9ae5b35145b9b59548bf5333ac546c3cf1acb5f901ac78786ccbc",
+    "artifacts/ai05_steam_cycle_release_v2/frozen_scripts_final/verify_turbine.py": "f6a63b4424e0f01986c0357768818da140cc28b2994d2b98272aed6a2ce2408d",
+    "artifacts/ai05_steam_cycle_release_v2/frozen_scripts_final/verify_wheel.py": "543d91e346e3c7689757e4e31ecfcaed18235b856509276321d6ad900670a995"
+  },
+  "frozen_tests_sha256": {
+    "artifacts/ai05_steam_cycle_release_v2/test_steam_cycle.py": "7c7cbff03e4827b49b98e2abfa95aa37d3290f08d380781ce4c51c99d178b730",
+    "artifacts/ai05_steam_cycle_release_v2/test_steam_cycle_evidence.py": "eb1f06343a6439745fcf46f59cbb1a8950f3e965aef147b010ee4ec191cfa280",
+    "artifacts/ai05_steam_cycle_release_v2/test_steam_turbine_train.py": "c9dd7491a43e6ced44ea388594eccbc79f821fc4607dcc3b46db91c1854069cd",
+    "artifacts/ai05_steam_cycle_release_v2/test_turbine_evidence.py": "7fe4125734b18f6c56029e54e457f87b79b23e51605f6a40e0edd52e99f9e0b7"
+  },
+  "tasks_accepted": [
+    "AI-05.01",
+    "AI-05.02",
+    "AI-05.04"
+  ],
+  "tasks_in_progress": [
+    "AI-05.03",
+    "AI-05.05",
+    "AI-05.06",
+    "AI-05.08"
+  ],
+  "remaining": [
+    "Third time-refinement level and longer joint operating cases for qualification",
+    "Primary thermal-loop coupling and broader system admission",
+    "Measured admission/feed/turbine maps and independent physical validation",
+    "General network, gravity and distributed two-phase scope",
+    "Portable dependency/platform matrix and complete schema migration/release provenance"
+  ],
+  "qualification_policy": "Fixed-case numerical verification only; AI-05.06 not promoted. Historical source admissions retained without rebinding.",
+  "artifact_storage": "Ignored local raw bundles, runtime archives and the authoritative frozen_scripts_final folder must be transferred together; JSON summaries alone are insufficient.",
+  "validated": false,
+  "plant_referenced": false
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "status": "accepted_within_declared_scope",
+  "task_ids": [
+    "AI-05.03",
+    "AI-05.08"
+  ],
+  "task_status": "in_progress",
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "signature": {
+    "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+    "drivers": {
+      "scripts/solve_thermal_graph.py": "a83be295f1d6d05a82290584d65d0dbc5bc47009a3b0674bb1a10102d10d4f6a",
+      "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928",
+      "scripts/thermal_graph_references.py": "dea3e83695c58bbfe61f329f2bd357751ad9463513b2f8de4f3a47fb05e1e011",
+      "scripts/hydraulic_graph_references.py": "7552f64999bd352127f799893f1a30eeee6e650c62302f1619f47434141dc726",
+      "scripts/qualify_thermal_graph.py": "31ecb77185d31be7975ed464acf8455c81aff904e4f28acab9dde7af399edf4c"
+    },
+    "budgets": {
+      "validation/ai05_thermal_graph_budget_v1.json": "bc5d1cba46ec4804359891046de0da5db9eff71f62ad0689bcd85cdf98a80f4c",
+      "validation/ai05_hydraulic_graph_budget_v1.json": "59acc80c07e047a3b3a63607e6eeaf5a9936cbc359f880aed5b82d34c6386d50"
+    },
+    "python": "3.12.9",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2"
+  },
+  "scope": "One-way constant-property steady hydraulic/enthalpy mixing graphs; zero-storage nodes, signed upstream transport, pressure enthalpy, heat sources, ambient losses, friction heat and conservative endpoint records",
+  "cases": 21,
+  "maximum_nodes": 128,
+  "new_tests": 42,
+  "software_tests": 1462,
+  "excluded_tests": 1,
+  "residual_maxima": {
+    "maximum_node_energy_residual_w": 1.30385160446167e-08,
+    "maximum_edge_energy_residual_w": 1.1417569112381898e-09,
+    "maximum_global_energy_residual_w": 5.804395186714828e-08
+  },
+  "comparison_maxima": {
+    "reference_error_k": 8.422034625255037e-09,
+    "manufactured_error_k": 8.414133390033385e-09
+  },
+  "maximum_scaled_condition": 520.4815078367407,
+  "warmup_steps": 0,
+  "commands_changed": false,
+  "physical_runtime_unchanged": true,
+  "typed_ports": "Existing PortSpec enthalpy/medium convention, inward endpoint powers with equal opposite node/edge records; not registered dynamic core components",
+  "zero_flow_reporting": "No transported stream temperature is invented at exactly zero flow; report null",
+  "portable_numerical_audit_identical": true,
+  "portable_tests_passed": 42,
+  "byte_identical_archive_rebuild": true,
+  "process_correction": "Initial full regression rejected on source-signature drift after report edit; final drivers frozen and all checks repeated; thresholds unchanged",
+  "remaining": [
+    "Dynamic component registration and state transfer",
+    "Variable EOS/density/resistance feedback and phase admission",
+    "Thermal storage and transient refinement/restart",
+    "Heated gravity loop and natural-circulation qualification",
+    "Experimental and plant validation; resolved dependency lock/SBOM/signing/platform matrix"
+  ],
+  "evidence_sha256": {
+    "validation/ai05_thermal_graph_baseline_v1.json": "c234bc5eb22aa3978c98d58ed53454c62a84cec51fec9c781fe9f8835a5fa814",
+    "validation/ai05_thermal_graph_audit_v2.json": "adfa6456c46e047f741cdfff27bbe34e44f5ade98f6491dc070f3a83297452bd",
+    "validation/ai05_thermal_graph_portable_replay_v2.json": "da421684ac848c69d034ce33255b273ff3a7aef4d1047d3d09af0080f9165445",
+    "validation/ai05_thermal_graph_source_drift_v1.json": "f6cc1c005392d89ad54b77cc0a4091d9b55ea6a9ef2f5de4e63735c658132136",
+    "artifacts/ai05_thermal_graph_release_v2.json": "5f2803b07856d05044918e790e58269bddc8a61266b330409b0e85446f083094",
+    "artifacts/ai05_thermal_graph_portable_audit_v2.json": "adfa6456c46e047f741cdfff27bbe34e44f5ade98f6491dc070f3a83297452bd",
+    "artifacts/ai05_thermal_graph_portable_audit_v2.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

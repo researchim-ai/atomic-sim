@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "accepted": false,
+  "stage": "software_regression",
+  "passed_tests": 1461,
+  "excluded_tests": 1,
+  "errors": 1,
+  "reason": "Engineering report format edited during active full-suite run; source-bound fixture correctly rejected signature drift",
+  "criterion": "Thermal signature changed during qualification",
+  "recovery": "Freeze latest engineering sources, rerun42 focused tests and21-case qualification/audit, then full regression and archived replay",
+  "old_signature": {
+    "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+    "drivers": {
+      "scripts/solve_thermal_graph.py": "ce8848ea562a82148b68225c99156ec18a38337ebefb2b1795a02c8a505d3110",
+      "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928",
+      "scripts/thermal_graph_references.py": "dea3e83695c58bbfe61f329f2bd357751ad9463513b2f8de4f3a47fb05e1e011",
+      "scripts/hydraulic_graph_references.py": "7552f64999bd352127f799893f1a30eeee6e650c62302f1619f47434141dc726",
+      "scripts/qualify_thermal_graph.py": "31ecb77185d31be7975ed464acf8455c81aff904e4f28acab9dde7af399edf4c"
+    },
+    "budgets": {
+      "validation/ai05_thermal_graph_budget_v1.json": "bc5d1cba46ec4804359891046de0da5db9eff71f62ad0689bcd85cdf98a80f4c",
+      "validation/ai05_hydraulic_graph_budget_v1.json": "59acc80c07e047a3b3a63607e6eeaf5a9936cbc359f880aed5b82d34c6386d50"
+    },
+    "python": "3.12.9",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2"
+  },
+  "new_signature": {
+    "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+    "drivers": {
+      "scripts/solve_thermal_graph.py": "a83be295f1d6d05a82290584d65d0dbc5bc47009a3b0674bb1a10102d10d4f6a",
+      "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928",
+      "scripts/thermal_graph_references.py": "dea3e83695c58bbfe61f329f2bd357751ad9463513b2f8de4f3a47fb05e1e011",
+      "scripts/hydraulic_graph_references.py": "7552f64999bd352127f799893f1a30eeee6e650c62302f1619f47434141dc726",
+      "scripts/qualify_thermal_graph.py": "31ecb77185d31be7975ed464acf8455c81aff904e4f28acab9dde7af399edf4c"
+    },
+    "budgets": {
+      "validation/ai05_thermal_graph_budget_v1.json": "bc5d1cba46ec4804359891046de0da5db9eff71f62ad0689bcd85cdf98a80f4c",
+      "validation/ai05_hydraulic_graph_budget_v1.json": "59acc80c07e047a3b3a63607e6eeaf5a9936cbc359f880aed5b82d34c6386d50"
+    },
+    "python": "3.12.9",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2"
+  },
+  "log": "artifacts/ai05_thermal_graph_full_suite_v1.log",
+  "log_sha256": "045b88ebc4ae1cc3ccf9109950a53914c6b28e945461e98e3b96c60b916055fa",
+  "validated": false,
+  "plant_referenced": false
+}

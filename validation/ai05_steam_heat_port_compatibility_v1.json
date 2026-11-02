@@ -1,0 +1,321 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "68fb24c86a58c0c01072961c14bd3b9eff7a0a9b813dcab96e683dfed4b71f95",
+  "old_source_sha256": "9f1e461d7cf9db1517fd26849443e06338fb0b464af92f7a88c273ac404ae22b",
+  "old_module_sha256": "2c6861e5bd37d558b463c04dd7a74f92aad6ba02f6b28b438efc9e18996cc667",
+  "new_module_sha256": "1ea6ba8b21509f8f34214e3d400bf065081f3644e52bfbf5a060b20d7287ae5f",
+  "cases": [
+    {
+      "name": "nominal",
+      "policy": "coarse",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/nominal_coarse/checkpoint.json",
+      "checkpoint_sha256": "3ffe93bb755f909e4f09eb8a6d9a6576b4e252782e3b64adee5a779b8ce4002b",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "nominal",
+      "policy": "medium",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/nominal_medium/checkpoint.json",
+      "checkpoint_sha256": "44d4572382b7b7cec36323d2a26d93778d132beb58d7da9d1d74fbea4fa79153",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "nominal",
+      "policy": "fine",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/nominal_fine/checkpoint.json",
+      "checkpoint_sha256": "ab54a9b7841513dc4ad0942309e80af60feeb09047a54ae257436b06880e0a55",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "nominal",
+      "policy": "bdf",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/nominal_bdf/checkpoint.json",
+      "checkpoint_sha256": "3088f8657402696694ea826d8b5caec9d7b9bd56fa3d4adb4021507221ab0e80",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "heater_step",
+      "policy": "coarse",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/heater_step_coarse/checkpoint.json",
+      "checkpoint_sha256": "de7ee9c682ba4be929166000ab99d6c4a8cffc062529654aa267f7fb49463b94",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "heater_step",
+      "policy": "medium",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/heater_step_medium/checkpoint.json",
+      "checkpoint_sha256": "608d609d3fa01a9fb998d37443073b8a058fd7dc5314bcbe96dbdfb67737d984",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "heater_step",
+      "policy": "fine",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/heater_step_fine/checkpoint.json",
+      "checkpoint_sha256": "857146dc5e554c7128507fe2e189ff7233efbfea918d521354a3d95e4ba95f17",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "heater_step",
+      "policy": "bdf",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/heater_step_bdf/checkpoint.json",
+      "checkpoint_sha256": "7b8def79b054ea525a00790f9818ab88b2c93358bc3d2e927a40328fcbc206f9",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "load_rejection",
+      "policy": "coarse",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/load_rejection_coarse/checkpoint.json",
+      "checkpoint_sha256": "0d97c569de8cdf394a8a1b096f7f72c43a9e94971f45968948ae35dd866aebe5",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "load_rejection",
+      "policy": "medium",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/load_rejection_medium/checkpoint.json",
+      "checkpoint_sha256": "681c0640924584eb803725997827069883b3f9b4b4ba145eb037dc98d35455ee",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "load_rejection",
+      "policy": "fine",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/load_rejection_fine/checkpoint.json",
+      "checkpoint_sha256": "b896614d7a19b305e1126aa806c0429d18392986288a0644c3113713aca09ffe",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "sink_warming",
+      "policy": "coarse",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/sink_warming_coarse/checkpoint.json",
+      "checkpoint_sha256": "5d5e6fd66f676ead50ed732356161c8509bc692a78a12b3b729dfb1c60300d53",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "sink_warming",
+      "policy": "medium",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/sink_warming_medium/checkpoint.json",
+      "checkpoint_sha256": "41a195c027d458fa645a8089dae6d52b1911344b97129b1cafd54215a43c4289",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "sink_warming",
+      "policy": "fine",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/sink_warming_fine/checkpoint.json",
+      "checkpoint_sha256": "f2781dba34385cc32e42a6e465290f3e6feb810d07f03dac7f7f523a0176e173",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "feed_loss",
+      "policy": "coarse",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/feed_loss_coarse/checkpoint.json",
+      "checkpoint_sha256": "5a5bd52e6e7979fa8b9eaa1967fea8f9f85acb49783eec82194fe086b8a07892",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "feed_loss",
+      "policy": "medium",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/feed_loss_medium/checkpoint.json",
+      "checkpoint_sha256": "306538c90e8b96411179061d4525626724105d22146f83ff340e0bd95568d5ec",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "feed_loss",
+      "policy": "fine",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/feed_loss_fine/checkpoint.json",
+      "checkpoint_sha256": "be2aa2082fe48255e23d95594823e66ac5c5f5bc7095b8d9e42833bf8f8a00f0",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "valve_reduction",
+      "policy": "coarse",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/valve_reduction_coarse/checkpoint.json",
+      "checkpoint_sha256": "280f29a9fb16b8764152d5bf638508f5279892497bd9e1940b132dfca01741b8",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "valve_reduction",
+      "policy": "medium",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/valve_reduction_medium/checkpoint.json",
+      "checkpoint_sha256": "c6c87b379c806b314bdc6ec3c706854de659a149af59e3c46cb1878abb5aab6a",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "valve_reduction",
+      "policy": "fine",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/valve_reduction_fine/checkpoint.json",
+      "checkpoint_sha256": "743405575a7e83c60459aa925570c3a7349d9cdda53d5295accd0aabbe73558e",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "speed_margin",
+      "policy": "coarse",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/speed_margin_coarse/checkpoint.json",
+      "checkpoint_sha256": "a27c018e701706ddd1d1fb8f85e40dd0e4e120f7250c7c7cebdc6ad3d045f8bd",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "speed_margin",
+      "policy": "medium",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/speed_margin_medium/checkpoint.json",
+      "checkpoint_sha256": "eb0a32414315f5ebfe6ea5f7053882bf51fd5af8fdc5f275f211c590f0dfcce7",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "speed_margin",
+      "policy": "fine",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/speed_margin_fine/checkpoint.json",
+      "checkpoint_sha256": "a8e2f2e44538be0a1327629003d69b71d661ded06e76d8019e988839d302b59b",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "phase_margin",
+      "policy": "coarse",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/phase_margin_coarse/checkpoint.json",
+      "checkpoint_sha256": "7cb2057e5ecd5136d8a880f160a8584ef4c3396249c1cbd04be1e1e3b5bdddde",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "phase_margin",
+      "policy": "medium",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/phase_margin_medium/checkpoint.json",
+      "checkpoint_sha256": "b9701ba84bb42808b12dbddd592f9937ce5cf247c672ce26f59f587ccdf45625",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "phase_margin",
+      "policy": "fine",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/phase_margin_fine/checkpoint.json",
+      "checkpoint_sha256": "4aded75252032ebee4d9ef4631984a0ef6a6b2b0ba9fdb27ecdff38ed8202108",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "pressure_margin",
+      "policy": "coarse",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/pressure_margin_coarse/checkpoint.json",
+      "checkpoint_sha256": "9162215e66431088e038965eb3e6bd45e5b87a9f111fb4ee305542d72fe3a60a",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "pressure_margin",
+      "policy": "medium",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/pressure_margin_medium/checkpoint.json",
+      "checkpoint_sha256": "12086109d380c0559060604fc375f2d6780ae1bf707bd0f0b9c3a494bcbfe755",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "pressure_margin",
+      "policy": "fine",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/pressure_margin_fine/checkpoint.json",
+      "checkpoint_sha256": "480c61a52b0af9d286372ebb5d0a0963a71cc5c43bdc3ba09e4a64b140a2531a",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "isolated",
+      "policy": "coarse",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/isolated_coarse/checkpoint.json",
+      "checkpoint_sha256": "56c5adf3cb62cf59fc5d0c411a31d35ad6c5b8569e678783c564144a6de09164",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "isolated",
+      "policy": "medium",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/isolated_medium/checkpoint.json",
+      "checkpoint_sha256": "56c5adf3cb62cf59fc5d0c411a31d35ad6c5b8569e678783c564144a6de09164",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "isolated",
+      "policy": "fine",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/isolated_fine/checkpoint.json",
+      "checkpoint_sha256": "56c5adf3cb62cf59fc5d0c411a31d35ad6c5b8569e678783c564144a6de09164",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "long_nominal",
+      "policy": "coarse",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/long_nominal_coarse/checkpoint.json",
+      "checkpoint_sha256": "f7349579122b53cc66c30003e31b3a060cc928ff1ff9df5e2e805abee5aa428b",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "long_nominal",
+      "policy": "medium",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/long_nominal_medium/checkpoint.json",
+      "checkpoint_sha256": "7fb85dc0747886357f5116b414fdcc736af4a834dd12b70c275288359c1dc1b8",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "long_nominal",
+      "policy": "fine",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/long_nominal_fine/checkpoint.json",
+      "checkpoint_sha256": "7c1b5a983118e4fc9ae4c82bd6838930e90420ea47e179ac74a8c22680ec52d5",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "long_heater",
+      "policy": "coarse",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/long_heater_coarse/checkpoint.json",
+      "checkpoint_sha256": "a5668f927d9857701825c93d82082d9ca1c6b574a8f5e1fdadb5ee6fad95dece",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "long_heater",
+      "policy": "medium",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/long_heater_medium/checkpoint.json",
+      "checkpoint_sha256": "94ff20ab8b31281ee605d28d78c787f5a986948c1ecab9d60a4b175c8298f0b3",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "long_heater",
+      "policy": "fine",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/long_heater_fine/checkpoint.json",
+      "checkpoint_sha256": "ca3750dd769097a94a6381ff98d4aa3599791e1b0186980a6e859fbb66c743e8",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "long_cycling",
+      "policy": "coarse",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/long_cycling_coarse/checkpoint.json",
+      "checkpoint_sha256": "63a8263f642a608e729f10759583fb94c8f2d2429ac75224ff44e7ff8800d349",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "long_cycling",
+      "policy": "medium",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/long_cycling_medium/checkpoint.json",
+      "checkpoint_sha256": "b0de08ced8d716cac7178b537cb5ac392a4e9c1f06d62d95dd6c0b5630c87344",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "long_cycling",
+      "policy": "fine",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/long_cycling_fine/checkpoint.json",
+      "checkpoint_sha256": "70df1858bd39f73bdeb66d4273fea4356767174625561cd68b9161d08a6711d8",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "long_feed_bias",
+      "policy": "coarse",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/long_feed_bias_coarse/checkpoint.json",
+      "checkpoint_sha256": "6a3693dcf784274e2c6ef2219638dd03240b682881df3fec72c3231671d11d0c",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "long_feed_bias",
+      "policy": "medium",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/long_feed_bias_medium/checkpoint.json",
+      "checkpoint_sha256": "6075b5d704f649ebcac77992ed83ab871f14879964732d05ae7f9a958346661f",
+      "snapshot_observation_and_rhs_equal": true
+    },
+    {
+      "name": "long_feed_bias",
+      "policy": "fine",
+      "checkpoint": "artifacts/ai05_steam_cycle_refinement_v4/long_feed_bias_fine/checkpoint.json",
+      "checkpoint_sha256": "7c1f0837e5c33d01f2f29e3d73a74e1cbdf18e12cb68f2ac7808e9653fc8d08b",
+      "snapshot_observation_and_rhs_equal": true
+    }
+  ],
+  "scope": "Pointwise default heat-port compatibility at 44 historical final states; not an automatic requalification of all trajectories or the new primary model",
+  "validated": false,
+  "plant_referenced": false
+}

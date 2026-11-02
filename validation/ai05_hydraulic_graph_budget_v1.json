@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "scope": "Connected steady constant-density resistor graphs; positive linear and nonnegative quadratic resistance, prescribed pressure gain and gravity; no dynamic or thermal qualification",
+  "maximum_nodes": 128,
+  "maximum_edges": 512,
+  "maximum_iterations": 100,
+  "maximum_backtracks": 50,
+  "line_search_sufficient_decrease": 0.1,
+  "maximum_scaled_condition": 1000000000000.0,
+  "maximum_mass_residual_kg_s": 1e-09,
+  "maximum_global_mass_residual_kg_s": 1e-09,
+  "maximum_pressure_residual_pa": 1e-06,
+  "maximum_power_residual_w": 1e-05,
+  "maximum_reference_pressure_error_pa": 1e-05,
+  "maximum_reference_flow_error_kg_s": 1e-08,
+  "validated": false,
+  "plant_referenced": false
+}

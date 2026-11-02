@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-01",
+  "package": "AI-05",
+  "status": "partial",
+  "task": "AI-05.06",
+  "task_status": "in_progress",
+  "scope": "Two-stream constant-property mixed-cell exchanger, finite wall storage and prescribed signed flows; not coupled hydraulics/turbine/generator qualification",
+  "source_sha256": "2bc50690ea9007f7d5f982922e2932dd41b527a2430f9c7af298bec38f0bdd00",
+  "baseline": "validation/ai05_exchanger_baseline_v1.json",
+  "evidence": [
+    "validation/ai05_exchanger_baseline_v1.json",
+    "validation/ai05_exchanger_installed_v1.json",
+    "validation/ai05_exchanger_budget_v1.json",
+    "validation/ai05_exchanger_audit_v1.json",
+    "docs/AI_05_TWO_STREAM_EXCHANGER_RU.md"
+  ],
+  "file_sha256": {
+    "validation/ai05_exchanger_baseline_v1.json": "bdce56826b809ac5104fc7f5be98c082b9a4d2a29ac2eee526709fb150209645",
+    "validation/ai05_exchanger_installed_v1.json": "1276b121f9655e3a9e34d1f179d87157d9a9f15c042c28bbf97af70c8c716a3a",
+    "validation/ai05_exchanger_budget_v1.json": "1900b8c491ee700497ebe28e77e0f748e730972676812f12326a5ff57167e8cb",
+    "validation/ai05_exchanger_audit_v1.json": "d77617de79b351bec3001b3c4b75948129b3450cf7ba79b6d87401d24afcab51",
+    "physics/thermal/two_stream_exchanger.py": "bbc752642bce0f7e5941a0fb5f506391d86977bc354136926d0682f13f79d736",
+    "sdk/exchanger_experiment.py": "c04687714752a2b42220c7661e69818ab629a85933c90e6c52bf8f6adb3ae83f",
+    "scenarios/ai05_exchanger_counterflow.json": "9dd7748774cdce065a316b81635f9e2dab7db2a5d2c5aedde6dd9bdc8c0c9bda",
+    "scripts/exchanger_references.py": "78923b155e5eb8979e2fa440d5f7d7b22f282f8b2bc1f8bcf9d68bf29c89f02f",
+    "scripts/verify_exchanger.py": "3a2fd85292187569ce6dfd598a55b6dcf661acff21a669a6af33e24da4cf8026",
+    "scripts/audit_exchanger.py": "bc456f1b347e67bce7dd5a245036e031da75f7d015a50b3eb161db80f1eceff9",
+    "tests/test_two_stream_exchanger.py": "18e5b449dee6d51c9ccce2e3d2fa882b1c00e7616a30d20d2d01cfcc6bb99bf0",
+    "tests/test_exchanger_evidence.py": "278a8fc3548566e6285a5a98ab2c08f6f65e2a9a2f7ffe81bb50167b486e04bd",
+    "scripts/verify_wheel.py": "42c45f89033972157009ffc6bd4fc23abe432a231d47e6024d67b15129361f83"
+  },
+  "verification": "artifacts/ai05_exchanger_verification_v2/verification.json",
+  "verification_sha256": "e419b2b0e53466c3f88742aa24c2fa4f8aa85616cea6c7d17bc12751a25d4057",
+  "numerical_acceptance": {
+    "case_families": 13,
+    "primary_integrations": 26,
+    "restart_extension_s": 1,
+    "temporal_subdivision": true,
+    "spatial_refinement_cells": [
+      2,
+      4,
+      8
+    ],
+    "spatial_error_ratios": [
+      1.8701538895600174,
+      1.929390838949531
+    ]
+  },
+  "additional_smoke": {
+    "cells": 32,
+    "energy_absolute_j": 2.3375875302162444e-10
+  },
+  "tasks_accepted": [
+    "AI-05.01",
+    "AI-05.02",
+    "AI-05.04"
+  ],
+  "tasks_in_progress": [
+    "AI-05.03",
+    "AI-05.05",
+    "AI-05.06",
+    "AI-05.08"
+  ],
+  "remaining": [
+    "Hydraulic coupling and general network",
+    "Turbine/shaft/generator and integrated heat rejection",
+    "Physical valve flap/impact and steam pressurizer",
+    "External experimental and plant qualification"
+  ],
+  "prior_evidence_policy": "Historical qualifications retain their original source fingerprints and frozen bundles; no automatic admission on the current runtime",
+  "artifact_storage": "Raw bundles, logs, wheel and sdist are local ignored files. Transfer them separately for independent replay; JSON summaries alone do not contain all evidence.",
+  "validated": false,
+  "plant_referenced": false
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "engine": "two-stream-wall-exchanger",
+  "name": "ai05_exchanger_counterflow",
+  "model": {
+    "cells": 3,
+    "a_cp_j_kg_k": 4200,
+    "b_cp_j_kg_k": 3900,
+    "a_cell_mass_kg": [2, 2, 2],
+    "b_cell_mass_kg": [3, 3, 3],
+    "wall_capacity_j_k": [5000, 5000, 5000],
+    "a_wall_ua_w_k": [300, 300, 300],
+    "b_wall_ua_w_k": [400, 400, 400],
+    "ambient_ua_w_k": [0, 0, 0],
+    "ambient_temperature_k": 295,
+    "wall_power_w": [0, 0, 0],
+    "energy_tolerance_j": 0.0001
+  },
+  "controls": {
+    "a_mass_flow_kg_s": 0.4,
+    "b_mass_flow_kg_s": -0.3,
+    "a_inlet_temperature_k": 370,
+    "b_inlet_temperature_k": 290
+  },
+  "initialization": {
+    "mode": "given",
+    "temperature_k": {"a": [330, 330, 330], "b": [300, 300, 300], "wall": [315, 315, 315]}
+  },
+  "duration_s": 120,
+  "step_s": 5,
+  "timeline": [
+    {"t": 23.7, "controls": {"a_mass_flow_kg_s": 0, "b_mass_flow_kg_s": -0.3, "a_inlet_temperature_k": 370, "b_inlet_temperature_k": 290}},
+    {"t": 47.2, "controls": {"a_mass_flow_kg_s": -0.4, "b_mass_flow_kg_s": 0.3, "a_inlet_temperature_k": 365, "b_inlet_temperature_k": 295}},
+    {"t": 90, "controls": {"a_mass_flow_kg_s": 0.4, "b_mass_flow_kg_s": -0.3, "a_inlet_temperature_k": 370, "b_inlet_temperature_k": 290}}
+  ]
+}

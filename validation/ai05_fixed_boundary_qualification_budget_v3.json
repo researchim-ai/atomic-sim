@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "steady_budget_file": "validation/ai05_fixed_boundary_steady_budget_v3.json",
+  "base_budget_file": "validation/ai05_primary_steam_budget_v3.json",
+  "horizon_s": 120,
+  "policies": {
+    "radau": {
+      "method": "Radau",
+      "rtol": 1e-10,
+      "atol_scale": 0.01,
+      "max_step_s": 0.02
+    },
+    "bdf": {
+      "method": "BDF",
+      "rtol": 1e-10,
+      "atol_scale": 0.01,
+      "max_step_s": 0.02
+    }
+  },
+  "cases": [
+    {
+      "name": "forward",
+      "flow": 100,
+      "opening": 1
+    },
+    {
+      "name": "reverse",
+      "flow": -100,
+      "opening": 1
+    },
+    {
+      "name": "low_flow",
+      "flow": 10,
+      "opening": 1
+    },
+    {
+      "name": "low_reverse",
+      "flow": -10,
+      "opening": 1
+    },
+    {
+      "name": "partial_admission",
+      "flow": 100,
+      "opening": 0.6
+    },
+    {
+      "name": "partial_reverse",
+      "flow": -100,
+      "opening": 0.6
+    },
+    {
+      "name": "ambient_loss",
+      "flow": 100,
+      "opening": 1,
+      "ambient": true
+    },
+    {
+      "name": "split_heat",
+      "flow": 100,
+      "opening": 1,
+      "split_heat_w": 20000
+    },
+    {
+      "name": "split_reverse",
+      "flow": -100,
+      "opening": 1,
+      "split_heat_w": 20000
+    },
+    {
+      "name": "inventory_partition",
+      "flow": 100,
+      "opening": 1,
+      "quality_anchor": 0.12
+    },
+    {
+      "name": "higher_temperature_floor",
+      "flow": 100,
+      "opening": 1,
+      "primary_temperature_floor_k": 550
+    }
+  ],
+  "negative_cases": [
+    "heater_incompatible",
+    "feed_pressure",
+    "cooling",
+    "unloaded_rotor",
+    "rotor_band",
+    "inventory_mass",
+    "inventory_phase",
+    "thermal_rank",
+    "pressure_endpoint",
+    "phase_boundary",
+    "shaft_boundary",
+    "primary_subcooling_boundary"
+  ],
+  "validated": false,
+  "plant_referenced": false,
+  "revision_reason": "Admit valid higher-temperature parameter domain; reject all active domain boundaries. Prior physical trajectory/error thresholds retained."
+}

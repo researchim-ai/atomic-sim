@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "passed": true,
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "signature": {
+    "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+    "drivers": {
+      "scripts/transient_thermal_graph.py": "7e62577d170bb16b607562cc12fe3b1c993b240588ee509bfef55e300139cbc0",
+      "scripts/solve_thermal_graph.py": "a83be295f1d6d05a82290584d65d0dbc5bc47009a3b0674bb1a10102d10d4f6a",
+      "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928"
+    },
+    "budgets": {
+      "validation/ai05_transient_graph_budget_v1.json": "9efccdc9bf39507a13d24336d0e5b2d9e0a82b16f9aaa9ac4914815692dbb109",
+      "validation/ai05_thermal_graph_budget_v1.json": "bc5d1cba46ec4804359891046de0da5db9eff71f62ad0689bcd85cdf98a80f4c",
+      "validation/ai05_hydraulic_graph_budget_v1.json": "59acc80c07e047a3b3a63607e6eeaf5a9936cbc359f880aed5b82d34c6386d50"
+    },
+    "python": "3.12.9",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2",
+    "qualification_drivers": {
+      "scripts/transient_graph_references.py": "5e337f331e452743d4ad893a9c26fb38ba274a90ecd24acb4ca226d378fc5ca4",
+      "scripts/qualify_transient_graph.py": "ce7c65ba0246d3f744f77406cc6c350b3dc944170e17bd98c7efd92301f3c8a0",
+      "scripts/hydraulic_graph_references.py": "7552f64999bd352127f799893f1a30eeee6e650c62302f1619f47434141dc726",
+      "scripts/thermal_graph_references.py": "dea3e83695c58bbfe61f329f2bd357751ad9463513b2f8de4f3a47fb05e1e011"
+    }
+  },
+  "test_command": "python -m pytest -m 'not external_integration' -q",
+  "tests_passed": 1501,
+  "tests_deselected": 1,
+  "new_tests": 39,
+  "focused_tests_passed": 39,
+  "full_suite_seconds": 364.52,
+  "warnings_observed": 0,
+  "warning_policy": "No suppression or fix of historical intermittent SciPy BDF warning claimed; full log retains current observations",
+  "ruff": "Passed; pre-existing top-level configuration deprecation warning",
+  "black": "Not installed locally; not executed",
+  "remote_ci": "Not executed; workflow YAML and Python heredocs parsed locally",
+  "file_sha256": {
+    "scripts/transient_thermal_graph.py": "7e62577d170bb16b607562cc12fe3b1c993b240588ee509bfef55e300139cbc0",
+    "scripts/solve_thermal_graph.py": "a83be295f1d6d05a82290584d65d0dbc5bc47009a3b0674bb1a10102d10d4f6a",
+    "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928",
+    "scripts/transient_graph_references.py": "5e337f331e452743d4ad893a9c26fb38ba274a90ecd24acb4ca226d378fc5ca4",
+    "scripts/qualify_transient_graph.py": "ce7c65ba0246d3f744f77406cc6c350b3dc944170e17bd98c7efd92301f3c8a0",
+    "scripts/hydraulic_graph_references.py": "7552f64999bd352127f799893f1a30eeee6e650c62302f1619f47434141dc726",
+    "scripts/thermal_graph_references.py": "dea3e83695c58bbfe61f329f2bd357751ad9463513b2f8de4f3a47fb05e1e011",
+    "validation/ai05_transient_graph_budget_v1.json": "9efccdc9bf39507a13d24336d0e5b2d9e0a82b16f9aaa9ac4914815692dbb109",
+    "validation/ai05_thermal_graph_budget_v1.json": "bc5d1cba46ec4804359891046de0da5db9eff71f62ad0689bcd85cdf98a80f4c",
+    "validation/ai05_hydraulic_graph_budget_v1.json": "59acc80c07e047a3b3a63607e6eeaf5a9936cbc359f880aed5b82d34c6386d50",
+    "tests/test_transient_thermal_graph.py": "24b7324f5f19dfeae0b282c81d4894d0ae41501970d0720d814578bc2670844a",
+    "tests/test_transient_graph_evidence.py": "c1d1ab16c401e41786a4058af9598e9c3f8a8a4a1917d170b9ebf8deaeb238b0",
+    ".github/workflows/ci.yml": "fe9c5d5597f8c2e1dc078cc660db06a5072b7a99eaaa4ae22b0f30e945fa3b49",
+    "docs/AI_05_TRANSIENT_GRAPH_RU.md": "a5a9eae0e80792fa888105cb6b41dc793638c1f7b140a8cf2b1811fb7fee2e67",
+    "examples/transient_thermal_graph.json": "40871ce562ce88c67fdce5a47bab477e4be9930f598689ffa82e62484cfe99b0",
+    "artifacts/ai05_transient_graph_tests_v5.log": "b28eaad49f7dc57b888dff8ea55abf6eb7e35d9429319022ad0ed62218737114",
+    "artifacts/ai05_transient_graph_full_suite_v2.log": "3f37d9068f057ac4712f7f48a34bf2ad79ef174e8db74779e723ffa11d50633d",
+    "artifacts/ai05_transient_graph_ruff_v3.log": "592055705cfa677b0042efbb466b52a57d7ca5e8c5f68076cc4fb30b8b823949",
+    "artifacts/ai05_transient_graph_portable_tests_v2.log": "883f4195baa3158c1c0c19caa64a274ff92f34c7aa7636eea7c9067f8a62610a"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

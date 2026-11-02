@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-01",
+  "passed": true,
+  "method": "Recovered exact original smoke-driver bytes by removing later additive blocks; each SHA256 equals original installed proof. Unchanged verification/reference/audit files copied only after original delivery-hash checks.",
+  "releases": [
+    {
+      "release": "ai05_exchanger",
+      "passed": true,
+      "exact_original_hashes": true,
+      "files": {
+        "scripts/verify_wheel.py": {
+          "path": "artifacts/ai05_exchanger_release_v1/frozen_scripts/verify_wheel.py",
+          "sha256": "42c45f89033972157009ffc6bd4fc23abe432a231d47e6024d67b15129361f83"
+        },
+        "scripts/verify_exchanger.py": {
+          "path": "artifacts/ai05_exchanger_release_v1/frozen_scripts/verify_exchanger.py",
+          "sha256": "3a2fd85292187569ce6dfd598a55b6dcf661acff21a669a6af33e24da4cf8026"
+        },
+        "scripts/audit_exchanger.py": {
+          "path": "artifacts/ai05_exchanger_release_v1/frozen_scripts/audit_exchanger.py",
+          "sha256": "bc456f1b347e67bce7dd5a245036e031da75f7d015a50b3eb161db80f1eceff9"
+        },
+        "scripts/exchanger_references.py": {
+          "path": "artifacts/ai05_exchanger_release_v1/frozen_scripts/exchanger_references.py",
+          "sha256": "78923b155e5eb8979e2fa440d5f7d7b22f282f8b2bc1f8bcf9d68bf29c89f02f"
+        }
+      }
+    },
+    {
+      "release": "ai05_coupled_exchanger",
+      "passed": true,
+      "exact_original_hashes": true,
+      "files": {
+        "scripts/verify_wheel.py": {
+          "path": "artifacts/ai05_coupled_exchanger_release_v1/frozen_scripts/verify_wheel.py",
+          "sha256": "cac3fb1fc74ec22fe35ebe3ccfe8e7a4a47559381f83341487d551c47af0ed75"
+        },
+        "scripts/verify_coupled_exchanger.py": {
+          "path": "artifacts/ai05_coupled_exchanger_release_v1/frozen_scripts/verify_coupled_exchanger.py",
+          "sha256": "652132f019b8e1039ad7cb48f1c3b4b997c3819f63ddf3ee749a064f0d45b8fe"
+        },
+        "scripts/audit_coupled_exchanger.py": {
+          "path": "artifacts/ai05_coupled_exchanger_release_v1/frozen_scripts/audit_coupled_exchanger.py",
+          "sha256": "50183314aa74cddfe826cbf31657e010805366bb432fad122ce9daf171795dd0"
+        },
+        "scripts/coupled_exchanger_references.py": {
+          "path": "artifacts/ai05_coupled_exchanger_release_v1/frozen_scripts/coupled_exchanger_references.py",
+          "sha256": "add176fbd6a399c8fcf0709c4204cf127100de579436ab07e62e29f1ee7c7989"
+        }
+      }
+    }
+  ],
+  "original_evidence_modified": false,
+  "physical_qualification_rebound": false,
+  "storage": "Local ignored frozen_scripts beside original releases; transfer these with runtime archives and raw bundles."
+}

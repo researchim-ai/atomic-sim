@@ -48,7 +48,95 @@ jobs:
       run: |
         pip install ruff black
         ruff check reactor/ sdk/ scenarios/ agent_envs/ --ignore E501
+        ruff check physics/thermal/two_stream_exchanger.py scripts/exchanger_references.py scripts/verify_exchanger.py scripts/audit_exchanger.py tests/test_two_stream_exchanger.py tests/test_exchanger_evidence.py
+        ruff check physics/thermal/coupled_pump_exchanger.py scripts/coupled_exchanger_references.py scripts/verify_coupled_exchanger.py scripts/audit_coupled_exchanger.py tests/test_coupled_pump_exchanger.py tests/test_coupled_exchanger_evidence.py
+        ruff check physics/power/ scripts/turbine_references.py scripts/verify_turbine.py scripts/audit_turbine.py tests/test_steam_turbine_train.py tests/test_turbine_evidence.py
+        ruff check scripts/steam_cycle_references.py scripts/verify_steam_cycle.py scripts/audit_steam_cycle.py tests/test_steam_cycle.py tests/test_steam_cycle_evidence.py
+        ruff check core/solver_trace.py scripts/qualify_steam_cycle.py scripts/audit_steam_refinement.py tests/test_solver_trace.py tests/test_steam_refinement.py
+        ruff check core/bounded_step.py tests/test_primary_steam.py tests/test_steam_heat_port.py
+        ruff check scripts/primary_steam_references.py scripts/verify_primary_steam.py scripts/qualify_primary_steam.py scripts/audit_primary_steam.py tests/test_primary_steam_evidence.py
+        ruff check scripts/design_primary_steam.py scripts/qualify_primary_steam_design.py tests/test_primary_steam_design.py
+        ruff check scripts/verify_primary_steam_reference.py tests/test_primary_steam_reference_precision.py
+        ruff check tests/test_primary_steam_precision.py
+        ruff check scripts/evidence_bundle.py scripts/replay_primary_steam_bundle.py scripts/primary_steam_release.py tests/test_evidence_bundle.py tests/test_evidence_replay.py tests/test_primary_steam_release.py
+        ruff check scripts/solve_fixed_primary_steam.py scripts/qualify_fixed_primary_steam.py tests/test_fixed_primary_steam.py tests/test_fixed_primary_steam_evidence.py
+        ruff check scripts/solve_hydraulic_graph.py scripts/hydraulic_graph_references.py scripts/qualify_hydraulic_graph.py tests/test_hydraulic_graph.py tests/test_hydraulic_graph_evidence.py
+        ruff check scripts/solve_thermal_graph.py scripts/thermal_graph_references.py scripts/qualify_thermal_graph.py tests/test_thermal_graph.py tests/test_thermal_graph_evidence.py
+        ruff check scripts/transient_thermal_graph.py scripts/transient_graph_references.py scripts/qualify_transient_graph.py tests/test_transient_thermal_graph.py tests/test_transient_graph_evidence.py
+        ruff check scripts/solve_resistance_feedback.py scripts/resistance_feedback_references.py scripts/qualify_resistance_feedback.py tests/test_resistance_feedback.py tests/test_resistance_feedback_evidence.py
+        ruff check scripts/nonlinear_thermal_graph.py scripts/nonlinear_graph_references.py scripts/qualify_nonlinear_graph.py tests/test_nonlinear_thermal_graph.py tests/test_nonlinear_graph_evidence.py
         black --check reactor/ tests/ --line-length 100
+
+    - name: Verify branched steady hydraulic graphs
+      run: |
+        python -m scripts.qualify_hydraulic_graph --output artifacts/ci_hydraulic_graph
+        python -m scripts.qualify_hydraulic_graph --audit artifacts/ci_hydraulic_graph --output artifacts/ci_hydraulic_graph_audit.json
+
+    - name: Verify conservative enthalpy mixing on hydraulic graphs
+      run: |
+        python -m scripts.qualify_thermal_graph --output artifacts/ci_thermal_graph
+        python -m scripts.qualify_thermal_graph --audit artifacts/ci_thermal_graph --output artifacts/ci_thermal_graph_audit.json
+
+    - name: Verify finite thermal inventories and transactional restart
+      run: |
+        python -m scripts.qualify_transient_graph --output artifacts/ci_transient_graph
+        python -m scripts.qualify_transient_graph --audit artifacts/ci_transient_graph --output artifacts/ci_transient_graph_audit.json
+
+    - name: Verify stationary temperature and resistance feedback
+      run: |
+        python -m scripts.qualify_resistance_feedback --output artifacts/ci_resistance_feedback
+        python -m scripts.qualify_resistance_feedback --audit artifacts/ci_resistance_feedback --output artifacts/ci_resistance_feedback_audit.json
+
+    - name: Verify nonlinear transient resistance feedback
+      run: |
+        python -m scripts.qualify_nonlinear_graph --output artifacts/ci_nonlinear_graph
+        python -m scripts.qualify_nonlinear_graph --audit artifacts/ci_nonlinear_graph --output artifacts/ci_nonlinear_graph_audit.json
+
+    - name: Verify two-stream exchanger against independent references
+      run: |
+        python -m scripts.verify_exchanger --output artifacts/ci_exchanger_verification
+        python -m scripts.audit_exchanger artifacts/ci_exchanger_verification --output artifacts/ci_exchanger_audit.json
+
+    - name: Verify monolithic pump-cycle exchanger assembly
+      run: |
+        python -m scripts.verify_coupled_exchanger --output artifacts/ci_coupled_exchanger_verification
+        python -m scripts.audit_coupled_exchanger artifacts/ci_coupled_exchanger_verification --output artifacts/ci_coupled_exchanger_audit.json
+
+    - name: Verify steam turbine, generator and physical termination
+      run: |
+        python -m scripts.verify_turbine --output artifacts/ci_turbine_verification
+        python -m scripts.audit_turbine artifacts/ci_turbine_verification --output artifacts/ci_turbine_audit.json
+
+    - name: Verify dynamic steam inventories and coupled power cycle
+      run: |
+        python -m scripts.verify_steam_cycle --output artifacts/ci_steam_cycle_verification
+        python -m scripts.audit_steam_cycle artifacts/ci_steam_cycle_verification --output artifacts/ci_steam_cycle_audit.json
+
+    - name: Qualify three time-step levels and long steam-cycle modes
+      run: |
+        python -m scripts.qualify_steam_cycle --output artifacts/ci_steam_refinement
+        python -m scripts.audit_steam_refinement artifacts/ci_steam_refinement --output artifacts/ci_steam_refinement_audit.json
+
+    - name: Exercise monolithic primary-loop and steam-cycle SDK
+      run: |
+        python -m pytest tests/test_primary_steam.py tests/test_steam_heat_port.py -q
+        python -m sdk.primary_steam_experiment scenarios/ai05_primary_steam.json --output artifacts/ci_primary_steam
+
+    - name: Qualify monolithic primary/steam transients independently
+      run: |
+        python -m scripts.qualify_primary_steam --output artifacts/ci_primary_steam_qualification
+        python -m scripts.audit_primary_steam artifacts/ci_primary_steam_qualification --output artifacts/ci_primary_steam_audit.json
+        python -m scripts.verify_primary_steam_reference artifacts/ci_primary_steam_qualification/motor_reverse_fine --output artifacts/ci_primary_steam_reference_convergence.json
+
+    - name: Qualify joint steady initialization and signed-flow stationarity
+      run: |
+        python -m scripts.qualify_primary_steam_design --output artifacts/ci_primary_steam_design
+        python -m scripts.qualify_primary_steam_design --audit artifacts/ci_primary_steam_design --output artifacts/ci_primary_steam_design_audit.json
+
+    - name: Qualify fixed-command initialization and incompatible constraints
+      run: |
+        python -m scripts.qualify_fixed_primary_steam --output artifacts/ci_fixed_primary_steam
+        python -m scripts.qualify_fixed_primary_steam --audit artifacts/ci_fixed_primary_steam --output artifacts/ci_fixed_primary_steam_audit.json
 
     - name: Build wheel and import the shared session
       run: |
@@ -60,6 +148,43 @@ jobs:
     - name: Exercise installed experiment CLI outside checkout
       run: |
         python scripts/verify_wheel.py dist/atomic_sim-*.whl
+
+    - name: Bundle and replay steady evidence without checkout
+      run: |
+        python - <<'PY'
+        import json
+        import os
+        import shutil
+        import subprocess
+        import sys
+        import tempfile
+        from pathlib import Path
+        from scripts.evidence_bundle import create_bundle, extract_bundle
+        from scripts.primary_steam_release import selection
+        root = Path.cwd()
+        archive = root / "artifacts/ci_primary_steady_release.tar.gz"
+        selected = selection(root, "dist", steady="artifacts/ci_primary_steam_design",
+                             steady_audit="artifacts/ci_primary_steam_design_audit.json",
+                             fixed="artifacts/ci_fixed_primary_steam",
+                             fixed_audit="artifacts/ci_fixed_primary_steam_audit.json")
+        result = create_bundle(selected, root, archive)
+        (root / "artifacts/ci_primary_bundle.json").write_text(json.dumps(result, indent=2))
+        clean = dict(os.environ)
+        clean.pop("PYTHONPATH", None)
+        with tempfile.TemporaryDirectory(prefix="atomic-portable-replay-") as folder:
+            work = Path(folder)
+            transferred = work / "candidate.tar.gz"
+            shutil.copyfile(archive, transferred)
+            tools = work / "tools"
+            extract_bundle(transferred, tools, result["manifest_sha256"])
+            subprocess.run([sys.executable, "-m", "scripts.replay_primary_steam_bundle",
+                            str(transferred), "--output", str(work / "replay"),
+                            "--manifest-sha256", result["manifest_sha256"],
+                            "--profile", "steady", "--profile", "fixed"],
+                           cwd=tools, env=clean, check=True)
+            shutil.copyfile(work / "replay/replay.json",
+                            root / "artifacts/ci_primary_portable_replay.json")
+        PY
 
   external-integration:
     if: github.event_name == 'workflow_dispatch' && inputs.run_external

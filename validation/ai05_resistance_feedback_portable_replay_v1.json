@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "archive_sha256": "962909d0d7efc8abf2291ac88e3b3985b3ddacc9fe5b2ea2440877f5532ad0e2",
+  "manifest_sha256": "de3691b37a246ede387b706bb4a9a1ca02cf3cb6169b1b900fad68601cdddba3",
+  "archive": "artifacts/ai05_resistance_feedback_release_v1.tar.gz",
+  "cases": 20,
+  "maximum_nodes": 32,
+  "archived_audit_identical": true,
+  "byte_identical_archive_rebuild": true,
+  "checkout_pythonpath_removed": true,
+  "installed_wheel_sha256": "a25ec260331cf57bef3f6c620bf1ef141f604b1d85e17787a1d4eee7e2f18201",
+  "focused_tests_replayed": 37,
+  "example_cli_passed": true,
+  "scope": "Archived steady feedback engineering scripts execute with freshly installed offline no-deps SDK wheel outside checkout; inherited Python/numpy/scipy/pytest dependencies",
+  "publisher_authenticated": false,
+  "global_uniqueness_proven": false,
+  "validated": false,
+  "plant_referenced": false
+}

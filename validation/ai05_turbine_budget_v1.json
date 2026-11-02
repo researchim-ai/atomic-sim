@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "scope": "Fixed-pressure saturated inlet, specified expansion efficiency and positive-speed generator/shaft; fixed before formal runs",
+  "omega_absolute_rad_s": 0.0000001,
+  "energy_absolute_j": 0.001,
+  "integral_absolute_j": 0.001,
+  "fluid_power_absolute_w": 0.00001,
+  "boundary_time_absolute_s": 0.0000001,
+  "restart_omega_absolute_rad_s": 0.0000001,
+  "temporal_omega_absolute_rad_s": 0.0000001,
+  "validated": false,
+  "plant_referenced": false
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "passed": true,
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "signature": {
+    "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+    "drivers": {
+      "scripts/solve_thermal_graph.py": "a83be295f1d6d05a82290584d65d0dbc5bc47009a3b0674bb1a10102d10d4f6a",
+      "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928",
+      "scripts/thermal_graph_references.py": "dea3e83695c58bbfe61f329f2bd357751ad9463513b2f8de4f3a47fb05e1e011",
+      "scripts/hydraulic_graph_references.py": "7552f64999bd352127f799893f1a30eeee6e650c62302f1619f47434141dc726",
+      "scripts/qualify_thermal_graph.py": "31ecb77185d31be7975ed464acf8455c81aff904e4f28acab9dde7af399edf4c"
+    },
+    "budgets": {
+      "validation/ai05_thermal_graph_budget_v1.json": "bc5d1cba46ec4804359891046de0da5db9eff71f62ad0689bcd85cdf98a80f4c",
+      "validation/ai05_hydraulic_graph_budget_v1.json": "59acc80c07e047a3b3a63607e6eeaf5a9936cbc359f880aed5b82d34c6386d50"
+    },
+    "python": "3.12.9",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2"
+  },
+  "test_command": "python -m pytest -m 'not external_integration' -q",
+  "tests_passed": 1462,
+  "tests_deselected": 1,
+  "new_tests": 42,
+  "focused_tests_passed": 42,
+  "full_suite_seconds": 324.89,
+  "warnings_observed": 0,
+  "warning_note": "No warning was suppressed. Historical intermittent SciPy BDF warning remains unresolved; current observations are preserved in the full log.",
+  "initial_rejected_run": "validation/ai05_thermal_graph_source_drift_v1.json",
+  "ruff": "Passed; existing top-level config deprecation warning",
+  "black": "Not installed locally; not executed",
+  "remote_ci": "Not executed; YAML and Python heredocs parsed locally",
+  "file_sha256": {
+    "scripts/solve_thermal_graph.py": "a83be295f1d6d05a82290584d65d0dbc5bc47009a3b0674bb1a10102d10d4f6a",
+    "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928",
+    "scripts/thermal_graph_references.py": "dea3e83695c58bbfe61f329f2bd357751ad9463513b2f8de4f3a47fb05e1e011",
+    "scripts/hydraulic_graph_references.py": "7552f64999bd352127f799893f1a30eeee6e650c62302f1619f47434141dc726",
+    "scripts/qualify_thermal_graph.py": "31ecb77185d31be7975ed464acf8455c81aff904e4f28acab9dde7af399edf4c",
+    "validation/ai05_thermal_graph_budget_v1.json": "bc5d1cba46ec4804359891046de0da5db9eff71f62ad0689bcd85cdf98a80f4c",
+    "validation/ai05_hydraulic_graph_budget_v1.json": "59acc80c07e047a3b3a63607e6eeaf5a9936cbc359f880aed5b82d34c6386d50",
+    "tests/test_thermal_graph.py": "90433782e7381af81133e5b579aa23ac96010af6af7807107769c1d66f768f80",
+    "tests/test_thermal_graph_evidence.py": "4e3d8a280808f2275890353e45b8a4067857020fa703f922a3c6c168f5bde621",
+    ".github/workflows/ci.yml": "221e10026b7af508709949d988aec8604f05f39ac59326b88a5f08be4597aa80",
+    "docs/AI_05_THERMAL_GRAPH_RU.md": "045c81dd66c46904df7f903e46fae7affb999bcecfa710ad58fff4d91d8921ce",
+    "examples/thermal_graph_steady.json": "749468fed3733036ac554e42c99bf02c4dbaf87302c287dffeff2ad48882c38a",
+    "artifacts/ai05_thermal_graph_full_suite_v2.log": "4eae4be9e8f261775ad9fbd535e8e378b0b433951354272e1348703f38187234",
+    "artifacts/ai05_thermal_graph_tests_v4.log": "165d5a4c15adf9e1807ae1f64c0c02ef2ec7f06073dd047ca0bd4b796ce99a6d",
+    "artifacts/ai05_thermal_graph_ruff_v2.log": "592055705cfa677b0042efbb466b52a57d7ca5e8c5f68076cc4fb30b8b823949",
+    "artifacts/ai05_thermal_graph_portable_tests_v2.log": "ae27f05eb7e777923db2bb44da5cdbf07a6ac5f1554c467266e5f96febfef16a"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

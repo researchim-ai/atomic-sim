@@ -1,0 +1,91 @@
+{
+  "format": "atomic-thermal-hydraulic-steady",
+  "schema_version": 1,
+  "hydraulic": {
+    "format": "atomic-hydraulic-steady",
+    "schema_version": 1,
+    "density_kg_m3": 1000,
+    "gravity_m_s2": 9.81,
+    "nodes": [
+      {
+        "id": "hot",
+        "elevation_m": 0,
+        "pressure_pa": 201200
+      },
+      {
+        "id": "cold",
+        "elevation_m": 0,
+        "pressure_pa": 201200
+      },
+      {
+        "id": "mix",
+        "elevation_m": 0,
+        "pressure_pa": 200000
+      },
+      {
+        "id": "outlet",
+        "elevation_m": 0,
+        "pressure_pa": 198800
+      }
+    ],
+    "edges": [
+      {
+        "id": "e0",
+        "from": "hot",
+        "to": "mix",
+        "linear_pa_s_kg": 1200,
+        "quadratic_pa_s2_kg2": 0,
+        "pressure_gain_pa": 0
+      },
+      {
+        "id": "e1",
+        "from": "cold",
+        "to": "mix",
+        "linear_pa_s_kg": 600,
+        "quadratic_pa_s2_kg2": 0,
+        "pressure_gain_pa": 0
+      },
+      {
+        "id": "e2",
+        "from": "mix",
+        "to": "outlet",
+        "linear_pa_s_kg": 400,
+        "quadratic_pa_s2_kg2": 0,
+        "pressure_gain_pa": 0
+      }
+    ]
+  },
+  "thermal": {
+    "medium": "mixing-liquid",
+    "heat_capacity_j_kg_k": 1000,
+    "enthalpy_reference_temperature_k": 300,
+    "min_temperature_k": 250,
+    "max_temperature_k": 500,
+    "nodes": {
+      "hot": {
+        "heat_power_w": 0,
+        "ambient_ua_w_k": 0,
+        "ambient_temperature_k": 300,
+        "supply_temperature_k": 400
+      },
+      "cold": {
+        "heat_power_w": 0,
+        "ambient_ua_w_k": 0,
+        "ambient_temperature_k": 300,
+        "supply_temperature_k": 300
+      },
+      "mix": {
+        "heat_power_w": 0,
+        "ambient_ua_w_k": 0,
+        "ambient_temperature_k": 300,
+        "supply_temperature_k": 300
+      },
+      "outlet": {
+        "heat_power_w": 0,
+        "ambient_ua_w_k": 0,
+        "ambient_temperature_k": 300,
+        "supply_temperature_k": 300
+      }
+    }
+  }
+}

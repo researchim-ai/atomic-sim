@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "status": "accepted_within_declared_scope",
+  "task_ids": [
+    "AI-05.03",
+    "AI-05.07"
+  ],
+  "task_status": "in_progress",
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "signature": {
+    "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+    "drivers": {
+      "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928",
+      "scripts/hydraulic_graph_references.py": "7552f64999bd352127f799893f1a30eeee6e650c62302f1619f47434141dc726",
+      "scripts/qualify_hydraulic_graph.py": "2c5464b99dd2879582f805d210a0b9f1f0b45531b577d1e133b119a600bc0a15"
+    },
+    "budget_sha256": "59acc80c07e047a3b3a63607e6eeaf5a9936cbc359f880aed5b82d34c6386d50",
+    "python": "3.12.9",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2"
+  },
+  "scope": "Separate engineering steady solver for connected constant-density resistor graphs, positive linear and nonnegative quadratic losses, pressure and injection boundaries, prescribed oriented pressure gains, conservative hydrostatics",
+  "cases": 18,
+  "maximum_nodes_tested": 128,
+  "maximum_edges_tested": 254,
+  "maximum_nodes_supported": 128,
+  "maximum_edges_supported": 512,
+  "warmup_steps": 0,
+  "commands_changed": false,
+  "independent_reference": "Full mixed pressure/flow MINPACK solve with dimensional Newton polishing; independent from production inverse law",
+  "residual_maxima": {
+    "maximum_global_mass_residual_kg_s": 9.414975465915632e-10,
+    "maximum_mass_residual_kg_s": 9.368750220062338e-10,
+    "maximum_pressure_residual_pa": 5.4569682106375694e-12,
+    "maximum_power_residual_w": 9.459554348723032e-07
+  },
+  "comparison_maxima": {
+    "reference_pa": 1.6810372471809387e-07,
+    "manufactured_pa": 1.6810372471809387e-07,
+    "reference_kg_s": 6.905541694024464e-10,
+    "manufactured_kg_s": 6.922595829905731e-10
+  },
+  "maximum_iterations": 21,
+  "maximum_scaled_condition": 884.1110865460967,
+  "software_tests": 1420,
+  "new_tests": 53,
+  "excluded_tests": 1,
+  "software_warnings": 1,
+  "portable_cold_audit": "18/18, identical archived audit, freshly installed offline wheel and archived scripts outside checkout",
+  "byte_identical_archive_rebuild": true,
+  "physical_runtime_unchanged": true,
+  "remaining": [
+    "Typed component adapter and state transfer to dynamic backend",
+    "Coupled energy mixing and variable-density/EOS initialization",
+    "Heated gravity loop and natural-circulation transient qualification",
+    "Pure quadratic/ideal edges and switching equipment",
+    "Experimental/plant validation; authenticated signing, resolved SBOM and platform matrix"
+  ],
+  "evidence_sha256": {
+    "validation/ai05_hydraulic_graph_audit_v1.json": "e42da85ab40c556a5a9c14d1b68544ee9f7ca3c39ef4b6854101a548bba394d7",
+    "validation/ai05_hydraulic_graph_baseline_v1.json": "98e6f9c7087ccf9bae8d85fbaf46761d178c6739378c0c48e2e1d55de39d21a0",
+    "validation/ai05_hydraulic_graph_reference_regression_v1.json": "ece6f40a77cf44e168e785c118955e630291144a603ea58353f3b6f41e17f039",
+    "validation/ai05_hydraulic_graph_portable_replay_v1.json": "8d81be39aa6a1baba8c96840b5bce26452fb7fa656b97ca2e8f5fca7cea920ee",
+    "artifacts/ai05_hydraulic_graph_release_v1.json": "a20aba11ea76d11cac215c2befbc56341914ac74397419b4ade3db30f17e89b1",
+    "artifacts/ai05_hydraulic_graph_portable_audit_v1.json": "e42da85ab40c556a5a9c14d1b68544ee9f7ca3c39ef4b6854101a548bba394d7",
+    "artifacts/ai05_hydraulic_graph_portable_audit_v1.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

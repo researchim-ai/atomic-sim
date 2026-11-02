@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "scope": "Diagnostic composite local-rate continuation only; no production changes or qualification",
+  "production_source_fingerprint": "68fb24c86a58c0c01072961c14bd3b9eff7a0a9b813dcab96e683dfed4b71f95",
+  "experimental_only": true,
+  "production_qualification": false,
+  "integrations": 14,
+  "case_families": 7,
+  "all_measured_criteria_passed": true,
+  "measured_metrics": [
+    "primary_flow_absolute_kg_s",
+    "primary_omega_absolute_rad_s",
+    "steam_omega_absolute_rad_s",
+    "temperature_absolute_k",
+    "pressure_absolute_pa",
+    "quality_absolute",
+    "mass_absolute_kg",
+    "inventory_energy_absolute_j",
+    "energy_integral_absolute_j",
+    "energy_balance_absolute_j",
+    "power_balance_absolute_w",
+    "power_absolute_w",
+    "torque_absolute_nm",
+    "specific_energy_absolute_j_kg",
+    "specific_entropy_absolute_j_kg_k",
+    "volume_absolute_m3",
+    "flow_acceleration_absolute_kg_s2",
+    "kinetic_energy_absolute_j"
+  ],
+  "not_measured": [
+    "reference_energy_balance_absolute_j",
+    "stored_energy_absolute_j",
+    "boundary_time_absolute_s"
+  ],
+  "maximum_measured_errors": {
+    "primary_flow_absolute_kg_s": 1.1657341758564144e-15,
+    "primary_omega_absolute_rad_s": 0.0,
+    "steam_omega_absolute_rad_s": 5.684341886080802e-14,
+    "temperature_absolute_k": 1.0231815394945443e-12,
+    "pressure_absolute_pa": 6.984919309616089e-08,
+    "quality_absolute": 3.1086244689504383e-15,
+    "mass_absolute_kg": 2.842170943040401e-14,
+    "inventory_energy_absolute_j": 5.960464477539063e-08,
+    "energy_integral_absolute_j": 4.038214683532715e-06,
+    "energy_balance_absolute_j": 5.642286851070821e-06,
+    "power_balance_absolute_w": 7.531708245103783e-11,
+    "power_absolute_w": 2.0372681319713593e-08,
+    "torque_absolute_nm": 0.0,
+    "specific_energy_absolute_j_kg": 9.313225746154785e-09,
+    "specific_entropy_absolute_j_kg_k": 2.3646862246096134e-11,
+    "volume_absolute_m3": 0.0,
+    "flow_acceleration_absolute_kg_s2": 0.0,
+    "kinetic_energy_absolute_j": 9.313225746154785e-10
+  },
+  "cases": [
+    {
+      "name": "forward",
+      "policy": "radau",
+      "elapsed_s": 5.770695217999673,
+      "steps": 6125,
+      "violations": {}
+    },
+    {
+      "name": "forward",
+      "policy": "bdf",
+      "elapsed_s": 2.9253607659993577,
+      "steps": 6890,
+      "violations": {}
+    },
+    {
+      "name": "reverse",
+      "policy": "radau",
+      "elapsed_s": 5.756727134999892,
+      "steps": 6125,
+      "violations": {}
+    },
+    {
+      "name": "reverse",
+      "policy": "bdf",
+      "elapsed_s": 2.9627095889991324,
+      "steps": 6906,
+      "violations": {}
+    },
+    {
+      "name": "low_flow",
+      "policy": "radau",
+      "elapsed_s": 0.47964539200074796,
+      "steps": 514,
+      "violations": {}
+    },
+    {
+      "name": "low_flow",
+      "policy": "bdf",
+      "elapsed_s": 0.242683496000609,
+      "steps": 583,
+      "violations": {}
+    },
+    {
+      "name": "low_reverse",
+      "policy": "radau",
+      "elapsed_s": 0.4780479370001558,
+      "steps": 514,
+      "violations": {}
+    },
+    {
+      "name": "low_reverse",
+      "policy": "bdf",
+      "elapsed_s": 0.24474329599979683,
+      "steps": 583,
+      "violations": {}
+    },
+    {
+      "name": "partial_admission",
+      "policy": "radau",
+      "elapsed_s": 0.48903596399941307,
+      "steps": 515,
+      "violations": {}
+    },
+    {
+      "name": "partial_admission",
+      "policy": "bdf",
+      "elapsed_s": 0.24444572100037476,
+      "steps": 583,
+      "violations": {}
+    },
+    {
+      "name": "partial_reverse",
+      "policy": "radau",
+      "elapsed_s": 0.48498245799964934,
+      "steps": 515,
+      "violations": {}
+    },
+    {
+      "name": "partial_reverse",
+      "policy": "bdf",
+      "elapsed_s": 0.2529161969996494,
+      "steps": 583,
+      "violations": {}
+    },
+    {
+      "name": "ambient_loss",
+      "policy": "radau",
+      "elapsed_s": 0.4711465929995029,
+      "steps": 515,
+      "violations": {}
+    },
+    {
+      "name": "ambient_loss",
+      "policy": "bdf",
+      "elapsed_s": 0.24363571499998216,
+      "steps": 583,
+      "violations": {}
+    }
+  ],
+  "artifacts": {
+    "artifacts/ai05_precision_candidate_v2/matrix.py": "33817bda8f864346259b8b36091ea764839e19a6b94ebed381b01522323cd421",
+    "artifacts/ai05_precision_candidate_v2/matrix-report.json": "09668c0a3010cbb913c5f714bde0358d18a0325b7c1bd497de890800f5095e89",
+    "artifacts/ai05_precision_candidate_v2/probe.py": "28ea016a4561cea764e972b9319e91694c605c73d08361fdfe43f6e3f9502bf8",
+    "artifacts/ai05_precision_candidate_v2/report.json": "029f66210b068ad750a32ea6eac8fbc5d8e6944905d9ebd207103c7c8f76680d"
+  },
+  "limitations": [
+    "Independent comparison is to constant physical stocks and linear counters, not a full independently integrated transient trajectory.",
+    "Production snapshot/restart and transitions across the local continuation window remain unqualified.",
+    "No plant or experimental validation."
+  ]
+}

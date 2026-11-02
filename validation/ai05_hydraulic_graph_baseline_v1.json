@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "passed": true,
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "signature": {
+    "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+    "drivers": {
+      "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928",
+      "scripts/hydraulic_graph_references.py": "7552f64999bd352127f799893f1a30eeee6e650c62302f1619f47434141dc726",
+      "scripts/qualify_hydraulic_graph.py": "2c5464b99dd2879582f805d210a0b9f1f0b45531b577d1e133b119a600bc0a15"
+    },
+    "budget_sha256": "59acc80c07e047a3b3a63607e6eeaf5a9936cbc359f880aed5b82d34c6386d50",
+    "python": "3.12.9",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2"
+  },
+  "python": "3.12.9",
+  "numpy": "2.2.6",
+  "scipy": "1.15.2",
+  "test_command": "python -m pytest -m 'not external_integration' -q",
+  "tests_passed": 1420,
+  "tests_deselected": 1,
+  "new_tests": 53,
+  "focused_tests_passed": 53,
+  "full_suite_seconds": 268.94,
+  "warnings_observed": 1,
+  "warning": {
+    "test": "tests/test_industrial_plant.py::test_restart_matches_continuous_run",
+    "origin": "scipy.integrate._ivp.bdf:415",
+    "message": "RuntimeWarning: invalid value encountered in subtract",
+    "isolated_warning_as_error_probe": "1 passed in0.50s; warning did not reproduce; no suppression or fix claimed",
+    "status": "observed_not_resolved"
+  },
+  "ruff": "Passed; existing config deprecation warning",
+  "black": "Not installed locally; not executed",
+  "remote_ci_matrix": "not executed; YAML and Python heredocs parsed locally",
+  "excluded_scope": "External OpenMC/MPI integration not executed",
+  "file_sha256": {
+    "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928",
+    "scripts/hydraulic_graph_references.py": "7552f64999bd352127f799893f1a30eeee6e650c62302f1619f47434141dc726",
+    "scripts/qualify_hydraulic_graph.py": "2c5464b99dd2879582f805d210a0b9f1f0b45531b577d1e133b119a600bc0a15",
+    "validation/ai05_hydraulic_graph_budget_v1.json": "59acc80c07e047a3b3a63607e6eeaf5a9936cbc359f880aed5b82d34c6386d50",
+    "tests/test_hydraulic_graph.py": "2220c1fad58e4ccdae3efcc7e4b948c8e8bf51281dca9e8ebd61eb6cbf9e520f",
+    "tests/test_hydraulic_graph_evidence.py": "b0e7b670c76cbe04243770324c4d0556ac24a001357c53cb034b918f5ad89beb",
+    ".github/workflows/ci.yml": "835d4aaab79c14509cfcd807852ed08dea4bf1e0bbbf481ea5d5811ccebc8d86",
+    "artifacts/ai05_hydraulic_graph_tests_v3.log": "952b73e5f29629345a0aa6abde0af74c3ec6944be74b74f0ef3bbec30d4a47d7",
+    "artifacts/ai05_hydraulic_graph_full_suite_v1.log": "a919f9b02b0ea817e40fcbe6d900152844831df14617794af4a48e8af06c2a86",
+    "artifacts/ai05_hydraulic_graph_ruff_v1.log": "592055705cfa677b0042efbb466b52a57d7ca5e8c5f68076cc4fb30b8b823949",
+    "artifacts/ai05_hydraulic_graph_legacy_warning_probe_v1.log": "744c6c9974016a324e5e97ea91a9cec932d0d153349a782adc2386c01ed80ce2"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "61ac7724e95eb68ccd1571e8789a6481d318bfb66c6b27a4b88651c8709b51e0",
+  "wheel": "artifacts/ai05_turbine_release_v1/atomic_sim-2.0.0-py3-none-any.whl",
+  "wheel_sha256": "4568a915583814d77f78c8e80c4987af16964f432cf12484f93dc62e39246bec",
+  "sdist": "artifacts/ai05_turbine_release_v1/atomic_sim-2.0.0.tar.gz",
+  "sdist_sha256": "cabedcae057e504e85ef5726d9605ae3b1a2b5ff7970773e7633c12a083f549f",
+  "smoke_driver_sha256": "d80f481e29195313b54879c838e3e639f2410fee23a9e3254b4aee1b76a1f4b7",
+  "frozen_scripts_sha256": {
+    "artifacts/ai05_turbine_release_v1/frozen_scripts/audit_turbine.py": "5b7f3f89f3355165df9a7e4ac1b571f731fa7b52e578ddf8cc75129336659897",
+    "artifacts/ai05_turbine_release_v1/frozen_scripts/turbine_references.py": "e0b484df035435b31054bcfd3595bf2c1047ebaae4960636b70f6409603dc4d5",
+    "artifacts/ai05_turbine_release_v1/frozen_scripts/verify_turbine.py": "f6a63b4424e0f01986c0357768818da140cc28b2994d2b98272aed6a2ce2408d",
+    "artifacts/ai05_turbine_release_v1/frozen_scripts/verify_wheel.py": "d80f481e29195313b54879c838e3e639f2410fee23a9e3254b4aee1b76a1f4b7"
+  },
+  "log": "artifacts/ai05_turbine_release_v1/installed-wheel.log",
+  "log_sha256": "2e3ef6d88faf1d37d225d52167b56c583c853d8596ef0212a6b1e13d876adec9",
+  "environment": "Temporary system-site-packages venv outside checkout; offline installation without dependency resolution",
+  "checks": [
+    "Installed source fingerprint equals checkout",
+    "Required runtime and scenario resources present",
+    "Full previous CLI smoke",
+    "Turbine CLI 20s and generator disconnect",
+    "Snapshot roundtrip",
+    "CLI restart from 20s to 21s",
+    "120s request terminates at physical speed limit with CLI code 2"
+  ],
+  "frozen_source_replay": {
+    "passed": true,
+    "audit": "artifacts/ai05_turbine_release_v1/frozen-replayed-audit.json",
+    "audit_sha256": "48cdc500b5f54ae28e93b4a42ba3fb99fae6c6ae65f78c6c69b6e0202512ba5a",
+    "integrations": 24
+  },
+  "validated": false,
+  "plant_referenced": false
+}

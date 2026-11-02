@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "status": "accepted_within_declared_scope",
+  "task_ids": [
+    "AI-05.03",
+    "AI-05.08"
+  ],
+  "task_status": "in_progress",
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "signature": {
+    "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+    "drivers": {
+      "scripts/transient_thermal_graph.py": "7e62577d170bb16b607562cc12fe3b1c993b240588ee509bfef55e300139cbc0",
+      "scripts/solve_thermal_graph.py": "a83be295f1d6d05a82290584d65d0dbc5bc47009a3b0674bb1a10102d10d4f6a",
+      "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928"
+    },
+    "budgets": {
+      "validation/ai05_transient_graph_budget_v1.json": "9efccdc9bf39507a13d24336d0e5b2d9e0a82b16f9aaa9ac4914815692dbb109",
+      "validation/ai05_thermal_graph_budget_v1.json": "bc5d1cba46ec4804359891046de0da5db9eff71f62ad0689bcd85cdf98a80f4c",
+      "validation/ai05_hydraulic_graph_budget_v1.json": "59acc80c07e047a3b3a63607e6eeaf5a9936cbc359f880aed5b82d34c6386d50"
+    },
+    "python": "3.12.9",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2",
+    "qualification_drivers": {
+      "scripts/transient_graph_references.py": "5e337f331e452743d4ad893a9c26fb38ba274a90ecd24acb4ca226d378fc5ca4",
+      "scripts/qualify_transient_graph.py": "ce7c65ba0246d3f744f77406cc6c350b3dc944170e17bd98c7efd92301f3c8a0",
+      "scripts/hydraulic_graph_references.py": "7552f64999bd352127f799893f1a30eeee6e650c62302f1619f47434141dc726",
+      "scripts/thermal_graph_references.py": "dea3e83695c58bbfe61f329f2bd357751ad9463513b2f8de4f3a47fb05e1e011"
+    }
+  },
+  "scope": "Positive constant-volume thermal stocks on a fixed constant-property hydraulic graph; affine transient energy, conservative full-interval admission, atomic advance/restore and source-bound checkpoint",
+  "cases": 22,
+  "independent_ivps": 44,
+  "maximum_nodes": 128,
+  "horizon_s": 120,
+  "metrics": {
+    "reference_temperature_error_k": 2.9127704692655243e-09,
+    "reference_energy_error_j": 0.011920452117919922,
+    "reference_method_energy_difference_j": 2.5257468223571777e-05,
+    "maximum_energy_residual_j": 4.157610237598419e-05,
+    "restart_temperature_error_k": 5.684341886080802e-14,
+    "restart_energy_error_j": 7.450580596923828e-08
+  },
+  "software_tests": 1501,
+  "new_tests": 39,
+  "excluded_tests": 1,
+  "physical_runtime_unchanged": true,
+  "numerical_method": "Augmented affine matrix exponential using temperature increments and scaled independent external-energy integral",
+  "admission": "Conservative full-domain derivative bounds and adaptive interval subdivision; may reject safe trajectories; no exact event-time claim",
+  "rollback": "All requested duration rolled back on domain/interval/step/energy/source failure; restore checks identity and energy before mutation",
+  "checkpoint": "Input/runtime/driver/budget/environment identity, time, temperatures and increments, external-energy counter; digest is integrity rather than publisher authentication",
+  "portable_cold_audit_identical": true,
+  "portable_tests_passed": 39,
+  "cli_restart_completed_s": 120,
+  "byte_identical_archive_rebuild": true,
+  "prior_software_run": "1499 tests passed before adding two boundary-validation tests; final1501 result is separate and source-bound",
+  "remaining": [
+    "Changing hydraulic commands and coupled pressure/flow dynamics",
+    "Registered dynamic component adapter and general switching/DAE reinitialization",
+    "Variable EOS/density/transport-property feedback and phase transitions",
+    "Jointly heated gravity loop and natural-circulation qualification",
+    "Experimental/plant validation; resolved SBOM/lock, authenticated signing and platform matrix"
+  ],
+  "evidence_sha256": {
+    "validation/ai05_transient_graph_baseline_v1.json": "1fc19a1271034e494cd72bb73a8fa90ee7ccffb40a82c1f50f345c31976b5aaf",
+    "validation/ai05_transient_graph_audit_v3.json": "efa1915c222f3e0b7188d39af406a1bff369af9827a69aa2449951e4c25daf81",
+    "validation/ai05_transient_graph_portable_replay_v2.json": "4b0c93f1f3ba157d69e8823b1f39a8b55dd8a85aea175d30ba19fcfdb1aa7939",
+    "artifacts/ai05_transient_graph_release_v2.json": "4882377482a418837aec94e8150703b22f8694a8fd23436bb274ab6d22156cc7",
+    "artifacts/ai05_transient_graph_portable_audit_v2.json": "efa1915c222f3e0b7188d39af406a1bff369af9827a69aa2449951e4c25daf81",
+    "artifacts/ai05_transient_graph_portable_audit_v2.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "artifacts/ai05_transient_graph_portable_restart_v2.json": "ca57e92ef8c8f51348fa2c70b314fe4fc8cd2616d16307ccc3b5e3c63ae6cd54"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

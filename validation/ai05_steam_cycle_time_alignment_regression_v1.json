@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "2927346a5c1192ee4a59cfd378be0fa157d160b706f4dab3057dc1a3b7eb1d82",
+  "runtime_unchanged": true,
+  "budget_unchanged": true,
+  "verification_driver_unchanged": true,
+  "production_trajectory_values_identical": [
+    {
+      "name": "nominal",
+      "policy": "base",
+      "canonical_trajectory_sha256": "7b8e5a0cf8c3063ba3728b60423384f5ce70e802d3f0896f6c5e17d237fcc061"
+    },
+    {
+      "name": "nominal",
+      "policy": "tight",
+      "canonical_trajectory_sha256": "d34ebbdf400fd51938350bb2a11f74988481f7960a955c2e280f24ff389becaa"
+    },
+    {
+      "name": "nominal",
+      "policy": "bdf",
+      "canonical_trajectory_sha256": "602a91cc3a575aa0fd3ed32ac8272f89320b833b63611e1b98e536c7788f9a66"
+    },
+    {
+      "name": "heater_step",
+      "policy": "base",
+      "canonical_trajectory_sha256": "c6d1f84ac80fdef3a3231b66c24ca3a5c2994abc1ee302ef48c37d1f198b3c67"
+    },
+    {
+      "name": "heater_step",
+      "policy": "tight",
+      "canonical_trajectory_sha256": "a2562a14ad18c6ce6221427541f1a660cbac91dbb0894db4e658f6753b6e1b2d"
+    },
+    {
+      "name": "heater_step",
+      "policy": "bdf",
+      "canonical_trajectory_sha256": "26038f7d2c1b495734bcc55508cad3b0f8e306663ed908512a3cd19c0bf7c6b5"
+    },
+    {
+      "name": "load_rejection",
+      "policy": "base",
+      "canonical_trajectory_sha256": "c3b6f72cb74a43858bdeb4ad3f80453e7e861c4343820c5f7661d1bdb713e4b6"
+    },
+    {
+      "name": "load_rejection",
+      "policy": "tight",
+      "canonical_trajectory_sha256": "a14d2e06459f009ad536244925678aa67d035ddd9ba04046883631e4b447ef2a"
+    },
+    {
+      "name": "sink_warming",
+      "policy": "base",
+      "canonical_trajectory_sha256": "29a5ccef8384092e90bc766225614c7f165276eb48469523302bc4649a38b355"
+    },
+    {
+      "name": "sink_warming",
+      "policy": "tight",
+      "canonical_trajectory_sha256": "bbd031ab939b39be4edde3a64559413950f496b0a88e1f72696010727a8fa6bd"
+    },
+    {
+      "name": "feed_loss",
+      "policy": "base",
+      "canonical_trajectory_sha256": "66a81bc3200d8623ff2b8f1575e0d25cb8c062b8b095b43d6520f6871eb93d1c"
+    },
+    {
+      "name": "feed_loss",
+      "policy": "tight",
+      "canonical_trajectory_sha256": "998d97a9bea5de6861c85f74cf1f81a1ad7501dbd4a9b880881862aa994c8d8b"
+    },
+    {
+      "name": "valve_reduction",
+      "policy": "base",
+      "canonical_trajectory_sha256": "f457baca788d6923b8ab5d061afb0255192540c87022c9d2886db54d0d574e62"
+    },
+    {
+      "name": "valve_reduction",
+      "policy": "tight",
+      "canonical_trajectory_sha256": "adf562abbafea3c58a3154eda3af03379914846a1f9959a4398048313c8e5b8b"
+    },
+    {
+      "name": "speed_margin",
+      "policy": "base",
+      "canonical_trajectory_sha256": "d5d1230943c49e6c64a27ae98198c3cdf927237abf7e9f79dd78a802620a05b8"
+    },
+    {
+      "name": "speed_margin",
+      "policy": "tight",
+      "canonical_trajectory_sha256": "23bdf11603541deba7ab2784386e3c0394de553adb03367abb42c774eb505739"
+    },
+    {
+      "name": "phase_margin",
+      "policy": "base",
+      "canonical_trajectory_sha256": "a229802cb0cac2b67ec4f7ca7b3112aac1bafb83a069419af27d9c160e47c809"
+    },
+    {
+      "name": "phase_margin",
+      "policy": "tight",
+      "canonical_trajectory_sha256": "d020a9fee9031b7b6ab7509d544ab58c9c2a67007438222b83b69a1ffb7ce406"
+    },
+    {
+      "name": "pressure_margin",
+      "policy": "base",
+      "canonical_trajectory_sha256": "6459207e3070b6d95c76216f59895f291892905659f825437d5c81d663b11bcd"
+    },
+    {
+      "name": "pressure_margin",
+      "policy": "tight",
+      "canonical_trajectory_sha256": "0ed90d92ff1c04d32554be5464d739c3caac089f2c965f6ab6ecd4f4da8aacd6"
+    },
+    {
+      "name": "isolated",
+      "policy": "base",
+      "canonical_trajectory_sha256": "60ea3558d82630efe8382f5cfce39bb34b1234a4af344c29d97903ffb75044a2"
+    },
+    {
+      "name": "isolated",
+      "policy": "tight",
+      "canonical_trajectory_sha256": "60ea3558d82630efe8382f5cfce39bb34b1234a4af344c29d97903ffb75044a2"
+    }
+  ],
+  "comparison": "Exact parsed JSON equality; canonical hashes ignore dictionary serialization order between Python processes",
+  "before_reference_sha256": "30f2a70bdbc558713c64016832cfe20ec11bf43de77d6cfcdf12b25fedde99c6",
+  "after_reference_sha256": "4f1aa2b245432bab7a7649793b1033263a02377d8fdd42c92b7fe50d286594fa",
+  "before_accepted": false,
+  "after_accepted": true,
+  "before_failed_metrics": [
+    {
+      "name": "pressure_margin",
+      "policy": "base",
+      "energy_j": 0.23498551550801494
+    },
+    {
+      "name": "pressure_margin",
+      "policy": "tight",
+      "energy_j": 0.23500251401856076
+    }
+  ],
+  "explanation": "Use the smooth independent interpolant at the same physical time inside the original 1e-5 s boundary-time budget, rather than clamping energy to the earlier reference event."
+}

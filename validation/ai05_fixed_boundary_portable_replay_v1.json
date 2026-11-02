@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "passed": true,
+  "scope": "Transferred archive replay outside checkout using archived companion scripts and sdist runtime; inherited Python/numpy/scipy",
+  "archive": "artifacts/ai05_fixed_boundary_release_v2.tar.gz",
+  "archive_sha256": "bd72ebc3c39edc2fb548490aff19bcf1090a0c28e9d5791aac7271a074e53c9b",
+  "manifest_sha256": "2e71d3452d50e3a5d72c1a21ed881e7954b1b15957c3097e5674b59616c60209",
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "profiles": [
+    {
+      "profile": "steady",
+      "passed": true,
+      "archived_audit_identical": true,
+      "integrations": 14,
+      "case_families": 7,
+      "negative_checks": 0
+    },
+    {
+      "profile": "fixed",
+      "passed": true,
+      "archived_audit_identical": true,
+      "integrations": 22,
+      "case_families": 11,
+      "negative_checks": 12
+    }
+  ],
+  "integrations": 36,
+  "case_families": 18,
+  "negative_checks": 12,
+  "archived_audits_identical": true,
+  "numerical_acceptance_recomputed": true,
+  "checkout_pythonpath_removed": true,
+  "publisher_authenticated": false,
+  "files": 427,
+  "uncompressed_bytes": 47888041,
+  "evidence_sha256": {
+    "artifacts/ai05_fixed_boundary_portable_v2/fixed-audit.json": "88ccc85b6f1d6118eb314761dcb2476574a1c01dc214d9a98e51c41e39812a9b",
+    "artifacts/ai05_fixed_boundary_portable_v2/fixed-audit.log": "6cf79d8a734e27f6e1bcdb032affe511abf5b653de331a25a1877ceda7ae8f85",
+    "artifacts/ai05_fixed_boundary_portable_v2/replay.json": "b9cf87c58db29222b59c9c74fcbdcf97ff4c60dd0b2a2eba5a831500f55b6454",
+    "artifacts/ai05_fixed_boundary_portable_v2/steady-audit.json": "b487f61e75cc0383ced4e47d60b1279fea9dd7fcaa77deacefe93686677ac9c0",
+    "artifacts/ai05_fixed_boundary_portable_v2/steady-audit.log": "77fd0d3e4de6a5bff8c7a227b75d3b91cbff49d2fbab510d5fe79664b9a51125"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

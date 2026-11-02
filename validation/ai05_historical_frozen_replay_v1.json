@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "runtime": "Extracted original sdist in a temporary directory; exact frozen scripts restored; original raw bundles referenced read-only",
+  "releases": [
+    {
+      "release": "ai05_exchanger",
+      "passed": true,
+      "source_sha256": "2bc50690ea9007f7d5f982922e2932dd41b527a2430f9c7af298bec38f0bdd00",
+      "integrations": 26,
+      "replayed_audit": "artifacts/ai05_exchanger_release_v1/frozen-replayed-audit.json"
+    },
+    {
+      "release": "ai05_coupled_exchanger",
+      "passed": true,
+      "source_sha256": "5f72d31a063f59380d8b54adf358e107ac1e7ecfb8ad8262b20229e6bac61069",
+      "integrations": 28,
+      "replayed_audit": "artifacts/ai05_coupled_exchanger_release_v1/frozen-replayed-audit.json"
+    }
+  ],
+  "physical_qualification_rebound": false
+}

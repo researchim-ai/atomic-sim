@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "python": "3.12.9",
+  "platform": "Linux-6.17.0-22-generic-x86_64-with-glibc2.39",
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.2",
+    "gymnasium": "1.2.0",
+    "torch": "2.7.0",
+    "atomic-sim": "2.0.0"
+  },
+  "test_command": "python -m pytest -m 'not external_integration' -q",
+  "tests_passed": 1315,
+  "tests_deselected": 1,
+  "new_tests": 90,
+  "focused_tests_passed": 90,
+  "focused_log": "artifacts/ai12_evidence_bundle_tests_v7.log",
+  "regression_log": "artifacts/ai12_evidence_bundle_full_suite_v3.log",
+  "regression_log_sha256": "170ca5540a9e58e96fba493a964ecdb82616dff93c11311ed2f9246c2402c6d4",
+  "focused_log_sha256": "fee6ca85287426241b16fb0ae526e83e961e643490bd9f1d451298a9ff68bfd8",
+  "warnings_observed": 0,
+  "portable_steady_replay": "validation/ai12_primary_steam_portable_replay_v1.json",
+  "physics_qualification_policy": "Numerical acceptance is recorded in separate source-bound model audits; software test counts do not promote physical status",
+  "remote_ci_matrix": "not executed",
+  "excluded_scope": "External OpenMC/MPI integration not executed",
+  "file_sha256": {
+    "scripts/evidence_bundle.py": "2f6a6454994d23adb169fe8bfcfe739c6d3bb1347309e10f0cc946b845431b83",
+    "scripts/replay_primary_steam_bundle.py": "910d4fa3d57ef6f281da2b100e7485ca5c18d8ef21e1c6e638e11b2ebae963cb",
+    "scripts/primary_steam_release.py": "277eba259c7181e35109f36594125a7a67e8252ce0ea26486fc5a212d17eb153",
+    "tests/test_evidence_bundle.py": "ce9b00b36e50f4dc16e964a093740fe008b4e112937851e51e66854577b343f6",
+    "tests/test_evidence_replay.py": "95b8ac5dd853cf430bb48da4bfa524996787597d4d7ed8c97e409c3a8acea938",
+    "tests/test_primary_steam_release.py": "a3623e6195756ca70b39a6bd67fb9ff196f5516014faa73aa5003d0e64b3274a",
+    ".github/workflows/ci.yml": "ca39f37defc91620cc15de6feef54bca90160c60c228861ec7861fdaabc1e98e",
+    "docs/AI_12_EVIDENCE_BUNDLE_RU.md": "67a8b9c0648c05398173fe379ab0b72e11c8aece5bc2e0ad634fcd17f2c5df0a"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "passed": true,
+  "source_sha256": "68fb24c86a58c0c01072961c14bd3b9eff7a0a9b813dcab96e683dfed4b71f95",
+  "environment": "Temporary system-site-packages venv outside checkout; offline no-deps install with inherited dependencies",
+  "checks": [
+    "Required resources and all established CLI smoke",
+    "Primary/steam CLI 5s, snapshot and CLI continuation to5.1s",
+    "Extracted-sdist SDK import path outside checkout",
+    "Frozen 5s trajectory/checkpoint exactly equal checkout",
+    "Frozen continuation to5.1s"
+  ],
+  "file_sha256": {
+    "artifacts/ai05_primary_steam_release_v1/atomic_sim-2.0.0-py3-none-any.whl": "093df2b6c67e3115c834ee3293143ba74e758ad4bfd13f55c5b36e41a690ecb8",
+    "artifacts/ai05_primary_steam_release_v1/atomic_sim-2.0.0.tar.gz": "3f3d3e1937b5d758ee793d3fcc345b4f4fcc523afd33bf089219a291927ef31d",
+    "artifacts/ai05_primary_steam_release_v1/installed-wheel.log": "0de685bf3a69aec251599c2fc71e14a49140826b9571eaf840491d096e736a59",
+    "artifacts/ai05_primary_steam_release_v1/frozen-smoke.log": "fc7361d33a4a7ecbd13df7206d374954d47a97806a1dcc941d34376f592e2044",
+    "artifacts/ai05_primary_steam_release_v1/frozen-resumed.log": "e78105ee062e5978481b36fde5a51278db3689a055277a18cf1877f68aebed73",
+    "artifacts/ai05_primary_steam_release_v1/frozen-smoke/manifest.json": "090fb6ae575ccde399e646a556f18d121d8190a3a8b364e6161ad00b5bec0743",
+    "artifacts/ai05_primary_steam_release_v1/frozen-resumed/manifest.json": "2aca9bd76edf7845e5e75d22e15147c24d02f86270e02af87cf2de0803408906",
+    "artifacts/ai05_primary_steam_release_v1/frozen_scripts/verify_wheel.py": "1a0beebae40dc306ebadf6b37d82d4f5e848d6a7377181bb050b6a5a451fc8c1",
+    "artifacts/ai05_primary_steam_release_v1/frozen_tests/test_steam_cycle.py": "b2e64324b7aeb7b5ff5e9c677c63d42afe18754a8099562fe30389b18ecf4693",
+    "artifacts/ai05_primary_steam_release_v1/frozen_tests/test_primary_steam.py": "14d92db48c6d848e258f9d94967c716e92bf3aadc4c458cd213d3d90595dbd7a",
+    "artifacts/ai05_primary_steam_release_v1/frozen_tests/test_steam_heat_port.py": "cd038a7d3842da1f73105f1121eaf8807f46da6cd381c178f8d55cf85075a7ff",
+    "artifacts/ai05_primary_steam_release_v1/frozen_tests/test_solver_trace.py": "d3129f216437a60d004181b89ff22076658aa8ba53226d062dc140b3e610bb81"
+  },
+  "independent_assembly_qualification": false,
+  "remote_ci_matrix": "not executed locally",
+  "validated": false,
+  "plant_referenced": false
+}

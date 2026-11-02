@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "2bc50690ea9007f7d5f982922e2932dd41b527a2430f9c7af298bec38f0bdd00",
+  "wheel": "artifacts/ai05_exchanger_release_v1/atomic_sim-2.0.0-py3-none-any.whl",
+  "wheel_sha256": "d82478b3b8632f3bf6db25b28c2ce65919d750196e0ed8bb07b6d1730aa4e512",
+  "sdist": "artifacts/ai05_exchanger_release_v1/atomic_sim-2.0.0.tar.gz",
+  "sdist_sha256": "18bcf2856b5439219f3f758c29ddab33c9e4ec2434515ba534216804d632c6e3",
+  "smoke_driver_sha256": "42c45f89033972157009ffc6bd4fc23abe432a231d47e6024d67b15129361f83",
+  "log": "artifacts/ai05_exchanger_release_v1/installed-wheel.log",
+  "log_sha256": "c0ee0879af662a6d10b635b7a276231eaed28754ca9e32a769f83414b12a5fc8",
+  "environment": "Temporary system-site-packages venv outside checkout; wheel installed offline with no dependencies",
+  "checks": [
+    "Installed source fingerprint equals checkout",
+    "Declared runtime/scenario resources present",
+    "Full existing CLI smoke",
+    "Exchanger CLI 120s with 3 commands",
+    "Snapshot roundtrip",
+    "CLI restart from 120s to 125s"
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

@@ -2,11 +2,44 @@
 
 import argparse
 import json
+from copy import deepcopy
 from pathlib import Path
 
-from scripts.verify_check_storage import assess, sha
+from scripts.verify_check_storage import assess, scenarios, sha
+from sdk.check_storage_experiment import prepare
 from sdk.experiment import _source_fingerprint
 from sdk.network_experiment import write
+
+
+def validate_series(folder, report):
+    """Bind each evidence bundle to the complete, declared acceptance matrix."""
+    expected = {}
+    for index, (name, spec) in enumerate(scenarios()):
+        for policy in ("base", "tight", "bdf") if index < 2 else ("base", "tight"):
+            candidate = deepcopy(spec)
+            if policy != "base":
+                candidate["solver"].update(rtol=1e-12, max_step_s=0.01, atol_scale=0.001)
+            if policy == "bdf":
+                candidate["solver"]["method"] = "BDF"
+            expected[name, policy] = prepare(candidate)[0]
+    records = report["cases"]
+    identities = [(record["name"], record["policy"]) for record in records]
+    if (
+        len(identities) != len(set(identities))
+        or set(identities) != set(expected)
+        or report["integrations"] != len(expected)
+        or report["case_families"] != len({name for name, _ in expected})
+    ):
+        raise ValueError("Incomplete or duplicated check-storage acceptance matrix")
+    paths = set()
+    for record in records:
+        path = Path(record["folder"]).resolve()
+        if not path.is_relative_to(Path(folder).resolve()) or path in paths:
+            raise ValueError("Shared or external check-storage evidence folder")
+        paths.add(path)
+        actual = json.loads((path / "input.json").read_text())
+        if actual != expected[record["name"], record["policy"]]:
+            raise ValueError("Check-storage input differs from declared acceptance scenario")
 
 
 def audit(folder):
@@ -25,6 +58,7 @@ def audit(folder):
         raise ValueError("Coefficient reference hash mismatch")
     if not r["all_cases_accepted"] or r["integrations"] != len(r["cases"]):
         raise ValueError("Incomplete storage series")
+    validate_series(folder, r)
     for record in r["cases"]:
         path = Path(record["folder"])
         if not path.resolve().is_relative_to(folder.resolve()):

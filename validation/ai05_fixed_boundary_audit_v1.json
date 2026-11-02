@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "signature": {
+    "assembly": {
+      "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+      "budget_sha256": "081a9ae178dcb1f14d8722f9d57c3a89c5b5112b77b621813f91989fc206c087",
+      "driver_sha256": {
+        "scripts/audit_primary_steam.py": "1ff1edf7d90b796ea6eb2b3c976109bba0c135d0e4854c399cf9c7a7808d9aa4",
+        "scripts/primary_steam_references.py": "444c551540d360bf5d49bd808d342fcc95dc82cff7f868730472aa5c48b30b39",
+        "scripts/verify_primary_steam.py": "704866a0b15a0b000b572d27683ff0b50e8601c3b7d3c64b67e6a04d6a373423",
+        "scripts/qualify_primary_steam.py": "c27c7a825bfd968b7e9324cda95b71da551a77b5a9a5490db7c900a2ddfd637b",
+        "scripts/verify_turbine.py": "f6a63b4424e0f01986c0357768818da140cc28b2994d2b98272aed6a2ce2408d"
+      },
+      "python": "3.12.9",
+      "versions": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.2"
+      }
+    },
+    "qualification_sha256": "0abaed7b20e2e45707304cb413afcbfb07a5fcb2f03ecfac321e23d511cf71ff",
+    "budget_sha256": "d9ceeaf88ef3a47936bb9c2c8f347e48b82f13b0d3269c67b500f43776bfffc4",
+    "steady_budget_sha256": "67cad2db931502f6ee98acf499f4c8ba48e04ae2886ab4958ca2a3f9dd23864a",
+    "base_budget_sha256": "081a9ae178dcb1f14d8722f9d57c3a89c5b5112b77b621813f91989fc206c087",
+    "initializer_driver_sha256": {
+      "scripts/solve_fixed_primary_steam.py": "d80f14a498fe353b7d2eafbf149298fa9b9e8e8cd0736078cd2b6c52dc84bb0d",
+      "scripts/design_primary_steam.py": "7189cd36ffb3119b3f9897d9ed64cc5fb9c0633d4e2051f9ba9dd38cfaf751d9",
+      "scripts/primary_steam_references.py": "444c551540d360bf5d49bd808d342fcc95dc82cff7f868730472aa5c48b30b39",
+      "scripts/verify_turbine.py": "f6a63b4424e0f01986c0357768818da140cc28b2994d2b98272aed6a2ce2408d",
+      "scripts/turbine_references.py": "e0b484df035435b31054bcfd3595bf2c1047ebaae4960636b70f6409603dc4d5"
+    },
+    "stationary_verifier_sha256": "e5d38217c5dd9caf75aa6d70859eb3a2a875723b94600a6f8fe97ed75be50008"
+  },
+  "qualification_sha256": "f24ce0c673838243a71142bc45cf12fb9c0af07fe7183651e70cf8925767e337",
+  "integrations": 20,
+  "case_families": 10,
+  "negative_checks": 9,
+  "operating_horizon_s": 120,
+  "all_commands_preserved": true,
+  "warmup_steps": 0,
+  "validated": false,
+  "plant_referenced": false
+}

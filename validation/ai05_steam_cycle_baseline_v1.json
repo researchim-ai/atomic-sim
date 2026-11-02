@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "source_sha256": "2927346a5c1192ee4a59cfd378be0fa157d160b706f4dab3057dc1a3b7eb1d82",
+  "python": "3.12.9",
+  "platform": "Linux-6.17.0-22-generic-x86_64-with-glibc2.39",
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.2",
+    "gymnasium": "1.2.0",
+    "torch": "2.7.0",
+    "atomic-sim": "2.0.0"
+  },
+  "tests_passed": 1097,
+  "new_tests": 34,
+  "tests_deselected": 1,
+  "focused_tests_passed": 70,
+  "test_command": "python -m pytest -m 'not external_integration' -q",
+  "regression_log": "artifacts/ai05_steam_cycle_release_v2/regression.log",
+  "regression_log_sha256": "41db7425059e40ac1fd7c85db8b6205c35c662ce1b0acac19ad5510e8e1a9dc7",
+  "external_test_status": "OpenMC/MPI not executed",
+  "installed_wheel_verified": true,
+  "installed_evidence": "validation/ai05_steam_cycle_installed_v1.json",
+  "code_quality": {
+    "ruff": "passed",
+    "ruff_format": "passed",
+    "black": "not run: not installed"
+  },
+  "remote_ci_matrix": "not executed locally",
+  "accepted_tasks": 42,
+  "total_tasks": 109,
+  "ai05_accepted_tasks": 3,
+  "ai05_total_tasks": 8,
+  "validated": false,
+  "plant_referenced": false
+}

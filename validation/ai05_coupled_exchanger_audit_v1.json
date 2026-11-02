@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "5f72d31a063f59380d8b54adf358e107ac1e7ecfb8ad8262b20229e6bac61069",
+  "verification_sha256": "994d6428bd470ead4f96d4f612245f8bea8a4863ad9aca6c5f36257342b78e24",
+  "audit_script_sha256": "50183314aa74cddfe826cbf31657e010805366bb432fad122ce9daf171795dd0",
+  "integrations": 28,
+  "case_families": 13,
+  "temporal_comparisons": [
+    {
+      "name": "base",
+      "temperature_absolute_k": 5.684341886080802e-14
+    },
+    {
+      "name": "both_reverse",
+      "temperature_absolute_k": 5.684341886080802e-14
+    },
+    {
+      "name": "both_stalled",
+      "temperature_absolute_k": 5.684341886080802e-14
+    },
+    {
+      "name": "cocurrent_mapping",
+      "temperature_absolute_k": 5.684341886080802e-14
+    },
+    {
+      "name": "heterogeneous",
+      "temperature_absolute_k": 5.684341886080802e-14
+    },
+    {
+      "name": "initial_command",
+      "temperature_absolute_k": 5.684341886080802e-14
+    },
+    {
+      "name": "one_stalled",
+      "temperature_absolute_k": 5.684341886080802e-14
+    },
+    {
+      "name": "reverse_a",
+      "temperature_absolute_k": 5.684341886080802e-14
+    },
+    {
+      "name": "reverse_b",
+      "temperature_absolute_k": 5.684341886080802e-14
+    },
+    {
+      "name": "shared_ambient",
+      "temperature_absolute_k": 5.684341886080802e-14
+    },
+    {
+      "name": "steady",
+      "temperature_absolute_k": 5.684341886080802e-14
+    },
+    {
+      "name": "trip_reverse",
+      "temperature_absolute_k": 5.684341886080802e-14
+    },
+    {
+      "name": "zero_exchange",
+      "temperature_absolute_k": 5.684341886080802e-14
+    }
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

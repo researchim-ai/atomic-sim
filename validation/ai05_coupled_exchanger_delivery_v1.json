@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-01",
+  "package": "AI-05",
+  "status": "partial",
+  "task": "AI-05.06",
+  "task_status": "in_progress",
+  "scope": "Simultaneous two-pump closed-cycle hydraulic/shaft/thermal assembly and shared finite-capacity exchanger wall, explicit heat rejection and coupled steady initialization",
+  "source_sha256": "5f72d31a063f59380d8b54adf358e107ac1e7ecfb8ad8262b20229e6bac61069",
+  "baseline": "validation/ai05_coupled_exchanger_baseline_v1.json",
+  "evidence": [
+    "validation/ai05_coupled_exchanger_baseline_v1.json",
+    "validation/ai05_coupled_exchanger_installed_v1.json",
+    "validation/ai05_coupled_exchanger_budget_v1.json",
+    "validation/ai05_coupled_exchanger_audit_v1.json",
+    "docs/AI_05_COUPLED_EXCHANGER_RU.md"
+  ],
+  "file_sha256": {
+    "validation/ai05_coupled_exchanger_baseline_v1.json": "b73da156c883ece33d381bc1e844e70327dc2f758fb0f1e1bbd47befc1babed8",
+    "validation/ai05_coupled_exchanger_installed_v1.json": "6343a5cd3a0ccdf4c97f533ee5c827f9a724098f0cdeddcf7bcaa8466a096d4d",
+    "validation/ai05_coupled_exchanger_budget_v1.json": "ee32ded466df8adca91f584e214e65eeb4848ddb556f71ded0af3edcdb08b0f9",
+    "validation/ai05_coupled_exchanger_audit_v1.json": "3494ab7654bbc2c19b34d6647e7c162cacf3ba574e4abdcd561dc6b00cb6a4fc",
+    "physics/thermal/coupled_pump_exchanger.py": "7f209c37f5f8a7cc47b7b290c3b922b542b99133ccdd37953481b9a04744e4be",
+    "sdk/coupled_exchanger_experiment.py": "47b5e61c08c2906f001b634d95ddd79f62f65d4ca66b27845e089324939043a4",
+    "scenarios/ai05_coupled_pump_exchanger.json": "c07fa978a416bfea827018549da63b7ee7d5e006d4336c350cc7784eaad503bf",
+    "scripts/coupled_exchanger_references.py": "add176fbd6a399c8fcf0709c4204cf127100de579436ab07e62e29f1ee7c7989",
+    "scripts/verify_coupled_exchanger.py": "652132f019b8e1039ad7cb48f1c3b4b997c3819f63ddf3ee749a064f0d45b8fe",
+    "scripts/audit_coupled_exchanger.py": "50183314aa74cddfe826cbf31657e010805366bb432fad122ce9daf171795dd0",
+    "tests/test_coupled_pump_exchanger.py": "2b3c21094058b3e4756a1a17ecea1da021e4c3a7009ac531a029b356f63e85d9",
+    "tests/test_coupled_exchanger_evidence.py": "65d45526b96cd47bce06d7a812cffa764ce52a00f0083d825c3edc6e7a834a71",
+    "scripts/verify_wheel.py": "cac3fb1fc74ec22fe35ebe3ccfe8e7a4a47559381f83341487d551c47af0ed75"
+  },
+  "verification": "artifacts/ai05_coupled_exchanger_verification_v2/verification.json",
+  "verification_sha256": "994d6428bd470ead4f96d4f612245f8bea8a4863ad9aca6c5f36257342b78e24",
+  "numerical_acceptance": {
+    "case_families": 13,
+    "primary_integrations": 28,
+    "restart_extension_s": 1,
+    "temporal_refinement": true,
+    "methods": [
+      "Radau",
+      "BDF"
+    ],
+    "reference": "Independent absolute-temperature DOP853 and separate steady root solve"
+  },
+  "tasks_accepted": [
+    "AI-05.01",
+    "AI-05.02",
+    "AI-05.04"
+  ],
+  "tasks_in_progress": [
+    "AI-05.03",
+    "AI-05.05",
+    "AI-05.06",
+    "AI-05.08"
+  ],
+  "remaining": [
+    "Turbine/shaft/generator and integrated power-train acceptance",
+    "General branched/compressible network and phase-change extensions",
+    "Physical flap/impact and steam pressurizer",
+    "Independent external experimental and plant qualification"
+  ],
+  "prior_evidence_policy": "Historical qualifications retain their original runtime fingerprints and frozen releases; no automatic current-source admission",
+  "artifact_storage": "Raw bundles, journals, wheel and sdist are local ignored files. Transfer the real files for independent replay; JSON summaries alone are insufficient.",
+  "validated": false,
+  "plant_referenced": false
+}

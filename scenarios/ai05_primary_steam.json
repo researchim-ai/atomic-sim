@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "engine": "primary-loop-steam-power-cycle",
+  "name": "ai05_primary_steam",
+  "primary": {
+    "loop": {
+      "model": {
+        "topology": {
+          "schema_version": 1,
+          "nodes": [
+            {
+              "id": "s0",
+              "model_id": "incompressible-loop-segment",
+              "model_version": "1.0.0",
+              "parameters": {
+                "length_m": 1,
+                "loss_coefficient": 10,
+                "wall_capacity_j_k": 200000.0,
+                "fluid_wall_ua_w_k": 20000.0,
+                "ambient_ua_w_k": 0,
+                "wall_power_w": 0,
+                "drive_pressure_pa": 0
+              }
+            },
+            {
+              "id": "s1",
+              "model_id": "incompressible-loop-segment",
+              "model_version": "1.0.0",
+              "parameters": {
+                "length_m": 1,
+                "loss_coefficient": 10,
+                "wall_capacity_j_k": 200000.0,
+                "fluid_wall_ua_w_k": 20000.0,
+                "ambient_ua_w_k": 0,
+                "wall_power_w": 0,
+                "drive_pressure_pa": 0
+              }
+            },
+            {
+              "id": "s2",
+              "model_id": "incompressible-loop-segment",
+              "model_version": "1.0.0",
+              "parameters": {
+                "length_m": 1,
+                "loss_coefficient": 10,
+                "wall_capacity_j_k": 200000.0,
+                "fluid_wall_ua_w_k": 20000.0,
+                "ambient_ua_w_k": 0,
+                "wall_power_w": 0,
+                "drive_pressure_pa": 0
+              }
+            }
+          ],
+          "connections": [
+            {
+              "id": "e0",
+              "from": "s0.right",
+              "to": "s1.left"
+            },
+            {
+              "id": "e1",
+              "from": "s1.right",
+              "to": "s2.left"
+            },
+            {
+              "id": "e2",
+              "from": "s2.right",
+              "to": "s0.left"
+            }
+          ]
+        },
+        "fluid": {
+          "density_kg_m3": 693.7880505424173,
+          "heat_capacity_j_kg_k": 5910.897465054336,
+          "area_m2": 0.1
+        },
+        "reference": {
+          "segment": "s0",
+          "pressure_pa": 15500000.0
+        },
+        "ambient_temperature_k": 300,
+        "energy_tolerance_j": 0.0001
+      },
+      "initialization": {
+        "mode": "given",
+        "mass_flow_kg_s": 100,
+        "fluid_temperature_k": {
+          "s0": 587.7837582825674,
+          "s1": 587.7837582825674,
+          "s2": 587.7837582825674
+        },
+        "wall_temperature_k": {
+          "s0": 587.7837582825674,
+          "s1": 587.7837582825674,
+          "s2": 587.7837582825674
+        }
+      }
+    },
+    "pump": {
+      "segment": "s0",
+      "displacement_m3_rad": 0.001,
+      "leakage_m3_s_pa": 1e-06,
+      "inertia_kg_m2": 0.5,
+      "drag_nm_s_rad": 0.02
+    },
+    "initial_omega_rad_s": 165.75667440523185
+  },
+  "steam_model": {
+    "steam_generator": {
+      "volume_m3": 1.0,
+      "initial_pressure_pa": 6000000.0,
+      "initial_quality": 0.1,
+      "min_pressure_pa": 4000000.0,
+      "max_pressure_pa": 8000000.0,
+      "min_quality": 0.01,
+      "max_quality": 0.4
+    },
+    "condenser": {
+      "volume_m3": 10.0,
+      "initial_pressure_pa": 8000.0,
+      "initial_quality": 0.001,
+      "min_pressure_pa": 4000.0,
+      "max_pressure_pa": 20000.0,
+      "min_quality": 1e-05,
+      "max_quality": 0.01
+    },
+    "hot_wall": {
+      "heat_capacity_j_k": 200000.0,
+      "fluid_ua_w_k": 20000.0,
+      "initial_temperature_k": 561.752193264889
+    },
+    "cold_wall": {
+      "heat_capacity_j_k": 100000.0,
+      "fluid_ua_w_k": 20000.0,
+      "ambient_ua_w_k": 20000.0,
+      "initial_temperature_k": 305.61761081601657
+    },
+    "turbine": {
+      "isentropic_efficiency": 0.85,
+      "inertia_kg_m2": 50.0,
+      "bearing_drag_nm_s_rad": 0.01,
+      "generator_efficiency": 0.97,
+      "min_omega_rad_s": 100.0,
+      "max_omega_rad_s": 400.0,
+      "initial_omega_rad_s": 300.0
+    },
+    "feed_efficiency": 0.8,
+    "energy_tolerance_j": 0.001,
+    "mass_tolerance_kg": 1e-08,
+    "min_pressure_difference_pa": 1000.0,
+    "steam_conductance_kg_s_pa": 1.6688918558077436e-08
+  },
+  "coupling": {
+    "steam_generator_segment": "s1",
+    "heater_segment": "s0",
+    "ua_w_k": 10000.0,
+    "minimum_subcooling_k": 5,
+    "min_primary_temperature_k": 273.15,
+    "min_primary_pressure_pa": 14000000.0,
+    "max_primary_pressure_pa": 16000000.0,
+    "energy_tolerance_j": 0.01
+  },
+  "controls": {
+    "primary_motor_torque_nm": 24.935569280091393,
+    "primary_wall_heater_power_w": 260315.6501767842,
+    "steam_cycle": {
+      "feed_mass_flow_kg_s": 0.10000000000000116,
+      "generator_conductance_nm_s_rad": 0.8813573194611202,
+      "heater_power_w": 0,
+      "valve_opening": 1.0,
+      "sink_temperature_k": 296.5751689336496,
+      "generator_connected": true
+    }
+  },
+  "duration_s": 5,
+  "step_s": 0.25,
+  "solver": {
+    "method": "Radau",
+    "rtol": 1e-08,
+    "max_step_s": 0.05,
+    "atol_scale": 0.1
+  },
+  "timeline": [
+    {
+      "t": 1.3,
+      "controls": {
+        "primary_motor_torque_nm": 24.935569280091393,
+        "primary_wall_heater_power_w": 312378.78021214105,
+        "steam_cycle": {
+          "feed_mass_flow_kg_s": 0.10000000000000116,
+          "generator_conductance_nm_s_rad": 0.8813573194611202,
+          "heater_power_w": 0,
+          "valve_opening": 1.0,
+          "sink_temperature_k": 296.5751689336496,
+          "generator_connected": true
+        }
+      }
+    },
+    {
+      "t": 2.7,
+      "controls": {
+        "primary_motor_torque_nm": 0,
+        "primary_wall_heater_power_w": 312378.78021214105,
+        "steam_cycle": {
+          "feed_mass_flow_kg_s": 0.10000000000000116,
+          "generator_conductance_nm_s_rad": 0.8813573194611202,
+          "heater_power_w": 0,
+          "valve_opening": 1.0,
+          "sink_temperature_k": 296.5751689336496,
+          "generator_connected": true
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "passed": false,
+  "reason": "Actual pressure-margin coarse/medium maximum returned step ratio below unchanged minimum 2",
+  "measured_step_ratio": 1.986851447572298,
+  "required_minimum": 2,
+  "all_44_raw_runs_completed": true,
+  "scope": "Not an accepted three-level qualification",
+  "budget_sha256": "75b7c17022c4951f949ae58e1f61d7602e7916ce33baabb427733ea0cd19e7ad",
+  "schema_version": 1,
+  "regression_reproduced": true,
+  "criterion_unchanged": true,
+  "revised_caps_s": [
+    0.04,
+    0.01,
+    0.0025
+  ],
+  "previous_caps_s": [
+    0.1,
+    0.025,
+    0.00625
+  ],
+  "revised_budget": "validation/ai05_steam_cycle_refinement_budget_v2.json",
+  "raw_rejected_campaign": "artifacts/ai05_steam_cycle_refinement_v2",
+  "rejected_campaign_accepted": false,
+  "file_sha256": {
+    "artifacts/ai05_steam_cycle_refinement_v2/rejection.json": "80e67e2e5bf0f56ce8562c226354935f18de9f0ba01e957ae1154c7155bebcbb",
+    "artifacts/ai05_steam_cycle_refinement_v2/failed-qualification.log": "e12e96b399fe42d84b124c994e62b4c73934769a2bafa8aaf06ccaa6b724c979",
+    "artifacts/ai05_steam_cycle_refinement_v2/budget.json": "75b7c17022c4951f949ae58e1f61d7602e7916ce33baabb427733ea0cd19e7ad",
+    "validation/ai05_steam_cycle_refinement_budget_v2.json": "d361c488fdc49a1e227484153b91c145c6fb563556e5a9ab32953ed60407f71e"
+  }
+}

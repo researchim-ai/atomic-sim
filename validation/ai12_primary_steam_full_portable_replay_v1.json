@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "passed": true,
+  "scope": "Transferred self-contained numerical evidence; both profiles recomputed outside checkout with archived tools and sdist runtime, inherited Python/numpy/scipy dependencies",
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "archive": "artifacts/ai12_primary_steam_full_release_v1.tar.gz",
+  "archive_sha256": "cb4e2ad985073390298caa7252e6cf6a3949f500c6d5e1642541423931e55fcf",
+  "manifest_sha256": "96ece06271dcb6c170f23e8732a398df423eac3d8d9eba3fb0f736f212d49619",
+  "files": 550,
+  "uncompressed_bytes": 43068858,
+  "profiles": [
+    {
+      "profile": "transient",
+      "passed": true,
+      "archived_audit_identical": true,
+      "integrations": 53,
+      "case_families": 17
+    },
+    {
+      "profile": "steady",
+      "passed": true,
+      "archived_audit_identical": true,
+      "integrations": 14,
+      "case_families": 7
+    }
+  ],
+  "integrations": 67,
+  "case_families": 24,
+  "archived_audits_identical": true,
+  "numerical_acceptance_recomputed": true,
+  "publisher_authenticated": false,
+  "checkout_pythonpath_removed": true,
+  "tools_cwd": "/tmp/ai12-primary-steam-full-tools-v1",
+  "replay_wall_limit_s": 2400,
+  "postprocessing_correction": "Original summary counter expected69 instead of53+14=67; both numerical auditors passed before correction. No numerical threshold or result was changed.",
+  "evidence_sha256": {
+    "artifacts/ai12_primary_steam_full_portable_replay_v1/replay.json": "8ca5c139037dd6653695ab3a98b17ef0593abc2e09b9244c77231825bfd3510e",
+    "artifacts/ai12_primary_steam_full_portable_replay_v1/transient-audit.json": "bef7cfac0f460d2d822ce8f7d70137052f87ee1269b3824ee77f32ed02886c67",
+    "artifacts/ai12_primary_steam_full_portable_replay_v1/transient-audit.log": "961ccf57d05997d3e694d729d469cfb4507cbd076a0ecd81877142414a304645",
+    "artifacts/ai12_primary_steam_full_portable_replay_v1/steady-audit.json": "b487f61e75cc0383ced4e47d60b1279fea9dd7fcaa77deacefe93686677ac9c0",
+    "artifacts/ai12_primary_steam_full_portable_replay_v1/steady-audit.log": "77fd0d3e4de6a5bff8c7a227b75d3b91cbff49d2fbab510d5fe79664b9a51125"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

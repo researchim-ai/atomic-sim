@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "before": {
+    "reproduced": true,
+    "source_sha256": "a551fa6c89f27fa27865e507c1176d3e96c0099d4393ce247164e39ab86c4111",
+    "module_sha256": "9acbeef02b0e8691e354ae36ec6eb21df0dac2b81b3ebd4df000a223ca122005",
+    "checkpoint": "artifacts/ai05_steam_cycle_verification_v1/pressure_margin_base/checkpoint.json",
+    "exception": "DomainError",
+    "message": "Steam-cycle passport exceeded: steam_generator.pressure_high"
+  },
+  "after_source_sha256": "2927346a5c1192ee4a59cfd378be0fa157d160b706f4dab3057dc1a3b7eb1d82",
+  "after_module_sha256": "e021901f4d5ec9e7dacd1e7429f0c212077f11b82be778224cd9faa793a41cc7",
+  "same_checkpoint": true,
+  "outward_restart_preserves_boundary": true,
+  "returning_command_reenters_domain": true,
+  "regression_test": "tests/test_steam_cycle.py::test_boundary_restart_requires_actual_returning_vector_field"
+}

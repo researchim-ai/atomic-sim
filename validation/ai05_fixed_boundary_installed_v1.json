@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "wheel_sha256": "a25ec260331cf57bef3f6c620bf1ef141f604b1d85e17787a1d4eee7e2f18201",
+  "cases": [
+    {
+      "name": "split_heat",
+      "horizon_s": 120,
+      "trajectory_and_checkpoint_identical": true,
+      "output": "artifacts/ai05_fixed_boundary_installed_v1/split_heat",
+      "manifest_sha256": "531fa118ec863af396fc0490111fa917ed35aa07de1a33064223215be172b0ed"
+    },
+    {
+      "name": "inventory_partition",
+      "horizon_s": 120,
+      "trajectory_and_checkpoint_identical": true,
+      "output": "artifacts/ai05_fixed_boundary_installed_v1/inventory_partition",
+      "manifest_sha256": "86e5006f490d5c338fb98bf491494e2c874b59b51d7bda32580fdaf53c15c2d9"
+    },
+    {
+      "name": "higher_temperature_floor",
+      "horizon_s": 120,
+      "trajectory_and_checkpoint_identical": true,
+      "output": "artifacts/ai05_fixed_boundary_installed_v1/higher_temperature_floor",
+      "manifest_sha256": "06bd67dcbdb6d32c9b0790565af95b52513a4f1f0eafb6ad69f4c2b3a7fb14ea"
+    }
+  ],
+  "checkout_pythonpath_removed": true,
+  "scope": "Installed BDF SDK CLI outside checkout; offline no-deps wheel with inherited dependencies; engineering initializer remains a companion script",
+  "validated": false,
+  "plant_referenced": false
+}

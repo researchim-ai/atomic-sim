@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "scope": "Two fixed-volume equilibrium stores, empirical admission, feed pump, walls and turbine/rotor/generator; fixed before formal series",
+  "pressure_absolute_pa": 0.1,
+  "temperature_absolute_k": 0.000001,
+  "quality_absolute": 0.000000001,
+  "omega_absolute_rad_s": 0.000001,
+  "mass_absolute_kg": 0.00000001,
+  "energy_absolute_j": 0.001,
+  "reference_energy_absolute_j": 0.02,
+  "reference_mass_absolute_kg": 0.000001,
+  "power_absolute_w": 0.00001,
+  "boundary_time_absolute_s": 0.00001,
+  "restart_omega_absolute_rad_s": 0.000001,
+  "temporal_pressure_absolute_pa": 0.1,
+  "validated": false,
+  "plant_referenced": false
+}

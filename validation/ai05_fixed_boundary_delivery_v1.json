@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "status": "accepted_within_declared_scope",
+  "task_id": "AI-05.03",
+  "task_status": "in_progress",
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "signature": {
+    "assembly": {
+      "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+      "budget_sha256": "081a9ae178dcb1f14d8722f9d57c3a89c5b5112b77b621813f91989fc206c087",
+      "driver_sha256": {
+        "scripts/audit_primary_steam.py": "1ff1edf7d90b796ea6eb2b3c976109bba0c135d0e4854c399cf9c7a7808d9aa4",
+        "scripts/primary_steam_references.py": "444c551540d360bf5d49bd808d342fcc95dc82cff7f868730472aa5c48b30b39",
+        "scripts/verify_primary_steam.py": "704866a0b15a0b000b572d27683ff0b50e8601c3b7d3c64b67e6a04d6a373423",
+        "scripts/qualify_primary_steam.py": "c27c7a825bfd968b7e9324cda95b71da551a77b5a9a5490db7c900a2ddfd637b",
+        "scripts/verify_turbine.py": "f6a63b4424e0f01986c0357768818da140cc28b2994d2b98272aed6a2ce2408d"
+      },
+      "python": "3.12.9",
+      "versions": {
+        "numpy": "2.2.6",
+        "scipy": "1.15.2"
+      }
+    },
+    "qualification_sha256": "00fa05c7c30e3cadb4378414ff48bc50c2bc5bf64b188e0fb5fff9a945439a4b",
+    "budget_sha256": "bf06214a669e5d077b54fbc096611f6be9bd18d5a75b94b2bd5071386f81b955",
+    "steady_budget_sha256": "11f32ea9f531e2e5019354f31b0345e620bab459585089e1df58950dad843361",
+    "base_budget_sha256": "081a9ae178dcb1f14d8722f9d57c3a89c5b5112b77b621813f91989fc206c087",
+    "initializer_driver_sha256": {
+      "scripts/solve_fixed_primary_steam.py": "604bd20b4a5e301b15f83efad884c663444f501fdd97fcc211a85ed7e23e81d1",
+      "scripts/design_primary_steam.py": "7189cd36ffb3119b3f9897d9ed64cc5fb9c0633d4e2051f9ba9dd38cfaf751d9",
+      "scripts/primary_steam_references.py": "444c551540d360bf5d49bd808d342fcc95dc82cff7f868730472aa5c48b30b39",
+      "scripts/verify_turbine.py": "f6a63b4424e0f01986c0357768818da140cc28b2994d2b98272aed6a2ce2408d",
+      "scripts/turbine_references.py": "e0b484df035435b31054bcfd3595bf2c1047ebaae4960636b70f6409603dc4d5"
+    },
+    "stationary_verifier_sha256": "e5d38217c5dd9caf75aa6d70859eb3a2a875723b94600a6f8fe97ed75be50008"
+  },
+  "integrations": 22,
+  "case_families": 11,
+  "horizon_s": 120,
+  "negative_checks": 12,
+  "warmup_steps": 0,
+  "all_commands_preserved": true,
+  "global_uniqueness_proven": false,
+  "scope": "Fixed-command stationary initialization for the declared constant-property primary/equilibrium-steam assembly with explicit total steam mass and boiler-quality anchors",
+  "maximum_initial_dimensional_residuals": {
+    "maximum_stock_power_residual_w": 5.940000846749171e-08,
+    "maximum_primary_momentum_residual_pa": 1.0913936421275139e-11,
+    "maximum_primary_shaft_residual_nm": 8.881784197001252e-15,
+    "maximum_steam_mass_rate_kg_s": 8.743006318923108e-16
+  },
+  "negative_criteria": {
+    "heater_incompatible": "hot_energy_compatibility",
+    "feed_pressure": "pressure_compatibility",
+    "cooling": "condenser_compatibility",
+    "unloaded_rotor": "rotor_rank",
+    "rotor_band": "rotor_band",
+    "inventory_mass": "inventory_anchor",
+    "inventory_phase": "inventory_anchor",
+    "thermal_rank": "thermal_rank",
+    "pressure_endpoint": "active_pressure_boundary",
+    "phase_boundary": "active_state_boundary",
+    "shaft_boundary": "active_state_boundary",
+    "primary_subcooling_boundary": "active_state_boundary"
+  },
+  "software_tests": 1367,
+  "excluded_tests": 1,
+  "new_tests": 52,
+  "installed_sdk_cases": 3,
+  "transferred_audit_integrations": 36,
+  "physical_runtime_unchanged": true,
+  "prior_transient_matrix": "validation/ai05_primary_steam_delivery_v3.json",
+  "historical_evidence_note": "Prior67-packet transient+steady archive remains separate; new36-packet archive is14 old steady plus22 fixed-command cases, not36 additional distinct cases.",
+  "remaining": [
+    "General branched/compressible variable-EOS initialization",
+    "Unsupported branches and global uniqueness",
+    "General active-boundary event semantics",
+    "Experimental and plant validation",
+    "Resolved dependency lock/SBOM, authenticated signing and platform matrix"
+  ],
+  "evidence_sha256": {
+    "validation/ai05_fixed_boundary_audit_v2.json": "88ccc85b6f1d6118eb314761dcb2476574a1c01dc214d9a98e51c41e39812a9b",
+    "validation/ai05_fixed_boundary_baseline_v1.json": "2686d162d33e121ad0a1476f956ede94eb4647d280fcd7f67a8bf185ceee8e19",
+    "validation/ai05_fixed_boundary_installed_v1.json": "586a23a60f754adc4d485fab2e09cc5048d2e5865b6877a63b4e8c76d553fcb3",
+    "validation/ai05_fixed_boundary_portable_replay_v1.json": "b9b1cc98f33ec9c5fc163404d8db0eef04deb545f6278b6f1978ca405ba3f84d",
+    "validation/ai05_fixed_boundary_archive_reproducibility_v1.json": "3e200b15f7f06e112a2210c678d0541d83624c393cc3eb0905afe1b0143c2de2",
+    "validation/ai05_fixed_boundary_endpoint_regression_v1.json": "30e1b38b11a97089b53ac4a6d60037f07edd5e026649b9488826272b6d5558c9",
+    "validation/ai05_fixed_boundary_domain_regression_v1.json": "80d8f404602975e30be0a490b065a93df6eeaee13f891148f515f1c335838687"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "archive_sha256": "bd72ebc3c39edc2fb548490aff19bcf1090a0c28e9d5791aac7271a074e53c9b",
+  "manifest_sha256": "2e71d3452d50e3a5d72c1a21ed881e7954b1b15957c3097e5674b59616c60209",
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "byte_identical_rebuild": true,
+  "files": 427,
+  "scope": "Repeated build from identical selected scientific inputs and companion scripts",
+  "validated": false,
+  "plant_referenced": false
+}

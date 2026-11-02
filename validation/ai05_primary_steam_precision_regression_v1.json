@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "source_sha256": "68fb24c86a58c0c01072961c14bd3b9eff7a0a9b813dcab96e683dfed4b71f95",
+  "passed": true,
+  "same_physical_problem": true,
+  "unchanged_power_limit_w": 0.001,
+  "development_solver": {
+    "method": "Radau",
+    "rtol": 1e-08,
+    "max_step_s": 0.05,
+    "atol_scale": 0.1
+  },
+  "tight_solver": {
+    "method": "Radau",
+    "rtol": 1e-11,
+    "max_step_s": 0.05,
+    "atol_scale": 0.001
+  },
+  "assessments": {
+    "development": {
+      "accepted": false,
+      "metrics": {
+        "primary_flow_absolute_kg_s": 1.372586666548159e-08,
+        "primary_omega_absolute_rad_s": 6.407105956895975e-10,
+        "steam_omega_absolute_rad_s": 1.1368683772161603e-13,
+        "temperature_absolute_k": 1.0800249583553523e-11,
+        "pressure_absolute_pa": 2.042463529505767e-05,
+        "quality_absolute": 3.1086244689504383e-15,
+        "mass_absolute_kg": 6.536993168992922e-13,
+        "inventory_energy_absolute_j": 7.748603820800781e-07,
+        "energy_integral_absolute_j": 7.101334631443024e-08,
+        "energy_balance_absolute_j": 7.280868885573e-08,
+        "reference_energy_balance_absolute_j": 8.403885658481158e-07,
+        "power_balance_absolute_w": 9.458744898438454e-11,
+        "power_absolute_w": 0.047972679138183594,
+        "boundary_time_absolute_s": 0.0,
+        "torque_absolute_nm": 2.042463620455237e-08,
+        "specific_energy_absolute_j_kg": 9.313225746154785e-09,
+        "specific_entropy_absolute_j_kg_k": 2.3646862246096134e-11,
+        "volume_absolute_m3": 0.0,
+        "flow_acceleration_absolute_kg_s2": 0.0,
+        "kinetic_energy_absolute_j": 5.881713728938366e-08,
+        "stored_energy_absolute_j": 8.11269273981452e-07
+      },
+      "termination": "completed",
+      "solver_statistics": {
+        "available": true,
+        "segments": 22,
+        "scipy_segments": 22,
+        "reported_mesh_steps": 252,
+        "max_reported_step_s": 0.050000000000000044,
+        "scipy_nfev": 1868,
+        "scipy_njev": 31,
+        "scipy_nlu": 248
+      }
+    },
+    "tight": {
+      "accepted": true,
+      "metrics": {
+        "primary_flow_absolute_kg_s": 3.4788172342814505e-11,
+        "primary_omega_absolute_rad_s": 1.7053025658242404e-12,
+        "steam_omega_absolute_rad_s": 1.1368683772161603e-13,
+        "temperature_absolute_k": 1.9326762412674725e-12,
+        "pressure_absolute_pa": 8.009374141693115e-08,
+        "quality_absolute": 3.1086244689504383e-15,
+        "mass_absolute_kg": 6.536993168992922e-13,
+        "inventory_energy_absolute_j": 7.748603820800781e-07,
+        "energy_integral_absolute_j": 2.384185791015625e-07,
+        "energy_balance_absolute_j": 8.40321945361211e-08,
+        "reference_energy_balance_absolute_j": 8.403885658481158e-07,
+        "power_balance_absolute_w": 1.0186340659856796e-10,
+        "power_absolute_w": 0.00012177228927612305,
+        "boundary_time_absolute_s": 0.0,
+        "torque_absolute_nm": 5.1876725137844915e-11,
+        "specific_energy_absolute_j_kg": 9.313225746154785e-09,
+        "specific_entropy_absolute_j_kg_k": 2.3646862246096134e-11,
+        "volume_absolute_m3": 0.0,
+        "flow_acceleration_absolute_kg_s2": 0.0,
+        "kinetic_energy_absolute_j": 1.3969838619232178e-09,
+        "stored_energy_absolute_j": 8.345814421772957e-07
+      },
+      "termination": "completed",
+      "solver_statistics": {
+        "available": true,
+        "segments": 22,
+        "scipy_segments": 22,
+        "reported_mesh_steps": 1049,
+        "max_reported_step_s": 0.019011647559985967,
+        "scipy_nfev": 7519,
+        "scipy_njev": 43,
+        "scipy_nlu": 196
+      }
+    }
+  },
+  "scope": "One 5s development trajectory, tightening solver only; no tolerance relaxation and no full-assembly qualification claim",
+  "file_sha256": {
+    "validation/ai05_primary_steam_budget_v1.json": "debdd20b6cc69e8aa677152908f338031f80e75bd288a4a344237f8900c8f47d",
+    "scripts/primary_steam_references.py": "cc02e22d01066c5c8a841701e83904558bd3c8a7b9bf7fa0f389053fd04d803b",
+    "scripts/verify_primary_steam.py": "67f38339bf9fb64cca017937c94f646202308d43ede3387541724f23c2287de9",
+    "artifacts/ai05_primary_steam_development_v1/input.json": "6221c0679d1a88fbf671eaa802c9a08960b4390259abbfa01a424e8717fed4c5",
+    "artifacts/ai05_primary_steam_development_v1/report.json": "5bb655fa3080c5dfed30d81e33274cde24e4a81c0657971efd3b2975637012be",
+    "artifacts/ai05_primary_steam_development_v1/trajectory.json": "810b41b4d3d8d322e1bb174feb3eaed72daf87531874dc69e03770ae6c1e32e9",
+    "artifacts/ai05_primary_steam_development_v1/manifest.json": "22881b5783a35ec63563be32f03fbc965b1b29f45a3843b31d21b8b94ace0ceb",
+    "artifacts/ai05_primary_steam_precision_probe_v1/development.json": "692c2ef8471d44e27fe02866553af89edc4cb3fef6d1c62deefd2d8036304486",
+    "artifacts/ai05_primary_steam_tight_pilot_v1/input.json": "8c0cc1cc24e9a46fb1bb1ec45d1f7207dbed64d186cccc25d7d696f6ae1659bf",
+    "artifacts/ai05_primary_steam_tight_pilot_v1/report.json": "4f5dddbe6b3e23062413c8c41f505c222f67c355264ed2b8b864236f44ffaa96",
+    "artifacts/ai05_primary_steam_tight_pilot_v1/trajectory.json": "afb2eb9e2eabd5029851c9ce0c4685f266a9d48dfe668311f82f395ce7e7b518",
+    "artifacts/ai05_primary_steam_tight_pilot_v1/manifest.json": "10a19e2f2809587d05ce8c67c90c3f28ccad895d076b8901eff7cc44eceb4d09",
+    "artifacts/ai05_primary_steam_precision_probe_v1/tight.json": "8afbbe7ac2931d6a9ed21c39fec5c16d210c0c8fbb6d95709ba1baf5ae5a23ae"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

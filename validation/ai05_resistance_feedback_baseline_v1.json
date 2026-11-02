@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "passed": true,
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "signature": {
+    "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+    "drivers": {
+      "scripts/solve_resistance_feedback.py": "bdeca10ffbf0f88b1490d96ec489018867219d37a09f5210c34c834859cc9cd4",
+      "scripts/solve_thermal_graph.py": "a83be295f1d6d05a82290584d65d0dbc5bc47009a3b0674bb1a10102d10d4f6a",
+      "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928"
+    },
+    "budgets": {
+      "validation/ai05_resistance_feedback_budget_v2.json": "53a5f6719611803fe5ef44dd1626bfc3dca7d7d37f06602de0b9cdd12e5ee56c",
+      "validation/ai05_thermal_graph_budget_v1.json": "bc5d1cba46ec4804359891046de0da5db9eff71f62ad0689bcd85cdf98a80f4c",
+      "validation/ai05_hydraulic_graph_budget_v1.json": "59acc80c07e047a3b3a63607e6eeaf5a9936cbc359f880aed5b82d34c6386d50"
+    },
+    "python": "3.12.9",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2",
+    "qualification_drivers": {
+      "scripts/resistance_feedback_references.py": "a715c7b5d3cb812dff3b48bc0e2c882b8cb0fe5c1a36087a01439585fdcf3f55",
+      "scripts/qualify_resistance_feedback.py": "9921d7719b53f215d5c0955e729c294af6b373609a61ea4bf5220d5e1d340057",
+      "scripts/hydraulic_graph_references.py": "7552f64999bd352127f799893f1a30eeee6e650c62302f1619f47434141dc726",
+      "scripts/thermal_graph_references.py": "dea3e83695c58bbfe61f329f2bd357751ad9463513b2f8de4f3a47fb05e1e011"
+    }
+  },
+  "platform": "Linux-6.17.0-22-generic-x86_64-with-glibc2.39",
+  "test_command": "python -m pytest -m 'not external_integration' -q",
+  "tests_passed": 1538,
+  "tests_deselected": 1,
+  "new_tests": 37,
+  "focused_tests_passed": 37,
+  "full_suite_seconds": 355.01,
+  "warnings_observed": 0,
+  "warning_policy": "No suppression or fix of historical intermittent SciPy BDF warning claimed; current observations retained in full log",
+  "ruff": "Passed; pre-existing top-level configuration deprecation warning",
+  "black": "Not installed locally; not executed",
+  "remote_ci": "Not executed; workflow YAML and Python heredocs parsed locally",
+  "file_sha256": {
+    "scripts/solve_resistance_feedback.py": "bdeca10ffbf0f88b1490d96ec489018867219d37a09f5210c34c834859cc9cd4",
+    "scripts/solve_thermal_graph.py": "a83be295f1d6d05a82290584d65d0dbc5bc47009a3b0674bb1a10102d10d4f6a",
+    "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928",
+    "scripts/resistance_feedback_references.py": "a715c7b5d3cb812dff3b48bc0e2c882b8cb0fe5c1a36087a01439585fdcf3f55",
+    "scripts/qualify_resistance_feedback.py": "9921d7719b53f215d5c0955e729c294af6b373609a61ea4bf5220d5e1d340057",
+    "scripts/hydraulic_graph_references.py": "7552f64999bd352127f799893f1a30eeee6e650c62302f1619f47434141dc726",
+    "scripts/thermal_graph_references.py": "dea3e83695c58bbfe61f329f2bd357751ad9463513b2f8de4f3a47fb05e1e011",
+    "validation/ai05_resistance_feedback_budget_v2.json": "53a5f6719611803fe5ef44dd1626bfc3dca7d7d37f06602de0b9cdd12e5ee56c",
+    "validation/ai05_thermal_graph_budget_v1.json": "bc5d1cba46ec4804359891046de0da5db9eff71f62ad0689bcd85cdf98a80f4c",
+    "validation/ai05_hydraulic_graph_budget_v1.json": "59acc80c07e047a3b3a63607e6eeaf5a9936cbc359f880aed5b82d34c6386d50",
+    "tests/test_resistance_feedback.py": "13050a9b9f03d1076cb644e90c79db5709273b3c18e9c1f841be0cddc21b9068",
+    "tests/test_resistance_feedback_evidence.py": "350252f43dfd2cf2d8f6fd42d3487156ebc28d3f8f4cc0236ffcad20addac961",
+    ".github/workflows/ci.yml": "ce602f3b40b880fa047e9b07f55c3913c5049e20baa7fa8d9138030c130e7fdf",
+    "docs/AI_05_RESISTANCE_FEEDBACK_RU.md": "8c2b04be5fd5e524c1f9aa00f37ad77474373bad7da02aad7eed818940643aac",
+    "examples/resistance_feedback_steady.json": "4af0f497bbac4d4b52461932a3e33b2483c2ccce7f78af7f53918071c025b7c1",
+    "artifacts/ai05_resistance_feedback_full_suite_v3.log": "1874dffd0e2c2fa7bded58b04658dd95cb89a53721c15abcc05fd797231b825b",
+    "artifacts/ai05_resistance_feedback_tests_v5.log": "076dd9441c08d59a09c1c32bd6a504bbc5b53be7d37330518ddf79771a360adc",
+    "artifacts/ai05_resistance_feedback_ruff_v3.log": "592055705cfa677b0042efbb466b52a57d7ca5e8c5f68076cc4fb30b8b823949",
+    "artifacts/ai05_resistance_feedback_portable_tests_v1.log": "a3d57cc7223bd0df23fb34a47db38cf7e9dc5a9b16423ef863a5af23a6f50c27"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

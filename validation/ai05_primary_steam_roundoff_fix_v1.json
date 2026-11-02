@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "historical_source_sha256": "68fb24c86a58c0c01072961c14bd3b9eff7a0a9b813dcab96e683dfed4b71f95",
+  "issue": "Sub-resolution absolute-stock reconstruction produced discontinuous coupled rates and BDF step collapse near a designed steady point.",
+  "correction": "Fixed-initial-origin local first-order coupled rate continuation with a C2 blending weight; original nonlinear rates beyond a 1e-12 physical-scale window.",
+  "not_changed": [
+    "Physical state values and checkpoint schema",
+    "IF97 domain and stock reconstruction",
+    "Physical accuracy budgets",
+    "Original strict steady solver policies restored rather than loosened"
+  ],
+  "numerical_approximation_declared_in_passport": true,
+  "steady_qualification": {
+    "passed": true,
+    "integrations": 14,
+    "case_families": 7,
+    "horizon_s": 120,
+    "workspace_and_frozen_audits_identical": true
+  },
+  "regression": {
+    "passed": 1225,
+    "deselected": 1,
+    "new_precision_tests": 8
+  },
+  "installed_wheel": {
+    "smoke_passed": true,
+    "bdf_signed_steady_replays": 2,
+    "horizon_s": 120,
+    "trajectory_and_checkpoint_identical": true
+  },
+  "fresh_transient_qualification_status": "in_progress",
+  "task_status": "in_progress",
+  "file_sha256": {
+    "physics/power/primary_steam.py": "ec1adb72d2229882bf991906e6c5e46f1732301c560158a4be2d98c712949345",
+    "tests/test_primary_steam_precision.py": "56bce7988f6cbf7b6544d543dd44f390b36c357ec1236a9e4cd6a369bae3a5d9",
+    "validation/ai05_primary_steam_design_budget_v3.json": "807a32f0011efd7bd774de87ae6cf2e71dacd2818034f63f3f0e4b188429a231",
+    "validation/ai05_primary_steam_design_audit_v1.json": "b487f61e75cc0383ced4e47d60b1279fea9dd7fcaa77deacefe93686677ac9c0",
+    "validation/ai05_primary_steam_baseline_v3.json": "ea28d3dcefb788edc941e43055935d83a65e42fa3ea627384213c4d0b6c4c729",
+    "validation/ai05_primary_steam_installed_v2.json": "a046456984cbd6d349b7fa1102e03094ae62a3938e889653db25546fc4509ee3"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

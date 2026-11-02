@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "plan_id": "atomic-ai-industrial-v1",
-  "date": "2026-11-01",
-  "version": "1.12.0",
+  "date": "2026-11-02",
+  "version": "1.28.0",
   "human_document": "docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md",
   "status": "in_progress",
   "validated": false,
@@ -643,9 +643,91 @@
             "validation/ai05_pump_storage_audit_v1.json",
             "docs/AI_05_PUMP_STORAGE_RU.md",
             "tests/test_pump_storage_pair.py",
-            "validation/ai05_ai04_gate_status_v8.json"
+            "validation/ai05_ai04_gate_status_v8.json",
+            "validation/ai05_exchanger_delivery_v1.json",
+            "validation/ai05_exchanger_audit_v1.json",
+            "docs/AI_05_TWO_STREAM_EXCHANGER_RU.md",
+            "tests/test_two_stream_exchanger.py",
+            "tests/test_exchanger_evidence.py",
+            "validation/ai05_coupled_exchanger_delivery_v1.json",
+            "validation/ai05_coupled_exchanger_audit_v1.json",
+            "docs/AI_05_COUPLED_EXCHANGER_RU.md",
+            "tests/test_coupled_pump_exchanger.py",
+            "tests/test_coupled_exchanger_evidence.py",
+            "validation/ai05_steam_cycle_delivery_v1.json",
+            "validation/ai05_steam_cycle_audit_v3.json",
+            "docs/AI_05_DYNAMIC_STEAM_CYCLE_RU.md",
+            "tests/test_steam_cycle.py",
+            "tests/test_steam_cycle_evidence.py",
+            "scripts/solve_fixed_primary_steam.py",
+            "scripts/qualify_fixed_primary_steam.py",
+            "docs/AI_05_FIXED_BOUNDARY_STEADY_RU.md",
+            "validation/ai05_fixed_boundary_audit_v2.json",
+            "validation/ai05_fixed_boundary_baseline_v1.json",
+            "validation/ai05_fixed_boundary_installed_v1.json",
+            "validation/ai05_fixed_boundary_endpoint_regression_v1.json",
+            "validation/ai05_fixed_boundary_domain_regression_v1.json",
+            "validation/ai05_fixed_boundary_delivery_v1.json",
+            "validation/ai05_fixed_boundary_portable_replay_v1.json",
+            "validation/ai05_fixed_boundary_archive_reproducibility_v1.json",
+            "scripts/solve_hydraulic_graph.py",
+            "scripts/hydraulic_graph_references.py",
+            "scripts/qualify_hydraulic_graph.py",
+            "docs/AI_05_HYDRAULIC_GRAPH_RU.md",
+            "validation/ai05_hydraulic_graph_audit_v1.json",
+            "validation/ai05_hydraulic_graph_baseline_v1.json",
+            "validation/ai05_hydraulic_graph_delivery_v1.json",
+            "validation/ai05_hydraulic_graph_portable_replay_v1.json",
+            "validation/ai05_hydraulic_graph_reference_regression_v1.json",
+            "scripts/solve_thermal_graph.py",
+            "scripts/thermal_graph_references.py",
+            "scripts/qualify_thermal_graph.py",
+            "tests/test_thermal_graph.py",
+            "tests/test_thermal_graph_evidence.py",
+            "docs/AI_05_THERMAL_GRAPH_RU.md",
+            "validation/ai05_thermal_graph_budget_v1.json",
+            "validation/ai05_thermal_graph_audit_v2.json",
+            "validation/ai05_thermal_graph_portable_replay_v2.json",
+            "validation/ai05_thermal_graph_source_drift_v1.json",
+            "validation/ai05_thermal_graph_baseline_v1.json",
+            "validation/ai05_thermal_graph_delivery_v1.json",
+            "scripts/transient_thermal_graph.py",
+            "scripts/transient_graph_references.py",
+            "scripts/qualify_transient_graph.py",
+            "tests/test_transient_thermal_graph.py",
+            "tests/test_transient_graph_evidence.py",
+            "docs/AI_05_TRANSIENT_GRAPH_RU.md",
+            "validation/ai05_transient_graph_budget_v1.json",
+            "validation/ai05_transient_graph_audit_v3.json",
+            "validation/ai05_transient_graph_portable_replay_v2.json",
+            "validation/ai05_transient_graph_baseline_v1.json",
+            "validation/ai05_transient_graph_delivery_v1.json",
+            "scripts/solve_resistance_feedback.py",
+            "scripts/resistance_feedback_references.py",
+            "scripts/qualify_resistance_feedback.py",
+            "tests/test_resistance_feedback.py",
+            "tests/test_resistance_feedback_evidence.py",
+            "docs/AI_05_RESISTANCE_FEEDBACK_RU.md",
+            "validation/ai05_resistance_feedback_budget_v2.json",
+            "validation/ai05_resistance_feedback_audit_v2.json",
+            "validation/ai05_resistance_feedback_portable_replay_v1.json",
+            "validation/ai05_resistance_feedback_regressions_v1.json",
+            "validation/ai05_resistance_feedback_baseline_v1.json",
+            "validation/ai05_resistance_feedback_delivery_v1.json",
+            "scripts/nonlinear_thermal_graph.py",
+            "scripts/nonlinear_graph_references.py",
+            "scripts/qualify_nonlinear_graph.py",
+            "tests/test_nonlinear_thermal_graph.py",
+            "tests/test_nonlinear_graph_evidence.py",
+            "docs/AI_05_NONLINEAR_TRANSIENT_GRAPH_RU.md",
+            "validation/ai05_nonlinear_graph_budget_v1.json",
+            "validation/ai05_nonlinear_graph_audit_v1.json",
+            "validation/ai05_nonlinear_graph_portable_replay_v2.json",
+            "validation/ai05_nonlinear_graph_baseline_v1.json",
+            "validation/ai05_nonlinear_graph_delivery_v1.json"
           ],
-          "remaining": "Given/steady initialization with dimensional residuals implemented for a constant-property single cycle; general branched/compressible EOS and equipment initialization remain open"
+          "remaining": "Explicit command timeline and regime switching, hydraulic momentum/compressibility, variable density/EOS and calibrated properties, registered component backend/state transfer, phase transitions and general DAE reinitialization remain open. Current nonlinear model has constant rho/cp and instantaneous hydraulics; interval refusal is not an exact physical event.",
+          "implemented_scope": "Fixed-command initialization for the declared constant-property primary/equilibrium-steam assembly: signed-flow hydraulic elimination, scaled thermal linear solve, scalar condenser balance plus independent hot-energy compatibility, explicit mass/quality anchors, independent dimensional RHS residuals, no transient warmup or command adjustment.22 audited120s packets/11 families and12 typed negative cases; installed SDK reproduces three new BDF cases. Separate steady branched resistor graph solver: fixed pressure/injection boundaries, signed flow, strict monotone positive-linear/nonnegative-quadratic laws and hydrostatics;18 independently audited manufactured graphs up to128 nodes, exact archived replay outside checkout. Conservative steady constant-rho/cp enthalpy mixing on hydraulic graphs: pressure work, signed upwind transport, heating/cooling, ambient removal and receiver-deposited dissipation; per-node/edge/global balances and paired inward PortSpec-compatible endpoint records.21 independently audited cases up to128 nodes,42 new tests,archived replay and tests outside checkout. No transported stream temperature invented at zero flow. Finite positive-volume thermal stocks on fixed hydraulic graphs: affine matrix exponential in temperature increments, scaled external-energy integral, full-interval conservative domain admission, atomic advance/restore and detached source-bound checkpoints.22 cases to120s,44 independent Radau/DOP853 IVPs, restart37.5s,39 tests and archived cold replay/CLI restart. Unrepresentable time increments and nonfinite checkpoint data rejected. Stationary two-way temperature/linear-resistance feedback for an explicit user exponential endpoint-mean law, with fixed rho/cp and quadratic loss.20 independently verified mixed pressure/flow/temperature cases up to32 nodes; dimensional pressure, node/edge energy and law closure verified at returned temperature.37 new tests, source-bound cold archive replay. Global uniqueness and material calibration not claimed; original unresolved reservoir fixture retained as negative, internal-mixer fixture is explicitly different input. Nonlinear finite-stock thermal dynamics with L(T) and instantaneous monotone hydraulic equilibrium at each adaptive Dormand-Prince5(4) stage. Conservative local flow/pressure/stream/rate bounds admit full intervals; no clipping. Atomic advance/restore includes increment state, scaled energy and adaptive proposal; exact value continuation verified.10 scenarios to120s/8 nodes,30 measured-mesh trajectories,20 independent Radau/DOP853 IVPs,60 tests, archived cold replay and real bridge reversal."
         },
         {
           "id": "AI-05.04",
@@ -691,21 +773,86 @@
             "validation/ai05_pump_storage_audit_v1.json",
             "docs/AI_05_PUMP_STORAGE_RU.md",
             "tests/test_pump_storage_pair.py",
-            "validation/ai05_ai04_gate_status_v8.json"
+            "validation/ai05_ai04_gate_status_v8.json",
+            "docs/AI_05_HYBRID_CHECK_VALVE_RU.md",
+            "validation/ai05_check_storage_audit_v2.json"
           ],
-          "remaining": "Gas stores now coupled to displacement pump/shaft with reciprocal energy ports; inertial check-valve contact, general network and steam pressurizer remain open"
+          "remaining": "Ideal zero-flow seating/release check valve and gas stores implemented; physical flap/impact, general network and steam pressurizer remain open. Hybrid-valve evidence remains bound to its own prior runtime source."
         },
         {
           "id": "AI-05.06",
           "description": "Принять теплообменник с двумя потоками и стенкой, турбину/вал/генератор и теплоотвод с энергией каждого запаса.",
-          "status": "planned",
-          "evidence": []
+          "status": "accepted",
+          "evidence": [
+            "validation/ai05_exchanger_delivery_v1.json",
+            "validation/ai05_exchanger_audit_v1.json",
+            "docs/AI_05_TWO_STREAM_EXCHANGER_RU.md",
+            "tests/test_two_stream_exchanger.py",
+            "tests/test_exchanger_evidence.py",
+            "validation/ai05_coupled_exchanger_delivery_v1.json",
+            "validation/ai05_coupled_exchanger_audit_v1.json",
+            "docs/AI_05_COUPLED_EXCHANGER_RU.md",
+            "tests/test_coupled_pump_exchanger.py",
+            "tests/test_coupled_exchanger_evidence.py",
+            "validation/ai05_turbine_delivery_v1.json",
+            "validation/ai05_turbine_audit_v1.json",
+            "docs/AI_05_STEAM_TURBINE_TRAIN_RU.md",
+            "tests/test_steam_turbine_train.py",
+            "tests/test_turbine_evidence.py",
+            "validation/ai05_steam_cycle_delivery_v1.json",
+            "validation/ai05_steam_cycle_audit_v3.json",
+            "docs/AI_05_DYNAMIC_STEAM_CYCLE_RU.md",
+            "tests/test_steam_cycle.py",
+            "tests/test_steam_cycle_evidence.py",
+            "validation/ai05_steam_refinement_delivery_v1.json",
+            "validation/ai05_steam_refinement_baseline_v1.json",
+            "validation/ai05_steam_refinement_installed_v1.json",
+            "validation/ai05_steam_cycle_refinement_audit_v1.json",
+            "validation/ai05_turbine_audit_v3.json",
+            "validation/ai05_steam_cycle_refinement_budget_v2.json",
+            "validation/ai05_steam_cycle_numerical_stability_v1.json",
+            "validation/ai05_steam_refinement_mesh_regression_v1.json",
+            "docs/AI_05_STEAM_REFINEMENT_RU.md",
+            "validation/ai05_primary_steam_delivery_v1.json",
+            "validation/ai05_primary_steam_baseline_v1.json",
+            "validation/ai05_primary_steam_installed_v1.json",
+            "validation/ai05_steam_heat_port_compatibility_v1.json",
+            "docs/AI_05_PRIMARY_STEAM_RU.md",
+            "validation/ai05_primary_steam_delivery_v2.json",
+            "validation/ai05_primary_steam_audit_v1.json",
+            "validation/ai05_primary_steam_baseline_v2.json",
+            "validation/ai05_primary_steam_design_audit_v1.json",
+            "validation/ai05_primary_steam_reference_convergence_v1.json",
+            "validation/ai05_primary_steam_reference_correction_v1.json",
+            "validation/ai05_primary_steam_roundoff_diagnostic_v1.json",
+            "docs/AI_05_PRIMARY_STEAM_STEADY_RU.md",
+            "docs/AI_05_PRIMARY_STEAM_QUALIFICATION_RU.md",
+            "tests/test_primary_steam_precision.py",
+            "validation/ai05_primary_steam_baseline_v3.json",
+            "validation/ai05_primary_steam_delivery_v3.json",
+            "validation/ai05_primary_steam_audit_v2.json",
+            "validation/ai12_evidence_bundle_baseline_v1.json"
+          ],
+          "implemented_scope": "Source-qualified reduced two-flow exchangers and pump thermal coupling, turbine/shaft/generator, equilibrium steam heat rejection, and corrected monolithic constant-property primary/steam assembly. Latest runtime985b: 53 transient packets/17 families/three measured step levels plus 14 steady packets/7 families; original cold frozen audits, signed-flow120s installed BDF replay,1315 software tests. Historical components retain their original qualified frozen runtimes.",
+          "outside_scope": "Variable-property primary EOS, pressurizer, real machine maps, reactor neutronics coupling, broader network initialization, natural circulation and external experimental/plant validation remain separately tracked"
         },
         {
           "id": "AI-05.07",
           "description": "Добавить гидростатику и совместно нагреваемую гравитационную петлю; отдельный компонентный тест не выдавать за естественную циркуляцию ВВЭР.",
-          "status": "planned",
-          "evidence": []
+          "status": "in_progress",
+          "evidence": [
+            "scripts/solve_hydraulic_graph.py",
+            "scripts/hydraulic_graph_references.py",
+            "scripts/qualify_hydraulic_graph.py",
+            "docs/AI_05_HYDRAULIC_GRAPH_RU.md",
+            "validation/ai05_hydraulic_graph_audit_v1.json",
+            "validation/ai05_hydraulic_graph_baseline_v1.json",
+            "validation/ai05_hydraulic_graph_delivery_v1.json",
+            "validation/ai05_hydraulic_graph_portable_replay_v1.json",
+            "validation/ai05_hydraulic_graph_reference_regression_v1.json"
+          ],
+          "implemented_scope": "Conservative constant-density hydrostatic pressure term and gravitational mechanical power in arbitrary steady resistor graphs; zero-flow hydrostatic column and open-boundary gravitational work verified.",
+          "remaining": "Jointly heated variable-density gravity loop, transient independent reference/refinement, and natural-circulation qualification; constant-density steady hydrostatics does not close this task."
         },
         {
           "id": "AI-05.08",
@@ -757,9 +904,64 @@
             "validation/ai05_pump_storage_audit_v1.json",
             "docs/AI_05_PUMP_STORAGE_RU.md",
             "tests/test_pump_storage_pair.py",
-            "validation/ai05_ai04_gate_status_v8.json"
+            "validation/ai05_ai04_gate_status_v8.json",
+            "validation/ai05_exchanger_delivery_v1.json",
+            "validation/ai05_exchanger_audit_v1.json",
+            "docs/AI_05_TWO_STREAM_EXCHANGER_RU.md",
+            "tests/test_two_stream_exchanger.py",
+            "tests/test_exchanger_evidence.py",
+            "validation/ai05_coupled_exchanger_delivery_v1.json",
+            "validation/ai05_coupled_exchanger_audit_v1.json",
+            "docs/AI_05_COUPLED_EXCHANGER_RU.md",
+            "tests/test_coupled_pump_exchanger.py",
+            "tests/test_coupled_exchanger_evidence.py",
+            "validation/ai05_turbine_delivery_v1.json",
+            "validation/ai05_turbine_audit_v1.json",
+            "docs/AI_05_STEAM_TURBINE_TRAIN_RU.md",
+            "tests/test_steam_turbine_train.py",
+            "tests/test_turbine_evidence.py",
+            "validation/ai05_steam_cycle_delivery_v1.json",
+            "validation/ai05_steam_cycle_audit_v3.json",
+            "docs/AI_05_DYNAMIC_STEAM_CYCLE_RU.md",
+            "tests/test_steam_cycle.py",
+            "tests/test_steam_cycle_evidence.py",
+            "scripts/solve_thermal_graph.py",
+            "scripts/thermal_graph_references.py",
+            "scripts/qualify_thermal_graph.py",
+            "tests/test_thermal_graph.py",
+            "tests/test_thermal_graph_evidence.py",
+            "docs/AI_05_THERMAL_GRAPH_RU.md",
+            "validation/ai05_thermal_graph_budget_v1.json",
+            "validation/ai05_thermal_graph_audit_v2.json",
+            "validation/ai05_thermal_graph_portable_replay_v2.json",
+            "validation/ai05_thermal_graph_source_drift_v1.json",
+            "validation/ai05_thermal_graph_baseline_v1.json",
+            "validation/ai05_thermal_graph_delivery_v1.json",
+            "scripts/transient_thermal_graph.py",
+            "scripts/transient_graph_references.py",
+            "scripts/qualify_transient_graph.py",
+            "tests/test_transient_thermal_graph.py",
+            "tests/test_transient_graph_evidence.py",
+            "docs/AI_05_TRANSIENT_GRAPH_RU.md",
+            "validation/ai05_transient_graph_budget_v1.json",
+            "validation/ai05_transient_graph_audit_v3.json",
+            "validation/ai05_transient_graph_portable_replay_v2.json",
+            "validation/ai05_transient_graph_baseline_v1.json",
+            "validation/ai05_transient_graph_delivery_v1.json",
+            "scripts/nonlinear_thermal_graph.py",
+            "scripts/nonlinear_graph_references.py",
+            "scripts/qualify_nonlinear_graph.py",
+            "tests/test_nonlinear_thermal_graph.py",
+            "tests/test_nonlinear_graph_evidence.py",
+            "docs/AI_05_NONLINEAR_TRANSIENT_GRAPH_RU.md",
+            "validation/ai05_nonlinear_graph_budget_v1.json",
+            "validation/ai05_nonlinear_graph_audit_v1.json",
+            "validation/ai05_nonlinear_graph_portable_replay_v2.json",
+            "validation/ai05_nonlinear_graph_baseline_v1.json",
+            "validation/ai05_nonlinear_graph_delivery_v1.json"
           ],
-          "remaining": "Transactional coupled assembly and atomic resistance/torque controls implemented; general switched topology/equipment scope remains open"
+          "remaining": "Explicit command timeline and regime switching, hydraulic momentum/compressibility, variable density/EOS and calibrated properties, registered component backend/state transfer, phase transitions and general DAE reinitialization remain open. Current nonlinear model has constant rho/cp and instantaneous hydraulics; interval refusal is not an exact physical event.",
+          "implemented_scope": " Conservative steady constant-rho/cp enthalpy mixing on hydraulic graphs: pressure work, signed upwind transport, heating/cooling, ambient removal and receiver-deposited dissipation; per-node/edge/global balances and paired inward PortSpec-compatible endpoint records.21 independently audited cases up to128 nodes,42 new tests,archived replay and tests outside checkout. No transported stream temperature invented at zero flow. Finite positive-volume thermal stocks on fixed hydraulic graphs: affine matrix exponential in temperature increments, scaled external-energy integral, full-interval conservative domain admission, atomic advance/restore and detached source-bound checkpoints.22 cases to120s,44 independent Radau/DOP853 IVPs, restart37.5s,39 tests and archived cold replay/CLI restart. Unrepresentable time increments and nonfinite checkpoint data rejected. Nonlinear finite-stock thermal dynamics with L(T) and instantaneous monotone hydraulic equilibrium at each adaptive Dormand-Prince5(4) stage. Conservative local flow/pressure/stream/rate bounds admit full intervals; no clipping. Atomic advance/restore includes increment state, scaled energy and adaptive proposal; exact value continuation verified.10 scenarios to120s/8 nodes,30 measured-mesh trajectories,20 independent Radau/DOP853 IVPs,60 tests, archived cold replay and real bridge reversal."
         }
       ],
       "acceptance": [
@@ -819,7 +1021,19 @@
         "validation/ai05_pump_storage_audit_v1.json",
         "docs/AI_05_PUMP_STORAGE_RU.md",
         "tests/test_pump_storage_pair.py",
-        "validation/ai05_ai04_gate_status_v8.json"
+        "validation/ai05_ai04_gate_status_v8.json",
+        "validation/ai05_exchanger_delivery_v1.json",
+        "validation/ai05_exchanger_audit_v1.json",
+        "docs/AI_05_TWO_STREAM_EXCHANGER_RU.md",
+        "validation/ai05_coupled_exchanger_delivery_v1.json",
+        "validation/ai05_coupled_exchanger_audit_v1.json",
+        "docs/AI_05_COUPLED_EXCHANGER_RU.md",
+        "validation/ai05_turbine_delivery_v1.json",
+        "validation/ai05_turbine_audit_v1.json",
+        "docs/AI_05_STEAM_TURBINE_TRAIN_RU.md",
+        "validation/ai05_steam_cycle_delivery_v1.json",
+        "validation/ai05_steam_cycle_audit_v3.json",
+        "docs/AI_05_DYNAMIC_STEAM_CYCLE_RU.md"
       ]
     },
     {
@@ -1264,13 +1478,44 @@
           "id": "AI-12.01",
           "description": "Определить supported matrix ОС/Python/зависимостей и lock/constraints; проверить минимальные и выбранные поддерживаемые версии.",
           "status": "planned",
-          "evidence": []
+          "evidence": [
+            "validation/ai05_fixed_boundary_portable_replay_v1.json",
+            "validation/ai05_fixed_boundary_archive_reproducibility_v1.json"
+          ],
+          "implemented_scope": " Fixed-command profile added; transferred36-packet archive(14 prior steady+22 fixed) and12 negatives reproduced exact archived audits; rebuilt archive byte-identical."
         },
         {
           "id": "AI-12.02",
           "description": "Проверить wheel и все заявленные ресурсы из изолированного окружения вне checkout, включая JSON/YAML сценарии и CLI.",
-          "status": "planned",
-          "evidence": []
+          "status": "in_progress",
+          "evidence": [
+            "validation/ai05_turbine_delivery_v1.json",
+            "validation/ai05_historical_frozen_replay_v1.json",
+            "validation/ai05_steam_cycle_delivery_v1.json",
+            "validation/ai05_turbine_snapshot_compatibility_v1.json",
+            "validation/ai05_steam_refinement_delivery_v1.json",
+            "validation/ai05_steam_refinement_baseline_v1.json",
+            "validation/ai05_steam_refinement_installed_v1.json",
+            "validation/ai05_steam_cycle_refinement_audit_v1.json",
+            "validation/ai05_turbine_audit_v3.json",
+            "validation/ai05_steam_cycle_refinement_budget_v2.json",
+            "validation/ai05_steam_cycle_numerical_stability_v1.json",
+            "validation/ai05_steam_refinement_mesh_regression_v1.json",
+            "docs/AI_05_STEAM_REFINEMENT_RU.md",
+            "validation/ai05_primary_steam_delivery_v1.json",
+            "validation/ai05_primary_steam_baseline_v1.json",
+            "validation/ai05_primary_steam_installed_v1.json",
+            "validation/ai05_steam_heat_port_compatibility_v1.json",
+            "docs/AI_05_PRIMARY_STEAM_RU.md",
+            "validation/ai12_evidence_bundle_delivery_v1.json",
+            "validation/ai12_evidence_bundle_baseline_v1.json",
+            "validation/ai12_primary_steam_portable_replay_v1.json",
+            "docs/AI_12_EVIDENCE_BUNDLE_RU.md",
+            "validation/ai12_evidence_bundle_delivery_v2.json",
+            "validation/ai12_primary_steam_full_portable_replay_v1.json",
+            "validation/ai12_evidence_bundle_reproducibility_v1.json"
+          ],
+          "remaining": "Local Linux/Python 3.12 wheel resources and CLIs verified outside checkout with inherited dependencies; clean dependency and other supported-platform matrix remain unverified"
         },
         {
           "id": "AI-12.03",
@@ -1281,32 +1526,125 @@
         {
           "id": "AI-12.04",
           "description": "Обеспечить regression gates нового ядра и API, линтер/типы по актуальным модулям, а не только legacy-папкам.",
-          "status": "planned",
-          "evidence": []
+          "status": "in_progress",
+          "evidence": [
+            "validation/ai05_turbine_delivery_v1.json",
+            "validation/ai05_historical_frozen_replay_v1.json",
+            "validation/ai05_steam_cycle_delivery_v1.json",
+            "validation/ai05_turbine_snapshot_compatibility_v1.json",
+            "validation/ai05_steam_refinement_delivery_v1.json",
+            "validation/ai05_steam_refinement_baseline_v1.json",
+            "validation/ai05_steam_refinement_installed_v1.json",
+            "validation/ai05_steam_cycle_refinement_audit_v1.json",
+            "validation/ai05_turbine_audit_v3.json",
+            "validation/ai05_steam_cycle_refinement_budget_v2.json",
+            "validation/ai05_steam_cycle_numerical_stability_v1.json",
+            "validation/ai05_steam_refinement_mesh_regression_v1.json",
+            "docs/AI_05_STEAM_REFINEMENT_RU.md",
+            "validation/ai05_primary_steam_delivery_v1.json",
+            "validation/ai05_primary_steam_baseline_v1.json",
+            "validation/ai05_primary_steam_installed_v1.json",
+            "validation/ai05_steam_heat_port_compatibility_v1.json",
+            "docs/AI_05_PRIMARY_STEAM_RU.md",
+            "validation/ai12_evidence_bundle_delivery_v1.json",
+            "validation/ai12_evidence_bundle_baseline_v1.json",
+            "validation/ai12_primary_steam_portable_replay_v1.json",
+            "docs/AI_12_EVIDENCE_BUNDLE_RU.md",
+            "validation/ai12_evidence_bundle_delivery_v2.json",
+            "validation/ai12_primary_steam_full_portable_replay_v1.json",
+            "validation/ai12_evidence_bundle_reproducibility_v1.json"
+          ],
+          "remaining": "New exchanger/coupling/turbine regression and CI lint/audit lanes implemented; full current-module type/lint coverage and remote CI results remain open"
         },
         {
           "id": "AI-12.05",
           "description": "Добавить schema compatibility, migration tests, golden projects и запрет тихого изменения смысла старого snapshot.",
-          "status": "planned",
-          "evidence": []
+          "status": "in_progress",
+          "evidence": [
+            "validation/ai05_steam_cycle_delivery_v1.json",
+            "validation/ai05_turbine_snapshot_compatibility_v1.json",
+            "validation/ai05_steam_refinement_delivery_v1.json",
+            "validation/ai05_steam_refinement_baseline_v1.json",
+            "validation/ai05_steam_refinement_installed_v1.json",
+            "validation/ai05_steam_cycle_refinement_audit_v1.json",
+            "validation/ai05_turbine_audit_v3.json",
+            "validation/ai05_steam_cycle_refinement_budget_v2.json",
+            "validation/ai05_steam_cycle_numerical_stability_v1.json",
+            "validation/ai05_steam_refinement_mesh_regression_v1.json",
+            "docs/AI_05_STEAM_REFINEMENT_RU.md",
+            "validation/ai05_primary_steam_delivery_v1.json",
+            "validation/ai05_primary_steam_baseline_v1.json",
+            "validation/ai05_primary_steam_installed_v1.json",
+            "validation/ai05_steam_heat_port_compatibility_v1.json",
+            "docs/AI_05_PRIMARY_STEAM_RU.md"
+          ],
+          "remaining": "Old turbine schema-1 snapshots and new transactional/boundary contracts checked; whole-project migration/version policy, golden projects and universal snapshot-meaning compatibility remain open"
         },
         {
           "id": "AI-12.06",
           "description": "Собирать version/source/dependency/SBOM/license manifest, контрольные суммы и архив evidence; provenance подписи вводить для реального канала поставки.",
-          "status": "planned",
-          "evidence": []
+          "status": "in_progress",
+          "evidence": [
+            "validation/ai05_turbine_delivery_v1.json",
+            "validation/ai05_historical_frozen_replay_v1.json",
+            "validation/ai05_steam_cycle_delivery_v1.json",
+            "validation/ai05_turbine_snapshot_compatibility_v1.json",
+            "validation/ai05_steam_refinement_delivery_v1.json",
+            "validation/ai05_steam_refinement_baseline_v1.json",
+            "validation/ai05_steam_refinement_installed_v1.json",
+            "validation/ai05_steam_cycle_refinement_audit_v1.json",
+            "validation/ai05_turbine_audit_v3.json",
+            "validation/ai05_steam_cycle_refinement_budget_v2.json",
+            "validation/ai05_steam_cycle_numerical_stability_v1.json",
+            "validation/ai05_steam_refinement_mesh_regression_v1.json",
+            "docs/AI_05_STEAM_REFINEMENT_RU.md",
+            "validation/ai05_primary_steam_delivery_v1.json",
+            "validation/ai05_primary_steam_baseline_v1.json",
+            "validation/ai05_primary_steam_installed_v1.json",
+            "validation/ai05_steam_heat_port_compatibility_v1.json",
+            "docs/AI_05_PRIMARY_STEAM_RU.md",
+            "validation/ai12_evidence_bundle_delivery_v1.json",
+            "validation/ai12_evidence_bundle_baseline_v1.json",
+            "validation/ai12_primary_steam_portable_replay_v1.json",
+            "docs/AI_12_EVIDENCE_BUNDLE_RU.md",
+            "validation/ai12_evidence_bundle_delivery_v2.json",
+            "validation/ai12_primary_steam_full_portable_replay_v1.json",
+            "validation/ai12_evidence_bundle_reproducibility_v1.json"
+          ],
+          "remaining": "Supported environment/constraints matrix, full standardized/transitive SBOM/license evidence and publisher signatures for a real delivery channel",
+          "implemented_scope": "Deterministic evidence bundle; exact wheel/sdist runtime identity and pinned numerical scripts/budgets; archive/file/manifest hashes; declared dependency/license metadata; one-command release profile and configured CI gate.67 transferred packets(53 transient+14 steady) passed cold numerical replay outside checkout with both archived audit JSONs identical. Real steady archive rebuild was byte-identical."
         },
         {
           "id": "AI-12.07",
           "description": "Ограничить ресурсы job/policy runner, защитить загрузку пользовательских данных и разделить trusted/untrusted код политики.",
-          "status": "planned",
-          "evidence": []
+          "status": "in_progress",
+          "evidence": [
+            "validation/ai12_evidence_bundle_delivery_v1.json",
+            "validation/ai12_evidence_bundle_baseline_v1.json",
+            "validation/ai12_primary_steam_portable_replay_v1.json",
+            "docs/AI_12_EVIDENCE_BUNDLE_RU.md",
+            "validation/ai12_evidence_bundle_delivery_v2.json",
+            "validation/ai12_primary_steam_full_portable_replay_v1.json",
+            "validation/ai12_evidence_bundle_reproducibility_v1.json"
+          ],
+          "implemented_scope": "Evidence archive path/link/type/resource validation including raw PAX/GNU extension headers; rollback extraction; trusted numerical subprocess replay with a shared wall deadline",
+          "remaining": "CPU/memory/process isolation and untrusted policy execution are not implemented by archive verification"
         },
         {
           "id": "AI-12.08",
           "description": "Подготовить установку, troubleshooting, release notes, recovery и полный runbook контрольного проекта.",
-          "status": "planned",
-          "evidence": []
+          "status": "in_progress",
+          "evidence": [
+            "validation/ai12_evidence_bundle_delivery_v1.json",
+            "validation/ai12_evidence_bundle_baseline_v1.json",
+            "validation/ai12_primary_steam_portable_replay_v1.json",
+            "docs/AI_12_EVIDENCE_BUNDLE_RU.md",
+            "validation/ai12_evidence_bundle_delivery_v2.json",
+            "validation/ai12_primary_steam_full_portable_replay_v1.json",
+            "validation/ai12_evidence_bundle_reproducibility_v1.json"
+          ],
+          "implemented_scope": "Numerical primary/steam archive, transfer, verification, trusted replay and recovery runbook",
+          "remaining": "Full product installation/troubleshooting/release/recovery/control-project runbook across accepted backends"
         }
       ],
       "acceptance": [
@@ -1319,8 +1657,14 @@
         "CI/platform matrix",
         "release dossier и runbook"
       ],
-      "status": "ready",
-      "evidence": []
+      "status": "in_progress",
+      "evidence": [
+        "validation/ai05_turbine_delivery_v1.json",
+        "validation/ai05_historical_driver_recovery_v1.json",
+        "validation/ai05_historical_frozen_replay_v1.json",
+        "validation/ai05_steam_cycle_delivery_v1.json",
+        "validation/ai05_turbine_snapshot_compatibility_v1.json"
+      ]
     },
     {
       "id": "AI-13",
@@ -1385,7 +1729,7 @@
       "evidence": []
     }
   ],
-  "current_baseline_evidence": "validation/ai05_baseline_v8.json",
+  "current_baseline_evidence": "validation/ai05_nonlinear_graph_baseline_v1.json",
   "execution_history": [
     {
       "packages": [
@@ -1494,6 +1838,156 @@
       "status": "partial",
       "evidence": "validation/ai05_delivery_v8.json",
       "note": "Coupled pump/shaft, inertia and gas stores verified; 3/8 accepted unchanged",
+      "next": "AI-05"
+    },
+    {
+      "packages": [
+        "AI-05"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai05_exchanger_delivery_v1.json",
+      "note": "AI-05.06 advanced: two-stream wall-storage exchanger, prescribed signed flows, independent 26-bundle audit and 2/4/8-cell continuum refinement; 3/8 tasks accepted unchanged",
+      "next": "AI-05"
+    },
+    {
+      "packages": [
+        "AI-05"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai05_coupled_exchanger_delivery_v1.json",
+      "note": "AI-05.06 advanced: simultaneous hydraulic/shaft/thermal two-cycle exchanger, coupled steady initialization and 28 independently replayed bundles; 3/8 accepted tasks unchanged",
+      "next": "AI-05"
+    },
+    {
+      "packages": [
+        "AI-05",
+        "AI-12"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai05_turbine_delivery_v1.json",
+      "note": "Steam turbine/rotor/generator and explicit physical-limit termination independently audited in 24 bundles; exact drivers frozen and 54 earlier bundles replayed from original sdists; accepted task count unchanged",
+      "next": "AI-05"
+    },
+    {
+      "packages": [
+        "AI-05",
+        "AI-12"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai05_steam_cycle_delivery_v1.json",
+      "note": "Dynamic steam inventories and coupled power cycle verified in 22 bundles; 24 turbine bundles rechecked after shared boundary-job runner; two reproduced regressions and right-segment reference fix preserved; 42/109 accepted tasks unchanged",
+      "next": "AI-05"
+    },
+    {
+      "packages": [
+        "AI-05",
+        "AI-12"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai05_steam_refinement_delivery_v1.json",
+      "note": "44 three-level/long-horizon steam-cycle packets and 24 turbine packets independently audited and replayed from frozen sdist; 1127 tests; 42/109 accepted tasks unchanged",
+      "next": "AI-05"
+    },
+    {
+      "packages": [
+        "AI-05",
+        "AI-12"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai05_primary_steam_delivery_v1.json",
+      "note": "Primary-loop/steam monolithic runtime and SDK/CLI; analytic reciprocal port, physical pressure return/rollback; 1161 software tests and installed/frozen smoke. Full independent assembly qualification pending; 42/109 accepted unchanged",
+      "next": "AI-05"
+    },
+    {
+      "packages": [
+        "AI-05"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai05_primary_steam_delivery_v2.json",
+      "note": "Frozen-sdist audit passed53/17 for68fb. Corrected985b baseline1225 passed; steady14/7 audits identical in checkout and sdist, installed-wheel smoke passed. Fresh transient qualification running; accepted42/109 unchanged.",
+      "next": "AI-05"
+    },
+    {
+      "packages": [
+        "AI-12",
+        "AI-05"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai12_evidence_bundle_delivery_v1.json",
+      "note": "1315 software tests; 90 evidence-tool tests; transferred steady14/7 replay matches archived audit. Recovered transient producer53/17 passed after external code143; cold frozen audit running, no task promotion yet.",
+      "next": "AI-05"
+    },
+    {
+      "packages": [
+        "AI-05"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai05_primary_steam_delivery_v3.json",
+      "note": "AI-05.06 accepted in reduced source-qualified equipment scope: corrected985b transient53/17 cold frozen audit and steady14/7, installed signed BDF120s and1315 tests.43/109 accepted,AI05 4/8; full portable67-profile transfer audit still separate.",
+      "next": "AI-05"
+    },
+    {
+      "packages": [
+        "AI-12"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai12_evidence_bundle_delivery_v2.json",
+      "note": "Completed67/67 portable numerical audit packets:53 transient+14 steady, same985b source and archived audit reports.1315 tests,90 new evidence-tool tests, byte-identical archive regeneration. Postprocessor total corrected from69 to67 without changing any numerical criteria.43/109 tasks accepted; constraints/SBOM/signing/platform matrix remain open.",
+      "next": "AI-05"
+    },
+    {
+      "packages": [
+        "AI-05",
+        "AI-12"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai05_fixed_boundary_delivery_v1.json",
+      "note": "Fixed-command steady initialization without warmup or command changes:22 audited120s packets/11 families plus12 diagnostic rejections;1367 software tests(52 added),three installed SDK BDF cases,transferred36/36 archive replay with identical audits and byte-identical archive rebuild. Pressure/phase/temperature-probe regressions preserved; accuracy thresholds unchanged.43/109 accepted,AI05 4/8; general network initialization remains open.",
+      "next": "AI-05"
+    },
+    {
+      "packages": [
+        "AI-05"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai05_hydraulic_graph_delivery_v1.json",
+      "note": "AI05.03/07 advanced with steady branched hydraulic graph and conservative hydrostatics:18 independently audited graphs up to128 nodes,53 new tests,1420 total passed and1 external excluded. One legacy SciPy BDF warning retained; isolated warnings-as-errors probe passed without reproducing it. Transferred archive audit18/18 identical using freshly installed offline SDK wheel; archive byte-identical rebuild.43/109 accepted unchanged; dynamic adapter, coupled variable-density thermal graph and heated gravity loop remain open.",
+      "next": "AI-05"
+    },
+    {
+      "packages": [
+        "AI-05"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai05_thermal_graph_delivery_v1.json",
+      "note": "Conservative stationary enthalpy mixing at constant properties:21 independent audited cases up to128 nodes,42 new tests,1462 total passed and1 external excluded,no warnings in final run. Archived21-case audit identical and42 tests replayed with freshly installed offline SDK wheel outside checkout; deterministic archive rebuild. Initial full run rejected on source drift during report edit,final sources frozen and checks repeated.43/109 accepted unchanged; variable properties, dynamic component transfer and heated gravity transients remain open.",
+      "next": "AI-05"
+    },
+    {
+      "packages": [
+        "AI-05"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai05_transient_graph_delivery_v1.json",
+      "note": "Finite thermal graph dynamics with fixed flows/properties:22 audited120s cases up to128 nodes,44 independent IVPs, source-bound restart, interval-wide domain admission and complete state rollback.1501 software tests passed,1 external excluded,no warnings,39 new tests. Transferred archive audit identical,39 tests and CLI60+60s replay outside checkout; archive rebuild byte-identical. Earlier1499-test run retained before two boundary-validation guards.43/109 accepted unchanged; variable-property coupling, timeline and general dynamic network remain open.",
+      "next": "AI-05"
+    },
+    {
+      "packages": [
+        "AI-05"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai05_resistance_feedback_delivery_v1.json",
+      "note": "Stationary user-law resistance feedback closes temperature/flow/enthalpy locally:20 mixed-system independent/manufactured cases up to32 nodes,37 new tests,1538 total passed and1 external excluded,no warnings. Returned-law pressure and energy checks strengthened by v2 without relaxing original budgets. Cold archive audit identical,37 tests and CLI outside checkout,byte-identical rebuild. Failed reference/reservoir fixtures and interrupted stale-budget-test run retained.43/109 accepted unchanged; dynamic coupling, variable density/EOS, general backend and plant validation remain open.",
+      "next": "AI-05"
+    },
+    {
+      "packages": [
+        "AI-05"
+      ],
+      "status": "partial",
+      "evidence": "validation/ai05_nonlinear_graph_delivery_v1.json",
+      "note": "Nonlinear transient L(T)/hydraulic/thermal feedback:10 audited120s scenarios up to8 nodes,30 trajectories at three distinct measured max steps0.5/0.25/0.125s,20 independent IVPs and exact-value adaptive restart.1598 software tests passed,1 external excluded,no warnings,60 new tests. Cold archive audit identical,60 tests and CLI60+60s bridge reversal outside checkout; byte-identical archive rebuild.43/109 accepted unchanged. Timeline, hydraulic inertia, variable EOS/density, general backend and plant validation remain open.",
       "next": "AI-05"
     }
   ]

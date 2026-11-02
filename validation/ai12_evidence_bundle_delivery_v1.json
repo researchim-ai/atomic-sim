@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "task": "AI-12.06",
+  "status": "partial",
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "baseline": "validation/ai12_evidence_bundle_baseline_v1.json",
+  "implemented": [
+    "Deterministic archive, canonical manifest, whole-archive and per-file SHA256",
+    "Offline verification and bounded extraction without payload execution",
+    "Wheel/sdist runtime source identity and pinned numerical drivers/budgets",
+    "Declared dependency/license metadata inventory",
+    "Explicit trusted-code numerical replay outside checkout with shared wall deadline",
+    "One-command release profile and configured CI portable replay lane",
+    "Checksummed qualification family recovery with unchanged original auditor gate"
+  ],
+  "tests_passed": 1315,
+  "new_tests": 90,
+  "portable_replay_integrations": 14,
+  "portable_replay_families": 7,
+  "portable_audit_identical": true,
+  "mixed_runtime_guard": {
+    "rejected": true,
+    "source_fingerprints": [
+      "68fb24c86a58c0c01072961c14bd3b9eff7a0a9b813dcab96e683dfed4b71f95",
+      "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a"
+    ],
+    "output_created": false
+  },
+  "recovery_checkpoint_probe": {
+    "passed": true,
+    "families": 17,
+    "packets": 53,
+    "independent_numerics_recomputed": false
+  },
+  "remaining": [
+    "Supported OS/Python/dependency matrix and resolved constraints",
+    "Full standardized/transitive SBOM and license evidence",
+    "Publisher provenance signatures for an actual release channel",
+    "Untrusted policy CPU/memory/process isolation; replay executes trusted Python",
+    "Remote CI execution"
+  ],
+  "archive_manifest_sha256": "71bf7e8c4ab62a1139d8f58a141540c2a05885e646350af8a9c74d2b469e562d",
+  "archive_sha256": "cd5b8be85811b80fca11f02da9b461fff1ea766b32f6d0d534a3ce1592068867",
+  "file_sha256": {
+    "scripts/evidence_bundle.py": "2f6a6454994d23adb169fe8bfcfe739c6d3bb1347309e10f0cc946b845431b83",
+    "scripts/replay_primary_steam_bundle.py": "910d4fa3d57ef6f281da2b100e7485ca5c18d8ef21e1c6e638e11b2ebae963cb",
+    "scripts/primary_steam_release.py": "277eba259c7181e35109f36594125a7a67e8252ce0ea26486fc5a212d17eb153",
+    "tests/test_evidence_bundle.py": "ce9b00b36e50f4dc16e964a093740fe008b4e112937851e51e66854577b343f6",
+    "tests/test_evidence_replay.py": "95b8ac5dd853cf430bb48da4bfa524996787597d4d7ed8c97e409c3a8acea938",
+    "tests/test_primary_steam_release.py": "a3623e6195756ca70b39a6bd67fb9ff196f5516014faa73aa5003d0e64b3274a",
+    ".github/workflows/ci.yml": "ca39f37defc91620cc15de6feef54bca90160c60c228861ec7861fdaabc1e98e",
+    "docs/AI_12_EVIDENCE_BUNDLE_RU.md": "67a8b9c0648c05398173fe379ab0b72e11c8aece5bc2e0ad634fcd17f2c5df0a",
+    "validation/ai12_evidence_bundle_baseline_v1.json": "52237d1973a65774292827fe43100e353176e49bdb640e52d064c4bddb27b77a",
+    "validation/ai12_primary_steam_portable_replay_v1.json": "d7e6faaaa6ce8300760a160f0948867a3c5925be09f44822c606f204216b213b",
+    "artifacts/ai12_primary_steam_steady_release_v5.tar.gz": "cd5b8be85811b80fca11f02da9b461fff1ea766b32f6d0d534a3ce1592068867",
+    "artifacts/ai12_primary_steam_steady_release_v5.log": "46ea92a237b8446f6091b30207274ee2978a0345e72294d4824ede99baeb0d17",
+    "artifacts/ai12_primary_steam_portable_replay_v5.log": "4b4ef0b57d5ee5275e46914cb5114c0e8ea8f2f0f441ad5bec3edf947f7265ea",
+    "artifacts/ai12_mixed_source_rejection_v1.log": "da9129e1fbf6bbe541706fce6fef4aa55857f537004664bc849917afc299a118",
+    "artifacts/ai05_primary_steam_recovery_v1/checkpoint_resume.json": "b54be32a3940700589dae9de1a82b89dd3e206d9b21000629a36cafdeaa7c689"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

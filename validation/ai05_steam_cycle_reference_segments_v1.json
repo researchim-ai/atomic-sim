@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "before_reference_sha256": "4f1aa2b245432bab7a7649793b1033263a02377d8fdd42c92b7fe50d286594fa",
+  "after_reference_sha256": "1b7f2c153cc0a2e339afae0e3c2b8f0a79303d1a7f31df44c4491a161d39ca16",
+  "query_time_s": 0.000501,
+  "command_time_s": 0.0005,
+  "before_heater_energy_error_j": -0.0999999999999659,
+  "after_heater_energy_error_j": 5.684341886080802e-14,
+  "production_trajectories_unchanged": 22,
+  "budget_unchanged": true,
+  "rule": "Use the actual segment after a control command; allow bounded extrapolation only at the final physical-domain root",
+  "test": "tests/test_steam_cycle_evidence.py::test_independent_assessment"
+}

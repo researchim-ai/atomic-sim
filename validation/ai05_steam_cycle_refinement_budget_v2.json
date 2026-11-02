@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "scope": "Three fixed-tolerance maximum-step levels and 60/100/120-second coupled steam-cycle workloads; criteria fixed before runs",
+  "base_budget_file": "validation/ai05_steam_cycle_budget_v1.json",
+  "base_budget_sha256": "298bab8d635462e1265a8cf728bcf82502ce66331ddea4f69ce4499203baf0ec",
+  "base_limits": {
+    "schema_version": 1,
+    "scope": "Two fixed-volume equilibrium stores, empirical admission, feed pump, walls and turbine/rotor/generator; fixed before formal series",
+    "pressure_absolute_pa": 0.1,
+    "temperature_absolute_k": 1e-06,
+    "quality_absolute": 1e-09,
+    "omega_absolute_rad_s": 1e-06,
+    "mass_absolute_kg": 1e-08,
+    "energy_absolute_j": 0.001,
+    "reference_energy_absolute_j": 0.02,
+    "reference_mass_absolute_kg": 1e-06,
+    "power_absolute_w": 1e-05,
+    "boundary_time_absolute_s": 1e-05,
+    "restart_omega_absolute_rad_s": 1e-06,
+    "temporal_pressure_absolute_pa": 0.1,
+    "validated": false,
+    "plant_referenced": false
+  },
+  "levels": [
+    "coarse",
+    "medium",
+    "fine"
+  ],
+  "fixed_radau_tolerances": {
+    "rtol": 1e-09,
+    "atol_scale": 0.01
+  },
+  "step_ratio": 4,
+  "coarse_step_s": {
+    "default": 0.1,
+    "phase_margin": 0.001,
+    "speed_margin": 0.004,
+    "pressure_margin": 0.04
+  },
+  "minimum_measured_step_ratio": 2,
+  "comparison_limits": {
+    "pressure_absolute_pa": 0.1,
+    "temperature_absolute_k": 1e-06,
+    "quality_absolute": 1e-09,
+    "omega_absolute_rad_s": 1e-06
+  },
+  "long_horizons_s": {
+    "long_nominal": 100,
+    "long_heater": 60,
+    "long_cycling": 120,
+    "long_feed_bias": 60
+  },
+  "noise_floors": {
+    "pressure_absolute_pa": 0.001,
+    "temperature_absolute_k": 1e-08,
+    "quality_absolute": 1e-11,
+    "omega_absolute_rad_s": 1e-08
+  },
+  "validated": false,
+  "plant_referenced": false,
+  "revision_reason": "Pressure event clips original coarse grid to 0.04967 s; use tighter 0.04/0.01/0.0025 s caps to achieve actual refinement without relaxing the minimum ratio or any error budget"
+}

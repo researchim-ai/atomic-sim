@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "accepted": false,
+  "campaign": "artifacts/ai05_fixed_boundary_qualification_v1",
+  "exit_code": 1,
+  "stage": "independent_termination",
+  "case": "pressure_endpoint_radau",
+  "production_completed_time_s": 120,
+  "independent_boundary": {
+    "t": 0,
+    "criterion": "condenser.pressure_low"
+  },
+  "raw_packets_preserved": 21,
+  "mathematical_accuracy_limits_relaxed": false,
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "resolution": "Version2 initialization admission requires positive numerical pressure margin; exact-boundary point is retained as a negative case, not projected inward",
+  "evidence_sha256": {
+    "artifacts/ai05_fixed_boundary_qualification_v1/pressure_endpoint_radau/run/report.json": "d3251a8f3b7bc9f91f8f36087a219855818dd61d220539468d76c76060ce60d4",
+    "artifacts/ai05_fixed_boundary_qualification_v1/drivers/qualify_fixed_primary_steam.py": "7f4f0fb3d8aa4cb2dff43d12ac60a24aa275dc38d7bb2afcbded6d57d4ce0541",
+    "artifacts/ai05_fixed_boundary_qualification_v1.log": "94937a93aa42cb33e9598db5c35beec4eb375eaa0e49b2f9afc997bc9165a32b"
+  }
+}

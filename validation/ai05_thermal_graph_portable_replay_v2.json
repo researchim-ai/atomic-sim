@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "archive_sha256": "35a35a698ff8f10271a9bba0335f95e837971e040c48d0829223a577b1d286ae",
+  "manifest_sha256": "65e5ccd0d8fedd54468527cf61ca422f87fa4619abcb82b1c57830ab872b6ba1",
+  "archive": "artifacts/ai05_thermal_graph_release_v2.tar.gz",
+  "cases": 21,
+  "maximum_nodes": 128,
+  "archived_audit_identical": true,
+  "byte_identical_archive_rebuild": true,
+  "checkout_pythonpath_removed": true,
+  "installed_wheel_sha256": "a25ec260331cf57bef3f6c620bf1ef141f604b1d85e17787a1d4eee7e2f18201",
+  "focused_tests_replayed": 42,
+  "example_cli_passed": true,
+  "scope": "Archived engineering scripts and tests execute with freshly installed offline no-deps wheel outside checkout; inherited system Python/numpy/scipy/pytest dependencies",
+  "publisher_authenticated": false,
+  "validated": false,
+  "plant_referenced": false
+}

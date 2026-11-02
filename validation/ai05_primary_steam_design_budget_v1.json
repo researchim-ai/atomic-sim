@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "scope": "Steady boundary design with fixed steam p/x/rotor and signed primary flow; independent residual and stationary-trajectory checks",
+  "base_budget_file": "validation/ai05_primary_steam_budget_v2.json",
+  "maximum_stock_power_residual_w": 0.00001,
+  "maximum_primary_momentum_residual_pa": 0.000001,
+  "maximum_primary_shaft_residual_nm": 0.00000001,
+  "maximum_steam_mass_rate_kg_s": 0.000000001,
+  "policies": {
+    "radau": {"method": "Radau", "rtol": 0.0000000001, "atol_scale": 0.01, "max_step_s": 0.02},
+    "bdf": {"method": "BDF", "rtol": 0.0000000001, "atol_scale": 0.01, "max_step_s": 0.02}
+  },
+  "long_stationary_horizon_s": 120,
+  "other_horizon_s": 10,
+  "validated": false,
+  "plant_referenced": false
+}

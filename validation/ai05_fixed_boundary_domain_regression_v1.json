@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "old_initializer_sha256": "d80f14a498fe353b7d2eafbf149298fa9b9e8e8cd0736078cd2b6c52dc84bb0d",
+  "old_budget_sha256": "67cad2db931502f6ee98acf499f4c8ba48e04ae2886ab4958ca2a3f9dd23864a",
+  "exact_phase_point_accepted_by_v2": true,
+  "minimum_domain_margin_in_root_tolerances": -2.237793284010081e-06,
+  "minimum_domain_margin_name": "steam_generator.quality_low",
+  "higher_temperature_floor_model_valid": true,
+  "higher_floor_old_initializer_rejection": {
+    "error_type": "DomainError",
+    "error": "Primary/steam passport exceeded: primary.s0.temperature_low"
+  },
+  "resolution": "Version3 adds all-domain numerical standoff and chooses a feasible parameter-probe temperature, without changing commands or physical accuracy limits",
+  "evidence_sha256": {
+    "artifacts/ai05_fixed_boundary_domain_probe_v1/accepted_report_v2.json": "a297eb6f78fd1159e2ce16e4c12a4fc6889a6cc5cbaf9a93c8eccc1ee2271d36",
+    "artifacts/ai05_fixed_boundary_domain_probe_v1/anchors.json": "f3e3ee2ae8cb88621ed8cfa45c3a52c86bd9fffaa0b85559218706889d409924",
+    "artifacts/ai05_fixed_boundary_domain_probe_v1/phase_request.json": "5e1f1856564ae7abd5e9c1a3b4c9d7f7166e224b011d0cee1cdbd651dc4291cc",
+    "artifacts/ai05_fixed_boundary_domain_probe_v1/accepted_point_v2.json": "067ab84eab7ec4c7a3ff66f33c9924fbc70402750eea571a1d10debbda5ae96c"
+  }
+}

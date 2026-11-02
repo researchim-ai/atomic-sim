@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "wheel_sha256": "a25ec260331cf57bef3f6c620bf1ef141f604b1d85e17787a1d4eee7e2f18201",
+  "cases": [
+    {
+      "name": "forward",
+      "horizon_s": 120,
+      "trajectory_and_checkpoint_identical": true,
+      "output": "/home/user/workspace/atomic-sim/artifacts/ai05_primary_steam_final_release_v2/installed_steady_forward",
+      "manifest_sha256": "e91ac7ba762ce37271f254a59c3fbfce445ad1387262b9604d648b10669a70de"
+    },
+    {
+      "name": "reverse",
+      "horizon_s": 120,
+      "trajectory_and_checkpoint_identical": true,
+      "output": "/home/user/workspace/atomic-sim/artifacts/ai05_primary_steam_final_release_v2/installed_steady_reverse",
+      "manifest_sha256": "8e9fb672d1c0ffd31c8c23b52040c8f58ca757311cd4bcb2a089d48fae343f10"
+    }
+  ],
+  "scope": "Installed BDF steady CLI replay outside checkout, offline no-deps with inherited system dependencies",
+  "validated": false,
+  "plant_referenced": false,
+  "wheel_smoke_passed": true,
+  "cli_restart_completed_s": 5.1,
+  "smoke_log": "artifacts/ai05_primary_steam_final_release_v2/installed-wheel.log",
+  "smoke_log_sha256": "def2bcdc1ff88acc743bd9bcab97b32d43bc8fdc40c0b509a15c54c97dac4e6d",
+  "frozen_steady_audit": "artifacts/ai05_primary_steam_final_release_v2/frozen-design-audit.json",
+  "frozen_steady_audit_sha256": "b487f61e75cc0383ced4e47d60b1279fea9dd7fcaa77deacefe93686677ac9c0"
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "kind": "development_rejections_and_recovery",
+  "original_cases_accepted": false,
+  "independent_reference_failure": {
+    "campaign": "artifacts/ai05_resistance_feedback_qualification_v1",
+    "case": "3_near_zero_negative",
+    "pressure_residual_pa": 0.004385998809010695,
+    "energy_residual_w": 6.833102088421583e-05,
+    "resolution": "Full simultaneous root refinement after least-squares; dimensional thresholds unchanged"
+  },
+  "reservoir_boundary_failure": {
+    "campaign": "artifacts/ai05_resistance_feedback_qualification_v2",
+    "case": "two_supplies_negative",
+    "criterion": "unresolved_external_flow",
+    "minimum_resolved_external_flow_kg_s": 1e-08,
+    "original_pressure_reservoir_accepted": false,
+    "resolution": "A separately declared internal mixer fixture uses zero mass injection instead of fixed pressure. Production never changes user boundary types. Original reservoir case retained as a negative test."
+  },
+  "energy_budget_strengthening": {
+    "old": "validation/ai05_resistance_feedback_budget_v1.json",
+    "new": "validation/ai05_resistance_feedback_budget_v2.json",
+    "reason": "Additional dimensional node and edge energy admission at resistance evaluated from returned temperature",
+    "thresholds_loosened": false
+  },
+  "test_harness_correction": {
+    "focused_log": "artifacts/ai05_resistance_feedback_tests_v4.log",
+    "failure": "Fault-injection test modified historical v1 budget filename after model moved to v2",
+    "resolution": "Test now targets the declared current BUDGET.name",
+    "interrupted_full_suite_exit_code": 130,
+    "interrupted_full_suite_accepted": false
+  },
+  "evidence_sha256": {
+    "artifacts/ai05_resistance_feedback_qualification_v1.log": "f7d6cfd9a187b91a6bcd6d8f63d301aefd6c6a0f268675268312e44512912d0a",
+    "artifacts/ai05_resistance_feedback_qualification_v2.log": "cc2804a66bb1ecc5cb6bf762f4fbc74030e1e5eea902aa99cc74d4e58b9d6320",
+    "artifacts/ai05_resistance_feedback_qualification_v1/qualification_drivers/resistance_feedback_references.py": "eb3ca8e08e3cefa819f4345f2fca9bfb1fbb2bb4fc64f1d2062cd76f64c907d5",
+    "artifacts/ai05_resistance_feedback_qualification_v2/qualification_drivers/resistance_feedback_references.py": "65385940b0270c603e7141031b4494927180f785c529a0422435167fd0b38e87",
+    "artifacts/ai05_resistance_feedback_tests_v4.log": "6bc5827158f8e2bc3301fd0efd87ffa0bb6c1aa1db89c7ca915577edc9258d49",
+    "artifacts/ai05_resistance_feedback_full_suite_v2.log": "9b71427c283b1e3046c01e206feb51aaf6e5cc79d4ef5f9a7b3e057a0f5911ea"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

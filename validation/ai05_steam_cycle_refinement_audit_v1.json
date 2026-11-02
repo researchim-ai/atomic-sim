@@ -1,0 +1,1590 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "signature": {
+    "source_sha256": "9f1e461d7cf9db1517fd26849443e06338fb0b464af92f7a88c273ac404ae22b",
+    "budget_sha256": "d361c488fdc49a1e227484153b91c145c6fb563556e5a9ab32953ed60407f71e",
+    "driver_sha256": {
+      "scripts/qualify_steam_cycle.py": "783eaf7a8ddd0d618f5b858d733868c22fe040f17049623666b8f89fb3cc838d",
+      "scripts/verify_steam_cycle.py": "3b5eafd1b3b9ae5b35145b9b59548bf5333ac546c3cf1acb5f901ac78786ccbc",
+      "scripts/steam_cycle_references.py": "1b7f2c153cc0a2e339afae0e3c2b8f0a79303d1a7f31df44c4491a161d39ca16",
+      "scripts/verify_turbine.py": "f6a63b4424e0f01986c0357768818da140cc28b2994d2b98272aed6a2ce2408d",
+      "scripts/turbine_references.py": "e0b484df035435b31054bcfd3595bf2c1047ebaae4960636b70f6409603dc4d5"
+    }
+  },
+  "qualification_sha256": "1f13472ba0500267a056412331be519d2a17a52e0e96c5a0b7792a3b36749e67",
+  "auditor_sha256": "10591404d12b93f2e578c59d457d570c1c9a421869ba15d6d1a78a6aaf0765d6",
+  "integrations": 44,
+  "case_families": 14,
+  "levels": [
+    "coarse",
+    "medium",
+    "fine"
+  ],
+  "temporal_comparisons": [
+    {
+      "name": "feed_loss",
+      "comparisons": [
+        {
+          "from_level": "coarse",
+          "to_level": "medium",
+          "maximum_differences": {
+            "pressure_absolute_pa": 0.0,
+            "temperature_absolute_k": 0.0,
+            "quality_absolute": 0.0,
+            "omega_absolute_rad_s": 0.0
+          },
+          "measured_step_ratio": 3.9999999999999467
+        },
+        {
+          "from_level": "medium",
+          "to_level": "fine",
+          "maximum_differences": {
+            "pressure_absolute_pa": 0.0,
+            "temperature_absolute_k": 0.0,
+            "quality_absolute": 0.0,
+            "omega_absolute_rad_s": 0.0
+          },
+          "measured_step_ratio": 4.0
+        }
+      ],
+      "at_or_below_noise": {
+        "pressure_absolute_pa": true,
+        "temperature_absolute_k": true,
+        "quality_absolute": true,
+        "omega_absolute_rad_s": true
+      },
+      "observed_order": null,
+      "order_reason": "Adaptive solver with a fixed tolerance and capped steps; report differences and noise floors without inventing an asymptotic order"
+    },
+    {
+      "name": "heater_step",
+      "comparisons": [
+        {
+          "from_level": "coarse",
+          "to_level": "medium",
+          "maximum_differences": {
+            "pressure_absolute_pa": 0.0,
+            "temperature_absolute_k": 0.0,
+            "quality_absolute": 0.0,
+            "omega_absolute_rad_s": 0.0
+          },
+          "measured_step_ratio": 3.9999999999999467
+        },
+        {
+          "from_level": "medium",
+          "to_level": "fine",
+          "maximum_differences": {
+            "pressure_absolute_pa": 0.0,
+            "temperature_absolute_k": 0.0,
+            "quality_absolute": 0.0,
+            "omega_absolute_rad_s": 0.0
+          },
+          "measured_step_ratio": 4.0
+        }
+      ],
+      "at_or_below_noise": {
+        "pressure_absolute_pa": true,
+        "temperature_absolute_k": true,
+        "quality_absolute": true,
+        "omega_absolute_rad_s": true
+      },
+      "observed_order": null,
+      "order_reason": "Adaptive solver with a fixed tolerance and capped steps; report differences and noise floors without inventing an asymptotic order"
+    },
+    {
+      "name": "isolated",
+      "comparisons": [
+        {
+          "from_level": "coarse",
+          "to_level": "medium",
+          "maximum_differences": {
+            "pressure_absolute_pa": 0.0,
+            "temperature_absolute_k": 0.0,
+            "quality_absolute": 0.0,
+            "omega_absolute_rad_s": 0.0
+          },
+          "measured_step_ratio": 3.9999999999999467
+        },
+        {
+          "from_level": "medium",
+          "to_level": "fine",
+          "maximum_differences": {
+            "pressure_absolute_pa": 0.0,
+            "temperature_absolute_k": 0.0,
+            "quality_absolute": 0.0,
+            "omega_absolute_rad_s": 0.0
+          },
+          "measured_step_ratio": 4.0
+        }
+      ],
+      "at_or_below_noise": {
+        "pressure_absolute_pa": true,
+        "temperature_absolute_k": true,
+        "quality_absolute": true,
+        "omega_absolute_rad_s": true
+      },
+      "observed_order": null,
+      "order_reason": "Adaptive solver with a fixed tolerance and capped steps; report differences and noise floors without inventing an asymptotic order"
+    },
+    {
+      "name": "load_rejection",
+      "comparisons": [
+        {
+          "from_level": "coarse",
+          "to_level": "medium",
+          "maximum_differences": {
+            "pressure_absolute_pa": 0.0,
+            "temperature_absolute_k": 0.0,
+            "quality_absolute": 0.0,
+            "omega_absolute_rad_s": 0.0
+          },
+          "measured_step_ratio": 3.9999999999999467
+        },
+        {
+          "from_level": "medium",
+          "to_level": "fine",
+          "maximum_differences": {
+            "pressure_absolute_pa": 0.0,
+            "temperature_absolute_k": 0.0,
+            "quality_absolute": 0.0,
+            "omega_absolute_rad_s": 5.684341886080802e-14
+          },
+          "measured_step_ratio": 4.0
+        }
+      ],
+      "at_or_below_noise": {
+        "pressure_absolute_pa": true,
+        "temperature_absolute_k": true,
+        "quality_absolute": true,
+        "omega_absolute_rad_s": true
+      },
+      "observed_order": null,
+      "order_reason": "Adaptive solver with a fixed tolerance and capped steps; report differences and noise floors without inventing an asymptotic order"
+    },
+    {
+      "name": "long_cycling",
+      "comparisons": [
+        {
+          "from_level": "coarse",
+          "to_level": "medium",
+          "maximum_differences": {
+            "pressure_absolute_pa": 5.681067705154419e-08,
+            "temperature_absolute_k": 1.7053025658242404e-12,
+            "quality_absolute": 1.429412144204889e-15,
+            "omega_absolute_rad_s": 1.1368683772161603e-13
+          },
+          "measured_step_ratio": 3.9999999999991473
+        },
+        {
+          "from_level": "medium",
+          "to_level": "fine",
+          "maximum_differences": {
+            "pressure_absolute_pa": 7.636845111846924e-08,
+            "temperature_absolute_k": 4.547473508864641e-13,
+            "quality_absolute": 2.2343238370581275e-15,
+            "omega_absolute_rad_s": 5.684341886080802e-14
+          },
+          "measured_step_ratio": 4.0
+        }
+      ],
+      "at_or_below_noise": {
+        "pressure_absolute_pa": true,
+        "temperature_absolute_k": true,
+        "quality_absolute": true,
+        "omega_absolute_rad_s": true
+      },
+      "observed_order": null,
+      "order_reason": "Adaptive solver with a fixed tolerance and capped steps; report differences and noise floors without inventing an asymptotic order"
+    },
+    {
+      "name": "long_feed_bias",
+      "comparisons": [
+        {
+          "from_level": "coarse",
+          "to_level": "medium",
+          "maximum_differences": {
+            "pressure_absolute_pa": 3.725290298461914e-09,
+            "temperature_absolute_k": 2.2737367544323206e-13,
+            "quality_absolute": 6.938893903907228e-17,
+            "omega_absolute_rad_s": 5.684341886080802e-14
+          },
+          "measured_step_ratio": 4.0
+        },
+        {
+          "from_level": "medium",
+          "to_level": "fine",
+          "maximum_differences": {
+            "pressure_absolute_pa": 8.381903171539307e-09,
+            "temperature_absolute_k": 2.2737367544323206e-13,
+            "quality_absolute": 1.942890293094024e-16,
+            "omega_absolute_rad_s": 5.684341886080802e-14
+          },
+          "measured_step_ratio": 3.9999999999991473
+        }
+      ],
+      "at_or_below_noise": {
+        "pressure_absolute_pa": true,
+        "temperature_absolute_k": true,
+        "quality_absolute": true,
+        "omega_absolute_rad_s": true
+      },
+      "observed_order": null,
+      "order_reason": "Adaptive solver with a fixed tolerance and capped steps; report differences and noise floors without inventing an asymptotic order"
+    },
+    {
+      "name": "long_heater",
+      "comparisons": [
+        {
+          "from_level": "coarse",
+          "to_level": "medium",
+          "maximum_differences": {
+            "pressure_absolute_pa": 5.587935447692871e-09,
+            "temperature_absolute_k": 1.2505552149377763e-12,
+            "quality_absolute": 1.0130785099704553e-15,
+            "omega_absolute_rad_s": 5.684341886080802e-14
+          },
+          "measured_step_ratio": 4.0
+        },
+        {
+          "from_level": "medium",
+          "to_level": "fine",
+          "maximum_differences": {
+            "pressure_absolute_pa": 1.4901161193847656e-08,
+            "temperature_absolute_k": 1.2505552149377763e-12,
+            "quality_absolute": 1.0130785099704553e-15,
+            "omega_absolute_rad_s": 5.684341886080802e-14
+          },
+          "measured_step_ratio": 3.9999999999991473
+        }
+      ],
+      "at_or_below_noise": {
+        "pressure_absolute_pa": true,
+        "temperature_absolute_k": true,
+        "quality_absolute": true,
+        "omega_absolute_rad_s": true
+      },
+      "observed_order": null,
+      "order_reason": "Adaptive solver with a fixed tolerance and capped steps; report differences and noise floors without inventing an asymptotic order"
+    },
+    {
+      "name": "long_nominal",
+      "comparisons": [
+        {
+          "from_level": "coarse",
+          "to_level": "medium",
+          "maximum_differences": {
+            "pressure_absolute_pa": 0.0,
+            "temperature_absolute_k": 0.0,
+            "quality_absolute": 0.0,
+            "omega_absolute_rad_s": 0.0
+          },
+          "measured_step_ratio": 3.9999999999991473
+        },
+        {
+          "from_level": "medium",
+          "to_level": "fine",
+          "maximum_differences": {
+            "pressure_absolute_pa": 0.0,
+            "temperature_absolute_k": 0.0,
+            "quality_absolute": 0.0,
+            "omega_absolute_rad_s": 0.0
+          },
+          "measured_step_ratio": 4.0
+        }
+      ],
+      "at_or_below_noise": {
+        "pressure_absolute_pa": true,
+        "temperature_absolute_k": true,
+        "quality_absolute": true,
+        "omega_absolute_rad_s": true
+      },
+      "observed_order": null,
+      "order_reason": "Adaptive solver with a fixed tolerance and capped steps; report differences and noise floors without inventing an asymptotic order"
+    },
+    {
+      "name": "nominal",
+      "comparisons": [
+        {
+          "from_level": "coarse",
+          "to_level": "medium",
+          "maximum_differences": {
+            "pressure_absolute_pa": 0.0,
+            "temperature_absolute_k": 0.0,
+            "quality_absolute": 0.0,
+            "omega_absolute_rad_s": 0.0
+          },
+          "measured_step_ratio": 3.9999999999999467
+        },
+        {
+          "from_level": "medium",
+          "to_level": "fine",
+          "maximum_differences": {
+            "pressure_absolute_pa": 0.0,
+            "temperature_absolute_k": 0.0,
+            "quality_absolute": 0.0,
+            "omega_absolute_rad_s": 0.0
+          },
+          "measured_step_ratio": 4.0
+        }
+      ],
+      "at_or_below_noise": {
+        "pressure_absolute_pa": true,
+        "temperature_absolute_k": true,
+        "quality_absolute": true,
+        "omega_absolute_rad_s": true
+      },
+      "observed_order": null,
+      "order_reason": "Adaptive solver with a fixed tolerance and capped steps; report differences and noise floors without inventing an asymptotic order"
+    },
+    {
+      "name": "phase_margin",
+      "comparisons": [
+        {
+          "from_level": "coarse",
+          "to_level": "medium",
+          "maximum_differences": {
+            "pressure_absolute_pa": 1.7695128917694092e-08,
+            "temperature_absolute_k": 1.7053025658242404e-12,
+            "quality_absolute": 4.440892098500626e-16,
+            "omega_absolute_rad_s": 0.0
+          },
+          "measured_step_ratio": 3.9999999999999973
+        },
+        {
+          "from_level": "medium",
+          "to_level": "fine",
+          "maximum_differences": {
+            "pressure_absolute_pa": 0.0,
+            "temperature_absolute_k": 0.0,
+            "quality_absolute": 0.0,
+            "omega_absolute_rad_s": 0.0
+          },
+          "measured_step_ratio": 4.0
+        }
+      ],
+      "at_or_below_noise": {
+        "pressure_absolute_pa": true,
+        "temperature_absolute_k": true,
+        "quality_absolute": true,
+        "omega_absolute_rad_s": true
+      },
+      "observed_order": null,
+      "order_reason": "Adaptive solver with a fixed tolerance and capped steps; report differences and noise floors without inventing an asymptotic order"
+    },
+    {
+      "name": "pressure_margin",
+      "comparisons": [
+        {
+          "from_level": "coarse",
+          "to_level": "medium",
+          "maximum_differences": {
+            "pressure_absolute_pa": 2.9802322387695312e-08,
+            "temperature_absolute_k": 9.094947017729282e-13,
+            "quality_absolute": 1.3461454173580023e-15,
+            "omega_absolute_rad_s": 5.684341886080802e-14
+          },
+          "measured_step_ratio": 3.9999999999999973
+        },
+        {
+          "from_level": "medium",
+          "to_level": "fine",
+          "maximum_differences": {
+            "pressure_absolute_pa": 0.0,
+            "temperature_absolute_k": 0.0,
+            "quality_absolute": 0.0,
+            "omega_absolute_rad_s": 0.0
+          },
+          "measured_step_ratio": 4.0
+        }
+      ],
+      "at_or_below_noise": {
+        "pressure_absolute_pa": true,
+        "temperature_absolute_k": true,
+        "quality_absolute": true,
+        "omega_absolute_rad_s": true
+      },
+      "observed_order": null,
+      "order_reason": "Adaptive solver with a fixed tolerance and capped steps; report differences and noise floors without inventing an asymptotic order"
+    },
+    {
+      "name": "sink_warming",
+      "comparisons": [
+        {
+          "from_level": "coarse",
+          "to_level": "medium",
+          "maximum_differences": {
+            "pressure_absolute_pa": 9.640643838793039e-11,
+            "temperature_absolute_k": 1.7053025658242404e-13,
+            "quality_absolute": 1.1709383462843448e-17,
+            "omega_absolute_rad_s": 0.0
+          },
+          "measured_step_ratio": 3.9999999999999467
+        },
+        {
+          "from_level": "medium",
+          "to_level": "fine",
+          "maximum_differences": {
+            "pressure_absolute_pa": 0.0,
+            "temperature_absolute_k": 0.0,
+            "quality_absolute": 0.0,
+            "omega_absolute_rad_s": 0.0
+          },
+          "measured_step_ratio": 4.0
+        }
+      ],
+      "at_or_below_noise": {
+        "pressure_absolute_pa": true,
+        "temperature_absolute_k": true,
+        "quality_absolute": true,
+        "omega_absolute_rad_s": true
+      },
+      "observed_order": null,
+      "order_reason": "Adaptive solver with a fixed tolerance and capped steps; report differences and noise floors without inventing an asymptotic order"
+    },
+    {
+      "name": "speed_margin",
+      "comparisons": [
+        {
+          "from_level": "coarse",
+          "to_level": "medium",
+          "maximum_differences": {
+            "pressure_absolute_pa": 0.0,
+            "temperature_absolute_k": 0.0,
+            "quality_absolute": 0.0,
+            "omega_absolute_rad_s": 0.0
+          },
+          "measured_step_ratio": 3.9999999999999964
+        },
+        {
+          "from_level": "medium",
+          "to_level": "fine",
+          "maximum_differences": {
+            "pressure_absolute_pa": 0.0,
+            "temperature_absolute_k": 0.0,
+            "quality_absolute": 0.0,
+            "omega_absolute_rad_s": 0.0
+          },
+          "measured_step_ratio": 4.0
+        }
+      ],
+      "at_or_below_noise": {
+        "pressure_absolute_pa": true,
+        "temperature_absolute_k": true,
+        "quality_absolute": true,
+        "omega_absolute_rad_s": true
+      },
+      "observed_order": null,
+      "order_reason": "Adaptive solver with a fixed tolerance and capped steps; report differences and noise floors without inventing an asymptotic order"
+    },
+    {
+      "name": "valve_reduction",
+      "comparisons": [
+        {
+          "from_level": "coarse",
+          "to_level": "medium",
+          "maximum_differences": {
+            "pressure_absolute_pa": 0.0,
+            "temperature_absolute_k": 0.0,
+            "quality_absolute": 0.0,
+            "omega_absolute_rad_s": 5.684341886080802e-14
+          },
+          "measured_step_ratio": 3.9999999999999467
+        },
+        {
+          "from_level": "medium",
+          "to_level": "fine",
+          "maximum_differences": {
+            "pressure_absolute_pa": 0.0,
+            "temperature_absolute_k": 0.0,
+            "quality_absolute": 0.0,
+            "omega_absolute_rad_s": 5.684341886080802e-14
+          },
+          "measured_step_ratio": 4.0
+        }
+      ],
+      "at_or_below_noise": {
+        "pressure_absolute_pa": true,
+        "temperature_absolute_k": true,
+        "quality_absolute": true,
+        "omega_absolute_rad_s": true
+      },
+      "observed_order": null,
+      "order_reason": "Adaptive solver with a fixed tolerance and capped steps; report differences and noise floors without inventing an asymptotic order"
+    }
+  ],
+  "reference_error_profiles": [
+    {
+      "name": "feed_loss",
+      "reference_errors": {
+        "coarse": {
+          "pressure_absolute_pa": 6.984919309616089e-08,
+          "temperature_absolute_k": 1.1368683772161603e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 1.1368683772161603e-13,
+          "mass_absolute_kg": 3.410605131648481e-13,
+          "energy_absolute_j": 3.201796516805189e-08,
+          "reference_energy_absolute_j": 1.008322669804329e-07,
+          "reference_mass_absolute_kg": 3.410605131648481e-13,
+          "power_absolute_w": 1.076841726899147e-09,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 5.684341886080802e-14
+        },
+        "medium": {
+          "pressure_absolute_pa": 6.984919309616089e-08,
+          "temperature_absolute_k": 1.1368683772161603e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 1.1368683772161603e-13,
+          "mass_absolute_kg": 3.410605131648481e-13,
+          "energy_absolute_j": 3.568391093722312e-08,
+          "reference_energy_absolute_j": 1.0090718660649145e-07,
+          "reference_mass_absolute_kg": 3.410605131648481e-13,
+          "power_absolute_w": 1.1350493878126144e-09,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 5.684341886080802e-14
+        },
+        "fine": {
+          "pressure_absolute_pa": 6.984919309616089e-08,
+          "temperature_absolute_k": 1.1368683772161603e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 1.1368683772161603e-13,
+          "mass_absolute_kg": 3.410605131648481e-13,
+          "energy_absolute_j": 3.6378764889377635e-08,
+          "reference_energy_absolute_j": 1.008885419651051e-07,
+          "reference_mass_absolute_kg": 3.410605131648481e-13,
+          "power_absolute_w": 1.1350493878126144e-09,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 5.684341886080802e-14
+        }
+      },
+      "solver_statistics": {
+        "coarse": {
+          "available": true,
+          "segments": 11,
+          "scipy_segments": 11,
+          "reported_mesh_steps": 106,
+          "max_reported_step_s": 0.10000000000000009,
+          "scipy_nfev": 821,
+          "scipy_njev": 19,
+          "scipy_nlu": 106
+        },
+        "medium": {
+          "available": true,
+          "segments": 11,
+          "scipy_segments": 11,
+          "reported_mesh_steps": 221,
+          "max_reported_step_s": 0.025000000000000355,
+          "scipy_nfev": 1569,
+          "scipy_njev": 11,
+          "scipy_nlu": 432
+        },
+        "fine": {
+          "available": true,
+          "segments": 11,
+          "scipy_segments": 11,
+          "reported_mesh_steps": 813,
+          "max_reported_step_s": 0.006250000000000089,
+          "scipy_nfev": 5725,
+          "scipy_njev": 12,
+          "scipy_nlu": 1630
+        }
+      }
+    },
+    {
+      "name": "heater_step",
+      "reference_errors": {
+        "coarse": {
+          "pressure_absolute_pa": 8.009374141693115e-08,
+          "temperature_absolute_k": 1.0231815394945443e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 1.1368683772161603e-13,
+          "mass_absolute_kg": 1.1368683772161603e-13,
+          "energy_absolute_j": 3.6763594835065305e-08,
+          "reference_energy_absolute_j": 1.1920928955078125e-07,
+          "reference_mass_absolute_kg": 1.1368683772161603e-13,
+          "power_absolute_w": 9.89530235528946e-10,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 5.684341886080802e-14
+        },
+        "medium": {
+          "pressure_absolute_pa": 8.009374141693115e-08,
+          "temperature_absolute_k": 1.0231815394945443e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 1.1368683772161603e-13,
+          "mass_absolute_kg": 1.1368683772161603e-13,
+          "energy_absolute_j": 2.0081643015146255e-08,
+          "reference_energy_absolute_j": 1.1920928955078125e-07,
+          "reference_mass_absolute_kg": 1.1368683772161603e-13,
+          "power_absolute_w": 1.076841726899147e-09,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 5.684341886080802e-14
+        },
+        "fine": {
+          "pressure_absolute_pa": 8.009374141693115e-08,
+          "temperature_absolute_k": 1.0231815394945443e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 1.1368683772161603e-13,
+          "mass_absolute_kg": 1.1368683772161603e-13,
+          "energy_absolute_j": 2.8450358513509855e-08,
+          "reference_energy_absolute_j": 1.1920928955078125e-07,
+          "reference_mass_absolute_kg": 1.1368683772161603e-13,
+          "power_absolute_w": 1.0477378964424133e-09,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 5.684341886080802e-14
+        }
+      },
+      "solver_statistics": {
+        "coarse": {
+          "available": true,
+          "segments": 11,
+          "scipy_segments": 11,
+          "reported_mesh_steps": 89,
+          "max_reported_step_s": 0.10000000000000009,
+          "scipy_nfev": 705,
+          "scipy_njev": 17,
+          "scipy_nlu": 106
+        },
+        "medium": {
+          "available": true,
+          "segments": 11,
+          "scipy_segments": 11,
+          "reported_mesh_steps": 221,
+          "max_reported_step_s": 0.025000000000000355,
+          "scipy_nfev": 1650,
+          "scipy_njev": 11,
+          "scipy_nlu": 442
+        },
+        "fine": {
+          "available": true,
+          "segments": 11,
+          "scipy_segments": 11,
+          "reported_mesh_steps": 813,
+          "max_reported_step_s": 0.006250000000000089,
+          "scipy_nfev": 5716,
+          "scipy_njev": 11,
+          "scipy_nlu": 1626
+        }
+      }
+    },
+    {
+      "name": "isolated",
+      "reference_errors": {
+        "coarse": {
+          "pressure_absolute_pa": 6.984919309616089e-08,
+          "temperature_absolute_k": 1.0231815394945443e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 0.0,
+          "mass_absolute_kg": 0.0,
+          "energy_absolute_j": 0.0,
+          "reference_energy_absolute_j": 0.0,
+          "reference_mass_absolute_kg": 0.0,
+          "power_absolute_w": 0.0,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 0.0
+        },
+        "medium": {
+          "pressure_absolute_pa": 6.984919309616089e-08,
+          "temperature_absolute_k": 1.0231815394945443e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 0.0,
+          "mass_absolute_kg": 0.0,
+          "energy_absolute_j": 0.0,
+          "reference_energy_absolute_j": 0.0,
+          "reference_mass_absolute_kg": 0.0,
+          "power_absolute_w": 0.0,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 0.0
+        },
+        "fine": {
+          "pressure_absolute_pa": 6.984919309616089e-08,
+          "temperature_absolute_k": 1.0231815394945443e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 0.0,
+          "mass_absolute_kg": 0.0,
+          "energy_absolute_j": 0.0,
+          "reference_energy_absolute_j": 0.0,
+          "reference_mass_absolute_kg": 0.0,
+          "power_absolute_w": 0.0,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 0.0
+        }
+      },
+      "solver_statistics": {
+        "coarse": {
+          "available": true,
+          "segments": 10,
+          "scipy_segments": 10,
+          "reported_mesh_steps": 100,
+          "max_reported_step_s": 0.10000000000000009,
+          "scipy_nfev": 420,
+          "scipy_njev": 10,
+          "scipy_nlu": 200
+        },
+        "medium": {
+          "available": true,
+          "segments": 10,
+          "scipy_segments": 10,
+          "reported_mesh_steps": 250,
+          "max_reported_step_s": 0.025000000000000355,
+          "scipy_nfev": 1020,
+          "scipy_njev": 10,
+          "scipy_nlu": 500
+        },
+        "fine": {
+          "available": true,
+          "segments": 10,
+          "scipy_segments": 10,
+          "reported_mesh_steps": 840,
+          "max_reported_step_s": 0.006250000000000089,
+          "scipy_nfev": 3380,
+          "scipy_njev": 10,
+          "scipy_nlu": 1680
+        }
+      }
+    },
+    {
+      "name": "load_rejection",
+      "reference_errors": {
+        "coarse": {
+          "pressure_absolute_pa": 6.984919309616089e-08,
+          "temperature_absolute_k": 1.0231815394945443e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 2.2737367544323206e-13,
+          "mass_absolute_kg": 1.3870226811312135e-28,
+          "energy_absolute_j": 8.731149137020111e-10,
+          "reference_energy_absolute_j": 4.889443516731262e-09,
+          "reference_mass_absolute_kg": 0.0,
+          "power_absolute_w": 4.3655745685100555e-10,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 1.7053025658242404e-13
+        },
+        "medium": {
+          "pressure_absolute_pa": 6.984919309616089e-08,
+          "temperature_absolute_k": 1.0231815394945443e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 2.2737367544323206e-13,
+          "mass_absolute_kg": 1.093602002416922e-28,
+          "energy_absolute_j": 1.559783413540572e-09,
+          "reference_energy_absolute_j": 4.889443516731262e-09,
+          "reference_mass_absolute_kg": 0.0,
+          "power_absolute_w": 4.3655745685100555e-10,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 1.7053025658242404e-13
+        },
+        "fine": {
+          "pressure_absolute_pa": 6.984919309616089e-08,
+          "temperature_absolute_k": 1.0231815394945443e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 1.7053025658242404e-13,
+          "mass_absolute_kg": 1.1677863939087766e-28,
+          "energy_absolute_j": 2.3863776732468978e-08,
+          "reference_energy_absolute_j": 4.889443516731262e-09,
+          "reference_mass_absolute_kg": 0.0,
+          "power_absolute_w": 4.3655745685100555e-10,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 1.7053025658242404e-13
+        }
+      },
+      "solver_statistics": {
+        "coarse": {
+          "available": true,
+          "segments": 11,
+          "scipy_segments": 11,
+          "reported_mesh_steps": 74,
+          "max_reported_step_s": 0.10000000000000009,
+          "scipy_nfev": 540,
+          "scipy_njev": 11,
+          "scipy_nlu": 148
+        },
+        "medium": {
+          "available": true,
+          "segments": 11,
+          "scipy_segments": 11,
+          "reported_mesh_steps": 218,
+          "max_reported_step_s": 0.025000000000000355,
+          "scipy_nfev": 1548,
+          "scipy_njev": 11,
+          "scipy_nlu": 436
+        },
+        "fine": {
+          "available": true,
+          "segments": 11,
+          "scipy_segments": 11,
+          "reported_mesh_steps": 812,
+          "max_reported_step_s": 0.006250000000000089,
+          "scipy_nfev": 5706,
+          "scipy_njev": 11,
+          "scipy_nlu": 1624
+        }
+      }
+    },
+    {
+      "name": "long_cycling",
+      "reference_errors": {
+        "coarse": {
+          "pressure_absolute_pa": 1.2014061212539673e-07,
+          "temperature_absolute_k": 1.9326762412674725e-12,
+          "quality_absolute": 3.1086244689504383e-15,
+          "omega_absolute_rad_s": 3.979039320256561e-13,
+          "mass_absolute_kg": 2.6147972675971687e-12,
+          "energy_absolute_j": 5.531328497454524e-07,
+          "reference_energy_absolute_j": 2.1345913410186768e-06,
+          "reference_mass_absolute_kg": 2.7284841053187847e-12,
+          "power_absolute_w": 1.1350493878126144e-09,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 1.1368683772161603e-13
+        },
+        "medium": {
+          "pressure_absolute_pa": 1.2014061212539673e-07,
+          "temperature_absolute_k": 1.9326762412674725e-12,
+          "quality_absolute": 3.1086244689504383e-15,
+          "omega_absolute_rad_s": 3.410605131648481e-13,
+          "mass_absolute_kg": 2.6147972675971687e-12,
+          "energy_absolute_j": 2.5911867851391435e-07,
+          "reference_energy_absolute_j": 2.1345913410186768e-06,
+          "reference_mass_absolute_kg": 2.7284841053187847e-12,
+          "power_absolute_w": 1.1350493878126144e-09,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 5.684341886080802e-14
+        },
+        "fine": {
+          "pressure_absolute_pa": 1.2014061212539673e-07,
+          "temperature_absolute_k": 1.9326762412674725e-12,
+          "quality_absolute": 3.1086244689504383e-15,
+          "omega_absolute_rad_s": 3.979039320256561e-13,
+          "mass_absolute_kg": 2.6147972675971687e-12,
+          "energy_absolute_j": 1.4743200154043734e-05,
+          "reference_energy_absolute_j": 2.1345913410186768e-06,
+          "reference_mass_absolute_kg": 2.7284841053187847e-12,
+          "power_absolute_w": 1.1641532182693481e-09,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 5.684341886080802e-14
+        }
+      },
+      "solver_statistics": {
+        "coarse": {
+          "available": true,
+          "segments": 126,
+          "scipy_segments": 126,
+          "reported_mesh_steps": 1575,
+          "max_reported_step_s": 0.10000000000000142,
+          "scipy_nfev": 11634,
+          "scipy_njev": 164,
+          "scipy_nlu": 2334
+        },
+        "medium": {
+          "available": true,
+          "segments": 126,
+          "scipy_segments": 126,
+          "reported_mesh_steps": 4946,
+          "max_reported_step_s": 0.025000000000005684,
+          "scipy_nfev": 35261,
+          "scipy_njev": 127,
+          "scipy_nlu": 9890
+        },
+        "fine": {
+          "available": true,
+          "segments": 126,
+          "scipy_segments": 126,
+          "reported_mesh_steps": 19330,
+          "max_reported_step_s": 0.006250000000001421,
+          "scipy_nfev": 135592,
+          "scipy_njev": 128,
+          "scipy_nlu": 38668
+        }
+      }
+    },
+    {
+      "name": "long_feed_bias",
+      "reference_errors": {
+        "coarse": {
+          "pressure_absolute_pa": 1.3131648302078247e-07,
+          "temperature_absolute_k": 2.1600499167107046e-12,
+          "quality_absolute": 3.5388358909926865e-15,
+          "omega_absolute_rad_s": 1.0800249583553523e-12,
+          "mass_absolute_kg": 1.0231815394945443e-12,
+          "energy_absolute_j": 2.3045686248224229e-07,
+          "reference_energy_absolute_j": 1.0635703802108765e-06,
+          "reference_mass_absolute_kg": 1.3642420526593924e-12,
+          "power_absolute_w": 1.1350493878126144e-09,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 1.0800249583553523e-12
+        },
+        "medium": {
+          "pressure_absolute_pa": 1.3131648302078247e-07,
+          "temperature_absolute_k": 2.1600499167107046e-12,
+          "quality_absolute": 3.5388358909926865e-15,
+          "omega_absolute_rad_s": 1.0800249583553523e-12,
+          "mass_absolute_kg": 1.0231815394945443e-12,
+          "energy_absolute_j": 4.5736669562757015e-07,
+          "reference_energy_absolute_j": 1.0635703802108765e-06,
+          "reference_mass_absolute_kg": 1.3642420526593924e-12,
+          "power_absolute_w": 1.1059455573558807e-09,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 1.0800249583553523e-12
+        },
+        "fine": {
+          "pressure_absolute_pa": 1.3131648302078247e-07,
+          "temperature_absolute_k": 2.1600499167107046e-12,
+          "quality_absolute": 3.5388358909926865e-15,
+          "omega_absolute_rad_s": 1.0800249583553523e-12,
+          "mass_absolute_kg": 1.0231815394945443e-12,
+          "energy_absolute_j": 3.6248839023755863e-06,
+          "reference_energy_absolute_j": 1.0635703802108765e-06,
+          "reference_mass_absolute_kg": 1.3642420526593924e-12,
+          "power_absolute_w": 1.1350493878126144e-09,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 1.0800249583553523e-12
+        }
+      },
+      "solver_statistics": {
+        "coarse": {
+          "available": true,
+          "segments": 61,
+          "scipy_segments": 61,
+          "reported_mesh_steps": 739,
+          "max_reported_step_s": 0.10000000000000142,
+          "scipy_nfev": 5412,
+          "scipy_njev": 65,
+          "scipy_nlu": 1394
+        },
+        "medium": {
+          "available": true,
+          "segments": 61,
+          "scipy_segments": 61,
+          "reported_mesh_steps": 2470,
+          "max_reported_step_s": 0.025000000000000355,
+          "scipy_nfev": 17448,
+          "scipy_njev": 63,
+          "scipy_nlu": 4948
+        },
+        "fine": {
+          "available": true,
+          "segments": 61,
+          "scipy_segments": 61,
+          "reported_mesh_steps": 9663,
+          "max_reported_step_s": 0.006250000000001421,
+          "scipy_nfev": 67808,
+          "scipy_njev": 64,
+          "scipy_nlu": 19338
+        }
+      }
+    },
+    {
+      "name": "long_heater",
+      "reference_errors": {
+        "coarse": {
+          "pressure_absolute_pa": 1.30385160446167e-07,
+          "temperature_absolute_k": 2.5011104298755527e-12,
+          "quality_absolute": 3.649858193455202e-15,
+          "omega_absolute_rad_s": 1.1368683772161603e-12,
+          "mass_absolute_kg": 1.9326762412674725e-12,
+          "energy_absolute_j": 1.4743272913619876e-07,
+          "reference_energy_absolute_j": 6.491318345069885e-07,
+          "reference_mass_absolute_kg": 1.3642420526593924e-12,
+          "power_absolute_w": 1.1641532182693481e-09,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 1.0231815394945443e-12
+        },
+        "medium": {
+          "pressure_absolute_pa": 1.30385160446167e-07,
+          "temperature_absolute_k": 2.5011104298755527e-12,
+          "quality_absolute": 3.649858193455202e-15,
+          "omega_absolute_rad_s": 1.1368683772161603e-12,
+          "mass_absolute_kg": 1.9326762412674725e-12,
+          "energy_absolute_j": 4.5508932089433074e-07,
+          "reference_energy_absolute_j": 6.477348506450653e-07,
+          "reference_mass_absolute_kg": 1.3642420526593924e-12,
+          "power_absolute_w": 1.1641532182693481e-09,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 1.0231815394945443e-12
+        },
+        "fine": {
+          "pressure_absolute_pa": 1.30385160446167e-07,
+          "temperature_absolute_k": 2.5011104298755527e-12,
+          "quality_absolute": 3.649858193455202e-15,
+          "omega_absolute_rad_s": 1.1368683772161603e-12,
+          "mass_absolute_kg": 1.9326762412674725e-12,
+          "energy_absolute_j": 2.5555200409144163e-06,
+          "reference_energy_absolute_j": 6.528571248054504e-07,
+          "reference_mass_absolute_kg": 1.3642420526593924e-12,
+          "power_absolute_w": 1.1641532182693481e-09,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 1.0231815394945443e-12
+        }
+      },
+      "solver_statistics": {
+        "coarse": {
+          "available": true,
+          "segments": 61,
+          "scipy_segments": 61,
+          "reported_mesh_steps": 739,
+          "max_reported_step_s": 0.10000000000000142,
+          "scipy_nfev": 5445,
+          "scipy_njev": 65,
+          "scipy_nlu": 1402
+        },
+        "medium": {
+          "available": true,
+          "segments": 61,
+          "scipy_segments": 61,
+          "reported_mesh_steps": 2470,
+          "max_reported_step_s": 0.025000000000000355,
+          "scipy_nfev": 17829,
+          "scipy_njev": 62,
+          "scipy_nlu": 4944
+        },
+        "fine": {
+          "available": true,
+          "segments": 61,
+          "scipy_segments": 61,
+          "reported_mesh_steps": 9665,
+          "max_reported_step_s": 0.006250000000001421,
+          "scipy_nfev": 67807,
+          "scipy_njev": 63,
+          "scipy_nlu": 19338
+        }
+      }
+    },
+    {
+      "name": "long_nominal",
+      "reference_errors": {
+        "coarse": {
+          "pressure_absolute_pa": 6.984919309616089e-08,
+          "temperature_absolute_k": 1.0231815394945443e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 0.0,
+          "mass_absolute_kg": 7.048015091211759e-29,
+          "energy_absolute_j": 4.6509376261383295e-07,
+          "reference_energy_absolute_j": 9.5367431640625e-07,
+          "reference_mass_absolute_kg": 0.0,
+          "power_absolute_w": 1.1059455573558807e-09,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 0.0
+        },
+        "medium": {
+          "pressure_absolute_pa": 6.984919309616089e-08,
+          "temperature_absolute_k": 1.0231815394945443e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 0.0,
+          "mass_absolute_kg": 2.1847183587208886e-28,
+          "energy_absolute_j": 5.840993253514171e-07,
+          "reference_energy_absolute_j": 9.5367431640625e-07,
+          "reference_mass_absolute_kg": 0.0,
+          "power_absolute_w": 1.1059455573558807e-09,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 0.0
+        },
+        "fine": {
+          "pressure_absolute_pa": 6.984919309616089e-08,
+          "temperature_absolute_k": 1.0231815394945443e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 0.0,
+          "mass_absolute_kg": 2.1526993549370255e-28,
+          "energy_absolute_j": 1.167330483441423e-05,
+          "reference_energy_absolute_j": 9.5367431640625e-07,
+          "reference_mass_absolute_kg": 0.0,
+          "power_absolute_w": 1.1059455573558807e-09,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 0.0
+        }
+      },
+      "solver_statistics": {
+        "coarse": {
+          "available": true,
+          "segments": 100,
+          "scipy_segments": 100,
+          "reported_mesh_steps": 1201,
+          "max_reported_step_s": 0.10000000000000142,
+          "scipy_nfev": 8607,
+          "scipy_njev": 100,
+          "scipy_nlu": 2402
+        },
+        "medium": {
+          "available": true,
+          "segments": 100,
+          "scipy_segments": 100,
+          "reported_mesh_steps": 4103,
+          "max_reported_step_s": 0.025000000000005684,
+          "scipy_nfev": 28921,
+          "scipy_njev": 100,
+          "scipy_nlu": 8206
+        },
+        "fine": {
+          "available": true,
+          "segments": 100,
+          "scipy_segments": 100,
+          "reported_mesh_steps": 16101,
+          "max_reported_step_s": 0.006250000000001421,
+          "scipy_nfev": 112907,
+          "scipy_njev": 100,
+          "scipy_nlu": 32202
+        }
+      }
+    },
+    {
+      "name": "nominal",
+      "reference_errors": {
+        "coarse": {
+          "pressure_absolute_pa": 6.984919309616089e-08,
+          "temperature_absolute_k": 1.0231815394945443e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 0.0,
+          "mass_absolute_kg": 2.762375508997218e-29,
+          "energy_absolute_j": 1.0186340660047927e-09,
+          "reference_energy_absolute_j": 2.3283064365386963e-09,
+          "reference_mass_absolute_kg": 0.0,
+          "power_absolute_w": 4.3655745685100555e-10,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 0.0
+        },
+        "medium": {
+          "pressure_absolute_pa": 6.984919309616089e-08,
+          "temperature_absolute_k": 1.0231815394945443e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 0.0,
+          "mass_absolute_kg": 2.718053267288384e-29,
+          "energy_absolute_j": 1.40698830364272e-09,
+          "reference_energy_absolute_j": 2.3283064365386963e-09,
+          "reference_mass_absolute_kg": 0.0,
+          "power_absolute_w": 4.3655745685100555e-10,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 0.0
+        },
+        "fine": {
+          "pressure_absolute_pa": 6.984919309616089e-08,
+          "temperature_absolute_k": 1.0231815394945443e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 0.0,
+          "mass_absolute_kg": 3.579446575361435e-29,
+          "energy_absolute_j": 2.3141637939261273e-08,
+          "reference_energy_absolute_j": 2.3283064365386963e-09,
+          "reference_mass_absolute_kg": 0.0,
+          "power_absolute_w": 4.3655745685100555e-10,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 0.0
+        }
+      },
+      "solver_statistics": {
+        "coarse": {
+          "available": true,
+          "segments": 10,
+          "scipy_segments": 10,
+          "reported_mesh_steps": 71,
+          "max_reported_step_s": 0.10000000000000009,
+          "scipy_nfev": 517,
+          "scipy_njev": 10,
+          "scipy_nlu": 142
+        },
+        "medium": {
+          "available": true,
+          "segments": 10,
+          "scipy_segments": 10,
+          "reported_mesh_steps": 215,
+          "max_reported_step_s": 0.025000000000000355,
+          "scipy_nfev": 1525,
+          "scipy_njev": 10,
+          "scipy_nlu": 430
+        },
+        "fine": {
+          "available": true,
+          "segments": 10,
+          "scipy_segments": 10,
+          "reported_mesh_steps": 811,
+          "max_reported_step_s": 0.006250000000000089,
+          "scipy_nfev": 5697,
+          "scipy_njev": 10,
+          "scipy_nlu": 1622
+        }
+      }
+    },
+    {
+      "name": "phase_margin",
+      "reference_errors": {
+        "coarse": {
+          "pressure_absolute_pa": 6.984919309616089e-08,
+          "temperature_absolute_k": 1.2505552149377763e-12,
+          "quality_absolute": 2.7478019859472624e-15,
+          "omega_absolute_rad_s": 0.0,
+          "mass_absolute_kg": 1.1368683772161603e-13,
+          "energy_absolute_j": 6.580492595276155e-09,
+          "reference_energy_absolute_j": 5.960464477539063e-08,
+          "reference_mass_absolute_kg": 0.0,
+          "power_absolute_w": 1.1059455573558807e-09,
+          "boundary_time_absolute_s": 2.9768926596094453e-07,
+          "restart_omega_absolute_rad_s": 0.0
+        },
+        "medium": {
+          "pressure_absolute_pa": 6.984919309616089e-08,
+          "temperature_absolute_k": 1.0231815394945443e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 0.0,
+          "mass_absolute_kg": 2.842170943040401e-14,
+          "energy_absolute_j": 1.2006319494162199e-08,
+          "reference_energy_absolute_j": 1.2128191784199771e-08,
+          "reference_mass_absolute_kg": 1.1368683772161603e-13,
+          "power_absolute_w": 1.1059455573558807e-09,
+          "boundary_time_absolute_s": 2.9769352876980043e-07,
+          "restart_omega_absolute_rad_s": 0.0
+        },
+        "fine": {
+          "pressure_absolute_pa": 6.984919309616089e-08,
+          "temperature_absolute_k": 1.0231815394945443e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 0.0,
+          "mass_absolute_kg": 2.842170943040401e-14,
+          "energy_absolute_j": 1.2006392324792614e-08,
+          "reference_energy_absolute_j": 1.2128264614830186e-08,
+          "reference_mass_absolute_kg": 1.1368683772161603e-13,
+          "power_absolute_w": 1.1059455573558807e-09,
+          "boundary_time_absolute_s": 2.976935287819435e-07,
+          "restart_omega_absolute_rad_s": 0.0
+        }
+      },
+      "solver_statistics": {
+        "coarse": {
+          "available": true,
+          "segments": 1,
+          "scipy_segments": 1,
+          "reported_mesh_steps": 7,
+          "max_reported_step_s": 0.0010000000000000002,
+          "scipy_nfev": 51,
+          "scipy_njev": 1,
+          "scipy_nlu": 14
+        },
+        "medium": {
+          "available": true,
+          "segments": 1,
+          "scipy_segments": 1,
+          "reported_mesh_steps": 25,
+          "max_reported_step_s": 0.0002500000000000002,
+          "scipy_nfev": 177,
+          "scipy_njev": 1,
+          "scipy_nlu": 50
+        },
+        "fine": {
+          "available": true,
+          "segments": 1,
+          "scipy_segments": 1,
+          "reported_mesh_steps": 96,
+          "max_reported_step_s": 6.250000000000006e-05,
+          "scipy_nfev": 674,
+          "scipy_njev": 1,
+          "scipy_nlu": 192
+        }
+      }
+    },
+    {
+      "name": "pressure_margin",
+      "reference_errors": {
+        "coarse": {
+          "pressure_absolute_pa": 4.0978193283081055e-08,
+          "temperature_absolute_k": 4.547473508864641e-13,
+          "quality_absolute": 1.2906342661267445e-15,
+          "omega_absolute_rad_s": 0.0,
+          "mass_absolute_kg": 2.842170943040401e-14,
+          "energy_absolute_j": 2.7361238608136773e-08,
+          "reference_energy_absolute_j": 1.7881393432617188e-07,
+          "reference_mass_absolute_kg": 0.0,
+          "power_absolute_w": 1.1059455573558807e-09,
+          "boundary_time_absolute_s": 4.513480024170846e-06,
+          "restart_omega_absolute_rad_s": 0.0
+        },
+        "medium": {
+          "pressure_absolute_pa": 4.7497451305389404e-08,
+          "temperature_absolute_k": 4.547473508864641e-13,
+          "quality_absolute": 1.2906342661267445e-15,
+          "omega_absolute_rad_s": 5.684341886080802e-14,
+          "mass_absolute_kg": 2.842170943040401e-14,
+          "energy_absolute_j": 3.8089638110250235e-08,
+          "reference_energy_absolute_j": 5.3783878684043884e-08,
+          "reference_mass_absolute_kg": 0.0,
+          "power_absolute_w": 8.731149137020111e-10,
+          "boundary_time_absolute_s": 4.513014687179684e-06,
+          "restart_omega_absolute_rad_s": 0.0
+        },
+        "fine": {
+          "pressure_absolute_pa": 4.7497451305389404e-08,
+          "temperature_absolute_k": 4.547473508864641e-13,
+          "quality_absolute": 1.2906342661267445e-15,
+          "omega_absolute_rad_s": 5.684341886080802e-14,
+          "mass_absolute_kg": 2.842170943040401e-14,
+          "energy_absolute_j": 3.418972482904792e-08,
+          "reference_energy_absolute_j": 4.979665391147137e-08,
+          "reference_mass_absolute_kg": 0.0,
+          "power_absolute_w": 5.529727786779404e-10,
+          "boundary_time_absolute_s": 4.513014325191467e-06,
+          "restart_omega_absolute_rad_s": 0.0
+        }
+      },
+      "solver_statistics": {
+        "coarse": {
+          "available": true,
+          "segments": 1,
+          "scipy_segments": 1,
+          "reported_mesh_steps": 12,
+          "max_reported_step_s": 0.04000000000000001,
+          "scipy_nfev": 86,
+          "scipy_njev": 1,
+          "scipy_nlu": 20
+        },
+        "medium": {
+          "available": true,
+          "segments": 1,
+          "scipy_segments": 1,
+          "reported_mesh_steps": 38,
+          "max_reported_step_s": 0.010000000000000009,
+          "scipy_nfev": 268,
+          "scipy_njev": 1,
+          "scipy_nlu": 76
+        },
+        "fine": {
+          "available": true,
+          "segments": 1,
+          "scipy_segments": 1,
+          "reported_mesh_steps": 146,
+          "max_reported_step_s": 0.0025000000000000022,
+          "scipy_nfev": 1024,
+          "scipy_njev": 1,
+          "scipy_nlu": 292
+        }
+      }
+    },
+    {
+      "name": "sink_warming",
+      "reference_errors": {
+        "coarse": {
+          "pressure_absolute_pa": 1.210719347000122e-07,
+          "temperature_absolute_k": 1.0231815394945443e-12,
+          "quality_absolute": 3.2890357104520263e-15,
+          "omega_absolute_rad_s": 1.1368683772161603e-13,
+          "mass_absolute_kg": 2.2737367544323206e-13,
+          "energy_absolute_j": 3.116292646154761e-08,
+          "reference_energy_absolute_j": 2.041342668235302e-07,
+          "reference_mass_absolute_kg": 2.2737367544323206e-13,
+          "power_absolute_w": 1.0186340659856796e-09,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 5.684341886080802e-14
+        },
+        "medium": {
+          "pressure_absolute_pa": 1.210719347000122e-07,
+          "temperature_absolute_k": 1.0231815394945443e-12,
+          "quality_absolute": 3.2890357104520263e-15,
+          "omega_absolute_rad_s": 1.1368683772161603e-13,
+          "mass_absolute_kg": 2.2737367544323206e-13,
+          "energy_absolute_j": 2.8318027034401894e-08,
+          "reference_energy_absolute_j": 1.9255094230175018e-07,
+          "reference_mass_absolute_kg": 2.2737367544323206e-13,
+          "power_absolute_w": 1.076841726899147e-09,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 5.684341886080802e-14
+        },
+        "fine": {
+          "pressure_absolute_pa": 1.210719347000122e-07,
+          "temperature_absolute_k": 1.0231815394945443e-12,
+          "quality_absolute": 3.2890357104520263e-15,
+          "omega_absolute_rad_s": 1.1368683772161603e-13,
+          "mass_absolute_kg": 2.2737367544323206e-13,
+          "energy_absolute_j": 3.702507456182502e-08,
+          "reference_energy_absolute_j": 1.9255094230175018e-07,
+          "reference_mass_absolute_kg": 2.2737367544323206e-13,
+          "power_absolute_w": 1.1350493878126144e-09,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 5.684341886080802e-14
+        }
+      },
+      "solver_statistics": {
+        "coarse": {
+          "available": true,
+          "segments": 11,
+          "scipy_segments": 11,
+          "reported_mesh_steps": 132,
+          "max_reported_step_s": 0.10000000000000009,
+          "scipy_nfev": 1006,
+          "scipy_njev": 18,
+          "scipy_nlu": 104
+        },
+        "medium": {
+          "available": true,
+          "segments": 11,
+          "scipy_segments": 11,
+          "reported_mesh_steps": 227,
+          "max_reported_step_s": 0.025000000000000355,
+          "scipy_nfev": 1626,
+          "scipy_njev": 12,
+          "scipy_nlu": 398
+        },
+        "fine": {
+          "available": true,
+          "segments": 11,
+          "scipy_segments": 11,
+          "reported_mesh_steps": 813,
+          "max_reported_step_s": 0.006250000000000089,
+          "scipy_nfev": 5716,
+          "scipy_njev": 11,
+          "scipy_nlu": 1626
+        }
+      }
+    },
+    {
+      "name": "speed_margin",
+      "reference_errors": {
+        "coarse": {
+          "pressure_absolute_pa": 6.984919309616089e-08,
+          "temperature_absolute_k": 1.0231815394945443e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 0.0,
+          "mass_absolute_kg": 1.6940658945086007e-21,
+          "energy_absolute_j": 1.8062884521441447e-10,
+          "reference_energy_absolute_j": 1.823536877054721e-10,
+          "reference_mass_absolute_kg": 0.0,
+          "power_absolute_w": 2.9103830456733704e-11,
+          "boundary_time_absolute_s": 9.458286098773527e-10,
+          "restart_omega_absolute_rad_s": 0.0
+        },
+        "medium": {
+          "pressure_absolute_pa": 6.984919309616089e-08,
+          "temperature_absolute_k": 1.0231815394945443e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 0.0,
+          "mass_absolute_kg": 1.6940658945086007e-21,
+          "energy_absolute_j": 2.2329871285364788e-10,
+          "reference_energy_absolute_j": 2.2509993868879974e-10,
+          "reference_mass_absolute_kg": 0.0,
+          "power_absolute_w": 2.9103830456733704e-11,
+          "boundary_time_absolute_s": 9.45828079051969e-10,
+          "restart_omega_absolute_rad_s": 0.0
+        },
+        "fine": {
+          "pressure_absolute_pa": 6.984919309616089e-08,
+          "temperature_absolute_k": 1.0231815394945443e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 0.0,
+          "mass_absolute_kg": 1.6940658945086007e-21,
+          "energy_absolute_j": 2.2285640000063722e-10,
+          "reference_energy_absolute_j": 2.2373569663614035e-10,
+          "reference_mass_absolute_kg": 0.0,
+          "power_absolute_w": 2.9103830456733704e-11,
+          "boundary_time_absolute_s": 9.458280929297569e-10,
+          "restart_omega_absolute_rad_s": 0.0
+        }
+      },
+      "solver_statistics": {
+        "coarse": {
+          "available": true,
+          "segments": 1,
+          "scipy_segments": 1,
+          "reported_mesh_steps": 7,
+          "max_reported_step_s": 0.004,
+          "scipy_nfev": 51,
+          "scipy_njev": 1,
+          "scipy_nlu": 14
+        },
+        "medium": {
+          "available": true,
+          "segments": 1,
+          "scipy_segments": 1,
+          "reported_mesh_steps": 20,
+          "max_reported_step_s": 0.0010000000000000009,
+          "scipy_nfev": 142,
+          "scipy_njev": 1,
+          "scipy_nlu": 40
+        },
+        "fine": {
+          "available": true,
+          "segments": 1,
+          "scipy_segments": 1,
+          "reported_mesh_steps": 77,
+          "max_reported_step_s": 0.0002500000000000002,
+          "scipy_nfev": 541,
+          "scipy_njev": 1,
+          "scipy_nlu": 154
+        }
+      }
+    },
+    {
+      "name": "valve_reduction",
+      "reference_errors": {
+        "coarse": {
+          "pressure_absolute_pa": 6.984919309616089e-08,
+          "temperature_absolute_k": 1.3642420526593924e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 1.1368683772161603e-13,
+          "mass_absolute_kg": 2.2737367544323206e-13,
+          "energy_absolute_j": 3.131890480290167e-08,
+          "reference_energy_absolute_j": 2.0070001482963562e-07,
+          "reference_mass_absolute_kg": 2.2737367544323206e-13,
+          "power_absolute_w": 1.0477378964424133e-09,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 1.1368683772161603e-13
+        },
+        "medium": {
+          "pressure_absolute_pa": 6.984919309616089e-08,
+          "temperature_absolute_k": 1.3642420526593924e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 1.7053025658242404e-13,
+          "mass_absolute_kg": 2.2737367544323206e-13,
+          "energy_absolute_j": 3.083687261096202e-08,
+          "reference_energy_absolute_j": 2.0070001482963562e-07,
+          "reference_mass_absolute_kg": 2.2737367544323206e-13,
+          "power_absolute_w": 1.0186340659856796e-09,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 1.1368683772161603e-13
+        },
+        "fine": {
+          "pressure_absolute_pa": 6.984919309616089e-08,
+          "temperature_absolute_k": 1.3642420526593924e-12,
+          "quality_absolute": 2.42861286636753e-15,
+          "omega_absolute_rad_s": 1.1368683772161603e-13,
+          "mass_absolute_kg": 2.2737367544323206e-13,
+          "energy_absolute_j": 4.8719357437221333e-08,
+          "reference_energy_absolute_j": 2.0070001482963562e-07,
+          "reference_mass_absolute_kg": 2.2737367544323206e-13,
+          "power_absolute_w": 1.1350493878126144e-09,
+          "boundary_time_absolute_s": 0.0,
+          "restart_omega_absolute_rad_s": 1.1368683772161603e-13
+        }
+      },
+      "solver_statistics": {
+        "coarse": {
+          "available": true,
+          "segments": 11,
+          "scipy_segments": 11,
+          "reported_mesh_steps": 137,
+          "max_reported_step_s": 0.10000000000000009,
+          "scipy_nfev": 1023,
+          "scipy_njev": 18,
+          "scipy_nlu": 112
+        },
+        "medium": {
+          "available": true,
+          "segments": 11,
+          "scipy_segments": 11,
+          "reported_mesh_steps": 231,
+          "max_reported_step_s": 0.025000000000000355,
+          "scipy_nfev": 1651,
+          "scipy_njev": 13,
+          "scipy_nlu": 400
+        },
+        "fine": {
+          "available": true,
+          "segments": 11,
+          "scipy_segments": 11,
+          "reported_mesh_steps": 812,
+          "max_reported_step_s": 0.006250000000000089,
+          "scipy_nfev": 5706,
+          "scipy_njev": 11,
+          "scipy_nlu": 1624
+        }
+      }
+    }
+  ],
+  "completed_long_horizons_s": {
+    "long_nominal": 100,
+    "long_heater": 60,
+    "long_cycling": 120,
+    "long_feed_bias": 60
+  },
+  "validated": false,
+  "plant_referenced": false
+}

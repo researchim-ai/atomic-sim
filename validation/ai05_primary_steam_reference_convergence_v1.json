@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "signature": {
+    "source_sha256": "68fb24c86a58c0c01072961c14bd3b9eff7a0a9b813dcab96e683dfed4b71f95",
+    "budget_sha256": "081a9ae178dcb1f14d8722f9d57c3a89c5b5112b77b621813f91989fc206c087",
+    "driver_sha256": {
+      "scripts/audit_primary_steam.py": "1ff1edf7d90b796ea6eb2b3c976109bba0c135d0e4854c399cf9c7a7808d9aa4",
+      "scripts/primary_steam_references.py": "444c551540d360bf5d49bd808d342fcc95dc82cff7f868730472aa5c48b30b39",
+      "scripts/verify_primary_steam.py": "704866a0b15a0b000b572d27683ff0b50e8601c3b7d3c64b67e6a04d6a373423",
+      "scripts/qualify_primary_steam.py": "c27c7a825bfd968b7e9324cda95b71da551a77b5a9a5490db7c900a2ddfd637b",
+      "scripts/verify_turbine.py": "f6a63b4424e0f01986c0357768818da140cc28b2994d2b98272aed6a2ce2408d"
+    },
+    "python": "3.12.9",
+    "versions": {
+      "numpy": "2.2.6",
+      "scipy": "1.15.2"
+    }
+  },
+  "driver_sha256": "4f2e072559390218cc26cc1f1621f5459f1242022d1b78d7e68865b2e8f9f1ae",
+  "input_sha256": "76ec89cd1f681ef467cefb3a34f421b1f2ecfec995f6009ceb30b3a17259169a",
+  "policies": [
+    {
+      "rtol": 2e-12,
+      "mechanical_atol": 1e-10,
+      "max_step_s": 0.025
+    },
+    {
+      "rtol": 2e-13,
+      "mechanical_atol": 1e-12,
+      "max_step_s": 0.0125
+    },
+    {
+      "rtol": 5e-14,
+      "mechanical_atol": 2e-13,
+      "max_step_s": 0.00625
+    },
+    {
+      "rtol": 2.5e-14,
+      "mechanical_atol": 1e-13,
+      "max_step_s": 0.003125
+    }
+  ],
+  "compared_clock_points": 1001,
+  "comparisons": [
+    {
+      "from_policy": 0,
+      "to_policy": 1,
+      "maximum_differences": {
+        "primary_flow_absolute_kg_s": 8.478208614326466e-09,
+        "primary_omega_absolute_rad_s": 4.700995148709808e-10,
+        "steam_omega_absolute_rad_s": 1.1937117960769683e-12,
+        "temperature_absolute_k": 2.594629222585354e-08,
+        "pressure_absolute_pa": 1.210578636801074e-05,
+        "quality_absolute": 3.00454106039183e-14,
+        "mass_absolute_kg": 1.5916157281026244e-12,
+        "inventory_energy_absolute_j": 2.7358531951904297e-05,
+        "energy_integral_absolute_j": 0.00030765938572585583,
+        "power_absolute_w": 0.029642775130923837,
+        "torque_absolute_nm": 1.210578637333981e-08,
+        "specific_energy_absolute_j_kg": 4.1676685214042664e-08,
+        "specific_entropy_absolute_j_kg_k": 1.318767317570746e-10,
+        "kinetic_energy_absolute_j": 1.9181285123115633e-08
+      },
+      "maximum_fraction_of_admission_budget": 29.642775130923837
+    },
+    {
+      "from_policy": 1,
+      "to_policy": 2,
+      "maximum_differences": {
+        "primary_flow_absolute_kg_s": 2.7469582164485473e-10,
+        "primary_omega_absolute_rad_s": 1.2960299500264227e-11,
+        "steam_omega_absolute_rad_s": 3.979039320256561e-13,
+        "temperature_absolute_k": 2.921979103120975e-09,
+        "pressure_absolute_pa": 4.0886516217142344e-07,
+        "quality_absolute": 5.134781488891349e-15,
+        "mass_absolute_kg": 1.1368683772161603e-12,
+        "inventory_energy_absolute_j": 3.159046173095703e-06,
+        "energy_integral_absolute_j": 3.4759752452373505e-05,
+        "power_absolute_w": 0.0009607076644897461,
+        "torque_absolute_nm": 4.0886405372475565e-10,
+        "specific_energy_absolute_j_kg": 1.210719347000122e-08,
+        "specific_entropy_absolute_j_kg_k": 3.2741809263825417e-11,
+        "kinetic_energy_absolute_j": 6.05359673500061e-09
+      },
+      "maximum_fraction_of_admission_budget": 0.9607076644897461
+    },
+    {
+      "from_policy": 2,
+      "to_policy": 3,
+      "maximum_differences": {
+        "primary_flow_absolute_kg_s": 1.4352963262354024e-11,
+        "primary_omega_absolute_rad_s": 6.536993168992922e-13,
+        "steam_omega_absolute_rad_s": 3.979039320256561e-13,
+        "temperature_absolute_k": 2.9831426218152046e-10,
+        "pressure_absolute_pa": 1.6670674085617065e-07,
+        "quality_absolute": 4.2049697057677804e-15,
+        "mass_absolute_kg": 2.0463630789890885e-12,
+        "inventory_energy_absolute_j": 1.0728836059570312e-06,
+        "energy_integral_absolute_j": 3.4959521144628525e-06,
+        "power_absolute_w": 5.060434341430664e-05,
+        "torque_absolute_nm": 2.1316282072803006e-11,
+        "specific_energy_absolute_j_kg": 1.1641532182693481e-08,
+        "specific_entropy_absolute_j_kg_k": 2.9103830456733704e-11,
+        "kinetic_energy_absolute_j": 6.05359673500061e-09
+      },
+      "maximum_fraction_of_admission_budget": 0.05060434341430664
+    }
+  ],
+  "selected_policy": {
+    "rtol": 5e-14,
+    "mechanical_atol": 2e-13,
+    "max_step_s": 0.00625
+  },
+  "required_confirmation_fraction": 0.25,
+  "scope": "State, inventory, counters and derived powers/enthalpy faces; conservation and terminal events are checked separately by the full assembly auditor",
+  "observed_order": null,
+  "validated": false,
+  "plant_referenced": false
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "passed": true,
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "software_tests": {
+    "command": "python -m pytest -m 'not external_integration' -q",
+    "passed": 1367,
+    "deselected": 1,
+    "seconds": 255.75,
+    "excluded": "external OpenMC/MPI integration",
+    "log": "artifacts/ai05_fixed_boundary_full_suite_v2.log"
+  },
+  "focused_initializer_tests": 49,
+  "ruff": "Passed for changed engineering scripts and tests; pre-existing top-level configuration deprecation warning",
+  "ci": "Workflow YAML and two Python heredocs parsed locally; remote CI not executed",
+  "file_sha256": {
+    "scripts/solve_fixed_primary_steam.py": "604bd20b4a5e301b15f83efad884c663444f501fdd97fcc211a85ed7e23e81d1",
+    "scripts/qualify_fixed_primary_steam.py": "00fa05c7c30e3cadb4378414ff48bc50c2bc5bf64b188e0fb5fff9a945439a4b",
+    "scripts/primary_steam_release.py": "54b0a9d1e60bf5a27dce895f4ab5e746d1d99a0ab17729e4bff823e4dfcc986e",
+    "scripts/replay_primary_steam_bundle.py": "22376aafd857dca82e85a79bd3193b3ce5343982a69b2175cbc1a2cb8e38e08a",
+    "tests/test_fixed_primary_steam.py": "79017db2d78dbec4bb83fe5ac9e41bbf8199f7b30dcaf4f148dc6332c3ab6244",
+    "tests/test_fixed_primary_steam_evidence.py": "e63911776acd6f538bc85b8b4c27323c25b0ee97e506b1f3afa9933d5f2f341b",
+    "tests/test_evidence_replay.py": "1d4e84850b1d756eb95a529cb8630c09d015771ea882cd5e50ff8c38b144b37a",
+    "tests/test_primary_steam_release.py": "7ad4c4178ac4b0c6b95d7095e30f2ff11c61cfc6875f6becead0c1a15804e257",
+    "validation/ai05_fixed_boundary_steady_budget_v3.json": "11f32ea9f531e2e5019354f31b0345e620bab459585089e1df58950dad843361",
+    "validation/ai05_fixed_boundary_qualification_budget_v3.json": "bf06214a669e5d077b54fbc096611f6be9bd18d5a75b94b2bd5071386f81b955",
+    ".github/workflows/ci.yml": "1726ffb5358cf1844afba4c44b30fd74984853a699c3e0b622805194f62a04dd",
+    "artifacts/ai05_fixed_boundary_full_suite_v2.log": "e1fe5d425829bf0049333f06b41aec9c8870759f17ff667649ae3c3d5a914d52",
+    "artifacts/ai05_fixed_boundary_tests_v7.log": "e5dbd06cfc8a8fbfc09c40ab4cf5dc3e3f9982638bdb12316ea84065835508f2",
+    "artifacts/ai05_fixed_boundary_installed_v1.log": "df2ca5e6c316ef0f8f317c64dcd90945b6fb20a60efbd87542759b8ce63547c5"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

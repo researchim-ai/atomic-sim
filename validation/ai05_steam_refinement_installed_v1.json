@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "passed": true,
+  "source_sha256": "9f1e461d7cf9db1517fd26849443e06338fb0b464af92f7a88c273ac404ae22b",
+  "wheel": "artifacts/ai05_steam_refinement_release_v1/atomic_sim-2.0.0-py3-none-any.whl",
+  "sdist": "artifacts/ai05_steam_refinement_release_v1/atomic_sim-2.0.0.tar.gz",
+  "environment": "Temporary system-site-packages venv outside checkout; offline no-deps install with inherited dependencies",
+  "checks": [
+    "Required resources including core/solver_trace.py",
+    "All established CLI smoke, steam-cycle snapshot and restart",
+    "Installed source fingerprint matches checkout",
+    "Extracted sdist runtime fingerprint matches checkout",
+    "Frozen turbine audit replays all 24 current-source packets",
+    "Frozen-sdist three-level/long-horizon audit replays 44 current-source packets"
+  ],
+  "file_sha256": {
+    "artifacts/ai05_steam_refinement_release_v1/atomic_sim-2.0.0-py3-none-any.whl": "648dd9b710cfa812dbe8ca8fad7d6f5f96b3e8968b71ae6423b6a67778b68f9b",
+    "artifacts/ai05_steam_refinement_release_v1/atomic_sim-2.0.0.tar.gz": "49b667691097a1137e424a9a372ae078573330ecbedf61738f8229dc0cb6c8f1",
+    "artifacts/ai05_steam_refinement_release_v1/installed-wheel.log": "c0f26a357c90b66886e32e7a8a871743bd632bf143368643c799ff9a0299d21a",
+    "artifacts/ai05_steam_refinement_release_v1/frozen-turbine-audit.json": "33a501af52416b4c71ac3507667e73944469b0b38e5009251a7095dce34d9619",
+    "artifacts/ai05_steam_refinement_release_v1/frozen_scripts/audit_steam_refinement.py": "10591404d12b93f2e578c59d457d570c1c9a421869ba15d6d1a78a6aaf0765d6",
+    "artifacts/ai05_steam_refinement_release_v1/frozen_scripts/steam_cycle_references.py": "1b7f2c153cc0a2e339afae0e3c2b8f0a79303d1a7f31df44c4491a161d39ca16",
+    "artifacts/ai05_steam_refinement_release_v1/frozen_scripts/turbine_references.py": "e0b484df035435b31054bcfd3595bf2c1047ebaae4960636b70f6409603dc4d5",
+    "artifacts/ai05_steam_refinement_release_v1/frozen_scripts/verify_turbine.py": "f6a63b4424e0f01986c0357768818da140cc28b2994d2b98272aed6a2ce2408d",
+    "artifacts/ai05_steam_refinement_release_v1/frozen_scripts/verify_steam_cycle.py": "3b5eafd1b3b9ae5b35145b9b59548bf5333ac546c3cf1acb5f901ac78786ccbc",
+    "artifacts/ai05_steam_refinement_release_v1/frozen_scripts/audit_turbine.py": "5b7f3f89f3355165df9a7e4ac1b571f731fa7b52e578ddf8cc75129336659897",
+    "artifacts/ai05_steam_refinement_release_v1/frozen_scripts/verify_wheel.py": "796ff8992adf701a217877a66d5b5f1a083a3e178fc94f2d7edf17333a3cda6f",
+    "artifacts/ai05_steam_refinement_release_v1/frozen_scripts/qualify_steam_cycle.py": "783eaf7a8ddd0d618f5b858d733868c22fe040f17049623666b8f89fb3cc838d",
+    "artifacts/ai05_steam_refinement_release_v1/frozen_tests/test_steam_cycle.py": "b2e64324b7aeb7b5ff5e9c677c63d42afe18754a8099562fe30389b18ecf4693",
+    "artifacts/ai05_steam_refinement_release_v1/frozen_tests/test_solver_trace.py": "d3129f216437a60d004181b89ff22076658aa8ba53226d062dc140b3e610bb81",
+    "artifacts/ai05_steam_refinement_release_v1/frozen_tests/test_steam_refinement.py": "650d9c74abe66f1f63efebc21b68ee1dc4f2e934a70dda20ddb4d253460c998f",
+    "artifacts/ai05_steam_refinement_release_v1/frozen_tests/test_steam_turbine_train.py": "c9dd7491a43e6ced44ea388594eccbc79f821fc4607dcc3b46db91c1854069cd",
+    "artifacts/ai05_steam_refinement_release_v1/frozen_tests/test_steam_cycle_evidence.py": "eb1f06343a6439745fcf46f59cbb1a8950f3e965aef147b010ee4ec191cfa280",
+    "artifacts/ai05_steam_refinement_release_v1/frozen_tests/test_turbine_evidence.py": "7fe4125734b18f6c56029e54e457f87b79b23e51605f6a40e0edd52e99f9e0b7",
+    "artifacts/ai05_steam_refinement_release_v1/frozen_budgets/ai05_turbine_budget_v1.json": "1eb3e7f8f431463475dadb5e7941e749f57b12761ec06eb143a758ecf881390c",
+    "artifacts/ai05_steam_refinement_release_v1/frozen_budgets/ai05_steam_cycle_budget_v1.json": "298bab8d635462e1265a8cf728bcf82502ce66331ddea4f69ce4499203baf0ec",
+    "artifacts/ai05_steam_refinement_release_v1/frozen_budgets/ai05_steam_cycle_refinement_budget_v1.json": "75b7c17022c4951f949ae58e1f61d7602e7916ce33baabb427733ea0cd19e7ad",
+    "artifacts/ai05_steam_refinement_release_v1/frozen-refinement-audit.json": "357a9192a5de3863007fbd7bc4e98449b3078a79bfe48d2be7b437308339b5c9",
+    "artifacts/ai05_steam_refinement_release_v1/frozen_budgets/ai05_steam_cycle_refinement_budget_v2.json": "d361c488fdc49a1e227484153b91c145c6fb563556e5a9ab32953ed60407f71e"
+  },
+  "remote_ci_matrix": "not executed locally",
+  "validated": false,
+  "plant_referenced": false,
+  "frozen_source_replay": {
+    "supplements": "Exact frozen_scripts and frozen_budgets overlaid onto extracted sdist; raw artifacts linked separately",
+    "passed": true,
+    "steam_cycle_integrations": 44,
+    "turbine_integrations": 24,
+    "audit": "artifacts/ai05_steam_refinement_release_v1/frozen-refinement-audit.json",
+    "audit_sha256": "357a9192a5de3863007fbd7bc4e98449b3078a79bfe48d2be7b437308339b5c9"
+  }
+}

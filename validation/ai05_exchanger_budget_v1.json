@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "scope": "Constant-property mixed-cell exchanger; budgets fixed before acceptance runs",
+  "temperature_absolute_k": 0.000001,
+  "energy_absolute_j": 0.0001,
+  "port_power_absolute_w": 0.000001,
+  "reference_energy_absolute_j": 0.001,
+  "restart_temperature_absolute_k": 0.00000001,
+  "temporal_temperature_absolute_k": 0.00000001,
+  "analytic_temperature_absolute_k": 0.000001,
+  "steady_residual_absolute_w": 0.000001,
+  "spatial_refinement_cells": [2, 4, 8],
+  "spatial_min_error_ratio": 1.4,
+  "validated": false,
+  "plant_referenced": false
+}

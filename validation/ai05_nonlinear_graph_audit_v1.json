@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "signature": {
+    "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+    "drivers": {
+      "scripts/nonlinear_thermal_graph.py": "c916cca461bc772fa83b9992af39698de8650c70e9125508397129bac2bacd69",
+      "scripts/solve_resistance_feedback.py": "bdeca10ffbf0f88b1490d96ec489018867219d37a09f5210c34c834859cc9cd4",
+      "scripts/solve_thermal_graph.py": "a83be295f1d6d05a82290584d65d0dbc5bc47009a3b0674bb1a10102d10d4f6a",
+      "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928"
+    },
+    "budgets": {
+      "validation/ai05_nonlinear_graph_budget_v1.json": "00379da9d966b507c4d7cc2ecf125f7b60932c42cdb6eaaa36ff04215bc7463c",
+      "validation/ai05_resistance_feedback_budget_v2.json": "53a5f6719611803fe5ef44dd1626bfc3dca7d7d37f06602de0b9cdd12e5ee56c",
+      "validation/ai05_thermal_graph_budget_v1.json": "bc5d1cba46ec4804359891046de0da5db9eff71f62ad0689bcd85cdf98a80f4c",
+      "validation/ai05_hydraulic_graph_budget_v1.json": "59acc80c07e047a3b3a63607e6eeaf5a9936cbc359f880aed5b82d34c6386d50"
+    },
+    "python": "3.12.9",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2",
+    "qualification_drivers": {
+      "scripts/nonlinear_graph_references.py": "f53d2d30139471481cbc8bcf2a36971960680897384002ccd5929a4426a54f70",
+      "scripts/qualify_nonlinear_graph.py": "0992573b68c486bd9eeff27878230b7f5123519a9cceedbcd7f013f7a6ab90ef",
+      "scripts/hydraulic_graph_references.py": "7552f64999bd352127f799893f1a30eeee6e650c62302f1619f47434141dc726",
+      "scripts/resistance_feedback_references.py": "a715c7b5d3cb812dff3b48bc0e2c882b8cb0fe5c1a36087a01439585fdcf3f55",
+      "scripts/thermal_graph_references.py": "dea3e83695c58bbfe61f329f2bd357751ad9463513b2f8de4f3a47fb05e1e011"
+    }
+  },
+  "cases": 10,
+  "production_mesh_trajectories": 30,
+  "independent_ivps": 20,
+  "horizon_s": 120.0,
+  "maximum_nodes": 8,
+  "qualification_sha256": "3187a1ddce8bd557483909de1c919ea1c47e10e94d6a9273007c9ce8b9a1845d",
+  "adaptive_restart_identical": true,
+  "validated": false,
+  "plant_referenced": false
+}

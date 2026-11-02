@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-01",
+  "source_sha256": "2bc50690ea9007f7d5f982922e2932dd41b527a2430f9c7af298bec38f0bdd00",
+  "python": "3.12.9",
+  "platform": "Linux-6.17.0-22-generic-x86_64-with-glibc2.39",
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.2",
+    "gymnasium": "1.2.0",
+    "torch": "2.7.0",
+    "atomic-sim": "2.0.0"
+  },
+  "tests_passed": 992,
+  "new_tests": 44,
+  "tests_deselected": 1,
+  "test_command": "python -m pytest -m 'not external_integration' -q",
+  "regression_log": "artifacts/ai05_exchanger_release_v1/regression.log",
+  "regression_log_sha256": "e40e35470d78f49d3aebfdfd44f8fde82a9edd1d443de433d8fc215e4a76ed64",
+  "external_test_status": "OpenMC/MPI not executed",
+  "installed_wheel_verified": true,
+  "installed_evidence": "validation/ai05_exchanger_installed_v1.json",
+  "code_quality": {
+    "ruff": "passed",
+    "ruff_format": "passed",
+    "black": "not run: not installed"
+  },
+  "remote_ci_matrix": "not executed locally",
+  "accepted_tasks": 42,
+  "total_tasks": 109,
+  "ai05_accepted_tasks": 3,
+  "ai05_total_tasks": 8,
+  "validated": false,
+  "plant_referenced": false
+}

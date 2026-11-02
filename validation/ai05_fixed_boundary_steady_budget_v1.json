@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "scope": "Open-flow primary/steam steady solve with unchanged commands, total steam mass and boiler quality anchors; no transient warmup",
+  "branch_samples": 33,
+  "pressure_root_xtol_pa": 1e-8,
+  "pressure_root_rtol": 1e-14,
+  "maximum_root_iterations": 100,
+  "minimum_cold_balance_slope_w_pa": 1e-10,
+  "maximum_thermal_condition": 1e12,
+  "maximum_linear_residual_w": 1e-6,
+  "maximum_stock_power_residual_w": 1e-5,
+  "maximum_primary_momentum_residual_pa": 1e-6,
+  "maximum_primary_shaft_residual_nm": 1e-8,
+  "maximum_steam_mass_rate_kg_s": 1e-9,
+  "maximum_total_mass_error_kg": 1e-8,
+  "maximum_quality_anchor_error": 1e-12,
+  "validated": false,
+  "plant_referenced": false
+}

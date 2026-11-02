@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "61ac7724e95eb68ccd1571e8789a6481d318bfb66c6b27a4b88651c8709b51e0",
+  "verification_sha256": "4f55d9e44a3746e9993a624ef40ebad7efdaacfd3de9b6d1f2be9fe81a1f3e46",
+  "audit_script_sha256": "5b7f3f89f3355165df9a7e4ac1b571f731fa7b52e578ddf8cc75129336659897",
+  "integrations": 24,
+  "case_families": 12,
+  "temporal_comparisons": [
+    {
+      "name": "free_coast",
+      "omega_absolute_rad_s": 0.0
+    },
+    {
+      "name": "higher_backpressure",
+      "omega_absolute_rad_s": 3.410605131648481e-13
+    },
+    {
+      "name": "initial_upper",
+      "omega_absolute_rad_s": 0.0
+    },
+    {
+      "name": "isentropic",
+      "omega_absolute_rad_s": 2.8421709430404007e-13
+    },
+    {
+      "name": "load_rejection",
+      "omega_absolute_rad_s": 6.252776074688882e-13
+    },
+    {
+      "name": "lossless_acceleration",
+      "omega_absolute_rad_s": 2.2737367544323206e-13
+    },
+    {
+      "name": "nominal",
+      "omega_absolute_rad_s": 1.1368683772161603e-13
+    },
+    {
+      "name": "small_flow",
+      "omega_absolute_rad_s": 6.536993168992922e-13
+    },
+    {
+      "name": "superheated_exhaust",
+      "omega_absolute_rad_s": 5.684341886080801e-13
+    },
+    {
+      "name": "trip_exit",
+      "omega_absolute_rad_s": 2.2737367544323206e-13
+    },
+    {
+      "name": "unity_generator",
+      "omega_absolute_rad_s": 1.1368683772161603e-13
+    },
+    {
+      "name": "upper_exit",
+      "omega_absolute_rad_s": 1.0800249583553523e-12
+    }
+  ],
+  "validated": false,
+  "plant_referenced": false
+}
