@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-03",
+  "passed": true,
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "signature": {
+    "runtime": {
+      "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+      "drivers": {
+        "scripts/compressible_storage_graph.py": "9b03cf5fc202ba6bb5190212513f3c8a800deeb4cf640d61dee4147b01a8ecf1",
+        "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+        "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928"
+      },
+      "budgets": {
+        "validation/ai05_compressible_storage_budget_v1.json": "cd9d496635eabded1e879fd2bec25ed1a7f9fa048369f62213ac6d21eb6f4883"
+      },
+      "python": "3.12.9",
+      "numpy": "2.2.6",
+      "scipy": "1.15.2"
+    },
+    "qualification": {
+      "scripts/storage_graph_references.py": "e2bb42e6a85d60e4a25aa5fcb5afee770b6c46a560eb0a816cb5e06dda2f7bc8",
+      "scripts/qualify_compressible_storage.py": "fa0821e7dfc9cd3dfe40c8163b0d23b49a4dc0364058ef019ef50f327eee09d6"
+    }
+  },
+  "platform": "Linux-6.17.0-22-generic-x86_64-with-glibc2.39",
+  "test_command": "python -m pytest -m 'not external_integration' -q",
+  "tests_passed": 2474,
+  "tests_deselected": 1,
+  "new_tests": 68,
+  "focused_tests_passed": 68,
+  "full_suite_seconds": 744.46,
+  "warnings_observed": 0,
+  "ruff": "Passed; existing configuration deprecation warning",
+  "black": "Not installed locally; not executed",
+  "remote_ci": "Not executed; YAML and Python heredocs parsed locally",
+  "file_sha256": {
+    ".github/workflows/ci.yml": "64d8d51e5fb8d89b0ccdeafff5de1f604075d6c03f59790d158ef74e8b762c61",
+    "artifacts/ai05_compressible_storage_campaign_v1.json": "73c244c087cf1d223e4e64ed81ab038de345a51ae54cf59d77301b44786aa650",
+    "artifacts/ai05_compressible_storage_full_suite_v1.log": "a7e4332418068a8015c0ce6b0392e69567b2b87b620b846f496396c3180048c0",
+    "artifacts/ai05_compressible_storage_portable_v1/audit.json": "43836774f72b4899c8128d19256a0a612f62cda5a58bc4b6b8c80dad2342cba1",
+    "artifacts/ai05_compressible_storage_portable_v1/example.log": "b9f97b7a8e28ffb3df9b77a04df7e998adbb11a200fa7086d4ace018d2f170eb",
+    "artifacts/ai05_compressible_storage_portable_v1/install.log": "1374d2c3439831e3bdeb0695d48c7595f69dbdd9c2f06cb4a67838500a7d4727",
+    "artifacts/ai05_compressible_storage_portable_v1/tests.log": "0071f8ba715f70ef756e655d45f76f4e0f1fbbd7a128efb81b966d5cf27657b2",
+    "artifacts/ai05_compressible_storage_ruff_v3.log": "592055705cfa677b0042efbb466b52a57d7ca5e8c5f68076cc4fb30b8b823949",
+    "artifacts/ai05_compressible_storage_unit_v3.log": "f30e740b5815cf19ef990eec5964a47761fa3945071ba8a735346e177bedb54f",
+    "docs/AI_05_COMPRESSIBLE_STORAGE_RU.md": "70600d3c35e47334c670dd353ca7477917349b216a411d8fd18a30229500fe85",
+    "examples/compressible_storage.py": "df12f6c8c1267f056af456a247e0ce71f8e0145a477919cf391e523f30115cb8",
+    "scripts/compressible_storage_graph.py": "9b03cf5fc202ba6bb5190212513f3c8a800deeb4cf640d61dee4147b01a8ecf1",
+    "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+    "scripts/qualify_compressible_storage.py": "fa0821e7dfc9cd3dfe40c8163b0d23b49a4dc0364058ef019ef50f327eee09d6",
+    "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928",
+    "scripts/storage_graph_references.py": "e2bb42e6a85d60e4a25aa5fcb5afee770b6c46a560eb0a816cb5e06dda2f7bc8",
+    "tests/test_compressible_storage.py": "67d8486dead68e4548b74d57a091d4d08738119f37a2e19e009e4f3fee0c8197",
+    "validation/ai05_compressible_storage_audit_v1.json": "19003f0e29f45a9336cd1e1ce3a4c870a66c25fe21a2191efd2ede34910a3d52",
+    "validation/ai05_compressible_storage_budget_v1.json": "cd9d496635eabded1e879fd2bec25ed1a7f9fa048369f62213ac6d21eb6f4883",
+    "validation/ai05_compressible_storage_passport_v1.json": "a90aacf71b12f9fdc790cf95700acc6ae14e7687e3b4390f1bb54e7ac287187e",
+    "validation/ai05_compressible_storage_portable_replay_v1.json": "a922509db0c9e46534d157827df8c6b9d769365c541e2e14dbd08d9ec420a287"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

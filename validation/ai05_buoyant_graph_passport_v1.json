@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "model_id": "closed_buoyant_inertial_graph_v1",
+  "status": "implemented",
+  "scope": "Closed heated/cooled positive-inertance pipe loops with a small linear gravity-density anomaly and explicitly compensated buoyancy work",
+  "mass_density": "Constant rho_ref; gravity_density diagnostic does not change stored mass, inertia or thermal capacity",
+  "gravity_density": "rho_ref*(1-beta*(mean(T)-reference_temperature))",
+  "energy_closure": "Signed buoyancy work transferred from cp-temperature proxy inventories to kinetic energy; equal endpoint split",
+  "theory_motivation": "Maruyama2014 section2 equations19-24; not a full implementation of its temperature/thermodynamic equation25",
+  "source": "https://arxiv.org/abs/1405.1921",
+  "domain": "density anomaly<=5%, relative temperature anomaly<=10%, g*beta*height/cp<=0.01; declared engineering limits, not water applicability standards",
+  "stationary_scope": "Three seeded nontrivial stationary branches; no uniqueness or transient asymptotic-convergence claim",
+  "qualification": "validation/ai05_buoyant_graph_delivery_v1.json",
+  "documentation": "docs/AI_05_BUOYANT_GRAPH_RU.md",
+  "unsupported": ["full variable-density EOS", "volume expansion", "compressibility", "Gibbs/entropy closure", "multiple pressure boundaries", "mass injection", "advective kinetic-energy transport", "two-phase/cavitation", "plant natural-circulation validation"],
+  "validated": false,
+  "plant_referenced": false
+}

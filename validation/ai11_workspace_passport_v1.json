@@ -1,0 +1,43 @@
+{
+  "actions": "complete heat-power maps in W",
+  "archive_format": "atomic-workspace-data-v1",
+  "cancellation": "pending pause/cancel markers survive archive; explicit resume clears them",
+  "checkpoint": "native episode and full accepted policy/ledger trace, immutable revision file, atomic HEAD; source-bound",
+  "date": "2026-11-04",
+  "exclusions": [
+    "untrusted policy execution or code sandbox",
+    "parallel scaling, CPU/RSS quotas",
+    "arbitrary topology/model registry or GUI editor",
+    "water/steam EOS or phase transitions",
+    "cross-platform or hermetic dependency proof",
+    "independent held-out agent generalization",
+    "plant validation",
+    "publisher authentication"
+  ],
+  "execution": "one trusted built-in worker at a time; spawn isolation, monotonic decision budget, hard worker deadline including startup, cooperative direct-job deadline",
+  "job_schema": 1,
+  "model_id": "eos-thermal-assembly-v1",
+  "numerical_model": "experimental synthetic single-phase Euler thermal assembly; unchanged native equations/budgets",
+  "observations": "named cached ideal port temperatures in K with validity and time; no model state passed to policies",
+  "plant_referenced": false,
+  "policy_kinds": [
+    "hold-v1",
+    "temperature-p-v1"
+  ],
+  "project_schema": 1,
+  "proven_platform": {
+    "python": "3.12.9",
+    "system": "Linux"
+  },
+  "reward": "Existing intrinsic zero reward unchanged; external tracking metrics reported separately",
+  "schema_version": 1,
+  "status_semantics": {
+    "cancelled": "accepted prefix, explicit resume required",
+    "completed": "entire model horizon, not target quality certification",
+    "failed": "terminal policy-deadline failure",
+    "paused": "accepted prefix, resume permitted",
+    "rejected": "terminal numerical admission failure"
+  },
+  "validated": false,
+  "workspace_version": "1.0.0"
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "archive": "/home/user/workspace/atomic-sim/artifacts/ai05_reduced_engine_release_v1.tar.gz",
+  "archive_sha256": "cfd31cfbfcb89b375660e9635561962b27d45a2712838c0be3a7f161dca0fd23",
+  "manifest_sha256": "036b04a2df8f48d749f6ad72a0a76d9097ebdc073d363250edc13bb810669ea3",
+  "byte_identical_archive_rebuild": true,
+  "archived_audit_identical": true,
+  "checkout_pythonpath_removed": true,
+  "installed_wheel_sha256": "a25ec260331cf57bef3f6c620bf1ef141f604b1d85e17787a1d4eee7e2f18201",
+  "focused_tests_replayed": 53,
+  "cases": 6,
+  "production_mesh_trajectories": 18,
+  "independent_ivps": 12,
+  "bidirectional_handoffs": 12,
+  "example_handoff_s": 20,
+  "scope": "Fresh offline no-deps wheel and archived reduced residual companions outside checkout; inherited Python/numpy/scipy/pytest",
+  "validated": false,
+  "plant_referenced": false
+}

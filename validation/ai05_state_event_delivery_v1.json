@@ -1,0 +1,214 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-03",
+  "status": "partial",
+  "passed": true,
+  "scope": "One-shot directional temperature events on fixed-property reduced Radau graphs; monotone interval admission, dense-output sign brackets and atomic warm mode switching",
+  "baseline": "validation/ai05_state_event_baseline_v1.json",
+  "audit": "validation/ai05_state_event_audit_v3.json",
+  "portable_replay": "validation/ai05_state_event_portable_replay_v1.json",
+  "documentation": "docs/AI_05_STATE_EVENTS_RU.md",
+  "cases": 9,
+  "production_mesh_trajectories": 27,
+  "independent_ivps": 18,
+  "negative_checks": 3,
+  "maximum_nodes": 8,
+  "horizon_s": 120,
+  "maximum_reference_errors": {
+    "temperatures_k": 8.13383849163074e-09,
+    "pressures_pa": 1.5844125300645828e-07,
+    "flows_kg_s": 2.6408386588627764e-10,
+    "reference_energy_j": 0.018445078283548355,
+    "energy_residual_j": 4.76837158203125e-07,
+    "event_time_s": 1.4901166522918174e-08
+  },
+  "measured_maximum_trial_steps_s": {
+    "idle_rising": [
+      1.6938825069644556,
+      0.888889,
+      0.38888900000000004
+    ],
+    "idle_falling": [
+      1.6938825069644556,
+      0.888889,
+      0.38888900000000004
+    ],
+    "pressure_reversal": [
+      1.7008371256774506,
+      0.8889,
+      0.4504356811185134
+    ],
+    "ignored_direction": [
+      1.6938825069644556,
+      0.7888999999999999,
+      0.45038750237839265
+    ],
+    "injection_batch": [
+      1.4336830040722104,
+      0.796151303275504,
+      0.45041301180023025
+    ],
+    "ordered_guards": [
+      1.7139242326084052,
+      0.8889,
+      0.3889
+    ],
+    "no_crossing": [
+      0.888889,
+      0.38888900000000004,
+      0.13888900000000004
+    ],
+    "heat_then_cool": [
+      1.6938825069644556,
+      0.888889,
+      0.38888900000000004
+    ],
+    "eight_node_cooling": [
+      1.5518939473187097,
+      0.6985883865350779,
+      0.450394074323439
+    ]
+  },
+  "root_containing_trial_steps_s": {
+    "idle_rising": [
+      {
+        "rise": 1.6635165260036848
+      },
+      {
+        "rise": 0.6332026995175302
+      },
+      {
+        "rise": 0.30313826486154527
+      }
+    ],
+    "idle_falling": [
+      {
+        "fall": 1.6635165260036848
+      },
+      {
+        "fall": 0.6332026995175302
+      },
+      {
+        "fall": 0.30313826486154527
+      }
+    ],
+    "pressure_reversal": [
+      {
+        "reverse": 1.1133252379102359
+      },
+      {
+        "reverse": 0.7237413922847921
+      },
+      {
+        "reverse": 0.25778494645884475
+      }
+    ],
+    "ignored_direction": [
+      {},
+      {},
+      {}
+    ],
+    "injection_batch": [
+      {
+        "feed": 0.16602164746558357
+      },
+      {
+        "feed": 0.16602164746558357
+      },
+      {
+        "feed": 0.17154793301307664
+      }
+    ],
+    "ordered_guards": [
+      {
+        "earlier": 1.6835828325515427,
+        "later": 1.6141261352632748
+      },
+      {
+        "earlier": 0.6835828325515427,
+        "later": 0.6141261352632748
+      },
+      {
+        "earlier": 0.28506051121482634,
+        "later": 0.3476341123754283
+      }
+    ],
+    "no_crossing": [
+      {},
+      {},
+      {}
+    ],
+    "heat_then_cool": [
+      {
+        "hot": 1.6635165260036848,
+        "cool": 1.6915614648108326
+      },
+      {
+        "hot": 0.6332026995175302,
+        "cool": 0.4874928316546582
+      },
+      {
+        "hot": 0.30313826486154527,
+        "cool": 0.23190369608386507
+      }
+    ],
+    "eight_node_cooling": [
+      {
+        "cool": 0.6985883865350779
+      },
+      {
+        "cool": 0.6985883865350779
+      },
+      {
+        "cool": 0.2553125271149419
+      }
+    ]
+  },
+  "mesh_claim": "Global measured trial-mesh separation>=1.2; includes uncommitted trial beyond root; not a separate convergence proof for every individual root",
+  "ordinary_macro_caps_s": [
+    2.0,
+    1.0,
+    0.5
+  ],
+  "flat_case_macro_caps_s": [
+    1.0,
+    0.5,
+    0.25
+  ],
+  "root_time_bracket_atol_s": 1e-08,
+  "root_value_atol_k": 1e-08,
+  "root_error_claim": "Bracket encloses a root of the numerical dense trajectory, not a rigorous physical-ODE error interval; physical numerical agreement measured by independent IVPs",
+  "restart_values_identical": true,
+  "root_checkpoint_restore_verified": true,
+  "one_shot_memory": true,
+  "whole_advance_rollback": true,
+  "global_rhs_root_attempt_caps": true,
+  "endpoint_policy": "Directed sign bracket at endpoint applies event; rounded contact without sign change is refused atomically as endpoint_contact",
+  "retained_failures": [
+    {
+      "path": "artifacts/ai05_state_event_qualification_v1.log",
+      "frozen_folder": "artifacts/ai05_state_event_qualification_v1",
+      "reason": "Accepted endpoint and dense endpoint differed in rounding, invalidating the directed root bracket",
+      "resolution": "Root detection, localization and committed endpoint use one dense trajectory; regression test added"
+    },
+    {
+      "path": "artifacts/ai05_state_event_qualification_v2.log",
+      "frozen_folder": "artifacts/ai05_state_event_qualification_v2",
+      "reason": "Constant no-crossing trajectory did not meet1.2 actual-mesh separation at2/1/0.5 caps",
+      "resolution": "Flat case refined to1/0.5/0.25 without relaxing numerical budgets",
+      "probe": "artifacts/ai05_state_event_flat_mesh_probe_v1.json"
+    }
+  ],
+  "accepted_tasks_unchanged": 43,
+  "total_tasks": 109,
+  "ai05_accepted_tasks_unchanged": 4,
+  "remaining": [
+    "Arbitrary guards, grazing/tangencies and rearming",
+    "Simultaneous priorities and instantaneous cascades",
+    "Combined calendar/online/state-event orchestration and state resets",
+    "Arbitrary equipment assembly, hydraulic inertia and variable density/EOS",
+    "External experimental/plant validation"
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

@@ -1,0 +1,34 @@
+{
+  "actions": "complete named heat-power maps in watts",
+  "checkpoint": "source-bound complete model and decision history; scenario-bound experiment resume",
+  "contract_version": "eos-agent-1.0.0",
+  "equations_unchanged_proof": "artifacts/public_eos_equation_migration_v1.json",
+  "excluded": [
+    "general branching network",
+    "phase changes",
+    "calibrated water properties",
+    "plant validation",
+    "FMI/co-simulation",
+    "external LLM quality",
+    "hermetic dependency environment"
+  ],
+  "model_id": "eos-thermal-assembly-v1",
+  "observations": "cached ideal thermal-port temperatures in kelvin",
+  "physics": "Existing finite Euler chambers, channels and thermal walls with synthetic stiffened caloric EOS",
+  "plant_referenced": false,
+  "presets": [
+    "mixed_ports",
+    "uniform",
+    "gravity"
+  ],
+  "protocol_version": "1.1.0",
+  "public_paths": [
+    "Python API",
+    "local JSONL agent tools",
+    "installed experiment CLI"
+  ],
+  "reward": 0,
+  "schema_version": 1,
+  "status": "experimental",
+  "validated": false
+}

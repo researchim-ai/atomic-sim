@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "status": "partial",
+  "passed": true,
+  "scope": "Predetermined piecewise-constant commands on nonlinear constant-rho/cp quasi-steady thermal graphs",
+  "baseline": "validation/ai05_scheduled_graph_baseline_v1.json",
+  "audit": "validation/ai05_scheduled_graph_audit_v1.json",
+  "portable_replay": "validation/ai05_scheduled_graph_portable_replay_v1.json",
+  "documentation": "docs/AI_05_SCHEDULED_GRAPH_RU.md",
+  "cases": 6,
+  "production_mesh_trajectories": 18,
+  "independent_ivps": 12,
+  "negative_checks": 3,
+  "horizon_s": 120,
+  "maximum_nodes": 8,
+  "measured_maximum_steps_s": [
+    0.5,
+    0.25,
+    0.125
+  ],
+  "maximum_errors": {
+    "reference_temperatures_k": 1.7053025658242404e-12,
+    "reference_pressures_pa": 2.3283064365386963e-10,
+    "reference_flows_kg_s": 6.3087313151299895e-12,
+    "reference_energy_error_j": 7.50664621591568e-05,
+    "maximum_energy_error_j": 9.313225746154785e-08
+  },
+  "adaptive_restart_values_identical": true,
+  "whole_request_rollback": true,
+  "stock_energy_continuity_at_commands": true,
+  "shared_integration_attempt_budget": true,
+  "accepted_tasks_unchanged": 43,
+  "total_tasks": 109,
+  "ai05_accepted_tasks_unchanged": 4,
+  "remaining": [
+    "Hydraulic inertia and compressibility",
+    "Variable density/EOS and calibrated thermophysical properties",
+    "Registered general dynamic component backend and state transfer",
+    "Online regulator command injection",
+    "External experimental/plant validation"
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

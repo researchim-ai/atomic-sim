@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "model_id": "inertial_pipe_graph_v1",
+  "status": "implemented",
+  "scope": "Connected fixed-density hydraulic graphs with positive inertance on every pipe and explicit pressure-boundary roles",
+  "components": [
+    "pressure_boundary_v1",
+    "junction_v1",
+    "inertial_pipe_v1"
+  ],
+  "maximum_nodes": 8,
+  "maximum_edges": 12,
+  "stored_energy": "sum(L*q^2)/(2*rho)",
+  "dissipation_destination": "Exported to ideal external heat bath; fluid temperature not modelled",
+  "initialization": "Supplied mass-consistent flows; solve junction pressure from acceleration compatibility without prehistory",
+  "sources": [
+    "Declared momentum, mass and mechanical-energy equations",
+    "Analytic limiting cases",
+    "Independent bordered acceleration/pressure solves"
+  ],
+  "qualification": "validation/ai05_inertial_graph_delivery_v1.json",
+  "documentation": "docs/AI_05_INERTIAL_GRAPH_RU.md",
+  "unsupported": [
+    "zero-inertance pipes",
+    "mixed equipment backend",
+    "variable density/EOS",
+    "thermal coupling",
+    "cavitation",
+    "pressure-wave compressibility",
+    "co-heated natural circulation"
+  ],
+  "validated": false,
+  "plant_referenced": false,
+  "approximations": [
+    "Lumped constant-inertance momentum without convective acceleration",
+    "No advective kinetic-energy transport between pipe inventories",
+    "No resolved pressure waves or fluid temperature"
+  ]
+}

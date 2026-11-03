@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-03",
+  "passed": true,
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "signature": {
+    "runtime": {
+      "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+      "drivers": {
+        "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+        "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928"
+      },
+      "budgets": {
+        "validation/ai05_inertial_graph_budget_v1.json": "79e86139c02d2216b137c5d569b8f92e0c7984bce5811fb0d5074f9aaa2591b1"
+      },
+      "python": "3.12.9",
+      "numpy": "2.2.6",
+      "scipy": "1.15.2"
+    },
+    "qualification": {
+      "scripts/inertial_graph_references.py": "80c80163fcf3a80ae2b3fea95bc68bd53feefc4b1e852f3635502a79a58be9a3",
+      "scripts/qualify_inertial_graph.py": "fdca1ee3ecbd1a5f43de024d81594b90543db06467d4e93f9467748364e0b64f"
+    }
+  },
+  "platform": "Linux-6.17.0-22-generic-x86_64-with-glibc2.39",
+  "test_command": "python -m pytest -m 'not external_integration' -q",
+  "tests_passed": 2282,
+  "tests_deselected": 1,
+  "new_tests": 87,
+  "focused_tests_passed": 87,
+  "full_suite_seconds": 483.87,
+  "warnings_observed": 0,
+  "ruff": "Passed; existing configuration deprecation warning",
+  "black": "Not installed locally; not executed",
+  "remote_ci": "Not executed; YAML and Python heredocs parsed locally",
+  "file_sha256": {
+    ".github/workflows/ci.yml": "4f47a9db29dd4bec9215ecdb766883a0f574c915883aff11eaabbd0c0819744e",
+    "artifacts/ai05_inertial_graph_basis_layout_regression_v1.json": "2be9229da0b6a9c3d61f5635ef705b446174b4aeaf221f89e30a4536bda6e75b",
+    "artifacts/ai05_inertial_graph_campaign_v1.log": "ce32ed1be114ae482206f9009ae23104ff456ff83c604bdff423ee88f22f2bb1",
+    "artifacts/ai05_inertial_graph_campaign_v2.log": "54a1aabc0f6b0381d073871bd405ecea10897f4a81d4777cff799c04f27df35e",
+    "artifacts/ai05_inertial_graph_campaign_v3.json": "9276366ad72531d282f2ed6d6081e4f42210fffc465cb6e6a3b07f29e3dc4f3c",
+    "artifacts/ai05_inertial_graph_full_suite_v1.log": "b22a5be96782b3371f91add023809257ad8bcfdc52b334eb79fb583763c1ab0f",
+    "artifacts/ai05_inertial_graph_portable_failed_v1/audit.json": "fed3085e12eac4eb616da9d81ed20f17603ad5cc19c49361c9d517f27f26e873",
+    "artifacts/ai05_inertial_graph_portable_failed_v1/install.log": "1374d2c3439831e3bdeb0695d48c7595f69dbdd9c2f06cb4a67838500a7d4727",
+    "artifacts/ai05_inertial_graph_portable_v2/audit.json": "694d66d4a93d5f393cb0e99f2e326f4329c6f92a05f23f7ba47ee05b4f6071b2",
+    "artifacts/ai05_inertial_graph_portable_v2/example.log": "085208e41e9cb26ffed86009c97dfecfad7f848b3c2a017c0b7bdd98cb38551b",
+    "artifacts/ai05_inertial_graph_portable_v2/install.log": "1374d2c3439831e3bdeb0695d48c7595f69dbdd9c2f06cb4a67838500a7d4727",
+    "artifacts/ai05_inertial_graph_portable_v2/tests.log": "a3e64eba5acf0e99f657d42d7362d661de0c553908b5c77d204794c533f8ae6c",
+    "artifacts/ai05_inertial_graph_ruff_v4.log": "592055705cfa677b0042efbb466b52a57d7ca5e8c5f68076cc4fb30b8b823949",
+    "artifacts/ai05_inertial_graph_unit_v6.log": "02457b1c1a261e4091b4bf4f2ed7bf55aaa2414eb2a6c4ed68c1f554dc6426ec",
+    "docs/AI_05_INERTIAL_GRAPH_RU.md": "43ca70eda4aa66647dea19dbe01cac90a0fbda83550a6eacb75c7e0f3c717004",
+    "examples/inertial_graph.py": "232c8e1242c587dcb06523bef73e887edff15ee8bdb3df625e81d150bf67294c",
+    "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+    "scripts/inertial_graph_references.py": "80c80163fcf3a80ae2b3fea95bc68bd53feefc4b1e852f3635502a79a58be9a3",
+    "scripts/qualify_inertial_graph.py": "fdca1ee3ecbd1a5f43de024d81594b90543db06467d4e93f9467748364e0b64f",
+    "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928",
+    "tests/test_inertial_graph.py": "4085a916d4c230776104bf5ed1b5079a542005850d84477d2006b87122f6d3da",
+    "validation/ai05_inertial_graph_audit_v1.json": "0a9fee8d603da6e149529604c5647ac003be9214aa5f3c271141423aff65a108",
+    "validation/ai05_inertial_graph_budget_v1.json": "79e86139c02d2216b137c5d569b8f92e0c7984bce5811fb0d5074f9aaa2591b1",
+    "validation/ai05_inertial_graph_passport_v1.json": "9c217208f1d4e8a2a29a6582f7da2d0a96e24134b2ddee814b6040a32dee6ce9",
+    "validation/ai05_inertial_graph_portable_replay_v1.json": "b1338b0ef4cd96929c8c2c461e2faa14c61d31ea1e6f5de13b9ff8c9bece8b2f"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

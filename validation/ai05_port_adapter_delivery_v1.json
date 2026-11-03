@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-03",
+  "status": "partial",
+  "passed": true,
+  "scope": "Typed nonlinear residual and consistent state lifting for constant-rho/cp positive-stock quasi-steady graphs",
+  "baseline": "validation/ai05_port_adapter_baseline_v1.json",
+  "audit": "validation/ai05_port_adapter_audit_v1.json",
+  "portable_replay": "validation/ai05_port_adapter_portable_replay_v1.json",
+  "documentation": "docs/AI_05_TYPED_GRAPH_ADAPTER_RU.md",
+  "cases": 10,
+  "aligned_state_comparisons": 30,
+  "checkpoint_lifts": 20,
+  "maximum_nodes": 8,
+  "horizon_s": 120,
+  "maximum_reference_errors": {
+    "pressure_pa": 2.3283064365386963e-10,
+    "flow_kg_s": 6.224354365258478e-12,
+    "rate_k_s": 2.170702853576678e-14,
+    "power_w": 9.034411050379276e-07,
+    "relative_algebraic_jacobian": 1.7833882071626248e-09
+  },
+  "maximum_scaled_algebraic_condition": 23540.752565283965,
+  "state_transfer_representation": "Absolute temperatures, pressure/flow and dimensional external-energy integral; original increments/adaptive proposal are not coordinates and bitwise roundtrip is not claimed",
+  "residual_calls_hydraulic_solver": false,
+  "pairwise_inward_ports": true,
+  "initialization_warmup_steps": 0,
+  "commands_changed": false,
+  "accepted_tasks_unchanged": 43,
+  "total_tasks": 109,
+  "ai05_accepted_tasks_unchanged": 4,
+  "retained_failed_test_run": {
+    "path": "artifacts/ai05_port_adapter_tests_v1.log",
+    "result": "35 passed,1 failed",
+    "reason": "Test mask incorrectly included differential external-energy coordinate among algebraic derivatives; corrected mask excludes final coordinate; production equations and numerical budgets unchanged by correction"
+  },
+  "remaining": [
+    "Registered nonlinear component backend and a qualified integrator",
+    "Bidirectional state transfer and controller/integrator coordination",
+    "Hydraulic inertia/compressibility",
+    "Variable density/EOS and calibrated properties",
+    "External experimental/plant validation"
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

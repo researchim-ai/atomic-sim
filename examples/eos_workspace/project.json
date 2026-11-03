@@ -1,0 +1,18 @@
+{
+  "limits": {
+    "decision_timeout_s": 1,
+    "job_timeout_s": 60
+  },
+  "model_id": "eos-thermal-assembly-v1",
+  "policies": {
+    "feedback": "policies/feedback.json",
+    "hold": "policies/hold.json"
+  },
+  "project_id": "eos-open-baselines-v1",
+  "scenarios": {
+    "gravity_test": "scenarios/gravity_test.json",
+    "mixed_dev": "scenarios/mixed_dev.json",
+    "mixed_train": "scenarios/mixed_train.json"
+  },
+  "schema_version": 1
+}

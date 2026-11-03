@@ -1,0 +1,46 @@
+{
+  "actions": "complete named physical-unit mask from configured native action channels",
+  "atomicity": "off-side native checkpoint continuation, fresh observation token and monotonic revision; failed input/program action does not commit model state",
+  "checkpoint_scope": "opaque handles for agents; full episode export/import only for trusted host",
+  "limitations": [
+    "one reduced PWR environment only, no general model registry or EOS prototype exposure",
+    "sync worker cancellation between commands, no native interruption or hard wall-time supervisor",
+    "per-worker resource quotas, not a sandbox or authenticated multi-tenant service",
+    "full host checkpoints contain privileged internal state and are not agent observations",
+    "same compatible runtime replay, no universal cross-platform bitwise guarantee",
+    "new interface does not promote physical model validation"
+  ],
+  "limits": {
+    "max_checkpoint_bytes": 4194304,
+    "max_checkpoint_total_bytes": 16777216,
+    "max_checkpoints": 32,
+    "max_episode_decisions": 1024,
+    "max_line_bytes": 65536,
+    "max_model_transactions": 4096,
+    "max_requests": 4096,
+    "max_sessions": 8
+  },
+  "model": "vver-lumped-loop",
+  "native_episode_contract": "2.1.0",
+  "observations": "four cached public sensor channels with units, quality and sample times",
+  "plant_referenced": false,
+  "product_intent": "open source for AI/RL/LLM; no clients, payments or external LLM keys required",
+  "protocol_version": "1.0.0",
+  "provenance": {
+    "adapter_sha256": "4ea139b4b217a076ea2da0c48ca86676ffb99d54f93d9f979827751b881bc8a6",
+    "episode_contract": "2.1.0",
+    "implementation": "CPython",
+    "physics_source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+    "protocol_version": "1.0.0",
+    "python": "3.12.9",
+    "versions": {
+      "gymnasium": "1.2.0",
+      "numpy": "2.2.6",
+      "scipy": "1.15.2"
+    }
+  },
+  "schema_version": 1,
+  "status": "software_tested_research_interface",
+  "transport": "synchronous local JSON Lines, not MCP or JSON-RPC",
+  "validated": false
+}

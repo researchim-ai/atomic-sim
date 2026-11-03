@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "status": "partial",
+  "passed": true,
+  "scope": "Single-writer external sample-and-hold online commands on a constant-rho/cp quasi-steady engineering graph",
+  "baseline": "validation/ai05_online_graph_baseline_v1.json",
+  "audit": "validation/ai05_online_graph_audit_v1.json",
+  "portable_replay": "validation/ai05_online_graph_portable_replay_v1.json",
+  "documentation": "docs/AI_05_ONLINE_CONTROL_RU.md",
+  "cases": 4,
+  "production_mesh_trajectories": 12,
+  "independent_ivps": 24,
+  "horizon_s": 120,
+  "maximum_nodes": 8,
+  "measured_maximum_steps_s": [
+    0.5,
+    0.25,
+    0.125
+  ],
+  "maximum_reference_errors": {
+    "temperatures_k": 1.269808080905932e-08,
+    "pressures_pa": 2.432498149573803e-07,
+    "flows_kg_s": 4.0542591506209646e-10,
+    "energy_j": 0.0002465173602104187
+  },
+  "adaptive_restart_values_identical": true,
+  "whole_command_step_rollback": true,
+  "revision_guard": true,
+  "accepted_tasks_unchanged": 43,
+  "total_tasks": 109,
+  "ai05_accepted_tasks_unchanged": 4,
+  "retained_failed_test_run": {
+    "path": "artifacts/ai05_online_graph_tests_v2.log",
+    "reason": "Short 0.25s evidence test holds prevented distinct 0.5/0.25 actual meshes; test fixture extended to1s without changing numerical acceptance budgets",
+    "result": "38 passed,8 fixture errors; corrected final46 passed"
+  },
+  "remaining": [
+    "Hydraulic inertia and compressibility",
+    "Variable density/EOS and calibrated properties",
+    "Registered general component backend and state transfer",
+    "Controller state/RNG checkpoint coordination and sensor models",
+    "External experimental/plant validation"
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

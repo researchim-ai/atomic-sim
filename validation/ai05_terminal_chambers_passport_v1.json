@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "model": "terminal-eos-chambers-v1",
+  "status": "experimental_numerically_checked",
+  "validated": false,
+  "plant_referenced": false,
+  "scope": "Closed same-area 1D Euler assembly with two finite terminal volumes, reflecting endwalls and dynamic mass/momentum/total energy",
+  "domain": {
+    "maximum_internal_cells": 32,
+    "chambers": 2,
+    "maximum_mach": 0.2,
+    "maximum_step_s": 0.001,
+    "maximum_duration_per_advance_s": 1.0,
+    "fluid": "one synthetic stiffened-caloric EOS",
+    "terminal_length": "volume / common channel area"
+  },
+  "method": {
+    "space": "hydrostatic first-order Rusanov with terminal finite volumes",
+    "time": "joint SSPRK3",
+    "endwall": "reflected normal velocity, stationary wall with impulse but no work"
+  },
+  "limitations": [
+    "not arbitrary tanks/nozzles, abrupt area changes or hydraulic branching",
+    "terminal profiles unresolved, constant terminal elevation",
+    "no online controls/hybrid events or shared thermal wall assembly",
+    "no calibrated target-fluid EOS, phase or plant validation",
+    "no full repository regression for this family",
+    "portable proof inherits scientific dependencies, not full campaign rerun or cross-platform proof"
+  ],
+  "evidence": [
+    "scripts/terminal_eos_chambers.py",
+    "scripts/terminal_chamber_references.py",
+    "scripts/qualify_terminal_chambers.py",
+    "tests/test_terminal_eos_chambers.py",
+    "tests/test_terminal_chamber_audit.py",
+    "docs/AI_05_TERMINAL_EOS_CHAMBERS_RU.md",
+    "artifacts/ai05_terminal_chambers_campaign_v1.json",
+    "artifacts/terminal_chambers_regression.log"
+  ]
+}

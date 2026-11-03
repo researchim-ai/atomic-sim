@@ -1,0 +1,10 @@
+{
+  "actuator": "wall.w0",
+  "bias_w": 0,
+  "gain_w_k": 1000,
+  "kind": "temperature-p-v1",
+  "limit_w": 500,
+  "schema_version": 1,
+  "sensor": "wall.w0",
+  "target_k": 300.1
+}

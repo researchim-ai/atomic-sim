@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "model_id": "thermal_inertial_pipe_graph_v1",
+  "status": "implemented",
+  "scope": "Positive-inertance fixed-density pipes with finite node thermal inventories, upwind sensible-enthalpy transport, temperature-dependent resistance and explicit friction heat recovery",
+  "density": "constant",
+  "heat_capacity": "constant cp",
+  "friction_heat_deposition": "Declared recovered fraction, equally split between endpoint node inventories; remainder exported",
+  "energy_accounting": "Independent mechanical, thermal and total ledgers; pressure work counted once, recovered friction is internal exchange",
+  "approximation": "Lumped momentum without advective kinetic-energy transport or pressure waves",
+  "qualification": "validation/ai05_thermal_inertial_delivery_v1.json",
+  "documentation": "docs/AI_05_THERMAL_INERTIAL_RU.md",
+  "unsupported": ["variable density/EOS", "buoyancy-driven natural circulation", "thermal expansion", "two phase/cavitation", "zero-inertance pipes", "arbitrary mixed equipment"],
+  "validated": false,
+  "plant_referenced": false
+}

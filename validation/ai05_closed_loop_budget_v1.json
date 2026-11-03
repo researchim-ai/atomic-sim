@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "scope": "Serialized sampled relay with owned plant, memory and local Python Random state",
+  "maximum_ticks_per_transaction": 64,
+  "maximum_episode_ticks": 1024,
+  "maximum_noise_amplitude_k": 1.0,
+  "minimum_sample_period_s": 1e-06,
+  "validated": false,
+  "plant_referenced": false,
+  "maximum_batch_rhs_evaluations": 200000,
+  "maximum_batch_root_evaluations": 100000,
+  "maximum_batch_attempts": 20000,
+  "maximum_batch_events": 256,
+  "maximum_batch_switches": 128,
+  "minimum_sample_root_gap_s": 1e-07
+}

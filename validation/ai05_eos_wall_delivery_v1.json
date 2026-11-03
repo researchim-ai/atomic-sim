@@ -1,0 +1,95 @@
+{
+  "acceptance_unchanged": {
+    "ai05": "4/8",
+    "total": "43/109"
+  },
+  "archive": "artifacts/ai05_eos_wall_release_v1.tar.gz",
+  "archive_sha256": "47dc1d308680e116786c33c0ba4232bc793158055855469014fdf9066a350d26",
+  "campaign": {
+    "cases": 7,
+    "horizon_s": 0.2,
+    "independent_reference_programs": 14,
+    "independent_solve_ivp_segments": 70,
+    "observations": 105,
+    "trajectories": 21
+  },
+  "date": "2026-11-03",
+  "files": {
+    ".github/workflows/ci.yml": "c8a60b78748238ac3ac9605b556a4c0ef86c8a0c6ca451c675a8672d1d821009",
+    "artifacts/ai05_eos_wall_bundle_v1.json": "d37a6bbf35e7d0fa1235cc7e3401ea0cf94fa4f7f69ac8946524eb0944923052",
+    "artifacts/ai05_eos_wall_campaign_v1.json": "c0965adcf9f801549f12856783c244f17bcb79da9378e0011b5771e3246af613",
+    "artifacts/ai05_eos_wall_portable_v1/audit.json": "f9b6564628cb0dccb5a6e9755aec9b5d400b80e394dde9308538ba0ef492ced8",
+    "artifacts/ai05_eos_wall_portable_v1/example.json": "18769f402cdcf1ffaa941901ef3217aec8a3cdb94dfbcd54b8833c1c7db45b7e",
+    "artifacts/ai05_eos_wall_portable_v1/install.log": "1374d2c3439831e3bdeb0695d48c7595f69dbdd9c2f06cb4a67838500a7d4727",
+    "artifacts/ai05_eos_wall_portable_v1/tests.log": "d6c1c777edc1e30ead5a522246cd8ba1cde10302bba3fc171a5c1152e6bcb88f",
+    "artifacts/ai05_eos_wall_selection_v1.json": "c60398a7d11804503c7e4a332282384313363531b395faf5b3cf31407d015adf",
+    "artifacts/eos_wall_example.json": "18769f402cdcf1ffaa941901ef3217aec8a3cdb94dfbcd54b8833c1c7db45b7e",
+    "artifacts/eos_wall_regression.log": "5cd59be00cec25bbfa6c00f68b05c457f1a865f3de9c9b246e7a23e8a6568e57",
+    "docs/AI_05_EOS_WALL_ASSEMBLY_RU.md": "e5d2cab5e6a8a026bb807bd18aac0f4772ec99e92c333d345d8716d310ae8a0e",
+    "docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md": "464b2fea1f1fe53099ff2dfe64ff5ecc0d927279929bd6a88b4d10a95082c1a1",
+    "examples/coupled_eos_wall.py": "b0fe30ea81245fddb950f463de24b9a523b6b18fd42046f624827fc5dd4db5a9",
+    "scripts/compressible_storage_graph.py": "9b03cf5fc202ba6bb5190212513f3c8a800deeb4cf640d61dee4147b01a8ecf1",
+    "scripts/conservative_eos_loop.py": "7ec22d9c837bb2508e836f7101c79882ecca69cc7a958276e064781be056fee9",
+    "scripts/conservative_loop_references.py": "d2fa8b6858edbbdc624c91dc97055b9706495dcf8931ef5f44c3794366fbda9e",
+    "scripts/coupled_eos_wall.py": "aad7029bea0bca4eca36d5c0c608cbfda160f0f9c6d8b3a059943c448e6e839b",
+    "scripts/eos_wall_references.py": "c2b46327c1a8f7eb2ff0bf6fbee43bd4ea0b799d89accfc09cd8101e1a250677",
+    "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+    "scripts/qualify_eos_wall.py": "ed719ad59820f7487cf6c03a3d404e76cdb4f68e9c6b5a03521d87b2474c860b",
+    "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928",
+    "scripts/storage_graph_references.py": "e2bb42e6a85d60e4a25aa5fcb5afee770b6c46a560eb0a816cb5e06dda2f7bc8",
+    "tests/test_coupled_eos_wall.py": "42b9384bc8911cf5cd1b61194db2b5ed1d786b28b088ba68ff57b9a79ff7ff1d",
+    "tests/test_eos_wall_audit.py": "3fd02bbad4faf8e03311e3dbf3f0fda7c7464788b43a691bbfa4dc7e091ae364",
+    "validation/ai05_compressible_storage_budget_v1.json": "cd9d496635eabded1e879fd2bec25ed1a7f9fa048369f62213ac6d21eb6f4883",
+    "validation/ai05_conservative_loop_budget_v1.json": "e21c0b6badf1483e3336dabf57a037901820d7bdee84615ebdc5a381d3c04a4f",
+    "validation/ai05_eos_wall_audit_v1.json": "f9b6564628cb0dccb5a6e9755aec9b5d400b80e394dde9308538ba0ef492ced8",
+    "validation/ai05_eos_wall_budget_v1.json": "b0031812faad859de76e47cfb8be1febaa6de3a50dfd3c5c5c517e655db565da",
+    "validation/ai05_eos_wall_passport_v1.json": "ed67500e12b6fb4877bdcda3fff20ec3bce75f3614df4ba1c25f9f4fc88c138a",
+    "validation/ai05_eos_wall_portable_replay_v1.json": "cd6ffd059dc02c6956b79616f2c493fb6ad1f38263ada73e979f4e57f587306d",
+    "validation/ai_industrial_workplan_v1.json": "db56536c7b927e6583959fb184ed4c1f38c6a0b69304227c55455f9a72163fc1"
+  },
+  "manifest_sha256": "2d91c726553bc22627b5d5a49902bcf006df32c304d541c3b8678cb06a1a7cba",
+  "maximum_reference_errors": {
+    "masses_kg": 1.657156190049136e-09,
+    "pressures_pa": 0.0040230691665783525,
+    "temperatures_k": 2.9966964234517945e-06,
+    "velocities_m_s": 2.720054232518976e-06
+  },
+  "plan_version": "1.44.0",
+  "plant_referenced": false,
+  "portable_replay": "validation/ai05_eos_wall_portable_replay_v1.json",
+  "schema_version": 1,
+  "signature": {
+    "qualification": {
+      "scripts/conservative_loop_references.py": "d2fa8b6858edbbdc624c91dc97055b9706495dcf8931ef5f44c3794366fbda9e",
+      "scripts/eos_wall_references.py": "c2b46327c1a8f7eb2ff0bf6fbee43bd4ea0b799d89accfc09cd8101e1a250677",
+      "scripts/qualify_eos_wall.py": "ed719ad59820f7487cf6c03a3d404e76cdb4f68e9c6b5a03521d87b2474c860b",
+      "scripts/storage_graph_references.py": "e2bb42e6a85d60e4a25aa5fcb5afee770b6c46a560eb0a816cb5e06dda2f7bc8"
+    },
+    "runtime": {
+      "budgets": {
+        "validation/ai05_compressible_storage_budget_v1.json": "cd9d496635eabded1e879fd2bec25ed1a7f9fa048369f62213ac6d21eb6f4883",
+        "validation/ai05_conservative_loop_budget_v1.json": "e21c0b6badf1483e3336dabf57a037901820d7bdee84615ebdc5a381d3c04a4f",
+        "validation/ai05_eos_wall_budget_v1.json": "b0031812faad859de76e47cfb8be1febaa6de3a50dfd3c5c5c517e655db565da"
+      },
+      "drivers": {
+        "scripts/compressible_storage_graph.py": "9b03cf5fc202ba6bb5190212513f3c8a800deeb4cf640d61dee4147b01a8ecf1",
+        "scripts/conservative_eos_loop.py": "7ec22d9c837bb2508e836f7101c79882ecca69cc7a958276e064781be056fee9",
+        "scripts/coupled_eos_wall.py": "aad7029bea0bca4eca36d5c0c608cbfda160f0f9c6d8b3a059943c448e6e839b",
+        "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+        "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928"
+      },
+      "numpy": "2.2.6",
+      "python": "3.12.9",
+      "scipy": "1.15.2",
+      "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a"
+    }
+  },
+  "status": "partial",
+  "tests": {
+    "auditor": 11,
+    "full_repository_run": false,
+    "new_family": 36,
+    "related_regression_passed": 171
+  },
+  "validated": false
+}

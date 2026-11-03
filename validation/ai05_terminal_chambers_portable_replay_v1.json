@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "archive_sha256": "0ebaaef02a02f6338901d225f008fd53f293637d4774d5e4b9858ba6ba08f6a0",
+  "manifest_sha256": "a13a6e62186f9b08d50471973fb92f5db96472b065ef240d6e4a30b4451f82ed",
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "archived_audit_identical": true,
+  "focused_tests_replayed": 56,
+  "checkout_pythonpath_removed": true,
+  "offline_no_deps_install": true,
+  "byte_identical_archive_rebuild": true,
+  "installed_wheel_sha256": "a25ec260331cf57bef3f6c620bf1ef141f604b1d85e17787a1d4eee7e2f18201",
+  "scope": "Fresh venv outside checkout, inherited scientific dependencies; archived audit/tests/example, not full campaign rerun, hermetic image, publisher authentication or cross-platform replay",
+  "validated": false,
+  "plant_referenced": false
+}

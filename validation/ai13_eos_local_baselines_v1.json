@@ -1,0 +1,485 @@
+{
+  "all_six_numerical_horizons_completed": true,
+  "date": "2026-11-04",
+  "execution_environment": {
+    "cpu_model": "x86_64",
+    "logical_cpus": 24,
+    "machine": "x86_64",
+    "python": "3.12.9",
+    "release": "6.17.0-22-generic",
+    "system": "Linux",
+    "threads": {
+      "MKL_NUM_THREADS": null,
+      "NUMEXPR_NUM_THREADS": null,
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null
+    }
+  },
+  "jobs": [
+    {
+      "attempts": [
+        {
+          "accepted_decisions": 3,
+          "execution_environment": {
+            "cpu_model": "x86_64",
+            "logical_cpus": 24,
+            "machine": "x86_64",
+            "python": "3.12.9",
+            "release": "6.17.0-22-generic",
+            "system": "Linux",
+            "threads": {
+              "MKL_NUM_THREADS": null,
+              "NUMEXPR_NUM_THREADS": null,
+              "OMP_NUM_THREADS": null,
+              "OPENBLAS_NUM_THREADS": null
+            }
+          },
+          "exitcode": 0,
+          "job_status": "completed",
+          "outcome": "exited",
+          "simulated_s": 0.03,
+          "simulated_seconds_per_wall_second": 0.047333421375361374,
+          "wall_s": 0.6338016380032059,
+          "worker_timeout_s": 60.0
+        }
+      ],
+      "metrics": {
+        "absolute_heat_input_j": 4.41049488963472,
+        "accepted_decisions": 3,
+        "completed": true,
+        "completed_time_s": 0.03,
+        "final_error_k": 0.4196499433803069,
+        "final_ledger": {
+          "energy_residual_j": 1.3944401189291966e-13,
+          "entropy_change_j_k": 0.15316016392759435,
+          "entropy_residual_j_k": -8.349027025289502e-11,
+          "exported_drag_heat_j": 0.0,
+          "external_entropy_j_k": -0.008020978706270282,
+          "external_heat_j": -2.4104948896344043,
+          "generated_entropy_j_k": 0.1611811427173549,
+          "total_energy_change_j": -2.410494889634265,
+          "wall_ledgers": {
+            "fluid_wall_entropy_j_k": -0.5471788672588492,
+            "fluid_wall_heat_j": -212.6471750606365,
+            "interface_generated_entropy_j_k": 0.16101780182109582,
+            "wall_external_entropy_j_k": -0.008020978706270504,
+            "wall_external_heat_j": -2.410494889634262
+          }
+        },
+        "final_target_met": false,
+        "integral_absolute_error_k_s": 0.006008744606536141,
+        "max_absolute_circuit_energy_residual_j": 5.684341886080802e-14,
+        "max_absolute_energy_residual_j": 1.3944401189291966e-13,
+        "max_absolute_entropy_residual_j_k": 8.349027025289502e-11,
+        "max_absolute_mass_residual_kg": 3.3881317890172014e-20,
+        "max_absolute_momentum_residual_kg_m_s": 6.938893903907228e-17,
+        "mean_absolute_error_k": 0.20029148688453802,
+        "peak_absolute_error_k": 0.4196499433803069,
+        "policy_wall_s": 1.9696992239914834e-05,
+        "reason": "time_limit",
+        "status": "completed"
+      },
+      "policy_id": "feedback",
+      "policy_sha256": "62917e64a28643c9a0f9510927b36da1ba006d57c9ed20e2856a12cc90cfbefe",
+      "scenario_id": "gravity_test",
+      "scenario_sha256": "5b428e62e075e65e1424d3af41dec0cf804d19029160acc8788e94711701bb8b",
+      "seed": 41,
+      "split": "test"
+    },
+    {
+      "attempts": [
+        {
+          "accepted_decisions": 3,
+          "execution_environment": {
+            "cpu_model": "x86_64",
+            "logical_cpus": 24,
+            "machine": "x86_64",
+            "python": "3.12.9",
+            "release": "6.17.0-22-generic",
+            "system": "Linux",
+            "threads": {
+              "MKL_NUM_THREADS": null,
+              "NUMEXPR_NUM_THREADS": null,
+              "OMP_NUM_THREADS": null,
+              "OPENBLAS_NUM_THREADS": null
+            }
+          },
+          "exitcode": 0,
+          "job_status": "completed",
+          "outcome": "exited",
+          "simulated_s": 0.03,
+          "simulated_seconds_per_wall_second": 0.04467716215638431,
+          "wall_s": 0.6714840099957655,
+          "worker_timeout_s": 60.0
+        }
+      ],
+      "metrics": {
+        "absolute_heat_input_j": 0.0,
+        "accepted_decisions": 3,
+        "completed": true,
+        "completed_time_s": 0.03,
+        "final_error_k": 0.4316997602385868,
+        "final_ledger": {
+          "energy_residual_j": 8.526512829121202e-14,
+          "entropy_change_j_k": 0.161180998380273,
+          "entropy_residual_j_k": -8.351877522905227e-11,
+          "exported_drag_heat_j": 0.0,
+          "external_entropy_j_k": 1.1102230246251565e-16,
+          "external_heat_j": 8.526512829121202e-14,
+          "generated_entropy_j_k": 0.16118099846379166,
+          "total_energy_change_j": 1.7053025658242404e-13,
+          "wall_ledgers": {
+            "fluid_wall_entropy_j_k": -0.5471771935670516,
+            "fluid_wall_heat_j": -212.6466433930109,
+            "interface_generated_entropy_j_k": 0.16101765598005724,
+            "wall_external_entropy_j_k": 0.0,
+            "wall_external_heat_j": 0.0
+          }
+        },
+        "final_target_met": false,
+        "integral_absolute_error_k_s": 0.006011676073889873,
+        "max_absolute_circuit_energy_residual_j": 5.684341886080802e-14,
+        "max_absolute_energy_residual_j": 8.526512829121202e-14,
+        "max_absolute_entropy_residual_j_k": 8.351877522905227e-11,
+        "max_absolute_mass_residual_kg": 8.131516293641283e-20,
+        "max_absolute_momentum_residual_kg_m_s": 8.326672684688674e-17,
+        "mean_absolute_error_k": 0.20038920246299577,
+        "peak_absolute_error_k": 0.4316997602385868,
+        "policy_wall_s": 6.563990609720349e-06,
+        "reason": "time_limit",
+        "status": "completed"
+      },
+      "policy_id": "hold",
+      "policy_sha256": "2016aba4d050e986672fba4cd17d5370405dc1bdc7d0cc5cea967d7b4dddebe2",
+      "scenario_id": "gravity_test",
+      "scenario_sha256": "5b428e62e075e65e1424d3af41dec0cf804d19029160acc8788e94711701bb8b",
+      "seed": 41,
+      "split": "test"
+    },
+    {
+      "attempts": [
+        {
+          "accepted_decisions": 3,
+          "execution_environment": {
+            "cpu_model": "x86_64",
+            "logical_cpus": 24,
+            "machine": "x86_64",
+            "python": "3.12.9",
+            "release": "6.17.0-22-generic",
+            "system": "Linux",
+            "threads": {
+              "MKL_NUM_THREADS": null,
+              "NUMEXPR_NUM_THREADS": null,
+              "OMP_NUM_THREADS": null,
+              "OPENBLAS_NUM_THREADS": null
+            }
+          },
+          "exitcode": 0,
+          "job_status": "completed",
+          "outcome": "exited",
+          "simulated_s": 0.03,
+          "simulated_seconds_per_wall_second": 0.04642237150507129,
+          "wall_s": 0.6462401430035243,
+          "worker_timeout_s": 60.0
+        }
+      ],
+      "metrics": {
+        "absolute_heat_input_j": 4.4104976225145265,
+        "accepted_decisions": 3,
+        "completed": true,
+        "completed_time_s": 0.03,
+        "final_error_k": 0.41965039678291305,
+        "final_ledger": {
+          "energy_residual_j": -5.950795411990839e-14,
+          "entropy_change_j_k": 0.15316021407799651,
+          "entropy_residual_j_k": -8.34746161082478e-11,
+          "exported_drag_heat_j": 0.0,
+          "external_entropy_j_k": -0.008020987793336789,
+          "external_heat_j": -2.410497622513927,
+          "generated_entropy_j_k": 0.16118120195480792,
+          "total_energy_change_j": -2.4104976225139865,
+          "wall_ledgers": {
+            "fluid_wall_entropy_j_k": -0.5471790982958357,
+            "fluid_wall_heat_j": -212.64726944078555,
+            "interface_generated_entropy_j_k": 0.16101788483369764,
+            "wall_external_entropy_j_k": -0.008020987793336123,
+            "wall_external_heat_j": -2.410497622514069
+          }
+        },
+        "final_target_met": false,
+        "integral_absolute_error_k_s": 0.006008749606428977,
+        "max_absolute_circuit_energy_residual_j": 1.4210854715202004e-13,
+        "max_absolute_energy_residual_j": 1.7064127888488656e-13,
+        "max_absolute_entropy_residual_j_k": 8.34746161082478e-11,
+        "max_absolute_mass_residual_kg": 1.7618285302889447e-19,
+        "max_absolute_momentum_residual_kg_m_s": 1.1102230246251565e-16,
+        "mean_absolute_error_k": 0.2002916535476326,
+        "peak_absolute_error_k": 0.41965039678291305,
+        "policy_wall_s": 1.9105988030787557e-05,
+        "reason": "time_limit",
+        "status": "completed"
+      },
+      "policy_id": "feedback",
+      "policy_sha256": "62917e64a28643c9a0f9510927b36da1ba006d57c9ed20e2856a12cc90cfbefe",
+      "scenario_id": "mixed_dev",
+      "scenario_sha256": "26519f7fb2d4eaf18c8020afd4d12d956b421f15a7336f949252031f25029a07",
+      "seed": 23,
+      "split": "dev"
+    },
+    {
+      "attempts": [
+        {
+          "accepted_decisions": 3,
+          "execution_environment": {
+            "cpu_model": "x86_64",
+            "logical_cpus": 24,
+            "machine": "x86_64",
+            "python": "3.12.9",
+            "release": "6.17.0-22-generic",
+            "system": "Linux",
+            "threads": {
+              "MKL_NUM_THREADS": null,
+              "NUMEXPR_NUM_THREADS": null,
+              "OMP_NUM_THREADS": null,
+              "OPENBLAS_NUM_THREADS": null
+            }
+          },
+          "exitcode": 0,
+          "job_status": "completed",
+          "outcome": "exited",
+          "simulated_s": 0.03,
+          "simulated_seconds_per_wall_second": 0.045827874036701396,
+          "wall_s": 0.6546234280031058,
+          "worker_timeout_s": 60.0
+        }
+      ],
+      "metrics": {
+        "absolute_heat_input_j": 0.0,
+        "accepted_decisions": 3,
+        "completed": true,
+        "completed_time_s": 0.03,
+        "final_error_k": 0.4317002272407535,
+        "final_ledger": {
+          "energy_residual_j": 1.4210854715202004e-13,
+          "entropy_change_j_k": 0.1611810576102498,
+          "entropy_residual_j_k": -8.350589664196661e-11,
+          "exported_drag_heat_j": 0.0,
+          "external_entropy_j_k": 2.220446049250313e-16,
+          "external_heat_j": -1.7053025658242404e-13,
+          "generated_entropy_j_k": 0.1611810576937555,
+          "total_energy_change_j": -2.842170943040401e-14,
+          "wall_ledgers": {
+            "fluid_wall_entropy_j_k": -0.5471774245621953,
+            "fluid_wall_heat_j": -212.64673776019953,
+            "interface_generated_entropy_j_k": 0.16101773898569616,
+            "wall_external_entropy_j_k": 0.0,
+            "wall_external_heat_j": 0.0
+          }
+        },
+        "final_target_met": false,
+        "integral_absolute_error_k_s": 0.006011681170654128,
+        "max_absolute_circuit_energy_residual_j": 1.7053025658242404e-13,
+        "max_absolute_energy_residual_j": 1.4210854715202004e-13,
+        "max_absolute_entropy_residual_j_k": 8.350589664196661e-11,
+        "max_absolute_mass_residual_kg": 1.0842021724855044e-19,
+        "max_absolute_momentum_residual_kg_m_s": 2.7755575615628914e-17,
+        "mean_absolute_error_k": 0.2003893723551376,
+        "peak_absolute_error_k": 0.4317002272407535,
+        "policy_wall_s": 5.8100049500353634e-06,
+        "reason": "time_limit",
+        "status": "completed"
+      },
+      "policy_id": "hold",
+      "policy_sha256": "2016aba4d050e986672fba4cd17d5370405dc1bdc7d0cc5cea967d7b4dddebe2",
+      "scenario_id": "mixed_dev",
+      "scenario_sha256": "26519f7fb2d4eaf18c8020afd4d12d956b421f15a7336f949252031f25029a07",
+      "seed": 23,
+      "split": "dev"
+    },
+    {
+      "attempts": [
+        {
+          "accepted_decisions": 3,
+          "execution_environment": {
+            "cpu_model": "x86_64",
+            "logical_cpus": 24,
+            "machine": "x86_64",
+            "python": "3.12.9",
+            "release": "6.17.0-22-generic",
+            "system": "Linux",
+            "threads": {
+              "MKL_NUM_THREADS": null,
+              "NUMEXPR_NUM_THREADS": null,
+              "OMP_NUM_THREADS": null,
+              "OPENBLAS_NUM_THREADS": null
+            }
+          },
+          "exitcode": 0,
+          "job_status": "completed",
+          "outcome": "exited",
+          "simulated_s": 0.03,
+          "simulated_seconds_per_wall_second": 0.04336727690570251,
+          "wall_s": 0.691765823001333,
+          "worker_timeout_s": 60.0
+        }
+      ],
+      "metrics": {
+        "absolute_heat_input_j": 4.4104976225145265,
+        "accepted_decisions": 3,
+        "completed": true,
+        "completed_time_s": 0.03,
+        "final_error_k": 0.41965039678291305,
+        "final_ledger": {
+          "energy_residual_j": -5.950795411990839e-14,
+          "entropy_change_j_k": 0.15316021407799651,
+          "entropy_residual_j_k": -8.34746161082478e-11,
+          "exported_drag_heat_j": 0.0,
+          "external_entropy_j_k": -0.008020987793336789,
+          "external_heat_j": -2.410497622513927,
+          "generated_entropy_j_k": 0.16118120195480792,
+          "total_energy_change_j": -2.4104976225139865,
+          "wall_ledgers": {
+            "fluid_wall_entropy_j_k": -0.5471790982958357,
+            "fluid_wall_heat_j": -212.64726944078555,
+            "interface_generated_entropy_j_k": 0.16101788483369764,
+            "wall_external_entropy_j_k": -0.008020987793336123,
+            "wall_external_heat_j": -2.410497622514069
+          }
+        },
+        "final_target_met": false,
+        "integral_absolute_error_k_s": 0.006008749606428977,
+        "max_absolute_circuit_energy_residual_j": 1.4210854715202004e-13,
+        "max_absolute_energy_residual_j": 1.7064127888488656e-13,
+        "max_absolute_entropy_residual_j_k": 8.34746161082478e-11,
+        "max_absolute_mass_residual_kg": 1.7618285302889447e-19,
+        "max_absolute_momentum_residual_kg_m_s": 1.1102230246251565e-16,
+        "mean_absolute_error_k": 0.2002916535476326,
+        "peak_absolute_error_k": 0.41965039678291305,
+        "policy_wall_s": 2.1959996956866235e-05,
+        "reason": "time_limit",
+        "status": "completed"
+      },
+      "policy_id": "feedback",
+      "policy_sha256": "62917e64a28643c9a0f9510927b36da1ba006d57c9ed20e2856a12cc90cfbefe",
+      "scenario_id": "mixed_train",
+      "scenario_sha256": "55371871bfcd87724b0eecd50fb374017b336f6c506b0e6556ff9b64dd8b90fb",
+      "seed": 17,
+      "split": "train"
+    },
+    {
+      "attempts": [
+        {
+          "accepted_decisions": 3,
+          "execution_environment": {
+            "cpu_model": "x86_64",
+            "logical_cpus": 24,
+            "machine": "x86_64",
+            "python": "3.12.9",
+            "release": "6.17.0-22-generic",
+            "system": "Linux",
+            "threads": {
+              "MKL_NUM_THREADS": null,
+              "NUMEXPR_NUM_THREADS": null,
+              "OMP_NUM_THREADS": null,
+              "OPENBLAS_NUM_THREADS": null
+            }
+          },
+          "exitcode": 0,
+          "job_status": "completed",
+          "outcome": "exited",
+          "simulated_s": 0.03,
+          "simulated_seconds_per_wall_second": 0.04252889186817533,
+          "wall_s": 0.7054028139973525,
+          "worker_timeout_s": 60.0
+        }
+      ],
+      "metrics": {
+        "absolute_heat_input_j": 0.0,
+        "accepted_decisions": 3,
+        "completed": true,
+        "completed_time_s": 0.03,
+        "final_error_k": 0.4317002272407535,
+        "final_ledger": {
+          "energy_residual_j": 1.4210854715202004e-13,
+          "entropy_change_j_k": 0.1611810576102498,
+          "entropy_residual_j_k": -8.350589664196661e-11,
+          "exported_drag_heat_j": 0.0,
+          "external_entropy_j_k": 2.220446049250313e-16,
+          "external_heat_j": -1.7053025658242404e-13,
+          "generated_entropy_j_k": 0.1611810576937555,
+          "total_energy_change_j": -2.842170943040401e-14,
+          "wall_ledgers": {
+            "fluid_wall_entropy_j_k": -0.5471774245621953,
+            "fluid_wall_heat_j": -212.64673776019953,
+            "interface_generated_entropy_j_k": 0.16101773898569616,
+            "wall_external_entropy_j_k": 0.0,
+            "wall_external_heat_j": 0.0
+          }
+        },
+        "final_target_met": false,
+        "integral_absolute_error_k_s": 0.006011681170654128,
+        "max_absolute_circuit_energy_residual_j": 1.7053025658242404e-13,
+        "max_absolute_energy_residual_j": 1.4210854715202004e-13,
+        "max_absolute_entropy_residual_j_k": 8.350589664196661e-11,
+        "max_absolute_mass_residual_kg": 1.0842021724855044e-19,
+        "max_absolute_momentum_residual_kg_m_s": 2.7755575615628914e-17,
+        "mean_absolute_error_k": 0.2003893723551376,
+        "peak_absolute_error_k": 0.4317002272407535,
+        "policy_wall_s": 4.879992047790438e-06,
+        "reason": "time_limit",
+        "status": "completed"
+      },
+      "policy_id": "hold",
+      "policy_sha256": "2016aba4d050e986672fba4cd17d5370405dc1bdc7d0cc5cea967d7b4dddebe2",
+      "scenario_id": "mixed_train",
+      "scenario_sha256": "55371871bfcd87724b0eecd50fb374017b336f6c506b0e6556ff9b64dd8b90fb",
+      "seed": 17,
+      "split": "train"
+    }
+  ],
+  "metric_definitions": {
+    "absolute_heat_input_j": "Integral of sum of absolute commanded port powers; not net external heat",
+    "balances": "Accepted output samples; solver's own admission also applies internally",
+    "final_target_met": "Full horizon completed and final temperature within declared tolerance",
+    "integral_absolute_error_k_s": "Trapezoidal absolute observed temperature error on accepted decision times only",
+    "timing": "Observed monotonic wall time; not a portable speed guarantee"
+  },
+  "plant_referenced": false,
+  "project_sha256": "cfaa98f14b88d0162c2ddba6a3855f5ea0459a62eac25413f79b4395405d00a9",
+  "provenance": {
+    "runtime": {
+      "native_signature": {
+        "budgets": {
+          "validation/ai05_compressible_storage_budget_v1.json": "cd9d496635eabded1e879fd2bec25ed1a7f9fa048369f62213ac6d21eb6f4883",
+          "validation/ai05_conservative_loop_budget_v1.json": "e21c0b6badf1483e3336dabf57a037901820d7bdee84615ebdc5a381d3c04a4f",
+          "validation/ai05_controlled_assembly_budget_v1.json": "b9f45eeec54a706098ea2a61a47568788e78c7ba04be0f3a6893b2d0b66dac68",
+          "validation/ai05_open_channel_budget_v1.json": "7fd48810de0e630c9f1de484e919789d0d93d445aa8ac28ed242fc7884f45f86",
+          "validation/ai05_terminal_chambers_budget_v1.json": "00cd8f90d843ceabda5e67b3e47cc2d22b67555497861d5a9436686a8d2035c4"
+        },
+        "drivers": {
+          "atomic_model_runtime/resources.py": "f0632f5853da75f6b7d11b3c802ecaec3b4759fac8471dc92f2756b306c1f060",
+          "scripts/__init__.py": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883",
+          "scripts/compressible_storage_graph.py": "e849e7e0209e4f91b18f9773c47d8894f8b2ed3b951d3c454813a243584aca7d",
+          "scripts/conservative_eos_loop.py": "5daa7eb5602dbe9ff1639eaa7bb4b70c7928f19d16fe1bf4b255f1b6d44313ca",
+          "scripts/controlled_eos_assembly.py": "1f25149e4a107f17ee0001d9944de5b2d98cc8a9f8319d726c468006350fd546",
+          "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+          "scripts/open_eos_channel.py": "eebc4ab58d0afe512d8238358e695d760313d908a36190c9ca667b7a136d887d",
+          "scripts/solve_hydraulic_graph.py": "6b90a4751ad2dfbdf37977c7c9809d75228f81bfe64604eaa4e8a120687da8a5",
+          "scripts/terminal_eos_chambers.py": "32bacf9f02ae8fbd6b3f019971e71d6bbf193593bbfcfd8d0f5b75fcd6f99e8f"
+        },
+        "numpy": "2.2.6",
+        "python": "3.12.9",
+        "scipy": "1.15.2",
+        "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a"
+      },
+      "public_runtime_sha256": "f3db4a846514ff5754a2074f1e694f820fd7dc0d6f15453b2638a8da1837b6d7"
+    },
+    "workspace_sha256": "b4f2b556060eb4e3479432642b8fd0956705ccc4192e83437c776f165959cf21"
+  },
+  "schema_version": 1,
+  "scope": "Infrastructure control workload, not held-out physical or LLM quality benchmark: mixed train/dev are deterministic replicas and seeds are metadata",
+  "superiority_claim": false,
+  "target_success_count": 0,
+  "target_success_denominator": 6,
+  "validated": false
+}

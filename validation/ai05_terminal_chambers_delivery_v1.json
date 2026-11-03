@@ -1,0 +1,119 @@
+{
+  "acceptance_unchanged": {
+    "ai05": "4/8",
+    "total": "43/109"
+  },
+  "archive": "artifacts/ai05_terminal_chambers_release_v1.tar.gz",
+  "archive_sha256": "0ebaaef02a02f6338901d225f008fd53f293637d4774d5e4b9858ba6ba08f6a0",
+  "campaign": {
+    "cases": 8,
+    "horizon_s": 0.2,
+    "independent_reference_programs": 16,
+    "independent_solve_ivp_segments": 80,
+    "observations": 120,
+    "trajectories": 24
+  },
+  "date": "2026-11-03",
+  "files": {
+    ".github/workflows/ci.yml": "95bf28108fccf17ef954f4dcd0ff73fbdc5cee5890a88bebf566d6d46b029c1a",
+    "artifacts/ai05_terminal_chambers_bundle_v1.json": "9801f0abca22bbc4d20217bfb47b5144962c06714740c546b5ad26822e8b3143",
+    "artifacts/ai05_terminal_chambers_campaign_v1.json": "42681f1cf368acaae1cffb2943bb9dff240d158785ab0537b44e6d95fb029033",
+    "artifacts/ai05_terminal_chambers_portable_v1/audit.json": "79b2427551783e45cb3976504af948ebc92eaab874a2f97be176cc9b568eea12",
+    "artifacts/ai05_terminal_chambers_portable_v1/example.json": "89575f3bc26a2138c54b2a7439018e956b6eb66ae7e3cf24e3619536d12c1cc6",
+    "artifacts/ai05_terminal_chambers_portable_v1/install.log": "1374d2c3439831e3bdeb0695d48c7595f69dbdd9c2f06cb4a67838500a7d4727",
+    "artifacts/ai05_terminal_chambers_portable_v1/tests.log": "1852c74ca7dae84712a6c73118b86da8459391227bbc39643a52f3a7f40abba0",
+    "artifacts/ai05_terminal_chambers_selection_v1.json": "b6397c27aef79259fd39033014c4b0877ac2dbbc2c12fd4476d94fab1a62798b",
+    "artifacts/terminal_chambers_example.json": "89575f3bc26a2138c54b2a7439018e956b6eb66ae7e3cf24e3619536d12c1cc6",
+    "artifacts/terminal_chambers_regression.log": "d109d6a0af07c8d762c97b922ff5af586f4ed357a3ab0de9167c2eab6b303528",
+    "docs/AI_05_TERMINAL_EOS_CHAMBERS_RU.md": "39c85375008201c543d9174a4e424e5ccb812badd582b163ce6eb2271ac3e9c6",
+    "docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md": "baf101476d5453b1e7d8ce34e2bde61f3ca08ca78c7a218fc8b658d6783575e9",
+    "examples/terminal_eos_chambers.py": "e740318eabb57c00f97b7540fa5443416e5ac5a2994308bbe68d58ca9d9321c1",
+    "scripts/compressible_storage_graph.py": "9b03cf5fc202ba6bb5190212513f3c8a800deeb4cf640d61dee4147b01a8ecf1",
+    "scripts/conservative_eos_loop.py": "7ec22d9c837bb2508e836f7101c79882ecca69cc7a958276e064781be056fee9",
+    "scripts/conservative_loop_references.py": "d2fa8b6858edbbdc624c91dc97055b9706495dcf8931ef5f44c3794366fbda9e",
+    "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+    "scripts/open_channel_references.py": "6e5ff023d19d918a715770f58deb102263737258554ab23b66a8bb5bd2ad9e74",
+    "scripts/open_eos_channel.py": "33408027f3b98e0f6263e87b385177184d326573cb9675a1fef8d2b1adb6e923",
+    "scripts/qualify_terminal_chambers.py": "a754b4bac018e548c4ad671b7b3d942762223f9bb3416e09e95bdf09695f4f40",
+    "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928",
+    "scripts/storage_graph_references.py": "e2bb42e6a85d60e4a25aa5fcb5afee770b6c46a560eb0a816cb5e06dda2f7bc8",
+    "scripts/terminal_chamber_references.py": "bf20ff11ffb1f91cd77d469060a84ed6a1abae6866229474de7fa7dd1c8bd24d",
+    "scripts/terminal_eos_chambers.py": "b392c7a2fbaecff2fd91c793fd08e1e11f450a68c15334981d5124e5b8bd8d6a",
+    "tests/test_terminal_chamber_audit.py": "38646614cde9c85350f7a975afebdc4fb885ba9d1998f78281979a8ffc50ce5d",
+    "tests/test_terminal_eos_chambers.py": "9bebfcb300d600cdf7964918ffc763a7d952716fb96f098a0bcf2bb127e3fc2a",
+    "validation/ai05_compressible_storage_budget_v1.json": "cd9d496635eabded1e879fd2bec25ed1a7f9fa048369f62213ac6d21eb6f4883",
+    "validation/ai05_conservative_loop_budget_v1.json": "e21c0b6badf1483e3336dabf57a037901820d7bdee84615ebdc5a381d3c04a4f",
+    "validation/ai05_open_channel_budget_v1.json": "7fd48810de0e630c9f1de484e919789d0d93d445aa8ac28ed242fc7884f45f86",
+    "validation/ai05_terminal_chambers_audit_v1.json": "79b2427551783e45cb3976504af948ebc92eaab874a2f97be176cc9b568eea12",
+    "validation/ai05_terminal_chambers_budget_v1.json": "00cd8f90d843ceabda5e67b3e47cc2d22b67555497861d5a9436686a8d2035c4",
+    "validation/ai05_terminal_chambers_passport_v1.json": "50d03aeb4d456578df4070194ecaa494aeae2f8b54d6f817b77ac39b49c763fd",
+    "validation/ai05_terminal_chambers_portable_replay_v1.json": "6661abc93342dea9a922eb9f143ba9742dbe79b7a99d261e28e7cdd4416f2984",
+    "validation/ai_industrial_workplan_v1.json": "2e5eacf0c9576c10f1f9accfafb91023e81b2a194515b1a3760e7c2f8013b909"
+  },
+  "manifest_sha256": "a13a6e62186f9b08d50471973fb92f5db96472b065ef240d6e4a30b4451f82ed",
+  "maximum_balance_residuals": {
+    "energy_residual_j": 5.8548721426632255e-12,
+    "entropy_residual_j_k": 1.0920971453554085e-09,
+    "mass_residual_kg": 1.496198998029996e-17,
+    "momentum_residual_kg_m_s": 7.993605777301127e-15
+  },
+  "maximum_reference_errors": {
+    "chamber_errors": {
+      "T": 3.267871306888992e-08,
+      "m": 1.0638312453181697e-10,
+      "p": 5.0064059905707836e-05,
+      "u": 9.569943698606309e-08
+    },
+    "channel_errors": {
+      "masses_kg": 2.823764000403628e-10,
+      "pressures_pa": 0.0003792963398154825,
+      "temperatures_k": 1.0822373042174149e-07,
+      "velocities_m_s": 3.6774172706977026e-07
+    }
+  },
+  "plan_version": "1.46.0",
+  "plant_referenced": false,
+  "portable_replay": "validation/ai05_terminal_chambers_portable_replay_v1.json",
+  "schema_version": 1,
+  "signature": {
+    "qualification": {
+      "scripts/conservative_loop_references.py": "d2fa8b6858edbbdc624c91dc97055b9706495dcf8931ef5f44c3794366fbda9e",
+      "scripts/open_channel_references.py": "6e5ff023d19d918a715770f58deb102263737258554ab23b66a8bb5bd2ad9e74",
+      "scripts/qualify_terminal_chambers.py": "a754b4bac018e548c4ad671b7b3d942762223f9bb3416e09e95bdf09695f4f40",
+      "scripts/storage_graph_references.py": "e2bb42e6a85d60e4a25aa5fcb5afee770b6c46a560eb0a816cb5e06dda2f7bc8",
+      "scripts/terminal_chamber_references.py": "bf20ff11ffb1f91cd77d469060a84ed6a1abae6866229474de7fa7dd1c8bd24d"
+    },
+    "runtime": {
+      "budgets": {
+        "validation/ai05_compressible_storage_budget_v1.json": "cd9d496635eabded1e879fd2bec25ed1a7f9fa048369f62213ac6d21eb6f4883",
+        "validation/ai05_conservative_loop_budget_v1.json": "e21c0b6badf1483e3336dabf57a037901820d7bdee84615ebdc5a381d3c04a4f",
+        "validation/ai05_open_channel_budget_v1.json": "7fd48810de0e630c9f1de484e919789d0d93d445aa8ac28ed242fc7884f45f86",
+        "validation/ai05_terminal_chambers_budget_v1.json": "00cd8f90d843ceabda5e67b3e47cc2d22b67555497861d5a9436686a8d2035c4"
+      },
+      "drivers": {
+        "scripts/compressible_storage_graph.py": "9b03cf5fc202ba6bb5190212513f3c8a800deeb4cf640d61dee4147b01a8ecf1",
+        "scripts/conservative_eos_loop.py": "7ec22d9c837bb2508e836f7101c79882ecca69cc7a958276e064781be056fee9",
+        "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+        "scripts/open_eos_channel.py": "33408027f3b98e0f6263e87b385177184d326573cb9675a1fef8d2b1adb6e923",
+        "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928",
+        "scripts/terminal_eos_chambers.py": "b392c7a2fbaecff2fd91c793fd08e1e11f450a68c15334981d5124e5b8bd8d6a"
+      },
+      "numpy": "2.2.6",
+      "python": "3.12.9",
+      "scipy": "1.15.2",
+      "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a"
+    }
+  },
+  "status": "partial",
+  "tests": {
+    "auditor": 15,
+    "full_repository_run": false,
+    "new_family": 41,
+    "related_regression_passed": 288
+  },
+  "tooling": {
+    "remote_ci": "not run; YAML parsed locally",
+    "ruff": "passed; existing configuration deprecation warning"
+  },
+  "validated": false
+}

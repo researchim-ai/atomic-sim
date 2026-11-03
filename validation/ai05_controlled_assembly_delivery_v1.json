@@ -1,0 +1,124 @@
+{
+  "acceptance_unchanged": {
+    "ai05": "4/8",
+    "total": "43/109"
+  },
+  "archive": "artifacts/ai05_controlled_assembly_release_v1.tar.gz",
+  "archive_sha256": "e7728b0f05b3b76a3225b4f94c1bbecc2efc952e2528e0c65065a014a96711ec",
+  "campaign": {
+    "cases": 8,
+    "horizon_s": 0.1,
+    "independent_reference_programs": 16,
+    "independent_solve_ivp_segments": 80,
+    "observations": 120,
+    "trajectories": 24
+  },
+  "date": "2026-11-03",
+  "files": {
+    ".github/workflows/ci.yml": "e84677c7a5fb0b57c24d1f46a9ab0c47a0d78ae7b619612db5966ef8bff8ceb4",
+    "artifacts/ai05_controlled_assembly_bundle_v1.json": "2745a8eb34fc6d6bc8207fc13c4dfc7fe04851a8e72b33a0479556ab747b8fc6",
+    "artifacts/ai05_controlled_assembly_campaign_v1.json": "09fa01bd84ca749b3c7f385710425ec37c197d4fb5f863aecf6abb49cd29668e",
+    "artifacts/ai05_controlled_assembly_portable_v1/audit.json": "7d2c2e3f508225050814e1c6e043b62c6bbfe470f4dd645768d4d6d00c45ac4f",
+    "artifacts/ai05_controlled_assembly_portable_v1/example.json": "7d8f22a91e88e6a6aff6527f1d9b2622f5081378895fa35f97e32ad4f9e738f1",
+    "artifacts/ai05_controlled_assembly_portable_v1/install.log": "1374d2c3439831e3bdeb0695d48c7595f69dbdd9c2f06cb4a67838500a7d4727",
+    "artifacts/ai05_controlled_assembly_portable_v1/tests.log": "d16d300211ee1bd1de6b513398b1ab0a196fe24acaebcd2197f9a0a29934f4bc",
+    "artifacts/ai05_controlled_assembly_selection_v1.json": "3bb7e7dee6f5f7606d8c9b5424949a6a8fee84cf56900d425b34ea8090ba831c",
+    "artifacts/controlled_assembly_example.json": "7d8f22a91e88e6a6aff6527f1d9b2622f5081378895fa35f97e32ad4f9e738f1",
+    "artifacts/controlled_assembly_regression.log": "8ec3fdd5aeaccfb3fb4f4a5b4a0e3868b6a3e406724c0f43d165abc90febd69f",
+    "docs/AI_05_CONTROLLED_EOS_ASSEMBLY_RU.md": "3d3982c25767f1666d3d85faaea3f48936af237382c50987ff7b9bc0beea14d6",
+    "docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md": "7495691270e316e089ea00844e490a6de39538c5bece4d0ccb2ece21a6a508f8",
+    "examples/controlled_eos_assembly.py": "f0924d253023faa23ad489e8793ef2fc15f8a67b6a03ab8617058420c24a7d0f",
+    "scripts/compressible_storage_graph.py": "9b03cf5fc202ba6bb5190212513f3c8a800deeb4cf640d61dee4147b01a8ecf1",
+    "scripts/conservative_eos_loop.py": "7ec22d9c837bb2508e836f7101c79882ecca69cc7a958276e064781be056fee9",
+    "scripts/conservative_loop_references.py": "d2fa8b6858edbbdc624c91dc97055b9706495dcf8931ef5f44c3794366fbda9e",
+    "scripts/controlled_assembly_references.py": "b4d747d8f4aa1fb5bf285d4858838aa703ed3479f3e84238d7b767cc70b34b1b",
+    "scripts/controlled_eos_assembly.py": "6eb4e89483e0180287f433c92521bd1c77dc6fa8295636c554050b80414f97f6",
+    "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+    "scripts/open_channel_references.py": "6e5ff023d19d918a715770f58deb102263737258554ab23b66a8bb5bd2ad9e74",
+    "scripts/open_eos_channel.py": "33408027f3b98e0f6263e87b385177184d326573cb9675a1fef8d2b1adb6e923",
+    "scripts/qualify_controlled_assembly.py": "61943baa32aad63c31194dadfccaa26e457e7ef81684ff9fb62022cc1f05857a",
+    "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928",
+    "scripts/storage_graph_references.py": "e2bb42e6a85d60e4a25aa5fcb5afee770b6c46a560eb0a816cb5e06dda2f7bc8",
+    "scripts/terminal_chamber_references.py": "bf20ff11ffb1f91cd77d469060a84ed6a1abae6866229474de7fa7dd1c8bd24d",
+    "scripts/terminal_eos_chambers.py": "b392c7a2fbaecff2fd91c793fd08e1e11f450a68c15334981d5124e5b8bd8d6a",
+    "tests/test_controlled_assembly_audit.py": "06c1e18f643febd5f444c93d8c5b62d0424c793ac0c8dcc046c96bbd0fb79e2f",
+    "tests/test_controlled_eos_assembly.py": "01d7d4a8a001329249d5377c3ee1fb0529d558e2f72310e3dc0fef2c6e1346ff",
+    "validation/ai05_compressible_storage_budget_v1.json": "cd9d496635eabded1e879fd2bec25ed1a7f9fa048369f62213ac6d21eb6f4883",
+    "validation/ai05_conservative_loop_budget_v1.json": "e21c0b6badf1483e3336dabf57a037901820d7bdee84615ebdc5a381d3c04a4f",
+    "validation/ai05_controlled_assembly_audit_v1.json": "7d2c2e3f508225050814e1c6e043b62c6bbfe470f4dd645768d4d6d00c45ac4f",
+    "validation/ai05_controlled_assembly_budget_v1.json": "b9f45eeec54a706098ea2a61a47568788e78c7ba04be0f3a6893b2d0b66dac68",
+    "validation/ai05_controlled_assembly_passport_v1.json": "d25d55cf78cc3680da5f7d5c117756f87984a78395ee668180c09b880c67ac0b",
+    "validation/ai05_controlled_assembly_portable_replay_v1.json": "f0628cc119fd8c364a1b7eab32fd9879d5d5c08970f2000c66fce60a8a4a15d0",
+    "validation/ai05_open_channel_budget_v1.json": "7fd48810de0e630c9f1de484e919789d0d93d445aa8ac28ed242fc7884f45f86",
+    "validation/ai05_terminal_chambers_budget_v1.json": "00cd8f90d843ceabda5e67b3e47cc2d22b67555497861d5a9436686a8d2035c4",
+    "validation/ai_industrial_workplan_v1.json": "1cd2c92e6576a428a575b2199b7e24a03989472d3729620f86e2b0129e1ee26a"
+  },
+  "manifest_sha256": "4a2c9a19bb6c4060594c3f65665957713533960c2933f63d46f42ba47fa4c646",
+  "maximum_energy_residual_j": 2.2737367544323206e-12,
+  "maximum_entropy_residual_j_k": 4.515211426969756e-09,
+  "maximum_reference_errors": {
+    "chamber_errors": {
+      "T": 5.4548024763789726e-08,
+      "m": 1.2705947405322604e-10,
+      "p": 0.0001068132696673274,
+      "u": 1.0504963175034243e-07
+    },
+    "channel_errors": {
+      "masses_kg": 2.3043000840772265e-10,
+      "pressures_pa": 0.0002351041475776583,
+      "temperatures_k": 1.2386470871206257e-07,
+      "velocities_m_s": 1.8199524132178624e-07
+    }
+  },
+  "maximum_wall_temperature_error_k": 1.3112071428622585e-09,
+  "plan_version": "1.47.0",
+  "plant_referenced": false,
+  "portable_replay": "validation/ai05_controlled_assembly_portable_replay_v1.json",
+  "schema_version": 1,
+  "signature": {
+    "qualification": {
+      "scripts/conservative_loop_references.py": "d2fa8b6858edbbdc624c91dc97055b9706495dcf8931ef5f44c3794366fbda9e",
+      "scripts/controlled_assembly_references.py": "b4d747d8f4aa1fb5bf285d4858838aa703ed3479f3e84238d7b767cc70b34b1b",
+      "scripts/open_channel_references.py": "6e5ff023d19d918a715770f58deb102263737258554ab23b66a8bb5bd2ad9e74",
+      "scripts/qualify_controlled_assembly.py": "61943baa32aad63c31194dadfccaa26e457e7ef81684ff9fb62022cc1f05857a",
+      "scripts/storage_graph_references.py": "e2bb42e6a85d60e4a25aa5fcb5afee770b6c46a560eb0a816cb5e06dda2f7bc8",
+      "scripts/terminal_chamber_references.py": "bf20ff11ffb1f91cd77d469060a84ed6a1abae6866229474de7fa7dd1c8bd24d"
+    },
+    "runtime": {
+      "budgets": {
+        "validation/ai05_compressible_storage_budget_v1.json": "cd9d496635eabded1e879fd2bec25ed1a7f9fa048369f62213ac6d21eb6f4883",
+        "validation/ai05_conservative_loop_budget_v1.json": "e21c0b6badf1483e3336dabf57a037901820d7bdee84615ebdc5a381d3c04a4f",
+        "validation/ai05_controlled_assembly_budget_v1.json": "b9f45eeec54a706098ea2a61a47568788e78c7ba04be0f3a6893b2d0b66dac68",
+        "validation/ai05_open_channel_budget_v1.json": "7fd48810de0e630c9f1de484e919789d0d93d445aa8ac28ed242fc7884f45f86",
+        "validation/ai05_terminal_chambers_budget_v1.json": "00cd8f90d843ceabda5e67b3e47cc2d22b67555497861d5a9436686a8d2035c4"
+      },
+      "drivers": {
+        "scripts/compressible_storage_graph.py": "9b03cf5fc202ba6bb5190212513f3c8a800deeb4cf640d61dee4147b01a8ecf1",
+        "scripts/conservative_eos_loop.py": "7ec22d9c837bb2508e836f7101c79882ecca69cc7a958276e064781be056fee9",
+        "scripts/controlled_eos_assembly.py": "6eb4e89483e0180287f433c92521bd1c77dc6fa8295636c554050b80414f97f6",
+        "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+        "scripts/open_eos_channel.py": "33408027f3b98e0f6263e87b385177184d326573cb9675a1fef8d2b1adb6e923",
+        "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928",
+        "scripts/terminal_eos_chambers.py": "b392c7a2fbaecff2fd91c793fd08e1e11f450a68c15334981d5124e5b8bd8d6a"
+      },
+      "numpy": "2.2.6",
+      "python": "3.12.9",
+      "scipy": "1.15.2",
+      "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a"
+    }
+  },
+  "status": "partial",
+  "tests": {
+    "auditor": 18,
+    "full_repository_run": false,
+    "new_family": 50,
+    "related_regression_passed": 356
+  },
+  "tooling": {
+    "prior_campaign_audits": "terminal chambers, open channel and EOS wall passed on unchanged qualified sources",
+    "python_310_syntax": "parsed, not a Python 3.10 runtime test",
+    "remote_ci": "not run; YAML parsed locally",
+    "ruff": "passed; existing configuration deprecation warning"
+  },
+  "validated": false
+}

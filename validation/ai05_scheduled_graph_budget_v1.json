@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "scope": "Right-continuous scheduled commands on positive-inventory quasi-steady nonlinear thermal graphs; fixed topology, roles, laws and material properties; whole-request rollback",
+  "maximum_events": 128,
+  "maximum_segments_per_advance": 129,
+  "maximum_attempts_per_advance": 20000,
+  "maximum_duration_s": 10000,
+  "maximum_clock_alignment_ulps": 1,
+  "maximum_energy_error_j": 0.0001,
+  "maximum_reference_temperature_error_k": 1e-06,
+  "maximum_reference_pressure_error_pa": 1e-05,
+  "maximum_reference_flow_error_kg_s": 1e-07,
+  "maximum_reference_energy_error_j": 0.1,
+  "maximum_mesh_temperature_difference_k": 1e-06,
+  "maximum_split_temperature_difference_k": 1e-06,
+  "maximum_split_energy_difference_j": 0.1,
+  "validated": false,
+  "plant_referenced": false
+}

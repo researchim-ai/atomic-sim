@@ -1,0 +1,59 @@
+{
+  "accepted": true,
+  "report_sha256": "bd08bc8492aabe19ed21fd953874576669097a55cd340944c0300645d2a49b93",
+  "signature": {
+    "runtime": {
+      "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+      "drivers": {
+        "scripts/nonlinear_thermal_graph.py": "c916cca461bc772fa83b9992af39698de8650c70e9125508397129bac2bacd69",
+        "scripts/solve_resistance_feedback.py": "bdeca10ffbf0f88b1490d96ec489018867219d37a09f5210c34c834859cc9cd4",
+        "scripts/solve_thermal_graph.py": "a83be295f1d6d05a82290584d65d0dbc5bc47009a3b0674bb1a10102d10d4f6a",
+        "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928",
+        "scripts/graph_port_adapter.py": "7f6921ccf86cee166563572dc26db7582162fb7c53c20bc7bd4dbea573b0d093",
+        "scripts/registered_graph_system.py": "0ef8868929dea070047d585389d3d3b76e3b7d164b27a7905cf234f31b859a45",
+        "scripts/reduced_residual_engine.py": "c22c1896db08adfab0bbe59b77319e3f3ad84c161b86cf6acc3d8f59b86a87cd",
+        "scripts/scheduled_thermal_graph.py": "f287585fbf0a458a59a5c595b8e2c18ff916852252b54ad277a87dbb6244f86a",
+        "scripts/controlled_reduced_engine.py": "d738f20c78525dfc845b229d94b2f9dcb4cc83bb78d12ccf3ec6631999d90c69",
+        "scripts/state_event_radau.py": "8c9bf7712ec32109857f20aa725b372649ec835912a820f68a6036daace69cf3",
+        "scripts/hysteretic_radau.py": "ace3e950983a105bb11c910447629c53423aabd5cae2fa9a095da52e7c44cb6d",
+        "scripts/supervised_radau.py": "7cbc38d0aa2621c34edec849d49b36dd59a9b6f045f02f4715647b1c5ea88b6e",
+        "scripts/closed_loop_radau.py": "77b8c4b4947f6acf94983038dfb92d55f236fdd55cb455b1be7c71ae4cc553f3"
+      },
+      "budgets": {
+        "validation/ai05_nonlinear_graph_budget_v1.json": "00379da9d966b507c4d7cc2ecf125f7b60932c42cdb6eaaa36ff04215bc7463c",
+        "validation/ai05_resistance_feedback_budget_v2.json": "53a5f6719611803fe5ef44dd1626bfc3dca7d7d37f06602de0b9cdd12e5ee56c",
+        "validation/ai05_thermal_graph_budget_v1.json": "bc5d1cba46ec4804359891046de0da5db9eff71f62ad0689bcd85cdf98a80f4c",
+        "validation/ai05_hydraulic_graph_budget_v1.json": "59acc80c07e047a3b3a63607e6eeaf5a9936cbc359f880aed5b82d34c6386d50",
+        "validation/ai05_port_adapter_budget_v1.json": "3a8ddf2c435dc80698486d75e3b4482f42c79f5430e137c6fa03ce82f4ea20bc",
+        "validation/ai05_reduced_engine_budget_v1.json": "eda6b68d2d0c917123bd52754c00862393b5bce7edb22c71f54677af05292452",
+        "validation/ai05_scheduled_graph_budget_v1.json": "6446c1840b5a9b617a47b9346f6d4c87664db68d1f6009b48de9c006afc2caeb",
+        "validation/ai05_controlled_radau_budget_v1.json": "a93b6dbedeeb7f6e18bc619ee69200547d0d13601fc6691eef70e239120275e8",
+        "validation/ai05_state_event_budget_v1.json": "02e9bd92b026b7ad9a9de9e71cf99ab64577b64121e77d42c8a2c75fbf1a6e68",
+        "validation/ai05_hysteresis_budget_v1.json": "510661cb7a2870729295243af36264959420f38f21d1d245027de880c638e3f6",
+        "validation/ai05_supervision_budget_v1.json": "8054f1b3488db6bb66b3a6ed64122a012dfb70cbf3feec4079c21707f64003d8",
+        "validation/ai05_closed_loop_budget_v1.json": "dac9e9e60d47b8bd5d01f611d1ff969b12f05378ee9dd337e1a7a9f9df7f691f"
+      },
+      "python": "3.12.9",
+      "numpy": "2.2.6",
+      "scipy": "1.15.2",
+      "controller_runtime": {
+        "implementation": "CPython",
+        "python": "3.12.9",
+        "rng": "python-random-MT19937-state-v3-uniform-one-draw"
+      }
+    },
+    "qualification": {
+      "scripts/supervision_references.py": "81fbe0e8e31183a4f55b5a06e9cfbd95ce83412cec886d3e3ef9a2fc3fae519a",
+      "scripts/qualify_supervised_radau.py": "5f94b8dee1760f0e3772ba553711717af451e4d51f9796f23be65efba016b747",
+      "scripts/hysteresis_references.py": "08ed2f1913f4efbe10080c1b742451ed881c3de59ecce35bad1ab870382da4b2",
+      "scripts/state_event_references.py": "cb6eb25015e2832d778cf4b27eb8dd6ac7e9c0cddb0d3877dc5819255050b78c",
+      "scripts/scheduled_graph_references.py": "e8920007b457dbe3f61df5fb3e365ebae2719e668fbd832b2b56e5cfdc5b3b6c",
+      "scripts/nonlinear_graph_references.py": "f53d2d30139471481cbc8bcf2a36971960680897384002ccd5929a4426a54f70",
+      "scripts/hydraulic_graph_references.py": "7552f64999bd352127f799893f1a30eeee6e650c62302f1619f47434141dc726",
+      "scripts/resistance_feedback_references.py": "a715c7b5d3cb812dff3b48bc0e2c882b8cb0fe5c1a36087a01439585fdcf3f55",
+      "scripts/thermal_graph_references.py": "dea3e83695c58bbfe61f329f2bd357751ad9463513b2f8de4f3a47fb05e1e011",
+      "scripts/closed_loop_references.py": "765832a1f4dd1cb1f44c84df928e6abb4df3a88460648639b89a493b36a3eda2",
+      "scripts/qualify_closed_loop_radau.py": "a777cdce41ffa736e8e165aca9047851a11047ef92e943298f76e0456ebb2fe1"
+    }
+  }
+}

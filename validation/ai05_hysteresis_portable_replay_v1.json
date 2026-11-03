@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "archive": "/home/user/workspace/atomic-sim/artifacts/ai05_hysteresis_release_v1.tar.gz",
+  "archive_sha256": "ceb2d1c0a099c87c220ed926d8ce069f438e1e379e21f48fb0242e91f93aeb3e",
+  "manifest_sha256": "2cb842110320017b31902d266ac08210229bec64e4bd5e71187b400892649a0a",
+  "byte_identical_archive_rebuild": true,
+  "archived_audit_identical": true,
+  "checkout_pythonpath_removed": true,
+  "installed_wheel_sha256": "a25ec260331cf57bef3f6c620bf1ef141f604b1d85e17787a1d4eee7e2f18201",
+  "focused_tests_replayed": 80,
+  "cases": 9,
+  "production_mesh_trajectories": 27,
+  "independent_ivps": 18,
+  "negative_checks": 4,
+  "cyclic_root_checkpoint_example_s": 120,
+  "example_transition_count": 31,
+  "scope": "Fresh offline no-deps wheel and archived finite-mode Radau companions outside checkout; inherited Python/numpy/scipy/pytest",
+  "validated": false,
+  "plant_referenced": false
+}

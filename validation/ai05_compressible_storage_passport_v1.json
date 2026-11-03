@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "model_id": "compressible_storage_graph_v1",
+  "status": "implemented",
+  "scope": "Single synthetic caloric stiffened-gas fluid in dynamic mass/internal-energy inventories with prescribed linear volumes and quasi-steady monotone resistive/conductive links",
+  "density": "True m/V, not a gravity-only proxy",
+  "eos": "p+p_inf=(gamma-1)*rho*cv*T; u=cv*T+p_inf/rho+energy_offset; h=gamma*cv*T+energy_offset",
+  "entropy": "Consistent caloric entropy; nonnegative throttling/conduction/ambient production with separate global balance",
+  "coordinates": "Original increments of mass and A=U-p_inf*V-energy_offset*m; four energy/entropy integrals",
+  "volume_actuation": "Prescribed V0+rate*time; pressure work included, actuator inertia/loads not solved",
+  "parameter_scope": "Manufactured synthetic fluids and ideal-gas limit; no water calibration or phase-validity claim",
+  "sources": ["https://lanl.github.io/singularity-eos/jhp/two_eos/src/models.html", "https://mooseframework.inl.gov/docs/site/source/fluidproperties/StiffenedGasFluidProperties.html", "Declared conservation and entropy equations with analytic process references"],
+  "qualification": "validation/ai05_compressible_storage_delivery_v1.json",
+  "documentation": "docs/AI_05_COMPRESSIBLE_STORAGE_RU.md",
+  "unsupported": ["inertial/acoustic transport", "gravity with variable mass", "mixed fluids", "choking/cavitation", "two phase", "IAPWS network coupling", "automatic composition with Boussinesq/inertial backend", "plant validation"],
+  "validated": false,
+  "plant_referenced": false
+}

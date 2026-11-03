@@ -1,0 +1,29 @@
+{
+  "accepted": true,
+  "report_sha256": "9693cd1e0a1b87af2d675b759d016399bc382c14336299e9875db186a93c3029",
+  "signature": {
+    "runtime": {
+      "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+      "drivers": {
+        "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+        "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928",
+        "scripts/thermal_inertial_graph.py": "767145fe44da7c28e66ff968471adf7d1e74a5376708c15ea066b21a9c7601bb",
+        "scripts/buoyant_inertial_graph.py": "d888c0e96f89ba1a1e79e5981b70286c379ff2eb005a4ebbefc0487cdfd172bf"
+      },
+      "budgets": {
+        "validation/ai05_inertial_graph_budget_v1.json": "79e86139c02d2216b137c5d569b8f92e0c7984bce5811fb0d5074f9aaa2591b1",
+        "validation/ai05_thermal_inertial_budget_v1.json": "610a61bea07784c5c97246c3a3d49a3b9f1944de40cc17b978bd6b3a3c9584a2",
+        "validation/ai05_buoyant_graph_budget_v1.json": "7042fbf4147d590c40ddda273fce04a20491416e2a646b76c66dd8504290c547"
+      },
+      "python": "3.12.9",
+      "numpy": "2.2.6",
+      "scipy": "1.15.2"
+    },
+    "qualification": {
+      "scripts/thermal_inertial_references.py": "69ed5e030d3db02a94ae0917bcbf92b1c70f8b8c9d1dc20a1865f386852fd0a1",
+      "scripts/inertial_graph_references.py": "80c80163fcf3a80ae2b3fea95bc68bd53feefc4b1e852f3635502a79a58be9a3",
+      "scripts/qualify_buoyant_graph.py": "502f744a31784896beedeb6df4459766fb6ea9cd0df1d25bba304f256328ee6e",
+      "scripts/buoyant_graph_references.py": "6e18e0009452b2d5af65cf6a214068d52de231ce440e6892cd56f1859115e352"
+    }
+  }
+}

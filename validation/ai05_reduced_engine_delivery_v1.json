@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-03",
+  "status": "partial",
+  "passed": true,
+  "scope": "One registered constant-rho/cp thermal graph family; reduced Radau with Newton algebraic projection and conservative macro-domain admission",
+  "baseline": "validation/ai05_reduced_engine_baseline_v1.json",
+  "audit": "validation/ai05_reduced_engine_audit_v1.json",
+  "portable_replay": "validation/ai05_reduced_engine_portable_replay_v1.json",
+  "documentation": "docs/AI_05_REDUCED_RESIDUAL_ENGINE_RU.md",
+  "cases": 6,
+  "production_mesh_trajectories": 18,
+  "independent_ivps": 12,
+  "bidirectional_handoffs": 12,
+  "maximum_nodes": 8,
+  "horizon_s": 120,
+  "maximum_reference_errors": {
+    "temperature_k": 4.661274033423979e-09,
+    "flow_kg_s": 1.4052314867285531e-10,
+    "energy_j": 0.0001132860779762268,
+    "energy_residual_j": 9.313225746154785e-08
+  },
+  "maximum_split_handoff_errors": {
+    "split_temperature_k": 0,
+    "split_energy_j": 0,
+    "imported_temperature_k": 2.2737367544323206e-13,
+    "imported_energy_j": 1.1613592505455017e-05,
+    "exported_temperature_k": 9.50063849813887e-09,
+    "exported_energy_j": 0.0002313181757926941
+  },
+  "measured_maximum_internal_steps_s": {
+    "pipe_reverse": [
+      1.733411002569093,
+      0.8889,
+      0.45031610648863857
+    ],
+    "8_mixed_negative": [
+      1.5925778221027083,
+      0.8425165019423233,
+      0.4503031872378366
+    ],
+    "bridge_reversal": [
+      1.5836947375390016,
+      0.653232844183527,
+      0.45034223900464415
+    ],
+    "idle_heating": [
+      1.6104272007076528,
+      0.8889,
+      0.4504070950496335
+    ],
+    "pipe_positive": [
+      1.7338894507343015,
+      0.8889,
+      0.4503671845715092
+    ],
+    "cycle_cooling": [
+      1.4144012669193535,
+      0.8889,
+      0.44252678573786663
+    ]
+  },
+  "configured_maximum_macro_steps_s": [
+    2.0,
+    1.0,
+    0.5
+  ],
+  "native_restart_values_identical": true,
+  "legacy_hydraulic_or_time_solver_used_during_continuation": false,
+  "registered_system_families": [
+    "constant_rho_thermal_graph_v1"
+  ],
+  "collocation_history_policy": "Fresh at every macro segment; not serialized or transferred",
+  "legacy_handoff_policy": "Temperature increments and scaled external-energy integral in original frame/time; native DP proposal explicitly reset",
+  "accepted_tasks_unchanged": 43,
+  "total_tasks": 109,
+  "ai05_accepted_tasks_unchanged": 4,
+  "remaining": [
+    "Arbitrary nonlinear equipment registration and mixed assembly",
+    "Online command and event coupling to reduced backend",
+    "Hydraulic inertia/compressibility",
+    "Variable density/EOS and calibrated properties",
+    "External experimental/plant validation"
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "scope": "Constant-density inertial pipe graphs with fixed boundary roles and explicit kinetic/work/exported-heat ledger",
+  "maximum_nodes": 8,
+  "maximum_edges": 12,
+  "maximum_macro_step_s": 2.0,
+  "maximum_duration_s": 1000.0,
+  "maximum_rhs_evaluations": 200000,
+  "maximum_internal_steps": 20000,
+  "maximum_commands": 128,
+  "maximum_projection_condition": 1000000000000.0,
+  "mass_atol_kg_s": 1e-10,
+  "momentum_atol_pa": 1e-6,
+  "energy_atol_j": 1e-6,
+  "energy_rtol": 1e-9,
+  "reference_flow_atol_kg_s": 1e-7,
+  "reference_pressure_atol_pa": 1e-5,
+  "reference_energy_atol_j": 0.001,
+  "validated": false,
+  "plant_referenced": false
+}

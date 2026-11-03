@@ -1,0 +1,16 @@
+{
+  "config": {
+    "action_dt_s": 0.01,
+    "episode_horizon_s": 0.03,
+    "max_step_s": 0.0005,
+    "preset": "mixed_ports"
+  },
+  "objective": {
+    "sensor": "wall.w0",
+    "target_k": 300.1,
+    "tolerance_k": 0.09
+  },
+  "schema_version": 1,
+  "seed": 17,
+  "split": "train"
+}

@@ -1,0 +1,23 @@
+{
+  "accepted": true,
+  "report_sha256": "9276366ad72531d282f2ed6d6081e4f42210fffc465cb6e6a3b07f29e3dc4f3c",
+  "signature": {
+    "runtime": {
+      "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+      "drivers": {
+        "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+        "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928"
+      },
+      "budgets": {
+        "validation/ai05_inertial_graph_budget_v1.json": "79e86139c02d2216b137c5d569b8f92e0c7984bce5811fb0d5074f9aaa2591b1"
+      },
+      "python": "3.12.9",
+      "numpy": "2.2.6",
+      "scipy": "1.15.2"
+    },
+    "qualification": {
+      "scripts/inertial_graph_references.py": "80c80163fcf3a80ae2b3fea95bc68bd53feefc4b1e852f3635502a79a58be9a3",
+      "scripts/qualify_inertial_graph.py": "fdca1ee3ecbd1a5f43de024d81594b90543db06467d4e93f9467748364e0b64f"
+    }
+  }
+}

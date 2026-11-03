@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "scope": "One-shot directional temperature guards on the fixed-property Radau graph; monotone admitted intervals, dense-output root brackets and atomic command switching",
+  "maximum_guards": 16,
+  "maximum_duration_s": 10000,
+  "maximum_attempts_per_advance": 20000,
+  "maximum_rhs_evaluations_per_advance": 200000,
+  "maximum_root_evaluations_per_advance": 20000,
+  "maximum_guard_box_refinements": 20,
+  "maximum_root_iterations": 80,
+  "minimum_transversal_rate_k_s": 1e-09,
+  "minimum_event_progress_s": 1e-09,
+  "root_time_atol_s": 1e-08,
+  "root_value_atol_k": 1e-08,
+  "maximum_energy_error_j": 0.0001,
+  "maximum_reference_temperature_error_k": 0.000001,
+  "maximum_reference_pressure_error_pa": 0.00001,
+  "maximum_reference_flow_error_kg_s": 0.0000001,
+  "maximum_reference_energy_error_j": 0.1,
+  "maximum_reference_event_time_error_s": 0.00001,
+  "validated": false,
+  "plant_referenced": false
+}

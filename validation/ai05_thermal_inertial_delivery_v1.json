@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-03",
+  "status": "partial",
+  "passed": true,
+  "scope": "Fixed-density two-way thermal/inertial pipe family with upwind transport, R(T), friction recovery and mechanical/thermal/total balances",
+  "baseline": "validation/ai05_thermal_inertial_baseline_v1.json",
+  "audit": "validation/ai05_thermal_inertial_audit_v1.json",
+  "portable_replay": "validation/ai05_thermal_inertial_portable_replay_v1.json",
+  "passport": "validation/ai05_thermal_inertial_passport_v1.json",
+  "documentation": "docs/AI_05_THERMAL_INERTIAL_RU.md",
+  "campaign": "artifacts/ai05_thermal_inertial_campaign_v2.json",
+  "archive": "artifacts/ai05_thermal_inertial_release_v1.tar.gz",
+  "cases": 9,
+  "production_mesh_trajectories": 27,
+  "independent_ivps": 18,
+  "maximum_nodes": 8,
+  "horizon_s": 40,
+  "observations_per_trajectory": 7,
+  "main_observation_count": 189,
+  "negative_checks": 3,
+  "maximum_reference_errors": {
+    "flow_kg_s": 7.662981360567755e-12,
+    "pressure_pa": 6.373738870024681e-09,
+    "temperature_k": 2.3522375158790965e-09,
+    "energy_j": 7.2133494541049e-05
+  },
+  "accepted_task_count": 43,
+  "total_tasks": 109,
+  "ai05_accepted_tasks": 4,
+  "ai05_total_tasks": 8,
+  "limitations": [
+    "Constant rho/cp and fixed volumes; no buoyancy, EOS or thermal expansion",
+    "Recovered friction split equally between endpoint thermal inventories; no resolved pipe temperature profile",
+    "No advective kinetic-energy transport, pressure waves, two-phase/cavitation or mixed equipment backend",
+    "Stage/observation domain checks, not rigorous interstage interval guarantee",
+    "No experimental/plant validation, cross-platform exact replay, publisher authentication or remote CI claim"
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

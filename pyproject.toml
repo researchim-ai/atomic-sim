@@ -44,6 +44,7 @@ gui = [
 ]
 dev = [
     "pytest>=7.4.0",
+    "jsonschema>=4.18.0",
     "pytest-cov>=4.1.0",
     "black>=23.0.0",
     "ruff>=0.0.290",
@@ -55,6 +56,9 @@ atomic-sim = "generate_dataset:main"
 atomic-experiment = "sdk.experiment:main"
 atomic-channel-experiment = "sdk.channel_experiment:main"
 atomic-dynamic-experiment = "sdk.dynamic_experiment:main"
+atomic-model-workspace = "atomic_model_workspace.__main__:main"
+atomic-model-experiment = "atomic_model_runtime.experiment:main"
+atomic-agent-tools = "atomic_agent_tools.__main__:main"
 atomic-agent-replay = "agent_envs.replay:main"
 atomic-agent-benchmark = "agent_envs.benchmark:main"
 atomic-euler-experiment = "sdk.euler_experiment:main"
@@ -80,6 +84,7 @@ Repository = "https://github.com/researchim-ai/atomic-sim"
 py-modules = ["generate_dataset"]
 
 [tool.setuptools.package-data]
+atomic_model_runtime = ["presets/*.json"]
 data = ["sources.json"]
 scenarios = ["*.yaml", "*.json"]
 validation = ["*.json"]
@@ -99,6 +104,10 @@ include = [
     "coupling*",
     "validation*",
     "agent_envs*",
+    "atomic_agent_tools*",
+    "atomic_model_runtime*",
+    "atomic_model_workspace*",
+    "scripts",
     "sdk*",
     "scenarios*",
     "data*",

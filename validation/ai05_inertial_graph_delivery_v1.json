@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-03",
+  "status": "partial",
+  "passed": true,
+  "scope": "Connected constant-density positive-inertance pipe family with explicit boundaries, mass constraints and mechanical ledger; standalone backend",
+  "baseline": "validation/ai05_inertial_graph_baseline_v1.json",
+  "audit": "validation/ai05_inertial_graph_audit_v1.json",
+  "portable_replay": "validation/ai05_inertial_graph_portable_replay_v1.json",
+  "passport": "validation/ai05_inertial_graph_passport_v1.json",
+  "documentation": "docs/AI_05_INERTIAL_GRAPH_RU.md",
+  "campaign": "artifacts/ai05_inertial_graph_campaign_v3.json",
+  "archive": "artifacts/ai05_inertial_graph_release_v2.tar.gz",
+  "cases": 9,
+  "production_mesh_trajectories": 27,
+  "independent_ivps": 18,
+  "maximum_nodes": 8,
+  "maximum_multicycle_coordinates_in_unit_tests": 4,
+  "horizon_s": 40,
+  "observations_per_trajectory": 7,
+  "main_observation_count": 189,
+  "negative_checks": 3,
+  "maximum_reference_errors": {
+    "flow_kg_s": 4.360956040727615e-13,
+    "pressure_pa": 1.2223608791828156e-09,
+    "energy_j": 1.673470251262188e-10
+  },
+  "accepted_task_count": 43,
+  "total_tasks": 109,
+  "ai05_accepted_tasks": 4,
+  "ai05_total_tasks": 8,
+  "limitations": [
+    "Positive inertance on every pipe; no zero-inertance or arbitrary mixed-equipment DAE",
+    "Lumped constant-density momentum without convective acceleration/advective kinetic-energy transport",
+    "Dissipation exported to ideal heat bath; no temperature/EOS/thermal coupling or co-heated natural circulation",
+    "Stage and accepted observation domain checks, not rigorous interstage interval proof",
+    "No experimental/plant validation, cross-platform exact replay, publisher authentication or remote CI claim"
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

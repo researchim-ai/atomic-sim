@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "archive": "/home/user/workspace/atomic-sim/artifacts/ai05_scheduled_graph_release_v1.tar.gz",
+  "archive_sha256": "18504a948397f2e321f012d09a2d4ac288ea7b8e3b9423cbbcd31ff53b798df3",
+  "manifest_sha256": "9d4fdcbf6819f7b6d8d0deab93b29461259d03225bd6fdff9f3408c9d3cd4a3a",
+  "byte_identical_archive_rebuild": true,
+  "archived_audit_identical": true,
+  "checkout_pythonpath_removed": true,
+  "installed_wheel_sha256": "a25ec260331cf57bef3f6c620bf1ef141f604b1d85e17787a1d4eee7e2f18201",
+  "focused_tests_replayed": 62,
+  "cli_restart_completed_s": 120,
+  "example_flow_reversal_verified": true,
+  "scope": "Fresh offline no-deps wheel with archived engineering companions outside checkout; inherited Python/numpy/scipy/pytest",
+  "validated": false,
+  "plant_referenced": false
+}

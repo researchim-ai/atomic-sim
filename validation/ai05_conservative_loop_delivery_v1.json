@@ -1,0 +1,78 @@
+{
+  "acceptance_unchanged": {
+    "ai05": "4/8",
+    "total": "43/109"
+  },
+  "archive_sha256": "e8ef0e1029cd3361ac41943779bfa1e82a18e2e993549fbd0e8fe4847be8452b",
+  "campaign": {
+    "cases": 9,
+    "horizon_s": 2,
+    "independent_reference_programs": 18,
+    "independent_solve_ivp_segments": 126,
+    "observations": 189,
+    "trajectories": 27
+  },
+  "date": "2026-11-03",
+  "files": {
+    ".github/workflows/ci.yml": "b0031ef2494ebdff9b74234b7c46205f2bdbd1403d3cfe2b6812934d1c2881f7",
+    "artifacts/ai05_conservative_loop_bundle_v1.json": "d6d77386fdc79c6c842482abf99c391d11348bf8a0cd725391d55ff5f174f0c2",
+    "artifacts/ai05_conservative_loop_campaign_v1.json": "d2e2fdec44e80ec6c272449c0cb6b8e7d57b4cedea8518dcd1b04784167fc109",
+    "artifacts/ai05_conservative_loop_portable_v2/audit.json": "20ed163f4052c7407692ab6b7dfd11f2304a940c77b793bf92fda401705145f7",
+    "artifacts/ai05_conservative_loop_portable_v2/example.json": "7a8725e841753e2d18e8bdb7f99ed921c774d894734f63ed385b78b1a4172689",
+    "artifacts/ai05_conservative_loop_portable_v2/install.log": "1374d2c3439831e3bdeb0695d48c7595f69dbdd9c2f06cb4a67838500a7d4727",
+    "artifacts/ai05_conservative_loop_portable_v2/tests.log": "a125fe290d733756bc98bbd57f1ae83fe3020390b6c1e40e9419f0c298cafe4e",
+    "artifacts/ai05_conservative_loop_selection_v1.json": "4358786f02dfba9ac0a31c977dcd2e1de48dc676fa9884cfe781ec32cf21d873",
+    "artifacts/conservative_loop_example.json": "7a8725e841753e2d18e8bdb7f99ed921c774d894734f63ed385b78b1a4172689",
+    "artifacts/conservative_loop_regression.log": "b46b855a9b1492caf50c2461bae9de748de94ab8c481a282008ef1e779776b3a",
+    "docs/AI_05_CONSERVATIVE_EOS_LOOP_RU.md": "1e62724ccf084624bb953b15329cfd564f2f68852abeba8d2ae3cbf15369f5d0",
+    "docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md": "0918592bc30335851ba9827c47bdb57ff393d879ea8da12c0959fac61805e04a",
+    "examples/conservative_eos_loop.py": "fe7b6b57410c58ba6637522a86427ff3488808e737dfcc8f7b3d3aa5b42194de",
+    "scripts/audit_conservative_loop.py": "08df6b7f6c6e3d28c363ab9e7d2d98b95bb053a595fc4638ee12816a38006dde",
+    "scripts/conservative_eos_loop.py": "7ec22d9c837bb2508e836f7101c79882ecca69cc7a958276e064781be056fee9",
+    "scripts/conservative_loop_references.py": "d2fa8b6858edbbdc624c91dc97055b9706495dcf8931ef5f44c3794366fbda9e",
+    "scripts/qualify_conservative_loop.py": "80208761f13c7007c932cf0d07f1155f4005e75203ab103ea8136694a05c3178",
+    "tests/test_conservative_eos_loop.py": "ae23afafb8b31607c716f57fdf8829453a16844ca8ef9e330025bfae726fb3ba",
+    "tests/test_conservative_loop_audit.py": "b7f495ec9488e94cfdc949231b1b40acf7689adcc584cb620f1752a14909420b",
+    "validation/ai05_conservative_loop_audit_v1.json": "20ed163f4052c7407692ab6b7dfd11f2304a940c77b793bf92fda401705145f7",
+    "validation/ai05_conservative_loop_budget_v1.json": "e21c0b6badf1483e3336dabf57a037901820d7bdee84615ebdc5a381d3c04a4f",
+    "validation/ai05_conservative_loop_passport_v1.json": "98ae4b70daf24ddb50a752957ad82406d12cbd4c204404ed47ab83414ad85ddb",
+    "validation/ai05_conservative_loop_portable_replay_v1.json": "72a0ad32c3034eb38dbb58cb7ae52328f18b16374586dc5c00190367ead4ee71",
+    "validation/ai_industrial_workplan_v1.json": "bfff478f7633d5a1314a7bda4226dc0eb86f090e58cc9a996e3cabd1136abf43"
+  },
+  "manifest_sha256": "5da508c96382a6f9923198a525a2a1bdca221b9157a4161e99283fdf092bcdbf",
+  "plan_version": "1.43.0",
+  "plant_referenced": false,
+  "portable_release": true,
+  "portable_replay": "validation/ai05_conservative_loop_portable_replay_v1.json",
+  "provenance": {
+    "scripts/audit_conservative_loop.py": "08df6b7f6c6e3d28c363ab9e7d2d98b95bb053a595fc4638ee12816a38006dde",
+    "scripts/conservative_loop_references.py": "d2fa8b6858edbbdc624c91dc97055b9706495dcf8931ef5f44c3794366fbda9e",
+    "scripts/qualify_conservative_loop.py": "80208761f13c7007c932cf0d07f1155f4005e75203ab103ea8136694a05c3178",
+    "scripts/storage_graph_references.py": "e2bb42e6a85d60e4a25aa5fcb5afee770b6c46a560eb0a816cb5e06dda2f7bc8"
+  },
+  "schema_version": 1,
+  "signature": {
+    "budgets": {
+      "validation/ai05_compressible_storage_budget_v1.json": "cd9d496635eabded1e879fd2bec25ed1a7f9fa048369f62213ac6d21eb6f4883",
+      "validation/ai05_conservative_loop_budget_v1.json": "e21c0b6badf1483e3336dabf57a037901820d7bdee84615ebdc5a381d3c04a4f"
+    },
+    "drivers": {
+      "scripts/compressible_storage_graph.py": "9b03cf5fc202ba6bb5190212513f3c8a800deeb4cf640d61dee4147b01a8ecf1",
+      "scripts/conservative_eos_loop.py": "7ec22d9c837bb2508e836f7101c79882ecca69cc7a958276e064781be056fee9",
+      "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+      "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928"
+    },
+    "numpy": "2.2.6",
+    "python": "3.12.9",
+    "scipy": "1.15.2",
+    "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a"
+  },
+  "status": "partial",
+  "tests": {
+    "auditor": 26,
+    "full_repository_run": false,
+    "new_family": 30,
+    "related_regression_passed": 335
+  },
+  "validated": false
+}

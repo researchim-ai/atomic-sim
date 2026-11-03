@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-03",
+  "status": "partial",
+  "passed": true,
+  "scope": "Serialized supervisory calendar/online/state control over declared fixed-property Radau modes",
+  "baseline": "validation/ai05_supervision_baseline_v1.json",
+  "audit": "validation/ai05_supervision_audit_v1.json",
+  "portable_replay": "validation/ai05_supervision_portable_replay_v1.json",
+  "documentation": "docs/AI_05_SUPERVISED_MODES_RU.md",
+  "campaign": "artifacts/ai05_supervision_campaign_v4.json",
+  "cases": 9,
+  "production_mesh_trajectories": 27,
+  "independent_ivps": 26,
+  "maximum_nodes": 8,
+  "horizon_s": 120,
+  "maximum_reference_errors": {
+    "event_time_error_s": 4.9791566425483325e-09,
+    "temperatures_k_maximum_error": 6.1331775214057416e-09,
+    "pressures_pa_maximum_error": 1.2185773812234402e-07,
+    "flows_kg_s_maximum_error": 2.0305446213342293e-10,
+    "energy_error_j": 0.0038117405492812395
+  },
+  "accepted_task_count": 43,
+  "total_tasks": 109,
+  "ai05_accepted_tasks": 4,
+  "ai05_total_tasks": 8,
+  "limitations": [
+    "Endpoint and event comparison, not a bound on every internal ODE step",
+    "Online decisions supplied to independent physics; policy not independently validated",
+    "No general equipment assembly, arbitrary guards/reset/priorities or controller/RNG persistence",
+    "No experimental/plant validation, cross-platform exact replay or remote CI claim"
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

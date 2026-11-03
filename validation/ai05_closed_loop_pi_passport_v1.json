@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "model": "closed-loop-eos-pi-v1",
+  "status": "experimental_numerically_checked",
+  "validated": false,
+  "plant_referenced": false,
+  "scope": "Atomic deterministic sampled PI/sensor/finite-inventory EOS episodes on restricted two-circuit thermal assembly",
+  "controller": {
+    "kind": "sampled_pi_conditional_v1",
+    "filter": "sampled EWMA, initialized to true initial sensor temperature",
+    "output": "zero-order held signed heat power",
+    "anti_windup": "trial conditional integration against amplitude and discrete slew bounds",
+    "gains": "fixed, nonnegative Kp/Ki; no tuning or closed-loop stability guarantee"
+  },
+  "domain": {
+    "minimum_sample_period_s": 0.001,
+    "maximum_sample_period_s": 0.1,
+    "campaign_sample_period_s": 0.01,
+    "maximum_episode_ticks": 128,
+    "maximum_ticks_per_transaction": 32,
+    "maximum_absolute_output_w": 1000000.0
+  },
+  "transactions": {
+    "revision": "one per batch, one nested plant revision per tick",
+    "rollback": "entire batch includes controller/filter/plant/receipts",
+    "work_budget": "remaining RHS/substeps strictly tighten each nested integration transaction",
+    "concurrency": "per-instance in-process serialized API",
+    "checkpoint": "replay controller recurrence from recorded truths and cross-check nested plant receipt chain"
+  },
+  "limitations": [
+    "sampled filter and discrete slew, not a continuous sensor/actuator model",
+    "fixed setpoint/gains; no bumpless mode transfer, external-agent protocol or general hybrid events",
+    "same-environment exact replay; history hashes do not authenticate measurements",
+    "synthetic EOS, restricted hydraulic topology; no target-fluid/phase/plant validation",
+    "short eight-case campaign, no general stability/optimality claim",
+    "no full repository regression; offline replay inherits scientific dependencies"
+  ],
+  "evidence": [
+    "scripts/closed_loop_eos_pi.py",
+    "scripts/eos_pi_references.py",
+    "scripts/qualify_eos_pi.py",
+    "tests/test_closed_loop_eos_pi.py",
+    "tests/test_eos_pi_audit.py",
+    "docs/AI_05_CLOSED_LOOP_EOS_PI_RU.md",
+    "artifacts/ai05_closed_loop_pi_campaign_v1.json",
+    "artifacts/closed_loop_pi_regression.log"
+  ]
+}

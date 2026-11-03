@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "batch_id": "eos-workspace-v1",
+  "date": "2026-11-04",
+  "scope": "Ten implementation items, not ten full industrial plan tasks",
+  "items": [
+    {
+      "id": "EOS-W01",
+      "title": "portable-project",
+      "plan_tasks": [
+        "AI-11.01"
+      ],
+      "status": "implemented",
+      "verification": "validation/ai11_workspace_delivery_v1.json"
+    },
+    {
+      "id": "EOS-W02",
+      "title": "strict-preflight",
+      "plan_tasks": [
+        "AI-11.01",
+        "AI-12.07"
+      ],
+      "status": "implemented",
+      "verification": "validation/ai11_workspace_delivery_v1.json"
+    },
+    {
+      "id": "EOS-W03",
+      "title": "two-local-baselines",
+      "plan_tasks": [
+        "AI-13.02"
+      ],
+      "status": "implemented",
+      "verification": "validation/ai11_workspace_delivery_v1.json"
+    },
+    {
+      "id": "EOS-W04",
+      "title": "observation-only-decisions",
+      "plan_tasks": [
+        "AI-11.05"
+      ],
+      "status": "implemented",
+      "verification": "validation/ai11_workspace_delivery_v1.json"
+    },
+    {
+      "id": "EOS-W05",
+      "title": "durable-job-lifecycle",
+      "plan_tasks": [
+        "AI-11.03"
+      ],
+      "status": "implemented",
+      "verification": "validation/ai11_workspace_delivery_v1.json"
+    },
+    {
+      "id": "EOS-W06",
+      "title": "isolated-campaign-recovery",
+      "plan_tasks": [
+        "AI-10.06",
+        "AI-11.03"
+      ],
+      "status": "implemented",
+      "verification": "validation/ai11_workspace_delivery_v1.json"
+    },
+    {
+      "id": "EOS-W07",
+      "title": "metrics-ledgers-and-report",
+      "plan_tasks": [
+        "AI-11.04",
+        "AI-11.06"
+      ],
+      "status": "implemented",
+      "verification": "validation/ai11_workspace_delivery_v1.json"
+    },
+    {
+      "id": "EOS-W08",
+      "title": "compatible-comparison",
+      "plan_tasks": [
+        "AI-13.03",
+        "AI-13.04"
+      ],
+      "status": "implemented",
+      "verification": "validation/ai11_workspace_delivery_v1.json"
+    },
+    {
+      "id": "EOS-W09",
+      "title": "bounded-data-archive",
+      "plan_tasks": [
+        "AI-12.07",
+        "AI-11.06"
+      ],
+      "status": "implemented",
+      "verification": "validation/ai11_workspace_delivery_v1.json"
+    },
+    {
+      "id": "EOS-W10",
+      "title": "installed-user-route",
+      "plan_tasks": [
+        "AI-11.08",
+        "AI-12.02"
+      ],
+      "status": "implemented",
+      "verification": "validation/ai11_workspace_delivery_v1.json"
+    }
+  ],
+  "accepted_plan_tasks": [
+    "AI-11.03",
+    "AI-11.08",
+    "AI-13.02"
+  ],
+  "plan_task_counts": {
+    "accepted": 47,
+    "in_progress": 19,
+    "planned": 43
+  },
+  "validated": false,
+  "plant_referenced": false
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "scope": "Registered constant-rho/cp graph with reduced Radau, algebraic Newton projection and conservative macro-interval admission",
+  "maximum_macro_step_s": 2.0,
+  "minimum_macro_step_s": 1e-07,
+  "maximum_attempts": 20000,
+  "maximum_duration_s": 10000,
+  "maximum_newton_iterations": 12,
+  "maximum_backtracks": 16,
+  "algebraic_tolerance_factor": 0.001,
+  "rtol": 1e-09,
+  "temperature_atol_k": 1e-10,
+  "energy_atol_j": 1e-05,
+  "maximum_energy_error_j": 0.0001,
+  "maximum_reference_temperature_error_k": 1e-06,
+  "maximum_reference_flow_error_kg_s": 1e-07,
+  "maximum_reference_energy_error_j": 0.1,
+  "maximum_split_temperature_error_k": 1e-06,
+  "maximum_split_energy_error_j": 0.1,
+  "validated": false,
+  "plant_referenced": false,
+  "maximum_rhs_evaluations_per_advance": 200000
+}

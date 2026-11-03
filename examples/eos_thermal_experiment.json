@@ -1,0 +1,31 @@
+{
+  "config": {
+    "action_dt_s": 0.01,
+    "episode_horizon_s": 0.03,
+    "max_step_s": 0.0005,
+    "preset": "mixed_ports"
+  },
+  "model_id": "eos-thermal-assembly-v1",
+  "schema_version": 1,
+  "timeline": [
+    {
+      "decision": 2,
+      "heat_power_w": {
+        "primary.chamber.left": 0.0,
+        "primary.chamber.right": 0.0,
+        "primary.channel.c0": 0.0,
+        "primary.channel.c1": 0.0,
+        "primary.channel.c2": 0.0,
+        "primary.channel.c3": 0.0,
+        "secondary.chamber.left": 0.0,
+        "secondary.chamber.right": 0.0,
+        "secondary.channel.c0": 0.0,
+        "secondary.channel.c1": 0.0,
+        "secondary.channel.c2": 0.0,
+        "secondary.channel.c3": 0.0,
+        "wall.w0": 500.0,
+        "wall.w1": 0.0
+      }
+    }
+  ]
+}

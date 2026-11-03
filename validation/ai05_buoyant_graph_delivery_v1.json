@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-03",
+  "status": "partial",
+  "passed": true,
+  "scope": "Closed heated/cooled energy-compensated lumped Boussinesq loops, fixed mass density with gravity-only thermal anomaly",
+  "baseline": "validation/ai05_buoyant_graph_baseline_v1.json",
+  "audit": "validation/ai05_buoyant_graph_audit_v1.json",
+  "portable_replay": "validation/ai05_buoyant_graph_portable_replay_v1.json",
+  "passport": "validation/ai05_buoyant_graph_passport_v1.json",
+  "documentation": "docs/AI_05_BUOYANT_GRAPH_RU.md",
+  "campaign": "artifacts/ai05_buoyant_graph_campaign_v1.json",
+  "archive": "artifacts/ai05_buoyant_graph_release_v1.tar.gz",
+  "cases": 9,
+  "production_mesh_trajectories": 27,
+  "independent_ivps": 18,
+  "maximum_nodes": 8,
+  "horizon_s": 40,
+  "observations_per_trajectory": 7,
+  "main_observation_count": 189,
+  "independent_stationary_branches": 3,
+  "stationary_hold_s": 40,
+  "stationary_errors": {
+    "heated_startup": {
+      "flows_kg_s": 2.3869795029440866e-15,
+      "temperatures_k": 3.410605131648481e-13,
+      "pressures_pa": 2.9103830456733704e-11
+    },
+    "mirror_startup": {
+      "flows_kg_s": 2.498001805406602e-16,
+      "temperatures_k": 5.684341886080802e-14,
+      "pressures_pa": 5.820766091346741e-11
+    },
+    "eight_nodes": {
+      "flows_kg_s": 1.5612511283791264e-14,
+      "temperatures_k": 1.4779288903810084e-12,
+      "pressures_pa": 5.820766091346741e-11
+    }
+  },
+  "negative_checks": 3,
+  "maximum_reference_errors": {
+    "flow_kg_s": 1.1199374760906267e-13,
+    "pressure_pa": 2.9103830456733704e-10,
+    "temperature_k": 1.375610736431554e-11,
+    "energy_j": 4.0095025921006115e-08
+  },
+  "accepted_task_count": 43,
+  "total_tasks": 109,
+  "ai05_accepted_tasks": 4,
+  "ai05_total_tasks": 8,
+  "ai05_07_status": "in_progress",
+  "limitations": [
+    "Gravity density only; mass/inertia/capacities use constant reference density, not full EOS",
+    "Explicit cp-temperature energy proxy and endpoint exchange closure; not full Boussinesq thermodynamics/Gibbs/entropy model",
+    "Closed cycles, one pressure gauge, zero mass sources; small contrast only",
+    "Seeded steady branches not unique by assumption; no claim that startup reaches them in40s",
+    "No volume expansion, compressibility, advective kinetic transport, two-phase/cavitation or target-plant validation",
+    "No cross-platform exact replay, publisher authentication or remote CI claim"
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

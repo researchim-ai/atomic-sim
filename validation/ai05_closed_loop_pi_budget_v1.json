@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "scope": "Deterministic sampled PI on restricted mixed finite-inventory EOS assembly",
+  "minimum_sample_period_s": 0.001,
+  "maximum_sample_period_s": 0.1,
+  "maximum_filter_tau_s": 10.0,
+  "maximum_absolute_output_w": 1000000.0,
+  "maximum_ticks_per_transaction": 32,
+  "maximum_episode_ticks": 128,
+  "maximum_batch_rhs_evaluations": 300000,
+  "maximum_batch_substeps": 100000,
+  "reference_temperature_atol_k": 0.00001,
+  "reference_pressure_atol_pa": 0.02,
+  "reference_control_atol_w": 0.01,
+  "reference_energy_atol_j": 0.001,
+  "validated": false,
+  "plant_referenced": false
+}

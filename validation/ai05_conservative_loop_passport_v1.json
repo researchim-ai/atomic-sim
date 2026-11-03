@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "model": "conservative-eos-loop-v1",
+  "status": "experimental_numerically_checked",
+  "validated": false,
+  "plant_referenced": false,
+  "domain": {
+    "geometry": "periodic constant area, stationary cells",
+    "fluid": "synthetic stiffened-caloric EOS",
+    "maximum_mach": 0.2,
+    "maximum_cells": 128
+  },
+  "method": {
+    "space": "first-order hydrostatic Rusanov",
+    "time": "SSPRK3",
+    "maximum_courant": 0.35
+  },
+  "scope": [
+    "variable cell mass and momentum",
+    "full kinetic and gravitational potential energy transport",
+    "heat and drag energy/entropy ledgers",
+    "atomic heater commands and same-environment restart"
+  ],
+  "limitations": [
+    "no general branched network assembly",
+    "no open boundaries or piston coupling",
+    "no target-fluid calibration or phase validation",
+    "no all-state entropy stability proof",
+    "no cross-platform bitwise replay claim",
+    "full repository regression for this family not run"
+  ],
+  "evidence": [
+    "artifacts/ai05_conservative_loop_campaign_v1.json",
+    "artifacts/conservative_loop_regression.log",
+    "tests/test_conservative_eos_loop.py",
+    "validation/ai05_conservative_loop_audit_v1.json",
+    "validation/ai05_conservative_loop_portable_replay_v1.json",
+    "tests/test_conservative_loop_audit.py"
+  ],
+  "contact_refinement": {
+    "cells": [
+      16,
+      32,
+      64
+    ],
+    "horizon_s": 0.05,
+    "max_step_s": 0.0002,
+    "density_l1_errors_kg_m3": [
+      0.0036596079569142237,
+      0.001966850406330156,
+      0.001019709696029901
+    ],
+    "successive_ratios": [
+      1.8606437709426493,
+      1.928833680789559
+    ]
+  },
+  "portable_scope": "Fresh offline no-deps wheel installation, archived audit, 56 tests and example outside checkout; inherited scientific dependencies, no full campaign rerun"
+}

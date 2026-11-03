@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "model": "open-eos-channel-v1",
+  "status": "experimental_numerically_checked",
+  "validated": false,
+  "plant_referenced": false,
+  "scope": "Nonperiodic conservative Euler channel with prescribed exterior face states and separate signed transport on each boundary",
+  "domain": {
+    "maximum_cells": 64,
+    "maximum_mach": 0.2,
+    "maximum_step_s": 0.002,
+    "maximum_duration_per_advance_s": 2.0,
+    "fluid": "synthetic stiffened-caloric EOS"
+  },
+  "method": {
+    "space": "first-order hydrostatic Rusanov",
+    "time": "SSPRK3",
+    "boundary": "exterior-state Riemann interfaces",
+    "boundary_transport": "mass, momentum including pressure, physical total energy, numerical entropy flux; positive into channel"
+  },
+  "limitations": [
+    "no finite dynamic reservoir inventories",
+    "no characteristic or nonreflecting boundary guarantee",
+    "no hydraulic branching or shared-wall assembly in this backend",
+    "no online boundary-state commands",
+    "no calibrated target-fluid EOS or phase/plant validation",
+    "no full repository regression for this family",
+    "portable verification inherits scientific dependencies; no full campaign rerun or cross-platform proof"
+  ],
+  "evidence": [
+    "scripts/open_eos_channel.py",
+    "scripts/open_channel_references.py",
+    "scripts/qualify_open_channel.py",
+    "tests/test_open_eos_channel.py",
+    "tests/test_open_channel_audit.py",
+    "docs/AI_05_OPEN_EOS_CHANNEL_RU.md",
+    "artifacts/ai05_open_channel_campaign_v1.json",
+    "artifacts/open_channel_regression.log"
+  ]
+}

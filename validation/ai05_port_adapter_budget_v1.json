@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "scope": "Typed nonlinear thermal stock and algebraic hydraulic residual; constant rho/cp, explicit graph components and boundaries",
+  "maximum_mass_residual_kg_s": 1e-08,
+  "maximum_pressure_residual_pa": 1e-05,
+  "maximum_energy_residual_w": 1e-05,
+  "maximum_reference_rate_error_k_s": 1e-06,
+  "maximum_reference_power_error_w": 0.01,
+  "maximum_scaled_algebraic_condition": 1000000000000,
+  "validated": false,
+  "plant_referenced": false,
+  "maximum_reference_pressure_error_pa": 1e-05,
+  "maximum_reference_flow_error_kg_s": 1e-07,
+  "maximum_relative_algebraic_jacobian_error": 1e-05
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "scope": "Closed-loop energy-compensated lumped Boussinesq graph; fixed mass density and diagnostic gravity density",
+  "maximum_macro_step_s": 2.0,
+  "maximum_duration_s": 1000.0,
+  "maximum_rhs_evaluations": 200000,
+  "maximum_internal_steps": 20000,
+  "maximum_commands": 128,
+  "mass_atol_kg_s": 1e-10,
+  "momentum_atol_pa": 1e-6,
+  "energy_atol_j": 0.00001,
+  "energy_rtol": 1e-9,
+  "maximum_relative_density_change": 0.05,
+  "maximum_relative_temperature_change": 0.1,
+  "maximum_dissipation_number": 0.01,
+  "reference_temperature_atol_k": 0.000001,
+  "reference_flow_atol_kg_s": 0.0000001,
+  "reference_pressure_atol_pa": 0.00001,
+  "reference_energy_atol_j": 0.001,
+  "validated": false,
+  "plant_referenced": false
+}

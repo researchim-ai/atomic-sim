@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "model": "controlled-eos-assembly-v1",
+  "status": "experimental_numerically_checked",
+  "validated": false,
+  "plant_referenced": false,
+  "scope": "Two hydraulically isolated finite-inventory Euler circuits, typed channel/chamber wall ports, caloric walls and transactional online external heat control",
+  "domain": {
+    "circuits": 2,
+    "maximum_total_internal_cells": 64,
+    "maximum_walls": 16,
+    "maximum_mach": 0.2,
+    "maximum_step_s": 0.001,
+    "maximum_duration_per_advance_s": 0.5,
+    "fluids": "independent synthetic stiffened-caloric EOS"
+  },
+  "method": {
+    "time": "joint SSPRK3",
+    "space": "first-order hydrostatic Rusanov",
+    "stability": "per-stage acoustic and summed thermal conductance bounds"
+  },
+  "control": {
+    "kind": "full-mask signed external heat powers",
+    "revision": "checked under per-instance reentrant lock through commit",
+    "history": "bounded unique command IDs and checkpointed receipts",
+    "concurrency": "in-process serialized object calls; no distributed transactions",
+    "external_controller_state": false
+  },
+  "limitations": [
+    "restricted two-circuit topology, no arbitrary hydraulic branching/plenum/nozzle",
+    "no PID/AI or hybrid-event orchestration embedded in the assembly",
+    "no actuator power conversion/COP/dynamics",
+    "no public SDK integration or target-fluid/phase/plant calibration",
+    "no all-state entropy-stability or cross-platform exact replay proof",
+    "no full repository regression; portable environment inherits scientific dependencies"
+  ],
+  "evidence": [
+    "scripts/controlled_eos_assembly.py",
+    "scripts/controlled_assembly_references.py",
+    "scripts/qualify_controlled_assembly.py",
+    "tests/test_controlled_eos_assembly.py",
+    "tests/test_controlled_assembly_audit.py",
+    "docs/AI_05_CONTROLLED_EOS_ASSEMBLY_RU.md",
+    "artifacts/ai05_controlled_assembly_campaign_v1.json",
+    "artifacts/controlled_assembly_regression.log"
+  ]
+}

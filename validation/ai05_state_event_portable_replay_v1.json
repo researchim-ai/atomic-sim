@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "archive": "/home/user/workspace/atomic-sim/artifacts/ai05_state_event_release_v1.tar.gz",
+  "archive_sha256": "d198e450b28229bb6e43481f57805409741c7f9431d124c75d79ae0677469a3f",
+  "manifest_sha256": "1c714f972ec9f74fe10252d8851cc0ddadf1a2f491cee705aafd6063607a2ff8",
+  "byte_identical_archive_rebuild": true,
+  "archived_audit_identical": true,
+  "checkout_pythonpath_removed": true,
+  "installed_wheel_sha256": "a25ec260331cf57bef3f6c620bf1ef141f604b1d85e17787a1d4eee7e2f18201",
+  "focused_tests_replayed": 79,
+  "cases": 9,
+  "production_mesh_trajectories": 27,
+  "independent_ivps": 18,
+  "negative_checks": 3,
+  "root_checkpoint_example_s": 20,
+  "one_shot_chain_verified": true,
+  "rejected_campaign_snapshots_included": true,
+  "scope": "Fresh offline no-deps wheel and archived state-event companions outside checkout; inherited Python/numpy/scipy/pytest",
+  "validated": false,
+  "plant_referenced": false
+}

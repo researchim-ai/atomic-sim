@@ -1,0 +1,101 @@
+{
+  "acceptance_unchanged": {
+    "ai05": "4/8",
+    "total": "43/109"
+  },
+  "archive": "artifacts/ai05_open_channel_release_v1.tar.gz",
+  "archive_sha256": "7e668dcdd9bfd7865b8d5e66eb6a9d926decf46b7e5fba0c164d744941c60b4e",
+  "campaign": {
+    "cases": 12,
+    "horizon_s": 0.2,
+    "independent_reference_programs": 24,
+    "independent_solve_ivp_segments": 120,
+    "observations": 180,
+    "trajectories": 36
+  },
+  "date": "2026-11-03",
+  "files": {
+    ".github/workflows/ci.yml": "510b585a94c9b5aed18541481b3a8434d42913593983f549b6e7a92c8f51abf3",
+    "artifacts/ai05_open_channel_bundle_v1.json": "d92bc3abb6f56eb7293279ed3163a21d85b487adccda4c2d673155eb8a9bd90c",
+    "artifacts/ai05_open_channel_campaign_v1.json": "315bafb1861de8a3732d35a42d53ee7fd73bef14c59536c769c7f3fe56ae81f4",
+    "artifacts/ai05_open_channel_portable_v1/audit.json": "364a376f83844face7baec5f2452ce1ccd5591ea648ec448135499554f37bb1f",
+    "artifacts/ai05_open_channel_portable_v1/example.json": "2d8e0469c1278d780e004c35a292a73b1fa52f263b191c8c4873a2ad9fde474a",
+    "artifacts/ai05_open_channel_portable_v1/install.log": "1374d2c3439831e3bdeb0695d48c7595f69dbdd9c2f06cb4a67838500a7d4727",
+    "artifacts/ai05_open_channel_portable_v1/tests.log": "78ad81e8bcd68980330cbbdb0bb7768bc8632c854dc86ca3d6f0e33807024632",
+    "artifacts/ai05_open_channel_selection_v1.json": "5ab8d24b05b1acb872aa84ae9571a4adcfce8316d3fb685749953e10db552b11",
+    "artifacts/open_channel_example.json": "2d8e0469c1278d780e004c35a292a73b1fa52f263b191c8c4873a2ad9fde474a",
+    "artifacts/open_channel_regression.log": "f995f4c6d5e2988cfab8929e41fdd6bbe1c3fe8c9dff19de3b993ef056b64353",
+    "docs/AI_05_OPEN_EOS_CHANNEL_RU.md": "b5292a1ee71f42a3050e06e714b512473805b5286343d141189623a4c7ed01da",
+    "docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md": "4d7b76bd2bc535d064dca6afa901470355352997485cb52df2ce17563a664e0d",
+    "examples/open_eos_channel.py": "b076011e08867bff21ee1eecda8f0d546a30c51811024cb5c69fc351ab0ab8fd",
+    "scripts/compressible_storage_graph.py": "9b03cf5fc202ba6bb5190212513f3c8a800deeb4cf640d61dee4147b01a8ecf1",
+    "scripts/conservative_eos_loop.py": "7ec22d9c837bb2508e836f7101c79882ecca69cc7a958276e064781be056fee9",
+    "scripts/conservative_loop_references.py": "d2fa8b6858edbbdc624c91dc97055b9706495dcf8931ef5f44c3794366fbda9e",
+    "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+    "scripts/open_channel_references.py": "6e5ff023d19d918a715770f58deb102263737258554ab23b66a8bb5bd2ad9e74",
+    "scripts/open_eos_channel.py": "33408027f3b98e0f6263e87b385177184d326573cb9675a1fef8d2b1adb6e923",
+    "scripts/qualify_open_channel.py": "03952d46dcdc8d66a5bcf8e023a1095296cab6f81cccc37fde46cbec96df2c4c",
+    "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928",
+    "scripts/storage_graph_references.py": "e2bb42e6a85d60e4a25aa5fcb5afee770b6c46a560eb0a816cb5e06dda2f7bc8",
+    "tests/test_open_channel_audit.py": "f201c70a3136b55ca7389f3f548ecde38d4beff911578c46509dd1f80cb73ec6",
+    "tests/test_open_eos_channel.py": "92f39c9c9703cfb44f2af5863b82c1456839c250f09b82554edc5bbd4c6fc647",
+    "validation/ai05_compressible_storage_budget_v1.json": "cd9d496635eabded1e879fd2bec25ed1a7f9fa048369f62213ac6d21eb6f4883",
+    "validation/ai05_conservative_loop_budget_v1.json": "e21c0b6badf1483e3336dabf57a037901820d7bdee84615ebdc5a381d3c04a4f",
+    "validation/ai05_open_channel_audit_v1.json": "364a376f83844face7baec5f2452ce1ccd5591ea648ec448135499554f37bb1f",
+    "validation/ai05_open_channel_budget_v1.json": "7fd48810de0e630c9f1de484e919789d0d93d445aa8ac28ed242fc7884f45f86",
+    "validation/ai05_open_channel_passport_v1.json": "bbffb8e69cb8888de915df1c49f34a4770bde06c954a867a3d48062c5e2bd64c",
+    "validation/ai05_open_channel_portable_replay_v1.json": "7eca2260252bc66a225e57526e652ec91ac0e3ff68275a82576fc088ba04860f",
+    "validation/ai_industrial_workplan_v1.json": "aa3cf79fa299fa6ba381a7c97be23685c33f0fc4ae36b213821f85a96984bdad"
+  },
+  "manifest_sha256": "a67f981af2045141a1e859ad806be038a91680beb268fc06a81786bb36a031f9",
+  "maximum_balance_residuals": {
+    "energy_residual_j": 9.094947017729282e-12,
+    "entropy_residual_j_k": 9.77111528840946e-08,
+    "mass_residual_kg": 3.7730235602495554e-17,
+    "momentum_residual_kg_m_s": 2.112854335933889e-11
+  },
+  "maximum_reference_errors": {
+    "masses_kg": 3.61390467551459e-09,
+    "pressures_pa": 0.004273693659342825,
+    "temperatures_k": 1.0118737350239826e-06,
+    "velocities_m_s": 4.258919811039874e-06
+  },
+  "plan_version": "1.45.0",
+  "plant_referenced": false,
+  "portable_replay": "validation/ai05_open_channel_portable_replay_v1.json",
+  "schema_version": 1,
+  "signature": {
+    "qualification": {
+      "scripts/conservative_loop_references.py": "d2fa8b6858edbbdc624c91dc97055b9706495dcf8931ef5f44c3794366fbda9e",
+      "scripts/open_channel_references.py": "6e5ff023d19d918a715770f58deb102263737258554ab23b66a8bb5bd2ad9e74",
+      "scripts/qualify_open_channel.py": "03952d46dcdc8d66a5bcf8e023a1095296cab6f81cccc37fde46cbec96df2c4c",
+      "scripts/storage_graph_references.py": "e2bb42e6a85d60e4a25aa5fcb5afee770b6c46a560eb0a816cb5e06dda2f7bc8"
+    },
+    "runtime": {
+      "budgets": {
+        "validation/ai05_compressible_storage_budget_v1.json": "cd9d496635eabded1e879fd2bec25ed1a7f9fa048369f62213ac6d21eb6f4883",
+        "validation/ai05_conservative_loop_budget_v1.json": "e21c0b6badf1483e3336dabf57a037901820d7bdee84615ebdc5a381d3c04a4f",
+        "validation/ai05_open_channel_budget_v1.json": "7fd48810de0e630c9f1de484e919789d0d93d445aa8ac28ed242fc7884f45f86"
+      },
+      "drivers": {
+        "scripts/compressible_storage_graph.py": "9b03cf5fc202ba6bb5190212513f3c8a800deeb4cf640d61dee4147b01a8ecf1",
+        "scripts/conservative_eos_loop.py": "7ec22d9c837bb2508e836f7101c79882ecca69cc7a958276e064781be056fee9",
+        "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+        "scripts/open_eos_channel.py": "33408027f3b98e0f6263e87b385177184d326573cb9675a1fef8d2b1adb6e923",
+        "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928"
+      },
+      "numpy": "2.2.6",
+      "python": "3.12.9",
+      "scipy": "1.15.2",
+      "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a"
+    }
+  },
+  "status": "partial",
+  "tests": {
+    "auditor": 17,
+    "full_repository_run": false,
+    "new_family": 44,
+    "related_regression_passed": 232
+  },
+  "validated": false
+}

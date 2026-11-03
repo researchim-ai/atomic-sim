@@ -65,6 +65,28 @@ jobs:
         ruff check scripts/transient_thermal_graph.py scripts/transient_graph_references.py scripts/qualify_transient_graph.py tests/test_transient_thermal_graph.py tests/test_transient_graph_evidence.py
         ruff check scripts/solve_resistance_feedback.py scripts/resistance_feedback_references.py scripts/qualify_resistance_feedback.py tests/test_resistance_feedback.py tests/test_resistance_feedback_evidence.py
         ruff check scripts/nonlinear_thermal_graph.py scripts/nonlinear_graph_references.py scripts/qualify_nonlinear_graph.py tests/test_nonlinear_thermal_graph.py tests/test_nonlinear_graph_evidence.py
+        ruff check scripts/scheduled_thermal_graph.py scripts/scheduled_graph_references.py scripts/qualify_scheduled_graph.py tests/test_scheduled_thermal_graph.py tests/test_scheduled_graph_evidence.py
+        ruff check scripts/online_thermal_graph.py scripts/qualify_online_graph.py tests/test_online_thermal_graph.py tests/test_online_graph_evidence.py examples/online_thermal_control.py
+        ruff check scripts/graph_port_adapter.py scripts/qualify_graph_port_adapter.py tests/test_graph_port_adapter.py tests/test_graph_port_adapter_evidence.py
+        ruff check scripts/registered_graph_system.py scripts/reduced_residual_engine.py scripts/qualify_reduced_engine.py tests/test_reduced_residual_engine.py tests/test_reduced_engine_evidence.py examples/reduced_graph_handoff.py
+        ruff check scripts/controlled_reduced_engine.py scripts/qualify_controlled_radau.py tests/test_controlled_reduced_engine.py tests/test_controlled_radau_evidence.py examples/controlled_radau.py
+        ruff check scripts/state_event_radau.py scripts/state_event_references.py scripts/qualify_state_event_radau.py tests/test_state_event_radau.py tests/test_state_event_evidence.py examples/state_event_radau.py
+        ruff check scripts/hysteretic_radau.py scripts/hysteresis_references.py scripts/qualify_hysteretic_radau.py tests/test_hysteretic_radau.py tests/test_hysteresis_evidence.py examples/hysteretic_radau.py
+        ruff check scripts/supervised_radau.py scripts/supervision_references.py scripts/qualify_supervised_radau.py tests/test_supervised_radau.py examples/supervised_radau.py
+        ruff check scripts/closed_loop_radau.py scripts/closed_loop_references.py scripts/qualify_closed_loop_radau.py tests/test_closed_loop_radau.py examples/closed_loop_radau.py
+        ruff check scripts/inertial_graph.py scripts/inertial_graph_references.py scripts/qualify_inertial_graph.py tests/test_inertial_graph.py examples/inertial_graph.py
+        ruff check scripts/thermal_inertial_graph.py scripts/thermal_inertial_references.py scripts/qualify_thermal_inertial.py tests/test_thermal_inertial_graph.py examples/thermal_inertial_graph.py
+        ruff check scripts/buoyant_inertial_graph.py scripts/buoyant_graph_references.py scripts/qualify_buoyant_graph.py tests/test_buoyant_graph.py examples/buoyant_graph.py
+        ruff check scripts/compressible_storage_graph.py scripts/storage_graph_references.py scripts/qualify_compressible_storage.py tests/test_compressible_storage.py examples/compressible_storage.py
+        ruff check scripts/conservative_eos_loop.py scripts/conservative_loop_references.py scripts/qualify_conservative_loop.py scripts/audit_conservative_loop.py tests/test_conservative_eos_loop.py tests/test_conservative_loop_audit.py examples/conservative_eos_loop.py
+        ruff check scripts/coupled_eos_wall.py scripts/eos_wall_references.py scripts/qualify_eos_wall.py tests/test_coupled_eos_wall.py tests/test_eos_wall_audit.py examples/coupled_eos_wall.py
+        ruff check scripts/open_eos_channel.py scripts/open_channel_references.py scripts/qualify_open_channel.py tests/test_open_eos_channel.py tests/test_open_channel_audit.py examples/open_eos_channel.py
+        ruff check scripts/terminal_eos_chambers.py scripts/terminal_chamber_references.py scripts/qualify_terminal_chambers.py tests/test_terminal_eos_chambers.py tests/test_terminal_chamber_audit.py examples/terminal_eos_chambers.py
+        ruff check scripts/controlled_eos_assembly.py scripts/controlled_assembly_references.py scripts/qualify_controlled_assembly.py tests/test_controlled_eos_assembly.py tests/test_controlled_assembly_audit.py examples/controlled_eos_assembly.py
+        ruff check scripts/closed_loop_eos_pi.py scripts/eos_pi_references.py scripts/qualify_eos_pi.py tests/test_closed_loop_eos_pi.py tests/test_eos_pi_audit.py examples/closed_loop_eos_pi.py
+        ruff check atomic_agent_tools tests/test_agent_tools.py tests/test_agent_tools_cli.py examples/llm_tools_episode.py
+        ruff check atomic_model_runtime tests/test_public_eos_runtime.py examples/eos_agent_workflow.py
+        ruff check atomic_model_workspace tests/test_model_workspace.py examples/eos_workspace_workflow.py
         black --check reactor/ tests/ --line-length 100
 
     - name: Verify branched steady hydraulic graphs
@@ -91,6 +113,116 @@ jobs:
       run: |
         python -m scripts.qualify_nonlinear_graph --output artifacts/ci_nonlinear_graph
         python -m scripts.qualify_nonlinear_graph --audit artifacts/ci_nonlinear_graph --output artifacts/ci_nonlinear_graph_audit.json
+
+    - name: Verify scheduled commands and transactional switching
+      run: |
+        python -m scripts.qualify_scheduled_graph --output artifacts/ci_scheduled_graph
+        python -m scripts.qualify_scheduled_graph --audit artifacts/ci_scheduled_graph --output artifacts/ci_scheduled_graph_audit.json
+
+    - name: Verify online revision-checked control episodes
+      run: |
+        python -m scripts.qualify_online_graph --output artifacts/ci_online_graph
+        python -m scripts.qualify_online_graph --audit artifacts/ci_online_graph --output artifacts/ci_online_graph_audit.json
+
+    - name: Verify typed nonlinear residual and exact checkpoint lifting
+      run: |
+        python -m scripts.qualify_graph_port_adapter --output artifacts/ci_port_adapter
+        python -m scripts.qualify_graph_port_adapter --audit artifacts/ci_port_adapter --output artifacts/ci_port_adapter_audit.json
+
+    - name: Verify registered reduced Radau and bidirectional handoff
+      run: |
+        python -m scripts.qualify_reduced_engine --output artifacts/ci_reduced_engine
+        python -m scripts.qualify_reduced_engine --audit artifacts/ci_reduced_engine --output artifacts/ci_reduced_engine_audit.json
+
+    - name: Verify Radau scheduled and online command transactions
+      run: |
+        python -m scripts.qualify_controlled_radau --output artifacts/ci_controlled_radau
+        python -m scripts.qualify_controlled_radau --audit artifacts/ci_controlled_radau --output artifacts/ci_controlled_radau_audit.json
+
+    - name: Verify localized directional temperature events and root checkpoints
+      run: |
+        python -m scripts.qualify_state_event_radau --output artifacts/ci_state_events
+        python -m scripts.qualify_state_event_radau --audit artifacts/ci_state_events --output artifacts/ci_state_events_audit.json
+
+    - name: Verify repeatable modes, hysteresis and cyclic checkpoints
+      run: |
+        python -m scripts.qualify_hysteretic_radau --output artifacts/ci_hysteresis
+        python -m scripts.qualify_hysteretic_radau --audit artifacts/ci_hysteresis --output artifacts/ci_hysteresis_audit.json
+
+    - name: Verify calendar, online and thermal mode supervision
+      run: |
+        python -m scripts.qualify_supervised_radau run artifacts/ci_supervision.json
+        python -m scripts.qualify_supervised_radau audit artifacts/ci_supervision.json
+
+    - name: Verify joint controller, plant and RNG restart
+      run: |
+        python -m scripts.qualify_closed_loop_radau run artifacts/ci_closed_loop.json
+        python -m scripts.qualify_closed_loop_radau audit artifacts/ci_closed_loop.json
+
+    - name: Verify inertial pipe graph mass, momentum and kinetic ledger
+      run: |
+        python -m scripts.qualify_inertial_graph run artifacts/ci_inertial_graph.json
+        python -m scripts.qualify_inertial_graph audit artifacts/ci_inertial_graph.json
+
+    - name: Verify two-way thermal and inertial network coupling
+      run: |
+        python -m scripts.qualify_thermal_inertial run artifacts/ci_thermal_inertial.json
+        python -m scripts.qualify_thermal_inertial audit artifacts/ci_thermal_inertial.json
+
+    - name: Verify closed buoyant loops and nontrivial stationary branches
+      run: |
+        python -m scripts.qualify_buoyant_graph run artifacts/ci_buoyant_graph.json
+        python -m scripts.qualify_buoyant_graph audit artifacts/ci_buoyant_graph.json
+
+    - name: Verify compressible inventories, EOS and first/second laws
+      run: |
+        python -m scripts.qualify_compressible_storage run artifacts/ci_compressible_storage.json
+        python -m scripts.qualify_compressible_storage audit artifacts/ci_compressible_storage.json
+
+    - name: Verify conservative periodic EOS loop
+      run: |
+        python -m scripts.qualify_conservative_loop --output artifacts/ci_conservative_loop.json
+        python -m scripts.audit_conservative_loop artifacts/ci_conservative_loop.json
+
+    - name: Verify two conservative EOS loops and finite-capacity walls
+      run: |
+        python -m scripts.qualify_eos_wall run artifacts/ci_eos_wall.json
+        python -m scripts.qualify_eos_wall audit artifacts/ci_eos_wall.json
+
+    - name: Verify open EOS channel boundary transport and reversal
+      run: |
+        python -m scripts.qualify_open_channel run artifacts/ci_open_channel.json
+        python -m scripts.qualify_open_channel audit artifacts/ci_open_channel.json
+
+    - name: Verify finite terminal chambers and reflecting-wall reaction
+      run: |
+        python -m scripts.qualify_terminal_chambers run artifacts/ci_terminal_chambers.json
+        python -m scripts.qualify_terminal_chambers audit artifacts/ci_terminal_chambers.json
+
+    - name: Verify controlled mixed EOS assembly and typed thermal ports
+      run: |
+        python -m scripts.qualify_controlled_assembly run artifacts/ci_controlled_assembly.json
+        python -m scripts.qualify_controlled_assembly audit artifacts/ci_controlled_assembly.json
+
+    - name: Verify sampled PI with joint EOS model and controller checkpoints
+      run: |
+        python -m scripts.qualify_eos_pi run artifacts/ci_closed_loop_pi.json
+        python -m scripts.qualify_eos_pi audit artifacts/ci_closed_loop_pi.json
+
+    - name: Verify provider-independent local agent tools
+      run: |
+        python -m pytest -q tests/test_agent_tools.py tests/test_agent_tools_cli.py tests/test_ai_episode_contract.py
+        python -m examples.llm_tools_episode
+
+    - name: Verify EOS project campaigns and archive replay
+      run: |
+        python -m pytest -q tests/test_model_workspace.py
+        python -m examples.eos_workspace_workflow --output artifacts/ci_eos_workspace
+
+    - name: Verify public installed EOS runtime and experiment resume
+      run: |
+        python -m pytest -q tests/test_public_eos_runtime.py
+        python -m examples.eos_agent_workflow
 
     - name: Verify two-stream exchanger against independent references
       run: |

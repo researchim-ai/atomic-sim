@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "archive_sha256": "4605f1442002633e58bb520a3e5a0605b4bf048746da32240fb7f37e9230818e",
+  "manifest_sha256": "70e213346e18d6f0b39cb5e6c7fe0571c944d95ae8d9dd28d68474cac127ff20",
+  "byte_identical_archive_rebuild": true,
+  "archived_audit_identical": true,
+  "checkout_pythonpath_removed": true,
+  "installed_wheel_sha256": "a25ec260331cf57bef3f6c620bf1ef141f604b1d85e17787a1d4eee7e2f18201",
+  "focused_tests_replayed": 62,
+  "case_count": 9,
+  "trajectory_count": 27,
+  "independent_ivp_count": 18,
+  "observations_per_trajectory": 7,
+  "scope": "Fresh offline no-deps wheel and archived coupled companions outside checkout; inherited Python/numpy/scipy/pytest, no publisher authentication or cross-platform proof",
+  "validated": false,
+  "plant_referenced": false
+}

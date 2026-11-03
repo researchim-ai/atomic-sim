@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-03",
+  "passed": true,
+  "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+  "signature": {
+    "runtime": {
+      "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a",
+      "drivers": {
+        "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+        "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928",
+        "scripts/thermal_inertial_graph.py": "767145fe44da7c28e66ff968471adf7d1e74a5376708c15ea066b21a9c7601bb"
+      },
+      "budgets": {
+        "validation/ai05_inertial_graph_budget_v1.json": "79e86139c02d2216b137c5d569b8f92e0c7984bce5811fb0d5074f9aaa2591b1",
+        "validation/ai05_thermal_inertial_budget_v1.json": "610a61bea07784c5c97246c3a3d49a3b9f1944de40cc17b978bd6b3a3c9584a2"
+      },
+      "python": "3.12.9",
+      "numpy": "2.2.6",
+      "scipy": "1.15.2"
+    },
+    "qualification": {
+      "scripts/thermal_inertial_references.py": "69ed5e030d3db02a94ae0917bcbf92b1c70f8b8c9d1dc20a1865f386852fd0a1",
+      "scripts/inertial_graph_references.py": "80c80163fcf3a80ae2b3fea95bc68bd53feefc4b1e852f3635502a79a58be9a3",
+      "scripts/qualify_thermal_inertial.py": "81409bf4e85a42eb43db8ea62a7d1fbc4a9973220ce148355ed46703c56fdb8e"
+    }
+  },
+  "platform": "Linux-6.17.0-22-generic-x86_64-with-glibc2.39",
+  "test_command": "python -m pytest -m 'not external_integration' -q",
+  "tests_passed": 2344,
+  "tests_deselected": 1,
+  "new_tests": 62,
+  "focused_tests_passed": 62,
+  "full_suite_seconds": 534.54,
+  "warnings_observed": 0,
+  "ruff": "Passed; existing configuration deprecation warning",
+  "black": "Not installed locally; not executed",
+  "remote_ci": "Not executed; YAML and Python heredocs parsed locally",
+  "file_sha256": {
+    ".github/workflows/ci.yml": "aee850f439e31fdcdba041bd83b09eed6692f7b034dd1f713dbc54202cc44a64",
+    "artifacts/ai05_thermal_inertial_campaign_v1.json": "0597c12e4e331228c0895a68e8483329728ede0455e3d7c73380ef7d9730a26a",
+    "artifacts/ai05_thermal_inertial_campaign_v1.log": "05121e7f0868ee6a9ef3e24c12435af096803fe91e51ccfe291b4d4ae055cb90",
+    "artifacts/ai05_thermal_inertial_campaign_v2.json": "e28aa8fcd59037afbe8fbf74b5c3a1edd2b97139d7895fac2c65d0480eaae659",
+    "artifacts/ai05_thermal_inertial_full_suite_v1.log": "735617ad6ead424fa031c6411a6c2c511d65e92878aea15972b398fe1772f9ca",
+    "artifacts/ai05_thermal_inertial_portable_v1/audit.json": "645c6d82276b19d116f01abf082c5f88ed11e056b8f4c9ba508006fed4b039d1",
+    "artifacts/ai05_thermal_inertial_portable_v1/example.log": "6945ade7fd9c88fa103182707d996956256999f6bba77d775adb70358670a099",
+    "artifacts/ai05_thermal_inertial_portable_v1/install.log": "1374d2c3439831e3bdeb0695d48c7595f69dbdd9c2f06cb4a67838500a7d4727",
+    "artifacts/ai05_thermal_inertial_portable_v1/tests.log": "160975fe25c1a6a544983972e52d6f9b7f6b81495efb6c437c8492071998a4c2",
+    "artifacts/ai05_thermal_inertial_ruff_v3.log": "592055705cfa677b0042efbb466b52a57d7ca5e8c5f68076cc4fb30b8b823949",
+    "artifacts/ai05_thermal_inertial_unit_v3.log": "6b4fffc64fb9e11ddfc68d12bc50c7233a5292590217bbcdecb397ef4d3e279f",
+    "docs/AI_05_THERMAL_INERTIAL_RU.md": "8e36a4cc2dd72c415979d0c6b9476d563c1b8101b20d99bdc0730153c57b0758",
+    "examples/thermal_inertial_graph.py": "4cd69a7eacdb78529d5fdecab601115b4edf2bb89fb446469db78df8b8c85ed1",
+    "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+    "scripts/inertial_graph_references.py": "80c80163fcf3a80ae2b3fea95bc68bd53feefc4b1e852f3635502a79a58be9a3",
+    "scripts/qualify_thermal_inertial.py": "81409bf4e85a42eb43db8ea62a7d1fbc4a9973220ce148355ed46703c56fdb8e",
+    "scripts/solve_hydraulic_graph.py": "277731ad0d9c3c53087cf4ffa294d11ffc839ed3a0ed109888a262d3bb6c4928",
+    "scripts/thermal_inertial_graph.py": "767145fe44da7c28e66ff968471adf7d1e74a5376708c15ea066b21a9c7601bb",
+    "scripts/thermal_inertial_references.py": "69ed5e030d3db02a94ae0917bcbf92b1c70f8b8c9d1dc20a1865f386852fd0a1",
+    "tests/test_thermal_inertial_graph.py": "14b8349dc241d8a35b8906de64f917dbb6ca78f002c7a143b178ca83322cb584",
+    "validation/ai05_inertial_graph_budget_v1.json": "79e86139c02d2216b137c5d569b8f92e0c7984bce5811fb0d5074f9aaa2591b1",
+    "validation/ai05_thermal_inertial_audit_v1.json": "d194508be94095404e93e4aab486f49552c134406fe262a598416e493d50061b",
+    "validation/ai05_thermal_inertial_budget_v1.json": "610a61bea07784c5c97246c3a3d49a3b9f1944de40cc17b978bd6b3a3c9584a2",
+    "validation/ai05_thermal_inertial_passport_v1.json": "6edee850891d9b705a459f9f19ed9acb539d068b45ee700a1bd082a43e994d94",
+    "validation/ai05_thermal_inertial_portable_replay_v1.json": "d90d772bc8d028208c857be1859bcc1a81e9425fd09bec534a791eed66134f32"
+  },
+  "validated": false,
+  "plant_referenced": false
+}

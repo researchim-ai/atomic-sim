@@ -1,0 +1,401 @@
+{
+  "action_channels": {
+    "boron_ppm": {
+      "maximum": 20000.0,
+      "minimum": 0.0,
+      "unit": "ppm"
+    },
+    "feed_bias_kg_s": {
+      "maximum": 100000.0,
+      "minimum": -100000.0,
+      "unit": "kg/s"
+    },
+    "rod_command": {
+      "maximum": 1.0,
+      "minimum": -1.0,
+      "unit": "1/s"
+    },
+    "sink_temperature_k": {
+      "maximum": 373.15,
+      "minimum": 273.15,
+      "unit": "K"
+    },
+    "throttle": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "unit": "1"
+    }
+  },
+  "limits": {
+    "max_checkpoint_bytes": 4194304,
+    "max_checkpoint_total_bytes": 16777216,
+    "max_checkpoints": 32,
+    "max_episode_decisions": 1024,
+    "max_line_bytes": 65536,
+    "max_model_transactions": 4096,
+    "max_requests": 4096,
+    "max_sessions": 8
+  },
+  "observation_schema": [
+    {
+      "name": "thermal_power_fraction",
+      "scale": "nominal thermal power",
+      "unit": "1"
+    },
+    {
+      "name": "fuel_temperature",
+      "scale": "absolute",
+      "unit": "K"
+    },
+    {
+      "name": "primary_pressure",
+      "scale": "Pa / 1e6",
+      "unit": "MPa"
+    },
+    {
+      "name": "rod_insertion",
+      "scale": "fraction",
+      "unit": "1"
+    }
+  ],
+  "protocol_version": "1.0.0",
+  "tools": [
+    {
+      "description": "List supported model, observations, physical action units, limits and tool schemas.",
+      "input_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "name": "describe_simulator"
+    },
+    {
+      "description": "Create a seeded reduced PWR episode. Sensor observations only; no hidden simulator state.",
+      "input_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "config": {
+            "additionalProperties": false,
+            "properties": {
+              "action_channels": {
+                "items": {
+                  "enum": [
+                    "rod_command",
+                    "throttle",
+                    "feed_bias_kg_s",
+                    "boron_ppm",
+                    "sink_temperature_k"
+                  ],
+                  "type": "string"
+                },
+                "maxItems": 5,
+                "minItems": 1,
+                "type": "array",
+                "uniqueItems": true
+              },
+              "action_dt_s": {
+                "maximum": 0.05,
+                "minimum": 0.001,
+                "type": "number"
+              },
+              "episode_horizon_s": {
+                "maximum": 10.0,
+                "minimum": 0.001,
+                "type": "number"
+              },
+              "seed": {
+                "maximum": 9223372036854775807,
+                "minimum": 0,
+                "type": "integer"
+              },
+              "sensor_faults": {
+                "items": {
+                  "enum": [
+                    "",
+                    "stuck",
+                    "open"
+                  ],
+                  "type": "string"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "sensor_noise": {
+                "maximum": 1.0,
+                "minimum": 0,
+                "type": "number"
+              },
+              "sensor_tau_s": {
+                "maximum": 1000.0,
+                "minimum": 1e-06,
+                "type": "number"
+              },
+              "target_power_fraction": {
+                "maximum": 1.5,
+                "minimum": 0,
+                "type": "number"
+              },
+              "task": {
+                "enum": [
+                  "hold_power",
+                  "stop_on_scram"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "session_id": {
+            "maxLength": 64,
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id"
+        ],
+        "type": "object"
+      },
+      "name": "create_episode"
+    },
+    {
+      "description": "Read cached measurements without advancing physics, sensors or random generators.",
+      "input_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "session_id": {
+            "maxLength": 64,
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id"
+        ],
+        "type": "object"
+      },
+      "name": "inspect_episode"
+    },
+    {
+      "description": "Apply one complete named action in physical units, using the latest observation token.",
+      "input_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "additionalProperties": false,
+            "minProperties": 1,
+            "properties": {
+              "boron_ppm": {
+                "maximum": 20000.0,
+                "minimum": 0.0,
+                "type": "number"
+              },
+              "feed_bias_kg_s": {
+                "maximum": 100000.0,
+                "minimum": -100000.0,
+                "type": "number"
+              },
+              "rod_command": {
+                "maximum": 1.0,
+                "minimum": -1.0,
+                "type": "number"
+              },
+              "sink_temperature_k": {
+                "maximum": 373.15,
+                "minimum": 273.15,
+                "type": "number"
+              },
+              "throttle": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "expected_revision": {
+            "maximum": 9007199254740991,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "observation_id": {
+            "maxLength": 64,
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "session_id": {
+            "maxLength": 64,
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id",
+          "action",
+          "expected_revision",
+          "observation_id"
+        ],
+        "type": "object"
+      },
+      "name": "step_episode"
+    },
+    {
+      "description": "Save model/sensor/RNG state behind an opaque handle; returns no hidden state.",
+      "input_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "expected_revision": {
+            "maximum": 9007199254740991,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "observation_id": {
+            "maxLength": 64,
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "session_id": {
+            "maxLength": 64,
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id",
+          "expected_revision",
+          "observation_id"
+        ],
+        "type": "object"
+      },
+      "name": "save_checkpoint"
+    },
+    {
+      "description": "Restore a saved handle. Session revision advances; old observation tokens become stale.",
+      "input_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "checkpoint_id": {
+            "maxLength": 64,
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "expected_revision": {
+            "maximum": 9007199254740991,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "observation_id": {
+            "maxLength": 64,
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "session_id": {
+            "maxLength": 64,
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id",
+          "checkpoint_id",
+          "expected_revision",
+          "observation_id"
+        ],
+        "type": "object"
+      },
+      "name": "restore_checkpoint"
+    },
+    {
+      "description": "Cancel between calls. Does not interrupt an already running native solver.",
+      "input_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "expected_revision": {
+            "maximum": 9007199254740991,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "observation_id": {
+            "maxLength": 64,
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "session_id": {
+            "maxLength": 64,
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id",
+          "expected_revision",
+          "observation_id"
+        ],
+        "type": "object"
+      },
+      "name": "cancel_episode"
+    },
+    {
+      "description": "Release the session. Reusing its name creates a new observation-token generation.",
+      "input_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "expected_revision": {
+            "maximum": 9007199254740991,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "observation_id": {
+            "maxLength": 64,
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "session_id": {
+            "maxLength": 64,
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id",
+          "expected_revision",
+          "observation_id"
+        ],
+        "type": "object"
+      },
+      "name": "close_episode"
+    },
+    {
+      "description": "Release an opaque checkpoint handle. Does not alter any simulation.",
+      "input_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "checkpoint_id": {
+            "maxLength": 64,
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "checkpoint_id"
+        ],
+        "type": "object"
+      },
+      "name": "forget_checkpoint"
+    }
+  ],
+  "transport": "local JSON Lines; not MCP or JSON-RPC"
+}

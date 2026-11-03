@@ -29,7 +29,17 @@ def _reject(criterion, message, **details):
 
 
 def sha(path):
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    source = Path(path)
+    if (
+        not source.is_absolute()
+        and source.parts
+        and (
+            source.parts[0] == "atomic_model_runtime"
+            or (source.parts[0] == "scripts" and source.suffix == ".py")
+        )
+    ):
+        source = Path(__file__).resolve().parent.parent / source
+    return hashlib.sha256(source.read_bytes()).hexdigest()
 
 
 def _keys(value, required, optional=()):
