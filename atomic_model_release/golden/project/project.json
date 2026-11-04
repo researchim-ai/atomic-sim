@@ -1,0 +1,1 @@
+{"limits":{"decision_timeout_s":2,"job_timeout_s":30},"model_id":"eos-thermal-assembly-v1","policies":{"hold":"policies/hold.json"},"project_id":"golden-eos-v1","scenarios":{"uniform-train":"scenarios/uniform-train.json"},"schema_version":1}

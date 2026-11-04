@@ -1,0 +1,34 @@
+name: Declared hardware performance
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  hardware:
+    runs-on: [self-hosted, linux, atomic-performance]
+    timeout-minutes: 60
+    steps:
+    - uses: actions/checkout@v3
+    - name: Require explicit hardware profile
+      run: python -m atomic_model_release preflight hardware
+    - name: Legacy throughput thresholds only on declared hardware
+      run: python -m pytest tests/ -q -m hardware_specific -p atomic_model_release.pytest_gate --atomic-require-executed --atomic-no-skips --atomic-receipt artifacts/hardware_receipt.json
+    - name: Retain measured EOS process and pool workloads separately
+      run: |
+        python -m atomic_model_bench examples/eos_performance.json --output artifacts/hardware_eos_processes
+        python -m atomic_model_pool examples/eos_pool_comparison.json --output artifacts/hardware_eos_pool
+    - name: Retained legacy single-simulator throughput threshold
+      run: |
+        python - <<'PYCODE'
+        from reactor import ReactorSimulator
+        import time
+        sim = ReactorSimulator()
+        start = time.monotonic()
+        history = sim.run(100.0)
+        elapsed = time.monotonic() - start
+        steps = len(history['time'])
+        assert steps / elapsed > 1000, 'Legacy hardware throughput regression'
+        PYCODE

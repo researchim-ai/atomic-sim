@@ -10,6 +10,16 @@ Model/data study: `python -m examples.eos_study_workflow --output artifacts/my-s
 
 Сравнение результатов: `python -m examples.eos_results_workflow --output artifacts/my-results`; [native replay, траектории и переносимые ZIP](docs/AI_11_RESULT_COMPARISON_RU.md).
 
+Внешний локальный агент: `python -m examples.eos_external_agent_workflow --output artifacts/my-external-agents`; [JSONL-контракт, состояние, разрешения и лимиты](docs/AI_11_EXTERNAL_AGENT_CONTRACT_RU.md).
+
+Открытый EOS benchmark: `python -m examples.eos_arena_workflow --output artifacts/my-arena`; [протокол, train/dev/test, метрики и переходы](docs/AI_13_EOS_OPEN_BENCHMARK_RU.md).
+
+Проверка установки и recovery: `atomic-model-release doctor`, `atomic-model-release use-cases`, `atomic-model-release golden`; [исполняемый runbook](docs/release/RUNBOOK_RU.md).
+
+Сохраняемые параллельные кампании: `python -m examples.eos_rollout_workflow --output artifacts/my-rollouts`; [лимиты, пауза, продолжение и границы гарантий](docs/AI_10_DURABLE_ROLLOUTS_RU.md).
+
+Проверка по опубликованному эксперименту NIST: `atomic-model-validate run-pipe --output artifacts/my-nist-pipe`; [данные, критерии и ограничения](docs/AI_09_NIST_PIPE_EXPERIMENT_RU.md).
+
 ## Возможности ядра 2.0
 
 **Локальные LLM tools:** [JSONL-протокол, наблюдения, действия и replay](docs/AI_11_LLM_TOOLS_RU.md).

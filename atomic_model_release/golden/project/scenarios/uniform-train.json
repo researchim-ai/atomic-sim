@@ -1,0 +1,1 @@
+{"config":{"action_dt_s":0.01,"episode_horizon_s":0.03,"max_step_s":0.0005,"preset":"uniform"},"objective":{"sensor":"wall.w0","target_k":300.0,"tolerance_k":1.0},"schema_version":1,"seed":17,"split":"train"}

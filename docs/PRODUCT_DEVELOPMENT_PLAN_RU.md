@@ -1,5 +1,20 @@
 # Atomic Sim: следующие этапы промышленного моделирования
 
+Обновление 1.62.0: закрыты AI-12.03/04/05/08 и AI-13.01 в объявленных software scopes.
+[Исполняемый runbook](release/RUNBOOK_RU.md), отдельные CI lanes, current API/type gates,
+frozen golden/config migration и три AI use cases. **60/109**. Заявленные CI versions
+не заменяют реальную OS/dependency matrix; физическая валидация открыта.
+
+Обновление 1.61.0: [открытый EOS benchmark](AI_13_EOS_OPEN_BENCHMARK_RU.md),
+physical train/dev/test, train-only выбор, общие CPU/numerics/budgets,
+качество/constraints/повторы/cost и данные переходов. AI-13.03/04 приняты только
+в этом baseline scope; **55/109**. Преимущество над другими симуляторами не заявлено.
+
+Обновление 1.60.0: [подключаемый агент JSONL](AI_11_EXTERNAL_AGENT_CONTRACT_RU.md),
+разрешённые датчики/действия, новый процесс на решение, explicit state,
+лимиты/отмена/CAS resume и agent-free native replay. AI-11.05 принят в headless
+EOS scope; **53/109**. Generic model/agent registry и физическая валидация открыты.
+
 Обновление 1.59.0: [сравнение и перенос результатов](AI_11_RESULT_COMPARISON_RU.md),
 повторная интеграция каждой сохранённой строки, unitful CSV, раздельные протоколы/MAE,
 события/балансы, bounded ZIP и локальный UI. AI-11.04 принят в EOS software scope;

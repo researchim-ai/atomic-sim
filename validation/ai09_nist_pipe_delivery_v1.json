@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-05",
+  "source": {
+    "validation_sha256": "83080e661566ee8bea01d995e7a4a95faba7f992946cd3a86f56ae1f58299cd6",
+    "hydraulics_sha256": "af6abf55c4dd280f483ca902a2d0f35079ba5efaef582468b8af6a0666cfa5e2",
+    "dataset_manifest_sha256": "0d9cf1255ba5336b29b0c933fbaecce695125782cd402ec1045858f9b2dd64c4"
+  },
+  "python": "3.12.9",
+  "tests": {
+    "passed": 84,
+    "new_experimental_tests": 17,
+    "receipt_sha256": "956b245a9825fa3186ce40967a3a5b80a84cc9837f66b12db81232fde62abbcb"
+  },
+  "wheel_sha256": "8bc1f538e12e6b61be704228cdcdf1d92d0ac404df7d92789647c626492aaba6",
+  "sdist_sha256": "b45baf4504a5b8a79a130f05dd2d2b4dc89daac376c6e328788b41862208d97b",
+  "pdf_identical_in_wheel_and_sdist": true,
+  "installed_replay": "validation/ai09_nist_pipe_installed_v1.json",
+  "report": "validation/ai09_nist_pipe_comparison_v1.json",
+  "native_equations_modified": false,
+  "experimental_criterion_passed": true,
+  "max_abs_relative_error": 0.025613155401812703,
+  "experimental_uncertainty_complete": false,
+  "validated": false,
+  "plant_referenced": false
+}

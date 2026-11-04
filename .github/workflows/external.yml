@@ -1,0 +1,36 @@
+name: Explicit external runtimes
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_openmc:
+        type: boolean
+        default: false
+      run_mpi:
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  openmc:
+    if: inputs.run_openmc
+    runs-on: [self-hosted, linux, atomic-openmc]
+    timeout-minutes: 30
+    steps:
+    - uses: actions/checkout@v3
+    - name: Runtime and licensed data preflight; missing is failure
+      run: python -m atomic_model_release preflight openmc
+    - name: Real integration must execute, not skip
+      run: python -m pytest tests/ -q -m external_integration -p atomic_model_release.pytest_gate --atomic-require-executed --atomic-no-skips --atomic-receipt artifacts/openmc_receipt.json
+  mpi-runtime:
+    if: inputs.run_mpi
+    runs-on: [self-hosted, linux, atomic-mpi]
+    timeout-minutes: 10
+    steps:
+    - uses: actions/checkout@v3
+    - name: MPI runtime preflight
+      run: python -m atomic_model_release preflight mpi
+    - name: Runtime transport only; not MPI reactor-solver acceptance
+      run: timeout 60s mpiexec -n 2 python -m atomic_model_release.mpi_probe --output artifacts/mpi_transport.json

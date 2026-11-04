@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-05",
+  "wheel_sha256": "8bc1f538e12e6b61be704228cdcdf1d92d0ac404df7d92789647c626492aaba6",
+  "source": {
+    "dataset_manifest_sha256": "0d9cf1255ba5336b29b0c933fbaecce695125782cd402ec1045858f9b2dd64c4",
+    "hydraulics_sha256": "af6abf55c4dd280f483ca902a2d0f35079ba5efaef582468b8af6a0666cfa5e2",
+    "validation_sha256": "83080e661566ee8bea01d995e7a4a95faba7f992946cd3a86f56ae1f58299cd6"
+  },
+  "native_report_exact": true,
+  "samples": 38,
+  "max_abs_relative_error": 0.025613155401812703,
+  "scope": "Local fresh venv outside checkout with shared host dependencies; not independent machine",
+  "validated": false,
+  "plant_referenced": false
+}

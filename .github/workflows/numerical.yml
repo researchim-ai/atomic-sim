@@ -1,0 +1,337 @@
+name: Long numerical qualification
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  numerical:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+    - run: python -m pip install -e '.[dev]' pytest-cov build
+    - name: Combined portable and long numerical coverage
+      run: |
+        python -m pytest tests/ -q -m "not external_integration and not hardware_specific" -p atomic_model_release.pytest_gate --atomic-require-executed --atomic-receipt artifacts/long_receipt.json --cov=core --cov=physics --cov=components --cov=plants --cov=sdk --cov=instrumentation --cov-report=term-missing --cov-fail-under=80
+    - name: Legacy simulator smoke
+      run: python tests/test_simulator.py
+    - name: Check code quality
+      run: |
+        pip install ruff black
+        ruff check reactor/ sdk/ scenarios/ agent_envs/ --ignore E501
+        ruff check physics/thermal/two_stream_exchanger.py scripts/exchanger_references.py scripts/verify_exchanger.py scripts/audit_exchanger.py tests/test_two_stream_exchanger.py tests/test_exchanger_evidence.py
+        ruff check physics/thermal/coupled_pump_exchanger.py scripts/coupled_exchanger_references.py scripts/verify_coupled_exchanger.py scripts/audit_coupled_exchanger.py tests/test_coupled_pump_exchanger.py tests/test_coupled_exchanger_evidence.py
+        ruff check physics/power/ scripts/turbine_references.py scripts/verify_turbine.py scripts/audit_turbine.py tests/test_steam_turbine_train.py tests/test_turbine_evidence.py
+        ruff check scripts/steam_cycle_references.py scripts/verify_steam_cycle.py scripts/audit_steam_cycle.py tests/test_steam_cycle.py tests/test_steam_cycle_evidence.py
+        ruff check core/solver_trace.py scripts/qualify_steam_cycle.py scripts/audit_steam_refinement.py tests/test_solver_trace.py tests/test_steam_refinement.py
+        ruff check core/bounded_step.py tests/test_primary_steam.py tests/test_steam_heat_port.py
+        ruff check scripts/primary_steam_references.py scripts/verify_primary_steam.py scripts/qualify_primary_steam.py scripts/audit_primary_steam.py tests/test_primary_steam_evidence.py
+        ruff check scripts/design_primary_steam.py scripts/qualify_primary_steam_design.py tests/test_primary_steam_design.py
+        ruff check scripts/verify_primary_steam_reference.py tests/test_primary_steam_reference_precision.py
+        ruff check tests/test_primary_steam_precision.py
+        ruff check scripts/evidence_bundle.py scripts/replay_primary_steam_bundle.py scripts/primary_steam_release.py tests/test_evidence_bundle.py tests/test_evidence_replay.py tests/test_primary_steam_release.py
+        ruff check scripts/solve_fixed_primary_steam.py scripts/qualify_fixed_primary_steam.py tests/test_fixed_primary_steam.py tests/test_fixed_primary_steam_evidence.py
+        ruff check scripts/solve_hydraulic_graph.py scripts/hydraulic_graph_references.py scripts/qualify_hydraulic_graph.py tests/test_hydraulic_graph.py tests/test_hydraulic_graph_evidence.py
+        ruff check scripts/solve_thermal_graph.py scripts/thermal_graph_references.py scripts/qualify_thermal_graph.py tests/test_thermal_graph.py tests/test_thermal_graph_evidence.py
+        ruff check scripts/transient_thermal_graph.py scripts/transient_graph_references.py scripts/qualify_transient_graph.py tests/test_transient_thermal_graph.py tests/test_transient_graph_evidence.py
+        ruff check scripts/solve_resistance_feedback.py scripts/resistance_feedback_references.py scripts/qualify_resistance_feedback.py tests/test_resistance_feedback.py tests/test_resistance_feedback_evidence.py
+        ruff check scripts/nonlinear_thermal_graph.py scripts/nonlinear_graph_references.py scripts/qualify_nonlinear_graph.py tests/test_nonlinear_thermal_graph.py tests/test_nonlinear_graph_evidence.py
+        ruff check scripts/scheduled_thermal_graph.py scripts/scheduled_graph_references.py scripts/qualify_scheduled_graph.py tests/test_scheduled_thermal_graph.py tests/test_scheduled_graph_evidence.py
+        ruff check scripts/online_thermal_graph.py scripts/qualify_online_graph.py tests/test_online_thermal_graph.py tests/test_online_graph_evidence.py examples/online_thermal_control.py
+        ruff check scripts/graph_port_adapter.py scripts/qualify_graph_port_adapter.py tests/test_graph_port_adapter.py tests/test_graph_port_adapter_evidence.py
+        ruff check scripts/registered_graph_system.py scripts/reduced_residual_engine.py scripts/qualify_reduced_engine.py tests/test_reduced_residual_engine.py tests/test_reduced_engine_evidence.py examples/reduced_graph_handoff.py
+        ruff check scripts/controlled_reduced_engine.py scripts/qualify_controlled_radau.py tests/test_controlled_reduced_engine.py tests/test_controlled_radau_evidence.py examples/controlled_radau.py
+        ruff check scripts/state_event_radau.py scripts/state_event_references.py scripts/qualify_state_event_radau.py tests/test_state_event_radau.py tests/test_state_event_evidence.py examples/state_event_radau.py
+        ruff check scripts/hysteretic_radau.py scripts/hysteresis_references.py scripts/qualify_hysteretic_radau.py tests/test_hysteretic_radau.py tests/test_hysteresis_evidence.py examples/hysteretic_radau.py
+        ruff check scripts/supervised_radau.py scripts/supervision_references.py scripts/qualify_supervised_radau.py tests/test_supervised_radau.py examples/supervised_radau.py
+        ruff check scripts/closed_loop_radau.py scripts/closed_loop_references.py scripts/qualify_closed_loop_radau.py tests/test_closed_loop_radau.py examples/closed_loop_radau.py
+        ruff check scripts/inertial_graph.py scripts/inertial_graph_references.py scripts/qualify_inertial_graph.py tests/test_inertial_graph.py examples/inertial_graph.py
+        ruff check scripts/thermal_inertial_graph.py scripts/thermal_inertial_references.py scripts/qualify_thermal_inertial.py tests/test_thermal_inertial_graph.py examples/thermal_inertial_graph.py
+        ruff check scripts/buoyant_inertial_graph.py scripts/buoyant_graph_references.py scripts/qualify_buoyant_graph.py tests/test_buoyant_graph.py examples/buoyant_graph.py
+        ruff check scripts/compressible_storage_graph.py scripts/storage_graph_references.py scripts/qualify_compressible_storage.py tests/test_compressible_storage.py examples/compressible_storage.py
+        ruff check scripts/conservative_eos_loop.py scripts/conservative_loop_references.py scripts/qualify_conservative_loop.py scripts/audit_conservative_loop.py tests/test_conservative_eos_loop.py tests/test_conservative_loop_audit.py examples/conservative_eos_loop.py
+        ruff check scripts/coupled_eos_wall.py scripts/eos_wall_references.py scripts/qualify_eos_wall.py tests/test_coupled_eos_wall.py tests/test_eos_wall_audit.py examples/coupled_eos_wall.py
+        ruff check scripts/open_eos_channel.py scripts/open_channel_references.py scripts/qualify_open_channel.py tests/test_open_eos_channel.py tests/test_open_channel_audit.py examples/open_eos_channel.py
+        ruff check scripts/terminal_eos_chambers.py scripts/terminal_chamber_references.py scripts/qualify_terminal_chambers.py tests/test_terminal_eos_chambers.py tests/test_terminal_chamber_audit.py examples/terminal_eos_chambers.py
+        ruff check scripts/controlled_eos_assembly.py scripts/controlled_assembly_references.py scripts/qualify_controlled_assembly.py tests/test_controlled_eos_assembly.py tests/test_controlled_assembly_audit.py examples/controlled_eos_assembly.py
+        ruff check scripts/closed_loop_eos_pi.py scripts/eos_pi_references.py scripts/qualify_eos_pi.py tests/test_closed_loop_eos_pi.py tests/test_eos_pi_audit.py examples/closed_loop_eos_pi.py
+        ruff check atomic_agent_tools tests/test_agent_tools.py tests/test_agent_tools_cli.py examples/llm_tools_episode.py
+        ruff check atomic_model_runtime tests/test_public_eos_runtime.py examples/eos_agent_workflow.py
+        ruff check atomic_model_workspace tests/test_model_workspace.py examples/eos_workspace_workflow.py
+        ruff check atomic_model_bench tests/test_model_bench.py
+        ruff check atomic_model_pool tests/test_model_pool.py
+        ruff check scripts/qualify_source_scan.py tests/test_source_fingerprint.py tests/test_source_scan_qualification.py
+        ruff check atomic_model_projects tests/test_model_projects.py examples/eos_project_edit_workflow.py
+        ruff check atomic_model_project_ui tests/test_project_ui.py scripts/verify_project_ui_browser.py
+        ruff check atomic_model_reference tests/test_model_reference.py examples/eos_reference_workflow.py
+        ruff check atomic_model_arena tests/test_model_arena.py examples/eos_arena_workflow.py
+        ruff check atomic_model_agents tests/test_external_agents.py examples/eos_external_agent_workflow.py
+        ruff check atomic_model_results tests/test_model_results.py tests/test_results_ui.py examples/eos_results_workflow.py scripts/verify_results_ui_browser.py
+        ruff check atomic_model_study tests/test_model_study.py tests/test_study_ui.py scripts/verify_study_ui_browser.py examples/eos_study_workflow.py
+        black --check reactor/ tests/ --line-length 100
+
+    - name: Verify branched steady hydraulic graphs
+      run: |
+        python -m scripts.qualify_hydraulic_graph --output artifacts/ci_hydraulic_graph
+        python -m scripts.qualify_hydraulic_graph --audit artifacts/ci_hydraulic_graph --output artifacts/ci_hydraulic_graph_audit.json
+
+    - name: Verify conservative enthalpy mixing on hydraulic graphs
+      run: |
+        python -m scripts.qualify_thermal_graph --output artifacts/ci_thermal_graph
+        python -m scripts.qualify_thermal_graph --audit artifacts/ci_thermal_graph --output artifacts/ci_thermal_graph_audit.json
+
+    - name: Verify finite thermal inventories and transactional restart
+      run: |
+        python -m scripts.qualify_transient_graph --output artifacts/ci_transient_graph
+        python -m scripts.qualify_transient_graph --audit artifacts/ci_transient_graph --output artifacts/ci_transient_graph_audit.json
+
+    - name: Verify stationary temperature and resistance feedback
+      run: |
+        python -m scripts.qualify_resistance_feedback --output artifacts/ci_resistance_feedback
+        python -m scripts.qualify_resistance_feedback --audit artifacts/ci_resistance_feedback --output artifacts/ci_resistance_feedback_audit.json
+
+    - name: Verify nonlinear transient resistance feedback
+      run: |
+        python -m scripts.qualify_nonlinear_graph --output artifacts/ci_nonlinear_graph
+        python -m scripts.qualify_nonlinear_graph --audit artifacts/ci_nonlinear_graph --output artifacts/ci_nonlinear_graph_audit.json
+
+    - name: Verify scheduled commands and transactional switching
+      run: |
+        python -m scripts.qualify_scheduled_graph --output artifacts/ci_scheduled_graph
+        python -m scripts.qualify_scheduled_graph --audit artifacts/ci_scheduled_graph --output artifacts/ci_scheduled_graph_audit.json
+
+    - name: Verify online revision-checked control episodes
+      run: |
+        python -m scripts.qualify_online_graph --output artifacts/ci_online_graph
+        python -m scripts.qualify_online_graph --audit artifacts/ci_online_graph --output artifacts/ci_online_graph_audit.json
+
+    - name: Verify typed nonlinear residual and exact checkpoint lifting
+      run: |
+        python -m scripts.qualify_graph_port_adapter --output artifacts/ci_port_adapter
+        python -m scripts.qualify_graph_port_adapter --audit artifacts/ci_port_adapter --output artifacts/ci_port_adapter_audit.json
+
+    - name: Verify registered reduced Radau and bidirectional handoff
+      run: |
+        python -m scripts.qualify_reduced_engine --output artifacts/ci_reduced_engine
+        python -m scripts.qualify_reduced_engine --audit artifacts/ci_reduced_engine --output artifacts/ci_reduced_engine_audit.json
+
+    - name: Verify Radau scheduled and online command transactions
+      run: |
+        python -m scripts.qualify_controlled_radau --output artifacts/ci_controlled_radau
+        python -m scripts.qualify_controlled_radau --audit artifacts/ci_controlled_radau --output artifacts/ci_controlled_radau_audit.json
+
+    - name: Verify localized directional temperature events and root checkpoints
+      run: |
+        python -m scripts.qualify_state_event_radau --output artifacts/ci_state_events
+        python -m scripts.qualify_state_event_radau --audit artifacts/ci_state_events --output artifacts/ci_state_events_audit.json
+
+    - name: Verify repeatable modes, hysteresis and cyclic checkpoints
+      run: |
+        python -m scripts.qualify_hysteretic_radau --output artifacts/ci_hysteresis
+        python -m scripts.qualify_hysteretic_radau --audit artifacts/ci_hysteresis --output artifacts/ci_hysteresis_audit.json
+
+    - name: Verify calendar, online and thermal mode supervision
+      run: |
+        python -m scripts.qualify_supervised_radau run artifacts/ci_supervision.json
+        python -m scripts.qualify_supervised_radau audit artifacts/ci_supervision.json
+
+    - name: Verify joint controller, plant and RNG restart
+      run: |
+        python -m scripts.qualify_closed_loop_radau run artifacts/ci_closed_loop.json
+        python -m scripts.qualify_closed_loop_radau audit artifacts/ci_closed_loop.json
+
+    - name: Verify inertial pipe graph mass, momentum and kinetic ledger
+      run: |
+        python -m scripts.qualify_inertial_graph run artifacts/ci_inertial_graph.json
+        python -m scripts.qualify_inertial_graph audit artifacts/ci_inertial_graph.json
+
+    - name: Verify two-way thermal and inertial network coupling
+      run: |
+        python -m scripts.qualify_thermal_inertial run artifacts/ci_thermal_inertial.json
+        python -m scripts.qualify_thermal_inertial audit artifacts/ci_thermal_inertial.json
+
+    - name: Verify closed buoyant loops and nontrivial stationary branches
+      run: |
+        python -m scripts.qualify_buoyant_graph run artifacts/ci_buoyant_graph.json
+        python -m scripts.qualify_buoyant_graph audit artifacts/ci_buoyant_graph.json
+
+    - name: Verify compressible inventories, EOS and first/second laws
+      run: |
+        python -m scripts.qualify_compressible_storage run artifacts/ci_compressible_storage.json
+        python -m scripts.qualify_compressible_storage audit artifacts/ci_compressible_storage.json
+
+    - name: Verify conservative periodic EOS loop
+      run: |
+        python -m scripts.qualify_conservative_loop --output artifacts/ci_conservative_loop.json
+        python -m scripts.audit_conservative_loop artifacts/ci_conservative_loop.json
+
+    - name: Verify two conservative EOS loops and finite-capacity walls
+      run: |
+        python -m scripts.qualify_eos_wall run artifacts/ci_eos_wall.json
+        python -m scripts.qualify_eos_wall audit artifacts/ci_eos_wall.json
+
+    - name: Verify open EOS channel boundary transport and reversal
+      run: |
+        python -m scripts.qualify_open_channel run artifacts/ci_open_channel.json
+        python -m scripts.qualify_open_channel audit artifacts/ci_open_channel.json
+
+    - name: Verify finite terminal chambers and reflecting-wall reaction
+      run: |
+        python -m scripts.qualify_terminal_chambers run artifacts/ci_terminal_chambers.json
+        python -m scripts.qualify_terminal_chambers audit artifacts/ci_terminal_chambers.json
+
+    - name: Verify controlled mixed EOS assembly and typed thermal ports
+      run: |
+        python -m scripts.qualify_controlled_assembly run artifacts/ci_controlled_assembly.json
+        python -m scripts.qualify_controlled_assembly audit artifacts/ci_controlled_assembly.json
+
+    - name: Verify sampled PI with joint EOS model and controller checkpoints
+      run: |
+        python -m scripts.qualify_eos_pi run artifacts/ci_closed_loop_pi.json
+        python -m scripts.qualify_eos_pi audit artifacts/ci_closed_loop_pi.json
+
+    - name: Verify provider-independent local agent tools
+      run: |
+        python -m pytest -q tests/test_agent_tools.py tests/test_agent_tools_cli.py tests/test_ai_episode_contract.py
+        python -m examples.llm_tools_episode
+
+    - name: Verify reference import and exact metric replay
+      run: |
+        python -m pytest -q tests/test_model_reference.py
+        python -m examples.eos_reference_workflow --output artifacts/ci_reference_workflow
+
+    - name: Verify open EOS arena protocol and training transitions
+      run: |
+        python -m pytest -q tests/test_model_arena.py
+        python -m examples.eos_arena_workflow --output artifacts/ci_eos_arena
+
+    - name: Verify external explicit-state EOS agents
+      run: |
+        python -m pytest -q tests/test_external_agents.py
+        python -m examples.eos_external_agent_workflow --output artifacts/ci_external_agents
+
+    - name: Verify portable result comparison and native replay
+      run: |
+        python -m pytest -q tests/test_model_results.py tests/test_results_ui.py
+        python -m examples.eos_results_workflow --output artifacts/ci_eos_results
+
+    - name: Verify model-data study revisions and supervised evaluations
+      run: |
+        python -m pytest -q tests/test_model_study.py tests/test_study_ui.py
+        python -m examples.eos_study_workflow --output artifacts/ci_eos_study
+
+    - name: Verify versioned EOS project editing
+      run: |
+        python -m pytest -q tests/test_model_projects.py tests/test_project_ui.py
+        python -m examples.eos_project_edit_workflow --output artifacts/ci_eos_project_editor
+
+    - name: Verify EOS project campaigns and archive replay
+      run: |
+        python -m pytest -q tests/test_model_workspace.py
+        python -m examples.eos_workspace_workflow --output artifacts/ci_eos_workspace
+
+    - name: Verify public installed EOS runtime and experiment resume
+      run: |
+        python -m pytest -q tests/test_public_eos_runtime.py
+        python -m examples.eos_agent_workflow
+
+    - name: Verify two-stream exchanger against independent references
+      run: |
+        python -m scripts.verify_exchanger --output artifacts/ci_exchanger_verification
+        python -m scripts.audit_exchanger artifacts/ci_exchanger_verification --output artifacts/ci_exchanger_audit.json
+
+    - name: Verify monolithic pump-cycle exchanger assembly
+      run: |
+        python -m scripts.verify_coupled_exchanger --output artifacts/ci_coupled_exchanger_verification
+        python -m scripts.audit_coupled_exchanger artifacts/ci_coupled_exchanger_verification --output artifacts/ci_coupled_exchanger_audit.json
+
+    - name: Verify steam turbine, generator and physical termination
+      run: |
+        python -m scripts.verify_turbine --output artifacts/ci_turbine_verification
+        python -m scripts.audit_turbine artifacts/ci_turbine_verification --output artifacts/ci_turbine_audit.json
+
+    - name: Verify dynamic steam inventories and coupled power cycle
+      run: |
+        python -m scripts.verify_steam_cycle --output artifacts/ci_steam_cycle_verification
+        python -m scripts.audit_steam_cycle artifacts/ci_steam_cycle_verification --output artifacts/ci_steam_cycle_audit.json
+
+    - name: Qualify three time-step levels and long steam-cycle modes
+      run: |
+        python -m scripts.qualify_steam_cycle --output artifacts/ci_steam_refinement
+        python -m scripts.audit_steam_refinement artifacts/ci_steam_refinement --output artifacts/ci_steam_refinement_audit.json
+
+    - name: Exercise monolithic primary-loop and steam-cycle SDK
+      run: |
+        python -m pytest tests/test_primary_steam.py tests/test_steam_heat_port.py -q
+        python -m sdk.primary_steam_experiment scenarios/ai05_primary_steam.json --output artifacts/ci_primary_steam
+
+    - name: Qualify monolithic primary/steam transients independently
+      run: |
+        python -m scripts.qualify_primary_steam --output artifacts/ci_primary_steam_qualification
+        python -m scripts.audit_primary_steam artifacts/ci_primary_steam_qualification --output artifacts/ci_primary_steam_audit.json
+        python -m scripts.verify_primary_steam_reference artifacts/ci_primary_steam_qualification/motor_reverse_fine --output artifacts/ci_primary_steam_reference_convergence.json
+
+    - name: Qualify joint steady initialization and signed-flow stationarity
+      run: |
+        python -m scripts.qualify_primary_steam_design --output artifacts/ci_primary_steam_design
+        python -m scripts.qualify_primary_steam_design --audit artifacts/ci_primary_steam_design --output artifacts/ci_primary_steam_design_audit.json
+
+    - name: Qualify fixed-command initialization and incompatible constraints
+      run: |
+        python -m scripts.qualify_fixed_primary_steam --output artifacts/ci_fixed_primary_steam
+        python -m scripts.qualify_fixed_primary_steam --audit artifacts/ci_fixed_primary_steam --output artifacts/ci_fixed_primary_steam_audit.json
+
+    - name: Build wheel and import the shared session
+      run: |
+        pip install build
+        python -m build
+        python -m pip install --force-reinstall dist/atomic_sim-*.whl
+        cd /tmp && python -c "from sdk.api import create_session; from data.catalog import load_sources; from scenarios.session import bundled_scenario; import generate_dataset; plant=create_session('vver'); sources=load_sources(); scenario=bundled_scenario('vver_load_rejection.yaml'); assert sources and scenario['engine']=='vver'; print(plant.passport.model_id, len(sources), scenario['name'], generate_dataset.main)"
+
+    - name: Exercise installed experiment CLI outside checkout
+      run: |
+        python scripts/verify_wheel.py dist/atomic_sim-*.whl
+
+    - name: Bundle and replay steady evidence without checkout
+      run: |
+        python - <<'PY'
+        import json
+        import os
+        import shutil
+        import subprocess
+        import sys
+        import tempfile
+        from pathlib import Path
+        from scripts.evidence_bundle import create_bundle, extract_bundle
+        from scripts.primary_steam_release import selection
+        root = Path.cwd()
+        archive = root / "artifacts/ci_primary_steady_release.tar.gz"
+        selected = selection(root, "dist", steady="artifacts/ci_primary_steam_design",
+                             steady_audit="artifacts/ci_primary_steam_design_audit.json",
+                             fixed="artifacts/ci_fixed_primary_steam",
+                             fixed_audit="artifacts/ci_fixed_primary_steam_audit.json")
+        result = create_bundle(selected, root, archive)
+        (root / "artifacts/ci_primary_bundle.json").write_text(json.dumps(result, indent=2))
+        clean = dict(os.environ)
+        clean.pop("PYTHONPATH", None)
+        with tempfile.TemporaryDirectory(prefix="atomic-portable-replay-") as folder:
+            work = Path(folder)
+            transferred = work / "candidate.tar.gz"
+            shutil.copyfile(archive, transferred)
+            tools = work / "tools"
+            extract_bundle(transferred, tools, result["manifest_sha256"])
+            subprocess.run([sys.executable, "-m", "scripts.replay_primary_steam_bundle",
+                            str(transferred), "--output", str(work / "replay"),
+                            "--manifest-sha256", result["manifest_sha256"],
+                            "--profile", "steady", "--profile", "fixed"],
+                           cwd=tools, env=clean, check=True)
+            shutil.copyfile(work / "replay/replay.json",
+                            root / "artifacts/ci_primary_portable_replay.json")
+        PY
+

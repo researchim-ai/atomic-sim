@@ -1,0 +1,12 @@
+{
+  "decision_slice": 2,
+  "effective_workers": 2,
+  "global_deadline_resume": true,
+  "jobs": 12,
+  "native_control_episodes_exact": true,
+  "plant_referenced": false,
+  "schema_version": 1,
+  "validated": false,
+  "scope": "Fresh local venv outside checkout, shared system dependencies; not independent machine",
+  "wheel_sha256": "c54fc4870decc4b2fa47c5398d518b2cedf201f1f52537560624de22880181df"
+}

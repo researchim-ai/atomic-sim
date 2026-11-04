@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "plan_id": "atomic-ai-industrial-v1",
-  "date": "2026-11-04",
-  "version": "1.59.0",
+  "date": "2026-11-05",
+  "version": "1.63.0",
   "human_document": "docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md",
   "status": "in_progress",
   "validated": false,
@@ -1854,15 +1854,34 @@
             "examples/eos_reference_workflow.py",
             "docs/AI_09_REFERENCE_COMPARISON_RU.md",
             "validation/ai09_reference_delivery_v1.json",
-            "validation/ai09_reference_portable_replay_v1.json"
+            "validation/ai09_reference_portable_replay_v1.json",
+            "atomic_model_validation/pipe.py",
+            "atomic_model_validation/digitize.py",
+            "atomic_model_validation/data/nist_tn2294/manifest.json",
+            "docs/AI_09_NIST_PIPE_EXPERIMENT_RU.md",
+            "tests/test_experimental_pipe.py",
+            "validation/ai09_nist_pipe_installed_v1.json",
+            "validation/ai09_nist_pipe_comparison_v1.json",
+            "validation/ai09_nist_pipe_delivery_v1.json"
           ],
-          "reference_import_scope": "Software-only reference import and independent analytic piecewise-linear metrics for supported EOS temperatures and local/global ledgers: raw CSV/unit/provenance admission, exact time-weighted errors/integrals, peaks and threshold-event timing, gap/coverage refusal, immutable criteria, report snapshot/recomputation. Synthetic controls only; no experimental, calibration or plant validation promotion."
+          "reference_import_scope": "Software-only reference import and independent analytic piecewise-linear metrics for supported EOS temperatures and local/global ledgers: raw CSV/unit/provenance admission, exact time-weighted errors/integrals, peaks and threshold-event timing, gap/coverage refusal, immutable criteria, report snapshot/recomputation. Synthetic controls only; no experimental, calibration or plant validation promotion.",
+          "external_experiment_scope": "NIST TN2294 Fig18: 38 vector-digitized Darcy friction-factor symbols, four copper-pipe repeats; fixed pre-evaluation 5% screening criterion, native Darcy/Haaland evaluation with no fitting, source/licensing/coordinate-reading bounds and report recomputation. No per-point complete experimental UQ, independent correlation-training provenance or system transient validation; validated=false."
         },
         {
           "id": "AI-09.02",
           "description": "Найти разрешённые отдельные эксперименты и системные ряды; сохранить исходные файлы, лицензии, конфигурацию, единицы и качество измерений.",
-          "status": "planned",
-          "evidence": []
+          "status": "in_progress",
+          "evidence": [
+            "atomic_model_validation/pipe.py",
+            "atomic_model_validation/digitize.py",
+            "atomic_model_validation/data/nist_tn2294/manifest.json",
+            "docs/AI_09_NIST_PIPE_EXPERIMENT_RU.md",
+            "tests/test_experimental_pipe.py",
+            "validation/ai09_nist_pipe_installed_v1.json",
+            "validation/ai09_nist_pipe_comparison_v1.json",
+            "validation/ai09_nist_pipe_delivery_v1.json"
+          ],
+          "external_experiment_scope": "NIST TN2294 Fig18: 38 vector-digitized Darcy friction-factor symbols, four copper-pipe repeats; fixed pre-evaluation 5% screening criterion, native Darcy/Haaland evaluation with no fitting, source/licensing/coordinate-reading bounds and report recomputation. No per-point complete experimental UQ, independent correlation-training provenance or system transient validation; validated=false."
         },
         {
           "id": "AI-09.03",
@@ -1881,9 +1900,18 @@
             "examples/eos_reference_workflow.py",
             "docs/AI_09_REFERENCE_COMPARISON_RU.md",
             "validation/ai09_reference_delivery_v1.json",
-            "validation/ai09_reference_portable_replay_v1.json"
+            "validation/ai09_reference_portable_replay_v1.json",
+            "atomic_model_validation/pipe.py",
+            "atomic_model_validation/digitize.py",
+            "atomic_model_validation/data/nist_tn2294/manifest.json",
+            "docs/AI_09_NIST_PIPE_EXPERIMENT_RU.md",
+            "tests/test_experimental_pipe.py",
+            "validation/ai09_nist_pipe_installed_v1.json",
+            "validation/ai09_nist_pipe_comparison_v1.json",
+            "validation/ai09_nist_pipe_delivery_v1.json"
           ],
-          "reference_import_scope": "Software-only reference import and independent analytic piecewise-linear metrics for supported EOS temperatures and local/global ledgers: raw CSV/unit/provenance admission, exact time-weighted errors/integrals, peaks and threshold-event timing, gap/coverage refusal, immutable criteria, report snapshot/recomputation. Synthetic controls only; no experimental, calibration or plant validation promotion."
+          "reference_import_scope": "Software-only reference import and independent analytic piecewise-linear metrics for supported EOS temperatures and local/global ledgers: raw CSV/unit/provenance admission, exact time-weighted errors/integrals, peaks and threshold-event timing, gap/coverage refusal, immutable criteria, report snapshot/recomputation. Synthetic controls only; no experimental, calibration or plant validation promotion.",
+          "external_experiment_scope": "NIST TN2294 Fig18: 38 vector-digitized Darcy friction-factor symbols, four copper-pipe repeats; fixed pre-evaluation 5% screening criterion, native Darcy/Haaland evaluation with no fitting, source/licensing/coordinate-reading bounds and report recomputation. No per-point complete experimental UQ, independent correlation-training provenance or system transient validation; validated=false."
         },
         {
           "id": "AI-09.04",
@@ -1951,9 +1979,18 @@
             "examples/eos_reference_workflow.py",
             "docs/AI_09_REFERENCE_COMPARISON_RU.md",
             "validation/ai09_reference_delivery_v1.json",
-            "validation/ai09_reference_portable_replay_v1.json"
+            "validation/ai09_reference_portable_replay_v1.json",
+            "atomic_model_validation/pipe.py",
+            "atomic_model_validation/digitize.py",
+            "atomic_model_validation/data/nist_tn2294/manifest.json",
+            "docs/AI_09_NIST_PIPE_EXPERIMENT_RU.md",
+            "tests/test_experimental_pipe.py",
+            "validation/ai09_nist_pipe_installed_v1.json",
+            "validation/ai09_nist_pipe_comparison_v1.json",
+            "validation/ai09_nist_pipe_delivery_v1.json"
           ],
-          "reference_import_scope": "Software-only reference import and independent analytic piecewise-linear metrics for supported EOS temperatures and local/global ledgers: raw CSV/unit/provenance admission, exact time-weighted errors/integrals, peaks and threshold-event timing, gap/coverage refusal, immutable criteria, report snapshot/recomputation. Synthetic controls only; no experimental, calibration or plant validation promotion."
+          "reference_import_scope": "Software-only reference import and independent analytic piecewise-linear metrics for supported EOS temperatures and local/global ledgers: raw CSV/unit/provenance admission, exact time-weighted errors/integrals, peaks and threshold-event timing, gap/coverage refusal, immutable criteria, report snapshot/recomputation. Synthetic controls only; no experimental, calibration or plant validation promotion.",
+          "external_experiment_scope": "NIST TN2294 Fig18: 38 vector-digitized Darcy friction-factor symbols, four copper-pipe repeats; fixed pre-evaluation 5% screening criterion, native Darcy/Haaland evaluation with no fitting, source/licensing/coordinate-reading bounds and report recomputation. No per-point complete experimental UQ, independent correlation-training provenance or system transient validation; validated=false."
         },
         {
           "id": "AI-09.08",
@@ -1972,9 +2009,18 @@
             "examples/eos_reference_workflow.py",
             "docs/AI_09_REFERENCE_COMPARISON_RU.md",
             "validation/ai09_reference_delivery_v1.json",
-            "validation/ai09_reference_portable_replay_v1.json"
+            "validation/ai09_reference_portable_replay_v1.json",
+            "atomic_model_validation/pipe.py",
+            "atomic_model_validation/digitize.py",
+            "atomic_model_validation/data/nist_tn2294/manifest.json",
+            "docs/AI_09_NIST_PIPE_EXPERIMENT_RU.md",
+            "tests/test_experimental_pipe.py",
+            "validation/ai09_nist_pipe_installed_v1.json",
+            "validation/ai09_nist_pipe_comparison_v1.json",
+            "validation/ai09_nist_pipe_delivery_v1.json"
           ],
-          "reference_import_scope": "Software-only reference import and independent analytic piecewise-linear metrics for supported EOS temperatures and local/global ledgers: raw CSV/unit/provenance admission, exact time-weighted errors/integrals, peaks and threshold-event timing, gap/coverage refusal, immutable criteria, report snapshot/recomputation. Synthetic controls only; no experimental, calibration or plant validation promotion."
+          "reference_import_scope": "Software-only reference import and independent analytic piecewise-linear metrics for supported EOS temperatures and local/global ledgers: raw CSV/unit/provenance admission, exact time-weighted errors/integrals, peaks and threshold-event timing, gap/coverage refusal, immutable criteria, report snapshot/recomputation. Synthetic controls only; no experimental, calibration or plant validation promotion.",
+          "external_experiment_scope": "NIST TN2294 Fig18: 38 vector-digitized Darcy friction-factor symbols, four copper-pipe repeats; fixed pre-evaluation 5% screening criterion, native Darcy/Haaland evaluation with no fitting, source/licensing/coordinate-reading bounds and report recomputation. No per-point complete experimental UQ, independent correlation-training provenance or system transient validation; validated=false."
         }
       ],
       "acceptance": [
@@ -2107,10 +2153,19 @@
             "docs/AI_10_EOS_WORKER_POOL_RU.md",
             "validation/ai10_eos_pool_delivery_v1.json",
             "validation/ai10_eos_pool_portable_replay_v1.json",
-            "validation/ai10_eos_pool_summary_v1.json"
+            "validation/ai10_eos_pool_summary_v1.json",
+            "atomic_model_rollouts/controller.py",
+            "atomic_model_rollouts/store.py",
+            "atomic_model_rollouts/worker.py",
+            "atomic_model_rollouts/reports.py",
+            "tests/test_model_rollouts.py",
+            "docs/AI_10_DURABLE_ROLLOUTS_RU.md",
+            "tests/test_rollout_faults.py",
+            "validation/ai10_rollouts_installed_replay_v1.json"
           ],
           "performance_scope": "Linux trusted fixed-case EOS workers; shared affinity budget for supervisor threads and workers, fixed library threads, native admission/replay, phase wall clocks and exclusive cProfile groups. Explicit SSPRK3, no Jacobian. RSS supervision sampled, not hard memory isolation. No persistent workers or untrusted execution.",
-          "pool_scope": "Bounded trusted Linux subprocess reuse for fixed EOS rollouts. Fresh EOSEpisode per task, source/token/native-checkpoint admission, CPU/thread/RSS/task-count bounds, worker replacement on failure, paired alternating classic/pool measurements. No vector learner API, arbitrary policies, persistent pool-job resume or OS hard memory quota."
+          "pool_scope": "Bounded trusted Linux subprocess reuse for fixed EOS rollouts. Fresh EOSEpisode per task, source/token/native-checkpoint admission, CPU/thread/RSS/task-count bounds, worker replacement on failure, paired alternating classic/pool measurements. No vector learner API, arbitrary policies, persistent pool-job resume or OS hard memory quota.",
+          "durable_rollout_scope": "Trusted Linux EOS queue with native checkpoints, bounded dispatch, pause/cancel/CAS resume. Real controller exits before/after GO and SIGKILL worker recovery qualified; synthetic RSS observer, output overflow and malformed checkpoint isolation exercised. Installed local wheel replay outside checkout; independent machine, exhaustive commit-crash recovery and hard OS resource quotas remain open."
         },
         {
           "id": "AI-10.05",
@@ -2160,9 +2215,18 @@
             "tests/test_model_workspace.py",
             "validation/ai11_workspace_batch_v1.json",
             "validation/ai11_workspace_delivery_v1.json",
-            "validation/ai11_workspace_portable_replay_v1.json"
+            "validation/ai11_workspace_portable_replay_v1.json",
+            "atomic_model_rollouts/controller.py",
+            "atomic_model_rollouts/store.py",
+            "atomic_model_rollouts/worker.py",
+            "atomic_model_rollouts/reports.py",
+            "tests/test_model_rollouts.py",
+            "docs/AI_10_DURABLE_ROLLOUTS_RU.md",
+            "tests/test_rollout_faults.py",
+            "validation/ai10_rollouts_installed_replay_v1.json"
           ],
-          "workspace_scope": "Restricted EOS projects with strict portable references, two deterministic built-ins, sequential spawn workers, atomic accepted-decision checkpoints, explicit pause/cancel/resume, reports and bounded data archives. No arbitrary plugin, untrusted execution, CPU/RSS quota or general topology editing."
+          "workspace_scope": "Restricted EOS projects with strict portable references, two deterministic built-ins, sequential spawn workers, atomic accepted-decision checkpoints, explicit pause/cancel/resume, reports and bounded data archives. No arbitrary plugin, untrusted execution, CPU/RSS quota or general topology editing.",
+          "durable_rollout_scope": "Trusted Linux EOS queue with native checkpoints, bounded dispatch, pause/cancel/CAS resume. Real controller exits before/after GO and SIGKILL worker recovery qualified; synthetic RSS observer, output overflow and malformed checkpoint isolation exercised. Installed local wheel replay outside checkout; independent machine, exhaustive commit-crash recovery and hard OS resource quotas remain open."
         },
         {
           "id": "AI-10.07",
@@ -2415,7 +2479,7 @@
         {
           "id": "AI-11.05",
           "description": "Добавить подключаемую agent policy с разрешёнными наблюдениями/действиями и ограничением времени решения.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "atomic_agent_tools/server.py",
             "atomic_agent_tools/protocol.py",
@@ -2445,11 +2509,23 @@
             "tests/test_model_workspace.py",
             "validation/ai11_workspace_batch_v1.json",
             "validation/ai11_workspace_delivery_v1.json",
-            "validation/ai11_workspace_portable_replay_v1.json"
+            "validation/ai11_workspace_portable_replay_v1.json",
+            "atomic_model_agents/protocol.py",
+            "atomic_model_agents/transport.py",
+            "atomic_model_agents/launcher.py",
+            "atomic_model_agents/jobs.py",
+            "atomic_model_agents/baseline.py",
+            "atomic_model_agents/__main__.py",
+            "tests/test_external_agents.py",
+            "examples/eos_external_agent_workflow.py",
+            "docs/AI_11_EXTERNAL_AGENT_CONTRACT_RU.md",
+            "validation/ai11_external_agents_delivery_v1.json",
+            "validation/ai11_external_agents_portable_replay_v1.json"
           ],
           "implemented_scope": "Installable provider-independent local JSONL tools on public PWRPlantEnv contract 2.1: cached sensor observations, named physical-unit actions, fresh-observation guards, opaque checkpoints, cancellation between calls, host-only export/import. No external LLM or credential requirement; no asynchronous native interrupt, general engine registry or arbitrary policy execution.",
           "public_eos_runtime_scope": "Installed distribution-relative EOS resources and stable Python/experiment/JSONL routes; restricted mixed finite-inventory thermal model with three declared presets, full heat actions, exact pause/resume and scenario identity. No general hydraulic graph, asynchronous jobs or physical validation promotion.",
-          "workspace_scope": "Restricted EOS projects with strict portable references, two deterministic built-ins, sequential spawn workers, atomic accepted-decision checkpoints, explicit pause/cancel/resume, reports and bounded data archives. No arbitrary plugin, untrusted execution, CPU/RSS quota or general topology editing."
+          "workspace_scope": "Restricted EOS projects with strict portable references, two deterministic built-ins, sequential spawn workers, atomic accepted-decision checkpoints, explicit pause/cancel/resume, reports and bounded data archives. No arbitrary plugin, untrusted execution, CPU/RSS quota or general topology editing.",
+          "accepted_scope": "Headless trusted host-launched explicit-state JSONL policy for supported EOS runtime. Per-decision fresh process, allowed observations/actions, fresh request binding, process wall/observed-RSS/output budgets, transactional native+agent-state checkpoints, CAS resume/cancel and agent-free accepted-action replay. No untrusted-code sandbox, persistent arbitrary Python agent, generic model registry or automatic integration with old study/result schemas."
         },
         {
           "id": "AI-11.06",
@@ -2741,13 +2817,40 @@
         {
           "id": "AI-12.03",
           "description": "Разделить portable и внешние OpenMC/MPI runners, длинные физические benchmarks и hardware-specific performance jobs.",
-          "status": "planned",
-          "evidence": []
+          "status": "accepted",
+          "evidence": [
+            "atomic_model_release/checks.py",
+            "atomic_model_release/environment.py",
+            "atomic_model_release/lanes.py",
+            "atomic_model_release/pytest_gate.py",
+            "atomic_model_release/install_check.py",
+            "atomic_model_release/mpi_probe.py",
+            "atomic_model_release/__main__.py",
+            "atomic_model_release/api_contract.py",
+            "atomic_model_contracts/__init__.py",
+            "atomic_model_agents/jobs.pyi",
+            "atomic_model_release/use_cases.json",
+            "atomic_model_release/golden/manifest.json",
+            "tests/test_release_engineering.py",
+            "tests/conftest.py",
+            ".github/workflows/ci.yml",
+            ".github/workflows/numerical.yml",
+            ".github/workflows/external.yml",
+            ".github/workflows/hardware.yml",
+            "docs/release/CI_LANES_RU.md",
+            "docs/release/QUALITY_GATES_RU.md",
+            "docs/release/SCHEMA_COMPATIBILITY_RU.md",
+            "docs/release/RUNBOOK_RU.md",
+            "docs/release/AI_USE_CASES_RU.md",
+            "validation/ai12_five_tasks_delivery_v1.json",
+            "validation/ai12_five_tasks_portable_replay_v1.json"
+          ],
+          "accepted_scope": "Separate automatic portable, manual long numerical, explicit provisioned OpenMC and MPI-runtime, and declared-hardware lanes; fail-closed prerequisite/no-execution/no-skips gates. Real local OpenMC test and two-rank MPI transport receipt; no MPI reactor-solver or full long/hardware acceptance."
         },
         {
           "id": "AI-12.04",
           "description": "Обеспечить regression gates нового ядра и API, линтер/типы по актуальным модулям, а не только legacy-папкам.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "validation/ai05_turbine_delivery_v1.json",
             "validation/ai05_historical_frozen_replay_v1.json",
@@ -2844,7 +2947,32 @@
             "examples/eos_reference_workflow.py",
             "docs/AI_09_REFERENCE_COMPARISON_RU.md",
             "validation/ai09_reference_delivery_v1.json",
-            "validation/ai09_reference_portable_replay_v1.json"
+            "validation/ai09_reference_portable_replay_v1.json",
+            "atomic_model_release/checks.py",
+            "atomic_model_release/environment.py",
+            "atomic_model_release/lanes.py",
+            "atomic_model_release/pytest_gate.py",
+            "atomic_model_release/install_check.py",
+            "atomic_model_release/mpi_probe.py",
+            "atomic_model_release/__main__.py",
+            "atomic_model_release/api_contract.py",
+            "atomic_model_contracts/__init__.py",
+            "atomic_model_agents/jobs.pyi",
+            "atomic_model_release/use_cases.json",
+            "atomic_model_release/golden/manifest.json",
+            "tests/test_release_engineering.py",
+            "tests/conftest.py",
+            ".github/workflows/ci.yml",
+            ".github/workflows/numerical.yml",
+            ".github/workflows/external.yml",
+            ".github/workflows/hardware.yml",
+            "docs/release/CI_LANES_RU.md",
+            "docs/release/QUALITY_GATES_RU.md",
+            "docs/release/SCHEMA_COMPATIBILITY_RU.md",
+            "docs/release/RUNBOOK_RU.md",
+            "docs/release/AI_USE_CASES_RU.md",
+            "validation/ai12_five_tasks_delivery_v1.json",
+            "validation/ai12_five_tasks_portable_replay_v1.json"
           ],
           "remaining": "New exchanger/coupling/turbine regression and CI lint/audit lanes implemented; full current-module type/lint coverage and remote CI results remain open",
           "workspace_scope": "Restricted EOS projects with strict portable references, two deterministic built-ins, sequential spawn workers, atomic accepted-decision checkpoints, explicit pause/cancel/resume, reports and bounded data archives. No arbitrary plugin, untrusted execution, CPU/RSS quota or general topology editing.",
@@ -2853,12 +2981,13 @@
           "source_scan_scope": "Fresh os.scandir source traversal with legacy component ordering, no content/list/stat cache. Same-tree legacy digest equivalence, backdated same-size mutation detection, fail-closed I/O, unchanged numerical equations and old-source checkpoint rejection. Source identity changes because SDK file changed.",
           "project_editor_scope": "Versioned EOS parameter/policy API and CLI with full-batch preflight, preview/diff, CAS, immutable hashed revision chain, atomic HEAD, source guard, undo by new revision and portable export. No visual GUI, arbitrary topology or external experimental dataset editing; no automatic source migration.",
           "local_ui_scope": "Local single-user loopback UI for supported EOS preset parameters and trusted baseline policies: visible model card, fidelity/source/runtime versions, typed scenario form, preview/diff, CAS save, immutable history, restore and portable export. Wrong bindings rejected with unchanged HEAD. No arbitrary topology or remote/multi-user service.",
-          "reference_import_scope": "Software-only reference import and independent analytic piecewise-linear metrics for supported EOS temperatures and local/global ledgers: raw CSV/unit/provenance admission, exact time-weighted errors/integrals, peaks and threshold-event timing, gap/coverage refusal, immutable criteria, report snapshot/recomputation. Synthetic controls only; no experimental, calibration or plant validation promotion."
+          "reference_import_scope": "Software-only reference import and independent analytic piecewise-linear metrics for supported EOS temperatures and local/global ledgers: raw CSV/unit/provenance admission, exact time-weighted errors/integrals, peaks and threshold-event timing, gap/coverage refusal, immutable criteria, report snapshot/recomputation. Synthetic controls only; no experimental, calibration or plant validation promotion.",
+          "accepted_scope": "Portable modern core/API regression, lint of qualified atomic_model packages, strict canonical public agent input contracts/stubs and typed consumer with positive/negative mypy checks. Dynamic numerical internals remain schema/native-test checked, not claimed fully statically typed. CI Python matrix configured, not all versions locally qualified."
         },
         {
           "id": "AI-12.05",
           "description": "Добавить schema compatibility, migration tests, golden projects и запрет тихого изменения смысла старого snapshot.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "validation/ai05_steam_cycle_delivery_v1.json",
             "validation/ai05_turbine_snapshot_compatibility_v1.json",
@@ -2917,13 +3046,39 @@
             "examples/eos_reference_workflow.py",
             "docs/AI_09_REFERENCE_COMPARISON_RU.md",
             "validation/ai09_reference_delivery_v1.json",
-            "validation/ai09_reference_portable_replay_v1.json"
+            "validation/ai09_reference_portable_replay_v1.json",
+            "atomic_model_release/checks.py",
+            "atomic_model_release/environment.py",
+            "atomic_model_release/lanes.py",
+            "atomic_model_release/pytest_gate.py",
+            "atomic_model_release/install_check.py",
+            "atomic_model_release/mpi_probe.py",
+            "atomic_model_release/__main__.py",
+            "atomic_model_release/api_contract.py",
+            "atomic_model_contracts/__init__.py",
+            "atomic_model_agents/jobs.pyi",
+            "atomic_model_release/use_cases.json",
+            "atomic_model_release/golden/manifest.json",
+            "tests/test_release_engineering.py",
+            "tests/conftest.py",
+            ".github/workflows/ci.yml",
+            ".github/workflows/numerical.yml",
+            ".github/workflows/external.yml",
+            ".github/workflows/hardware.yml",
+            "docs/release/CI_LANES_RU.md",
+            "docs/release/QUALITY_GATES_RU.md",
+            "docs/release/SCHEMA_COMPATIBILITY_RU.md",
+            "docs/release/RUNBOOK_RU.md",
+            "docs/release/AI_USE_CASES_RU.md",
+            "validation/ai12_five_tasks_delivery_v1.json",
+            "validation/ai12_five_tasks_portable_replay_v1.json"
           ],
           "remaining": "Old turbine schema-1 snapshots and new transactional/boundary contracts checked; whole-project migration/version policy, golden projects and universal snapshot-meaning compatibility remain open",
           "workspace_scope": "Restricted EOS projects with strict portable references, two deterministic built-ins, sequential spawn workers, atomic accepted-decision checkpoints, explicit pause/cancel/resume, reports and bounded data archives. No arbitrary plugin, untrusted execution, CPU/RSS quota or general topology editing.",
           "source_scan_scope": "Fresh os.scandir source traversal with legacy component ordering, no content/list/stat cache. Same-tree legacy digest equivalence, backdated same-size mutation detection, fail-closed I/O, unchanged numerical equations and old-source checkpoint rejection. Source identity changes because SDK file changed.",
           "project_editor_scope": "Versioned EOS parameter/policy API and CLI with full-batch preflight, preview/diff, CAS, immutable hashed revision chain, atomic HEAD, source guard, undo by new revision and portable export. No visual GUI, arbitrary topology or external experimental dataset editing; no automatic source migration.",
-          "reference_import_scope": "Software-only reference import and independent analytic piecewise-linear metrics for supported EOS temperatures and local/global ledgers: raw CSV/unit/provenance admission, exact time-weighted errors/integrals, peaks and threshold-event timing, gap/coverage refusal, immutable criteria, report snapshot/recomputation. Synthetic controls only; no experimental, calibration or plant validation promotion."
+          "reference_import_scope": "Software-only reference import and independent analytic piecewise-linear metrics for supported EOS temperatures and local/global ledgers: raw CSV/unit/provenance admission, exact time-weighted errors/integrals, peaks and threshold-event timing, gap/coverage refusal, immutable criteria, report snapshot/recomputation. Synthetic controls only; no experimental, calibration or plant validation promotion.",
+          "accepted_scope": "Packaged frozen 0 W/500 W EOS golden controls with reviewed integrity manifest, horizon/unit/freshness/ledger/temperature semantics. Explicit workspace-v1-to-study-v1 data-only config migration and full semantic equality; unsupported schemas/source-bound checkpoint rewriting rejected. No invented historic schema migration."
         },
         {
           "id": "AI-12.06",
@@ -3049,7 +3204,7 @@
         {
           "id": "AI-12.08",
           "description": "Подготовить установку, troubleshooting, release notes, recovery и полный runbook контрольного проекта.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "validation/ai12_evidence_bundle_delivery_v1.json",
             "validation/ai12_evidence_bundle_baseline_v1.json",
@@ -3087,13 +3242,39 @@
             "scripts/verify_project_ui_browser.py",
             "docs/AI_11_LOCAL_PROJECT_UI_RU.md",
             "validation/ai11_local_ui_delivery_v1.json",
-            "validation/ai11_local_ui_portable_replay_v1.json"
+            "validation/ai11_local_ui_portable_replay_v1.json",
+            "atomic_model_release/checks.py",
+            "atomic_model_release/environment.py",
+            "atomic_model_release/lanes.py",
+            "atomic_model_release/pytest_gate.py",
+            "atomic_model_release/install_check.py",
+            "atomic_model_release/mpi_probe.py",
+            "atomic_model_release/__main__.py",
+            "atomic_model_release/api_contract.py",
+            "atomic_model_contracts/__init__.py",
+            "atomic_model_agents/jobs.pyi",
+            "atomic_model_release/use_cases.json",
+            "atomic_model_release/golden/manifest.json",
+            "tests/test_release_engineering.py",
+            "tests/conftest.py",
+            ".github/workflows/ci.yml",
+            ".github/workflows/numerical.yml",
+            ".github/workflows/external.yml",
+            ".github/workflows/hardware.yml",
+            "docs/release/CI_LANES_RU.md",
+            "docs/release/QUALITY_GATES_RU.md",
+            "docs/release/SCHEMA_COMPATIBILITY_RU.md",
+            "docs/release/RUNBOOK_RU.md",
+            "docs/release/AI_USE_CASES_RU.md",
+            "validation/ai12_five_tasks_delivery_v1.json",
+            "validation/ai12_five_tasks_portable_replay_v1.json"
           ],
           "implemented_scope": "Numerical primary/steam archive, transfer, verification, trusted replay and recovery runbook",
           "remaining": "Full product installation/troubleshooting/release/recovery/control-project runbook across accepted backends",
           "workspace_scope": "Restricted EOS projects with strict portable references, two deterministic built-ins, sequential spawn workers, atomic accepted-decision checkpoints, explicit pause/cancel/resume, reports and bounded data archives. No arbitrary plugin, untrusted execution, CPU/RSS quota or general topology editing.",
           "project_editor_scope": "Versioned EOS parameter/policy API and CLI with full-batch preflight, preview/diff, CAS, immutable hashed revision chain, atomic HEAD, source guard, undo by new revision and portable export. No visual GUI, arbitrary topology or external experimental dataset editing; no automatic source migration.",
-          "local_ui_scope": "Local single-user loopback UI for supported EOS preset parameters and trusted baseline policies: visible model card, fidelity/source/runtime versions, typed scenario form, preview/diff, CAS save, immutable history, restore and portable export. Wrong bindings rejected with unchanged HEAD. No arbitrary topology or remote/multi-user service."
+          "local_ui_scope": "Local single-user loopback UI for supported EOS preset parameters and trusted baseline policies: visible model card, fidelity/source/runtime versions, typed scenario form, preview/diff, CAS save, immutable history, restore and portable export. Wrong bindings rejected with unchanged HEAD. No arbitrary topology or remote/multi-user service.",
+          "accepted_scope": "Executable installed-wheel Linux EOS runbook: dependency-free doctor, frozen golden, control/replay/migration, intentional failure diagnosis and permitted learning data. Read-only lock inspection; no unsafe automatic ownership recovery. Shared scientific dependencies, no hermetic or independent-machine matrix claim."
         }
       ],
       "acceptance": [
@@ -3130,7 +3311,7 @@
         {
           "id": "AI-13.01",
           "description": "Зафиксировать открытые use cases для RL/LLM: управление через инструменты, диагностика и воспроизводимые данные; объявить поддержанные модели, наблюдения, действия и метрики.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "docs/AI_11_EOS_WORKSPACE_RU.md",
             "atomic_model_workspace/project.py",
@@ -3145,9 +3326,35 @@
             "tests/test_model_workspace.py",
             "validation/ai11_workspace_batch_v1.json",
             "validation/ai11_workspace_delivery_v1.json",
-            "validation/ai11_workspace_portable_replay_v1.json"
+            "validation/ai11_workspace_portable_replay_v1.json",
+            "atomic_model_release/checks.py",
+            "atomic_model_release/environment.py",
+            "atomic_model_release/lanes.py",
+            "atomic_model_release/pytest_gate.py",
+            "atomic_model_release/install_check.py",
+            "atomic_model_release/mpi_probe.py",
+            "atomic_model_release/__main__.py",
+            "atomic_model_release/api_contract.py",
+            "atomic_model_contracts/__init__.py",
+            "atomic_model_agents/jobs.pyi",
+            "atomic_model_release/use_cases.json",
+            "atomic_model_release/golden/manifest.json",
+            "tests/test_release_engineering.py",
+            "tests/conftest.py",
+            ".github/workflows/ci.yml",
+            ".github/workflows/numerical.yml",
+            ".github/workflows/external.yml",
+            ".github/workflows/hardware.yml",
+            "docs/release/CI_LANES_RU.md",
+            "docs/release/QUALITY_GATES_RU.md",
+            "docs/release/SCHEMA_COMPATIBILITY_RU.md",
+            "docs/release/RUNBOOK_RU.md",
+            "docs/release/AI_USE_CASES_RU.md",
+            "validation/ai12_five_tasks_delivery_v1.json",
+            "validation/ai12_five_tasks_portable_replay_v1.json"
           ],
-          "workspace_scope": "Restricted EOS projects with strict portable references, two deterministic built-ins, sequential spawn workers, atomic accepted-decision checkpoints, explicit pause/cancel/resume, reports and bounded data archives. No arbitrary plugin, untrusted execution, CPU/RSS quota or general topology editing."
+          "workspace_scope": "Restricted EOS projects with strict portable references, two deterministic built-ins, sequential spawn workers, atomic accepted-decision checkpoints, explicit pause/cancel/resume, reports and bounded data archives. No arbitrary plugin, untrusted execution, CPU/RSS quota or general topology editing.",
+          "accepted_scope": "Published registry and executable control, observed-failure triage and learning-transition use cases on declared synthetic EOS fidelity with named K/W inputs/actions, metrics, provenance and correct RL truncation. Local baselines only; no expert causal labels, paid LLM call or physical validation."
         },
         {
           "id": "AI-13.02",
@@ -3175,7 +3382,7 @@
         {
           "id": "AI-13.03",
           "description": "Зафиксировать общий открытый baseline сравнения: одинаковые модели, сценарии, seeds, численная точность, оборудование и бюджеты решений/инструментов.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "docs/AI_11_EOS_WORKSPACE_RU.md",
             "atomic_model_workspace/project.py",
@@ -3202,15 +3409,26 @@
             "scripts/verify_results_ui_browser.py",
             "docs/AI_11_RESULT_COMPARISON_RU.md",
             "validation/ai11_results_delivery_v1.json",
-            "validation/ai11_results_portable_replay_v1.json"
+            "validation/ai11_results_portable_replay_v1.json",
+            "atomic_model_arena/protocol.py",
+            "atomic_model_arena/metrics.py",
+            "atomic_model_arena/runner.py",
+            "atomic_model_arena/worker.py",
+            "atomic_model_arena/__main__.py",
+            "tests/test_model_arena.py",
+            "examples/eos_arena_workflow.py",
+            "docs/AI_13_EOS_OPEN_BENCHMARK_RU.md",
+            "validation/ai13_eos_arena_delivery_v1.json",
+            "validation/ai13_eos_arena_portable_replay_v1.json"
           ],
           "workspace_scope": "Restricted EOS projects with strict portable references, two deterministic built-ins, sequential spawn workers, atomic accepted-decision checkpoints, explicit pause/cancel/resume, reports and bounded data archives. No arbitrary plugin, untrusted execution, CPU/RSS quota or general topology editing.",
-          "results_comparison_scope": "Restricted EOS result comparison: pinned multi-evaluation data-only bundles, unitful trajectories, full accepted-row native reintegration, exact metric/event/ledger recomputation, protocol-specific per-channel MAE comparison, diagnostics for incomplete runs, bounded deterministic ZIP and local UI. No cross-unit aggregate, hardware speed claim, arbitrary agent/model graph or physical validation."
+          "results_comparison_scope": "Restricted EOS result comparison: pinned multi-evaluation data-only bundles, unitful trajectories, full accepted-row native reintegration, exact metric/event/ledger recomputation, protocol-specific per-channel MAE comparison, diagnostics for incomplete runs, bounded deterministic ZIP and local UI. No cross-unit aggregate, hardware speed claim, arbitrary agent/model graph or physical validation.",
+          "accepted_scope": "Restricted open synthetic EOS baseline protocol: physical preset train/dev/test separation, equal permissions/numerics/budgets and one shared CPU worker, train-only frozen candidate selection, complete-matrix quality/constraint outcomes, observed process cost, native repeat checks and permitted-observation JSONL transitions with correct time-limit truncation. No independent stochastic trials, external LLM token claim, physical validation or cross-simulator/speed advantage."
         },
         {
           "id": "AI-13.04",
           "description": "Измерить воспроизводимость, соблюдение ограничений, стоимость вычислений и качество политик на объявленных открытых train/dev/test-разбиениях; данные о токенах приводить только при реальном измерении.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "docs/AI_11_EOS_WORKSPACE_RU.md",
             "atomic_model_workspace/project.py",
@@ -3237,10 +3455,21 @@
             "scripts/verify_results_ui_browser.py",
             "docs/AI_11_RESULT_COMPARISON_RU.md",
             "validation/ai11_results_delivery_v1.json",
-            "validation/ai11_results_portable_replay_v1.json"
+            "validation/ai11_results_portable_replay_v1.json",
+            "atomic_model_arena/protocol.py",
+            "atomic_model_arena/metrics.py",
+            "atomic_model_arena/runner.py",
+            "atomic_model_arena/worker.py",
+            "atomic_model_arena/__main__.py",
+            "tests/test_model_arena.py",
+            "examples/eos_arena_workflow.py",
+            "docs/AI_13_EOS_OPEN_BENCHMARK_RU.md",
+            "validation/ai13_eos_arena_delivery_v1.json",
+            "validation/ai13_eos_arena_portable_replay_v1.json"
           ],
           "workspace_scope": "Restricted EOS projects with strict portable references, two deterministic built-ins, sequential spawn workers, atomic accepted-decision checkpoints, explicit pause/cancel/resume, reports and bounded data archives. No arbitrary plugin, untrusted execution, CPU/RSS quota or general topology editing.",
-          "results_comparison_scope": "Restricted EOS result comparison: pinned multi-evaluation data-only bundles, unitful trajectories, full accepted-row native reintegration, exact metric/event/ledger recomputation, protocol-specific per-channel MAE comparison, diagnostics for incomplete runs, bounded deterministic ZIP and local UI. No cross-unit aggregate, hardware speed claim, arbitrary agent/model graph or physical validation."
+          "results_comparison_scope": "Restricted EOS result comparison: pinned multi-evaluation data-only bundles, unitful trajectories, full accepted-row native reintegration, exact metric/event/ledger recomputation, protocol-specific per-channel MAE comparison, diagnostics for incomplete runs, bounded deterministic ZIP and local UI. No cross-unit aggregate, hardware speed claim, arbitrary agent/model graph or physical validation.",
+          "accepted_scope": "Restricted open synthetic EOS baseline protocol: physical preset train/dev/test separation, equal permissions/numerics/budgets and one shared CPU worker, train-only frozen candidate selection, complete-matrix quality/constraint outcomes, observed process cost, native repeat checks and permitted-observation JSONL transitions with correct time-limit truncation. No independent stochastic trials, external LLM token claim, physical validation or cross-simulator/speed advantage."
         },
         {
           "id": "AI-13.05",
@@ -3870,6 +4099,73 @@
         "validation/ai11_results_delivery_v1.json",
         "validation/ai11_results_portable_replay_v1.json"
       ]
+    },
+    {
+      "date": "2026-11-04",
+      "version": "1.60.0",
+      "note": "External agent JSONL contract with explicit state, host-only argv, permissions, per-decision process budgets and transactional native/state journal. Two local baseline equivalence and agent-free replay. AI-11.05 accepted in restricted headless EOS scope; 53/109 accepted. Existing study/results schemas unchanged; general model/agent integration remains open.",
+      "evidence": [
+        "atomic_model_agents/protocol.py",
+        "atomic_model_agents/transport.py",
+        "atomic_model_agents/launcher.py",
+        "atomic_model_agents/jobs.py",
+        "atomic_model_agents/baseline.py",
+        "atomic_model_agents/__main__.py",
+        "tests/test_external_agents.py",
+        "examples/eos_external_agent_workflow.py",
+        "docs/AI_11_EXTERNAL_AGENT_CONTRACT_RU.md",
+        "validation/ai11_external_agents_delivery_v1.json",
+        "validation/ai11_external_agents_portable_replay_v1.json"
+      ]
+    },
+    {
+      "date": "2026-11-04",
+      "version": "1.61.0",
+      "note": "Open EOS arena protocol with common CPU/permissions/numerics/budgets, physical split guards, train-only selection frozen before dev/test, 16-episode synthetic matrix, exact error metrics and sampled constraints, native repeats/cost observations and 48 permitted-input transitions. AI-13.03/04 accepted only in restricted software baseline scope; 55/109 accepted. No external simulator or speed advantage claimed; AI-13.06 remains open.",
+      "evidence": [
+        "atomic_model_arena/protocol.py",
+        "atomic_model_arena/metrics.py",
+        "atomic_model_arena/runner.py",
+        "atomic_model_arena/worker.py",
+        "atomic_model_arena/__main__.py",
+        "tests/test_model_arena.py",
+        "examples/eos_arena_workflow.py",
+        "docs/AI_13_EOS_OPEN_BENCHMARK_RU.md",
+        "validation/ai13_eos_arena_delivery_v1.json",
+        "validation/ai13_eos_arena_portable_replay_v1.json"
+      ]
+    },
+    {
+      "date": "2026-11-04",
+      "version": "1.62.0",
+      "note": "Five release/use-case tasks: CI lane separation, modern API regression/lint/input typing, reviewed golden compatibility and explicit config migration, executable installed runbook/recovery, and concrete AI control/diagnosis/dataset routes. 60/109 tasks accepted in declared EOS software scopes. Full portable/new/installed and external receipts recorded separately; Python/dependency/OS matrix, full long/hardware and physical validation remain separate.",
+      "evidence": [
+        "atomic_model_release/checks.py",
+        "atomic_model_release/environment.py",
+        "atomic_model_release/lanes.py",
+        "atomic_model_release/pytest_gate.py",
+        "atomic_model_release/install_check.py",
+        "atomic_model_release/mpi_probe.py",
+        "atomic_model_release/__main__.py",
+        "atomic_model_release/api_contract.py",
+        "atomic_model_contracts/__init__.py",
+        "atomic_model_agents/jobs.pyi",
+        "atomic_model_release/use_cases.json",
+        "atomic_model_release/golden/manifest.json",
+        "tests/test_release_engineering.py",
+        "tests/conftest.py",
+        ".github/workflows/ci.yml",
+        ".github/workflows/numerical.yml",
+        ".github/workflows/external.yml",
+        ".github/workflows/hardware.yml",
+        "docs/release/CI_LANES_RU.md",
+        "docs/release/QUALITY_GATES_RU.md",
+        "docs/release/SCHEMA_COMPATIBILITY_RU.md",
+        "docs/release/RUNBOOK_RU.md",
+        "docs/release/AI_USE_CASES_RU.md",
+        "validation/ai12_five_tasks_delivery_v1.json",
+        "validation/ai12_five_tasks_portable_replay_v1.json"
+      ]
     }
   ],
   "product_intent": {
@@ -4051,6 +4347,142 @@
         "untrusted agents/arbitrary model graphs",
         "hardware speed or mixed-unit quality ranking",
         "independent-machine portability acceptance"
+      ]
+    },
+    {
+      "date": "2026-11-04",
+      "task": "AI-11.05",
+      "decision": "accepted",
+      "scope": "Headless trusted host-launched explicit-state JSONL policy for supported EOS runtime. Per-decision fresh process, allowed observations/actions, fresh request binding, process wall/observed-RSS/output budgets, transactional native+agent-state checkpoints, CAS resume/cancel and agent-free accepted-action replay. No untrusted-code sandbox, persistent arbitrary Python agent, generic model registry or automatic integration with old study/result schemas.",
+      "basis": [
+        "two local agent/native baseline equivalence and pause/resume checks",
+        "real process protocol, timeout, RSS, output, cancellation and identity-change refusal tests",
+        "native row/history/state replay without agent executable or services",
+        "installed wheel/sdist and archive checks in delivery evidence"
+      ],
+      "exclusions": [
+        "untrusted execution sandbox or subprocess resource quotas",
+        "general model registry and old-study agent schema migration",
+        "external LLM/provider behavior reproducibility or physical validation"
+      ]
+    },
+    {
+      "date": "2026-11-04",
+      "task": "AI-13.03",
+      "decision": "accepted",
+      "scope": "Restricted open synthetic EOS baseline protocol: physical preset train/dev/test separation, equal permissions/numerics/budgets and one shared CPU worker, train-only frozen candidate selection, complete-matrix quality/constraint outcomes, observed process cost, native repeat checks and permitted-observation JSONL transitions with correct time-limit truncation. No independent stochastic trials, external LLM token claim, physical validation or cross-simulator/speed advantage.",
+      "basis": [
+        "canonical shared protocol and physical split/permission/budget guards",
+        "full train candidate matrix, frozen train-only selection and paired baseline/candidate dev/test",
+        "native accepted-row replay, recomputed schedule/selection/quality/constraints and transition bytes",
+        "recorded hardware/threads, repeats and observed cost; installed wheel/sdist qualification in delivery evidence"
+      ],
+      "exclusions": [
+        "physical/plant validation or independent stochastic generalization",
+        "external LLM token/cost measurement and untrusted-code resource attestation",
+        "cross-machine speed comparability or superiority versus other simulators"
+      ]
+    },
+    {
+      "date": "2026-11-04",
+      "task": "AI-13.04",
+      "decision": "accepted",
+      "scope": "Restricted open synthetic EOS baseline protocol: physical preset train/dev/test separation, equal permissions/numerics/budgets and one shared CPU worker, train-only frozen candidate selection, complete-matrix quality/constraint outcomes, observed process cost, native repeat checks and permitted-observation JSONL transitions with correct time-limit truncation. No independent stochastic trials, external LLM token claim, physical validation or cross-simulator/speed advantage.",
+      "basis": [
+        "canonical shared protocol and physical split/permission/budget guards",
+        "full train candidate matrix, frozen train-only selection and paired baseline/candidate dev/test",
+        "native accepted-row replay, recomputed schedule/selection/quality/constraints and transition bytes",
+        "recorded hardware/threads, repeats and observed cost; installed wheel/sdist qualification in delivery evidence"
+      ],
+      "exclusions": [
+        "physical/plant validation or independent stochastic generalization",
+        "external LLM token/cost measurement and untrusted-code resource attestation",
+        "cross-machine speed comparability or superiority versus other simulators"
+      ]
+    },
+    {
+      "date": "2026-11-04",
+      "task": "AI-12.03",
+      "decision": "accepted",
+      "scope": "Separate automatic portable, manual long numerical, explicit provisioned OpenMC and MPI-runtime, and declared-hardware lanes; fail-closed prerequisite/no-execution/no-skips gates. Real local OpenMC test and two-rank MPI transport receipt; no MPI reactor-solver or full long/hardware acceptance.",
+      "basis": [
+        "runtime/schema/golden/type and workflow guard tests",
+        "installed wheel resources and executable positive/negative/data routes outside checkout",
+        "preserved scientific fingerprint and explicit no-source-checkpoint migration semantics",
+        "separate actual portable, local external and provisioning-only evidence"
+      ],
+      "exclusions": [
+        "independent-machine/min-version/OS matrix qualification",
+        "untrusted-code sandbox or full static typing of dynamic numerical internals",
+        "MPI reactor physics, all manual long/hardware jobs or physical validation"
+      ]
+    },
+    {
+      "date": "2026-11-04",
+      "task": "AI-12.04",
+      "decision": "accepted",
+      "scope": "Portable modern core/API regression, lint of qualified atomic_model packages, strict canonical public agent input contracts/stubs and typed consumer with positive/negative mypy checks. Dynamic numerical internals remain schema/native-test checked, not claimed fully statically typed. CI Python matrix configured, not all versions locally qualified.",
+      "basis": [
+        "runtime/schema/golden/type and workflow guard tests",
+        "installed wheel resources and executable positive/negative/data routes outside checkout",
+        "preserved scientific fingerprint and explicit no-source-checkpoint migration semantics",
+        "separate actual portable, local external and provisioning-only evidence"
+      ],
+      "exclusions": [
+        "independent-machine/min-version/OS matrix qualification",
+        "untrusted-code sandbox or full static typing of dynamic numerical internals",
+        "MPI reactor physics, all manual long/hardware jobs or physical validation"
+      ]
+    },
+    {
+      "date": "2026-11-04",
+      "task": "AI-12.05",
+      "decision": "accepted",
+      "scope": "Packaged frozen 0 W/500 W EOS golden controls with reviewed integrity manifest, horizon/unit/freshness/ledger/temperature semantics. Explicit workspace-v1-to-study-v1 data-only config migration and full semantic equality; unsupported schemas/source-bound checkpoint rewriting rejected. No invented historic schema migration.",
+      "basis": [
+        "runtime/schema/golden/type and workflow guard tests",
+        "installed wheel resources and executable positive/negative/data routes outside checkout",
+        "preserved scientific fingerprint and explicit no-source-checkpoint migration semantics",
+        "separate actual portable, local external and provisioning-only evidence"
+      ],
+      "exclusions": [
+        "independent-machine/min-version/OS matrix qualification",
+        "untrusted-code sandbox or full static typing of dynamic numerical internals",
+        "MPI reactor physics, all manual long/hardware jobs or physical validation"
+      ]
+    },
+    {
+      "date": "2026-11-04",
+      "task": "AI-12.08",
+      "decision": "accepted",
+      "scope": "Executable installed-wheel Linux EOS runbook: dependency-free doctor, frozen golden, control/replay/migration, intentional failure diagnosis and permitted learning data. Read-only lock inspection; no unsafe automatic ownership recovery. Shared scientific dependencies, no hermetic or independent-machine matrix claim.",
+      "basis": [
+        "runtime/schema/golden/type and workflow guard tests",
+        "installed wheel resources and executable positive/negative/data routes outside checkout",
+        "preserved scientific fingerprint and explicit no-source-checkpoint migration semantics",
+        "separate actual portable, local external and provisioning-only evidence"
+      ],
+      "exclusions": [
+        "independent-machine/min-version/OS matrix qualification",
+        "untrusted-code sandbox or full static typing of dynamic numerical internals",
+        "MPI reactor physics, all manual long/hardware jobs or physical validation"
+      ]
+    },
+    {
+      "date": "2026-11-04",
+      "task": "AI-13.01",
+      "decision": "accepted",
+      "scope": "Published registry and executable control, observed-failure triage and learning-transition use cases on declared synthetic EOS fidelity with named K/W inputs/actions, metrics, provenance and correct RL truncation. Local baselines only; no expert causal labels, paid LLM call or physical validation.",
+      "basis": [
+        "runtime/schema/golden/type and workflow guard tests",
+        "installed wheel resources and executable positive/negative/data routes outside checkout",
+        "preserved scientific fingerprint and explicit no-source-checkpoint migration semantics",
+        "separate actual portable, local external and provisioning-only evidence"
+      ],
+      "exclusions": [
+        "independent-machine/min-version/OS matrix qualification",
+        "untrusted-code sandbox or full static typing of dynamic numerical internals",
+        "MPI reactor physics, all manual long/hardware jobs or physical validation"
       ]
     }
   ]

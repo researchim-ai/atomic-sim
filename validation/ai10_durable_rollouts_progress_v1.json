@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-04",
+  "status": "implemented_partial_qualification",
+  "tasks": [
+    "AI-10.04",
+    "AI-10.06"
+  ],
+  "source": {
+    "rollouts_sha256": "6016e308d488568cf9702de65b914e67f4ddb824afcb78ad757d5a2a0a300dc1",
+    "workspace": {
+      "workspace_sha256": "b4f2b556060eb4e3479432642b8fd0956705ccc4192e83437c776f165959cf21",
+      "runtime": {
+        "public_runtime_sha256": "f3db4a846514ff5754a2074f1e694f820fd7dc0d6f15453b2638a8da1837b6d7",
+        "native_signature": {
+          "source_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+          "drivers": {
+            "scripts/compressible_storage_graph.py": "e849e7e0209e4f91b18f9773c47d8894f8b2ed3b951d3c454813a243584aca7d",
+            "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+            "scripts/solve_hydraulic_graph.py": "6b90a4751ad2dfbdf37977c7c9809d75228f81bfe64604eaa4e8a120687da8a5",
+            "atomic_model_runtime/resources.py": "f0632f5853da75f6b7d11b3c802ecaec3b4759fac8471dc92f2756b306c1f060",
+            "scripts/__init__.py": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883",
+            "scripts/conservative_eos_loop.py": "5daa7eb5602dbe9ff1639eaa7bb4b70c7928f19d16fe1bf4b255f1b6d44313ca",
+            "scripts/open_eos_channel.py": "eebc4ab58d0afe512d8238358e695d760313d908a36190c9ca667b7a136d887d",
+            "scripts/terminal_eos_chambers.py": "32bacf9f02ae8fbd6b3f019971e71d6bbf193593bbfcfd8d0f5b75fcd6f99e8f",
+            "scripts/controlled_eos_assembly.py": "1f25149e4a107f17ee0001d9944de5b2d98cc8a9f8319d726c468006350fd546"
+          },
+          "budgets": {
+            "validation/ai05_compressible_storage_budget_v1.json": "cd9d496635eabded1e879fd2bec25ed1a7f9fa048369f62213ac6d21eb6f4883",
+            "validation/ai05_conservative_loop_budget_v1.json": "e21c0b6badf1483e3336dabf57a037901820d7bdee84615ebdc5a381d3c04a4f",
+            "validation/ai05_open_channel_budget_v1.json": "7fd48810de0e630c9f1de484e919789d0d93d445aa8ac28ed242fc7884f45f86",
+            "validation/ai05_terminal_chambers_budget_v1.json": "00cd8f90d843ceabda5e67b3e47cc2d22b67555497861d5a9436686a8d2035c4",
+            "validation/ai05_controlled_assembly_budget_v1.json": "b9f45eeec54a706098ea2a61a47568788e78c7ba04be0f3a6893b2d0b66dac68"
+          },
+          "python": "3.12.9",
+          "numpy": "2.2.6",
+          "scipy": "1.15.2"
+        }
+      }
+    },
+    "curve_metrics_sha256": "823ddd3802ed3b69d96927c4f61d3ec0cdeeb12ab1cac47c04fc50420aa3fe86",
+    "row_audit_sha256": "8f6fa56c05822a13ac9a72493f5c296e8ee613077e9556b2789c999433d2938d"
+  },
+  "checks": {
+    "rollout_tests_passed": 23,
+    "foundation_regression_tests_passed": 109,
+    "ruff_passed": true,
+    "wheel_build_passed": true,
+    "git_diff_check_passed": true
+  },
+  "workflow": {
+    "decision_slice": 2,
+    "effective_workers": 2,
+    "global_deadline_resume": true,
+    "jobs": 12,
+    "native_control_episodes_exact": true,
+    "plant_referenced": false,
+    "schema_version": 1,
+    "validated": false
+  },
+  "remaining": [
+    "Controller-loss and GO-handshake fault injection qualification",
+    "Killed-worker and resource-limit isolation qualification",
+    "Independent installed-machine replay",
+    "Performance 2x target remains unaccepted"
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "protocol_id": "nist-tn2294-fig18-haaland-v1",
+  "frozen_on": "2026-11-05",
+  "quantity": "Darcy friction factor",
+  "units": "1",
+  "diameter_m": 0.02011,
+  "roughness_m": 0.0000015,
+  "max_relative_error": 0.05,
+  "criterion_semantics": "Engineering screening tolerance fixed before model evaluation; not measurement uncertainty or NIST acceptance criterion",
+  "calibration": "none; no parameter fitting or point exclusion based on model residuals",
+  "scope": "Steady single-phase straight copper pipe; all four plotted repeat series. No plant, transient, two-phase, thermal or neutron validation",
+  "experimental_uncertainty": null,
+  "uncertainty_semantics": "No complete per-point experimental uncertainty budget available in the figure; do not infer it from the plotted Colebrook +/-3 percent comparison band",
+  "digitization_semantics": "Vector symbol bounding-box midpoint; full half-symbol extent plus 0.01 form coordinate unit as conservative coordinate-reading bounds, not probabilistic confidence intervals",
+  "acceptance": "Each symbol center must meet max_relative_error; envelope sensitivity reported separately and cannot convert a failed center criterion to pass",
+  "status_policy": "Experimental comparison only; validated=false and plant_referenced=false regardless of screening outcome"
+}

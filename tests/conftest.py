@@ -8,17 +8,17 @@ import torch
 
 
 def pytest_collection_modifyitems(items):
-    long_files = {
-        "test_simulator.py",
-        "test_integration.py",
-        "test_transient_convergence.py",
-        "test_muscl_total_initialization.py",
+    from atomic_model_release.lanes import classify
+
+    marker = {
+        "openmc": "external_integration",
+        "hardware": "hardware_specific",
+        "long": "long_running",
     }
     for item in items:
-        if item.name == "test_openmc_particle_run_reports_k_and_mgxs":
-            item.add_marker(pytest.mark.external_integration)
-        if item.path.name in long_files:
-            item.add_marker(pytest.mark.long_running)
+        lane = classify(item.path, item.name)
+        if lane in marker:
+            item.add_marker(getattr(pytest.mark, marker[lane]))
 
 
 @pytest.fixture

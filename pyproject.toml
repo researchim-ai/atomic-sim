@@ -46,12 +46,18 @@ dev = [
     "pytest>=7.4.0",
     "jsonschema>=4.18.0",
     "pytest-cov>=4.1.0",
+    "pypdf>=4,<7",
     "black>=23.0.0",
     "ruff>=0.0.290",
     "mypy>=1.5.0",
 ]
 
 [project.scripts]
+atomic-model-validate = "atomic_model_validation.__main__:main"
+atomic-model-rollouts = "atomic_model_rollouts.__main__:main"
+atomic-model-release = "atomic_model_release.__main__:main"
+atomic-model-arena = "atomic_model_arena.__main__:main"
+atomic-model-agent = "atomic_model_agents.__main__:main"
 atomic-model-results = "atomic_model_results.__main__:main"
 atomic-model-study = "atomic_model_study.__main__:main"
 atomic-sim = "generate_dataset:main"
@@ -91,7 +97,11 @@ Repository = "https://github.com/researchim-ai/atomic-sim"
 py-modules = ["generate_dataset"]
 
 [tool.setuptools.package-data]
+atomic_model_validation = ["data/nist_tn2294/*"]
 atomic_model_runtime = ["presets/*.json"]
+atomic_model_release = ["py.typed", "golden/*.json", "golden/project/*.json", "golden/project/scenarios/*.json", "golden/project/policies/*.json", "use_cases.json"]
+atomic_model_agents = ["*.pyi", "py.typed"]
+atomic_model_contracts = ["py.typed"]
 atomic_model_project_ui = ["assets/*.html", "assets/*.css", "assets/*.js"]
 data = ["sources.json"]
 scenarios = ["*.yaml", "*.json"]
@@ -122,6 +132,12 @@ include = [
     "atomic_model_reference*",
     "atomic_model_study*",
     "atomic_model_results*",
+    "atomic_model_agents*",
+    "atomic_model_arena*",
+    "atomic_model_rollouts*",
+    "atomic_model_validation*",
+    "atomic_model_release*",
+    "atomic_model_contracts*",
     "scripts",
     "sdk*",
     "scenarios*",
@@ -136,6 +152,7 @@ python_functions = ["test_*"]
 addopts = "-v"
 markers = [
     "external_integration: requires a configured external transport/MPI runtime and data",
+    "hardware_specific: requires declared hardware-specific performance runner",
     "long_running: explicit numerical or legacy workloads excluded from the fast lane",
 ]
 
