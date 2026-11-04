@@ -1,0 +1,94 @@
+{
+  "all_64_unprofiled_episodes_completed": true,
+  "environment": {
+    "available_cpus": [
+      0,
+      1
+    ],
+    "cpu_model": "AMD Ryzen 9 9900X 12-Core Processor",
+    "logical_cpu_count": 24,
+    "machine": "x86_64",
+    "python": "3.12.9",
+    "release": "6.17.0-22-generic",
+    "system": "Linux"
+  },
+  "fixed_cpu_set": [
+    0,
+    1
+  ],
+  "numerical_identity_exact": true,
+  "plant_referenced": false,
+  "profile_artifact": "artifacts/eos_performance_v2/profile/case-0000.result.json",
+  "request_sha256": "06d6e83c1ce939bcc858225847e7b0551054b15da9b2e49b02f8cbaaa1ae6d5d",
+  "schema_version": 1,
+  "source": {
+    "harness_sha256": "a2b68b6e9c45d487ff5fd4201bdd54f1d3c76a1dc6e54486b2937b59eacdc306",
+    "runtime": {
+      "native_signature": {
+        "budgets": {
+          "validation/ai05_compressible_storage_budget_v1.json": "cd9d496635eabded1e879fd2bec25ed1a7f9fa048369f62213ac6d21eb6f4883",
+          "validation/ai05_conservative_loop_budget_v1.json": "e21c0b6badf1483e3336dabf57a037901820d7bdee84615ebdc5a381d3c04a4f",
+          "validation/ai05_controlled_assembly_budget_v1.json": "b9f45eeec54a706098ea2a61a47568788e78c7ba04be0f3a6893b2d0b66dac68",
+          "validation/ai05_open_channel_budget_v1.json": "7fd48810de0e630c9f1de484e919789d0d93d445aa8ac28ed242fc7884f45f86",
+          "validation/ai05_terminal_chambers_budget_v1.json": "00cd8f90d843ceabda5e67b3e47cc2d22b67555497861d5a9436686a8d2035c4"
+        },
+        "drivers": {
+          "atomic_model_runtime/resources.py": "f0632f5853da75f6b7d11b3c802ecaec3b4759fac8471dc92f2756b306c1f060",
+          "scripts/__init__.py": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883",
+          "scripts/compressible_storage_graph.py": "e849e7e0209e4f91b18f9773c47d8894f8b2ed3b951d3c454813a243584aca7d",
+          "scripts/conservative_eos_loop.py": "5daa7eb5602dbe9ff1639eaa7bb4b70c7928f19d16fe1bf4b255f1b6d44313ca",
+          "scripts/controlled_eos_assembly.py": "1f25149e4a107f17ee0001d9944de5b2d98cc8a9f8319d726c468006350fd546",
+          "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+          "scripts/open_eos_channel.py": "eebc4ab58d0afe512d8238358e695d760313d908a36190c9ca667b7a136d887d",
+          "scripts/solve_hydraulic_graph.py": "6b90a4751ad2dfbdf37977c7c9809d75228f81bfe64604eaa4e8a120687da8a5",
+          "scripts/terminal_eos_chambers.py": "32bacf9f02ae8fbd6b3f019971e71d6bbf193593bbfcfd8d0f5b75fcd6f99e8f"
+        },
+        "numpy": "2.2.6",
+        "python": "3.12.9",
+        "scipy": "1.15.2",
+        "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a"
+      },
+      "public_runtime_sha256": "f3db4a846514ff5754a2074f1e694f820fd7dc0d6f15453b2638a8da1837b6d7"
+    }
+  },
+  "summaries": [
+    {
+      "efficiency_speedup_per_worker": 1.0,
+      "eligible": true,
+      "median_episodes_per_second": 2.2393322305432393,
+      "median_simulated_seconds_per_wall_second": 0.04478664461086479,
+      "repeats": 2,
+      "speedup_vs_one": 1.0,
+      "workers": 1
+    },
+    {
+      "efficiency_speedup_per_worker": 0.8382026808992601,
+      "eligible": true,
+      "median_episodes_per_second": 3.7540285581309263,
+      "median_simulated_seconds_per_wall_second": 0.07508057116261854,
+      "repeats": 2,
+      "speedup_vs_one": 1.6764053617985202,
+      "workers": 2
+    },
+    {
+      "efficiency_speedup_per_worker": 0.43903450385159426,
+      "eligible": true,
+      "median_episodes_per_second": 3.93257645918174,
+      "median_simulated_seconds_per_wall_second": 0.0786515291836348,
+      "repeats": 2,
+      "speedup_vs_one": 1.756138015406377,
+      "workers": 4
+    },
+    {
+      "efficiency_speedup_per_worker": 0.1994231297990464,
+      "eligible": true,
+      "median_episodes_per_second": 3.5725971365984996,
+      "median_simulated_seconds_per_wall_second": 0.07145194273196999,
+      "repeats": 2,
+      "speedup_vs_one": 1.5953850383923711,
+      "workers": 8
+    }
+  ],
+  "two_x_goal_met": false,
+  "validated": false
+}

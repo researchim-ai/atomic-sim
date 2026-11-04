@@ -87,6 +87,14 @@ jobs:
         ruff check atomic_agent_tools tests/test_agent_tools.py tests/test_agent_tools_cli.py examples/llm_tools_episode.py
         ruff check atomic_model_runtime tests/test_public_eos_runtime.py examples/eos_agent_workflow.py
         ruff check atomic_model_workspace tests/test_model_workspace.py examples/eos_workspace_workflow.py
+        ruff check atomic_model_bench tests/test_model_bench.py
+        ruff check atomic_model_pool tests/test_model_pool.py
+        ruff check scripts/qualify_source_scan.py tests/test_source_fingerprint.py tests/test_source_scan_qualification.py
+        ruff check atomic_model_projects tests/test_model_projects.py examples/eos_project_edit_workflow.py
+        ruff check atomic_model_project_ui tests/test_project_ui.py scripts/verify_project_ui_browser.py
+        ruff check atomic_model_reference tests/test_model_reference.py examples/eos_reference_workflow.py
+        ruff check atomic_model_results tests/test_model_results.py tests/test_results_ui.py examples/eos_results_workflow.py scripts/verify_results_ui_browser.py
+        ruff check atomic_model_study tests/test_model_study.py tests/test_study_ui.py scripts/verify_study_ui_browser.py examples/eos_study_workflow.py
         black --check reactor/ tests/ --line-length 100
 
     - name: Verify branched steady hydraulic graphs
@@ -213,6 +221,26 @@ jobs:
       run: |
         python -m pytest -q tests/test_agent_tools.py tests/test_agent_tools_cli.py tests/test_ai_episode_contract.py
         python -m examples.llm_tools_episode
+
+    - name: Verify reference import and exact metric replay
+      run: |
+        python -m pytest -q tests/test_model_reference.py
+        python -m examples.eos_reference_workflow --output artifacts/ci_reference_workflow
+
+    - name: Verify portable result comparison and native replay
+      run: |
+        python -m pytest -q tests/test_model_results.py tests/test_results_ui.py
+        python -m examples.eos_results_workflow --output artifacts/ci_eos_results
+
+    - name: Verify model-data study revisions and supervised evaluations
+      run: |
+        python -m pytest -q tests/test_model_study.py tests/test_study_ui.py
+        python -m examples.eos_study_workflow --output artifacts/ci_eos_study
+
+    - name: Verify versioned EOS project editing
+      run: |
+        python -m pytest -q tests/test_model_projects.py tests/test_project_ui.py
+        python -m examples.eos_project_edit_workflow --output artifacts/ci_eos_project_editor
 
     - name: Verify EOS project campaigns and archive replay
       run: |

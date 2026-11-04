@@ -1,5 +1,38 @@
 # Atomic Sim: следующие этапы промышленного моделирования
 
+Обновление 1.59.0: [сравнение и перенос результатов](AI_11_RESULT_COMPARISON_RU.md),
+повторная интеграция каждой сохранённой строки, unitful CSV, раздельные протоколы/MAE,
+события/балансы, bounded ZIP и локальный UI. AI-11.04 принят в EOS software scope;
+**52/109**. AI-11.06 и физическая валидация остаются открытыми.
+
+Обновление 1.58.0: [единый model/data study](AI_11_MODEL_DATA_STUDY_RU.md),
+CAS-привязки эталонов, переносимые снимки, supervised Linux worker,
+отмена/продолжение/recover, stale results и отчёты/кривые в локальном UI.
+Физическая валидация и полный AI-11 этим блоком не закрываются.
+
+Обновление 1.57.0: [reference import и независимые метрики](AI_09_REFERENCE_COMPARISON_RU.md),
+единицы/provenance, split guards, ошибки/интегралы/пики/events и replay отчёта.
+216 связанных тестов (43 новых). AI-09.04 принят только в EOS software scope;
+**51/109**. Реальные измерения, calibration и физическая валидация ещё открыты.
+
+Обновление 1.56.0: [локальный UI редактора](AI_11_LOCAL_PROJECT_UI_RU.md),
+формы, паспорт/provenance, preview/CAS, история и export. HTTP и Chromium
+проверяют тот же backend и exact native replay. AI-11.02 принят в EOS-preset
+scope; **50/109**. Общая топология, данные и промышленная физика ещё открыты.
+
+Обновление 1.55.0: [редактор EOS-проекта](AI_11_PROJECT_EDITOR_RU.md), preview,
+атомарный batch/CAS, история, возврат конфигурации и export. Пройдены 232 связанных
+теста (27 новых). GUI и общий topology editor ещё открыты; **49/109** приняты.
+
+Обновление 1.53.0: [пул EOS worker](AI_10_EOS_WORKER_POOL_RU.md), новая модель
+на каждый case, 128 парных native episodes и 161 связанный тест. Измеренный
+same-worker speedup до ~1.597x; полный AI-10 не закрыт, **49/109** приняты.
+
+Обновление 1.52.0 (4 ноября): [Linux EOS performance harness](AI_10_EOS_PERFORMANCE_RU.md).
+64 полных эпизода для 1/2/4/8 worker на общем бюджете двух CPU, отдельный профиль,
+RSS и проверка одинакового native результата. Приняты AI-10.02/AI-10.05 в этом
+scope; **49/109 задач**. Лучший измеренный speedup ~1.76x, цель 2x не достигнута.
+
 Обновление 1.51.0 (4 ноября): [EOS workspace](AI_11_EOS_WORKSPACE_RU.md),
 10 реализационных задач рабочего процесса, два baseline, сохраняемые jobs,
 кампания с pause/cancel/deadline, отчёты и data archive/replay.

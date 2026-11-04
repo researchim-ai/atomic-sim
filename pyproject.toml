@@ -52,10 +52,17 @@ dev = [
 ]
 
 [project.scripts]
+atomic-model-results = "atomic_model_results.__main__:main"
+atomic-model-study = "atomic_model_study.__main__:main"
 atomic-sim = "generate_dataset:main"
 atomic-experiment = "sdk.experiment:main"
 atomic-channel-experiment = "sdk.channel_experiment:main"
 atomic-dynamic-experiment = "sdk.dynamic_experiment:main"
+atomic-model-reference = "atomic_model_reference.__main__:main"
+atomic-model-project-ui = "atomic_model_project_ui.__main__:main"
+atomic-model-project = "atomic_model_projects.__main__:main"
+atomic-model-pool = "atomic_model_pool.__main__:main"
+atomic-model-bench = "atomic_model_bench.__main__:main"
 atomic-model-workspace = "atomic_model_workspace.__main__:main"
 atomic-model-experiment = "atomic_model_runtime.experiment:main"
 atomic-agent-tools = "atomic_agent_tools.__main__:main"
@@ -85,6 +92,7 @@ py-modules = ["generate_dataset"]
 
 [tool.setuptools.package-data]
 atomic_model_runtime = ["presets/*.json"]
+atomic_model_project_ui = ["assets/*.html", "assets/*.css", "assets/*.js"]
 data = ["sources.json"]
 scenarios = ["*.yaml", "*.json"]
 validation = ["*.json"]
@@ -107,6 +115,13 @@ include = [
     "atomic_agent_tools*",
     "atomic_model_runtime*",
     "atomic_model_workspace*",
+    "atomic_model_bench*",
+    "atomic_model_pool*",
+    "atomic_model_projects*",
+    "atomic_model_project_ui*",
+    "atomic_model_reference*",
+    "atomic_model_study*",
+    "atomic_model_results*",
     "scripts",
     "sdk*",
     "scenarios*",

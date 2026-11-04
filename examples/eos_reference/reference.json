@@ -1,0 +1,78 @@
+{
+  "channels": {
+    "wall_temperature": {
+      "column": "wall_c",
+      "signal": "temperature:wall.w0",
+      "uncertainty_column": "sigma_c",
+      "unit": "degC"
+    }
+  },
+  "criteria": {
+    "channels": {
+      "wall_temperature": {
+        "integral_absolute_error_max": 1e-08,
+        "mae_max": 1e-08,
+        "peak_absolute_error_max": 1e-08,
+        "rmse_max": 1e-08
+      }
+    },
+    "events": [],
+    "max_model_gap_s": 0.011,
+    "max_reference_gap_s": 0.011,
+    "window_s": [
+      0,
+      0.03
+    ]
+  },
+  "csv": {
+    "path": "constant.csv",
+    "sha256": "efced3f2a70bf02de5fa4ce07488f0fa003aca0bc8c572cc1f8b232bb83ca4dd",
+    "time_column": "time_ms",
+    "time_unit": "ms"
+  },
+  "kind": "numerical_reference",
+  "physical_case_id": "uniform-zero-command",
+  "problem": {
+    "config": {
+      "action_dt_s": 0.01,
+      "episode_horizon_s": 0.03,
+      "max_step_s": 0.0005,
+      "preset": "uniform"
+    },
+    "model_id": "eos-thermal-assembly-v1",
+    "policy": {
+      "heat_power_w": {
+        "primary.chamber.left": 0.0,
+        "primary.chamber.right": 0.0,
+        "primary.channel.c0": 0.0,
+        "primary.channel.c1": 0.0,
+        "primary.channel.c2": 0.0,
+        "primary.channel.c3": 0.0,
+        "secondary.chamber.left": 0.0,
+        "secondary.chamber.right": 0.0,
+        "secondary.channel.c0": 0.0,
+        "secondary.channel.c1": 0.0,
+        "secondary.channel.c2": 0.0,
+        "secondary.channel.c3": 0.0,
+        "wall.w0": 0.0,
+        "wall.w1": 0.0,
+        "wall.w2": 0.0,
+        "wall.w3": 0.0,
+        "wall.w4": 0.0,
+        "wall.w5": 0.0
+      },
+      "kind": "hold-v1",
+      "schema_version": 1
+    }
+  },
+  "provenance": {
+    "license": "Apache-2.0",
+    "notes": "A synthetic constant 300 K curve, intentionally not the solution of the coupled uniform preset. Expected to fail thermal error criteria; no experimental or physical-validation claim.",
+    "revision": "v1",
+    "source": "Repository-authored synthetic constant 300 K series; no experimental measurements",
+    "title": "Constant-temperature negative control"
+  },
+  "reference_id": "uniform-constant-numerical-v1",
+  "role": "validation",
+  "schema_version": 1
+}

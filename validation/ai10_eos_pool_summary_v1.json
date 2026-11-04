@@ -1,0 +1,89 @@
+{
+  "completed_episodes": 128,
+  "environment": {
+    "available_cpus": [
+      0,
+      1
+    ],
+    "cpu_model": "AMD Ryzen 9 9900X 12-Core Processor",
+    "logical_cpu_count": 24,
+    "machine": "x86_64",
+    "python": "3.12.9",
+    "release": "6.17.0-22-generic",
+    "system": "Linux"
+  },
+  "fixed_cpu_set": [
+    0,
+    1
+  ],
+  "measurement_scope": "eight fixed EOS cases, two alternating classic/pool repeats, 1/2/4/8 workers on common two-CPU allocation; no universal performance claim",
+  "numerical_identity_exact": true,
+  "plant_referenced": false,
+  "request_sha256": "12385efe6ead7459e63ab488e720eada808c482b1ad45401f54adcf9f5c00fa2",
+  "schema_version": 1,
+  "source": {
+    "baseline": {
+      "harness_sha256": "a2b68b6e9c45d487ff5fd4201bdd54f1d3c76a1dc6e54486b2937b59eacdc306",
+      "runtime": {
+        "native_signature": {
+          "budgets": {
+            "validation/ai05_compressible_storage_budget_v1.json": "cd9d496635eabded1e879fd2bec25ed1a7f9fa048369f62213ac6d21eb6f4883",
+            "validation/ai05_conservative_loop_budget_v1.json": "e21c0b6badf1483e3336dabf57a037901820d7bdee84615ebdc5a381d3c04a4f",
+            "validation/ai05_controlled_assembly_budget_v1.json": "b9f45eeec54a706098ea2a61a47568788e78c7ba04be0f3a6893b2d0b66dac68",
+            "validation/ai05_open_channel_budget_v1.json": "7fd48810de0e630c9f1de484e919789d0d93d445aa8ac28ed242fc7884f45f86",
+            "validation/ai05_terminal_chambers_budget_v1.json": "00cd8f90d843ceabda5e67b3e47cc2d22b67555497861d5a9436686a8d2035c4"
+          },
+          "drivers": {
+            "atomic_model_runtime/resources.py": "f0632f5853da75f6b7d11b3c802ecaec3b4759fac8471dc92f2756b306c1f060",
+            "scripts/__init__.py": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883",
+            "scripts/compressible_storage_graph.py": "e849e7e0209e4f91b18f9773c47d8894f8b2ed3b951d3c454813a243584aca7d",
+            "scripts/conservative_eos_loop.py": "5daa7eb5602dbe9ff1639eaa7bb4b70c7928f19d16fe1bf4b255f1b6d44313ca",
+            "scripts/controlled_eos_assembly.py": "1f25149e4a107f17ee0001d9944de5b2d98cc8a9f8319d726c468006350fd546",
+            "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+            "scripts/open_eos_channel.py": "eebc4ab58d0afe512d8238358e695d760313d908a36190c9ca667b7a136d887d",
+            "scripts/solve_hydraulic_graph.py": "6b90a4751ad2dfbdf37977c7c9809d75228f81bfe64604eaa4e8a120687da8a5",
+            "scripts/terminal_eos_chambers.py": "32bacf9f02ae8fbd6b3f019971e71d6bbf193593bbfcfd8d0f5b75fcd6f99e8f"
+          },
+          "numpy": "2.2.6",
+          "python": "3.12.9",
+          "scipy": "1.15.2",
+          "source_sha256": "985bb203c41624768a50968109af0edb907c043046b53faf045cd410c7fdbe8a"
+        },
+        "public_runtime_sha256": "f3db4a846514ff5754a2074f1e694f820fd7dc0d6f15453b2638a8da1837b6d7"
+      }
+    },
+    "pool_sha256": "f29dfab02753c8cadfdfe486ec70d9f2f81a79fbf9f688049c3a16fd19846cfc"
+  },
+  "summaries": [
+    {
+      "classic_median_episodes_per_second": 1.959730108690143,
+      "eligible": true,
+      "pool_median_episodes_per_second": 3.129407290541687,
+      "pool_speedup_at_same_worker_count": 1.5968562592699769,
+      "workers": 1
+    },
+    {
+      "classic_median_episodes_per_second": 3.359094820776072,
+      "eligible": true,
+      "pool_median_episodes_per_second": 5.123659974880246,
+      "pool_speedup_at_same_worker_count": 1.5253097183176556,
+      "workers": 2
+    },
+    {
+      "classic_median_episodes_per_second": 4.038506853027187,
+      "eligible": true,
+      "pool_median_episodes_per_second": 4.336221265897154,
+      "pool_speedup_at_same_worker_count": 1.073718932195647,
+      "workers": 4
+    },
+    {
+      "classic_median_episodes_per_second": 3.543024088782903,
+      "eligible": true,
+      "pool_median_episodes_per_second": 3.170847916298251,
+      "pool_speedup_at_same_worker_count": 0.8949552237979556,
+      "workers": 8
+    }
+  ],
+  "two_x_vs_classic_same_workers": false,
+  "validated": false
+}

@@ -1,0 +1,227 @@
+{
+  "schema_version": 1,
+  "performance": {
+    "schema_version": 1,
+    "cases": [
+      {
+        "id": "case-0",
+        "config": {
+          "preset": "mixed_ports",
+          "action_dt_s": 0.01,
+          "episode_horizon_s": 0.02,
+          "max_step_s": 0.0005
+        },
+        "heat_power_w": {
+          "primary.channel.c0": 0.0,
+          "primary.channel.c1": 0.0,
+          "primary.channel.c2": 0.0,
+          "primary.channel.c3": 0.0,
+          "primary.chamber.left": 0.0,
+          "primary.chamber.right": 0.0,
+          "secondary.channel.c0": 0.0,
+          "secondary.channel.c1": 0.0,
+          "secondary.channel.c2": 0.0,
+          "secondary.channel.c3": 0.0,
+          "secondary.chamber.left": 0.0,
+          "secondary.chamber.right": 0.0,
+          "wall.w0": 0.0,
+          "wall.w1": 0.0
+        },
+        "seed": 17
+      },
+      {
+        "id": "case-1",
+        "config": {
+          "preset": "gravity",
+          "action_dt_s": 0.01,
+          "episode_horizon_s": 0.02,
+          "max_step_s": 0.0005
+        },
+        "heat_power_w": {
+          "primary.channel.c0": 0.0,
+          "primary.channel.c1": 0.0,
+          "primary.channel.c2": 0.0,
+          "primary.channel.c3": 0.0,
+          "primary.chamber.left": 0.0,
+          "primary.chamber.right": 0.0,
+          "secondary.channel.c0": 0.0,
+          "secondary.channel.c1": 0.0,
+          "secondary.channel.c2": 0.0,
+          "secondary.channel.c3": 0.0,
+          "secondary.chamber.left": 0.0,
+          "secondary.chamber.right": 0.0,
+          "wall.w0": 100.0,
+          "wall.w1": 0.0
+        },
+        "seed": 18
+      },
+      {
+        "id": "case-2",
+        "config": {
+          "preset": "mixed_ports",
+          "action_dt_s": 0.01,
+          "episode_horizon_s": 0.02,
+          "max_step_s": 0.0005
+        },
+        "heat_power_w": {
+          "primary.channel.c0": 0.0,
+          "primary.channel.c1": 0.0,
+          "primary.channel.c2": 0.0,
+          "primary.channel.c3": 0.0,
+          "primary.chamber.left": 0.0,
+          "primary.chamber.right": 0.0,
+          "secondary.channel.c0": 0.0,
+          "secondary.channel.c1": 0.0,
+          "secondary.channel.c2": 0.0,
+          "secondary.channel.c3": 0.0,
+          "secondary.chamber.left": 0.0,
+          "secondary.chamber.right": 0.0,
+          "wall.w0": 200.0,
+          "wall.w1": 0.0
+        },
+        "seed": 19
+      },
+      {
+        "id": "case-3",
+        "config": {
+          "preset": "gravity",
+          "action_dt_s": 0.01,
+          "episode_horizon_s": 0.02,
+          "max_step_s": 0.0005
+        },
+        "heat_power_w": {
+          "primary.channel.c0": 0.0,
+          "primary.channel.c1": 0.0,
+          "primary.channel.c2": 0.0,
+          "primary.channel.c3": 0.0,
+          "primary.chamber.left": 0.0,
+          "primary.chamber.right": 0.0,
+          "secondary.channel.c0": 0.0,
+          "secondary.channel.c1": 0.0,
+          "secondary.channel.c2": 0.0,
+          "secondary.channel.c3": 0.0,
+          "secondary.chamber.left": 0.0,
+          "secondary.chamber.right": 0.0,
+          "wall.w0": 300.0,
+          "wall.w1": 0.0
+        },
+        "seed": 20
+      },
+      {
+        "id": "case-4",
+        "config": {
+          "preset": "mixed_ports",
+          "action_dt_s": 0.01,
+          "episode_horizon_s": 0.02,
+          "max_step_s": 0.0005
+        },
+        "heat_power_w": {
+          "primary.channel.c0": 0.0,
+          "primary.channel.c1": 0.0,
+          "primary.channel.c2": 0.0,
+          "primary.channel.c3": 0.0,
+          "primary.chamber.left": 0.0,
+          "primary.chamber.right": 0.0,
+          "secondary.channel.c0": 0.0,
+          "secondary.channel.c1": 0.0,
+          "secondary.channel.c2": 0.0,
+          "secondary.channel.c3": 0.0,
+          "secondary.chamber.left": 0.0,
+          "secondary.chamber.right": 0.0,
+          "wall.w0": 400.0,
+          "wall.w1": 0.0
+        },
+        "seed": 21
+      },
+      {
+        "id": "case-5",
+        "config": {
+          "preset": "gravity",
+          "action_dt_s": 0.01,
+          "episode_horizon_s": 0.02,
+          "max_step_s": 0.0005
+        },
+        "heat_power_w": {
+          "primary.channel.c0": 0.0,
+          "primary.channel.c1": 0.0,
+          "primary.channel.c2": 0.0,
+          "primary.channel.c3": 0.0,
+          "primary.chamber.left": 0.0,
+          "primary.chamber.right": 0.0,
+          "secondary.channel.c0": 0.0,
+          "secondary.channel.c1": 0.0,
+          "secondary.channel.c2": 0.0,
+          "secondary.channel.c3": 0.0,
+          "secondary.chamber.left": 0.0,
+          "secondary.chamber.right": 0.0,
+          "wall.w0": 500.0,
+          "wall.w1": 0.0
+        },
+        "seed": 22
+      },
+      {
+        "id": "case-6",
+        "config": {
+          "preset": "mixed_ports",
+          "action_dt_s": 0.01,
+          "episode_horizon_s": 0.02,
+          "max_step_s": 0.0005
+        },
+        "heat_power_w": {
+          "primary.channel.c0": 0.0,
+          "primary.channel.c1": 0.0,
+          "primary.channel.c2": 0.0,
+          "primary.channel.c3": 0.0,
+          "primary.chamber.left": 0.0,
+          "primary.chamber.right": 0.0,
+          "secondary.channel.c0": 0.0,
+          "secondary.channel.c1": 0.0,
+          "secondary.channel.c2": 0.0,
+          "secondary.channel.c3": 0.0,
+          "secondary.chamber.left": 0.0,
+          "secondary.chamber.right": 0.0,
+          "wall.w0": 600.0,
+          "wall.w1": 0.0
+        },
+        "seed": 23
+      },
+      {
+        "id": "case-7",
+        "config": {
+          "preset": "gravity",
+          "action_dt_s": 0.01,
+          "episode_horizon_s": 0.02,
+          "max_step_s": 0.0005
+        },
+        "heat_power_w": {
+          "primary.channel.c0": 0.0,
+          "primary.channel.c1": 0.0,
+          "primary.channel.c2": 0.0,
+          "primary.channel.c3": 0.0,
+          "primary.chamber.left": 0.0,
+          "primary.chamber.right": 0.0,
+          "secondary.channel.c0": 0.0,
+          "secondary.channel.c1": 0.0,
+          "secondary.channel.c2": 0.0,
+          "secondary.channel.c3": 0.0,
+          "secondary.chamber.left": 0.0,
+          "secondary.chamber.right": 0.0,
+          "wall.w0": 700.0,
+          "wall.w1": 0.0
+        },
+        "seed": 24
+      }
+    ],
+    "workers": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "repeats": 2,
+    "cpu_count": 2,
+    "worker_timeout_s": 60,
+    "worker_rss_limit_mib": 1024
+  },
+  "max_cases_per_worker": 8
+}

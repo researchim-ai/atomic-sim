@@ -6,6 +6,10 @@
 
 Открытый моделёр реакторных систем на Python для ИИ, RL и LLM-агентов. С версии 2.0 есть проверяемое ядро установки ВВЭР (статус `verified` по аналитическим эталонам и балансам) и прежняя учебная ветка. Это не цифровой двойник действующего блока и не `plant_referenced` модель.
 
+Model/data study: `python -m examples.eos_study_workflow --output artifacts/my-study`, затем `atomic-model-project-ui artifacts/my-study/study --study`. [Ревизии, эталоны, supervised comparisons и переносимость](docs/AI_11_MODEL_DATA_STUDY_RU.md).
+
+Сравнение результатов: `python -m examples.eos_results_workflow --output artifacts/my-results`; [native replay, траектории и переносимые ZIP](docs/AI_11_RESULT_COMPARISON_RU.md).
+
 ## Возможности ядра 2.0
 
 **Локальные LLM tools:** [JSONL-протокол, наблюдения, действия и replay](docs/AI_11_LLM_TOOLS_RU.md).
@@ -20,6 +24,24 @@ LLM-провайдер, API-ключи и покупатели не требую
 **Проекты и кампании агентов:** [переносимый EOS workspace, два baseline, отчёты и архив](docs/AI_11_EOS_WORKSPACE_RU.md).
 CLI: `atomic-model-workspace`; полный пример: `python -m examples.eos_workspace_workflow`.
 Кампания сохраняет принятые шаги и восстанавливается после паузы или timeout worker.
+
+**Производительность EOS:** [фиксированный CPU-бюджет, профиль и RSS](docs/AI_10_EOS_PERFORMANCE_RU.md).
+Запуск: `atomic-model-bench examples/eos_performance.json --output artifacts/eos_bench`.
+
+**Повторное использование EOS worker:** [ограниченный пул и честное сравнение с отдельными процессами](docs/AI_10_EOS_WORKER_POOL_RU.md).
+Запуск: `atomic-model-pool examples/eos_pool_comparison.json --output artifacts/eos_pool`.
+
+**Оптимизация source checks:** [быстрый обход с полным свежим чтением файлов](docs/AI_10_SOURCE_SCAN_OPTIMIZATION_RU.md).
+Частота проверок, численные методы и допуски сохранены; кеширования source bytes нет.
+
+**Редактор проекта:** [preview, атомарные изменения, история и восстановление конфигурации](docs/AI_11_PROJECT_EDITOR_RU.md).
+CLI: `atomic-model-project`; пример: `python -m examples.eos_project_edit_workflow`.
+
+**Интерфейс редактора:** [локальные формы, паспорт, preview, сохранение и история](docs/AI_11_LOCAL_PROJECT_UI_RU.md).
+Запуск: `python -m atomic_model_project_ui STORE --port 8765`.
+
+**Эталонные данные:** [CSV import, единицы, split guards, независимые метрики и report replay](docs/AI_09_REFERENCE_COMPARISON_RU.md).
+Пример: `python -m examples.eos_reference_workflow`; CLI: `atomic-model-reference`.
 
 **Действующий план следующих работ:** [промышленная платформа для ИИ — 14 пакетов, 109 задач](docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md).
 AI-00/AI-01 выполнены: единые критерии приёмки и контракт среды. AI-02 добавляет [benchmark из 80 кейсов и трёх контроллеров](docs/AI_02_BENCHMARK_RU.md).

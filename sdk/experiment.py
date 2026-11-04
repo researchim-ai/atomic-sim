@@ -11,6 +11,7 @@ import csv
 import hashlib
 import json
 import math
+import os
 import platform
 import sys
 import time
@@ -176,9 +177,15 @@ def _write_json(path: Path, value: dict) -> None:
     temporary.replace(path)
 
 
-def _source_fingerprint() -> str:
-    root = Path(__file__).resolve().parent.parent
+def _source_fingerprint_at(root) -> str:
+    """Hash the same fresh source bytes in legacy Path ordering, without caches.
+
+    Directory symlinks are not traversed; file symlinks retain their logical
+    names, matching Path.rglob/is_file. Sorting path components is essential:
+    string sorting would order ``a.py`` before ``a/child.py`` on POSIX.
+    """
     digest = hashlib.sha256()
+    root = os.fspath(root)
     for package in (
         "sdk",
         "core",
@@ -191,12 +198,35 @@ def _source_fingerprint() -> str:
         "data",
         "scenarios",
     ):
-        for path in sorted((root / package).rglob("*")):
-            if path.is_file() and path.suffix in (".py", ".json", ".yaml"):
-                digest.update(str(path.relative_to(root)).encode())
-                digest.update(b"\0")
-                digest.update(path.read_bytes())
+        base = os.path.join(root, package)
+        if not os.path.isdir(base):
+            continue
+        pending = [(base, (package,))]
+        files = []
+        while pending:
+            directory, parts = pending.pop()
+            with os.scandir(directory) as entries:
+                for entry in entries:
+                    child_parts = (*parts, entry.name)
+                    if entry.is_dir(follow_symlinks=False):
+                        pending.append((entry.path, child_parts))
+                    elif (
+                        os.path.splitext(entry.name)[1] in (".py", ".json", ".yaml")
+                        and entry.is_file()
+                    ):
+                        files.append((child_parts, entry.path))
+        # Path ordering compares normalized components, not the joined string.
+        files.sort(key=lambda item: tuple(os.path.normcase(p) for p in item[0]))
+        for parts, filename in files:
+            digest.update(os.path.join(*parts).encode())
+            digest.update(b"\0")
+            with open(filename, "rb") as stream:
+                digest.update(stream.read())
     return digest.hexdigest()
+
+
+def _source_fingerprint() -> str:
+    return _source_fingerprint_at(Path(__file__).resolve().parent.parent)
 
 
 def run_experiment(

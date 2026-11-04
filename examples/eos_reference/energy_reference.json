@@ -1,0 +1,78 @@
+{
+  "channels": {
+    "energy_residual": {
+      "column": "residual_kj",
+      "signal": "ledger:energy_residual_j",
+      "uncertainty_column": null,
+      "unit": "kJ"
+    }
+  },
+  "criteria": {
+    "channels": {
+      "energy_residual": {
+        "integral_absolute_error_max": 1e-06,
+        "mae_max": 1e-06,
+        "peak_absolute_error_max": 1e-06,
+        "rmse_max": 1e-06
+      }
+    },
+    "events": [],
+    "max_model_gap_s": 0.011,
+    "max_reference_gap_s": 0.011,
+    "window_s": [
+      0,
+      0.03
+    ]
+  },
+  "csv": {
+    "path": "energy.csv",
+    "sha256": "748ec94b5e5bdb210a7d1b77a585e5a3dfcd00bda8a808e3cf915aac6826778e",
+    "time_column": "time_ms",
+    "time_unit": "ms"
+  },
+  "kind": "numerical_reference",
+  "physical_case_id": "uniform-zero-command",
+  "problem": {
+    "config": {
+      "action_dt_s": 0.01,
+      "episode_horizon_s": 0.03,
+      "max_step_s": 0.0005,
+      "preset": "uniform"
+    },
+    "model_id": "eos-thermal-assembly-v1",
+    "policy": {
+      "heat_power_w": {
+        "primary.chamber.left": 0.0,
+        "primary.chamber.right": 0.0,
+        "primary.channel.c0": 0.0,
+        "primary.channel.c1": 0.0,
+        "primary.channel.c2": 0.0,
+        "primary.channel.c3": 0.0,
+        "secondary.chamber.left": 0.0,
+        "secondary.chamber.right": 0.0,
+        "secondary.channel.c0": 0.0,
+        "secondary.channel.c1": 0.0,
+        "secondary.channel.c2": 0.0,
+        "secondary.channel.c3": 0.0,
+        "wall.w0": 0.0,
+        "wall.w1": 0.0,
+        "wall.w2": 0.0,
+        "wall.w3": 0.0,
+        "wall.w4": 0.0,
+        "wall.w5": 0.0
+      },
+      "kind": "hold-v1",
+      "schema_version": 1
+    }
+  },
+  "provenance": {
+    "license": "Apache-2.0",
+    "notes": "Numerical conservation and reference I/O check only. A pass cannot establish thermal accuracy or physical validation.",
+    "revision": "v1",
+    "source": "Repository-authored zero residual series from conservation identity; not measured data",
+    "title": "Analytic zero global energy-residual control"
+  },
+  "reference_id": "uniform-energy-residual-numerical-v1",
+  "role": "validation",
+  "schema_version": 1
+}
