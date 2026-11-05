@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "archive": "artifacts/ai09_identification_publication_v1.tar.gz",
+  "archive_sha256": "f80a327f102aa7d2f70d1b17a8096c796117461d58abf668a17d12a706a8336e",
+  "archive_bytes": 13676339,
+  "verification": {
+    "schema_version": 1,
+    "integrity_verified": true,
+    "archive_sha256": "f80a327f102aa7d2f70d1b17a8096c796117461d58abf668a17d12a706a8336e",
+    "manifest_sha256": "3fab6c4895b20d8893daad6d5f38f5daa823c976f750a719bfcfb42ebcf4e105",
+    "files": 26,
+    "uncompressed_bytes": 14827302,
+    "runtime_source_verified": true,
+    "source_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+    "numerical_acceptance_recomputed": false,
+    "publisher_authenticated": false
+  },
+  "deterministic_rebuild": true,
+  "new_package_wheel_sdist_bytes_match": true,
+  "native_runtime_fingerprint": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+  "accepted_tasks": [
+    "AI-09.05"
+  ],
+  "scope": "Conditional Chen sensitivity and identifiability only; physical validation remains open",
+  "new_tests_passed": 46,
+  "total_related_tests_passed": 314,
+  "installed_tests_passed": 46,
+  "synthetic_solver_cases": 7,
+  "primary_states_checked": 150,
+  "analytic_fd_sensitivities_checked": 300,
+  "calibration_status": "rejected",
+  "parameter_update": null,
+  "validated": false,
+  "plant_referenced": false
+}

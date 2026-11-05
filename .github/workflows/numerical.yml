@@ -19,6 +19,28 @@ jobs:
     - name: Combined portable and long numerical coverage
       run: |
         python -m pytest tests/ -q -m "not external_integration and not hardware_specific" -p atomic_model_release.pytest_gate --atomic-require-executed --atomic-receipt artifacts/long_receipt.json --cov=core --cov=physics --cov=components --cov=plants --cov=sdk --cov=instrumentation --cov-report=term-missing --cov-fail-under=80
+    - name: Verify finite-plenum HEM graphs and restricted closure evidence
+      run: |
+        python -m atomic_model_hem_network qualify --output artifacts/ci_hem_network.json
+        python -m atomic_model_hem_network audit artifacts/ci_hem_network.json
+        python -m atomic_model_hem_validation run artifacts/ci_hem_experiment
+        python -m atomic_model_hem_validation verify artifacts/ci_hem_experiment
+    - name: Verify homogeneous water-steam friction and model-choice programs
+      run: |
+        python -m atomic_model_hem_identification qualify --output artifacts/ci_hem_identification_qualification.json
+        python -m atomic_model_hem_identification audit-qualification artifacts/ci_hem_identification_qualification.json
+        python -m atomic_model_hem_identification analyse --output artifacts/ci_hem_identification.json
+        python -m atomic_model_hem_identification audit artifacts/ci_hem_identification.json
+        python -m atomic_model_hem_throughflow qualify --output artifacts/ci_hem_throughflow.json
+        python -m atomic_model_hem_throughflow audit-qualification artifacts/ci_hem_throughflow.json
+        python -m atomic_model_hem_throughflow benchmark --output artifacts/ci_hem_throughflow_hiper.json
+        python -m atomic_model_hem_throughflow audit-benchmark artifacts/ci_hem_throughflow_hiper.json
+        python -m atomic_model_hem_assessment screen --output artifacts/ci_hem_assessment.json
+        python -m atomic_model_hem_assessment audit artifacts/ci_hem_assessment.json
+        python -m atomic_model_hem_qualified qualify --output artifacts/ci_hem_qualified.json
+        python -m atomic_model_hem_qualified audit artifacts/ci_hem_qualified.json
+        python -m atomic_model_hem_mixture qualify --output artifacts/ci_hem_mixture.json
+        python -m atomic_model_hem_mixture audit artifacts/ci_hem_mixture.json
     - name: Legacy simulator smoke
       run: python tests/test_simulator.py
     - name: Check code quality

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-05",
+  "wheel_sha256": "0172b3b4c7f85dc443a33812d9a8b2fc4d6eeb1a7d521141e1a02fff41bda480",
+  "installed_tests_passed": 46,
+  "exact_demo_replay": true,
+  "full_qualification_numerically_audited": true,
+  "prior_vessel_and_periodic_checkpoints_compatible": true,
+  "pytest_receipt_sha256": "e5ebc9663647736de223a2a631a396a85999599eca97d399fa07b8887b77aa50",
+  "scope": "Local offline new venv outside checkout with host scientific dependencies. Not independent hardware/OS.",
+  "validated": false,
+  "plant_referenced": false
+}

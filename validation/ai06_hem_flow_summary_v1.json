@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "source": {
+    "flow": {
+      "__init__.py": "cef2568fccc811ef9955c2c1b5517fb3caa1d80fbb7120548f131831202aae8a",
+      "__main__.py": "c15a6a4c84b8b2b979b088ab098136c3fe936575d6ba6b1911d53ba106a45b8f",
+      "cases.py": "556a38acb8557166b34c9042ab1630aceaf9a3cbe5bc3c22e03002c3ba13827c",
+      "model.py": "39278c137e63b94cccc487bb49cd06186f7cdba8535034896faf47df86342cdd",
+      "reference.py": "2add998c2d8b1df399436369db16e546aa9fcf4b53150832ae42a0ac71a35039",
+      "workflow.py": "f79291e4971572595a69e70829111f38e4daae351bddee67e70a9e2d37b6e1ed"
+    },
+    "hem": {
+      "hem_sources": {
+        "__init__.py": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+        "__main__.py": "8d9fab98b7490f270f0ef3b33ea95a8324a5340df3f821035f4e72c431952f82",
+        "eos.py": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+        "vessel.py": "d3284236f41d4e5827ab48b975e87a5b6fc0a36ec1a6cf21ad352255215ce478",
+        "workflow.py": "0cf1dd9df09c315d18e0194b7713848c85a9337b44256a30c790b7a52f145ebb"
+      },
+      "if97_sha256": "268d38418e20e9e55b9976bcb66b09d9c40d374df36822155e3b248fe1d60b94",
+      "numpy": "2.2.6",
+      "python": "3.12.9",
+      "scipy": "1.15.2",
+      "serialization_sha256": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12"
+    }
+  },
+  "criteria": {
+    "density_relative": 1e-08,
+    "energy_j": 0.001,
+    "entropy_j_k": 1e-05,
+    "pressure_pa": 0.05,
+    "temperature_k": 1e-05
+  },
+  "case_count": 6,
+  "temporal_trajectories": 18,
+  "semidiscrete_reference_ivps": 12,
+  "output_horizon_s": 0.018,
+  "maximum_reference_errors": {
+    "density_relative": 6.31592852386529e-09,
+    "energy_j": 2.091837814077735e-11,
+    "entropy_j_k": 5.831576554982121e-09,
+    "pressure_pa": 0.0006408897461369634,
+    "temperature_k": 2.7850830974784913e-08
+  },
+  "maximum_balance_errors": {
+    "mass_residual_kg": 2.409097227262791e-16,
+    "momentum_residual_kg_m_s": 2.862293735361732e-17,
+    "energy_residual_j": 4.841305845793806e-10
+  },
+  "case_summaries": {
+    "isobaric_quality_contact": {
+      "requested_caps_s": [
+        2e-05,
+        1e-05,
+        5e-06
+      ],
+      "measured_caps_s": [
+        2e-05,
+        1e-05,
+        5e-06
+      ],
+      "restart_exact": true
+    },
+    "liquid_transport": {
+      "requested_caps_s": [
+        0.0001,
+        5e-05,
+        2.5e-05
+      ],
+      "measured_caps_s": [
+        0.0001,
+        5e-05,
+        2.5e-05
+      ],
+      "restart_exact": true
+    },
+    "mixture_rest": {
+      "requested_caps_s": [
+        0.0001,
+        5e-05,
+        2.5e-05
+      ],
+      "measured_caps_s": [
+        0.0001,
+        5e-05,
+        2.5e-05
+      ],
+      "restart_exact": true
+    },
+    "uniform_evaporation": {
+      "requested_caps_s": [
+        0.0001,
+        5e-05,
+        2.5e-05
+      ],
+      "measured_caps_s": [
+        0.0001,
+        5e-05,
+        2.5e-05
+      ],
+      "restart_exact": true
+    },
+    "vapor_transport": {
+      "requested_caps_s": [
+        0.0001,
+        5e-05,
+        2.5e-05
+      ],
+      "measured_caps_s": [
+        0.0001,
+        5e-05,
+        2.5e-05
+      ],
+      "restart_exact": true
+    },
+    "weak_acoustic": {
+      "requested_caps_s": [
+        0.0001,
+        5e-05,
+        2.5e-05
+      ],
+      "measured_caps_s": [
+        0.0001,
+        5e-05,
+        2.5e-05
+      ],
+      "restart_exact": true
+    }
+  },
+  "acoustic_spatial_errors": [
+    {
+      "cells": 4,
+      "pressure_l1_error_pa": 0.4620048269862309
+    },
+    {
+      "cells": 8,
+      "pressure_l1_error_pa": 0.3627539591543609
+    },
+    {
+      "cells": 16,
+      "pressure_l1_error_pa": 0.2454901185556082
+    }
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

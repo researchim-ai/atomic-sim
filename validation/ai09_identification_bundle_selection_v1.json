@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "bundle_id": "ai09-closure-identifiability-v1",
+  "scope": "Conditional diagnostic method only; calibration rejected, no physical promotion",
+  "entries": [
+    {
+      "source": "atomic_model_hem_identification/__init__.py",
+      "path": "review_sources/atomic_model_hem_identification/__init__.py"
+    },
+    {
+      "source": "atomic_model_hem_identification/workflow.py",
+      "path": "review_sources/atomic_model_hem_identification/workflow.py"
+    },
+    {
+      "source": "atomic_model_hem_identification/prediction.py",
+      "path": "review_sources/atomic_model_hem_identification/prediction.py"
+    },
+    {
+      "source": "atomic_model_hem_identification/cohorts.py",
+      "path": "review_sources/atomic_model_hem_identification/cohorts.py"
+    },
+    {
+      "source": "atomic_model_hem_identification/precision.py",
+      "path": "review_sources/atomic_model_hem_identification/precision.py"
+    },
+    {
+      "source": "atomic_model_hem_identification/region.py",
+      "path": "review_sources/atomic_model_hem_identification/region.py"
+    },
+    {
+      "source": "atomic_model_hem_identification/reference.py",
+      "path": "review_sources/atomic_model_hem_identification/reference.py"
+    },
+    {
+      "source": "atomic_model_hem_identification/qualification.py",
+      "path": "review_sources/atomic_model_hem_identification/qualification.py"
+    },
+    {
+      "source": "atomic_model_hem_identification/__main__.py",
+      "path": "review_sources/atomic_model_hem_identification/__main__.py"
+    },
+    {
+      "source": "tests/test_hem_identification.py",
+      "path": "review_sources/tests/test_hem_identification.py"
+    },
+    {
+      "source": "scripts/verify_hem_identification_install.py",
+      "path": "review_sources/scripts/verify_hem_identification_install.py"
+    },
+    {
+      "source": "docs/AI_09_CLOSURE_IDENTIFIABILITY_RU.md",
+      "path": "review_sources/docs/AI_09_CLOSURE_IDENTIFIABILITY_RU.md"
+    },
+    {
+      "source": "docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md",
+      "path": "review_sources/docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md"
+    },
+    {
+      "source": "docs/READINESS_REVIEW_RU.md",
+      "path": "review_sources/docs/READINESS_REVIEW_RU.md"
+    },
+    {
+      "source": "README.md",
+      "path": "review_sources/README.md"
+    },
+    {
+      "source": "pyproject.toml",
+      "path": "review_sources/pyproject.toml"
+    },
+    {
+      "source": "validation/ai_industrial_workplan_v1.json",
+      "path": "review_sources/validation/ai_industrial_workplan_v1.json"
+    },
+    {
+      "source": "validation/ai09_identification_summary_v1.json",
+      "path": "review_sources/validation/ai09_identification_summary_v1.json"
+    },
+    {
+      "source": "validation/ai09_identification_installed_v1.json",
+      "path": "review_sources/validation/ai09_identification_installed_v1.json"
+    },
+    {
+      "source": "artifacts/ai09_identification_qualified_v1.json",
+      "path": "verification_inputs/qualification.json"
+    },
+    {
+      "source": "artifacts/ai09_identification_assessment_v1.json",
+      "path": "verification_inputs/assessment.json"
+    },
+    {
+      "source": "tests/test_hem_identification.py",
+      "path": "verification_inputs/test_hem_identification.py"
+    },
+    {
+      "source": "scripts/verify_hem_identification_install.py",
+      "path": "verification/verify.py"
+    },
+    {
+      "source": "dist/atomic_sim-2.0.0-py3-none-any.whl",
+      "path": "runtime/atomic_sim-2.0.0-py3-none-any.whl"
+    },
+    {
+      "source": "dist/atomic_sim-2.0.0.tar.gz",
+      "path": "runtime/atomic_sim-2.0.0.tar.gz"
+    }
+  ],
+  "metadata": {
+    "hiper_data_license": "CC-BY-SA-4.0; packaged data notices retained"
+  },
+  "runtime": {
+    "wheel": "runtime/atomic_sim-2.0.0-py3-none-any.whl",
+    "sdist": "runtime/atomic_sim-2.0.0.tar.gz",
+    "source_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67"
+  }
+}

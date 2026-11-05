@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-05",
+  "closure_version": "hem-closures/1.2.0",
+  "closure_source_sha256": "72e961e145031884a59f12a87899fa56005082c1053afd7a6201dcf21a47a931",
+  "primary_table": {
+    "correlation": "iaea-tecdoc-1203-1995-lut-single-cube",
+    "source": "https://www-pub.iaea.org/MTCD/Publications/PDF/te_1203_prn.pdf",
+    "domain": "8 mm tube only; steady vertical upflow water, uniform heating; 300000 <= p <= 500000 Pa; 1000 <= G <= 1500 kg/(m2 s); 0 <= x <= 0.05",
+    "uncertainty": "Unshaded published table corners, manually read; no uncertainty assigned; nominal local LUT only, no length/surface corrections or CHF/postCHF qualification",
+    "version": "hem-closures/1.2.0",
+    "experimentally_validated": false
+  },
+  "availability": {
+    "bounded_1995_cube_available": true,
+    "status": "partial_1995_tiny_cube_only",
+    "reason": "Primary IAEA 1995 LUT PDF downloaded: numerical tables are raster images; full-table values and shading masks have not been transcribed/audited. No audited 2006 LUT payload bundled; general CHF is blocked. Only separately named chf_1995_cube admits eight manually audited 1995 corners",
+    "primary_pdf_sha256": "8d039d4f8a950a1c013ddae312aee744ae5eb0e3efbaa337ce2a7fea96021c1c",
+    "primary_pdf_size_bytes": 13609780,
+    "primary_table_pdf_pages": [
+      184,
+      185,
+      186,
+      187,
+      188,
+      189,
+      190
+    ],
+    "sources": [
+      "https://doi.org/10.1016/j.nucengdes.2007.02.014",
+      "https://doi.org/10.2172/1159036",
+      "https://oecd-nea.org/upload/docs/application/pdf/2024-01/nea_wkp_2023_1_2024-01-18_16-23-40_237.pdf",
+      "https://www-pub.iaea.org/MTCD/Publications/PDF/te_1203_prn.pdf"
+    ]
+  },
+  "corner_values_kw_m2": [
+    [
+      [
+        4189.0,
+        3285.0
+      ],
+      [
+        4209.0,
+        3339.0
+      ]
+    ],
+    [
+      [
+        4873.0,
+        4075.0
+      ],
+      [
+        4909.0,
+        4093.0
+      ]
+    ]
+  ],
+  "corner_shaded": [
+    [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ]
+  ],
+  "review_method": "Two AI contexts read same primary raster independently before comparing transcriptions; not human review or independent experimental data",
+  "full_table_admitted": false,
+  "channel_chf_qualified": false,
+  "validated": false,
+  "plant_referenced": false
+}

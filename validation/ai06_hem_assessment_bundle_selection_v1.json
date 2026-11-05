@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "bundle_id": "ai06-primary-assessment-v1",
+  "scope": "Primary data admission and descriptive EOS acoustics only; no two-phase physical validation",
+  "metadata": {
+    "data_license": "CC-BY-SA-4.0 for HIPER; see separate notices"
+  },
+  "entries": [
+    {
+      "source": "atomic_model_hem_assessment/__init__.py",
+      "path": "review_sources/atomic_model_hem_assessment/__init__.py"
+    },
+    {
+      "source": "atomic_model_hem_assessment/__main__.py",
+      "path": "review_sources/atomic_model_hem_assessment/__main__.py"
+    },
+    {
+      "source": "atomic_model_hem_assessment/acoustics.py",
+      "path": "review_sources/atomic_model_hem_assessment/acoustics.py"
+    },
+    {
+      "source": "atomic_model_hem_assessment/importer.py",
+      "path": "review_sources/atomic_model_hem_assessment/importer.py"
+    },
+    {
+      "source": "atomic_model_hem_assessment/audit.py",
+      "path": "review_sources/atomic_model_hem_assessment/audit.py"
+    },
+    {
+      "source": "atomic_model_hem_assessment/data/hiper/manifest.json",
+      "path": "review_sources/atomic_model_hem_assessment/data/hiper/manifest.json"
+    },
+    {
+      "source": "atomic_model_hem_assessment/data/hiper/observations.csv.gz",
+      "path": "review_sources/atomic_model_hem_assessment/data/hiper/observations.csv.gz"
+    },
+    {
+      "source": "atomic_model_hem_assessment/data/hiper/NOTICE.md",
+      "path": "review_sources/atomic_model_hem_assessment/data/hiper/NOTICE.md"
+    },
+    {
+      "source": "atomic_model_hem_assessment/data/alamgir/NOTICE.md",
+      "path": "review_sources/atomic_model_hem_assessment/data/alamgir/NOTICE.md"
+    },
+    {
+      "source": "atomic_model_hem_assessment/data/alamgir/table1.csv",
+      "path": "review_sources/atomic_model_hem_assessment/data/alamgir/table1.csv"
+    },
+    {
+      "source": "tests/test_hem_assessment.py",
+      "path": "review_sources/tests/test_hem_assessment.py"
+    },
+    {
+      "source": "scripts/verify_hiper_primary.py",
+      "path": "review_sources/scripts/verify_hiper_primary.py"
+    },
+    {
+      "source": "scripts/verify_hem_assessment_install.py",
+      "path": "review_sources/scripts/verify_hem_assessment_install.py"
+    },
+    {
+      "source": "docs/AI_06_PRIMARY_DATA_ASSESSMENT_RU.md",
+      "path": "review_sources/docs/AI_06_PRIMARY_DATA_ASSESSMENT_RU.md"
+    },
+    {
+      "source": "docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md",
+      "path": "review_sources/docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md"
+    },
+    {
+      "source": "docs/READINESS_REVIEW_RU.md",
+      "path": "review_sources/docs/READINESS_REVIEW_RU.md"
+    },
+    {
+      "source": "README.md",
+      "path": "review_sources/README.md"
+    },
+    {
+      "source": "examples/hem_target_envelope.json",
+      "path": "review_sources/examples/hem_target_envelope.json"
+    },
+    {
+      "source": "pyproject.toml",
+      "path": "review_sources/pyproject.toml"
+    },
+    {
+      "source": ".gitattributes",
+      "path": "review_sources/.gitattributes"
+    },
+    {
+      "source": "validation/ai_industrial_workplan_v1.json",
+      "path": "review_sources/validation/ai_industrial_workplan_v1.json"
+    },
+    {
+      "source": "validation/ai06_hem_assessment_summary_v1.json",
+      "path": "review_sources/validation/ai06_hem_assessment_summary_v1.json"
+    },
+    {
+      "source": "validation/ai06_hiper_independent_reader_v1.json",
+      "path": "review_sources/validation/ai06_hiper_independent_reader_v1.json"
+    },
+    {
+      "source": "validation/ai06_hem_assessment_installed_v1.json",
+      "path": "review_sources/validation/ai06_hem_assessment_installed_v1.json"
+    },
+    {
+      "source": "artifacts/ai06_hem_assessment_release_v1.json",
+      "path": "verification_inputs/screen.json"
+    },
+    {
+      "source": "tests/test_hem_assessment.py",
+      "path": "verification_inputs/test_hem_assessment.py"
+    },
+    {
+      "source": "artifacts/ai06_hiper_primary_v1.zip",
+      "path": "verification_inputs/primary.zip"
+    },
+    {
+      "source": "scripts/verify_hem_assessment_install.py",
+      "path": "verification/verify.py"
+    },
+    {
+      "source": "dist/atomic_sim-2.0.0-py3-none-any.whl",
+      "path": "runtime/atomic_sim-2.0.0-py3-none-any.whl"
+    },
+    {
+      "source": "dist/atomic_sim-2.0.0.tar.gz",
+      "path": "runtime/atomic_sim-2.0.0.tar.gz"
+    }
+  ],
+  "runtime": {
+    "wheel": "runtime/atomic_sim-2.0.0-py3-none-any.whl",
+    "sdist": "runtime/atomic_sim-2.0.0.tar.gz",
+    "source_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67"
+  }
+}

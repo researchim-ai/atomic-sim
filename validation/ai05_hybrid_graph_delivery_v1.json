@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-05",
+  "source": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+  "archive": "artifacts/ai05_hybrid_graph_delivery_v1.tar.gz",
+  "archive_sha256": "3473e38ce23bfd57a1fbcb5bbc9523f0ed15eafd28af25327897d514727c4974",
+  "archive_bytes": 8742127,
+  "deterministic_rebuild_exact": true,
+  "archive_integrity_verified": true,
+  "case_count": 8,
+  "trajectory_count": 24,
+  "independent_ivp_count": 16,
+  "unique_related_tests_passed": 321,
+  "new_hybrid_tests_passed": 53,
+  "tests_accounting": "316 final foundation tests plus 5 additional boundary tests; the expanded 53-test hybrid suite includes 48 already in the foundation run.",
+  "installed_tests_passed": 53,
+  "installed_evidence": "validation/ai05_hybrid_graph_installed_v1.json",
+  "summary": "validation/ai05_hybrid_graph_summary_v1.json",
+  "passport": "validation/ai05_hybrid_graph_passport_v1.json",
+  "equations_of_existing_families_modified": false,
+  "validated": false,
+  "plant_referenced": false
+}

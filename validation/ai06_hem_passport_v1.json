@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "model_id": "if97-rigid-equilibrium-vessel-v1",
+  "status": "verified",
+  "scope": "Numerically checked restricted equilibrium thermodynamic component, not a spatial HEM network",
+  "pressure_domain_pa": [
+    100000.0,
+    10000000.0
+  ],
+  "temperature_domain_k": [
+    300.0,
+    900.0
+  ],
+  "source": {
+    "hem_sources": {
+      "__init__.py": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+      "__main__.py": "8d9fab98b7490f270f0ef3b33ea95a8324a5340df3f821035f4e72c431952f82",
+      "eos.py": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+      "vessel.py": "d3284236f41d4e5827ab48b975e87a5b6fc0a36ec1a6cf21ad352255215ce478",
+      "workflow.py": "0cf1dd9df09c315d18e0194b7713848c85a9337b44256a30c790b7a52f145ebb"
+    },
+    "if97_sha256": "268d38418e20e9e55b9976bcb66b09d9c40d374df36822155e3b248fe1d60b94",
+    "numpy": "2.2.6",
+    "python": "3.12.9",
+    "scipy": "1.15.2",
+    "serialization_sha256": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12"
+  },
+  "unsupported": [
+    "Momentum and intercell flow",
+    "Moving volumes and mass transfer",
+    "CHF/post-CHF, slip, critical/metastable regions",
+    "Independent entropy-transfer/production ledger",
+    "Physical or plant validation"
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

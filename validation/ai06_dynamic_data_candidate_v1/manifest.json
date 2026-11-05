@@ -1,0 +1,260 @@
+{
+  "schema_version": 1,
+  "candidate_id": "alamgir-kan-lienhard-1980-figure4",
+  "status": "primary_published_candidate_not_model_validation",
+  "source": {
+    "authors": [
+      "Md. Alamgir",
+      "C. Y. Kan",
+      "J. H. Lienhard"
+    ],
+    "title": "An Experimental Study of the Rapid Depressurization of Hot Water",
+    "journal": "Journal of Heat Transfer",
+    "volume": 102,
+    "year": 1980,
+    "pages": "433-438",
+    "url": "https://engines.egr.uh.edu/sites/engines/files/talks/ExperimentalStudyOfDepressurization.pdf",
+    "access_date": "2026-11-05",
+    "host": "University of Houston",
+    "pdf_pages": 6,
+    "license": "No explicit open-content license established; public author-hosted reprint is not proof of redistribution permission.",
+    "archive_redistribution_authorized": false,
+    "license_status": "unknown; no open redistribution license verified",
+    "retrieval": "curl -L --fail --max-time 45 <source.url> -o <local PDF path>; sandbox DNS failed (curl 6), approved public network read succeeded"
+  },
+  "data": {
+    "csv_kind": "manual_transcription_of_published_Table_1_subset",
+    "selection": "All four runs whose two pressure traces appear in Figure 4; no selection by model residual",
+    "csv_rows": 4,
+    "history_kind": "published_photographed_oscilloscope_traces_only",
+    "history_figure": 4,
+    "history_pdf_page_1based": 3,
+    "history_printed_page": 435,
+    "history_panels": {
+      "a": "HW-18",
+      "b": "HW-17",
+      "c": "HW-20",
+      "d": "HW-27"
+    },
+    "history_sensors": [
+      "PT-1",
+      "PT-3"
+    ],
+    "history_axis_ms": [
+      0,
+      10
+    ],
+    "numerical_time_history_available": false,
+    "raw_sensor_records_available": false,
+    "digitized_history_available": false,
+    "synthetic_values": false,
+    "source_discrepancies": [
+      "HW-20: Table 1 PT-3 temperature 240.6 C, Figure 4 240.5 C",
+      "HW-27: Table 1 PT-1 temperature 236.1 C, Figure 4 236 C",
+      "Initial pressures rounded differently in Figure 4 and Table 1; CSV preserves Table 1"
+    ],
+    "csv_sha256": "8d74f91af068fc597e263a3a7b742f769e2750b6221229e40758d5eefe6de263"
+  },
+  "geometry": {
+    "source": "printed pp.433-434; Figures 1-3",
+    "pipe_id_m": 0.0508,
+    "pipe_length_m": 11,
+    "front_block_length_m": 0.2,
+    "heated_pipe_length_m_text": 2.32,
+    "instrumentation_span_m_figure3": 2.324,
+    "sensor_coordinates": "See original Figure 3; not reduced to machine coordinates in v1 to avoid reference-origin ambiguity",
+    "orientation": "horizontal",
+    "pipe_material": "stainless steel ASTM A213"
+  },
+  "boundaries": {
+    "initial_state": "pressurized hot water; local interpolated initial temperatures in CSV, not a complete axial profile",
+    "release": "moving plug POP the QORC; finite opening inertia, not prescribed instantaneous area step",
+    "downstream": "catch tank in Figure 1; numerical downstream pressure history not supplied in this extract",
+    "heating": "heaters switched off before release, typically 30 s before; wall initial temperature and wall heat flux history unavailable",
+    "reflection": "long unheated pipe delays reflected rarefaction return to test section about 13 ms"
+  },
+  "uncertainty": {
+    "source": "p.434 footnote 3",
+    "pressure_estimated_accuracy_fraction_of_initial_pressure": 0.02,
+    "temperature_estimated_accuracy_degC": 0.6,
+    "depressurization_rate_estimated_accuracy_fraction": 0.15,
+    "confidence_level": null,
+    "covariance_available": false,
+    "digitization_uncertainty": null,
+    "complete": false
+  },
+  "units": {
+    "atm_Pa": 101325,
+    "Matm_per_s_Pa_per_s": 101325000000.0,
+    "degC_to_K_offset": 273.15,
+    "g_per_cm2_kg_per_m2": 10
+  },
+  "scope": {
+    "model_pressure_Pa": [
+      100000,
+      10000000
+    ],
+    "model_temperature_K": [
+      300,
+      900
+    ],
+    "selected_initial_and_minimum_pressures_in_range": true,
+    "selected_initial_temperatures_in_range": true,
+    "entire_trajectory_eos_admissibility_established": false,
+    "mismatch_flags": [
+      "open_discharge_not_implemented_in_current_finite_closed_system",
+      "moving_plug_area_time_boundary_missing",
+      "metastable_liquid_and_nucleation_delay_outside_equilibrium_HEM",
+      "full_initial_axial_and_wall_temperature_profiles_missing",
+      "downstream_pressure_history_missing",
+      "no_massflow_or_void_time_series_in_this_extract",
+      "numerical_pressure_histories_not_digitized"
+    ],
+    "comparison_performed": false,
+    "dynamic_hem_validated": false,
+    "plant_referenced": false
+  },
+  "local_inspection_cache": [
+    {
+      "path": "artifacts/ai06_dynamic_data_candidate_v1/source_alamgir_kan_lienhard_1980.pdf",
+      "sha256": "cacf50684cfc6a356ceb786d56501d0afd7d031ea3de91690e0330e4c3aab0e0",
+      "bytes": 388979,
+      "git_ignored": true,
+      "required_for_portable_csv_read": false
+    },
+    {
+      "path": "artifacts/ai06_dynamic_data_candidate_v1/source_page_434.png",
+      "sha256": "a8ad32dbcc7db417cc9e911bc305ff57723796a335094537d7b5aefe2acde124",
+      "bytes": 783976,
+      "git_ignored": true,
+      "required_for_portable_csv_read": false
+    },
+    {
+      "path": "artifacts/ai06_dynamic_data_candidate_v1/source_page_435.png",
+      "sha256": "ad8410cf5dbf09f72c6e40c44ab862aea3c0ca2d1dc12ec7da543104b5a15e5a",
+      "bytes": 786117,
+      "git_ignored": true,
+      "required_for_portable_csv_read": false
+    }
+  ],
+  "static_thermodynamic_screen": {
+    "kind": "derived_EOS_screen_not_dynamic_comparison",
+    "method": "existing physics.materials.iapws.saturation_pressure_mpa(T); 1 atm=101325 Pa",
+    "eos_source_sha256": "268d38418e20e9e55b9976bcb66b09d9c40d374df36822155e3b248fe1d60b94",
+    "caution": "Deficit relative to saturation at INITIAL local temperature only. Does not establish instantaneous superheat, nucleation time, delay duration, or equilibrium-model error; no transient temperature at the pressure minimum. No fitted parameters.",
+    "rows": [
+      {
+        "run": "HW-18",
+        "sensor": "PT1",
+        "initial_T_K": 494.84999999999997,
+        "initial_p_Pa": 6890100.0,
+        "published_minimum_p_Pa": 1531020.75,
+        "computed_psat_at_initial_T_Pa": 2395653.2940439624,
+        "initial_subcooling_pressure_margin_Pa": 4494446.705956038,
+        "minimum_pressure_deficit_relative_to_initial_T_psat_Pa": 864632.5440439624
+      },
+      {
+        "run": "HW-18",
+        "sensor": "PT3",
+        "initial_T_K": 500.95,
+        "initial_p_Pa": 6890100.0,
+        "published_minimum_p_Pa": 1620186.75,
+        "computed_psat_at_initial_T_Pa": 2685773.7795509147,
+        "initial_subcooling_pressure_margin_Pa": 4204326.220449085,
+        "minimum_pressure_deficit_relative_to_initial_T_psat_Pa": 1065587.0295509147
+      },
+      {
+        "run": "HW-17",
+        "sensor": "PT1",
+        "initial_T_K": 503.75,
+        "initial_p_Pa": 4137099.75,
+        "published_minimum_p_Pa": 1930241.25,
+        "computed_psat_at_initial_T_Pa": 2827674.7430312885,
+        "initial_subcooling_pressure_margin_Pa": 1309425.0069687115,
+        "minimum_pressure_deficit_relative_to_initial_T_psat_Pa": 897433.4930312885
+      },
+      {
+        "run": "HW-17",
+        "sensor": "PT3",
+        "initial_T_K": 510.95,
+        "initial_p_Pa": 4137099.75,
+        "published_minimum_p_Pa": 2240295.75,
+        "computed_psat_at_initial_T_Pa": 3219119.872275587,
+        "initial_subcooling_pressure_margin_Pa": 917979.8777244128,
+        "minimum_pressure_deficit_relative_to_initial_T_psat_Pa": 978824.1222755872
+      },
+      {
+        "run": "HW-20",
+        "sensor": "PT1",
+        "initial_T_K": 507.34999999999997,
+        "initial_p_Pa": 6205143.0,
+        "published_minimum_p_Pa": 1792439.2500000002,
+        "computed_psat_at_initial_T_Pa": 3018520.401876396,
+        "initial_subcooling_pressure_margin_Pa": 3186622.598123604,
+        "minimum_pressure_deficit_relative_to_initial_T_psat_Pa": 1226081.1518763958
+      },
+      {
+        "run": "HW-20",
+        "sensor": "PT3",
+        "initial_T_K": 513.75,
+        "initial_p_Pa": 6205143.0,
+        "published_minimum_p_Pa": 2068043.25,
+        "computed_psat_at_initial_T_Pa": 3382097.0457682246,
+        "initial_subcooling_pressure_margin_Pa": 2823045.9542317754,
+        "minimum_pressure_deficit_relative_to_initial_T_psat_Pa": 1314053.7957682246
+      },
+      {
+        "run": "HW-27",
+        "sensor": "PT1",
+        "initial_T_K": 509.25,
+        "initial_p_Pa": 6890100.0,
+        "published_minimum_p_Pa": 1841075.2500000002,
+        "computed_psat_at_initial_T_Pa": 3123155.9768833946,
+        "initial_subcooling_pressure_margin_Pa": 3766944.0231166054,
+        "minimum_pressure_deficit_relative_to_initial_T_psat_Pa": 1282080.7268833944
+      },
+      {
+        "run": "HW-27",
+        "sensor": "PT3",
+        "initial_T_K": 520.95,
+        "initial_p_Pa": 6890100.0,
+        "published_minimum_p_Pa": 2289945.0,
+        "computed_psat_at_initial_T_Pa": 3830308.9551070696,
+        "initial_subcooling_pressure_margin_Pa": 3059791.0448929304,
+        "minimum_pressure_deficit_relative_to_initial_T_psat_Pa": 1540363.9551070696
+      }
+    ]
+  },
+  "checks": {
+    "csv_rows": 4,
+    "sensor_cases": 8,
+    "visual_reference": "cached source_page_435.png; Table 1, independent of Figure 4 rounded labels",
+    "row_checks": [
+      {
+        "run": "HW-18",
+        "pdf_text_row_found": true,
+        "all_csv_numeric_fields_checked_against_visual_transcription": true
+      },
+      {
+        "run": "HW-17",
+        "pdf_text_row_found": true,
+        "all_csv_numeric_fields_checked_against_visual_transcription": true
+      },
+      {
+        "run": "HW-20",
+        "pdf_text_row_found": true,
+        "all_csv_numeric_fields_checked_against_visual_transcription": true
+      },
+      {
+        "run": "HW-27",
+        "pdf_text_row_found": true,
+        "all_csv_numeric_fields_checked_against_visual_transcription": true
+      }
+    ],
+    "numeric_columns": 9,
+    "eos_initial_and_minimum_pressure_range_check": "passed; not entire trajectory check",
+    "source_pdf_magic": "%PDF-",
+    "production_code_modified": false,
+    "dynamic_comparison_performed": false
+  }
+}

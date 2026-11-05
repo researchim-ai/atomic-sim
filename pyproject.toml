@@ -53,6 +53,17 @@ dev = [
 ]
 
 [project.scripts]
+atomic-hem-identification = "atomic_model_hem_identification.__main__:main"
+atomic-hem-throughflow = "atomic_model_hem_throughflow.__main__:main"
+atomic-hem-assessment = "atomic_model_hem_assessment.__main__:main"
+atomic-hem-qualified = "atomic_model_hem_qualified.__main__:main"
+atomic-hem-system = "atomic_model_hem_system.__main__:main"
+atomic-hem-network = "atomic_model_hem_network.__main__:main"
+atomic-hem-mixture = "atomic_model_hem_mixture.__main__:main"
+atomic-hem-experiment = "atomic_model_hem_validation.__main__:main"
+atomic-hem-flow = "atomic_model_hem_flow.__main__:main"
+atomic-hem = "atomic_model_hem.__main__:main"
+atomic-hybrid-graph = "scripts.hybrid_graph_cli:main"
 atomic-model-validate = "atomic_model_validation.__main__:main"
 atomic-model-rollouts = "atomic_model_rollouts.__main__:main"
 atomic-model-release = "atomic_model_release.__main__:main"
@@ -97,6 +108,7 @@ Repository = "https://github.com/researchim-ai/atomic-sim"
 py-modules = ["generate_dataset"]
 
 [tool.setuptools.package-data]
+atomic_model_hem_assessment = ["data/hiper/*", "data/alamgir/*"]
 atomic_model_validation = ["data/nist_tn2294/*"]
 atomic_model_runtime = ["presets/*.json"]
 atomic_model_release = ["py.typed", "golden/*.json", "golden/project/*.json", "golden/project/scenarios/*.json", "golden/project/policies/*.json", "use_cases.json"]
@@ -124,6 +136,7 @@ include = [
     "agent_envs*",
     "atomic_agent_tools*",
     "atomic_model_runtime*",
+    "atomic_model_hem*",
     "atomic_model_workspace*",
     "atomic_model_bench*",
     "atomic_model_pool*",

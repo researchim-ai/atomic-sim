@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "model": {
+    "schema_version": 1,
+    "nodes": [
+      {
+        "id": "a",
+        "volume_m3": 0.02,
+        "initial": {
+          "kind": "pt",
+          "pressure_pa": 3000010.0,
+          "temperature_k": 350.0,
+          "velocity_m_s": 0.0
+        },
+        "heat_power_w": 0.0
+      },
+      {
+        "id": "b",
+        "volume_m3": 0.02,
+        "initial": {
+          "kind": "pt",
+          "pressure_pa": 3000000.0,
+          "temperature_k": 350.0,
+          "velocity_m_s": 0.0
+        },
+        "heat_power_w": 0.0
+      },
+      {
+        "id": "c",
+        "volume_m3": 0.02,
+        "initial": {
+          "kind": "pt",
+          "pressure_pa": 3000000.0,
+          "temperature_k": 350.0,
+          "velocity_m_s": 0.0
+        },
+        "heat_power_w": 0.0
+      },
+      {
+        "id": "d",
+        "volume_m3": 0.02,
+        "initial": {
+          "kind": "pt",
+          "pressure_pa": 3000000.0,
+          "temperature_k": 350.0,
+          "velocity_m_s": 0.0
+        },
+        "heat_power_w": 0.0
+      }
+    ],
+    "edges": [
+      {
+        "id": "e0",
+        "from_node": "a",
+        "to_node": "b",
+        "cells": 2,
+        "length_m": 2.0,
+        "diameter_m": 0.05,
+        "roughness_m": 0.0,
+        "friction": "none",
+        "initial": [
+          {
+            "kind": "pt",
+            "pressure_pa": 3000000.0,
+            "temperature_k": 350.0,
+            "velocity_m_s": 0.0
+          },
+          {
+            "kind": "pt",
+            "pressure_pa": 3000000.0,
+            "temperature_k": 350.0,
+            "velocity_m_s": 0.0
+          }
+        ],
+        "heat_power_w": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "id": "e1",
+        "from_node": "b",
+        "to_node": "c",
+        "cells": 2,
+        "length_m": 2.0,
+        "diameter_m": 0.05,
+        "roughness_m": 0.0,
+        "friction": "none",
+        "initial": [
+          {
+            "kind": "pt",
+            "pressure_pa": 3000000.0,
+            "temperature_k": 350.0,
+            "velocity_m_s": 0.0
+          },
+          {
+            "kind": "pt",
+            "pressure_pa": 3000000.0,
+            "temperature_k": 350.0,
+            "velocity_m_s": 0.0
+          }
+        ],
+        "heat_power_w": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "id": "e2",
+        "from_node": "b",
+        "to_node": "d",
+        "cells": 2,
+        "length_m": 2.0,
+        "diameter_m": 0.04,
+        "roughness_m": 0.0,
+        "friction": "none",
+        "initial": [
+          {
+            "kind": "pt",
+            "pressure_pa": 3000000.0,
+            "temperature_k": 350.0,
+            "velocity_m_s": 0.0
+          },
+          {
+            "kind": "pt",
+            "pressure_pa": 3000000.0,
+            "temperature_k": 350.0,
+            "velocity_m_s": 0.0
+          }
+        ],
+        "heat_power_w": [
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "walls": [
+      {
+        "id": "w0",
+        "cell": "e0/0",
+        "capacity_j_k": 10000.0,
+        "initial_temperature_k": 350.0,
+        "conductance_w_k": 50.0,
+        "heat_power_w": 0.0,
+        "ambient_ua_w_k": 0.0,
+        "ambient_temperature_k": 350.0
+      }
+    ],
+    "wave_speed_bound_m_s": 2000.0,
+    "max_step_s": 5e-05,
+    "cfl": 0.3
+  },
+  "program": [
+    {
+      "duration_s": 0.0005,
+      "command": null
+    },
+    {
+      "duration_s": 0.0005,
+      "command": null
+    },
+    {
+      "duration_s": 0.001,
+      "command": null
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-05",
+  "native_foundation_source_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+  "source_evidence": "validation/ai06_hem_summary_v1.json",
+  "archive": "artifacts/ai06_hem_delivery_v1.tar.gz",
+  "archive_sha256": "542b475a8ec4c2bdf2a2f95f68bd6b5c596379272612956170b74effb14aa2d6",
+  "archive_bytes": 8921193,
+  "deterministic_rebuild_exact": true,
+  "archive_integrity_verified": true,
+  "unique_related_tests_passed": 165,
+  "new_tests_passed": 67,
+  "test_accounting": "163-test foundation run includes 65 initial HEM tests; 2 additional boundary tests passed separately; installed expanded HEM suite passed all67.",
+  "installed_tests_passed": 67,
+  "independent_inverse_grid_points": 25,
+  "published_selected_if97_table5_points": 2,
+  "vessel_paths": 9,
+  "existing_if97_implementation_modified": false,
+  "existing_euler_models_modified": false,
+  "validated": false,
+  "plant_referenced": false
+}

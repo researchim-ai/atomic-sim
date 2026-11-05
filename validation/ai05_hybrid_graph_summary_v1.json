@@ -1,0 +1,216 @@
+{
+  "schema_version": 1,
+  "source": {
+    "model": {
+      "budgets": {
+        "validation/ai05_controlled_radau_budget_v1.json": "a93b6dbedeeb7f6e18bc619ee69200547d0d13601fc6691eef70e239120275e8",
+        "validation/ai05_hybrid_graph_budget_v1.json": "0577968fdc6ecc7021b3e5ff904e6ea75de41d382ce1c0366362de37088b21d6",
+        "validation/ai05_hydraulic_graph_budget_v1.json": "59acc80c07e047a3b3a63607e6eeaf5a9936cbc359f880aed5b82d34c6386d50",
+        "validation/ai05_hysteresis_budget_v1.json": "510661cb7a2870729295243af36264959420f38f21d1d245027de880c638e3f6",
+        "validation/ai05_nonlinear_graph_budget_v1.json": "00379da9d966b507c4d7cc2ecf125f7b60932c42cdb6eaaa36ff04215bc7463c",
+        "validation/ai05_port_adapter_budget_v1.json": "3a8ddf2c435dc80698486d75e3b4482f42c79f5430e137c6fa03ce82f4ea20bc",
+        "validation/ai05_reduced_engine_budget_v1.json": "eda6b68d2d0c917123bd52754c00862393b5bce7edb22c71f54677af05292452",
+        "validation/ai05_resistance_feedback_budget_v2.json": "53a5f6719611803fe5ef44dd1626bfc3dca7d7d37f06602de0b9cdd12e5ee56c",
+        "validation/ai05_scheduled_graph_budget_v1.json": "6446c1840b5a9b617a47b9346f6d4c87664db68d1f6009b48de9c006afc2caeb",
+        "validation/ai05_state_event_budget_v1.json": "02e9bd92b026b7ad9a9de9e71cf99ab64577b64121e77d42c8a2c75fbf1a6e68",
+        "validation/ai05_thermal_graph_budget_v1.json": "bc5d1cba46ec4804359891046de0da5db9eff71f62ad0689bcd85cdf98a80f4c"
+      },
+      "drivers": {
+        "scripts/controlled_reduced_engine.py": "d738f20c78525dfc845b229d94b2f9dcb4cc83bb78d12ccf3ec6631999d90c69",
+        "scripts/graph_port_adapter.py": "7f6921ccf86cee166563572dc26db7582162fb7c53c20bc7bd4dbea573b0d093",
+        "scripts/hybrid_thermal_graph.py": "53ab81c5249cfa992aae44018ba5b7738d3f914fd5ba0362612a461e250cd1fb",
+        "scripts/hysteretic_radau.py": "ace3e950983a105bb11c910447629c53423aabd5cae2fa9a095da52e7c44cb6d",
+        "scripts/nonlinear_thermal_graph.py": "c916cca461bc772fa83b9992af39698de8650c70e9125508397129bac2bacd69",
+        "scripts/reduced_residual_engine.py": "c22c1896db08adfab0bbe59b77319e3f3ad84c161b86cf6acc3d8f59b86a87cd",
+        "scripts/registered_graph_system.py": "0ef8868929dea070047d585389d3d3b76e3b7d164b27a7905cf234f31b859a45",
+        "scripts/scheduled_thermal_graph.py": "f287585fbf0a458a59a5c595b8e2c18ff916852252b54ad277a87dbb6244f86a",
+        "scripts/solve_hydraulic_graph.py": "6b90a4751ad2dfbdf37977c7c9809d75228f81bfe64604eaa4e8a120687da8a5",
+        "scripts/solve_resistance_feedback.py": "bdeca10ffbf0f88b1490d96ec489018867219d37a09f5210c34c834859cc9cd4",
+        "scripts/solve_thermal_graph.py": "a83be295f1d6d05a82290584d65d0dbc5bc47009a3b0674bb1a10102d10d4f6a",
+        "scripts/state_event_radau.py": "8c9bf7712ec32109857f20aa725b372649ec835912a820f68a6036daace69cf3"
+      },
+      "numpy": "2.2.6",
+      "python": "3.12.9",
+      "scipy": "1.15.2",
+      "source_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67"
+    },
+    "qualification": {
+      "scripts/hybrid_graph_references.py": "432a7eeb8589bbf1601e013097ced76a6e8321b4edd29c3c944d8373d4ce7054",
+      "scripts/hydraulic_graph_references.py": "7552f64999bd352127f799893f1a30eeee6e650c62302f1619f47434141dc726",
+      "scripts/hysteresis_references.py": "08ed2f1913f4efbe10080c1b742451ed881c3de59ecce35bad1ab870382da4b2",
+      "scripts/nonlinear_graph_references.py": "f53d2d30139471481cbc8bcf2a36971960680897384002ccd5929a4426a54f70",
+      "scripts/qualify_hybrid_graph.py": "67fd8a30e6540d49369b915290b2995381609b8c127d497c45f3f7f33c13f145",
+      "scripts/resistance_feedback_references.py": "a715c7b5d3cb812dff3b48bc0e2c882b8cb0fe5c1a36087a01439585fdcf3f55",
+      "scripts/scheduled_graph_references.py": "e8920007b457dbe3f61df5fb3e365ebae2719e668fbd832b2b56e5cfdc5b3b6c",
+      "scripts/state_event_references.py": "cb6eb25015e2832d778cf4b27eb8dd6ac7e9c0cddb0d3877dc5819255050b78c",
+      "scripts/thermal_graph_references.py": "dea3e83695c58bbfe61f329f2bd357751ad9463513b2f8de4f3a47fb05e1e011"
+    }
+  },
+  "criteria": {
+    "balance_j": 0.0001,
+    "energy_j": 0.1,
+    "event_time_s": 1e-05,
+    "flow_kg_s": 1e-07,
+    "pressure_pa": 1e-05,
+    "temperature_k": 1e-06
+  },
+  "case_count": 8,
+  "trajectory_count": 24,
+  "independent_ivp_count": 16,
+  "maximum_errors": {
+    "balance_j": 5.587935447692871e-09,
+    "energy_j": 8.027220610529184e-05,
+    "event_time_s": 8.600054002272373e-10,
+    "flow_kg_s": 6.870060076380469e-13,
+    "pressure_pa": 2.9103830456733704e-11,
+    "temperature_k": 1.9088020053459331e-10
+  },
+  "case_summaries": {
+    "branched_schedule": {
+      "caps": [
+        2.0,
+        1.0,
+        0.5
+      ],
+      "measured_maximum_trial_durations_s": [
+        2.0,
+        1.0,
+        0.5
+      ],
+      "restart_exact": true,
+      "final_checkpoint_sha256": [
+        "e5dfd1d35bd8ce0df31a25f215f5705721bf1b681447fb9f0b0962525ae8469a",
+        "48f8b0f991927adf32027c9a65617260737aee12a50f6e3919667728a7106791",
+        "8f1c361900b42d3aa14425c08750f80d37d1b68f89baaa78fe5cf37837cc6030"
+      ]
+    },
+    "calendar_priority": {
+      "caps": [
+        2.0,
+        1.0,
+        0.5
+      ],
+      "measured_maximum_trial_durations_s": [
+        2.0,
+        1.0,
+        0.5
+      ],
+      "restart_exact": true,
+      "final_checkpoint_sha256": [
+        "b59eb2c28432ce03840bd6b3667ba42c07f85b4af9aff35ac1355862930abef9",
+        "aabf4f64e2d40d7e670ebbc9dc0a940358f8de4fc537c6c6551d6f3a2511fb9e",
+        "1b274b121a6c903c52afa823e98026a8c4cde780f1f9327006a77d9473e956c9"
+      ]
+    },
+    "calendar_relay": {
+      "caps": [
+        2.0,
+        1.0,
+        0.5
+      ],
+      "measured_maximum_trial_durations_s": [
+        2.0,
+        1.0,
+        0.5
+      ],
+      "restart_exact": true,
+      "final_checkpoint_sha256": [
+        "8588ec3552ae4df87ef246b121862353562862bd9f280b89934f272d87fc66fe",
+        "ebe2ad3318a147c6ef8b53cef0eb1dd207ebe35be1a02be95a226d908c941daa",
+        "308dfbcc9e4ceb22b72046c490bdb1e733e0a079a8a9e48b3d13a0b0e8ee649b"
+      ]
+    },
+    "delayed_arming": {
+      "caps": [
+        2.0,
+        1.0,
+        0.5
+      ],
+      "measured_maximum_trial_durations_s": [
+        2.0,
+        1.0,
+        0.5
+      ],
+      "restart_exact": true,
+      "final_checkpoint_sha256": [
+        "9be51de6fab8409edf1535a3288ef665131a95b75d978bdc5c50b79e3692f5fc",
+        "495aefbcf9a5a9227b64289a21a5568da9f2f6a0a888db6a4fc904a8b527028d",
+        "a7d8a438ce03298d13810de082243f9c9b17509ae853354d4392edec5fe2a3e0"
+      ]
+    },
+    "explicit_online_state": {
+      "caps": [
+        2.0,
+        1.0,
+        0.5
+      ],
+      "measured_maximum_trial_durations_s": [
+        2.0,
+        1.0,
+        0.5
+      ],
+      "restart_exact": true,
+      "final_checkpoint_sha256": [
+        "73f820b03b59ab903dd31cbb993347ddc59e6056530c5792b09e5d24a779f913",
+        "e6631fbe78c5d5415b7f02c02537205debb6a82d04494675bdf9f606828b122b",
+        "31fce2f6280dfa3d3e4396c54acb1fc796175b16de8e2947fe78169734e79cc5"
+      ]
+    },
+    "flow_reversal": {
+      "caps": [
+        2.0,
+        1.0,
+        0.5
+      ],
+      "measured_maximum_trial_durations_s": [
+        2.0,
+        1.0,
+        0.5
+      ],
+      "restart_exact": true,
+      "final_checkpoint_sha256": [
+        "78d56e8cdda89feebcf077ee619e86eb945b8c8daafb2ae817709a6fb548b03c",
+        "cc08cae7801c85d6b2d8693b41b336de75a39971ae333d0520b1101954ef2a41",
+        "754a4e2d77659b1bb49026e55652e469cbb8b7533f751125d4883b262dbef8b4"
+      ]
+    },
+    "relay": {
+      "caps": [
+        2.0,
+        1.0,
+        0.5
+      ],
+      "measured_maximum_trial_durations_s": [
+        2.0,
+        1.0,
+        0.5
+      ],
+      "restart_exact": true,
+      "final_checkpoint_sha256": [
+        "d163008656acff872cad0fbe6ed4d6921bfb1874b1bb9f0b14390ce890ad962d",
+        "6785421a8b8dc38472fe5ff6c7b7d18273de1ab0890f2d76ba6bbfdf4a9731f0",
+        "64a1b6f128304fa1da5623d8f35cd51ada8cbd64972dbd3bd109801bb6a5eca0"
+      ]
+    },
+    "same_predicate_priority": {
+      "caps": [
+        2.0,
+        1.0,
+        0.5
+      ],
+      "measured_maximum_trial_durations_s": [
+        2.0,
+        1.0,
+        0.5
+      ],
+      "restart_exact": true,
+      "final_checkpoint_sha256": [
+        "2ab76e67e162368619548447c92fd48ccf46e5348baa866e9327c06e18b28424",
+        "0b28c1101ad318beea1ae8eb0f86104c51c51914e50d5390bebd8d7652b90135",
+        "c437a47ed6d6048ad640a841c162d58fccd198eb71a9607bbba9caa44bc979da"
+      ]
+    }
+  },
+  "validated": false,
+  "plant_referenced": false
+}

@@ -1,0 +1,26 @@
+{
+  "artifacts": {
+    "closure_source/__init__.py": "72e961e145031884a59f12a87899fa56005082c1053afd7a6201dcf21a47a931",
+    "data/NOTICE.md": "6795cfc27eff28c26d014d6dff10c5bda51fac3f4557b7ebdbbc12b8e266829e",
+    "data/manifest.json": "0d9cf1255ba5336b29b0c933fbaecce695125782cd402ec1045858f9b2dd64c4",
+    "data/measurements.csv": "14e5e6358ec49e825fa4a39539de2c24b1050c075a2085d21691102ae21fefe6",
+    "data/protocol.json": "ee2fc2c5033a6feb6af709a1fd45dddad6216946ad4d754c21d9b080fb91ebb4",
+    "data/source.pdf": "6389e86de3e427a81fea7c2582fba19d85348273f30b28639754b876d63d9ef8",
+    "data/vectors.json": "b6fea12086658ed954c0f4a1b038edcb009fde4fda9d451a2e41a1af21c6fbab",
+    "report.json": "67da45a3c87417df94be31549c2beb3ff49083fd52e7a757a63705371b385314"
+  },
+  "source": {
+    "dataset_manifest_sha256": "0d9cf1255ba5336b29b0c933fbaecce695125782cd402ec1045858f9b2dd64c4",
+    "digitization_sha256": "f386335a78f3a21b13816dfa36d10c444e30cee287014a843e37a89c9f0420ef",
+    "implementation": {
+      "__init__.py": "63e02cb7ed07808371cb77bca8adcf58d90ee32bd3f026be1d6091594fb4b2c0",
+      "__main__.py": "3173bde5bb000ff0282070db637e52d5c98abe23f78277270a301a188e86215a",
+      "audit.py": "d58313df2d000c7f2f0a4a87ac1494dd1fb95c35ed388a66df9ae466508a9eab",
+      "evidence.py": "76eeba1b5602ec8279e58da946ae63a6943e622061ba43d84dc0f94117770c9a"
+    },
+    "production_closure_sources": {
+      "__init__.py": "72e961e145031884a59f12a87899fa56005082c1053afd7a6201dcf21a47a931"
+    },
+    "production_closure_version": "hem-closures/1.2.0"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-05",
+  "wheel_sha256": "87030203566084036b977aeca37c1fd616b8a4c881df5c15d877d04e4ccaff84",
+  "installed_flow_tests_passed": 41,
+  "exact_demo_replay": true,
+  "exact_qualification_recomputed": true,
+  "prior_hem_vessel_checkpoint_compatible": true,
+  "pytest_receipt_sha256": "2d17880e737fa99ffd719c962fa54fd2fcc3cd52b54590a792c5409f56900a4e",
+  "scope": "Local fresh offline venv outside checkout; inherited host scientific dependencies. Not independent hardware/OS.",
+  "validated": false,
+  "plant_referenced": false
+}

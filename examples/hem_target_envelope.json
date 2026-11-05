@@ -1,0 +1,14 @@
+{
+  "id": "illustrative-research-envelope",
+  "pressure_pa": [
+    200000.0,
+    15500000.0
+  ],
+  "temperature_k": [
+    310.0,
+    620.0
+  ],
+  "requires_post_chf": false,
+  "requires_metastability": false,
+  "requires_open_throughflow": false
+}

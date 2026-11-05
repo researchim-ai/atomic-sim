@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "source": "https://www-pub.iaea.org/MTCD/Publications/PDF/te_1203_prn.pdf",
+  "pdf_sha256": "8d039d4f8a950a1c013ddae312aee744ae5eb0e3efbaa337ce2a7fea96021c1c",
+  "table_pdf_page": 189,
+  "table_printed_page": 181,
+  "correction_pdf_page": 41,
+  "correction_printed_page": 33,
+  "pressure_pa": [
+    15000000.0,
+    16000000.0
+  ],
+  "mass_flux_kg_m2_s": [
+    300.0,
+    500.0,
+    1000.0,
+    1500.0,
+    2000.0
+  ],
+  "quality": [
+    0,
+    0.05,
+    0.1
+  ],
+  "table_kw_m2": [
+    [
+      [
+        3274.0,
+        3111.0,
+        2884.0
+      ],
+      [
+        3115.0,
+        3003.0,
+        2739.0
+      ],
+      [
+        2468.0,
+        2251.0,
+        1897.0
+      ],
+      [
+        2312.0,
+        1955.0,
+        1649.0
+      ],
+      [
+        2464.0,
+        2071.0,
+        1843.0
+      ]
+    ],
+    [
+      [
+        2944.0,
+        2818.0,
+        2597.0
+      ],
+      [
+        2673.0,
+        2545.0,
+        2268.0
+      ],
+      [
+        2089.0,
+        1853.0,
+        1528.0
+      ],
+      [
+        1945.0,
+        1655.0,
+        1419.0
+      ],
+      [
+        2166.0,
+        1841.0,
+        1688.0
+      ]
+    ]
+  ],
+  "diameter_m": [
+    0.005,
+    0.025
+  ],
+  "heated_distance_m": [
+    0.2,
+    10
+  ],
+  "scope_flags": [
+    "pure_water",
+    "round_tube",
+    "vertical_upflow",
+    "uniform_axial_heating",
+    "uniform_circumferential_heating",
+    "no_spacers"
+  ],
+  "corrections": {
+    "K1": "sqrt(0.008/D)",
+    "K4": "exp((D/L)*exp(2*alpha_h)), L/D>=5",
+    "alpha_h": "x*rho_f/(x*rho_f+(1-x)*rho_g)",
+    "other_factors": "1 only for stated uniform straight vertical-upflow tube with no spacers/bundle"
+  },
+  "review": "Two visual readings, including higher-resolution crop with quality headers; same agent, not independent human review. Annex scan has no numeric pdftotext table. Prior18 corners match frozen prior code. Corrected15MPa/G500 column shift before release.",
+  "uncertainty": "Source approximate correction factors; uncalibrated",
+  "validated": false
+}

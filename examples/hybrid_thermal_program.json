@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "model": {
+    "format": "atomic-hybrid-thermal-graph",
+    "schema_version": 1,
+    "model_input": {
+      "format": "atomic-nonlinear-thermal-graph",
+      "schema_version": 1,
+      "steady_input": {
+        "format": "atomic-thermal-hydraulic-steady",
+        "schema_version": 1,
+        "hydraulic": {
+          "format": "atomic-hydraulic-steady",
+          "schema_version": 1,
+          "density_kg_m3": 1000.0,
+          "gravity_m_s2": 9.81,
+          "nodes": [
+            {
+              "id": "a",
+              "elevation_m": 0.0,
+              "pressure_pa": 200000.0
+            },
+            {
+              "id": "b",
+              "elevation_m": 0.0,
+              "pressure_pa": 200000.0
+            }
+          ],
+          "edges": [
+            {
+              "id": "pipe",
+              "from": "a",
+              "to": "b",
+              "linear_pa_s_kg": 1000.0,
+              "quadratic_pa_s2_kg2": 0.0,
+              "pressure_gain_pa": 0.0
+            }
+          ]
+        },
+        "thermal": {
+          "medium": "test-liquid",
+          "heat_capacity_j_kg_k": 1000.0,
+          "enthalpy_reference_temperature_k": 300.0,
+          "min_temperature_k": 250.0,
+          "max_temperature_k": 500.0,
+          "nodes": {
+            "a": {
+              "heat_power_w": 12500.0,
+              "ambient_ua_w_k": 0.0,
+              "ambient_temperature_k": 300.0,
+              "supply_temperature_k": 350.0
+            },
+            "b": {
+              "heat_power_w": 0.0,
+              "ambient_ua_w_k": 0.0,
+              "ambient_temperature_k": 300.0,
+              "supply_temperature_k": 350.0
+            }
+          }
+        }
+      },
+      "resistance_laws": {
+        "pipe": {
+          "kind": "exponential_endpoint_mean_v1",
+          "reference_temperature_k": 300.0,
+          "temperature_coefficient_per_k": 0.01,
+          "minimum_multiplier": 0.1,
+          "maximum_multiplier": 10.0
+        }
+      },
+      "volumes_m3": {
+        "a": 0.5,
+        "b": 0.5
+      },
+      "initial_temperatures_k": {
+        "a": 310.0,
+        "b": 320.0
+      },
+      "max_step_s": 0.5
+    },
+    "initial_mode": "heat",
+    "modes": [
+      {
+        "id": "heat",
+        "commands": {
+          "thermal_nodes": {
+            "a": {
+              "heat_power_w": 12500.0
+            }
+          }
+        },
+        "transitions": [
+          {
+            "id": "hot",
+            "node": "a",
+            "threshold_k": 310.1375,
+            "direction": 1,
+            "to": "cool",
+            "priority": 10,
+            "arm_delay_s": 0.0
+          }
+        ]
+      },
+      {
+        "id": "cool",
+        "commands": {
+          "thermal_nodes": {
+            "a": {
+              "heat_power_w": -25000.0
+            }
+          }
+        },
+        "transitions": [
+          {
+            "id": "cold",
+            "node": "a",
+            "threshold_k": 310.0125,
+            "direction": -1,
+            "to": "heat",
+            "priority": 10,
+            "arm_delay_s": 0.0
+          }
+        ]
+      },
+      {
+        "id": "hold",
+        "commands": {
+          "thermal_nodes": {
+            "a": {
+              "heat_power_w": 0.0
+            }
+          }
+        },
+        "transitions": []
+      }
+    ],
+    "calendar": [
+      {
+        "id": "restart",
+        "time_s": 17.5,
+        "to": "heat",
+        "priority": 20
+      }
+    ]
+  },
+  "max_macro_step_s": 1.0,
+  "program": [
+    {
+      "duration_s": 2.0,
+      "command": null
+    },
+    {
+      "duration_s": 7.0,
+      "command": {
+        "mode": "hold",
+        "expected_revision": 1,
+        "controller_state": {
+          "integral": 0.5,
+          "tick": 1
+        },
+        "priority": 30
+      }
+    },
+    {
+      "duration_s": 8.0,
+      "command": null
+    },
+    {
+      "duration_s": 13.0,
+      "command": null
+    },
+    {
+      "duration_s": 10.0,
+      "command": null
+    }
+  ],
+  "initial_checkpoint": null
+}

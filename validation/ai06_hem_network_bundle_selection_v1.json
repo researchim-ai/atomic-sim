@@ -1,0 +1,284 @@
+{
+  "schema_version": 1,
+  "bundle_id": "ai06-finite-plenum-network-closures-data-v1",
+  "scope": "Numerical restricted IF97 graph engine and scoped single-phase closures; audited nominal1995CHF8-corner interpolation and limitedNIST friction coefficient comparison. Not dynamic/two-phase/plant or completeCHF validation.",
+  "entries": [
+    {
+      "source": "atomic_model_hem_network/__init__.py",
+      "path": "review_sources/atomic_model_hem_network/__init__.py"
+    },
+    {
+      "source": "atomic_model_hem_network/__main__.py",
+      "path": "review_sources/atomic_model_hem_network/__main__.py"
+    },
+    {
+      "source": "atomic_model_hem_network/cases.py",
+      "path": "review_sources/atomic_model_hem_network/cases.py"
+    },
+    {
+      "source": "atomic_model_hem_network/model.py",
+      "path": "review_sources/atomic_model_hem_network/model.py"
+    },
+    {
+      "source": "atomic_model_hem_network/reference.py",
+      "path": "review_sources/atomic_model_hem_network/reference.py"
+    },
+    {
+      "source": "atomic_model_hem_network/workflow.py",
+      "path": "review_sources/atomic_model_hem_network/workflow.py"
+    },
+    {
+      "source": "atomic_model_hem_closures/__init__.py",
+      "path": "review_sources/atomic_model_hem_closures/__init__.py"
+    },
+    {
+      "source": "atomic_model_hem_validation/__init__.py",
+      "path": "review_sources/atomic_model_hem_validation/__init__.py"
+    },
+    {
+      "source": "atomic_model_hem_validation/__main__.py",
+      "path": "review_sources/atomic_model_hem_validation/__main__.py"
+    },
+    {
+      "source": "atomic_model_hem_validation/audit.py",
+      "path": "review_sources/atomic_model_hem_validation/audit.py"
+    },
+    {
+      "source": "atomic_model_hem_validation/evidence.py",
+      "path": "review_sources/atomic_model_hem_validation/evidence.py"
+    },
+    {
+      "source": "tests/test_hem_network.py",
+      "path": "review_sources/tests/test_hem_network.py"
+    },
+    {
+      "source": "tests/test_hem_network_reference.py",
+      "path": "review_sources/tests/test_hem_network_reference.py"
+    },
+    {
+      "source": "tests/test_hem_network_workflow.py",
+      "path": "review_sources/tests/test_hem_network_workflow.py"
+    },
+    {
+      "source": "tests/test_hem_closures.py",
+      "path": "review_sources/tests/test_hem_closures.py"
+    },
+    {
+      "source": "tests/test_hem_validation.py",
+      "path": "review_sources/tests/test_hem_validation.py"
+    },
+    {
+      "source": "docs/AI_06_HEM_NETWORK_RU.md",
+      "path": "review_sources/docs/AI_06_HEM_NETWORK_RU.md"
+    },
+    {
+      "source": "docs/AI_06_HEM_CLOSURES_RU.md",
+      "path": "review_sources/docs/AI_06_HEM_CLOSURES_RU.md"
+    },
+    {
+      "source": "docs/AI_06_HEM_EXPERIMENTAL_EVIDENCE_RU.md",
+      "path": "review_sources/docs/AI_06_HEM_EXPERIMENTAL_EVIDENCE_RU.md"
+    },
+    {
+      "source": "docs/AI_06_DYNAMIC_DATA_SEARCH_RU.md",
+      "path": "review_sources/docs/AI_06_DYNAMIC_DATA_SEARCH_RU.md"
+    },
+    {
+      "source": "docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md",
+      "path": "review_sources/docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md"
+    },
+    {
+      "source": "docs/READINESS_REVIEW_RU.md",
+      "path": "review_sources/docs/READINESS_REVIEW_RU.md"
+    },
+    {
+      "source": "README.md",
+      "path": "review_sources/README.md"
+    },
+    {
+      "source": "pyproject.toml",
+      "path": "review_sources/pyproject.toml"
+    },
+    {
+      "source": ".github/workflows/ci.yml",
+      "path": "review_sources/.github/workflows/ci.yml"
+    },
+    {
+      "source": ".github/workflows/numerical.yml",
+      "path": "review_sources/.github/workflows/numerical.yml"
+    },
+    {
+      "source": "examples/hem_network.json",
+      "path": "review_sources/examples/hem_network.json"
+    },
+    {
+      "source": "validation/ai_industrial_workplan_v1.json",
+      "path": "review_sources/validation/ai_industrial_workplan_v1.json"
+    },
+    {
+      "source": "validation/ai06_hem_closure_review_v1.json",
+      "path": "review_sources/validation/ai06_hem_closure_review_v1.json"
+    },
+    {
+      "source": "validation/ai06_hem_network_summary_v1.json",
+      "path": "review_sources/validation/ai06_hem_network_summary_v1.json"
+    },
+    {
+      "source": "validation/ai06_hem_network_passport_v1.json",
+      "path": "review_sources/validation/ai06_hem_network_passport_v1.json"
+    },
+    {
+      "source": "validation/ai06_hem_network_installed_v1.json",
+      "path": "review_sources/validation/ai06_hem_network_installed_v1.json"
+    },
+    {
+      "source": "validation/ai06_dynamic_data_candidate_v1/manifest.json",
+      "path": "review_sources/validation/ai06_dynamic_data_candidate_v1/manifest.json"
+    },
+    {
+      "source": "validation/ai06_dynamic_data_candidate_v1/table1_figure4_runs.csv",
+      "path": "review_sources/validation/ai06_dynamic_data_candidate_v1/table1_figure4_runs.csv"
+    },
+    {
+      "source": "validation/ai06_hem_experiment_v1/closure_source/__init__.py",
+      "path": "review_sources/validation/ai06_hem_experiment_v1/closure_source/__init__.py"
+    },
+    {
+      "source": "validation/ai06_hem_experiment_v1/data/NOTICE.md",
+      "path": "review_sources/validation/ai06_hem_experiment_v1/data/NOTICE.md"
+    },
+    {
+      "source": "validation/ai06_hem_experiment_v1/data/manifest.json",
+      "path": "review_sources/validation/ai06_hem_experiment_v1/data/manifest.json"
+    },
+    {
+      "source": "validation/ai06_hem_experiment_v1/data/measurements.csv",
+      "path": "review_sources/validation/ai06_hem_experiment_v1/data/measurements.csv"
+    },
+    {
+      "source": "validation/ai06_hem_experiment_v1/data/protocol.json",
+      "path": "review_sources/validation/ai06_hem_experiment_v1/data/protocol.json"
+    },
+    {
+      "source": "validation/ai06_hem_experiment_v1/data/source.pdf",
+      "path": "review_sources/validation/ai06_hem_experiment_v1/data/source.pdf"
+    },
+    {
+      "source": "validation/ai06_hem_experiment_v1/data/vectors.json",
+      "path": "review_sources/validation/ai06_hem_experiment_v1/data/vectors.json"
+    },
+    {
+      "source": "validation/ai06_hem_experiment_v1/manifest.json",
+      "path": "review_sources/validation/ai06_hem_experiment_v1/manifest.json"
+    },
+    {
+      "source": "validation/ai06_hem_experiment_v1/report.json",
+      "path": "review_sources/validation/ai06_hem_experiment_v1/report.json"
+    },
+    {
+      "source": "artifacts/ai06_hem_network_qualification_v1.json",
+      "path": "review_sources/artifacts/ai06_hem_network_qualification_v1.json"
+    },
+    {
+      "source": "artifacts/ai06_graph_portable_foundation_receipt_v1.json",
+      "path": "review_sources/artifacts/ai06_graph_portable_foundation_receipt_v1.json"
+    },
+    {
+      "source": "artifacts/ai06_hem_network_new_tests_receipt_v1.json",
+      "path": "review_sources/artifacts/ai06_hem_network_new_tests_receipt_v1.json"
+    },
+    {
+      "source": "artifacts/ai06_hem_network_installed_receipt_v1.json",
+      "path": "review_sources/artifacts/ai06_hem_network_installed_receipt_v1.json"
+    },
+    {
+      "source": "artifacts/ai06_hem_network_installed_locations_v1.json",
+      "path": "review_sources/artifacts/ai06_hem_network_installed_locations_v1.json"
+    },
+    {
+      "source": "artifacts/ai06_hem_network_demo_v1/input.json",
+      "path": "review_sources/artifacts/ai06_hem_network_demo_v1/input.json"
+    },
+    {
+      "source": "artifacts/ai06_hem_network_demo_v1/result.json",
+      "path": "review_sources/artifacts/ai06_hem_network_demo_v1/result.json"
+    },
+    {
+      "source": "artifacts/ai06_hem_network_receipts_v1/build.log",
+      "path": "review_sources/artifacts/ai06_hem_network_receipts_v1/build.log"
+    },
+    {
+      "source": "artifacts/ai06_hem_network_receipts_v1/demo.log",
+      "path": "review_sources/artifacts/ai06_hem_network_receipts_v1/demo.log"
+    },
+    {
+      "source": "artifacts/ai06_hem_network_receipts_v1/experiment.log",
+      "path": "review_sources/artifacts/ai06_hem_network_receipts_v1/experiment.log"
+    },
+    {
+      "source": "artifacts/ai06_hem_network_receipts_v1/installed.log",
+      "path": "review_sources/artifacts/ai06_hem_network_receipts_v1/installed.log"
+    },
+    {
+      "source": "artifacts/ai06_hem_network_receipts_v1/installed_driver.py",
+      "path": "review_sources/artifacts/ai06_hem_network_receipts_v1/installed_driver.py"
+    },
+    {
+      "source": "artifacts/ai06_hem_network_receipts_v1/new-tests.log",
+      "path": "review_sources/artifacts/ai06_hem_network_receipts_v1/new-tests.log"
+    },
+    {
+      "source": "artifacts/ai06_hem_network_receipts_v1/portable-foundation.log",
+      "path": "review_sources/artifacts/ai06_hem_network_receipts_v1/portable-foundation.log"
+    },
+    {
+      "source": "artifacts/ai06_hem_network_receipts_v1/qualification.log",
+      "path": "review_sources/artifacts/ai06_hem_network_receipts_v1/qualification.log"
+    },
+    {
+      "source": "artifacts/ai06_hem_network_receipts_v1/sdist.log",
+      "path": "review_sources/artifacts/ai06_hem_network_receipts_v1/sdist.log"
+    },
+    {
+      "source": "artifacts/ai06_hem_demo_v1/input.json",
+      "path": "review_sources/artifacts/ai06_hem_demo_v1/input.json"
+    },
+    {
+      "source": "artifacts/ai06_hem_demo_v1/result.json",
+      "path": "review_sources/artifacts/ai06_hem_demo_v1/result.json"
+    },
+    {
+      "source": "artifacts/ai06_hem_flow_demo_v2/input.json",
+      "path": "review_sources/artifacts/ai06_hem_flow_demo_v2/input.json"
+    },
+    {
+      "source": "artifacts/ai06_hem_flow_demo_v2/result.json",
+      "path": "review_sources/artifacts/ai06_hem_flow_demo_v2/result.json"
+    },
+    {
+      "source": "artifacts/ai06_finite_system_demo_v1/input.json",
+      "path": "review_sources/artifacts/ai06_finite_system_demo_v1/input.json"
+    },
+    {
+      "source": "artifacts/ai06_finite_system_demo_v1/result.json",
+      "path": "review_sources/artifacts/ai06_finite_system_demo_v1/result.json"
+    },
+    {
+      "source": "dist/atomic_sim-2.0.0-py3-none-any.whl",
+      "path": "runtime/atomic_sim-2.0.0-py3-none-any.whl"
+    },
+    {
+      "source": "dist/atomic_sim-2.0.0.tar.gz",
+      "path": "runtime/atomic_sim-2.0.0.tar.gz"
+    },
+    {
+      "source": "validation/ai06_hem_network_bundle_selection_v1.json",
+      "path": "review_sources/validation/ai06_hem_network_bundle_selection_v1.json"
+    }
+  ],
+  "runtime": {
+    "wheel": "runtime/atomic_sim-2.0.0-py3-none-any.whl",
+    "sdist": "runtime/atomic_sim-2.0.0.tar.gz",
+    "source_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67"
+  }
+}

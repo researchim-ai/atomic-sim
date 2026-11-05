@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "reader": "openpyxl",
+  "reader_version": "3.1.5",
+  "raw_workbooks": 176,
+  "rows": 12320,
+  "numeric_values_checked": 357280,
+  "exact_float_matches": true,
+  "macros_executed": false,
+  "source_archive_sha256": "bd9fd0455e710ef3d6798b7ba849295dfdb286b19c8cef959f6072437daf9762",
+  "independence": "Independent OOXML parser and extraction loop, same published source; not independent experiment",
+  "reproduction_script": "scripts/verify_hiper_primary.py",
+  "reproduction_script_sha256": "94db993ad40c55394bd9e3853764a509905508aeaf260425c03c66c4002a52e0",
+  "optimized_python_checks_passed": true
+}

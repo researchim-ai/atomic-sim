@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "model": {
+    "schema_version": 1,
+    "channel": {
+      "schema_version": 1,
+      "geometry": {
+        "cells": 4,
+        "length_m": 10.0,
+        "area_m2": 0.01
+      },
+      "initial": [
+        {
+          "kind": "px",
+          "pressure_pa": 1000000.0,
+          "quality": 0.999,
+          "velocity_m_s": 0.0
+        },
+        {
+          "kind": "px",
+          "pressure_pa": 1000000.0,
+          "quality": 0.999,
+          "velocity_m_s": 0.0
+        },
+        {
+          "kind": "px",
+          "pressure_pa": 1000000.0,
+          "quality": 0.999,
+          "velocity_m_s": 0.0
+        },
+        {
+          "kind": "px",
+          "pressure_pa": 1000000.0,
+          "quality": 0.999,
+          "velocity_m_s": 0.0
+        }
+      ],
+      "heat_power_w": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "wave_speed_bound_m_s": 2000.0,
+      "max_step_s": 0.0001,
+      "cfl": 0.3
+    },
+    "terminals": {
+      "left": {
+        "volume_m3": 0.025,
+        "initial": {
+          "kind": "px",
+          "pressure_pa": 1000000.0,
+          "quality": 0.999,
+          "velocity_m_s": 0.0
+        },
+        "heat_power_w": 0.0
+      },
+      "right": {
+        "volume_m3": 0.025,
+        "initial": {
+          "kind": "px",
+          "pressure_pa": 1000000.0,
+          "quality": 0.999,
+          "velocity_m_s": 0.0
+        },
+        "heat_power_w": 0.0
+      }
+    },
+    "walls": [
+      {
+        "id": "w0",
+        "cell": "c0",
+        "capacity_j_k": 10000.0,
+        "initial_temperature_k": 600.0,
+        "conductance_w_k": 500.0,
+        "heat_power_w": 0.0,
+        "ambient_ua_w_k": 0.0,
+        "ambient_temperature_k": 453.0356323914666
+      },
+      {
+        "id": "w1",
+        "cell": "c1",
+        "capacity_j_k": 10000.0,
+        "initial_temperature_k": 600.0,
+        "conductance_w_k": 500.0,
+        "heat_power_w": 0.0,
+        "ambient_ua_w_k": 0.0,
+        "ambient_temperature_k": 453.0356323914666
+      },
+      {
+        "id": "w2",
+        "cell": "c2",
+        "capacity_j_k": 10000.0,
+        "initial_temperature_k": 600.0,
+        "conductance_w_k": 500.0,
+        "heat_power_w": 0.0,
+        "ambient_ua_w_k": 0.0,
+        "ambient_temperature_k": 453.0356323914666
+      },
+      {
+        "id": "w3",
+        "cell": "c3",
+        "capacity_j_k": 10000.0,
+        "initial_temperature_k": 600.0,
+        "conductance_w_k": 500.0,
+        "heat_power_w": 0.0,
+        "ambient_ua_w_k": 0.0,
+        "ambient_temperature_k": 453.0356323914666
+      }
+    ]
+  },
+  "program": [
+    {
+      "duration_s": 0.003,
+      "command": null
+    },
+    {
+      "duration_s": 0.006,
+      "command": null
+    },
+    {
+      "duration_s": 0.009,
+      "command": null
+    }
+  ]
+}

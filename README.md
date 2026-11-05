@@ -6,6 +6,12 @@
 
 Открытый моделёр реакторных систем на Python для ИИ, RL и LLM-агентов. С версии 2.0 есть проверяемое ядро установки ВВЭР (статус `verified` по аналитическим эталонам и балансам) и прежняя учебная ветка. Это не цифровой двойник действующего блока и не `plant_referenced` модель.
 
+Новый ограниченный HEM: [EOS до16 МПа, фазовые переходы, кипящая теплоотдача и численная квалификация](docs/AI_06_QUALIFIED_HEM_RU.md); `atomic-hem-qualified demo --output artifacts/qualified_demo.json`. Экспериментальная валидация двухфазной динамики остаётся отдельной задачей.
+
+Первичные экспериментальные данные: [HIPER, неопределённости и проверка применимости](docs/AI_06_PRIMARY_DATA_ASSESSMENT_RU.md); `atomic-hem-assessment screen --output artifacts/hiper_screen.json`.
+
+Проточный steady HEM: [уравнения, фазовые события и отрицательный HIPER benchmark](docs/AI_06_STEADY_THROUGHFLOW_RU.md); `atomic-hem-throughflow demo --output artifacts/throughflow_demo.json`. Это отдельная стационарная постановка, без заявления физической приёмки.
+
 Model/data study: `python -m examples.eos_study_workflow --output artifacts/my-study`, затем `atomic-model-project-ui artifacts/my-study/study --study`. [Ревизии, эталоны, supervised comparisons и переносимость](docs/AI_11_MODEL_DATA_STUDY_RU.md).
 
 Сравнение результатов: `python -m examples.eos_results_workflow --output artifacts/my-results`; [native replay, траектории и переносимые ZIP](docs/AI_11_RESULT_COMPARISON_RU.md).
@@ -19,6 +25,18 @@ Model/data study: `python -m examples.eos_study_workflow --output artifacts/my-s
 Сохраняемые параллельные кампании: `python -m examples.eos_rollout_workflow --output artifacts/my-rollouts`; [лимиты, пауза, продолжение и границы гарантий](docs/AI_10_DURABLE_ROLLOUTS_RU.md).
 
 Проверка по опубликованному эксперименту NIST: `atomic-model-validate run-pipe --output artifacts/my-nist-pipe`; [данные, критерии и ограничения](docs/AI_09_NIST_PIPE_EXPERIMENT_RU.md).
+
+Совместные события гидравлической сети: `python -m examples.hybrid_thermal_workflow --output artifacts/my-hybrid`; [календарь, защиты, online-команды и транзакционный restart](docs/AI_05_HYBRID_ORCHESTRATION_RU.md).
+
+Равновесная вода/пар IF97 и закрытый жёсткий объём: `atomic-hem demo --output artifacts/my-hem`; [EOS, фазовые границы и границы применимости](docs/AI_06_EQUILIBRIUM_WATER_FOUNDATION_RU.md).
+
+Гомогенное двухфазное трение McAdams/Cicchitti: `atomic-hem-mixture run examples/hem_mixture.json --output artifacts/my-mixture`; [модель, проверка и границы применимости](docs/AI_06_HOMOGENEOUS_FRICTION_RU.md).
+
+HEM-сеть с конечными узлами, ветвлениями, трением Дарси и ламинарной/Gnielinski теплоотдачей: `atomic-hem-network demo --output artifacts/my-hem-network`; [постановка и ограничения](docs/AI_06_HEM_NETWORK_RU.md), [замыкания и CHF](docs/AI_06_HEM_CLOSURES_RU.md), [экспериментальные свидетельства](docs/AI_06_HEM_EXPERIMENTAL_EVIDENCE_RU.md).
+
+Конечный HEM-канал с торцевыми объёмами и теплоёмкими стенками: `atomic-hem-system demo --output artifacts/my-finite-system`; [уравнения, CLI и квалификация](docs/AI_06_FINITE_CHANNEL_WALL_SYSTEM_RU.md).
+
+Периодический HEM-канал с массой, импульсом и полной энергией: `atomic-hem-flow demo --output artifacts/my-hem-flow`; [схема, проверки и ограничения](docs/AI_06_PERIODIC_HEM_FLOW_RU.md).
 
 ## Возможности ядра 2.0
 
@@ -348,3 +366,5 @@ python scripts/export_pdf.py
 ---
 
 **Разработано с использованием PyTorch 🔥**
+
+Условная идентифицируемость Chen: [метод, ограничения и CLI](docs/AI_09_CLOSURE_IDENTIFIABILITY_RU.md). `python -m atomic_model_hem_identification analyse --output report.json --require-calibratable` сохраняет диагностику и возвращает код 3 при отказе в калибровке.

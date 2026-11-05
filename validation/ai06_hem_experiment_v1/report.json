@@ -1,0 +1,1465 @@
+{
+  "calibrated": false,
+  "comparisons": {
+    "independent_haaland": {
+      "max_abs_relative_error": 0.025613155401812585,
+      "mean_relative_error": -0.00540583196230315,
+      "passed": true,
+      "rms_relative_error": 0.00941910433203226,
+      "rows": [
+        {
+          "center_passed": true,
+          "darcy_f": 0.02889611180989742,
+          "darcy_f_reading_bound": 0.00013038049489400502,
+          "modeled_darcy_f": 0.028155991207602364,
+          "modeled_reading_interval": [
+            0.027755312609374395,
+            0.02859008812708618
+          ],
+          "normalized_pressure_loss": 0.028155991207602364,
+          "reading_envelope_gap": 0.0001756431879172335,
+          "relative_error": -0.025613155401812585,
+          "reynolds": 14295.723178507526,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.02595498538680696,
+          "darcy_f_reading_bound": 0.00013038049489400616,
+          "modeled_darcy_f": 0.025429074623844763,
+          "modeled_reading_interval": [
+            0.025198040424567976,
+            0.025672643483651083
+          ],
+          "normalized_pressure_loss": 0.025429074623844763,
+          "reading_envelope_gap": 0.0001519614082618713,
+          "relative_error": -0.02026241799502306,
+          "reynolds": 21424.9351042113,
+          "reynolds_reading_bound": 816.5528365130177,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.023986239913907484,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.023651799640415205,
+          "modeled_reading_interval": [
+            0.023498622966126436,
+            0.023811033558944074
+          ],
+          "normalized_pressure_loss": 0.023651799640415205,
+          "reading_envelope_gap": 4.482586006940292e-05,
+          "relative_error": -0.013943005435310732,
+          "reynolds": 28993.67423574183,
+          "reynolds_reading_bound": 816.5528365130177,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.022815551840618467,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.02246719225003736,
+          "modeled_reading_interval": [
+            0.022353966390669097,
+            0.02258397423038224
+          ],
+          "normalized_pressure_loss": 0.02246719225003736,
+          "reading_envelope_gap": 0.0001011971153422192,
+          "relative_error": -0.015268514783890703,
+          "reynolds": 36226.71942337256,
+          "reynolds_reading_bound": 816.5528365130177,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.021808563722029703,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.021527838539386626,
+          "modeled_reading_interval": [
+            0.021440420633261507,
+            0.02161751389991956
+          ],
+          "normalized_pressure_loss": 0.021527838539386626,
+          "reading_envelope_gap": 6.066932721613544e-05,
+          "relative_error": -0.01287224533541863,
+          "reynolds": 43839.814511454424,
+          "reynolds_reading_bound": 816.5528365130177,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.020963343995253875,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.020771237153682568,
+          "modeled_reading_interval": [
+            0.020701254874105218,
+            0.020842748365377452
+          ],
+          "normalized_pressure_loss": 0.020771237153682568,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.009163940715507975,
+          "reynolds": 51654.52758386048,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.020301461779199368,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.020181714648642924,
+          "modeled_reading_interval": [
+            0.020123447344662787,
+            0.020241092117952476
+          ],
+          "normalized_pressure_loss": 0.020181714648642924,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.005898448686051538,
+          "reynolds": 59122.457723228916,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.0197168420786376,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.019674765935775253,
+          "modeled_reading_interval": [
+            0.019625373971835485,
+            0.019724990262711732
+          ],
+          "normalized_pressure_loss": 0.019674765935775253,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.0021340203818915175,
+          "reynolds": 66774.86831825398,
+          "reynolds_reading_bound": 816.5528365130214,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.019259866492212813,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.01926963362917908,
+          "modeled_reading_interval": [
+            0.019226595834367935,
+            0.019313326553182124
+          ],
+          "normalized_pressure_loss": 0.01926963362917908,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.0005071238147065069,
+          "reynolds": 73896.0155245848,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.018830093749784425,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.018915482662800867,
+          "modeled_reading_interval": [
+            0.01887758984491381,
+            0.01895390040799439
+          ],
+          "normalized_pressure_loss": 0.018915482662800867,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.004534704614384621,
+          "reynolds": 80999.01711232643,
+          "reynolds_reading_bound": 814.5366566697697,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.01866027717927433,
+          "darcy_f_reading_bound": 0.0001303804948940053,
+          "modeled_darcy_f": 0.018625888353801297,
+          "modeled_reading_interval": [
+            0.018591704253117774,
+            0.018660511944800836
+          ],
+          "normalized_pressure_loss": 0.018625888353801297,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.001842889317379946,
+          "reynolds": 87519.3427253711,
+          "reynolds_reading_bound": 816.5528365130214,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.018371186600472312,
+          "darcy_f_reading_bound": 0.0001303804948940053,
+          "modeled_darcy_f": 0.01839609482395319,
+          "modeled_reading_interval": [
+            0.01836472698039905,
+            0.018427841471600953
+          ],
+          "normalized_pressure_loss": 0.01839609482395319,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.0013558309554286688,
+          "reynolds": 93215.05078252981,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.018188653907620707,
+          "darcy_f_reading_bound": 0.0001303804948940053,
+          "modeled_darcy_f": 0.01824068968321076,
+          "modeled_reading_interval": [
+            0.018211129700479826,
+            0.01827059158317772
+          ],
+          "normalized_pressure_loss": 0.01824068968321076,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.002860892062400003,
+          "reynolds": 97358.30036039215,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.01801835444638878,
+          "darcy_f_reading_bound": 0.0001303804948940053,
+          "modeled_darcy_f": 0.018125488161245422,
+          "modeled_reading_interval": [
+            0.018097219438468745,
+            0.018154073459944242
+          ],
+          "normalized_pressure_loss": 0.018125488161245422,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.005945810155716695,
+          "reynolds": 100594.26900879559,
+          "reynolds_reading_bound": 816.5528365130214,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.024322492819874864,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.024254814432531323,
+          "modeled_reading_interval": [
+            0.02407778297118307,
+            0.02443966812514775
+          ],
+          "normalized_pressure_loss": 0.024254814432531323,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.0027825432140014075,
+          "reynolds": 26062.148743667934,
+          "reynolds_reading_bound": 816.5528365130177,
+          "series": "test_2"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.022903437951991464,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.022860871055722702,
+          "modeled_reading_interval": [
+            0.022735333212652892,
+            0.022990673624298887
+          ],
+          "normalized_pressure_loss": 0.022860871055722702,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.0018585374107584671,
+          "reynolds": 33572.41865974445,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_2"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.021923491713825162,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.021832192978729847,
+          "modeled_reading_interval": [
+            0.021736941198463255,
+            0.02193006916088742
+          ],
+          "normalized_pressure_loss": 0.021832192978729847,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.00416442491401772,
+          "reynolds": 41151.23869049119,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_2"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.021212837534865858,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.021038442059005288,
+          "modeled_reading_interval": [
+            0.02096262265420283,
+            0.021116020512275412
+          ],
+          "normalized_pressure_loss": 0.021038442059005288,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.008221223378245861,
+          "reynolds": 48691.75130421634,
+          "reynolds_reading_bound": 816.5528365130214,
+          "series": "test_2"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.020500573720167125,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.02039075858540838,
+          "modeled_reading_interval": [
+            0.020328514761996232,
+            0.020454248178877286
+          ],
+          "normalized_pressure_loss": 0.02039075858540838,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.005356685927804844,
+          "reynolds": 56314.92729151441,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_2"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.019874586381101955,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.019842044793163125,
+          "modeled_reading_interval": [
+            0.01978984116362355,
+            0.019895165027405435
+          ],
+          "normalized_pressure_loss": 0.019842044793163125,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.0016373466755400118,
+          "reynolds": 64107.46238564481,
+          "reynolds_reading_bound": 816.5528365130214,
+          "series": "test_2"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.019402641182300444,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.01941679671668923,
+          "modeled_reading_interval": [
+            0.01937152368693149,
+            0.019462785121453
+          ],
+          "normalized_pressure_loss": 0.01941679671668923,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.0007295673952728688,
+          "reynolds": 71194.3345346405,
+          "reynolds_reading_bound": 816.5528365130214,
+          "series": "test_2"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.019219142708005177,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.01912262308872031,
+          "modeled_reading_interval": [
+            0.019081737586744526,
+            0.01916410789440422
+          ],
+          "normalized_pressure_loss": 0.01912262308872031,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.005022056433592314,
+          "reynolds": 76736.8129237128,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_2"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.018870817533992057,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.01872230049729607,
+          "modeled_reading_interval": [
+            0.018686882551592558,
+            0.018758185741840943
+          ],
+          "normalized_pressure_loss": 0.01872230049729607,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.007870196213198668,
+          "reynolds": 85271.30220015626,
+          "reynolds_reading_bound": 816.5528365130214,
+          "series": "test_2"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.023772802214858776,
+          "darcy_f_reading_bound": 0.0001836594378692102,
+          "modeled_darcy_f": 0.024064645033301,
+          "modeled_reading_interval": [
+            0.023920352977967383,
+            0.024214155340860428
+          ],
+          "normalized_pressure_loss": 0.024064645033301,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.012276332247437492,
+          "reynolds": 26940.69911036065,
+          "reynolds_reading_bound": 694.0699110360641,
+          "series": "test_3"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.023078646802228656,
+          "darcy_f_reading_bound": 0.00018373991965618162,
+          "modeled_darcy_f": 0.022834804177160852,
+          "modeled_reading_interval": [
+            0.022728479062081666,
+            0.02294417825303343
+          ],
+          "normalized_pressure_loss": 0.02283480417716085,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.01056572454864454,
+          "reynolds": 33739.76158673353,
+          "reynolds_reading_bound": 694.5739559968735,
+          "series": "test_3"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.0222661026809633,
+          "darcy_f_reading_bound": 0.00018373991965618162,
+          "modeled_darcy_f": 0.021716406682828756,
+          "modeled_reading_interval": [
+            0.02163787138112558,
+            0.02179673310519541
+          ],
+          "normalized_pressure_loss": 0.02171640668282876,
+          "reading_envelope_gap": 0.0002856296561117057,
+          "relative_error": -0.024687571328075884,
+          "reynolds": 42146.727488091936,
+          "reynolds_reading_bound": 694.0699110360641,
+          "series": "test_3"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.02100970150454952,
+          "darcy_f_reading_bound": 0.0001836594378692102,
+          "modeled_darcy_f": 0.020911789235131675,
+          "modeled_reading_interval": [
+            0.020849628039593105,
+            0.02097514000312691
+          ],
+          "normalized_pressure_loss": 0.020911789235131675,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.004660336054590875,
+          "reynolds": 50066.28191234659,
+          "reynolds_reading_bound": 694.0699110360641,
+          "series": "test_3"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.020358523366162236,
+          "darcy_f_reading_bound": 0.00018373991965618162,
+          "modeled_darcy_f": 0.020226767785484476,
+          "modeled_reading_interval": [
+            0.02017641842065436,
+            0.020277940719614872
+          ],
+          "normalized_pressure_loss": 0.020226767785484476,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.00647176508374621,
+          "reynolds": 58501.47433151037,
+          "reynolds_reading_bound": 694.5739559968771,
+          "series": "test_3"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.019786619787941988,
+          "darcy_f_reading_bound": 0.00018373991965618192,
+          "modeled_darcy_f": 0.01974900364152391,
+          "modeled_reading_interval": [
+            0.019705917260547195,
+            0.019792717783380723
+          ],
+          "normalized_pressure_loss": 0.01974900364152391,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.00190109007102869,
+          "reynolds": 65572.72108672094,
+          "reynolds_reading_bound": 694.0699110360641,
+          "series": "test_3"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.019210933565734074,
+          "darcy_f_reading_bound": 0.0001836594378692102,
+          "modeled_darcy_f": 0.019247502631173946,
+          "modeled_reading_interval": [
+            0.019211133467977443,
+            0.0192843395251847
+          ],
+          "normalized_pressure_loss": 0.019247502631173946,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.0019035548332278617,
+          "reynolds": 74314.37284205752,
+          "reynolds_reading_bound": 694.5739559968699,
+          "series": "test_3"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.018966429896914327,
+          "darcy_f_reading_bound": 0.0001836594378692102,
+          "modeled_darcy_f": 0.018892441256524645,
+          "modeled_reading_interval": [
+            0.018860409795416512,
+            0.01892484787734526
+          ],
+          "normalized_pressure_loss": 0.018892441256524645,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.0039010314957439664,
+          "reynolds": 81492.98117392072,
+          "reynolds_reading_bound": 693.5658660752513,
+          "series": "test_3"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.018738103067275875,
+          "darcy_f_reading_bound": 0.00018373991965618162,
+          "modeled_darcy_f": 0.018609375075050692,
+          "modeled_reading_interval": [
+            0.018580405563994717,
+            0.01863866014596125
+          ],
+          "normalized_pressure_loss": 0.018609375075050692,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.006869851860831766,
+          "reynolds": 87912.4977948033,
+          "reynolds_reading_bound": 695.5820459184957,
+          "series": "test_3"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.020977025899039048,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.020811215126350445,
+          "modeled_reading_interval": [
+            0.020740381067998193,
+            0.020883610818591067
+          ],
+          "normalized_pressure_loss": 0.020811215126350445,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.00790439853040362,
+          "reynolds": 51195.84666952292,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_4"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.020305324904974005,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.020181061202311657,
+          "modeled_reading_interval": [
+            0.020122806031171125,
+            0.020240426135463008
+          ],
+          "normalized_pressure_loss": 0.020181061202311657,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.0061197593854756885,
+          "reynolds": 59131.5305325235,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_4"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.019689317307493313,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.019625373971835485,
+          "modeled_reading_interval": [
+            0.019576790793867257,
+            0.019674765935775253
+          ],
+          "normalized_pressure_loss": 0.019625373971835485,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.0032476156821086353,
+          "reynolds": 67591.421154767,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_4"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.019022767147794453,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.019086000338485315,
+          "modeled_reading_interval": [
+            0.01904563869342543,
+            0.01912694802674385
+          ],
+          "normalized_pressure_loss": 0.019086000338485315,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.003324079520060422,
+          "reynolds": 77467.67811688803,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_4"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.018981721436438934,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.01883002762284289,
+          "modeled_reading_interval": [
+            0.01879319356930573,
+            0.018867361797780414
+          ],
+          "normalized_pressure_loss": 0.01883002762284289,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.007991573056426705,
+          "reynolds": 82851.88638826583,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_4"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.018621002067232186,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.018423114055502416,
+          "modeled_reading_interval": [
+            0.018391424022028986,
+            0.018455189637817032
+          ],
+          "normalized_pressure_loss": 0.018423114055502416,
+          "reading_envelope_gap": 3.543193452114693e-05,
+          "relative_error": -0.010627140849632273,
+          "reynolds": 92519.4687366113,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_4"
+        }
+      ],
+      "samples": 38,
+      "series": {
+        "test_1": {
+          "max_abs_relative_error": 0.025613155401812585,
+          "mean_relative_error": -0.006556734032117871,
+          "passed": true,
+          "rms_relative_error": 0.011503866142493744,
+          "samples": 14
+        },
+        "test_2": {
+          "max_abs_relative_error": 0.008221223378245861,
+          "mean_relative_error": -0.004020382974654047,
+          "passed": true,
+          "rms_relative_error": 0.004889852904515682,
+          "samples": 9
+        },
+        "test_3": {
+          "max_abs_relative_error": 0.024687571328075884,
+          "mean_relative_error": -0.0049863870402218425,
+          "passed": true,
+          "rms_relative_error": 0.010567624025972933,
+          "samples": 9
+        },
+        "test_4": {
+          "max_abs_relative_error": 0.010627140849632273,
+          "mean_relative_error": -0.00542773466399775,
+          "passed": true,
+          "rms_relative_error": 0.007051345567715616,
+          "samples": 6
+        }
+      }
+    },
+    "production_colebrook": {
+      "max_abs_relative_error": 0.021258696675388142,
+      "mean_relative_error": 0.006042312899961363,
+      "passed": true,
+      "rms_relative_error": 0.010715808342561221,
+      "rows": [
+        {
+          "center_passed": true,
+          "darcy_f": 0.02889611180989742,
+          "darcy_f_reading_bound": 0.00013038049489400502,
+          "modeled_darcy_f": 0.02828459026654709,
+          "modeled_reading_interval": [
+            0.02789478133595677,
+            0.028706275591094756
+          ],
+          "normalized_pressure_loss": 0.02828459026654709,
+          "reading_envelope_gap": 5.9455723908658636e-05,
+          "relative_error": -0.02116276222120907,
+          "reynolds": 14295.723178507526,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.02595498538680696,
+          "darcy_f_reading_bound": 0.00013038049489400616,
+          "modeled_darcy_f": 0.025620645889926737,
+          "modeled_reading_interval": [
+            0.025393772966991583,
+            0.025859631131504968
+          ],
+          "normalized_pressure_loss": 0.025620645889926737,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.012881513585831963,
+          "reynolds": 21424.9351042113,
+          "reynolds_reading_bound": 816.5528365130177,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.023986239913907484,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.023870751734912696,
+          "modeled_reading_interval": [
+            0.023719440561144573,
+            0.0240279638438259
+          ],
+          "normalized_pressure_loss": 0.023870751734912696,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.00481476794234126,
+          "reynolds": 28993.67423574183,
+          "reynolds_reading_bound": 816.5528365130177,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.022815551840618467,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.0226985563058738,
+          "modeled_reading_interval": [
+            0.02258627562167988,
+            0.02281431953227975
+          ],
+          "normalized_pressure_loss": 0.0226985563058738,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.005127885381075029,
+          "reynolds": 36226.71942337256,
+          "reynolds_reading_bound": 816.5528365130177,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.021808563722029703,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.021765780352157604,
+          "modeled_reading_interval": [
+            0.02167882878386201,
+            0.021854951585768483
+          ],
+          "normalized_pressure_loss": 0.021765780352157604,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.001961769258049861,
+          "reynolds": 43839.814511454424,
+          "reynolds_reading_bound": 816.5528365130177,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.020963343995253875,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.021012394934425763,
+          "modeled_reading_interval": [
+            0.020942616410786593,
+            0.021083681540004465
+          ],
+          "normalized_pressure_loss": 0.021012394934425763,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.0023398432608363034,
+          "reynolds": 51654.52758386048,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.020301461779199368,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.02042409164020201,
+          "modeled_reading_interval": [
+            0.02036588343641726,
+            0.020483397492116705
+          ],
+          "normalized_pressure_loss": 0.02042409164020201,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.006040444886992736,
+          "reynolds": 59122.457723228916,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.0197168420786376,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.01991728479308234,
+          "modeled_reading_interval": [
+            0.0198678614879995,
+            0.019967532732003246
+          ],
+          "normalized_pressure_loss": 0.01991728479308234,
+          "reading_envelope_gap": 2.0638914467891725e-05,
+          "relative_error": 0.010166065825617665,
+          "reynolds": 66774.86831825398,
+          "reynolds_reading_bound": 816.5528365130214,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.019259866492212813,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.019511656288694633,
+          "modeled_reading_interval": [
+            0.019468533610885005,
+            0.01955542903484193
+          ],
+          "normalized_pressure_loss": 0.019511656288694633,
+          "reading_envelope_gap": 7.82866237781872e-05,
+          "relative_error": 0.01307328877817634,
+          "reynolds": 73896.0155245848,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.018830093749784425,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.01915662088161317,
+          "modeled_reading_interval": [
+            0.01911860819816897,
+            0.019195155142422253
+          ],
+          "normalized_pressure_loss": 0.01915662088161317,
+          "reading_envelope_gap": 0.00015813395349053932,
+          "relative_error": 0.017340706645843657,
+          "reynolds": 80999.01711232643,
+          "reynolds_reading_bound": 814.5366566697697,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.01866027717927433,
+          "darcy_f_reading_bound": 0.0001303804948940053,
+          "modeled_darcy_f": 0.018865985017291524,
+          "modeled_reading_interval": [
+            0.018831658785256316,
+            0.018900748411338687
+          ],
+          "normalized_pressure_loss": 0.018865985017291524,
+          "reading_envelope_gap": 4.100111108797975e-05,
+          "relative_error": 0.011023836143531116,
+          "reynolds": 87519.3427253711,
+          "reynolds_reading_bound": 816.5528365130214,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.018371186600472312,
+          "darcy_f_reading_bound": 0.0001303804948940053,
+          "modeled_darcy_f": 0.018635157070697985,
+          "modeled_reading_interval": [
+            0.018603633536614154,
+            0.018667057724577357
+          ],
+          "normalized_pressure_loss": 0.018635157070697985,
+          "reading_envelope_gap": 0.00010206644124783658,
+          "relative_error": 0.014368721845048737,
+          "reynolds": 93215.05078252981,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.018188653907620707,
+          "darcy_f_reading_bound": 0.0001303804948940053,
+          "modeled_darcy_f": 0.018478946099290527,
+          "modeled_reading_interval": [
+            0.01844922300324456,
+            0.018509009787757005
+          ],
+          "normalized_pressure_loss": 0.018478946099290527,
+          "reading_envelope_gap": 0.00013018860072984946,
+          "relative_error": 0.01596007011536972,
+          "reynolds": 97358.30036039215,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.01801835444638878,
+          "darcy_f_reading_bound": 0.0001303804948940053,
+          "modeled_darcy_f": 0.018363090978660485,
+          "modeled_reading_interval": [
+            0.0183346544791884,
+            0.018391842960947865
+          ],
+          "normalized_pressure_loss": 0.018363090978660485,
+          "reading_envelope_gap": 0.0001859195379056139,
+          "relative_error": 0.019132520302973386,
+          "reynolds": 100594.26900879559,
+          "reynolds_reading_bound": 816.5528365130214,
+          "series": "test_1"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.024322492819874864,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.024465664404340885,
+          "modeled_reading_interval": [
+            0.02429113726554193,
+            0.024647791182614766
+          ],
+          "normalized_pressure_loss": 0.024465664404340885,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.005886386133457116,
+          "reynolds": 26062.148743667934,
+          "reynolds_reading_bound": 816.5528365130177,
+          "series": "test_2"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.022903437951991464,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.023088622354313207,
+          "modeled_reading_interval": [
+            0.022964291708870432,
+            0.023217122300035507
+          ],
+          "normalized_pressure_loss": 0.023088622354313207,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.00808544126475307,
+          "reynolds": 33572.41865974445,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_2"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.021923491713825162,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.02206831780028002,
+          "modeled_reading_interval": [
+            0.02197366699369297,
+            0.02216554574709369
+          ],
+          "normalized_pressure_loss": 0.022068317800280016,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.006605977202232304,
+          "reynolds": 41151.23869049119,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_2"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.021212837534865858,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.021278675878979258,
+          "modeled_reading_interval": [
+            0.02120314215272483,
+            0.021355942753395665
+          ],
+          "normalized_pressure_loss": 0.021278675878979258,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.00310370284056465,
+          "reynolds": 48691.75130421634,
+          "reynolds_reading_bound": 816.5528365130214,
+          "series": "test_2"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.020500573720167125,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.020632832492516413,
+          "modeled_reading_interval": [
+            0.020570693787390567,
+            0.020696201885415332
+          ],
+          "normalized_pressure_loss": 0.020632832492516413,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.006451466878665002,
+          "reynolds": 56314.92729151441,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_2"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.019874586381101955,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.02008461004679734,
+          "modeled_reading_interval": [
+            0.02003240182517049,
+            0.020137725764093693
+          ],
+          "normalized_pressure_loss": 0.02008461004679734,
+          "reading_envelope_gap": 2.743494917452848e-05,
+          "relative_error": 0.010567448381974303,
+          "reynolds": 64107.46238564481,
+          "reynolds_reading_bound": 816.5528365130214,
+          "series": "test_2"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.019402641182300444,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.01965906277225815,
+          "modeled_reading_interval": [
+            0.019613722569249394,
+            0.01970511242058741
+          ],
+          "normalized_pressure_loss": 0.01965906277225815,
+          "reading_envelope_gap": 8.070089205494484e-05,
+          "relative_error": 0.013215808484445993,
+          "reynolds": 71194.3345346405,
+          "reynolds_reading_bound": 816.5528365130214,
+          "series": "test_2"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.019219142708005177,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.01936433009770286,
+          "modeled_reading_interval": [
+            0.019323343859391103,
+            0.01940591134571295
+          ],
+          "normalized_pressure_loss": 0.01936433009770286,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.0075543114437257525,
+          "reynolds": 76736.8129237128,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_2"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.018870817533992057,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.018962776097120368,
+          "modeled_reading_interval": [
+            0.01892722269854194,
+            0.01899879415091435
+          ],
+          "normalized_pressure_loss": 0.018962776097120368,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.004873056663425723,
+          "reynolds": 85271.30220015626,
+          "reynolds_reading_bound": 816.5528365130214,
+          "series": "test_2"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.023772802214858776,
+          "darcy_f_reading_bound": 0.0001836594378692102,
+          "modeled_darcy_f": 0.024278181006268454,
+          "modeled_reading_interval": [
+            0.02413584641620404,
+            0.024425589752620325
+          ],
+          "normalized_pressure_loss": 0.024278181006268454,
+          "reading_envelope_gap": 0.00017938476347605304,
+          "relative_error": 0.021258696675388142,
+          "reynolds": 26940.69911036065,
+          "reynolds_reading_bound": 694.0699110360641,
+          "series": "test_3"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.023078646802228656,
+          "darcy_f_reading_bound": 0.00018373991965618162,
+          "modeled_darcy_f": 0.023062810394382093,
+          "modeled_reading_interval": [
+            0.022957501981025443,
+            0.023171099894017378
+          ],
+          "normalized_pressure_loss": 0.02306281039438209,
+          "reading_envelope_gap": 0,
+          "relative_error": -0.0006861930849877428,
+          "reynolds": 33739.76158673353,
+          "reynolds_reading_bound": 694.5739559968735,
+          "series": "test_3"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.0222661026809633,
+          "darcy_f_reading_bound": 0.00018373991965618162,
+          "modeled_darcy_f": 0.021953258176861258,
+          "modeled_reading_interval": [
+            0.021875190990804913,
+            0.0220330850970544
+          ],
+          "normalized_pressure_loss": 0.02195325817686126,
+          "reading_envelope_gap": 4.927766425271568e-05,
+          "relative_error": -0.014050258753612573,
+          "reynolds": 42146.727488091936,
+          "reynolds_reading_bound": 694.0699110360641,
+          "series": "test_3"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.02100970150454952,
+          "darcy_f_reading_bound": 0.0001836594378692102,
+          "modeled_darcy_f": 0.021152489840529445,
+          "modeled_reading_interval": [
+            0.021090538732336708,
+            0.021215613621052447
+          ],
+          "normalized_pressure_loss": 0.021152489840529445,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.006796304837981913,
+          "reynolds": 50066.28191234659,
+          "reynolds_reading_bound": 694.0699110360641,
+          "series": "test_3"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.020358523366162236,
+          "darcy_f_reading_bound": 0.00018373991965618162,
+          "modeled_darcy_f": 0.020469091488547496,
+          "modeled_reading_interval": [
+            0.02041880124179891,
+            0.020520195872006694
+          ],
+          "normalized_pressure_loss": 0.020469091488547496,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.005431048234521496,
+          "reynolds": 58501.47433151037,
+          "reynolds_reading_bound": 694.5739559968771,
+          "series": "test_3"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.019786619787941988,
+          "darcy_f_reading_bound": 0.00018373991965618192,
+          "modeled_darcy_f": 0.01999155446175919,
+          "modeled_reading_interval": [
+            0.019948451742815797,
+            0.0200352789312481
+          ],
+          "normalized_pressure_loss": 0.01999155446175919,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.010357235142411311,
+          "reynolds": 65572.72108672094,
+          "reynolds_reading_bound": 694.0699110360641,
+          "series": "test_3"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.019210933565734074,
+          "darcy_f_reading_bound": 0.0001836594378692102,
+          "modeled_darcy_f": 0.019489482418424235,
+          "modeled_reading_interval": [
+            0.01945303922935896,
+            0.019526389764750768
+          ],
+          "normalized_pressure_loss": 0.019489482418424235,
+          "reading_envelope_gap": 5.844622575567688e-05,
+          "relative_error": 0.01449949591138039,
+          "reynolds": 74314.37284205752,
+          "reynolds_reading_bound": 694.5739559968699,
+          "series": "test_3"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.018966429896914327,
+          "darcy_f_reading_bound": 0.0001836594378692102,
+          "modeled_darcy_f": 0.019133507174533715,
+          "modeled_reading_interval": [
+            0.01910137218312935,
+            0.01916601496409165
+          ],
+          "normalized_pressure_loss": 0.019133507174533715,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.008809105273236974,
+          "reynolds": 81492.98117392072,
+          "reynolds_reading_bound": 693.5658660752513,
+          "series": "test_3"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.018738103067275875,
+          "darcy_f_reading_bound": 0.00018373991965618162,
+          "modeled_darcy_f": 0.01884940358897899,
+          "modeled_reading_interval": [
+            0.01882031221990709,
+            0.018878808865581295
+          ],
+          "normalized_pressure_loss": 0.01884940358897899,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.005939796643422837,
+          "reynolds": 87912.4977948033,
+          "reynolds_reading_bound": 695.5820459184957,
+          "series": "test_3"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.020977025899039048,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.021052249384940002,
+          "modeled_reading_interval": [
+            0.020981630644297273,
+            0.02112440821034876
+          ],
+          "normalized_pressure_loss": 0.021052249384940002,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.0035859938517023102,
+          "reynolds": 51195.84666952292,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_4"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.020305324904974005,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.02042343891807364,
+          "modeled_reading_interval": [
+            0.020365242711755684,
+            0.020482732376618493
+          ],
+          "normalized_pressure_loss": 0.02042343891807364,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.005816898456557162,
+          "reynolds": 59131.5305325235,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_4"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.019689317307493313,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.0198678614879995,
+          "modeled_reading_interval": [
+            0.019819239613690625,
+            0.01991728479308234
+          ],
+          "normalized_pressure_loss": 0.0198678614879995,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.009068073703004203,
+          "reynolds": 67591.421154767,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_4"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.019022767147794453,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.019327617377973005,
+          "modeled_reading_interval": [
+            0.01928715132022222,
+            0.0193686653613686
+          ],
+          "normalized_pressure_loss": 0.019327617377973005,
+          "reading_envelope_gap": 0.00013400367753376038,
+          "relative_error": 0.016025546010738887,
+          "reynolds": 77467.67811688803,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_4"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.018981721436438934,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.019070888558764747,
+          "modeled_reading_interval": [
+            0.019033927253771808,
+            0.019108346954146458
+          ],
+          "normalized_pressure_loss": 0.019070888558764747,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.00469752559715901,
+          "reynolds": 82851.88638826583,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_4"
+        },
+        {
+          "center_passed": true,
+          "darcy_f": 0.018621002067232186,
+          "darcy_f_reading_bound": 0.00013038049489400559,
+          "modeled_darcy_f": 0.01866230760212389,
+          "modeled_reading_interval": [
+            0.018630463307884863,
+            0.018694535692471
+          ],
+          "normalized_pressure_loss": 0.01866230760212389,
+          "reading_envelope_gap": 0,
+          "relative_error": 0.0022182229905010637,
+          "reynolds": 92519.4687366113,
+          "reynolds_reading_bound": 816.5528365130142,
+          "series": "test_4"
+        }
+      ],
+      "samples": 38,
+      "series": {
+        "test_1": {
+          "max_abs_relative_error": 0.02116276222120907,
+          "mean_relative_error": 0.004535485672563034,
+          "passed": true,
+          "rms_relative_error": 0.012628781352501214,
+          "samples": 14
+        },
+        "test_2": {
+          "max_abs_relative_error": 0.013215808484445993,
+          "mean_relative_error": 0.007371511032582658,
+          "passed": true,
+          "rms_relative_error": 0.007902602208558275,
+          "samples": 9
+        },
+        "test_3": {
+          "max_abs_relative_error": 0.021258696675388142,
+          "mean_relative_error": 0.006483914542193638,
+          "passed": true,
+          "rms_relative_error": 0.011332784702728192,
+          "samples": 9
+        },
+        "test_4": {
+          "max_abs_relative_error": 0.016025546010738887,
+          "mean_relative_error": 0.006902043434943772,
+          "passed": true,
+          "rms_relative_error": 0.008293883340101919,
+          "samples": 6
+        }
+      }
+    }
+  },
+  "dimensional_pressure_drop_experiment": false,
+  "dynamic_hem_validated": false,
+  "evidence_kind": "digitized_external_experiment",
+  "experimental_uncertainty_complete": false,
+  "hem_implementation_tested": false,
+  "independence_from_correlation_training": "not_established",
+  "passed": true,
+  "plant_referenced": false,
+  "primary_comparison": "production_colebrook",
+  "production_coefficient_tested": true,
+  "protocol": {
+    "acceptance": "Each symbol center must meet max_relative_error; envelope sensitivity reported separately and cannot convert a failed center criterion to pass",
+    "calibration": "none; no parameter fitting or point exclusion based on model residuals",
+    "criterion_semantics": "Engineering screening tolerance fixed before model evaluation; not measurement uncertainty or NIST acceptance criterion",
+    "diameter_m": 0.02011,
+    "digitization_semantics": "Vector symbol bounding-box midpoint; full half-symbol extent plus 0.01 form coordinate unit as conservative coordinate-reading bounds, not probabilistic confidence intervals",
+    "experimental_uncertainty": null,
+    "frozen_on": "2026-11-05",
+    "max_relative_error": 0.05,
+    "protocol_id": "nist-tn2294-fig18-haaland-v1",
+    "quantity": "Darcy friction factor",
+    "roughness_m": 1.5e-06,
+    "schema_version": 1,
+    "scope": "Steady single-phase straight copper pipe; all four plotted repeat series. No plant, transient, two-phase, thermal or neutron validation",
+    "status_policy": "Experimental comparison only; validated=false and plant_referenced=false regardless of screening outcome",
+    "uncertainty_semantics": "No complete per-point experimental uncertainty budget available in the figure; do not infer it from the plotted Colebrook +/-3 percent comparison band",
+    "units": "1"
+  },
+  "quantity": "2*delta_p*D/(rho*u^2*L) = Darcy f",
+  "reading_bounds": "symbol extents; not measurement confidence intervals",
+  "reference_only": false,
+  "samples": 38,
+  "schema_version": 2,
+  "scope": "Component Darcy coefficient only; turbulent NIST points; no laminar, network, transient or two-phase validation",
+  "source": {
+    "dataset_manifest_sha256": "0d9cf1255ba5336b29b0c933fbaecce695125782cd402ec1045858f9b2dd64c4",
+    "digitization_sha256": "f386335a78f3a21b13816dfa36d10c444e30cee287014a843e37a89c9f0420ef",
+    "implementation": {
+      "__init__.py": "63e02cb7ed07808371cb77bca8adcf58d90ee32bd3f026be1d6091594fb4b2c0",
+      "__main__.py": "3173bde5bb000ff0282070db637e52d5c98abe23f78277270a301a188e86215a",
+      "audit.py": "d58313df2d000c7f2f0a4a87ac1494dd1fb95c35ed388a66df9ae466508a9eab",
+      "evidence.py": "76eeba1b5602ec8279e58da946ae63a6943e622061ba43d84dc0f94117770c9a"
+    },
+    "production_closure_sources": {
+      "__init__.py": "72e961e145031884a59f12a87899fa56005082c1053afd7a6201dcf21a47a931"
+    },
+    "production_closure_version": "hem-closures/1.2.0"
+  },
+  "two_phase_hem_validated": false,
+  "uncertainty_acceptance": "blocked_missing_per_point_budget",
+  "uncertainty_review": {
+    "averaged_density_bound_kg_m3": 0.707,
+    "calculated_viscosity_relative_uncertainty": 0.03,
+    "colebrook_band": "+/-3% correlation agreement, not measurement uncertainty",
+    "mass_flow": "each meter: 0.05% reading above 0.264 kg/s; otherwise 0.95 kg/h",
+    "missing": [
+      "per-point pressure-gradient fit and covariance",
+      "diameter/roughness uncertainty",
+      "per-point flow, density, temperature and length records"
+    ],
+    "pressure_example": "p.22: mean standard uncertainty 0.4%, other conditions within 0.5%; not assigned to each figure-18 point",
+    "propagation": "f=pi^2*rho*D^5*delta_p/(8*L*mass_flow^2); requires joint input covariance",
+    "source": "NIST TN 2294, printed pp. 17-18, 22-23"
+  },
+  "units": "1",
+  "validated": false,
+  "validation_matrix": [
+    {
+      "evidence": "NIST TN 2294 figure 18; four repeat series, one apparatus",
+      "missing": "per-point measurement uncertainty and dimensional raw records",
+      "regime": "steady_single_phase_friction",
+      "status": "compared_limited"
+    },
+    {
+      "evidence": null,
+      "missing": "heated two-phase mass/energy inventory, heat flux and void fraction time histories; traceable calibration and measurement uncertainty",
+      "regime": "evaporation",
+      "status": "blocked_missing_real_data"
+    },
+    {
+      "evidence": null,
+      "missing": "vapor inlet state, heat removal, condensate rate and pressure time histories; traceable calibration and measurement uncertainty",
+      "regime": "condensation",
+      "status": "blocked_missing_real_data"
+    },
+    {
+      "candidate_id": "alamgir-kan-lienhard-1980-figure4",
+      "candidate_metadata": {
+        "admitted_manifest": "ai06_dynamic_data_candidate_v1/manifest.json",
+        "archive_redistribution_authorized": false,
+        "authors": "Md. Alamgir; C. Y. Kan; J. H. Lienhard",
+        "available": "initial pressure/temperature, minimum pressure and tabulated depressurization quantities",
+        "comparison_performed": false,
+        "csv_sha256": "8d74f91af068fc597e263a3a7b742f769e2750b6221229e40758d5eefe6de263",
+        "digitized_history_available": false,
+        "experimental_acceptance": false,
+        "factual_table": "Table 1, printed p.435; four runs, nine numeric fields each",
+        "journal": "Journal of Heat Transfer 102, 433-438",
+        "matched_dynamic_data_available": false,
+        "mismatch_flags": [
+          "moving_plug_opening_dynamics_and_area_time_boundary_missing",
+          "metastability_and_nucleation_delay_outside_equilibrium_HEM",
+          "full_initial_axial_and_wall_temperature_profiles_missing",
+          "downstream_pressure_history_missing",
+          "numerical_pressure_histories_not_digitized",
+          "no_massflow_or_void_time_series_in_extract"
+        ],
+        "pressure_history": "Figure 4 photographed oscillograms, not numerical time histories",
+        "raw_sensor_records_available": false,
+        "runs": [
+          "HW-18",
+          "HW-17",
+          "HW-20",
+          "HW-27"
+        ],
+        "title": "An Experimental Study of the Rapid Depressurization of Hot Water",
+        "uncertainty_complete": false,
+        "year": 1980
+      },
+      "evidence": "Primary published hot-water rapid depressurization candidate; metadata only",
+      "missing": "inlet enthalpy, depressurization, quality/void fraction and discharge histories; matched opening/boundary and initial conditions; nonequilibrium scope resolution; digitized histories with uncertainty",
+      "primary_url": "https://engines.egr.uh.edu/sites/engines/files/talks/ExperimentalStudyOfDepressurization.pdf",
+      "regime": "flashing",
+      "status": "blocked_missing_matched_dynamic_data"
+    },
+    {
+      "candidate_id": "alamgir-kan-lienhard-1980-figure4",
+      "candidate_metadata": {
+        "admitted_manifest": "ai06_dynamic_data_candidate_v1/manifest.json",
+        "archive_redistribution_authorized": false,
+        "authors": "Md. Alamgir; C. Y. Kan; J. H. Lienhard",
+        "available": "initial pressure/temperature, minimum pressure and tabulated depressurization quantities",
+        "comparison_performed": false,
+        "csv_sha256": "8d74f91af068fc597e263a3a7b742f769e2750b6221229e40758d5eefe6de263",
+        "digitized_history_available": false,
+        "experimental_acceptance": false,
+        "factual_table": "Table 1, printed p.435; four runs, nine numeric fields each",
+        "journal": "Journal of Heat Transfer 102, 433-438",
+        "matched_dynamic_data_available": false,
+        "mismatch_flags": [
+          "moving_plug_opening_dynamics_and_area_time_boundary_missing",
+          "metastability_and_nucleation_delay_outside_equilibrium_HEM",
+          "full_initial_axial_and_wall_temperature_profiles_missing",
+          "downstream_pressure_history_missing",
+          "numerical_pressure_histories_not_digitized",
+          "no_massflow_or_void_time_series_in_extract"
+        ],
+        "pressure_history": "Figure 4 photographed oscillograms, not numerical time histories",
+        "raw_sensor_records_available": false,
+        "runs": [
+          "HW-18",
+          "HW-17",
+          "HW-20",
+          "HW-27"
+        ],
+        "title": "An Experimental Study of the Rapid Depressurization of Hot Water",
+        "uncertainty_complete": false,
+        "year": 1980
+      },
+      "evidence": "Primary published hot-water rapid depressurization candidate; metadata only",
+      "missing": "vessel inventory, geometry, boundary pressure and mass/pressure/temperature histories; matched opening/boundary and initial conditions; nonequilibrium scope resolution; digitized histories with uncertainty",
+      "primary_url": "https://engines.egr.uh.edu/sites/engines/files/talks/ExperimentalStudyOfDepressurization.pdf",
+      "regime": "blowdown",
+      "status": "blocked_missing_matched_dynamic_data"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+run,initial_pressure_atm,initial_temperature_PT1_degC,initial_temperature_PT3_degC,minimum_pressure_PT1_atm,minimum_pressure_PT3_atm,overall_depressurization_PT1_Matm_per_s,overall_depressurization_PT3_Matm_per_s,rarefaction_speed_m_per_s,plug_mass_per_area_g_per_cm2
+HW-18,68,221.7,227.8,15.11,15.99,0.22,0.224,1255,13.43
+HW-17,40.83,230.6,237.8,19.05,22.11,0.099,0.098,1245,13.43
+HW-20,61.24,234.2,240.6,17.69,20.41,0.17,0.176,1217,13.43
+HW-27,68,236.1,247.8,18.17,22.6,0.189,0.182,1189,13.88

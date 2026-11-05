@@ -1,0 +1,30 @@
+{
+  "request": {
+    "schema_version": 1,
+    "inlet_pressure_pa": 15500000.0,
+    "inlet_enthalpy_j_kg": 1496224.593631614,
+    "mass_flux_kg_m2_s": 520.0,
+    "diameter_m": 0.01581,
+    "length_m": 7.1,
+    "roughness_m": 0.0,
+    "gravity_m_s2": 9.80665,
+    "heat_flux_w_m2": [
+      200000.0
+    ],
+    "viscosity_model": "mcadams",
+    "friction_scope": {
+      "homogeneous_equilibrium": true,
+      "no_slip": true,
+      "circular_straight": true,
+      "fully_developed": true,
+      "quasi_steady": true
+    },
+    "max_step_m": 0.1
+  },
+  "targets_m": [
+    2.0,
+    4.0,
+    7.1
+  ],
+  "checkpoint": null
+}

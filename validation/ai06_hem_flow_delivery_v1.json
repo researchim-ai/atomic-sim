@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-05",
+  "native_foundation_source_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+  "archive": "artifacts/ai06_hem_flow_delivery_v1.tar.gz",
+  "archive_sha256": "31847bfc25447ac57f6380f222c06a43e4471b46c6d91f129831ef4a3b7f814e",
+  "archive_bytes": 8750718,
+  "deterministic_rebuild_exact": true,
+  "archive_integrity_verified": true,
+  "related_tests_passed": 138,
+  "new_flow_tests_passed": 41,
+  "installed_flow_tests_passed": 41,
+  "qualification_cases": 6,
+  "temporal_trajectories": 18,
+  "semidiscrete_reference_ivps": 12,
+  "acoustic_spatial_cells": [
+    4,
+    8,
+    16
+  ],
+  "preserved_prior_hem_vessel_checkpoint": true,
+  "summary": "validation/ai06_hem_flow_summary_v1.json",
+  "passport": "validation/ai06_hem_flow_passport_v1.json",
+  "existing_if97_or_hem_vessel_modified": false,
+  "validated": false,
+  "plant_referenced": false
+}

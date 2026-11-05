@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-05",
+  "source": {
+    "flow": {
+      "flow": {
+        "__init__.py": "cef2568fccc811ef9955c2c1b5517fb3caa1d80fbb7120548f131831202aae8a",
+        "__main__.py": "c15a6a4c84b8b2b979b088ab098136c3fe936575d6ba6b1911d53ba106a45b8f",
+        "cases.py": "556a38acb8557166b34c9042ab1630aceaf9a3cbe5bc3c22e03002c3ba13827c",
+        "model.py": "39278c137e63b94cccc487bb49cd06186f7cdba8535034896faf47df86342cdd",
+        "reference.py": "2add998c2d8b1df399436369db16e546aa9fcf4b53150832ae42a0ac71a35039",
+        "workflow.py": "f79291e4971572595a69e70829111f38e4daae351bddee67e70a9e2d37b6e1ed"
+      },
+      "hem": {
+        "hem_sources": {
+          "__init__.py": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+          "__main__.py": "8d9fab98b7490f270f0ef3b33ea95a8324a5340df3f821035f4e72c431952f82",
+          "eos.py": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+          "vessel.py": "d3284236f41d4e5827ab48b975e87a5b6fc0a36ec1a6cf21ad352255215ce478",
+          "workflow.py": "0cf1dd9df09c315d18e0194b7713848c85a9337b44256a30c790b7a52f145ebb"
+        },
+        "if97_sha256": "268d38418e20e9e55b9976bcb66b09d9c40d374df36822155e3b248fe1d60b94",
+        "numpy": "2.2.6",
+        "python": "3.12.9",
+        "scipy": "1.15.2",
+        "serialization_sha256": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12"
+      }
+    },
+    "system": {
+      "__init__.py": "1fd0c16bacafba221724c58f628a559762e272b52c98437da0ba868f1745e2a2",
+      "__main__.py": "1f545bec96bcca20791c2c74ff97e7d4e576acf8cea0ccd736d0daf448eb8435",
+      "cases.py": "372f5b9b00eea215e90b60f2a4619d2249e7135aa7139b5b412791352473b81c",
+      "model.py": "0a0e985362fd61f04aa2f699f453bdb3c2179635f091623705954673f3dce3eb",
+      "reference.py": "2d32514c62299293a0c2866f10dfc6d8b9269afb8e39e408bb9f4c7246148629",
+      "workflow.py": "063994bc4a676891850dbfdf6a8279c1b0cbe5a98d84e7fcbaf2088680694149"
+    }
+  },
+  "scope": "Numerical same-area finite HEM end cells/channel/caloric-wall assembly, fixed reflecting exterior ends. Shared IF97 EOS; separate absolute-stock reference RHS. No general tank/plenum, experimental/plant or full forced entropy validation.",
+  "case_count": 10,
+  "temporal_trajectories": 30,
+  "semidiscrete_reference_ivps": 20,
+  "criteria": {
+    "density_relative": 1e-08,
+    "entropy_j_k": 1e-05,
+    "heat_j": 0.001,
+    "impulse_kg_m_s": 1e-06,
+    "pressure_pa": 0.1,
+    "temperature_k": 1e-05,
+    "wall_temperature_k": 1e-06
+  },
+  "maximum_errors": {
+    "density_relative": 4.702608097845056e-09,
+    "entropy_j_k": 5.248635082111264e-09,
+    "heat_j": 4.916955731459893e-12,
+    "impulse_kg_m_s": 7.22259642128853e-08,
+    "pressure_pa": 0.004958651028573513,
+    "temperature_k": 2.1544394712691428e-07,
+    "wall_temperature_k": 2.4795099307084456e-10
+  },
+  "maximum_global_residuals": {
+    "mass_residual_kg": 5.421010862427522e-19,
+    "momentum_residual_kg_m_s": 9.094947017729282e-13,
+    "energy_residual_j": 1.4551915228366852e-11
+  },
+  "maximum_cell_residuals": {
+    "mass_residual_kg": 7.254837193233082e-19,
+    "momentum_residual_kg_m_s": 2.887332734013981e-12,
+    "energy_residual_j": 6.59383658785373e-12
+  },
+  "all_restarts_exact": true,
+  "new_tests_passed": 46,
+  "validated": false,
+  "plant_referenced": false
+}

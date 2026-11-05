@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "wheel_sha256": "5f66496023319ba4d77e5e81d1b7f2245c5f328e26469a078ac1c623b5d48f4a",
+  "qualification_sha256": "11d2d8e266143da76a7e691bd87beaa0addc7ce4213bf04899662f44cee75e33",
+  "installed_tests_passed": 53,
+  "qualification_recomputed_exact": true,
+  "exact_demo": true,
+  "prior_graph_checkpoint_compatible": true,
+  "module_location": "/tmp/atomic-hem-mixture-installed-nyupkfiv/venv/lib/python3.12/site-packages/atomic_model_hem_mixture/model.py",
+  "scope": "Local offline venv outside checkout with shared host scientific dependencies; not OS/min-version/independent-machine qualification",
+  "validated": false,
+  "plant_referenced": false
+}

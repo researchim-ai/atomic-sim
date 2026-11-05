@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-05",
+  "wheel_sha256": "559c3a96a34256a89e580fe3392b81cb57c94e844a55066bf26389f362ecadd6",
+  "installed_native_report_exact": true,
+  "installed_full_campaign_recomputed": true,
+  "installed_tests_passed": 53,
+  "pytest_receipt_sha256": "145d1c666c52f74ba3c960161ad2f0853a2816bdeaa48ad36a7199cb23007a49",
+  "scope": "New local offline venv outside checkout using host scientific dependencies. CLI tested from arbitrary CWD; Python driver tests/audit use installed resource root. Not independent hardware/OS.",
+  "validated": false,
+  "plant_referenced": false
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "source": "https://www-pub.iaea.org/MTCD/Publications/PDF/te_1203_prn.pdf",
+  "pdf_sha256": "8d039d4f8a950a1c013ddae312aee744ae5eb0e3efbaa337ce2a7fea96021c1c",
+  "pdf_page_one_based": 189,
+  "printed_page": 181,
+  "table": "II.I, 1995 CHF lookup table",
+  "nominal_diameter_m": 0.008,
+  "pressure_pa": [
+    15000000.0,
+    16000000.0
+  ],
+  "mass_flux_kg_m2_s": [
+    1000,
+    1500,
+    2000
+  ],
+  "quality": [
+    0,
+    0.05,
+    0.1
+  ],
+  "heat_flux_kw_m2": [
+    [
+      [
+        2468.0,
+        2251.0,
+        1897.0
+      ],
+      [
+        2312.0,
+        1955.0,
+        1649.0
+      ],
+      [
+        2464.0,
+        2071.0,
+        1843.0
+      ]
+    ],
+    [
+      [
+        2089.0,
+        1853.0,
+        1528.0
+      ],
+      [
+        1945.0,
+        1655.0,
+        1419.0
+      ],
+      [
+        2166.0,
+        1841.0,
+        1688.0
+      ]
+    ]
+  ],
+  "units_conversion_to_si": 1000,
+  "curation": "Two visual readings by the same agent; not independent human review. Included cells unshaded. Corrected 15MPa/1500/.1 transcription to1649 before accepted campaign.",
+  "interpolation": "Piecewise trilinear in admitted connected cells only; no bridging low/high pressure boxes",
+  "uncertainty": "Not calibrated; no confidence interval assigned",
+  "validated": false
+}

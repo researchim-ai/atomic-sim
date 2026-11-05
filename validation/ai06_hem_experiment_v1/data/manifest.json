@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "dataset_id": "nist-tn2294-figure18-v1",
+  "artifacts": {
+    "source.pdf": "6389e86de3e427a81fea7c2582fba19d85348273f30b28639754b876d63d9ef8",
+    "vectors.json": "b6fea12086658ed954c0f4a1b038edcb009fde4fda9d451a2e41a1af21c6fbab",
+    "measurements.csv": "14e5e6358ec49e825fa4a39539de2c24b1050c075a2085d21691102ae21fefe6",
+    "protocol.json": "ee2fc2c5033a6feb6af709a1fd45dddad6216946ad4d754c21d9b080fb91ebb4",
+    "NOTICE.md": "6795cfc27eff28c26d014d6dff10c5bda51fac3f4557b7ebdbbc12b8e266829e"
+  }
+}

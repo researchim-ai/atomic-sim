@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-05",
+  "archive": "artifacts/ai06_hem_mixture_delivery_v1.tar.gz",
+  "archive_sha256": "897157a7593d994da04e31f351db31e9f2c32e2a32c51016699d31635af9f446",
+  "archive_bytes": 9203349,
+  "archive_integrity_verified": true,
+  "deterministic_rebuild_exact": true,
+  "new_package_wheel_bytes_match": true,
+  "native_foundation_source_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+  "new_tests_passed": 53,
+  "related_tests_passed": 279,
+  "installed_tests_passed": 53,
+  "qualified_cases": 10,
+  "temporal_trajectories": 30,
+  "reference_ivps": 20,
+  "sensitivity_points": 21,
+  "old_graph_checkpoint_compatible": true,
+  "full_project_portable_regression_repeated": false,
+  "prior_global_baseline": "validation/ai06_hem_network_delivery_v1.json",
+  "qualification_exclusions": [
+    "Moving exact-saturation transient IVPs: not accepted in this protocol; endpoint pointwise laws and stationary endpoint limits are checked separately"
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

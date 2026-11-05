@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "source": {
+    "dataset_manifest_sha256": "d8fb751b48916f99505d4660c09bc3f678efca80dd9c97884d9a27ad613aa242",
+    "dataset_artifacts": {
+      "manifest.json": "d8fb751b48916f99505d4660c09bc3f678efca80dd9c97884d9a27ad613aa242",
+      "observations.csv.gz": "e065e3e77dc79659e578904e96ffdba550d453eb868d9a4cfeaf700f913652a2",
+      "NOTICE.md": "8cf33a41551950ddada8987c7a50def384fc5ad12f1e295ac2e23595fb5d61aa"
+    },
+    "acoustic_data": {
+      "NOTICE.md": "871847559757e9fb683f5112c447cfc34dbd9900ee6e0cf85dc609632f77d64f",
+      "table1.csv": "8d74f91af068fc597e263a3a7b742f769e2750b6221229e40758d5eefe6de263"
+    },
+    "model": {
+      "graph": {
+        "foundation": {
+          "flow": {
+            "hem": {
+              "hem_sources": {
+                "__init__.py": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+                "__main__.py": "8d9fab98b7490f270f0ef3b33ea95a8324a5340df3f821035f4e72c431952f82",
+                "eos.py": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+                "vessel.py": "d3284236f41d4e5827ab48b975e87a5b6fc0a36ec1a6cf21ad352255215ce478",
+                "workflow.py": "0cf1dd9df09c315d18e0194b7713848c85a9337b44256a30c790b7a52f145ebb"
+              },
+              "if97_sha256": "268d38418e20e9e55b9976bcb66b09d9c40d374df36822155e3b248fe1d60b94",
+              "serialization_sha256": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12",
+              "python": "3.12.9",
+              "numpy": "2.2.6",
+              "scipy": "1.15.2"
+            },
+            "flow": {
+              "__init__.py": "cef2568fccc811ef9955c2c1b5517fb3caa1d80fbb7120548f131831202aae8a",
+              "__main__.py": "c15a6a4c84b8b2b979b088ab098136c3fe936575d6ba6b1911d53ba106a45b8f",
+              "cases.py": "556a38acb8557166b34c9042ab1630aceaf9a3cbe5bc3c22e03002c3ba13827c",
+              "model.py": "39278c137e63b94cccc487bb49cd06186f7cdba8535034896faf47df86342cdd",
+              "reference.py": "2add998c2d8b1df399436369db16e546aa9fcf4b53150832ae42a0ac71a35039",
+              "workflow.py": "f79291e4971572595a69e70829111f38e4daae351bddee67e70a9e2d37b6e1ed"
+            }
+          },
+          "system": {
+            "__init__.py": "1fd0c16bacafba221724c58f628a559762e272b52c98437da0ba868f1745e2a2",
+            "__main__.py": "1f545bec96bcca20791c2c74ff97e7d4e576acf8cea0ccd736d0daf448eb8435",
+            "cases.py": "372f5b9b00eea215e90b60f2a4619d2249e7135aa7139b5b412791352473b81c",
+            "model.py": "0a0e985362fd61f04aa2f699f453bdb3c2179635f091623705954673f3dce3eb",
+            "reference.py": "2d32514c62299293a0c2866f10dfc6d8b9269afb8e39e408bb9f4c7246148629",
+            "workflow.py": "063994bc4a676891850dbfdf6a8279c1b0cbe5a98d84e7fcbaf2088680694149"
+          }
+        },
+        "network": {
+          "__init__.py": "257d608d06fa413b2ac3f4c800791ea29b90968dbe99cc20367111c83ec47ada",
+          "__main__.py": "fde209eaaf6f1b1296075a1b99ade158fb0ce4f68a0a36d5993d6c8123e0cc81",
+          "cases.py": "ce447649165ca7c37f98b8718e1d50857ad7e7baacf60ddf1aac826d460a0bac",
+          "model.py": "e055e44d2204588026579422bb8627008e077fa8e75cd61a20990f20a3b97b5f",
+          "reference.py": "2d96f7d39fd6ac9d258fc88b73fdf9d375d1ec51cee33a8dc79f342913bc0037",
+          "workflow.py": "1c1cc048869142f6a2f494a45a241a7b103b6f0cd8920b0b0efe2291f07bea7a"
+        },
+        "closures": {
+          "__init__.py": "72e961e145031884a59f12a87899fa56005082c1053afd7a6201dcf21a47a931"
+        }
+      },
+      "mixture": {
+        "graph": {
+          "foundation": {
+            "flow": {
+              "hem": {
+                "hem_sources": {
+                  "__init__.py": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+                  "__main__.py": "8d9fab98b7490f270f0ef3b33ea95a8324a5340df3f821035f4e72c431952f82",
+                  "eos.py": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+                  "vessel.py": "d3284236f41d4e5827ab48b975e87a5b6fc0a36ec1a6cf21ad352255215ce478",
+                  "workflow.py": "0cf1dd9df09c315d18e0194b7713848c85a9337b44256a30c790b7a52f145ebb"
+                },
+                "if97_sha256": "268d38418e20e9e55b9976bcb66b09d9c40d374df36822155e3b248fe1d60b94",
+                "serialization_sha256": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12",
+                "python": "3.12.9",
+                "numpy": "2.2.6",
+                "scipy": "1.15.2"
+              },
+              "flow": {
+                "__init__.py": "cef2568fccc811ef9955c2c1b5517fb3caa1d80fbb7120548f131831202aae8a",
+                "__main__.py": "c15a6a4c84b8b2b979b088ab098136c3fe936575d6ba6b1911d53ba106a45b8f",
+                "cases.py": "556a38acb8557166b34c9042ab1630aceaf9a3cbe5bc3c22e03002c3ba13827c",
+                "model.py": "39278c137e63b94cccc487bb49cd06186f7cdba8535034896faf47df86342cdd",
+                "reference.py": "2add998c2d8b1df399436369db16e546aa9fcf4b53150832ae42a0ac71a35039",
+                "workflow.py": "f79291e4971572595a69e70829111f38e4daae351bddee67e70a9e2d37b6e1ed"
+              }
+            },
+            "system": {
+              "__init__.py": "1fd0c16bacafba221724c58f628a559762e272b52c98437da0ba868f1745e2a2",
+              "__main__.py": "1f545bec96bcca20791c2c74ff97e7d4e576acf8cea0ccd736d0daf448eb8435",
+              "cases.py": "372f5b9b00eea215e90b60f2a4619d2249e7135aa7139b5b412791352473b81c",
+              "model.py": "0a0e985362fd61f04aa2f699f453bdb3c2179635f091623705954673f3dce3eb",
+              "reference.py": "2d32514c62299293a0c2866f10dfc6d8b9269afb8e39e408bb9f4c7246148629",
+              "workflow.py": "063994bc4a676891850dbfdf6a8279c1b0cbe5a98d84e7fcbaf2088680694149"
+            }
+          },
+          "network": {
+            "__init__.py": "257d608d06fa413b2ac3f4c800791ea29b90968dbe99cc20367111c83ec47ada",
+            "__main__.py": "fde209eaaf6f1b1296075a1b99ade158fb0ce4f68a0a36d5993d6c8123e0cc81",
+            "cases.py": "ce447649165ca7c37f98b8718e1d50857ad7e7baacf60ddf1aac826d460a0bac",
+            "model.py": "e055e44d2204588026579422bb8627008e077fa8e75cd61a20990f20a3b97b5f",
+            "reference.py": "2d96f7d39fd6ac9d258fc88b73fdf9d375d1ec51cee33a8dc79f342913bc0037",
+            "workflow.py": "1c1cc048869142f6a2f494a45a241a7b103b6f0cd8920b0b0efe2291f07bea7a"
+          },
+          "closures": {
+            "__init__.py": "72e961e145031884a59f12a87899fa56005082c1053afd7a6201dcf21a47a931"
+          }
+        },
+        "mixture": {
+          "__init__.py": "22711d4a6f32c96051e44ba1bf1dcb7ea91271d7259d40618329d5151bc727bc",
+          "__main__.py": "17dec1d7ba6a9edba49df97e890790379bf3131e720de6dde69b4471585f36f3",
+          "cases.py": "e4ceac0bc12454fd04628a6266ab2af8bc34d0c51d0a2e8db30bb5c973cafab9",
+          "friction.py": "f341c513bbac80717c9887f5c6effd26cb92fe34e8b8f765c45f4f1449ebb5f5",
+          "inverse.py": "03f8907c878d2965be88894fda980fe1f910eee61fb8400048c1c5a376903d6c",
+          "model.py": "f9d19da622cc7aa3d4011f0979c7928f8553c5d784042ee17fcca543b17e7759",
+          "reference.py": "f240d629f07a3b7a9d2abb3077996a545b3f97da026ae94ca0df4f3ceaede3d2",
+          "workflow.py": "8591b06fc903fec534e05bfda9905579f54da5829b98fa1eaed0f25947559ddd"
+        }
+      },
+      "qualified": {
+        "__init__.py": "a224b8402fd91740b5ea7d8da29eacd461663b90a1a2c4d36f227415c6cfed0d",
+        "__main__.py": "5fea1ea7be283d43a3e248737444250c30b6d7a907ed14a23a298b969f6eecf1",
+        "cases.py": "d2590fabdd4e0482adb4cd38de4c3c0036ee71d162b9fc3ee8f45ec6eebbcaa3",
+        "closures.py": "8d211a5528a58c785ab38a15b83c8ac67d216734b638d9ae0fa60143aea69376",
+        "eos.py": "70f51ad4ef8190ea209193d4b3724d8ff05a4abbad2b1f642c53688f29af5eef",
+        "model.py": "2c0d8524c3ad794c1762e068a9d9f6fb812bbad8f170afeb5ab7f015d24c36d7",
+        "qualification.py": "0907e64a1674e8624fece26172f87fe64c89175f7ce1ef3ff28c2c028f04a003",
+        "reference.py": "50e8b56ddb6d7a244ac15d009a1b5cbf5991362a1e2c8fbcf0394fd239eff1e7"
+      }
+    },
+    "implementation": {
+      "__init__.py": "17426926fc56c4f1765dfce12d890d4f4f336aee8f072ad00ac1f633217281d2",
+      "__main__.py": "53f11f08c77abbb18ff7de2d818467107cdacb8b5a62ed0ea27ed811961da2c9",
+      "acoustics.py": "4053a39473ac9a357a4cbe4ef0d64149bab47d462a892aeb0bda68b11d840201",
+      "audit.py": "4ba5c32311b66a4cff242304e6bec3588584a468159a984d48aef4804fcbeabc",
+      "importer.py": "00d71f9068a182c89bb17e985d6c4efed2653c54fb9b5386e569aa869d401d62"
+    }
+  },
+  "module_path": "/tmp/atomic-assessment-installed-tk5xbfrs/venv/lib/python3.12/site-packages/atomic_model_hem_assessment/audit.py",
+  "python": "3.12.9 | packaged by Anaconda, Inc. | (main, Feb  6 2025, 18:56:27) [GCC 11.2.0]",
+  "steps": [
+    {
+      "argv": [
+        "-m",
+        "atomic_model_hem_assessment",
+        "audit",
+        "/tmp/atomic-assessment-installed-tk5xbfrs/inputs_release/screen.json"
+      ],
+      "stdout": "{'schema_version': 1, 'dataset_id': 'tum-hiper-1839312-v1', 'runs': 176, 'observations': 12320, 'local_closure_eligible': 0, 'matched_system_experiments': 0, 'rejection_counts': {'no_supported_chf_correlation_for_geometry_and_state': 12320, 'outside_boiling_heated_length_domain': 12320, 'outside_dynamic_pressure_domain': 10850, 'outside_wall_superheat_domain': 5778, 'outside_wet_quality_domain': 11130}, 'uncertainty': {'confidence_level': None, 'covariance_available': False, 'kind': 'published asymmetric absolute endpoints'}, 'comparison_performed': False, 'error_metrics': None, 'physical_acceptance': False, 'dynamic_hem_validated': False, 'plant_referenced': False, 'conclusion': 'Real primary measurements imported; no matched production closure/system benchmark. No parameter tuning or range extension.'}\n",
+      "stderr": "",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "-m",
+        "atomic_model_hem_assessment",
+        "screen",
+        "--output",
+        "/tmp/atomic-assessment-installed-tk5xbfrs/inputs_release/installed_screen.json"
+      ],
+      "stdout": "{'schema_version': 1, 'dataset_id': 'tum-hiper-1839312-v1', 'runs': 176, 'observations': 12320, 'local_closure_eligible': 0, 'matched_system_experiments': 0, 'rejection_counts': {'no_supported_chf_correlation_for_geometry_and_state': 12320, 'outside_boiling_heated_length_domain': 12320, 'outside_dynamic_pressure_domain': 10850, 'outside_wall_superheat_domain': 5778, 'outside_wet_quality_domain': 11130}, 'uncertainty': {'confidence_level': None, 'covariance_available': False, 'kind': 'published asymmetric absolute endpoints'}, 'comparison_performed': False, 'error_metrics': None, 'physical_acceptance': False, 'dynamic_hem_validated': False, 'plant_referenced': False, 'conclusion': 'Real primary measurements imported; no matched production closure/system benchmark. No parameter tuning or range extension.'}\n",
+      "stderr": "",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "-m",
+        "pytest",
+        "-q",
+        "/tmp/atomic-assessment-installed-tk5xbfrs/inputs_release/test_hem_assessment.py"
+      ],
+      "stdout": "........................................                                 [100%]\n40 passed in 2.47s\n",
+      "stderr": "",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "-m",
+        "atomic_model_hem_assessment",
+        "reimport",
+        "/tmp/atomic-assessment-installed-tk5xbfrs/inputs_release/primary.zip"
+      ],
+      "stdout": "{'workbooks': 176, 'observations': 12320, 'normalized_csv_exact': True, 'compressed_bytes_exact': True, 'archive_bytes_exact': True}\n",
+      "stderr": "",
+      "returncode": 0
+    }
+  ],
+  "outside_checkout": true,
+  "screen_exact": true,
+  "limitation": "Same machine, shared dependencies; no independent OS/hardware matrix",
+  "dynamic_hem_validated": false,
+  "plant_referenced": false
+}

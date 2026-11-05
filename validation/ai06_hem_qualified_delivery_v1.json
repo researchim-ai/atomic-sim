@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-05",
+  "archive": "artifacts/ai06_hem_qualified_delivery_v1.tar.gz",
+  "archive_sha256": "db9618abac175874ef83efdd7993ce49974662b6fa60c7940ce5bb5e5579b96c",
+  "manifest_sha256": "ef411750900a8b5e3c62a7a6fc61f46a5daa02eb73d863f3a82ac067a2f2995c",
+  "archive_bytes": 9125238,
+  "archive_integrity_verified": true,
+  "deterministic_rebuild_exact": true,
+  "new_package_wheel_and_sdist_bytes_match": true,
+  "native_foundation_source_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+  "wheel_sha256": "79ddcd4a4e52f995cff89d0eab79b06af4119ba67c3ba0d140d58f4f9698f570",
+  "sdist_sha256": "c3e1cd8550680b0656d1e266c632c143c473eebbd1512f84545b5a688b8c4b80",
+  "new_tests_passed": 123,
+  "related_prior_tests_passed": 296,
+  "installed_tests_passed": 123,
+  "qualified_cases": 9,
+  "temporal_trajectories": 18,
+  "reference_ivps": 18,
+  "spatial_cases": 2,
+  "spatial_cells_per_edge": [
+    4,
+    8,
+    16,
+    32,
+    64
+  ],
+  "sensitivity_points": 21,
+  "thermodynamic_roundtrips": 300,
+  "old_graph_checkpoint_compatible": true,
+  "old_mixture_checkpoint_compatible": true,
+  "full_project_portable_regression_repeated": false,
+  "prior_global_baseline": "validation/ai06_hem_network_delivery_v1.json",
+  "accepted_numerical_tasks": [
+    "AI-06.02",
+    "AI-06.04",
+    "AI-06.05",
+    "AI-06.07"
+  ],
+  "remaining_hem_tasks": [
+    "AI-06.06"
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

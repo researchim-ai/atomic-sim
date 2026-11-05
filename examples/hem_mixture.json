@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "model": {
+    "schema_version": 1,
+    "model": {
+      "schema_version": 1,
+      "nodes": [
+        {
+          "id": "a",
+          "volume_m3": 0.02,
+          "initial": {
+            "kind": "px",
+            "pressure_pa": 1000000.0,
+            "quality": 0.999,
+            "velocity_m_s": 0.0
+          },
+          "heat_power_w": 0.0
+        },
+        {
+          "id": "b",
+          "volume_m3": 0.02,
+          "initial": {
+            "kind": "px",
+            "pressure_pa": 1000000.0,
+            "quality": 0.999,
+            "velocity_m_s": 0.0
+          },
+          "heat_power_w": 0.0
+        }
+      ],
+      "edges": [
+        {
+          "id": "e0",
+          "from_node": "a",
+          "to_node": "b",
+          "cells": 2,
+          "length_m": 2.0,
+          "diameter_m": 0.05,
+          "roughness_m": 0.0,
+          "friction": "none",
+          "initial": [
+            {
+              "kind": "px",
+              "pressure_pa": 1000000.0,
+              "quality": 0.999,
+              "velocity_m_s": 0.001
+            },
+            {
+              "kind": "px",
+              "pressure_pa": 1000000.0,
+              "quality": 0.999,
+              "velocity_m_s": 0.001
+            }
+          ],
+          "heat_power_w": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": "e1",
+          "from_node": "a",
+          "to_node": "b",
+          "cells": 2,
+          "length_m": 2.0,
+          "diameter_m": 0.05,
+          "roughness_m": 0.0,
+          "friction": "none",
+          "initial": [
+            {
+              "kind": "px",
+              "pressure_pa": 1000000.0,
+              "quality": 0.999,
+              "velocity_m_s": 0.001
+            },
+            {
+              "kind": "px",
+              "pressure_pa": 1000000.0,
+              "quality": 0.999,
+              "velocity_m_s": 0.001
+            }
+          ],
+          "heat_power_w": [
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "walls": [
+        {
+          "id": "w0",
+          "cell": "e0/0",
+          "capacity_j_k": 10000.0,
+          "initial_temperature_k": 600.0,
+          "conductance_w_k": 500.0,
+          "heat_power_w": 0.0,
+          "ambient_ua_w_k": 0.0,
+          "ambient_temperature_k": 453.0356323914666
+        }
+      ],
+      "wave_speed_bound_m_s": 2000.0,
+      "max_step_s": 5e-05,
+      "cfl": 0.3
+    },
+    "mixture_friction": {
+      "e0": {
+        "viscosity_model": "mcadams",
+        "scope": {
+          "homogeneous_equilibrium": true,
+          "no_slip": true,
+          "circular_straight": true,
+          "fully_developed": true,
+          "quasi_steady": true
+        },
+        "darcy_law": "churchill"
+      },
+      "e1": {
+        "viscosity_model": "mcadams",
+        "scope": {
+          "homogeneous_equilibrium": true,
+          "no_slip": true,
+          "circular_straight": true,
+          "fully_developed": true,
+          "quasi_steady": true
+        },
+        "darcy_law": "churchill"
+      }
+    }
+  },
+  "program": [
+    {
+      "duration_s": 0.0005,
+      "command": null
+    },
+    {
+      "duration_s": 0.0005,
+      "command": null
+    },
+    {
+      "duration_s": 0.001,
+      "command": null
+    }
+  ]
+}

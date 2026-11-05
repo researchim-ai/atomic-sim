@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-05",
+  "model_id": "finite-plenum-if97-graph-v1",
+  "model_status": "verified",
+  "source": {
+    "closures": {
+      "__init__.py": "72e961e145031884a59f12a87899fa56005082c1053afd7a6201dcf21a47a931"
+    },
+    "foundation": {
+      "flow": {
+        "flow": {
+          "__init__.py": "cef2568fccc811ef9955c2c1b5517fb3caa1d80fbb7120548f131831202aae8a",
+          "__main__.py": "c15a6a4c84b8b2b979b088ab098136c3fe936575d6ba6b1911d53ba106a45b8f",
+          "cases.py": "556a38acb8557166b34c9042ab1630aceaf9a3cbe5bc3c22e03002c3ba13827c",
+          "model.py": "39278c137e63b94cccc487bb49cd06186f7cdba8535034896faf47df86342cdd",
+          "reference.py": "2add998c2d8b1df399436369db16e546aa9fcf4b53150832ae42a0ac71a35039",
+          "workflow.py": "f79291e4971572595a69e70829111f38e4daae351bddee67e70a9e2d37b6e1ed"
+        },
+        "hem": {
+          "hem_sources": {
+            "__init__.py": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+            "__main__.py": "8d9fab98b7490f270f0ef3b33ea95a8324a5340df3f821035f4e72c431952f82",
+            "eos.py": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+            "vessel.py": "d3284236f41d4e5827ab48b975e87a5b6fc0a36ec1a6cf21ad352255215ce478",
+            "workflow.py": "0cf1dd9df09c315d18e0194b7713848c85a9337b44256a30c790b7a52f145ebb"
+          },
+          "if97_sha256": "268d38418e20e9e55b9976bcb66b09d9c40d374df36822155e3b248fe1d60b94",
+          "numpy": "2.2.6",
+          "python": "3.12.9",
+          "scipy": "1.15.2",
+          "serialization_sha256": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12"
+        }
+      },
+      "system": {
+        "__init__.py": "1fd0c16bacafba221724c58f628a559762e272b52c98437da0ba868f1745e2a2",
+        "__main__.py": "1f545bec96bcca20791c2c74ff97e7d4e576acf8cea0ccd736d0daf448eb8435",
+        "cases.py": "372f5b9b00eea215e90b60f2a4619d2249e7135aa7139b5b412791352473b81c",
+        "model.py": "0a0e985362fd61f04aa2f699f453bdb3c2179635f091623705954673f3dce3eb",
+        "reference.py": "2d32514c62299293a0c2866f10dfc6d8b9269afb8e39e408bb9f4c7246148629",
+        "workflow.py": "063994bc4a676891850dbfdf6a8279c1b0cbe5a98d84e7fcbaf2088680694149"
+      }
+    },
+    "network": {
+      "__init__.py": "257d608d06fa413b2ac3f4c800791ea29b90968dbe99cc20367111c83ec47ada",
+      "__main__.py": "fde209eaaf6f1b1296075a1b99ade158fb0ce4f68a0a36d5993d6c8123e0cc81",
+      "cases.py": "ce447649165ca7c37f98b8718e1d50857ad7e7baacf60ddf1aac826d460a0bac",
+      "model.py": "e055e44d2204588026579422bb8627008e077fa8e75cd61a20990f20a3b97b5f",
+      "reference.py": "2d96f7d39fd6ac9d258fc88b73fdf9d375d1ec51cee33a8dc79f342913bc0037",
+      "workflow.py": "1c1cc048869142f6a2f494a45a241a7b103b6f0cd8920b0b0efe2291f07bea7a"
+    }
+  },
+  "scope": "Numerical finite mixed stationary-plenum graph model with shared IF97 EOS; no zero-volume junction, spatial/experimental two-phase or forced-flow CHF qualification",
+  "method": {
+    "nodes": "Finite supported well-mixed stationary mass/internal-energy volumes",
+    "channels": "Oriented constant-area Euler finite volumes, shared fixed-wave LF/Rusanov flux",
+    "time": "Joint explicit SSPRK3 physical stocks and ledgers",
+    "friction": "Quasi-steady straight circular tube Darcy64/Re or implicitColebrook with stage transport/scope checks; zero-force limit",
+    "heat_transfer": "Linear conductance or scoped developed smooth laminar/Gnielinski with declared upper conductance for step admission",
+    "momentum": "Axial per-edge and signed port support bookkeeping only; not global vector"
+  },
+  "limits": {
+    "nodes": [
+      2,
+      6
+    ],
+    "edges": [
+      1,
+      6
+    ],
+    "cells_per_edge": [
+      2,
+      6
+    ],
+    "total_fluid_cells": [
+      6,
+      14
+    ],
+    "maximum_steps_per_call": 4096,
+    "maximum_calls": 128,
+    "maximum_call_duration_s": 0.1
+  },
+  "qualification": {
+    "cases": 12,
+    "trajectories": 36,
+    "ivps": 24,
+    "shared_eos_with_reference": true,
+    "default_horizon_s": 0.002,
+    "turbulent_heat_horizon_s": 0.0002
+  },
+  "unsupported": [
+    "Zero-volume junction/tee loss physics or spatial vector momentum",
+    "General gravity/pump/valve/open-discharge/choking physics",
+    "Qualified two-phase friction and boiling heat transfer",
+    "Full forced-flowCHF, postCHF and DNBR; standalone audited1995tinycube is separate",
+    "Spatial convergence, full forced/junction entropy stability and dynamic/two-phase physical validation"
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-05",
+  "wheel_sha256": "1cf8f82c858ef651bb05e87741c12bb7870c35e53f6d31e14e1ad02c19ce3923",
+  "qualification_sha256": "12111b2bdd3dd9e89362685a3cfc137e06dcf38251df80563f47a27d7ef63985",
+  "installed_tests_passed": 226,
+  "exact_demo_replay": true,
+  "full_qualification_numerically_audited": true,
+  "production_experiment_recomputed_exact": true,
+  "prior_vessel_periodic_finite_checkpoints_compatible": true,
+  "installed_entrypoints_executed": true,
+  "pytest_receipt_sha256": "7433f84f7fcb58dece24e4fc7653c5d36c33386561c40b94747af9dc02477fab",
+  "scope": "Local offline new venv outside checkout; host scientific dependencies shared. Not independent hardware/OS.",
+  "validated": false,
+  "plant_referenced": false,
+  "installed_module_paths_verified": true,
+  "module_location_check_sha256": "a82a42f956a0f1e860fa9b79b8803577577c898447abf4758bccc44bdb867ed1"
+}

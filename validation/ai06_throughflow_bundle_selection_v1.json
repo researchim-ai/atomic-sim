@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "bundle_id": "ai06-steady-throughflow-v1",
+  "scope": "Verified bounded steady open HEM IVP and completed FAILED conditional HIPER screening; not transient/experimental/plant validation",
+  "entries": [
+    {
+      "source": "atomic_model_hem_throughflow/model.py",
+      "path": "review_sources/atomic_model_hem_throughflow/model.py"
+    },
+    {
+      "source": "atomic_model_hem_throughflow/benchmark.py",
+      "path": "review_sources/atomic_model_hem_throughflow/benchmark.py"
+    },
+    {
+      "source": "atomic_model_hem_throughflow/__init__.py",
+      "path": "review_sources/atomic_model_hem_throughflow/__init__.py"
+    },
+    {
+      "source": "atomic_model_hem_throughflow/workflow.py",
+      "path": "review_sources/atomic_model_hem_throughflow/workflow.py"
+    },
+    {
+      "source": "atomic_model_hem_throughflow/closures.py",
+      "path": "review_sources/atomic_model_hem_throughflow/closures.py"
+    },
+    {
+      "source": "atomic_model_hem_throughflow/reference.py",
+      "path": "review_sources/atomic_model_hem_throughflow/reference.py"
+    },
+    {
+      "source": "atomic_model_hem_throughflow/thermo.py",
+      "path": "review_sources/atomic_model_hem_throughflow/thermo.py"
+    },
+    {
+      "source": "atomic_model_hem_throughflow/__main__.py",
+      "path": "review_sources/atomic_model_hem_throughflow/__main__.py"
+    },
+    {
+      "source": "atomic_model_hem_throughflow/cases.py",
+      "path": "review_sources/atomic_model_hem_throughflow/cases.py"
+    },
+    {
+      "source": "tests/test_hem_throughflow.py",
+      "path": "review_sources/tests/test_hem_throughflow.py"
+    },
+    {
+      "source": "scripts/verify_hem_throughflow_install.py",
+      "path": "review_sources/scripts/verify_hem_throughflow_install.py"
+    },
+    {
+      "source": "docs/AI_06_STEADY_THROUGHFLOW_RU.md",
+      "path": "review_sources/docs/AI_06_STEADY_THROUGHFLOW_RU.md"
+    },
+    {
+      "source": "docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md",
+      "path": "review_sources/docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md"
+    },
+    {
+      "source": "docs/READINESS_REVIEW_RU.md",
+      "path": "review_sources/docs/READINESS_REVIEW_RU.md"
+    },
+    {
+      "source": "README.md",
+      "path": "review_sources/README.md"
+    },
+    {
+      "source": "examples/steady_throughflow.json",
+      "path": "review_sources/examples/steady_throughflow.json"
+    },
+    {
+      "source": "pyproject.toml",
+      "path": "review_sources/pyproject.toml"
+    },
+    {
+      "source": "validation/ai_industrial_workplan_v1.json",
+      "path": "review_sources/validation/ai_industrial_workplan_v1.json"
+    },
+    {
+      "source": "validation/ai06_throughflow_closure_curation_v1.json",
+      "path": "review_sources/validation/ai06_throughflow_closure_curation_v1.json"
+    },
+    {
+      "source": "validation/ai06_throughflow_summary_v1.json",
+      "path": "review_sources/validation/ai06_throughflow_summary_v1.json"
+    },
+    {
+      "source": "validation/ai06_throughflow_installed_v1.json",
+      "path": "review_sources/validation/ai06_throughflow_installed_v1.json"
+    },
+    {
+      "source": "validation/ai06_hem_assessment_delivery_v1.json",
+      "path": "review_sources/validation/ai06_hem_assessment_delivery_v1.json"
+    },
+    {
+      "source": "validation/ai06_hiper_independent_reader_v1.json",
+      "path": "review_sources/validation/ai06_hiper_independent_reader_v1.json"
+    },
+    {
+      "source": "artifacts/ai06_throughflow_publication_v1.json",
+      "path": "verification_inputs/qualification.json"
+    },
+    {
+      "source": "artifacts/ai06_throughflow_publication_hiper_v1.json",
+      "path": "verification_inputs/benchmark.json"
+    },
+    {
+      "source": "artifacts/ai06_throughflow_publication_demo_v1.json",
+      "path": "verification_inputs/demo.json"
+    },
+    {
+      "source": "tests/test_hem_throughflow.py",
+      "path": "verification_inputs/test_hem_throughflow.py"
+    },
+    {
+      "source": "scripts/verify_hem_throughflow_install.py",
+      "path": "verification/verify.py"
+    },
+    {
+      "source": "dist/atomic_sim-2.0.0-py3-none-any.whl",
+      "path": "runtime/atomic_sim-2.0.0-py3-none-any.whl"
+    },
+    {
+      "source": "dist/atomic_sim-2.0.0.tar.gz",
+      "path": "runtime/atomic_sim-2.0.0.tar.gz"
+    }
+  ],
+  "metadata": {
+    "hiper_data_license": "CC-BY-SA-4.0; packaged data notices retained in runtime"
+  },
+  "runtime": {
+    "wheel": "runtime/atomic_sim-2.0.0-py3-none-any.whl",
+    "sdist": "runtime/atomic_sim-2.0.0.tar.gz",
+    "source_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67"
+  }
+}

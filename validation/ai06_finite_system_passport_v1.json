@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-05",
+  "model_id": "finite-if97-hem-channel-wall-v1",
+  "model_status": "verified",
+  "source": {
+    "flow": {
+      "flow": {
+        "__init__.py": "cef2568fccc811ef9955c2c1b5517fb3caa1d80fbb7120548f131831202aae8a",
+        "__main__.py": "c15a6a4c84b8b2b979b088ab098136c3fe936575d6ba6b1911d53ba106a45b8f",
+        "cases.py": "556a38acb8557166b34c9042ab1630aceaf9a3cbe5bc3c22e03002c3ba13827c",
+        "model.py": "39278c137e63b94cccc487bb49cd06186f7cdba8535034896faf47df86342cdd",
+        "reference.py": "2add998c2d8b1df399436369db16e546aa9fcf4b53150832ae42a0ac71a35039",
+        "workflow.py": "f79291e4971572595a69e70829111f38e4daae351bddee67e70a9e2d37b6e1ed"
+      },
+      "hem": {
+        "hem_sources": {
+          "__init__.py": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+          "__main__.py": "8d9fab98b7490f270f0ef3b33ea95a8324a5340df3f821035f4e72c431952f82",
+          "eos.py": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+          "vessel.py": "d3284236f41d4e5827ab48b975e87a5b6fc0a36ec1a6cf21ad352255215ce478",
+          "workflow.py": "0cf1dd9df09c315d18e0194b7713848c85a9337b44256a30c790b7a52f145ebb"
+        },
+        "if97_sha256": "268d38418e20e9e55b9976bcb66b09d9c40d374df36822155e3b248fe1d60b94",
+        "numpy": "2.2.6",
+        "python": "3.12.9",
+        "scipy": "1.15.2",
+        "serialization_sha256": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12"
+      }
+    },
+    "system": {
+      "__init__.py": "1fd0c16bacafba221724c58f628a559762e272b52c98437da0ba868f1745e2a2",
+      "__main__.py": "1f545bec96bcca20791c2c74ff97e7d4e576acf8cea0ccd736d0daf448eb8435",
+      "cases.py": "372f5b9b00eea215e90b60f2a4619d2249e7135aa7139b5b412791352473b81c",
+      "model.py": "0a0e985362fd61f04aa2f699f453bdb3c2179635f091623705954673f3dce3eb",
+      "reference.py": "2d32514c62299293a0c2866f10dfc6d8b9269afb8e39e408bb9f4c7246148629",
+      "workflow.py": "063994bc4a676891850dbfdf6a8279c1b0cbe5a98d84e7fcbaf2088680694149"
+    }
+  },
+  "scope": "Restricted synthetic semidiscrete numerical verification; no experimental or plant accuracy claim",
+  "method": {
+    "space": "Shared fixed-wave LF/Rusanov finite volumes, constant area, finite same-area terminal cells and reflecting exterior ends",
+    "time": "Joint explicit SSPRK3 stocks and integrated ledgers",
+    "wall": "Finite heat capacity, linear conductance and ambient UA",
+    "eos": "Strict IF97 regions1/2/4; 300..900K; 100Pa interior margin within0.1..10MPa; no projection"
+  },
+  "qualification": {
+    "summary": "validation/ai06_finite_system_summary_v1.json",
+    "case_count": 10,
+    "temporal_trajectories": 30,
+    "semidiscrete_reference_ivps": 20,
+    "shared_eos_with_reference": true,
+    "matrix_horizon_s": 0.018
+  },
+  "unsupported": [
+    "General branched hydraulic network and stationary reservoir/nozzle boundary physics",
+    "Friction, gravity, empirical boiling heat transfer, CHF/post-CHF",
+    "Critical/metastable and nonequilibrium/slip/two-fluid regimes",
+    "Full forced entropy stability and mathematical invariant-domain proof",
+    "Spatial convergence of this assembly, experimental validation and plant reference"
+  ],
+  "validated": false,
+  "plant_referenced": false,
+  "execution_limits": {
+    "internal_cells": [
+      4,
+      12
+    ],
+    "walls": [
+      1,
+      16
+    ],
+    "call_duration_s": {
+      "minimum_exclusive": 0,
+      "maximum_inclusive": 0.1
+    },
+    "maximum_steps_per_call": 4096,
+    "maximum_accepted_calls": 128,
+    "maximum_controller_json_bytes": 32768,
+    "maximum_checkpoint_json_bytes": 4194304,
+    "maximum_workflow_program_calls": 16,
+    "maximum_absolute_heater_power_w": 1000000,
+    "maximum_cfl": 0.3,
+    "pointwise_stage_failure": "Reject whole call; no hidden clipping, projection or alternate flux"
+  }
+}
