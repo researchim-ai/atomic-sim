@@ -166,7 +166,7 @@ def test_presence_is_not_external_qualification(tmp_path, monkeypatch):
 def test_pytest_lane_gate_cannot_pass_all_skipped(tmp_path, body, expected):
     (tmp_path / "test_probe.py").write_text(body)
     env = dict(os.environ)
-    env["PYTHONPATH"] = str(ROOT)
+    env["PYTHONPATH"] = os.pathsep.join([str(ROOT / "src"), str(ROOT)])
     result = subprocess.run(
         [
             sys.executable,

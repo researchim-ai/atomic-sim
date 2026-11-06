@@ -261,7 +261,15 @@ def test_revision_budget_is_enforced_before_commit(editor, monkeypatch):
 
 
 def test_cli_project_edit_and_export(project, tmp_path):
-    env = dict(os.environ, PYTHONPATH=str(Path(__file__).resolve().parents[1]))
+    env = dict(
+        os.environ,
+        PYTHONPATH=os.pathsep.join(
+            [
+                str(Path(__file__).resolve().parents[1] / "src"),
+                str(Path(__file__).resolve().parents[1]),
+            ]
+        ),
+    )
 
     def cli(*args):
         p = subprocess.run(

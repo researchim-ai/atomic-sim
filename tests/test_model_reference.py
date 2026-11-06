@@ -301,7 +301,15 @@ def test_event_missing_and_failed_error_thresholds_are_reported(fixture, tmp_pat
 def test_cli_import_inspect_compare_and_catalog(fixture, tmp_path):
     import json
 
-    env = dict(os.environ, PYTHONPATH=str(Path(__file__).resolve().parents[1]))
+    env = dict(
+        os.environ,
+        PYTHONPATH=os.pathsep.join(
+            [
+                str(Path(__file__).resolve().parents[1] / "src"),
+                str(Path(__file__).resolve().parents[1]),
+            ]
+        ),
+    )
 
     def cli(*args, expected=0):
         p = subprocess.run(

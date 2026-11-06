@@ -2,10 +2,15 @@
 Базовый пример использования симулятора атомного реактора
 Демонстрирует основные функции и возможности
 """
+from pathlib import Path
+
+output_dir = Path("artifacts/demos")
+output_dir.mkdir(parents=True, exist_ok=True)
+
 
 import sys
 import os
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "src"))
 
 from reactor import ReactorSimulator
 from reactor.visualization import plot_simulation_results, create_summary_report
@@ -39,14 +44,14 @@ def main():
     print("\n3. Построение графиков...")
     plot_simulation_results(history, 
                            title="Базовая симуляция: Свободный дрейф",
-                           save_path="basic_simulation.png")
+                           save_path=str(output_dir / "basic_simulation.png"))
     
     # Отчет
     print("\n4. Отчет о симуляции:")
     report = create_summary_report(history)
     print(report)
     
-    print("\nГотово! График сохранен в 'basic_simulation.png'")
+    print("\nГотово! График сохранен в 'artifacts/demos/basic_simulation.png'")
 
 
 if __name__ == "__main__":

@@ -2,10 +2,15 @@
 Пример ручного управления реактором
 Демонстрирует ручное управление управляющими стержнями
 """
+from pathlib import Path
+
+output_dir = Path("artifacts/demos")
+output_dir.mkdir(parents=True, exist_ok=True)
+
 
 import sys
 import os
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "src"))
 
 from reactor import ReactorSimulator
 from reactor.visualization import plot_simulation_results
@@ -95,13 +100,13 @@ def main():
     print("\n6. Построение графиков...")
     plot_simulation_results(history,
                            title="Ручное управление реактором",
-                           save_path="manual_control.png")
+                           save_path=str(output_dir / "manual_control.png"))
     
     # Финальное состояние
     print("\n7. Финальное состояние:")
     simulator.print_state()
     
-    print("\nГотово! График сохранен в 'manual_control.png'")
+    print("\nГотово! График сохранен в 'artifacts/demos/manual_control.png'")
 
 
 if __name__ == "__main__":

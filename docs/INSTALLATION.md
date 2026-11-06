@@ -1,215 +1,90 @@
-# 📦 Руководство по установке
-
-## Требования
-
-- **Python**: 3.8 или выше
-- **Операционная система**: Linux, macOS, Windows
-- **Память**: Минимум 4 ГБ RAM (8 ГБ рекомендуется)
-- **Диск**: 500 МБ для кода и зависимостей
-
-## Методы установки
-
-### 1. Быстрая установка (только использование)
-
-```bash
-git clone https://github.com/researchim-ai/atomic-sim.git
-cd atomic-sim
-pip install -r requirements.txt
-python tests/test_simulator.py  # Проверка
-```
-
-### 2. Установка пакетом (рекомендуется)
-
-```bash
-git clone https://github.com/researchim-ai/atomic-sim.git
-cd atomic-sim
-
-# Установка в editable mode
-pip install -e .
-
-# Проверка установки
-atomic-sim --help
-python -c "import reactor; print(reactor.__version__)"
-```
-
-### 3. Установка для разработки
-
-```bash
-git clone https://github.com/researchim-ai/atomic-sim.git
-cd atomic-sim
-
-# Установка с dev-зависимостями
-pip install -e ".[dev]"
-
-# Запуск тестов
-pytest tests/ -v
-
-# Проверка качества кода
-black --check reactor/ tests/
-ruff check reactor/
-```
-
-### 4. Установка в виртуальном окружении (рекомендуется)
-
-```bash
-# Создание виртуального окружения
-python -m venv venv
-
-# Активация
-source venv/bin/activate  # Linux/macOS
-# или
-venv\Scripts\activate  # Windows
-
 # Установка
-pip install -e .
 
-# Для выхода из виртуального окружения
-deactivate
-```
+Пакет требует Python 3.10 или новее согласно `pyproject.toml`.
+Проверенный локальный профиль — Linux x86_64, CPython 3.12.9,
+NumPy 2.2.6 и SciPy 1.15.2. Успешная проверка этого профиля не означает,
+что остальные платформы уже прошли такую же квалификацию.
 
-### 5. Установка с conda
-
-```bash
-# Создание conda окружения
-conda create -n atomic-sim python=3.10
-conda activate atomic-sim
-
-# Установка PyTorch (выберите версию под вашу систему)
-conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
-
-# Установка остальных зависимостей
-pip install -e .
-
-# Проверка
-python tests/test_simulator.py
-```
-
-## Проверка установки
-
-### Базовая проверка
-
-```python
-python -c "
-from reactor import ReactorSimulator
-sim = ReactorSimulator()
-history = sim.run(duration=10.0)
-print(f'✓ Симуляция работает! {len(history[\"time\"])} шагов')
-"
-```
-
-### Полная проверка
+## Из исходников
 
 ```bash
-# Все тесты
-pytest tests/ -v
-
-# Или быстрый smoke-test
-python tests/test_simulator.py
-```
-
-Должны пройти 34 теста за ~70 секунд.
-
-## Решение проблем
-
-### Проблема: ModuleNotFoundError
-
-```bash
-# Убедитесь что вы в правильной директории
-cd /path/to/atomic-sim
-
-# Проверьте PYTHONPATH
-export PYTHONPATH="${PYTHONPATH}:$(pwd)"
-
-# Или установите как пакет
-pip install -e .
-```
-
-### Проблема: torch not found
-
-```bash
-# Установите PyTorch
-pip install torch>=2.0.0
-
-# Или с conda
-conda install pytorch -c pytorch
-```
-
-### Проблема: тесты падают
-
-```bash
-# Переустановите зависимости
-pip install -r requirements.txt --upgrade
-
-# Проверьте версии
-python -c "import torch; print(f'PyTorch: {torch.__version__}')"
-python -c "import numpy; print(f'NumPy: {numpy.__version__}')"
-```
-
-### Проблема: медленная работа
-
-```bash
-# Используйте float32 вместо float64
-simulator = ReactorSimulator(dtype=torch.float32)
-
-# Или батч-симуляцию
-from reactor.batch_simulator import BatchReactorSimulator
-sim = BatchReactorSimulator(batch_size=16, dtype=torch.float32)
-```
-
-## Обновление
-
-```bash
+git clone https://github.com/researchim-ai/atomic-sim.git
 cd atomic-sim
-git pull origin main
-pip install -e . --upgrade
+python -m venv .venv
 ```
 
-## Удаление
+Активируйте окружение:
 
 ```bash
-# Если установлено как пакет
-pip uninstall atomic-sim
-
-# Удалить файлы
-rm -rf atomic-sim/
-
-# Удалить виртуальное окружение
-rm -rf venv/  # или conda remove -n atomic-sim --all
+source .venv/bin/activate
 ```
+
+В Windows PowerShell вместо этой команды используйте
+`.venv\Scripts\Activate.ps1`.
+
+Установите библиотеку; зависимости перечислены в `pyproject.toml`:
+
+```bash
+python -m pip install -e .
+atomic-sim --help
+python -c "from atomic_pwr_agent import Episode; print(Episode().observe()['model_id'])"
+```
+
+`src/` — корень исходников Python. Одна установка `requirements.txt` не
+заменяет установку библиотеки для CLI и дочерних процессов.
+Имена Python-импортов после переноса в `src/` сохранены.
+
+## Разработка и локальные тесты
+
+```bash
+python -m pip install -e '.[dev]'
+python -m pytest tests/test_pwr_agent.py -q
+```
+
+Полная локальная проверка поставки использует также `build`:
+
+```bash
+python -m pip install build
+python -m scripts.verify_local_library
+```
+
+Она собирает sdist/wheel, устанавливает wheel вне checkout и проверяет replay.
+Офлайн-установка в этой проверке переиспользует уже установленные научные
+зависимости; это не автономный набор всех зависимостей.
+[Подробности и расширенные наборы тестов](LOCAL_VERIFICATION_RU.md).
+CI, GitHub-аккаунт и удалённый runner не нужны.
 
 ## Дополнительные компоненты
 
-### GPU поддержка (опционально)
+Для прежнего учебного GUI:
 
 ```bash
-# Для NVIDIA GPU
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-
-# Проверка
-python -c "import torch; print(f'CUDA available: {torch.cuda.is_available()}')"
+python -m pip install -e '.[gui]'
+python apps/gui/app.py
 ```
 
-### Jupyter notebooks (опционально)
+Для документации:
 
 ```bash
-pip install jupyter
-jupyter notebook
-
-# Создайте notebook с:
-from reactor import ReactorSimulator
-# ...
+python -m pip install -r requirements/docs.txt
+python -m mkdocs build
 ```
 
-## Версии
+Сайт создаётся в `artifacts/site/`. Дополнительные файлы исследовательского
+профиля находятся в `requirements/research-qualified.txt` и
+`requirements/research-environment.constraints.txt`. Это описание проверенной
+среды, не герметичный lockfile и не требование устанавливать все версии
+на любую платформу.
 
-- **Стабильная**: v1.1.0
-- **Разработка**: main branch
-- **Python**: 3.8, 3.9, 3.10, 3.11 (тестируется)
+Для сборки дистрибутива:
 
-## Поддержка
+```bash
+python -m build --outdir artifacts/dist
+```
 
-Если возникли проблемы:
-1. Проверьте [FAQ](https://github.com/researchim-ai/atomic-sim/wiki/FAQ)
-2. Создайте [Issue](https://github.com/researchim-ai/atomic-sim/issues)
-3. См. [CONTRIBUTING.md](CONTRIBUTING.md)
+Готовый wheel устанавливается обычной командой `python -m pip install PATH.whl`.
+Импорты и CLI работают без checkout; примеры `examples/` и приложение `apps/`
+запускаются из исходного репозитория. OpenMC и ядерные данные для специальных
+transport-проверок устанавливаются отдельно; обычный пример PWR их не требует.
 
+[Быстрый старт](QUICKSTART.md) · [Структура проекта](PROJECT_STRUCTURE_RU.md)

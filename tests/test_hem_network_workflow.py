@@ -61,7 +61,9 @@ def test_cli_runs_from_arbitrary_cwd(tmp_path):
     source = tmp_path / "request.json"
     source.write_text(json.dumps(spec()))
     env = dict(os.environ)
-    env["PYTHONPATH"] = str(Path(__file__).resolve().parents[1])
+    env["PYTHONPATH"] = os.pathsep.join(
+        [str(Path(__file__).resolve().parents[1] / "src"), str(Path(__file__).resolve().parents[1])]
+    )
     target = tmp_path / "run"
     p = subprocess.run(
         [

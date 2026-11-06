@@ -14,7 +14,12 @@ from types import SimpleNamespace
 
 
 def legacy_fingerprint():
-    root = Path(__file__).resolve().parent.parent
+    import scenarios
+
+    import sdk
+
+    root = Path(sdk.__file__).resolve().parent.parent
+    resources = Path(scenarios.__file__).resolve().parent.parent
     digest = hashlib.sha256()
     for package in (
         "sdk",
@@ -28,9 +33,10 @@ def legacy_fingerprint():
         "data",
         "scenarios",
     ):
-        for path in sorted((root / package).rglob("*")):
+        base = (resources if package in ("data", "scenarios") else root) / package
+        for path in sorted(base.rglob("*")):
             if path.is_file() and path.suffix in (".py", ".json", ".yaml"):
-                digest.update(str(path.relative_to(root)).encode())
+                digest.update(str(Path(package) / path.relative_to(base)).encode())
                 digest.update(b"\0")
                 digest.update(path.read_bytes())
     return digest.hexdigest()

@@ -1,3 +1,8 @@
+from pathlib import Path
+
+output_dir = Path("artifacts/demos")
+output_dir.mkdir(parents=True, exist_ok=True)
+
 import torch
 import matplotlib.pyplot as plt
 import numpy as np
@@ -114,8 +119,8 @@ def run_burnup_demo():
     ax3.set_ylim(0, 3500)
     
     plt.tight_layout()
-    plt.savefig('burnup_demo_result.png')
-    print("Результат сохранен в burnup_demo_result.png")
+    plt.savefig(str(output_dir / "burnup_demo_result.png"))
+    print("Результат сохранен в artifacts/demos/burnup_demo_result.png")
 
 if __name__ == "__main__":
     run_burnup_demo()

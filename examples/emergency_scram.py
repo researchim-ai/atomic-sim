@@ -2,10 +2,15 @@
 Пример аварийной ситуации и SCRAM
 Демонстрирует поведение реактора при потере охлаждения и аварийной остановке
 """
+from pathlib import Path
+
+output_dir = Path("artifacts/demos")
+output_dir.mkdir(parents=True, exist_ok=True)
+
 
 import sys
 import os
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "src"))
 
 from reactor import ReactorSimulator
 from reactor.visualization import plot_simulation_results
@@ -88,13 +93,13 @@ def main():
     print("\n4. Построение графиков...")
     plot_simulation_results(combined_history,
                            title="Аварийная ситуация: Потеря охлаждения и SCRAM",
-                           save_path="emergency_scram.png")
+                           save_path=str(output_dir / "emergency_scram.png"))
     
     # Финальное состояние
     print("\n5. Финальное состояние после аварии:")
     simulator.print_state()
     
-    print("\nГотово! График сохранен в 'emergency_scram.png'")
+    print("\nГотово! График сохранен в 'artifacts/demos/emergency_scram.png'")
 
 
 if __name__ == "__main__":

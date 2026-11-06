@@ -531,7 +531,15 @@ def test_cli_validate_initialize_pause_inspect_and_data_export(project, tmp_path
     import subprocess
     import sys
 
-    env = dict(os.environ, PYTHONPATH=str(Path(__file__).resolve().parents[1]))
+    env = dict(
+        os.environ,
+        PYTHONPATH=os.pathsep.join(
+            [
+                str(Path(__file__).resolve().parents[1] / "src"),
+                str(Path(__file__).resolve().parents[1]),
+            ]
+        ),
+    )
 
     def cli(*args):
         result = subprocess.run(

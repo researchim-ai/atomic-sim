@@ -116,3 +116,11 @@ statepoint.*.h5
 summary.h5
 tallies.out
 *.h5
+
+# Generated figures belong in artifacts/, never beside project metadata.
+/*_demo_result.png
+/*_demo.png
+/basic_simulation.png
+/auto_control.png
+/manual_control.png
+/emergency_scram.png

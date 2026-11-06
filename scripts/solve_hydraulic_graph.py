@@ -38,7 +38,9 @@ def sha(path):
             or (source.parts[0] == "scripts" and source.suffix == ".py")
         )
     ):
-        source = Path(__file__).resolve().parent.parent / source
+        from atomic_model_runtime.resources import resolve
+
+        source = resolve(source)
     return hashlib.sha256(source.read_bytes()).hexdigest()
 
 

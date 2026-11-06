@@ -177,7 +177,7 @@ def _write_json(path: Path, value: dict) -> None:
     temporary.replace(path)
 
 
-def _source_fingerprint_at(root) -> str:
+def _source_fingerprint_at(root, *, resource_root=None) -> str:
     """Hash the same fresh source bytes in legacy Path ordering, without caches.
 
     Directory symlinks are not traversed; file symlinks retain their logical
@@ -198,7 +198,10 @@ def _source_fingerprint_at(root) -> str:
         "data",
         "scenarios",
     ):
-        base = os.path.join(root, package)
+        base = os.path.join(
+            resource_root if resource_root is not None and package in ("data", "scenarios") else root,
+            package,
+        )
         if not os.path.isdir(base):
             continue
         pending = [(base, (package,))]
@@ -226,7 +229,12 @@ def _source_fingerprint_at(root) -> str:
 
 
 def _source_fingerprint() -> str:
-    return _source_fingerprint_at(Path(__file__).resolve().parent.parent)
+    import scenarios
+
+    return _source_fingerprint_at(
+        Path(__file__).resolve().parent.parent,
+        resource_root=Path(scenarios.__file__).resolve().parent.parent,
+    )
 
 
 def run_experiment(

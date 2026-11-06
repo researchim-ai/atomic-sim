@@ -1,83 +1,68 @@
-# 🚀 Быстрый старт
+# Быстрый старт
 
-## Установка
-
-```bash
-pip install -r requirements.txt
-```
-
-## Запуск тестов
+Нужен Python 3.10 или новее. Полная локальная проверка воспроизведена на
+Linux x86_64 с Python 3.12.9. Из корня репозитория установите библиотеку:
 
 ```bash
-python test_simulator.py
+python -m pip install -e '.[dev]'
 ```
 
-## Базовые примеры
+Код находится в `src/`; editable-установка делает его доступным командам и
+дочерним процессам. Подробности: [установка](INSTALLATION.md) и
+[структура проекта](PROJECT_STRUCTURE_RU.md).
 
-### 1. Простая симуляция
-```bash
-cd examples
-python basic_simulation.py
-```
-
-### 2. Автоматическое управление
-```bash
-python auto_control.py
-```
-
-### 3. Ручное управление
-```bash
-python manual_control.py
-```
-
-### 4. Аварийная ситуация
-```bash
-python emergency_scram.py
-```
-
-### 5. Интерактивная демонстрация
-```bash
-python interactive_demo.py
-```
-
-## Быстрый код
+## Первый эпизод исследовательского PWR
 
 ```python
-from reactor import ReactorSimulator
+from atomic_pwr_agent import Episode
 
-# Создаем симулятор
-simulator = ReactorSimulator()
-
-# Автоматическое управление
-simulator.set_auto_control(enabled=True, target_power=95.0)
-
-# Запуск на 100 секунд
-history = simulator.run(duration=100.0)
-
-# Визуализация
-from reactor.visualization import plot_simulation_results
-plot_simulation_results(history, save_path="results.png")
+episode = Episode(duration_s=0.1, max_steps=10, seed=17)
+observation = episode.observe()
+result = episode.step({"throttle": 0.95},
+                      observation_id=observation["observation_id"])
+print(result["observation"]["time_s"])
+print(result["observation"]["thermal_power_w"])
+restored = Episode.restore(episode.checkpoint())
+assert restored.observe() == episode.observe()
 ```
 
-## Ключевые особенности
+Это редуцированная исследовательская модель `pwr-reduced-flow-controlled`,
+не цифровой двойник действующего блока. Наблюдение содержит полное состояние
+и схему единиц; seed пока служит метаданными, не случайной физической инициализацией.
 
-✅ **Физически корректная модель** - уравнения точечной кинетики с 6 группами запаздывающих нейтронов  
-✅ **Тепловая модель** - трехузловая модель с обратными связями  
-✅ **Автоматическое управление** - ПИД-регулятор с настраиваемыми параметрами  
-✅ **Система безопасности** - мониторинг пределов и автоматический SCRAM  
-✅ **Высокая производительность** - 5000+ шагов/сек на CPU  
+## Примеры и проверки
 
-## Параметры симулятора
+```bash
+# Python: решения агента, checkpoint, повтор в training runtime
+python -m examples.training.agent_episode artifacts/my-agent-episode.json
 
-- **Шаг времени**: 0.001 сек (для численной стабильности)
-- **Начальная мощность**: 100 МВт  
-- **Начальное состояние**: критическое (реактивность = 0)
-- **Управляющие стержни**: 10 штук, полностью извлечены в начале
+# Настоящий локальный JSONL-процесс для LLM-клиента
+python -m examples.llm_controlled_episode
 
-## Решенные проблемы
+# Проверки основных интерфейсов
+python -m pytest tests/test_pwr_agent.py tests/test_controlled_agent_tools.py -q
+```
 
-1. ✅ Численная стабильность (уменьшен dt)
-2. ✅ Правильное критическое состояние
-3. ✅ Работающий ПИД-регулятор
-4. ✅ Корректная тепловая модель
-5. ✅ Все тесты проходят успешно
+Файл результата первого примера должен быть новым. Примеры находятся в checkout;
+CLI и Python-пакеты также работают после установки wheel.
+Для полной проверки поставки дополнительно нужен `build`:
+
+```bash
+python -m pip install build
+python -m scripts.verify_local_library
+```
+
+Команда проверяет тесты, сборку, установку вне checkout и воспроизводимость
+расчётов. [Порядок и область локальной проверки](LOCAL_VERIFICATION_RU.md).
+Сеть, CI и LLM-провайдер для выполнения расчётов не требуются.
+
+## Следующие интерфейсы
+
+- [Python и Gymnasium на основном PWR-ядре](PWR_AGENT_QUICKSTART_RU.md).
+- [Локальные LLM tools и экспорт training case](PWR_LLM_TOOLS_RU.md).
+- [Параллельные кампании обучения](AI_09_10_12_TRAINING_RUNTIME_RU.md).
+
+Прежний `reactor.ReactorSimulator` и `envs.gym_reactor` сохранены как учебная
+ветка. Её GUI запускается из checkout командой `python apps/gui/app.py` после
+установки `python -m pip install -e '.[gui]'`. Рисунки демонстраций сохраняются
+в `artifacts/demos/`.

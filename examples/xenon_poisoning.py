@@ -2,10 +2,15 @@
 Пример симуляции отравления ксеноном
 Демонстрирует эффект Xe-135 на реактивность после изменения мощности
 """
+from pathlib import Path
+
+output_dir = Path("artifacts/demos")
+output_dir.mkdir(parents=True, exist_ok=True)
+
 
 import sys
 import os
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "src"))
 
 from reactor.simulator_advanced import ReactorSimulatorAdvanced
 from reactor.visualization import plot_simulation_results
@@ -92,7 +97,7 @@ def main():
     axes[3].grid(True, alpha=0.3)
     
     plt.tight_layout()
-    plt.savefig('xenon_poisoning.png', dpi=150, bbox_inches='tight')
+    plt.savefig(str(output_dir / "xenon_poisoning.png"), dpi=150, bbox_inches='tight')
     print("   График сохранен: xenon_poisoning.png")
     
     # Анализ ксеноновой ямы

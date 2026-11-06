@@ -116,8 +116,10 @@ Repository = "https://github.com/researchim-ai/atomic-sim"
 
 [tool.setuptools]
 py-modules = ["generate_dataset"]
+package-dir = {"" = "src", scripts = "scripts", data = "data", scenarios = "scenarios", validation = "validation"}
 
 [tool.setuptools.package-data]
+reactor = ["default.yaml"]
 atomic_model_acceptance = ["data/motel_2025/*"]
 atomic_model_multiphysics = ["data/*.json", "data/*.md"]
 atomic_model_phase_assessment = ["data/pool_b274/*"]
@@ -132,10 +134,11 @@ atomic_model_contracts = ["py.typed"]
 atomic_model_project_ui = ["assets/*.html", "assets/*.css", "assets/*.js"]
 data = ["sources.json"]
 scenarios = ["*.yaml", "*.json"]
-validation = ["*.json"]
+validation = ["*.json", "ai06_hem_experiment_v1/**/*", "ai06_dynamic_data_candidate_v1/*"]
 
 [tool.setuptools.packages.find]
-where = ["."]
+where = ["src", "."]
+namespaces = false
 include = [
     "atomic_model_acceptance*",
     "atomic_model_uncertainty*",
@@ -185,6 +188,8 @@ include = [
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["src", "."]
+cache_dir = ".cache/pytest"
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
@@ -200,11 +205,15 @@ line-length = 100
 target-version = ['py310', 'py311', 'py312']
 
 [tool.ruff]
+cache-dir = ".cache/ruff"
+src = ["src"]
 line-length = 100
 select = ["E", "F", "W", "I"]
 ignore = ["E501"]
 
 [tool.mypy]
+mypy_path = "src"
+cache_dir = ".cache/mypy"
 python_version = "3.10"
 warn_return_any = true
 warn_unused_configs = true

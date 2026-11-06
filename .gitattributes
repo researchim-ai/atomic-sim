@@ -20,7 +20,11 @@
 
 # Primary CSV transcriptions retain original CRLF bytes used by pinned manifests.
 validation/ai06_dynamic_data_candidate_v1/table1_figure4_runs.csv -text
-atomic_model_hem_assessment/data/alamgir/table1.csv -text
+src/atomic_model_hem_assessment/data/alamgir/table1.csv -text
 
 # Retain primary pool-boiling dictionary bytes (source CRLF).
-atomic_model_phase_assessment/data/pool_b274/data_dictionary.csv -text
+src/atomic_model_phase_assessment/data/pool_b274/data_dictionary.csv -text
+
+# Keep digitized NIST measurements byte-identical to their frozen manifest.
+src/atomic_model_validation/data/nist_tn2294/measurements.csv -text whitespace=cr-at-eol
+validation/ai06_hem_experiment_v1/data/measurements.csv -text whitespace=cr-at-eol

@@ -18,6 +18,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("output", type=Path)
     args = parser.parse_args()
+    from reactor.config_loader import Config
+
+    if not Config.default().to_dict():
+        raise RuntimeError("Missing packaged default configuration")
     server = AgentToolServer()
     view = server.invoke(
         "create_controlled_episode", dict(session_id="pwr", config=dict(seed=17, max_steps=2))

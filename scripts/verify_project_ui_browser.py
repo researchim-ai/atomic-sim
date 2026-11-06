@@ -10,6 +10,7 @@ from pathlib import Path
 def main():
     from playwright.sync_api import sync_playwright
 
+    import atomic_model_project_ui
     from atomic_model_project_ui.server import create_server
     from atomic_model_projects import store
     from atomic_model_runtime import create_eos_episode
@@ -135,7 +136,7 @@ def main():
             assets={
                 p.name: hashlib.sha256(p.read_bytes()).hexdigest()
                 for p in (
-                    Path(__file__).resolve().parents[1] / "atomic_model_project_ui/assets"
+                    Path(atomic_model_project_ui.__file__).resolve().parent / "assets"
                 ).iterdir()
             },
             screenshots=[p.name for p in sorted(output.glob("*.png"))],

@@ -484,7 +484,10 @@ def main():
     args = parser.parse_args()
     wheel = args.wheel.resolve()
     with zipfile.ZipFile(wheel) as archive:
+        import sdk
+
         checkout = Path(__file__).resolve().parent.parent
+        source_root = Path(sdk.__file__).resolve().parent.parent
         digest = hashlib.sha256()
         for package in (
             "sdk",
@@ -498,9 +501,10 @@ def main():
             "data",
             "scenarios",
         ):
-            for path in sorted((checkout / package).rglob("*")):
+            base = (checkout if package in ("data", "scenarios") else source_root) / package
+            for path in sorted(base.rglob("*")):
                 if path.is_file() and path.suffix in (".py", ".json", ".yaml"):
-                    relative = path.relative_to(checkout)
+                    relative = Path(package) / path.relative_to(base)
                     name = str(relative)
                     if (
                         relative.as_posix() not in archive.namelist()

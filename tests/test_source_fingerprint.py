@@ -22,12 +22,17 @@ PACKAGES = (
 )
 
 
-def legacy(root):
+def legacy(root, resource_root=None):
     h = hashlib.sha256()
     for package in PACKAGES:
-        for p in sorted((root / package).rglob("*")):
+        base = (
+            resource_root
+            if resource_root is not None and package in ("data", "scenarios")
+            else root
+        ) / package
+        for p in sorted(base.rglob("*")):
             if p.is_file() and p.suffix in (".py", ".json", ".yaml"):
-                h.update(str(p.relative_to(root)).encode())
+                h.update(str(Path(package) / p.relative_to(base)).encode())
                 h.update(b"\0")
                 h.update(p.read_bytes())
     return h.hexdigest()
@@ -44,7 +49,14 @@ def test_real_tree_byte_stream_matches_independent_legacy_oracle():
     import sdk.experiment as module
 
     root = Path(module.__file__).resolve().parents[1]
-    assert _source_fingerprint() == legacy(root) == _source_fingerprint_at(root)
+    import scenarios
+
+    resources = Path(scenarios.__file__).resolve().parents[1]
+    assert (
+        _source_fingerprint()
+        == legacy(root, resources)
+        == _source_fingerprint_at(root, resource_root=resources)
+    )
 
 
 @pytest.mark.parametrize(
@@ -123,6 +135,7 @@ def test_top_level_package_link_matches_legacy(tmp_path):
 
 def test_checkpoint_source_guard_still_rejects_changed_tree(monkeypatch):
     import scripts.compressible_storage_graph as module
+
     from atomic_model_runtime import create_eos_episode
 
     env = create_eos_episode()
@@ -164,3 +177,14 @@ def test_unreadable_source_bytes_fail_closed(tmp_path, monkeypatch):
     monkeypatch.setattr(builtins, "open", deny)
     with pytest.raises(PermissionError):
         _source_fingerprint_at(tmp_path)
+
+
+def test_split_source_and_resource_roots_match_oracle(tmp_path):
+    source, resources = tmp_path / "src", tmp_path / "resources"
+    put(source, "sdk/module.py", "source")
+    put(resources, "scenarios/case.yaml", "case")
+    put(resources, "data/sources.json", "{}")
+    assert _source_fingerprint_at(source, resource_root=resources) == legacy(source, resources)
+    old = _source_fingerprint_at(source, resource_root=resources)
+    put(resources, "data/sources.json", "changed")
+    assert _source_fingerprint_at(source, resource_root=resources) != old

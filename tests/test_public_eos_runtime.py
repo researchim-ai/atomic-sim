@@ -217,7 +217,9 @@ def test_jsonl_eos_worker_uses_resources_outside_project_cwd(tmp_path):
     import sys
 
     env = dict(os.environ)
-    env["PYTHONPATH"] = str(Path(__file__).resolve().parents[1])
+    env["PYTHONPATH"] = os.pathsep.join(
+        [str(Path(__file__).resolve().parents[1] / "src"), str(Path(__file__).resolve().parents[1])]
+    )
     with subprocess.Popen(
         [sys.executable, "-m", "atomic_agent_tools"],
         stdin=subprocess.PIPE,

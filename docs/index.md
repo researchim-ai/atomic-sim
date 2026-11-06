@@ -1,7 +1,7 @@
 # Добро пожаловать в документацию Atomic Simulator!
 
 <div align="center">
-<img src="images/atomic-sim.png" alt="Atomic Reactor Simulator" style="max-width: 400px; width: 100%; height: auto;">
+<img src="assets/branding/atomic-sim.png" alt="Atomic Reactor Simulator" style="max-width: 400px; width: 100%; height: auto;">
 </div>
 
 ## 🔬 О проекте
@@ -128,7 +128,7 @@ model.learn(total_timesteps=100_000)
 ### Генерация датасета
 
 ```bash
-python generate_dataset.py --n-scenarios 1000 --duration 100 --format parquet
+atomic-sim --n-scenarios 1000 --duration 100 --format parquet
 ```
 
 ### Отравление ксеноном

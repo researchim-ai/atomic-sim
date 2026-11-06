@@ -4,7 +4,15 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+import scripts
+
+ROOT = Path(scripts.__file__).resolve().parent.parent
+
+
+def _anchored(path):
+    if path.parts[0] == "atomic_model_runtime":
+        return Path(__file__).resolve().parent.joinpath(*path.parts[1:])
+    return ROOT / path
 
 
 def resolve(path):
@@ -16,7 +24,7 @@ def resolve(path):
             p.parts[0] == "atomic_model_runtime" or (p.parts[0] == "scripts" and p.suffix == ".py")
         )
     ):
-        return ROOT / p
+        return _anchored(p)
     return p
 
 
@@ -28,7 +36,7 @@ class RuntimeFile(os.PathLike):
         return self.name
 
     def __fspath__(self):
-        return str(ROOT / self.name)
+        return str(_anchored(Path(self.name)))
 
     def read_text(self, *args, **kwargs):
         return Path(os.fspath(self)).read_text(*args, **kwargs)

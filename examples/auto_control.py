@@ -2,10 +2,15 @@
 Пример использования автоматического управления
 Демонстрирует работу ПИД-регулятора для поддержания заданной мощности
 """
+from pathlib import Path
+
+output_dir = Path("artifacts/demos")
+output_dir.mkdir(parents=True, exist_ok=True)
+
 
 import sys
 import os
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "src"))
 
 from reactor import ReactorSimulator
 from reactor.visualization import plot_simulation_results, create_summary_report
@@ -66,13 +71,13 @@ def main():
     print("\n4. Построение графиков...")
     plot_simulation_results(combined_history,
                            title="Автоматическое управление: Изменение мощности",
-                           save_path="auto_control.png")
+                           save_path=str(output_dir / "auto_control.png"))
     
     # Финальное состояние
     print("\n5. Финальное состояние:")
     simulator.print_state()
     
-    print("\nГотово! График сохранен в 'auto_control.png'")
+    print("\nГотово! График сохранен в 'artifacts/demos/auto_control.png'")
 
 
 if __name__ == "__main__":

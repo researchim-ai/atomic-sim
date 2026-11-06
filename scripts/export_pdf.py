@@ -128,7 +128,7 @@ def main():
     import sys
     
     # Проверка что site/ существует
-    site_dir = Path(__file__).parent.parent / "site"
+    site_dir = Path(__file__).parent.parent / "artifacts" / "site"
     if not site_dir.exists():
         print("❌ Директория site/ не найдена!")
         print("\nСначала соберите документацию:")

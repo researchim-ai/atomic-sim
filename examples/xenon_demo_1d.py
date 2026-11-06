@@ -1,3 +1,8 @@
+from pathlib import Path
+
+output_dir = Path("artifacts/demos")
+output_dir.mkdir(parents=True, exist_ok=True)
+
 import sys
 import os
 import torch
@@ -6,7 +11,7 @@ import matplotlib.pyplot as plt
 import time
 
 # Add parent directory to path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "src"))
 
 from reactor import ReactorSimulator1D
 
@@ -86,8 +91,8 @@ def run_xenon_oscillation():
     plt.axhline(0, color='k', linestyle='--')
     plt.legend()
     
-    plt.savefig('xenon_oscillation_demo.png')
-    print("График сохранен в xenon_oscillation_demo.png")
+    plt.savefig(str(output_dir / "xenon_oscillation_demo.png"))
+    print("График сохранен в artifacts/demos/xenon_oscillation_demo.png")
 
 if __name__ == "__main__":
     run_xenon_oscillation()

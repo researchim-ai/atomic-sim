@@ -1,0 +1,11 @@
+include LICENSE README.md requirements.txt mkdocs.yml
+recursive-include requirements *.txt
+recursive-include configs *.yaml
+recursive-include tests *.py *.json *.yaml *.csv
+recursive-include apps *.py *.md
+recursive-include examples *.py *.json *.yaml *.md
+recursive-include docs *.md *.png *.jpg *.svg *.css *.js
+prune artifacts
+prune .cache
+prune .venv-layout
+global-exclude *.py[cod]

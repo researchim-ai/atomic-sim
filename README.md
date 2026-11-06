@@ -1,7 +1,7 @@
 <p align="center">
 
 Текущий статус и очередь оставшихся работ: [локальная проверка и научные направления](docs/CURRENT_STATUS_RU.md).
-  <img src="src/imgs/atomic-sim.png" alt="Atomic Reactor Simulator" width="600"/>
+  <img src="docs/assets/branding/atomic-sim.png" alt="Atomic Reactor Simulator" width="600"/>
 </p>
 
 # 🔬 Симулятор Атомного Реактора
@@ -170,8 +170,8 @@ AI-05: типизированная сеть, клапан и [связанна�
 git clone https://github.com/researchim-ai/atomic-sim.git
 cd atomic-sim
 
-# Установить зависимости
-pip install -r requirements.txt
+# Установить библиотеку и зависимости
+python -m pip install -e .
 ```
 
 ### Установка как пакет
@@ -190,7 +190,7 @@ atomic-sim --help
 ### Требования
 
 **Базовые:**
-- Python 3.8+
+- Python 3.10+
 - PyTorch 2.0+
 - NumPy 1.24+
 - Matplotlib 3.7+
@@ -209,12 +209,19 @@ atomic-sim --help
 - black 23.0+
 - ruff 0.0.290+
 
+## Структура проекта
+
+Код библиотеки — в `src/`, приложения — в `apps/`, тесты — в `tests/`,
+примеры — в `examples/`, документация — в `docs/`. Научные данные и свидетельства
+сохранены в `data/`, `scenarios/`, `validation/`; локальные результаты — в `artifacts/`.
+[Подробная структура и команды разработки](docs/PROJECT_STRUCTURE_RU.md).
+
 ## 📖 Быстрый старт
 
 ### Тестирование
 
 ```bash
-# Запустить все тесты (34 теста)
+# Запустить локальные тесты
 pytest tests/ -v
 
 # Быстрая проверка
@@ -293,7 +300,7 @@ python emergency_scram.py
 
 ### 7. Веб-интерфейс (UI)
 ```bash
-python3 gui/app.py
+python3 apps/gui/app.py
 ```
 Запускает профессиональный пульт оператора в браузере (по умолчанию localhost:8081) с живыми графиками, управлением стержнями и мониторингом безопасности.
 
@@ -303,10 +310,10 @@ python3 gui/app.py
 
 ```bash
 # Генерация 100 сценариев
-python generate_dataset.py --n-scenarios 100 --duration 100 --format parquet
+atomic-sim --n-scenarios 100 --duration 100 --format parquet
 
 # Q&A для LLM
-python dataset_builders/qa_from_traces.py --input datasets/*.parquet --output datasets/qa.jsonl
+python -m dataset_builders.qa_from_traces --input datasets/*.parquet --output datasets/qa.jsonl
 ```
 
 ### Reinforcement Learning
@@ -357,7 +364,7 @@ trajectory = sim.run_batch(n_steps=100_000)
 ### Генерация PDF документации
 
 ```bash
-pip install -r requirements-docs.txt
+pip install -r requirements/docs.txt
 playwright install chromium
 mkdocs build
 python scripts/export_pdf.py

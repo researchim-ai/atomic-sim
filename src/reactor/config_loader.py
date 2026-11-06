@@ -70,7 +70,7 @@ class Config:
             Config объект
         """
         # Поиск default.yaml
-        default_path = Path(__file__).parent.parent / "configs" / "default.yaml"
+        default_path = Path(__file__).with_name("default.yaml")
 
         if default_path.exists():
             return cls.from_yaml(default_path)

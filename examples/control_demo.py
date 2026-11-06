@@ -1,3 +1,8 @@
+from pathlib import Path
+
+output_dir = Path("artifacts/demos")
+output_dir.mkdir(parents=True, exist_ok=True)
+
 import sys
 import os
 import torch
@@ -5,7 +10,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Add parent directory to path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "src"))
 
 from reactor import ReactorSimulator1D
 
@@ -140,8 +145,8 @@ def run_control_demo():
     axes[1, 1].grid(True)
     
     plt.tight_layout()
-    plt.savefig('control_demo_result.png')
-    print("Результат сохранен в control_demo_result.png")
+    plt.savefig(str(output_dir / "control_demo_result.png"))
+    print("Результат сохранен в artifacts/demos/control_demo_result.png")
 
 if __name__ == "__main__":
     run_control_demo()

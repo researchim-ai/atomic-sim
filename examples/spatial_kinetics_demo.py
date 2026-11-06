@@ -1,3 +1,8 @@
+from pathlib import Path
+
+output_dir = Path("artifacts/demos")
+output_dir.mkdir(parents=True, exist_ok=True)
+
 import sys
 import os
 import torch
@@ -6,7 +11,7 @@ import matplotlib.pyplot as plt
 import time
 
 # Add parent directory to path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "src"))
 
 from reactor import ReactorSimulator1D
 
@@ -96,8 +101,8 @@ def run_demo():
     axes[1, 1].grid(True)
     
     plt.tight_layout()
-    plt.savefig('spatial_kinetics_demo.png')
-    print("Результат сохранен в spatial_kinetics_demo.png")
+    plt.savefig(str(output_dir / "spatial_kinetics_demo.png"))
+    print("Результат сохранен в artifacts/demos/spatial_kinetics_demo.png")
 
 if __name__ == "__main__":
     run_demo()

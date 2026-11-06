@@ -4,7 +4,7 @@
 
 ```bash
 # 1. Установить зависимости для документации
-pip install -r requirements-docs.txt
+pip install -r requirements/docs.txt
 
 # 2. Установить Chromium для Playwright (только первый раз)
 playwright install chromium
@@ -23,7 +23,7 @@ python scripts/export_pdf.py
 ### Шаг 1: Установка зависимостей
 
 ```bash
-pip install -r requirements-docs.txt
+pip install -r requirements/docs.txt
 ```
 
 **Что устанавливается:**
@@ -265,7 +265,7 @@ jobs:
           python-version: '3.10'
       - name: Install dependencies
         run: |
-          pip install -r requirements-docs.txt
+          pip install -r requirements/docs.txt
           playwright install chromium
       - name: Build docs
         run: mkdocs build

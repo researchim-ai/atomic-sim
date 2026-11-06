@@ -1,3 +1,5 @@
+site_dir: artifacts/site
+
 site_name: Симулятор Атомного Реактора - Документация
 site_description: Высокоточный симулятор ядерного реактора для ML/RL
 site_author: researchim-ai
@@ -111,6 +113,7 @@ nav:
   - Главная: index.md
   - Начало работы:
       - Быстрый старт: QUICKSTART.md
+      - Структура проекта: PROJECT_STRUCTURE_RU.md
       - Установка: INSTALLATION.md
       - Генерация PDF: HOW_TO_GENERATE_PDF.md
   - Основы:
