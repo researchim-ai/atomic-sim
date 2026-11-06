@@ -1,0 +1,15 @@
+{
+  "python": "3.12.9",
+  "implementation": "CPython",
+  "system": "Linux",
+  "machine": "x86_64",
+  "packages": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.2",
+    "pandas": "2.3.3",
+    "pytest": "9.1.1",
+    "setuptools": "79.0.1",
+    "wheel": "0.45.1"
+  },
+  "replay_scope": "Bitwise history replay is qualified in this environment; cross-platform equality is not asserted"
+}

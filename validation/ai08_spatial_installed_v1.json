@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "source": {
+    "sources": {
+      "__init__.py": "bc8780e168df8c5c502ded4881ef3f47477330eb216b1552070270f54c3aef98",
+      "__main__.py": "a307c39023570f3ad7a87929a14ba448b1c866a7919297dc1dc084dbb4de539b",
+      "cases.py": "74b1d2478d16ea8e56f8ab8c9552e521a25c6497ee4cb0e5d9874f1c24de6abb",
+      "data/slab_eigen_v1.json": "370b794e008c729bb7c9eb070451a60daf0e9341c526722a4d51db41a39b7d7c",
+      "data/slab_transient_v1.json": "a774ce2ad72661e2ff5d6a5d37aec8f77100b3daaf11f1b29b3a15c5fa220c75",
+      "diagnostics.py": "c9039e9e86c69c6b482f2bb312a03048c7142c56ed77a0a18a4e45b9f74d6044",
+      "experiment.py": "2d956b67a5a13c51aa8e10ff2a19ea973177ce866618ca4b4014e542737a5442",
+      "model.py": "08aa018927adb15b2f75b0c12da986fab942eadc43ffa8dc19145067db675de5",
+      "reference.py": "d0e387e8adfe25c39e54ef7879f3cdc8a51262db0738871101a10f1c13ce2be7",
+      "solvers.py": "818cbd1893491a2894d063b09d21ebd2c77fca33f94c76b3cf75b288a7f57fce",
+      "transient.py": "85b8e07a1b91b13c50ca3348c120f0f94c30e60bad680afacc8a7464dfa8539d",
+      "workflow.py": "bfa53fc26fceec90c5ba4ff764126aee9b42fdb424482c69af3cc956b196cc79"
+    },
+    "runtime": {
+      "python": "3.12.9",
+      "numpy": "2.2.6",
+      "scipy": "1.15.2"
+    }
+  },
+  "module_path": "/tmp/atomic-spatial-installed-wbkuxh6i/venv/lib/python3.12/site-packages/atomic_model_spatial/workflow.py",
+  "steps": [
+    {
+      "argv": [
+        "-m",
+        "atomic_model_spatial",
+        "audit",
+        "/tmp/atomic-spatial-installed-wbkuxh6i/inputs/qualification.json"
+      ],
+      "returncode": 0,
+      "stdout": "{'status': 'numerically_verified', 'validated': False, 'plant_referenced': False}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "-m",
+        "atomic_model_spatial",
+        "qualify",
+        "--output",
+        "/tmp/atomic-spatial-installed-wbkuxh6i/inputs/installed_qualification.json"
+      ],
+      "returncode": 0,
+      "stdout": "{'status': 'numerically_verified', 'validated': False, 'plant_referenced': False}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "-m",
+        "atomic_model_spatial",
+        "example",
+        "slab_eigen_v1",
+        "--output",
+        "/tmp/atomic-spatial-installed-wbkuxh6i/inputs/eigen_input.json"
+      ],
+      "returncode": 0,
+      "stdout": "/tmp/atomic-spatial-installed-wbkuxh6i/inputs/eigen_input.json\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "-m",
+        "atomic_model_spatial",
+        "run",
+        "/tmp/atomic-spatial-installed-wbkuxh6i/inputs/eigen_input.json",
+        "--output",
+        "/tmp/atomic-spatial-installed-wbkuxh6i/inputs/eigen_output.json"
+      ],
+      "returncode": 0,
+      "stdout": "{'status': 'completed', 'validated': False, 'plant_referenced': False}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "-m",
+        "atomic_model_spatial",
+        "example",
+        "slab_transient_v1",
+        "--output",
+        "/tmp/atomic-spatial-installed-wbkuxh6i/inputs/transient_input.json"
+      ],
+      "returncode": 0,
+      "stdout": "/tmp/atomic-spatial-installed-wbkuxh6i/inputs/transient_input.json\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "-m",
+        "atomic_model_spatial",
+        "run",
+        "/tmp/atomic-spatial-installed-wbkuxh6i/inputs/transient_input.json",
+        "--output",
+        "/tmp/atomic-spatial-installed-wbkuxh6i/inputs/transient_output.json"
+      ],
+      "returncode": 0,
+      "stdout": "{'status': 'completed', 'validated': False, 'plant_referenced': False}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "-m",
+        "pytest",
+        "-q",
+        "/tmp/atomic-spatial-installed-wbkuxh6i/inputs/test_spatial_diffusion.py"
+      ],
+      "returncode": 0,
+      "stdout": "........................................................................ [100%]\n72 passed in 1.15s\n",
+      "stderr": ""
+    }
+  ],
+  "console_entrypoint_returncode": 0,
+  "scope": "Outside checkout, same host and shared dependency environment; not an OS/hardware matrix",
+  "validated": false,
+  "plant_referenced": false
+}

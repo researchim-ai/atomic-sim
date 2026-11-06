@@ -53,6 +53,16 @@ dev = [
 ]
 
 [project.scripts]
+atomic-acceptance = "atomic_model_acceptance.__main__:main"
+atomic-uncertainty = "atomic_model_uncertainty.__main__:main"
+atomic-multiphysics = "atomic_model_multiphysics.__main__:main"
+atomic-research = "atomic_model_research.__main__:main"
+atomic-training = "atomic_model_training.__main__:main"
+atomic-pwr-controlled = "atomic_model_controlled_plant.__main__:main"
+atomic-pwr-extended = "atomic_model_plant_extension.__main__:main"
+atomic-phase-assessment = "atomic_model_phase_assessment.__main__:main"
+atomic-network-initialize = "atomic_model_initialization.__main__:main"
+atomic-spatial = "atomic_model_spatial.__main__:main"
 atomic-hem-identification = "atomic_model_hem_identification.__main__:main"
 atomic-hem-throughflow = "atomic_model_hem_throughflow.__main__:main"
 atomic-hem-assessment = "atomic_model_hem_assessment.__main__:main"
@@ -108,6 +118,11 @@ Repository = "https://github.com/researchim-ai/atomic-sim"
 py-modules = ["generate_dataset"]
 
 [tool.setuptools.package-data]
+atomic_model_acceptance = ["data/motel_2025/*"]
+atomic_model_multiphysics = ["data/*.json", "data/*.md"]
+atomic_model_phase_assessment = ["data/pool_b274/*"]
+atomic_model_plant_extension = ["data/beavrs/*"]
+atomic_model_spatial = ["data/*.json"]
 atomic_model_hem_assessment = ["data/hiper/*", "data/alamgir/*"]
 atomic_model_validation = ["data/nist_tn2294/*"]
 atomic_model_runtime = ["presets/*.json"]
@@ -122,6 +137,12 @@ validation = ["*.json"]
 [tool.setuptools.packages.find]
 where = ["."]
 include = [
+    "atomic_model_acceptance*",
+    "atomic_model_uncertainty*",
+    "atomic_model_multiphysics*",
+    "atomic_model_research*",
+    "atomic_model_training*",
+    "atomic_pwr_agent*",
     "reactor*",
     "envs*",
     "dataset_builders*",
@@ -137,6 +158,11 @@ include = [
     "atomic_agent_tools*",
     "atomic_model_runtime*",
     "atomic_model_hem*",
+    "atomic_model_spatial*",
+    "atomic_model_initialization*",
+    "atomic_model_phase_assessment*",
+    "atomic_model_plant_extension*",
+    "atomic_model_controlled_plant*",
     "atomic_model_workspace*",
     "atomic_model_bench*",
     "atomic_model_pool*",

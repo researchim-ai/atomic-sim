@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "source": "https://github.com/mit-crpg/BEAVRS",
+  "commit": "1ccae04dc3830a5977f08ed7f5f7e1e51ded0d22",
+  "source_path": "docs/specifications/expdata/expdata.tex",
+  "table_label": "tbl:meas_c1phys",
+  "source_sha256": "13eea6a808136dfee603d607cb1ac97ededbdfb31a7bb6a8728a937aa183e801",
+  "conditions": "Cycle1 hot zero power, sequential insertion, not independently measured standalone bank worths",
+  "sequential_increments": [
+    {
+      "bank": "D",
+      "preceding_insertion": "ARO",
+      "worth_pcm": 788
+    },
+    {
+      "bank": "C",
+      "preceding_insertion": "D",
+      "worth_pcm": 1203
+    },
+    {
+      "bank": "B",
+      "preceding_insertion": "D,C",
+      "worth_pcm": 1171
+    },
+    {
+      "bank": "A",
+      "preceding_insertion": "D,C,B",
+      "worth_pcm": 548
+    },
+    {
+      "bank": "SE",
+      "preceding_insertion": "D,C,B,A",
+      "worth_pcm": 461
+    },
+    {
+      "bank": "SD",
+      "preceding_insertion": "D,C,B,A,SE",
+      "worth_pcm": 772
+    },
+    {
+      "bank": "SC",
+      "preceding_insertion": "D,C,B,A,SE,SD",
+      "worth_pcm": 1099
+    }
+  ],
+  "aggregate_worth_pcm": 6042,
+  "aggregate_worth": 0.06042,
+  "scope": "Source-informed fixed aggregate endpoint; sinusoidal interpolation, power/temperature independence and lumped use are model assumptions, not BEAVRS validation",
+  "license": "MIT, original license retained",
+  "validated": false,
+  "plant_referenced": false
+}

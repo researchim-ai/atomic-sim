@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "bundle_id": "ai08-spatial-diffusion-v1",
+  "scope": "Numerical multigroup slab diffusion and local precursors, synthetic coefficients; no physical-data or plant validation",
+  "entries": [
+    {
+      "source": "atomic_model_spatial/__init__.py",
+      "path": "review_sources/atomic_model_spatial/__init__.py"
+    },
+    {
+      "source": "atomic_model_spatial/__main__.py",
+      "path": "review_sources/atomic_model_spatial/__main__.py"
+    },
+    {
+      "source": "atomic_model_spatial/cases.py",
+      "path": "review_sources/atomic_model_spatial/cases.py"
+    },
+    {
+      "source": "atomic_model_spatial/diagnostics.py",
+      "path": "review_sources/atomic_model_spatial/diagnostics.py"
+    },
+    {
+      "source": "atomic_model_spatial/experiment.py",
+      "path": "review_sources/atomic_model_spatial/experiment.py"
+    },
+    {
+      "source": "atomic_model_spatial/model.py",
+      "path": "review_sources/atomic_model_spatial/model.py"
+    },
+    {
+      "source": "atomic_model_spatial/reference.py",
+      "path": "review_sources/atomic_model_spatial/reference.py"
+    },
+    {
+      "source": "atomic_model_spatial/solvers.py",
+      "path": "review_sources/atomic_model_spatial/solvers.py"
+    },
+    {
+      "source": "atomic_model_spatial/transient.py",
+      "path": "review_sources/atomic_model_spatial/transient.py"
+    },
+    {
+      "source": "atomic_model_spatial/workflow.py",
+      "path": "review_sources/atomic_model_spatial/workflow.py"
+    },
+    {
+      "source": "atomic_model_spatial/data/slab_eigen_v1.json",
+      "path": "review_sources/atomic_model_spatial/data/slab_eigen_v1.json"
+    },
+    {
+      "source": "atomic_model_spatial/data/slab_transient_v1.json",
+      "path": "review_sources/atomic_model_spatial/data/slab_transient_v1.json"
+    },
+    {
+      "source": "tests/test_spatial_diffusion.py",
+      "path": "review_sources/tests/test_spatial_diffusion.py"
+    },
+    {
+      "source": "scripts/verify_spatial_install.py",
+      "path": "review_sources/scripts/verify_spatial_install.py"
+    },
+    {
+      "source": "docs/AI_08_SPATIAL_DIFFUSION_RU.md",
+      "path": "review_sources/docs/AI_08_SPATIAL_DIFFUSION_RU.md"
+    },
+    {
+      "source": "docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md",
+      "path": "review_sources/docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md"
+    },
+    {
+      "source": "docs/READINESS_REVIEW_RU.md",
+      "path": "review_sources/docs/READINESS_REVIEW_RU.md"
+    },
+    {
+      "source": "README.md",
+      "path": "review_sources/README.md"
+    },
+    {
+      "source": "pyproject.toml",
+      "path": "review_sources/pyproject.toml"
+    },
+    {
+      "source": ".github/workflows/ci.yml",
+      "path": "review_sources/.github/workflows/ci.yml"
+    },
+    {
+      "source": ".github/workflows/numerical.yml",
+      "path": "review_sources/.github/workflows/numerical.yml"
+    },
+    {
+      "source": "validation/ai_industrial_workplan_v1.json",
+      "path": "review_sources/validation/ai_industrial_workplan_v1.json"
+    },
+    {
+      "source": "validation/ai08_spatial_summary_v1.json",
+      "path": "review_sources/validation/ai08_spatial_summary_v1.json"
+    },
+    {
+      "source": "validation/ai08_spatial_installed_v1.json",
+      "path": "review_sources/validation/ai08_spatial_installed_v1.json"
+    },
+    {
+      "source": "artifacts/ai08_spatial_delivery_qualification_v1.json",
+      "path": "verification_inputs/qualification.json"
+    },
+    {
+      "source": "tests/test_spatial_diffusion.py",
+      "path": "verification_inputs/test_spatial_diffusion.py"
+    },
+    {
+      "source": "scripts/verify_spatial_install.py",
+      "path": "verification/verify.py"
+    },
+    {
+      "source": "dist/atomic_sim-2.0.0-py3-none-any.whl",
+      "path": "runtime/atomic_sim-2.0.0-py3-none-any.whl"
+    },
+    {
+      "source": "dist/atomic_sim-2.0.0.tar.gz",
+      "path": "runtime/atomic_sim-2.0.0.tar.gz"
+    }
+  ],
+  "metadata": {
+    "data_provenance": "Synthetic new fixtures; existing third-party runtime data retain their notices"
+  },
+  "runtime": {
+    "wheel": "runtime/atomic_sim-2.0.0-py3-none-any.whl",
+    "sdist": "runtime/atomic_sim-2.0.0.tar.gz",
+    "source_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67"
+  }
+}

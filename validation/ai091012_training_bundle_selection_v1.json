@@ -1,0 +1,290 @@
+{
+  "schema_version": 1,
+  "bundle_id": "ai091012-training-runtime-v1",
+  "scope": "Source-bound Linux declarative short-core campaigns; no experimental or real-plant attestation",
+  "metadata": {
+    "source": {
+      "core": {
+        "plant": {
+          "foundation_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+          "files": {
+            "__init__.py": "63dda0755dc9c4682c9e860b28a73212400f9da27f48649b41bc4200a870ddbb",
+            "__main__.py": "7dce37e37c56ff8312643deded0f8e537a9502f6ccf5de527e74b722ae1d4993",
+            "continuation.py": "317b98d0c616370e6b33464dfa084bf96b3be3d3e17162ebddc654015cc539bd",
+            "data/beavrs/LICENSE": "1d1b6d1266b5bf6274c169ca0caef559ad2e6e9b3e99b02303a8b3041a54a135",
+            "data/beavrs/absorber.json": "605907b49919cd4b4dacf6f19828053b9ce9bb0c02754092dc826d08ea1c4d29",
+            "data/beavrs/expdata.tex": "13eea6a808136dfee603d607cb1ac97ededbdfb31a7bb6a8728a937aa183e801",
+            "gravity.py": "b94165142d879fcc96408dc420b1bf79ef272a23c860c67649c955fe9578f0e4",
+            "initialization.py": "6c43cdcf9f31d5c04e0891f8e249e419b35d0888e1fd6207dd969f498d7b3b98",
+            "one_way.py": "c75fcdc2219f5d64ae30cf6c60d246f5a2a8d8d347bf4527753e2597ebc104aa",
+            "ports.py": "218173e77659ed8e47f0f3e3ffa04fbece6d0c12472abd432fcdc97e9fe8540d",
+            "pwr.py": "a771e1869ce166cb301cd3efdcf92399f1ca1071fcd335d11319951a48e609d6",
+            "qualification.py": "112f61731aa99d58b81872de6f8cba6da54836f4443d5a213a65e801eb2c2b42",
+            "session.py": "f3dd8379d4f82a218a01aa233494858a2c03b7ab84a03ed64b4a3fad5bed3eb1",
+            "volume.py": "9cc6b4bf27e9e78521a358c7a71eeacf91831e84aed221bd3be7bea0d39a2c5e",
+            "water.py": "8e85c45065fd6766bbd5a519608ddfe72c0e6aaf29277ba6408b0001dda625fa"
+          }
+        },
+        "runtime": {
+          "python": "3.12.9",
+          "system": "Linux",
+          "machine": "x86_64",
+          "numpy": "2.2.6",
+          "scipy": "1.15.2"
+        },
+        "implementation": {
+          "__init__.py": "ad0dd4131dd3d8902cc61e6e9d5fe880796adb064bd4a96ad3ea2758f0bb5617",
+          "__main__.py": "686862cbdf166087c2a55b57fd23a54c46da8cd577409e1dd3e1834d63baf745",
+          "model.py": "ebaa00ae1fb5f471902f3a4bb797170871633eea2d95248673a4b20622c935f4",
+          "qualification.py": "4e6357b624f9e0d6693af75e90506b70652d6b7bd7a785c15685bc8440034ed3",
+          "session.py": "207c94855b94ec8950c201cf27fd046d9dea9509eae7bb4aecf72bfdd8e91edd"
+        },
+        "shared_bootstrap": {
+          "water_types": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+          "canonical": "7c407aa79cd2164bece0e4f1ffd03ea5e0858497aabe26010e42c758425d76a2",
+          "charging": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883"
+        },
+        "shared_leaves": {
+          "water_types": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+          "canonical": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12",
+          "charging": "3241851687ecd267ac644453cb49b9d8cd1d85fbc7075e14baaf403058f4fed1"
+        }
+      },
+      "implementation": {
+        "__init__.py": "5d5e153fa439f3caf49891d061362789d1bdeb58634f7defb80073e237aedd1a",
+        "__main__.py": "d60d6f2f5a82380fbcca80db37a84d818d3cac78452b7364498ad798d2c775e7",
+        "cache.py": "caaf0f1b228aaad83cd9fb6adef37d259c6d54496bea6c8eb61338136632f969",
+        "episode.py": "23f39a20c9de20f652dbfd6e158dcdbdd6dcec7168f910ac19583e56119fefe1",
+        "evidence.py": "d22c8224f53cad5d5a161c89d45b5c238702970ea381f5a803cc33fba38dbe5e",
+        "runner.py": "4164515b0b051ee068751becc908f07923574a828c68c895e8f3792b4e24a09a",
+        "schema.py": "5c416d64952d94fa98816fa64add504982baf5a4ddd14474b265a1c7257a18a9",
+        "spec.py": "4ddfec2f127eb1802158641c9cf8efb432c2f25be70fc5866598b54ff2793745",
+        "template.py": "a8e46de67aa5e487fc084401d97cb7dc0fbd1f57588c9c09c1e1700cccebaa0b",
+        "tiers.py": "55ec8c61a91ab1614fced9d69111c22161736c3334da73d10cf87a0401ad3524",
+        "worker.py": "a423ae616decae73556cd53a1da5d67043709d8870f9a4b839a73a375246b33d"
+      }
+    },
+    "accepted_tasks": 10,
+    "validated": false,
+    "plant_referenced": false
+  },
+  "entries": [
+    {
+      "source": ".github/workflows/ci.yml",
+      "path": ".github/workflows/ci.yml"
+    },
+    {
+      "source": ".github/workflows/numerical.yml",
+      "path": ".github/workflows/numerical.yml"
+    },
+    {
+      "source": "README.md",
+      "path": "README.md"
+    },
+    {
+      "source": "artifacts/ai091012_final_runtime.log",
+      "path": "artifacts/ai091012_final_runtime.log"
+    },
+    {
+      "source": "artifacts/ai091012_installed_runtime.log",
+      "path": "artifacts/ai091012_installed_runtime.log"
+    },
+    {
+      "source": "artifacts/ai091012_regression.log",
+      "path": "artifacts/ai091012_regression.log"
+    },
+    {
+      "source": "artifacts/ai091012_training-benchmark-cache-pilot.json",
+      "path": "artifacts/ai091012_training-benchmark-cache-pilot.json"
+    },
+    {
+      "source": "artifacts/ai091012_training-benchmark-cache2-pilot.json",
+      "path": "artifacts/ai091012_training-benchmark-cache2-pilot.json"
+    },
+    {
+      "source": "artifacts/ai091012_training-benchmark-pilot.json",
+      "path": "artifacts/ai091012_training-benchmark-pilot.json"
+    },
+    {
+      "source": "artifacts/ai091012_training-benchmark-shared-pilot.json",
+      "path": "artifacts/ai091012_training-benchmark-shared-pilot.json"
+    },
+    {
+      "source": "artifacts/ai091012_training_benchmark_v2.json",
+      "path": "artifacts/ai091012_training_benchmark_v2.json"
+    },
+    {
+      "source": "artifacts/ai091012_training_build_v2/atomic_sim-2.0.0-py3-none-any.whl",
+      "path": "artifacts/ai091012_training_build_v2/atomic_sim-2.0.0-py3-none-any.whl"
+    },
+    {
+      "source": "artifacts/ai091012_training_build_v2/atomic_sim-2.0.0.tar.gz",
+      "path": "artifacts/ai091012_training_build_v2/atomic_sim-2.0.0.tar.gz"
+    },
+    {
+      "source": "artifacts/ai091012_training_build_v3/atomic_sim-2.0.0-py3-none-any.whl",
+      "path": "artifacts/ai091012_training_build_v3/atomic_sim-2.0.0-py3-none-any.whl"
+    },
+    {
+      "source": "artifacts/ai091012_training_build_v3/atomic_sim-2.0.0.tar.gz",
+      "path": "artifacts/ai091012_training_build_v3/atomic_sim-2.0.0.tar.gz"
+    },
+    {
+      "source": "artifacts/ai091012_training_campaign_v2/load.progress.json",
+      "path": "artifacts/ai091012_training_campaign_v2/load.progress.json"
+    },
+    {
+      "source": "artifacts/ai091012_training_campaign_v2/load.result.json",
+      "path": "artifacts/ai091012_training_campaign_v2/load.result.json"
+    },
+    {
+      "source": "artifacts/ai091012_training_campaign_v2/manifest.json",
+      "path": "artifacts/ai091012_training_campaign_v2/manifest.json"
+    },
+    {
+      "source": "artifacts/ai091012_training_campaign_v2/nominal.progress.json",
+      "path": "artifacts/ai091012_training_campaign_v2/nominal.progress.json"
+    },
+    {
+      "source": "artifacts/ai091012_training_campaign_v2/nominal.result.json",
+      "path": "artifacts/ai091012_training_campaign_v2/nominal.result.json"
+    },
+    {
+      "source": "artifacts/ai091012_training_campaign_v2/report.json",
+      "path": "artifacts/ai091012_training_campaign_v2/report.json"
+    },
+    {
+      "source": "artifacts/ai091012_training_campaign_v2/trip.progress.json",
+      "path": "artifacts/ai091012_training_campaign_v2/trip.progress.json"
+    },
+    {
+      "source": "artifacts/ai091012_training_campaign_v2/trip.result.json",
+      "path": "artifacts/ai091012_training_campaign_v2/trip.result.json"
+    },
+    {
+      "source": "atomic_model_training/__init__.py",
+      "path": "atomic_model_training/__init__.py"
+    },
+    {
+      "source": "atomic_model_training/__main__.py",
+      "path": "atomic_model_training/__main__.py"
+    },
+    {
+      "source": "atomic_model_training/cache.py",
+      "path": "atomic_model_training/cache.py"
+    },
+    {
+      "source": "atomic_model_training/episode.py",
+      "path": "atomic_model_training/episode.py"
+    },
+    {
+      "source": "atomic_model_training/evidence.py",
+      "path": "atomic_model_training/evidence.py"
+    },
+    {
+      "source": "atomic_model_training/runner.py",
+      "path": "atomic_model_training/runner.py"
+    },
+    {
+      "source": "atomic_model_training/schema.py",
+      "path": "atomic_model_training/schema.py"
+    },
+    {
+      "source": "atomic_model_training/spec.py",
+      "path": "atomic_model_training/spec.py"
+    },
+    {
+      "source": "atomic_model_training/template.py",
+      "path": "atomic_model_training/template.py"
+    },
+    {
+      "source": "atomic_model_training/tiers.py",
+      "path": "atomic_model_training/tiers.py"
+    },
+    {
+      "source": "atomic_model_training/worker.py",
+      "path": "atomic_model_training/worker.py"
+    },
+    {
+      "source": "docs/AI_09_10_12_TRAINING_RUNTIME_RU.md",
+      "path": "docs/AI_09_10_12_TRAINING_RUNTIME_RU.md"
+    },
+    {
+      "source": "docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md",
+      "path": "docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md"
+    },
+    {
+      "source": "docs/CURRENT_STATUS_RU.md",
+      "path": "docs/CURRENT_STATUS_RU.md"
+    },
+    {
+      "source": "docs/READINESS_REVIEW_RU.md",
+      "path": "docs/READINESS_REVIEW_RU.md"
+    },
+    {
+      "source": "examples/training/cases.json",
+      "path": "examples/training/cases.json"
+    },
+    {
+      "source": "pyproject.toml",
+      "path": "pyproject.toml"
+    },
+    {
+      "source": "scripts/accept_training_delivery.py",
+      "path": "scripts/accept_training_delivery.py"
+    },
+    {
+      "source": "scripts/qualify_training_runtime.py",
+      "path": "scripts/qualify_training_runtime.py"
+    },
+    {
+      "source": "scripts/verify_training_install.py",
+      "path": "scripts/verify_training_install.py"
+    },
+    {
+      "source": "tests/test_training_campaign.py",
+      "path": "tests/test_training_campaign.py"
+    },
+    {
+      "source": "validation/ai091012_training_admission_v1.json",
+      "path": "validation/ai091012_training_admission_v1.json"
+    },
+    {
+      "source": "validation/ai091012_training_build_witness_v1.json",
+      "path": "validation/ai091012_training_build_witness_v1.json"
+    },
+    {
+      "source": "validation/ai091012_training_build_witness_v2.json",
+      "path": "validation/ai091012_training_build_witness_v2.json"
+    },
+    {
+      "source": "validation/ai091012_training_checks_v1.json",
+      "path": "validation/ai091012_training_checks_v1.json"
+    },
+    {
+      "source": "validation/ai091012_training_delivery_v1.json",
+      "path": "validation/ai091012_training_delivery_v1.json"
+    },
+    {
+      "source": "validation/ai091012_training_final_wheel_v1.json",
+      "path": "validation/ai091012_training_final_wheel_v1.json"
+    },
+    {
+      "source": "validation/ai091012_training_installed_v1.json",
+      "path": "validation/ai091012_training_installed_v1.json"
+    },
+    {
+      "source": "validation/ai091012_training_protocol_v1.json",
+      "path": "validation/ai091012_training_protocol_v1.json"
+    },
+    {
+      "source": "validation/ai_industrial_workplan_v1.json",
+      "path": "validation/ai_industrial_workplan_v1.json"
+    }
+  ],
+  "runtime": {
+    "wheel": "artifacts/ai091012_training_build_v3/atomic_sim-2.0.0-py3-none-any.whl",
+    "sdist": "artifacts/ai091012_training_build_v3/atomic_sim-2.0.0.tar.gz",
+    "source_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67"
+  }
+}

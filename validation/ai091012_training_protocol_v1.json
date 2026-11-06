@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "scope": "short declarative-policy episodes on pwr-reduced-flow-controlled; Linux local research",
+  "tasks": ["AI-09.01", "AI-09.03", "AI-09.07", "AI-10.01", "AI-10.03", "AI-10.04", "AI-10.06", "AI-10.07", "AI-10.08", "AI-12.07"],
+  "baseline": "ordinary source-bound Session constructor on each episode, unchanged solver settings",
+  "workload": {"episodes": 6, "steps_per_episode": 2, "duration_s": 0.1, "commands": {}},
+  "performance_minimum_speedup": 2.0,
+  "performance_measurement": "same process, one CPU thread, median of three complete workload timings; template preparation included",
+  "parity": "exact complete checkpoint equality including state, event and energy history",
+  "tiers": {"training": {"rtol": 0.000001, "atol": 0.00001}, "reference": {"rtol": 0.0000001, "atol": 0.000001}},
+  "tier_state_scaled_error_maximum": 0.001,
+  "balance_relative_maximum": 0.00001,
+  "split_unit": "declared physical family; output clocks, seeds and solver tiers cannot change family partition",
+  "intended_outputs": {"state": "native core units, full state vector", "time": "s", "energy_balance": "J and relative", "mass_balance": "kg and relative"},
+  "excluded": ["experimental validation", "plant reference", "surrogate", "arbitrary untrusted Python execution", "long-transient speedup claim", "non-Linux resource qualification"],
+  "validated": false,
+  "plant_referenced": false
+}

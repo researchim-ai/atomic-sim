@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "source": {
+    "sources": {
+      "__init__.py": "bc8780e168df8c5c502ded4881ef3f47477330eb216b1552070270f54c3aef98",
+      "__main__.py": "a307c39023570f3ad7a87929a14ba448b1c866a7919297dc1dc084dbb4de539b",
+      "cases.py": "74b1d2478d16ea8e56f8ab8c9552e521a25c6497ee4cb0e5d9874f1c24de6abb",
+      "data/slab_eigen_v1.json": "370b794e008c729bb7c9eb070451a60daf0e9341c526722a4d51db41a39b7d7c",
+      "data/slab_transient_v1.json": "a774ce2ad72661e2ff5d6a5d37aec8f77100b3daaf11f1b29b3a15c5fa220c75",
+      "diagnostics.py": "c9039e9e86c69c6b482f2bb312a03048c7142c56ed77a0a18a4e45b9f74d6044",
+      "experiment.py": "2d956b67a5a13c51aa8e10ff2a19ea973177ce866618ca4b4014e542737a5442",
+      "model.py": "08aa018927adb15b2f75b0c12da986fab942eadc43ffa8dc19145067db675de5",
+      "reference.py": "d0e387e8adfe25c39e54ef7879f3cdc8a51262db0738871101a10f1c13ce2be7",
+      "solvers.py": "818cbd1893491a2894d063b09d21ebd2c77fca33f94c76b3cf75b288a7f57fce",
+      "transient.py": "85b8e07a1b91b13c50ca3348c120f0f94c30e60bad680afacc8a7464dfa8539d",
+      "workflow.py": "bfa53fc26fceec90c5ba4ff764126aee9b42fdb424482c69af3cc956b196cc79"
+    },
+    "runtime": {
+      "python": "3.12.9",
+      "numpy": "2.2.6",
+      "scipy": "1.15.2"
+    }
+  },
+  "new_tests_passed": 72,
+  "total_related_tests_passed": 391,
+  "prior_related_tests_passed": 319,
+  "installed_tests_passed": 72,
+  "full_project_regression_repeated": false,
+  "static": [
+    {
+      "dense_k": 0.21270331516061147,
+      "eigen_relative_error": 1.1773817792900668e-11,
+      "eigen_residual": 1.4022147852445193e-12,
+      "fixed_source_relative_error": 1.7322986612489773e-15,
+      "heterogeneous": false,
+      "k": 0.21270331515810714
+    },
+    {
+      "dense_k": 0.19424178264661998,
+      "eigen_relative_error": 3.3589596795637843e-12,
+      "eigen_residual": 1.6174920644951225e-12,
+      "fixed_source_relative_error": 1.4094982059933591e-15,
+      "heterogeneous": true,
+      "k": 0.19424178264596753
+    }
+  ],
+  "spatial": [
+    {
+      "meshes": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "orders": [
+        2.002492122878348,
+        2.0006261201822126,
+        2.000156771833133
+      ],
+      "problem": "homogeneous_multigroup_k",
+      "relative_errors": [
+        0.008237303332308382,
+        0.0020557716079502826,
+        0.0005137199025337415,
+        0.00012841602042583633
+      ]
+    },
+    {
+      "meshes": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "orders": [
+        2.016197227527683,
+        1.9994246480311915,
+        2.0010067154114215
+      ],
+      "problem": "discontinuous_diffusion_source",
+      "relative_errors": [
+        0.03225806451612932,
+        0.007974481658692911,
+        0.0019944156362197494,
+        0.0004982561036391549
+      ]
+    }
+  ],
+  "transients": [
+    {
+      "complete_history_restart_equal": true,
+      "heterogeneous": false,
+      "horizon_s": 0.04,
+      "inventory_relative_defects": [
+        3.892897441058177e-16,
+        4.79801527832938e-16,
+        5.339447122199205e-16
+      ],
+      "local_inventory_relative_defects": [
+        5.454088564115553e-16,
+        6.588896252105696e-16,
+        9.400159535979253e-16
+      ],
+      "orders": [
+        0.9877592818661485,
+        0.993839009710451
+      ],
+      "relative_errors": [
+        0.0030778332609555747,
+        0.0015520293015110953,
+        0.0007793356865567784
+      ],
+      "residuals": [
+        1.5911108146709757e-16,
+        2.445748316268927e-16,
+        2.407393188291447e-16
+      ],
+      "steps_s": [
+        0.002,
+        0.001,
+        0.0005
+      ]
+    },
+    {
+      "complete_history_restart_equal": true,
+      "heterogeneous": true,
+      "horizon_s": 0.04,
+      "inventory_relative_defects": [
+        3.4695984065188073e-16,
+        4.2216893014815346e-16,
+        4.075341060447285e-16
+      ],
+      "local_inventory_relative_defects": [
+        6.165394380796885e-16,
+        7.434772940203707e-16,
+        6.973398795313921e-16
+      ],
+      "orders": [
+        0.9881330460754146,
+        0.9940524510103271
+      ],
+      "relative_errors": [
+        0.003331473444711687,
+        0.001679494822181136,
+        0.0008432164379743995
+      ],
+      "residuals": [
+        2.448963602032491e-16,
+        2.4639203346928155e-16,
+        3.685858328954089e-16
+      ],
+      "steps_s": [
+        0.002,
+        0.001,
+        0.0005
+      ]
+    }
+  ],
+  "physical_speed_equilibrium": {
+    "dt_s": 0.001,
+    "max_population_relative_drift": 1.8226553599731687e-10,
+    "meaning": "Stationarity identity only; no physical XS validation",
+    "speed_m_s": [
+      10000000.0,
+      2200
+    ],
+    "steps": 20
+  },
+  "criteria": {
+    "critical_population_relative_drift": 2e-08,
+    "eigen_dense_relative": 1e-08,
+    "fixed_dense_relative": 1e-10,
+    "inventory_relative_defect": 1e-09,
+    "linear_residual": 1e-10,
+    "spatial_order_min": 1.8,
+    "temporal_finest_relative": 0.002,
+    "temporal_order_min": 0.9
+  },
+  "source_provenance": "Synthetic qualification fixtures only; no evaluated XS acceptance",
+  "prior_hem_and_identification_source_identity_unchanged": true,
+  "physical_validation_promoted": false,
+  "validated": false,
+  "plant_referenced": false
+}

@@ -21,3 +21,6 @@
 # Primary CSV transcriptions retain original CRLF bytes used by pinned manifests.
 validation/ai06_dynamic_data_candidate_v1/table1_figure4_runs.csv -text
 atomic_model_hem_assessment/data/alamgir/table1.csv -text
+
+# Retain primary pool-boiling dictionary bytes (source CRLF).
+atomic_model_phase_assessment/data/pool_b274/data_dictionary.csv -text

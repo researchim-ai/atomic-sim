@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "files": {
+    "atomic_model_hem/eos.py": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+    "atomic_model_workspace/common.py": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12",
+    "atomic_model_hem_throughflow/__main__.py": "803fc081d592839da13b3011e91fe05d3898d010f5c433cec854af6da450f105"
+  },
+  "scope": "Supplementary source leaves used for shared state types, strict numbers, canonical digests and CLI publication; verified separately from the legacy foundation fingerprint"
+}

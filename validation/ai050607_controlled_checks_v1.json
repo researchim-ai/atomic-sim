@@ -1,0 +1,71 @@
+{
+  "source": {
+    "plant": {
+      "foundation_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+      "files": {
+        "__init__.py": "63dda0755dc9c4682c9e860b28a73212400f9da27f48649b41bc4200a870ddbb",
+        "__main__.py": "7dce37e37c56ff8312643deded0f8e537a9502f6ccf5de527e74b722ae1d4993",
+        "continuation.py": "317b98d0c616370e6b33464dfa084bf96b3be3d3e17162ebddc654015cc539bd",
+        "data/beavrs/LICENSE": "1d1b6d1266b5bf6274c169ca0caef559ad2e6e9b3e99b02303a8b3041a54a135",
+        "data/beavrs/absorber.json": "605907b49919cd4b4dacf6f19828053b9ce9bb0c02754092dc826d08ea1c4d29",
+        "data/beavrs/expdata.tex": "13eea6a808136dfee603d607cb1ac97ededbdfb31a7bb6a8728a937aa183e801",
+        "gravity.py": "b94165142d879fcc96408dc420b1bf79ef272a23c860c67649c955fe9578f0e4",
+        "initialization.py": "6c43cdcf9f31d5c04e0891f8e249e419b35d0888e1fd6207dd969f498d7b3b98",
+        "one_way.py": "c75fcdc2219f5d64ae30cf6c60d246f5a2a8d8d347bf4527753e2597ebc104aa",
+        "ports.py": "218173e77659ed8e47f0f3e3ffa04fbece6d0c12472abd432fcdc97e9fe8540d",
+        "pwr.py": "a771e1869ce166cb301cd3efdcf92399f1ca1071fcd335d11319951a48e609d6",
+        "qualification.py": "112f61731aa99d58b81872de6f8cba6da54836f4443d5a213a65e801eb2c2b42",
+        "session.py": "f3dd8379d4f82a218a01aa233494858a2c03b7ab84a03ed64b4a3fad5bed3eb1",
+        "volume.py": "9cc6b4bf27e9e78521a358c7a71eeacf91831e84aed221bd3be7bea0d39a2c5e",
+        "water.py": "8e85c45065fd6766bbd5a519608ddfe72c0e6aaf29277ba6408b0001dda625fa"
+      }
+    },
+    "runtime": {
+      "python": "3.12.9",
+      "system": "Linux",
+      "machine": "x86_64",
+      "numpy": "2.2.6",
+      "scipy": "1.15.2"
+    },
+    "implementation": {
+      "__init__.py": "ad0dd4131dd3d8902cc61e6e9d5fe880796adb064bd4a96ad3ea2758f0bb5617",
+      "__main__.py": "686862cbdf166087c2a55b57fd23a54c46da8cd577409e1dd3e1834d63baf745",
+      "model.py": "ebaa00ae1fb5f471902f3a4bb797170871633eea2d95248673a4b20622c935f4",
+      "qualification.py": "4e6357b624f9e0d6693af75e90506b70652d6b7bd7a785c15685bc8440034ed3",
+      "session.py": "207c94855b94ec8950c201cf27fd046d9dea9509eae7bb4aecf72bfdd8e91edd"
+    },
+    "shared_bootstrap": {
+      "water_types": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+      "canonical": "7c407aa79cd2164bece0e4f1ffd03ea5e0858497aabe26010e42c758425d76a2",
+      "charging": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883"
+    },
+    "shared_leaves": {
+      "water_types": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+      "canonical": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12",
+      "charging": "3241851687ecd267ac644453cb49b9d8cd1d85fbc7075e14baaf403058f4fed1"
+    }
+  },
+  "regression": {
+    "passed": 451,
+    "duration_s": 152.96,
+    "exit_code": 0,
+    "log_sha256": "5f09c19b538bf2fbf87eff75620e81755c4c74290e194e29bef9da7a9e0d496a"
+  },
+  "installed_tests": {
+    "passed": 61,
+    "duration_s": 123.36,
+    "exit_code": 0,
+    "log_sha256": "18a661ff5f90300d0c497b0fb361f99c0d90d4b6c929c305356f573aeb0cc14b"
+  },
+  "test_sources": {
+    "test_plant_extension.py": "c66a4dc9e20e81527bce02b560be5f79a7576a470745e9eb456da1275224341b",
+    "test_controlled_plant.py": "4f137b858080baa2c5fe72f8f47d27523a8b1e8a2eea33a4232a0749ffe7a3a2",
+    "test_phase_assessment.py": "8a37d8c37f8a2641fbd46d38a477a0cdb733c05a8fd9edc087d747cb5c2d94d8",
+    "test_phase_primary_transport.py": "b7907c6077dab769b89c238f2f6e288ceafa7cc7a59cabe25a6aadbe7e24c830",
+    "test_extended_natural_initialization.py": "690a32e81f2fe0047dfe7570f6549b45a25fb0f895e6a0a2d004bd57401d3444"
+  },
+  "candidate_wheel_sha256": "61692c006949cdbe1a281041b9bb852a38cb5b3c3939c9524c912283f7ad0bd6",
+  "frozen_prior_chain_unchanged": true,
+  "validated": false,
+  "plant_referenced": false
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "source": {
+    "sources": {
+      "__init__.py": "bc8780e168df8c5c502ded4881ef3f47477330eb216b1552070270f54c3aef98",
+      "__main__.py": "a307c39023570f3ad7a87929a14ba448b1c866a7919297dc1dc084dbb4de539b",
+      "cases.py": "74b1d2478d16ea8e56f8ab8c9552e521a25c6497ee4cb0e5d9874f1c24de6abb",
+      "data/slab_eigen_v1.json": "370b794e008c729bb7c9eb070451a60daf0e9341c526722a4d51db41a39b7d7c",
+      "data/slab_transient_v1.json": "a774ce2ad72661e2ff5d6a5d37aec8f77100b3daaf11f1b29b3a15c5fa220c75",
+      "diagnostics.py": "c9039e9e86c69c6b482f2bb312a03048c7142c56ed77a0a18a4e45b9f74d6044",
+      "experiment.py": "2d956b67a5a13c51aa8e10ff2a19ea973177ce866618ca4b4014e542737a5442",
+      "model.py": "08aa018927adb15b2f75b0c12da986fab942eadc43ffa8dc19145067db675de5",
+      "reference.py": "d0e387e8adfe25c39e54ef7879f3cdc8a51262db0738871101a10f1c13ce2be7",
+      "solvers.py": "818cbd1893491a2894d063b09d21ebd2c77fca33f94c76b3cf75b288a7f57fce",
+      "transient.py": "85b8e07a1b91b13c50ca3348c120f0f94c30e60bad680afacc8a7464dfa8539d",
+      "workflow.py": "bfa53fc26fceec90c5ba4ff764126aee9b42fdb424482c69af3cc956b196cc79"
+    },
+    "runtime": {
+      "python": "3.12.9",
+      "numpy": "2.2.6",
+      "scipy": "1.15.2"
+    }
+  },
+  "archive": "artifacts/ai08_spatial_publication_v1.tar.gz",
+  "archive_sha256": "3a84aa94257bb76c8796b9e617edf028d7b667f4710590c39963588274651801",
+  "archive_bytes": 13686603,
+  "verification": {
+    "schema_version": 1,
+    "integrity_verified": true,
+    "archive_sha256": "3a84aa94257bb76c8796b9e617edf028d7b667f4710590c39963588274651801",
+    "manifest_sha256": "7da30a5a5fe5b32a2379e0090be0fa0640a8923bc133339de0abdac80d3a884d",
+    "files": 30,
+    "uncompressed_bytes": 14633132,
+    "runtime_source_verified": true,
+    "source_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+    "numerical_acceptance_recomputed": false,
+    "publisher_authenticated": false
+  },
+  "deterministic_rebuild": true,
+  "new_package_wheel_sdist_bytes_match": true,
+  "packaged_example_count": 2,
+  "native_runtime_fingerprint": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+  "accepted_tasks": [
+    "AI-08.03"
+  ],
+  "new_tests_passed": 72,
+  "total_related_tests_passed": 391,
+  "installed_tests_passed": 72,
+  "full_project_regression_repeated": false,
+  "static_reference_cases": 2,
+  "spatial_sequences": 2,
+  "spatial_meshes": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "transient_cases": 2,
+  "transient_trajectories": 6,
+  "restarts": 6,
+  "physical_speed_equilibrium_identity_checked": true,
+  "data_fidelity": "synthetic verification fixtures; no evaluated-data acceptance",
+  "validated": false,
+  "plant_referenced": false
+}

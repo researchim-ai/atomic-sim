@@ -1,0 +1,394 @@
+{
+  "schema_version": 1,
+  "bundle_id": "ai050607-initialization-horizons-v1",
+  "scope": "Bounded heated graph initialization and complete legacy-plant campaign including three failed full requests; no three-block or physical completion claim",
+  "entries": [
+    {
+      "source": "atomic_model_initialization/__init__.py",
+      "path": "review_sources/atomic_model_initialization/__init__.py"
+    },
+    {
+      "source": "atomic_model_initialization/__main__.py",
+      "path": "review_sources/atomic_model_initialization/__main__.py"
+    },
+    {
+      "source": "atomic_model_initialization/qualification.py",
+      "path": "review_sources/atomic_model_initialization/qualification.py"
+    },
+    {
+      "source": "atomic_model_initialization/steady.py",
+      "path": "review_sources/atomic_model_initialization/steady.py"
+    },
+    {
+      "source": "scripts/qualify_system_horizons.py",
+      "path": "review_sources/scripts/qualify_system_horizons.py"
+    },
+    {
+      "source": "tests/test_network_initialization.py",
+      "path": "review_sources/tests/test_network_initialization.py"
+    },
+    {
+      "source": "tests/test_system_horizons.py",
+      "path": "review_sources/tests/test_system_horizons.py"
+    },
+    {
+      "source": "scripts/verify_network_initialization_install.py",
+      "path": "review_sources/scripts/verify_network_initialization_install.py"
+    },
+    {
+      "source": "docs/AI_05_06_07_SYSTEM_PROGRESS_RU.md",
+      "path": "review_sources/docs/AI_05_06_07_SYSTEM_PROGRESS_RU.md"
+    },
+    {
+      "source": "docs/CURRENT_STATUS_RU.md",
+      "path": "review_sources/docs/CURRENT_STATUS_RU.md"
+    },
+    {
+      "source": "docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md",
+      "path": "review_sources/docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md"
+    },
+    {
+      "source": "docs/READINESS_REVIEW_RU.md",
+      "path": "review_sources/docs/READINESS_REVIEW_RU.md"
+    },
+    {
+      "source": "README.md",
+      "path": "review_sources/README.md"
+    },
+    {
+      "source": "pyproject.toml",
+      "path": "review_sources/pyproject.toml"
+    },
+    {
+      "source": ".github/workflows/ci.yml",
+      "path": "review_sources/.github/workflows/ci.yml"
+    },
+    {
+      "source": ".github/workflows/numerical.yml",
+      "path": "review_sources/.github/workflows/numerical.yml"
+    },
+    {
+      "source": "validation/ai_industrial_workplan_v1.json",
+      "path": "review_sources/validation/ai_industrial_workplan_v1.json"
+    },
+    {
+      "source": "validation/ai050607_summary_v1.json",
+      "path": "review_sources/validation/ai050607_summary_v1.json"
+    },
+    {
+      "source": "validation/ai050607_installed_v1.json",
+      "path": "review_sources/validation/ai050607_installed_v1.json"
+    },
+    {
+      "source": "validation/ai07_lumped_configuration_v1.json",
+      "path": "review_sources/validation/ai07_lumped_configuration_v1.json"
+    },
+    {
+      "source": "validation/ai06_condensation_candidate_v1.json",
+      "path": "review_sources/validation/ai06_condensation_candidate_v1.json"
+    },
+    {
+      "source": "artifacts/ai05_initialization_publication_v1.json",
+      "path": "verification_inputs/qualification.json"
+    },
+    {
+      "source": "tests/test_network_initialization.py",
+      "path": "verification_inputs/test_network_initialization.py"
+    },
+    {
+      "source": "tests/test_system_horizons.py",
+      "path": "verification_inputs/test_system_horizons.py"
+    },
+    {
+      "source": "scripts/verify_network_initialization_install.py",
+      "path": "verification/verify.py"
+    },
+    {
+      "source": "dist/atomic_sim-2.0.0-py3-none-any.whl",
+      "path": "runtime/atomic_sim-2.0.0-py3-none-any.whl"
+    },
+    {
+      "source": "dist/atomic_sim-2.0.0.tar.gz",
+      "path": "runtime/atomic_sim-2.0.0.tar.gz"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/campaign.json",
+      "path": "plant_campaign/campaign.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/coastdown_refined_1800/checkpoint.json",
+      "path": "plant_campaign/coastdown_refined_1800/checkpoint.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/coastdown_refined_1800/input.json",
+      "path": "plant_campaign/coastdown_refined_1800/input.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/coastdown_refined_1800/manifest.json",
+      "path": "plant_campaign/coastdown_refined_1800/manifest.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/coastdown_refined_1800/report.json",
+      "path": "plant_campaign/coastdown_refined_1800/report.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/coastdown_refined_1800/report.md",
+      "path": "plant_campaign/coastdown_refined_1800/report.md"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/coastdown_refined_1800/trajectory.csv",
+      "path": "plant_campaign/coastdown_refined_1800/trajectory.csv"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/feed_change/checkpoint.json",
+      "path": "plant_campaign/feed_change/checkpoint.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/feed_change/input.json",
+      "path": "plant_campaign/feed_change/input.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/feed_change/manifest.json",
+      "path": "plant_campaign/feed_change/manifest.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/feed_change/report.json",
+      "path": "plant_campaign/feed_change/report.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/feed_change/report.md",
+      "path": "plant_campaign/feed_change/report.md"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/feed_change/trajectory.csv",
+      "path": "plant_campaign/feed_change/trajectory.csv"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/load_rejection/checkpoint.json",
+      "path": "plant_campaign/load_rejection/checkpoint.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/load_rejection/input.json",
+      "path": "plant_campaign/load_rejection/input.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/load_rejection/manifest.json",
+      "path": "plant_campaign/load_rejection/manifest.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/load_rejection/report.json",
+      "path": "plant_campaign/load_rejection/report.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/load_rejection/report.md",
+      "path": "plant_campaign/load_rejection/report.md"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/load_rejection/trajectory.csv",
+      "path": "plant_campaign/load_rejection/trajectory.csv"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_coarse/checkpoint.json",
+      "path": "plant_campaign/nominal_coarse/checkpoint.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_coarse/input.json",
+      "path": "plant_campaign/nominal_coarse/input.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_coarse/manifest.json",
+      "path": "plant_campaign/nominal_coarse/manifest.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_coarse/report.json",
+      "path": "plant_campaign/nominal_coarse/report.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_coarse/report.md",
+      "path": "plant_campaign/nominal_coarse/report.md"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_coarse/trajectory.csv",
+      "path": "plant_campaign/nominal_coarse/trajectory.csv"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_radau/checkpoint.json",
+      "path": "plant_campaign/nominal_radau/checkpoint.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_radau/input.json",
+      "path": "plant_campaign/nominal_radau/input.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_radau/manifest.json",
+      "path": "plant_campaign/nominal_radau/manifest.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_radau/report.json",
+      "path": "plant_campaign/nominal_radau/report.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_radau/report.md",
+      "path": "plant_campaign/nominal_radau/report.md"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_radau/trajectory.csv",
+      "path": "plant_campaign/nominal_radau/trajectory.csv"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_tight/checkpoint.json",
+      "path": "plant_campaign/nominal_tight/checkpoint.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_tight/input.json",
+      "path": "plant_campaign/nominal_tight/input.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_tight/manifest.json",
+      "path": "plant_campaign/nominal_tight/manifest.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_tight/report.json",
+      "path": "plant_campaign/nominal_tight/report.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_tight/report.md",
+      "path": "plant_campaign/nominal_tight/report.md"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_tight/trajectory.csv",
+      "path": "plant_campaign/nominal_tight/trajectory.csv"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/protected_coastdown_1800/checkpoint.json",
+      "path": "plant_campaign/protected_coastdown_1800/checkpoint.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/protected_coastdown_1800/input.json",
+      "path": "plant_campaign/protected_coastdown_1800/input.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/protected_coastdown_1800/manifest.json",
+      "path": "plant_campaign/protected_coastdown_1800/manifest.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/protected_coastdown_1800/report.json",
+      "path": "plant_campaign/protected_coastdown_1800/report.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/protected_coastdown_1800/report.md",
+      "path": "plant_campaign/protected_coastdown_1800/report.md"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/protected_coastdown_1800/trajectory.csv",
+      "path": "plant_campaign/protected_coastdown_1800/trajectory.csv"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_coarse/checkpoint.json",
+      "path": "plant_campaign/scram_coarse/checkpoint.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_coarse/input.json",
+      "path": "plant_campaign/scram_coarse/input.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_coarse/manifest.json",
+      "path": "plant_campaign/scram_coarse/manifest.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_coarse/report.json",
+      "path": "plant_campaign/scram_coarse/report.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_coarse/report.md",
+      "path": "plant_campaign/scram_coarse/report.md"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_coarse/trajectory.csv",
+      "path": "plant_campaign/scram_coarse/trajectory.csv"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_quarter/checkpoint.json",
+      "path": "plant_campaign/scram_quarter/checkpoint.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_quarter/input.json",
+      "path": "plant_campaign/scram_quarter/input.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_quarter/manifest.json",
+      "path": "plant_campaign/scram_quarter/manifest.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_quarter/report.json",
+      "path": "plant_campaign/scram_quarter/report.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_quarter/report.md",
+      "path": "plant_campaign/scram_quarter/report.md"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_quarter/trajectory.csv",
+      "path": "plant_campaign/scram_quarter/trajectory.csv"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_tight/checkpoint.json",
+      "path": "plant_campaign/scram_tight/checkpoint.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_tight/input.json",
+      "path": "plant_campaign/scram_tight/input.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_tight/manifest.json",
+      "path": "plant_campaign/scram_tight/manifest.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_tight/report.json",
+      "path": "plant_campaign/scram_tight/report.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_tight/report.md",
+      "path": "plant_campaign/scram_tight/report.md"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_tight/trajectory.csv",
+      "path": "plant_campaign/scram_tight/trajectory.csv"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/sink_change/checkpoint.json",
+      "path": "plant_campaign/sink_change/checkpoint.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/sink_change/input.json",
+      "path": "plant_campaign/sink_change/input.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/sink_change/manifest.json",
+      "path": "plant_campaign/sink_change/manifest.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/sink_change/report.json",
+      "path": "plant_campaign/sink_change/report.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/sink_change/report.md",
+      "path": "plant_campaign/sink_change/report.md"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/sink_change/trajectory.csv",
+      "path": "plant_campaign/sink_change/trajectory.csv"
+    }
+  ],
+  "metadata": {
+    "accepted_tasks": [
+      "AI-05.07"
+    ],
+    "all_three_blocks_closed": false
+  },
+  "runtime": {
+    "wheel": "runtime/atomic_sim-2.0.0-py3-none-any.whl",
+    "sdist": "runtime/atomic_sim-2.0.0.tar.gz",
+    "source_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67"
+  }
+}

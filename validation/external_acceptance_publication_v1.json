@@ -1,0 +1,27 @@
+{
+  "created": {
+    "schema_version": 1,
+    "integrity_verified": true,
+    "archive_sha256": "67282dbed7bef1cbe757eed7f3bab9fd3fc60d8c0ccd014d9cb5a1187879265e",
+    "manifest_sha256": "791a39f471165666abee882da9f3725def8e0a17980096ca32a6c8c276922740",
+    "files": 56,
+    "uncompressed_bytes": 31210995,
+    "runtime_source_verified": true,
+    "source_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+    "numerical_acceptance_recomputed": false,
+    "publisher_authenticated": false,
+    "archive": "/home/user/workspace/atomic-sim/artifacts/external_acceptance_publication_v1.tar.gz"
+  },
+  "verified": {
+    "schema_version": 1,
+    "integrity_verified": true,
+    "archive_sha256": "67282dbed7bef1cbe757eed7f3bab9fd3fc60d8c0ccd014d9cb5a1187879265e",
+    "manifest_sha256": "791a39f471165666abee882da9f3725def8e0a17980096ca32a6c8c276922740",
+    "files": 56,
+    "uncompressed_bytes": 31210995,
+    "runtime_source_verified": true,
+    "source_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+    "numerical_acceptance_recomputed": false,
+    "publisher_authenticated": false
+  }
+}

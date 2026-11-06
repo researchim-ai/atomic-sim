@@ -6,8 +6,9 @@ import re
 from copy import deepcopy
 
 from agent_envs.config import ACTION_BOUNDS, OBSERVATION_SCHEMA
+from atomic_agent_tools.controlled import action_channels, model_card
 
-PROTOCOL_VERSION = "1.1.0"
+PROTOCOL_VERSION = "1.2.0"
 LIMITS = dict(
     max_sessions=8,
     max_checkpoints=32,
@@ -88,8 +89,41 @@ GENERIC_ACTION = dict(
     maxProperties=84,
     additionalProperties=dict(type="number", minimum=-100000.0, maximum=100000.0),
 )
+CONTROLLED_CONFIG = obj(
+    dict(
+        duration_s=dict(type="number", exclusiveMinimum=0, maximum=5),
+        max_steps=bounded(1, 256, "integer"),
+        tier=dict(type="string", enum=["training", "reference"]),
+        seed=bounded(0, 2**32 - 1, "integer"),
+    )
+)
+# Shared SDK bounds; Boolean flags remain booleans in JSON and JSON Schema.
+
+CONTROLLED_ACTION = obj(
+    {
+        name: {k: v for k, v in channel.items() if k != "unit"}
+        for name, channel in action_channels().items()
+    }
+)
 SCHEMAS = {
     "describe_simulator": obj({}),
+    "create_controlled_episode": obj(
+        dict(session_id=SESSION, config=CONTROLLED_CONFIG), ["session_id"]
+    ),
+    "step_controlled_episode": obj(
+        dict(session_id=SESSION, action=CONTROLLED_ACTION, **GUARD),
+        ["session_id", "action", *GUARD],
+    ),
+    "export_controlled_case": obj(
+        dict(
+            session_id=SESSION,
+            case_id=dict(type="string", minLength=1, maxLength=80, pattern="^[A-Za-z0-9_-]+$"),
+            family=dict(type="string", minLength=1, maxLength=80, pattern="^[A-Za-z0-9_-]+$"),
+            split=dict(type="string", enum=["calibration", "validation"]),
+            **GUARD,
+        ),
+        ["session_id", "case_id", "family", *GUARD],
+    ),
     "create_episode": obj(dict(session_id=SESSION, config=CONFIG), ["session_id"]),
     "create_eos_episode": obj(dict(session_id=SESSION, config=EOS_CONFIG), ["session_id"]),
     "inspect_episode": obj(dict(session_id=SESSION), ["session_id"]),
@@ -106,6 +140,9 @@ SCHEMAS = {
     "forget_checkpoint": obj(dict(checkpoint_id=HASH), ["checkpoint_id"]),
 }
 DESCRIPTIONS = {
+    "export_controlled_case": "Export accepted commands as a bounded training-runtime case, without file access or a physical-validation claim.",
+    "create_controlled_episode": "Create a deterministic controlled research PWR episode with explicit full model state, not sensor measurements.",
+    "step_controlled_episode": "Apply partial persistent SDK commands to the controlled PWR. Empty action holds settings. No built-in reward.",
     "create_eos_episode": "Create a deterministic experimental EOS thermal episode from a packaged preset; not a reactor plant.",
     "describe_simulator": "List supported model, observations, physical action units, limits and tool schemas.",
     "create_episode": "Create a seeded reduced PWR episode. Sensor observations only; no hidden simulator state.",
@@ -137,6 +174,8 @@ def validate(schema, value, path="arguments"):
         if kind == "array"
         else isinstance(value, str)
         if kind == "string"
+        else type(value) is bool
+        if kind == "boolean"
         else type(value) is int
         if kind == "integer"
         else type(value) in (int, float)
@@ -152,6 +191,7 @@ def validate(schema, value, path="arguments"):
             not finite
             or value < schema.get("minimum", -math.inf)
             or value > schema.get("maximum", math.inf)
+            or ("exclusiveMinimum" in schema and value <= schema["exclusiveMinimum"])
         ):
             raise ToolError("invalid_argument", f"{path}: outside finite bounds")
     if kind == "object":
@@ -191,6 +231,11 @@ def catalog():
         protocol_version=PROTOCOL_VERSION,
         transport="local JSON Lines; not MCP or JSON-RPC",
         limits=deepcopy(LIMITS),
+        controlled_pwr=dict(
+            model=model_card(),
+            action_channels=action_channels(),
+            config_schema=deepcopy(CONTROLLED_CONFIG),
+        ),
         observation_schema=deepcopy(list(OBSERVATION_SCHEMA)),
         action_channels={
             k: dict(unit=UNITS[k], minimum=b[0], maximum=b[1]) for k, b in ACTION_BOUNDS.items()

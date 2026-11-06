@@ -1,0 +1,5 @@
+[
+  {"id":"nominal","family":"steady","split":"calibration","seed":17,"tier":"training","steps":[{"duration_s":0.1,"commands":{}},{"duration_s":0.1,"commands":{}}]},
+  {"id":"load","family":"load-rejection","split":"validation","seed":23,"tier":"training","steps":[{"duration_s":0.1,"commands":{"throttle":0.9}},{"duration_s":0.1,"commands":{}}]},
+  {"id":"trip","family":"reactor-trip","split":"validation","seed":31,"tier":"reference","steps":[{"duration_s":0.1,"commands":{"scram":true}},{"duration_s":0.1,"commands":{}}]}
+]

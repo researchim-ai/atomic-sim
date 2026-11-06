@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "plan_id": "atomic-ai-industrial-v1",
-  "date": "2026-11-05",
-  "version": "1.73.0",
+  "date": "2026-11-06",
+  "version": "1.80.0",
   "human_document": "docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md",
   "status": "in_progress",
   "validated": false,
@@ -24,8 +24,6 @@
     "awaiting_external_evidence"
   ],
   "next_execution_batch": [
-    "AI-06",
-    "AI-05",
     "AI-09"
   ],
   "historical_baseline_evidence": "validation/muscl_total_initialization_delivery_v1.json",
@@ -598,7 +596,7 @@
         {
           "id": "AI-05.03",
           "description": "Решать согласованную инициализацию сети с размерными невязками и диагностикой, а не подбором скрытой предыстории.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "validation/ai05_delivery_v2.json",
             "validation/ai05_network_verification_v2.json",
@@ -923,7 +921,26 @@
             "validation/ai05_hybrid_graph_summary_v1.json",
             "validation/ai05_hybrid_graph_passport_v1.json",
             "validation/ai05_hybrid_graph_installed_v1.json",
-            "validation/ai05_hybrid_graph_delivery_v1.json"
+            "validation/ai05_hybrid_graph_delivery_v1.json",
+            "atomic_model_initialization/__init__.py",
+            "atomic_model_initialization/__main__.py",
+            "atomic_model_initialization/qualification.py",
+            "atomic_model_initialization/steady.py",
+            "scripts/qualify_system_horizons.py",
+            "scripts/verify_network_initialization_install.py",
+            "tests/test_network_initialization.py",
+            "tests/test_system_horizons.py",
+            "docs/AI_05_06_07_SYSTEM_PROGRESS_RU.md",
+            "validation/ai050607_summary_v1.json",
+            "validation/ai050607_installed_v1.json",
+            "validation/ai050607_delivery_v1.json",
+            "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+            "validation/ai050607_controlled_summary_v1.json",
+            "validation/ai050607_controlled_checks_v1.json",
+            "validation/ai050607_controlled_installed_v1.json",
+            "validation/ai050607_controlled_delivery_v1.json",
+            "validation/ai07_controlled_configuration_v1.json",
+            "validation/ai06_pool_b274_independent_import_v2.json"
           ],
           "remaining": "General equipment/mixed-EOS registration, arbitrary guard functions, physically accounted state resets, general coincident-root resolution, streaming history and independently validated variable-density/inertial equipment remain open. Restricted combined event orchestration and explicit external-controller state are implemented in hybrid-thermal-radau-v1.",
           "implemented_scope": "Fixed-command initialization for the declared constant-property primary/equilibrium-steam assembly: signed-flow hydraulic elimination, scaled thermal linear solve, scalar condenser balance plus independent hot-energy compatibility, explicit mass/quality anchors, independent dimensional RHS residuals, no transient warmup or command adjustment.22 audited120s packets/11 families and12 typed negative cases; installed SDK reproduces three new BDF cases. Separate steady branched resistor graph solver: fixed pressure/injection boundaries, signed flow, strict monotone positive-linear/nonnegative-quadratic laws and hydrostatics;18 independently audited manufactured graphs up to128 nodes, exact archived replay outside checkout. Conservative steady constant-rho/cp enthalpy mixing on hydraulic graphs: pressure work, signed upwind transport, heating/cooling, ambient removal and receiver-deposited dissipation; per-node/edge/global balances and paired inward PortSpec-compatible endpoint records.21 independently audited cases up to128 nodes,42 new tests,archived replay and tests outside checkout. No transported stream temperature invented at zero flow. Finite positive-volume thermal stocks on fixed hydraulic graphs: affine matrix exponential in temperature increments, scaled external-energy integral, full-interval conservative domain admission, atomic advance/restore and detached source-bound checkpoints.22 cases to120s,44 independent Radau/DOP853 IVPs, restart37.5s,39 tests and archived cold replay/CLI restart. Unrepresentable time increments and nonfinite checkpoint data rejected. Stationary two-way temperature/linear-resistance feedback for an explicit user exponential endpoint-mean law, with fixed rho/cp and quadratic loss.20 independently verified mixed pressure/flow/temperature cases up to32 nodes; dimensional pressure, node/edge energy and law closure verified at returned temperature.37 new tests, source-bound cold archive replay. Global uniqueness and material calibration not claimed; original unresolved reservoir fixture retained as negative, internal-mixer fixture is explicitly different input. Nonlinear finite-stock thermal dynamics with L(T) and instantaneous monotone hydraulic equilibrium at each adaptive Dormand-Prince5(4) stage. Conservative local flow/pressure/stream/rate bounds admit full intervals; no clipping. Atomic advance/restore includes increment state, scaled energy and adaptive proposal; exact value continuation verified.10 scenarios to120s/8 nodes,30 measured-mesh trajectories,20 independent Radau/DOP853 IVPs,60 tests, archived cold replay and real bridge reversal. Predetermined command timeline: right-continuous exact event cuts, atomic combined commands, warm-state hydraulic reinitialization without thermal/energy impulses, whole-request rollback, shared attempt cap and source/input/future-bound restart.6 audited120s cases,18 meshes,12 independent IVPs,3 negative checks,62 tests and outside-checkout replay. Single-writer external online sample-and-hold commands: revision guard, append-only committed history, atomic command+integration, detached observations and source/input/history-bound restore.4 audited120s scenarios up to8 nodes,12 measured trajectories,24 independent IVPs,46 tests and outside-checkout replay. Typed nonlinear graph residual with differential thermal/audit-energy states and explicit algebraic pressure/flow variables. PortSpec/StateSpec/RowSpec contracts, paired inward endpoints, pure residual without hydraulic solves, dimensional initialization, analytic algebraic Jacobian and one-way checkpoint lift preserving clock/temperatures/external-energy integral.10 audited cases,30 independent instantaneous state comparisons,20 checkpoint lifts,51 tests and archived outside-checkout replay. One explicit registered whole-graph family with reduced Radau, pure residual/algebraic-Jacobian Newton projection, conservative macro admission, shared resource caps and atomic advance/restore. Bidirectional legacy handoff preserves increments/scaled external-energy integral/time; DP proposal reset and Radau macro history policy explicit.6 audited120s scenarios up to8 nodes,18 measured-mesh trajectories,12 independent IVPs,12 handoffs,53 tests and archived outside-checkout replay. Scheduled and revision-checked online controls over reduced Radau: exact calendar cuts, warm-state construction with original differential frame, no thermal/energy impulses, shared RHS/attempt caps, whole-call rollback and outer-frame checkpoint restoration.9 audited120s cases up to8 nodes,27 measured-mesh trajectories,26 independent IVPs,3 negative checks,80 tests and archived replay outside checkout. Warm entry/nested native checkpoint cannot be treated as a standalone engine checkpoint. One-shot directional temperature guards with monotone admitted rate boxes, consistent dense-output bisection, bracket diagnostics, physical-time ordering without epsilon coalescing, atomic warm command switching and persistent consumed IDs. Supports stop-at-event/root checkpoint and refuses unresolved endpoint contact, transversality or coincident roots.9 audited120s cases up to8 nodes,27 trial-mesh trajectories,18 independent event-IVPs,3 expected refusals,79 tests and archived replay outside checkout. Explicit finite-mode repeated temperature transitions with mode-entry rearming, complete actuator masks, certified positive numerical residence and warm physical reconstruction. Bounded recurrent history up to4096,per-call128 limit,shared resources and transactional cyclic checkpoint restoration.9 audited120s programs up to8 nodes,27 trial-mesh trajectories,18 independent switched-IVPs,4 negative cases,633 main-trajectory switches,80 tests and archived replay outside checkout; >128 total transitions tested across calls.",
@@ -933,7 +950,9 @@
           "controlled_mixed_eos_scope": "Joint two-circuit finite-inventory Euler/terminal-volume/caloric-wall assembly with strict thermal channel/chamber ports, separate circuit mass/momentum and global first/second-law accounting. Full-mask online heater commands, atomic rollback, per-instance serialized concurrency, complete JSON command history and exact same-environment restart. No arbitrary hydraulic topology, external-controller-state protocol or hybrid-event orchestration.",
           "closed_loop_eos_pi_scope": "Built-in deterministic sampled PI on joint finite-inventory EOS assembly, EWMA, power/slew limits, conditional integral hold, atomic multi-tick rollback with strict remaining nested integration work budgets; shared controller/plant JSON restart and controller recurrence/plant receipt validation. Fixed setpoint/gains; no arbitrary external controller or general event orchestration.",
           "public_eos_runtime_scope": "Installed distribution-relative EOS resources and stable Python/experiment/JSONL routes; restricted mixed finite-inventory thermal model with three declared presets, full heat actions, exact pause/resume and scenario identity. No general hydraulic graph, asynchronous jobs or physical validation promotion.",
-          "hybrid_orchestration_scope": "Fixed-property reduced-Radau graph: joint calendar/directional-temperature/online mode dispatch, explicit priorities for exact calendar ties and identical guard predicates, arm-delay inhibition with explicit level-at-arm semantics, warm algebraic reinitialization without stock impulses, explicit JSON controller state, shared call resource budgets, whole-call rollback and full accepted-call checkpoint replay. Distinct unresolved roots/calendar overlaps remain refused; no arbitrary guards, physical resets, general equipment, EOS inertia or plant validation."
+          "hybrid_orchestration_scope": "Fixed-property reduced-Radau graph: joint calendar/directional-temperature/online mode dispatch, explicit priorities for exact calendar ties and identical guard predicates, arm-delay inhibition with explicit level-at-arm semantics, warm algebraic reinitialization without stock impulses, explicit JSON controller state, shared call resource budgets, whole-call rollback and full accepted-call checkpoint replay. Distinct unresolved roots/calendar overlaps remain refused; no arbitrary guards, physical resets, general equipment, EOS inertia or plant validation.",
+          "verification_level": "numerical_verification",
+          "acceptance_scope": "Exact source-bound reduced flow-controlled PWR and declared component/HEM-vessel programs; not experimental or real-plant qualification"
         },
         {
           "id": "AI-05.04",
@@ -952,7 +971,7 @@
         {
           "id": "AI-05.05",
           "description": "Принять клапан, обратный клапан, накопительные объёмы и компенсатор с работой границы и точными событиями.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "validation/ai05_delivery_v5.json",
             "validation/ai05_valve_verification_v1.json",
@@ -988,10 +1007,19 @@
             "validation/ai05_compressible_storage_portable_replay_v1.json",
             "validation/ai05_compressible_storage_passport_v1.json",
             "docs/AI_05_COMPRESSIBLE_STORAGE_RU.md",
-            "tests/test_compressible_storage.py"
+            "tests/test_compressible_storage.py",
+            "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+            "validation/ai050607_controlled_summary_v1.json",
+            "validation/ai050607_controlled_checks_v1.json",
+            "validation/ai050607_controlled_installed_v1.json",
+            "validation/ai050607_controlled_delivery_v1.json",
+            "validation/ai07_controlled_configuration_v1.json",
+            "validation/ai06_pool_b274_independent_import_v2.json"
           ],
           "remaining": "Ideal zero-flow seating/release check valve and gas stores implemented; physical flap/impact, general network and steam pressurizer remain open. Hybrid-valve evidence remains bound to its own prior runtime source.",
-          "additional_implemented_scope": "Standalone compressible mass/energy inventories with prescribed piston-volume work and caloric EOS; not a steam pressurizer or full mixed network."
+          "additional_implemented_scope": "Standalone compressible mass/energy inventories with prescribed piston-volume work and caloric EOS; not a steam pressurizer or full mixed network.",
+          "verification_level": "numerical_verification",
+          "acceptance_scope": "Exact source-bound reduced flow-controlled PWR and declared component/HEM-vessel programs; not experimental or real-plant qualification"
         },
         {
           "id": "AI-05.06",
@@ -1053,7 +1081,7 @@
         {
           "id": "AI-05.07",
           "description": "Добавить гидростатику и совместно нагреваемую гравитационную петлю; отдельный компонентный тест не выдавать за естественную циркуляцию ВВЭР.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "scripts/solve_hydraulic_graph.py",
             "scripts/hydraulic_graph_references.py",
@@ -1167,7 +1195,19 @@
             "examples/eos_agent_workflow.py",
             "docs/AI_11_PUBLIC_EOS_RUNTIME_RU.md",
             "validation/ai11_public_eos_delivery_v1.json",
-            "validation/ai11_public_eos_portable_replay_v1.json"
+            "validation/ai11_public_eos_portable_replay_v1.json",
+            "atomic_model_initialization/__init__.py",
+            "atomic_model_initialization/__main__.py",
+            "atomic_model_initialization/qualification.py",
+            "atomic_model_initialization/steady.py",
+            "scripts/qualify_system_horizons.py",
+            "scripts/verify_network_initialization_install.py",
+            "tests/test_network_initialization.py",
+            "tests/test_system_horizons.py",
+            "docs/AI_05_06_07_SYSTEM_PROGRESS_RU.md",
+            "validation/ai050607_summary_v1.json",
+            "validation/ai050607_installed_v1.json",
+            "validation/ai050607_delivery_v1.json"
           ],
           "implemented_scope": "Hydrostatics and separately qualified closed heated/cooled energy-compensated lumped Boussinesq loops: gravity-only linear density anomaly, no imposed head, signed thermal/mechanical exchange;9 transient programs/27 measured meshes/18 independent IVPs/3 seeded stationary branches held40s, restart and rollback. Separately qualified true variable-density mass/internal-energy storage graph with a complete synthetic caloric EOS, prescribed piston volumes and entropy production. Experimental periodic constant-area finite-volume Euler loop with variable mass, momentum, full kinetic/potential energy transport, synthetic caloric EOS, hydrostatic reconstruction and SSPRK3; separately bounded numerical qualification, not an assembled plant network.",
           "remaining": "General branched inertial/gravitational EOS network assembly and general reservoir/piston/controller-event coupling (restricted mixed thermal assembly with online heater control is implemented separately); target-fluid EOS/phase validity, physical characteristic/open-boundary and arbitrary tank/plenum/nozzle models (finite same-area terminal volumes are implemented separately) and physical/plant validation. Periodic Euler prototype does not grant full-task acceptance; full repository regression for the new family remains pending. Portable offline audit/tests/example are now checked with inherited scientific dependencies.",
@@ -1176,12 +1216,13 @@
           "finite_terminal_chambers_scope": "Two same-area finite terminal Euler volumes with dynamic mass/momentum/total energy, reflecting endwalls and wall-reaction impulse; shared channel-interface fluxes and closed global first/second-law balances. No arbitrary plenum/nozzle or hydraulic branching, online controls or mixed thermal-wall assembly.",
           "controlled_mixed_eos_scope": "Joint two-circuit finite-inventory Euler/terminal-volume/caloric-wall assembly with strict thermal channel/chamber ports, separate circuit mass/momentum and global first/second-law accounting. Full-mask online heater commands, atomic rollback, per-instance serialized concurrency, complete JSON command history and exact same-environment restart. No arbitrary hydraulic topology, external-controller-state protocol or hybrid-event orchestration.",
           "closed_loop_eos_pi_scope": "Built-in deterministic sampled PI on joint finite-inventory EOS assembly, EWMA, power/slew limits, conditional integral hold, atomic multi-tick rollback with strict remaining nested integration work budgets; shared controller/plant JSON restart and controller recurrence/plant receipt validation. Fixed setpoint/gains; no arbitrary external controller or general event orchestration.",
-          "public_eos_runtime_scope": "Installed distribution-relative EOS resources and stable Python/experiment/JSONL routes; restricted mixed finite-inventory thermal model with three declared presets, full heat actions, exact pause/resume and scenario identity. No general hydraulic graph, asynchronous jobs or physical validation promotion."
+          "public_eos_runtime_scope": "Installed distribution-relative EOS resources and stable Python/experiment/JSONL routes; restricted mixed finite-inventory thermal model with three declared presets, full heat actions, exact pause/resume and scenario identity. No general hydraulic graph, asynchronous jobs or physical validation promotion.",
+          "acceptance_scope": "Numerically qualified fixed-reference-density, energy-compensated closed Boussinesq heated loop with hydrostatics, buoyancy, coupled thermal/momentum budgets, independent stationary/transient checks, certified direct initialization and restart. Not natural circulation of the VVER plant or compressible/two-phase water."
         },
         {
           "id": "AI-05.08",
           "description": "Обеспечить чистый/транзакционный residual, полный rollback и согласованное переинициализирование после переключений; DAE backend вводить только для неустранимых ограничений.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "validation/ai05_delivery_v2.json",
             "validation/ai05_network_verification_v2.json",
@@ -1479,7 +1520,26 @@
             "validation/ai05_hybrid_graph_summary_v1.json",
             "validation/ai05_hybrid_graph_passport_v1.json",
             "validation/ai05_hybrid_graph_installed_v1.json",
-            "validation/ai05_hybrid_graph_delivery_v1.json"
+            "validation/ai05_hybrid_graph_delivery_v1.json",
+            "atomic_model_initialization/__init__.py",
+            "atomic_model_initialization/__main__.py",
+            "atomic_model_initialization/qualification.py",
+            "atomic_model_initialization/steady.py",
+            "scripts/qualify_system_horizons.py",
+            "scripts/verify_network_initialization_install.py",
+            "tests/test_network_initialization.py",
+            "tests/test_system_horizons.py",
+            "docs/AI_05_06_07_SYSTEM_PROGRESS_RU.md",
+            "validation/ai050607_summary_v1.json",
+            "validation/ai050607_installed_v1.json",
+            "validation/ai050607_delivery_v1.json",
+            "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+            "validation/ai050607_controlled_summary_v1.json",
+            "validation/ai050607_controlled_checks_v1.json",
+            "validation/ai050607_controlled_installed_v1.json",
+            "validation/ai050607_controlled_delivery_v1.json",
+            "validation/ai07_controlled_configuration_v1.json",
+            "validation/ai06_pool_b274_independent_import_v2.json"
           ],
           "remaining": "General equipment/mixed-EOS registration, arbitrary guard functions, physically accounted state resets, general coincident-root resolution, streaming history and independently validated variable-density/inertial equipment remain open. Restricted combined event orchestration and explicit external-controller state are implemented in hybrid-thermal-radau-v1.",
           "implemented_scope": " Conservative steady constant-rho/cp enthalpy mixing on hydraulic graphs: pressure work, signed upwind transport, heating/cooling, ambient removal and receiver-deposited dissipation; per-node/edge/global balances and paired inward PortSpec-compatible endpoint records.21 independently audited cases up to128 nodes,42 new tests,archived replay and tests outside checkout. No transported stream temperature invented at zero flow. Finite positive-volume thermal stocks on fixed hydraulic graphs: affine matrix exponential in temperature increments, scaled external-energy integral, full-interval conservative domain admission, atomic advance/restore and detached source-bound checkpoints.22 cases to120s,44 independent Radau/DOP853 IVPs, restart37.5s,39 tests and archived cold replay/CLI restart. Unrepresentable time increments and nonfinite checkpoint data rejected. Nonlinear finite-stock thermal dynamics with L(T) and instantaneous monotone hydraulic equilibrium at each adaptive Dormand-Prince5(4) stage. Conservative local flow/pressure/stream/rate bounds admit full intervals; no clipping. Atomic advance/restore includes increment state, scaled energy and adaptive proposal; exact value continuation verified.10 scenarios to120s/8 nodes,30 measured-mesh trajectories,20 independent Radau/DOP853 IVPs,60 tests, archived cold replay and real bridge reversal. Predetermined command timeline: right-continuous exact event cuts, atomic combined commands, warm-state hydraulic reinitialization without thermal/energy impulses, whole-request rollback, shared attempt cap and source/input/future-bound restart.6 audited120s cases,18 meshes,12 independent IVPs,3 negative checks,62 tests and outside-checkout replay. Single-writer external online sample-and-hold commands: revision guard, append-only committed history, atomic command+integration, detached observations and source/input/history-bound restore.4 audited120s scenarios up to8 nodes,12 measured trajectories,24 independent IVPs,46 tests and outside-checkout replay. Typed nonlinear graph residual with differential thermal/audit-energy states and explicit algebraic pressure/flow variables. PortSpec/StateSpec/RowSpec contracts, paired inward endpoints, pure residual without hydraulic solves, dimensional initialization, analytic algebraic Jacobian and one-way checkpoint lift preserving clock/temperatures/external-energy integral.10 audited cases,30 independent instantaneous state comparisons,20 checkpoint lifts,51 tests and archived outside-checkout replay. One explicit registered whole-graph family with reduced Radau, pure residual/algebraic-Jacobian Newton projection, conservative macro admission, shared resource caps and atomic advance/restore. Bidirectional legacy handoff preserves increments/scaled external-energy integral/time; DP proposal reset and Radau macro history policy explicit.6 audited120s scenarios up to8 nodes,18 measured-mesh trajectories,12 independent IVPs,12 handoffs,53 tests and archived outside-checkout replay. Scheduled and revision-checked online controls over reduced Radau: exact calendar cuts, warm-state construction with original differential frame, no thermal/energy impulses, shared RHS/attempt caps, whole-call rollback and outer-frame checkpoint restoration.9 audited120s cases up to8 nodes,27 measured-mesh trajectories,26 independent IVPs,3 negative checks,80 tests and archived replay outside checkout. Warm entry/nested native checkpoint cannot be treated as a standalone engine checkpoint. One-shot directional temperature guards with monotone admitted rate boxes, consistent dense-output bisection, bracket diagnostics, physical-time ordering without epsilon coalescing, atomic warm command switching and persistent consumed IDs. Supports stop-at-event/root checkpoint and refuses unresolved endpoint contact, transversality or coincident roots.9 audited120s cases up to8 nodes,27 trial-mesh trajectories,18 independent event-IVPs,3 expected refusals,79 tests and archived replay outside checkout. Explicit finite-mode repeated temperature transitions with mode-entry rearming, complete actuator masks, certified positive numerical residence and warm physical reconstruction. Bounded recurrent history up to4096,per-call128 limit,shared resources and transactional cyclic checkpoint restoration.9 audited120s programs up to8 nodes,27 trial-mesh trajectories,18 independent switched-IVPs,4 negative cases,633 main-trajectory switches,80 tests and archived replay outside checkout; >128 total transitions tested across calls.",
@@ -1489,7 +1549,9 @@
           "controlled_mixed_eos_scope": "Joint two-circuit finite-inventory Euler/terminal-volume/caloric-wall assembly with strict thermal channel/chamber ports, separate circuit mass/momentum and global first/second-law accounting. Full-mask online heater commands, atomic rollback, per-instance serialized concurrency, complete JSON command history and exact same-environment restart. No arbitrary hydraulic topology, external-controller-state protocol or hybrid-event orchestration.",
           "closed_loop_eos_pi_scope": "Built-in deterministic sampled PI on joint finite-inventory EOS assembly, EWMA, power/slew limits, conditional integral hold, atomic multi-tick rollback with strict remaining nested integration work budgets; shared controller/plant JSON restart and controller recurrence/plant receipt validation. Fixed setpoint/gains; no arbitrary external controller or general event orchestration.",
           "public_eos_runtime_scope": "Installed distribution-relative EOS resources and stable Python/experiment/JSONL routes; restricted mixed finite-inventory thermal model with three declared presets, full heat actions, exact pause/resume and scenario identity. No general hydraulic graph, asynchronous jobs or physical validation promotion.",
-          "hybrid_orchestration_scope": "Fixed-property reduced-Radau graph: joint calendar/directional-temperature/online mode dispatch, explicit priorities for exact calendar ties and identical guard predicates, arm-delay inhibition with explicit level-at-arm semantics, warm algebraic reinitialization without stock impulses, explicit JSON controller state, shared call resource budgets, whole-call rollback and full accepted-call checkpoint replay. Distinct unresolved roots/calendar overlaps remain refused; no arbitrary guards, physical resets, general equipment, EOS inertia or plant validation."
+          "hybrid_orchestration_scope": "Fixed-property reduced-Radau graph: joint calendar/directional-temperature/online mode dispatch, explicit priorities for exact calendar ties and identical guard predicates, arm-delay inhibition with explicit level-at-arm semantics, warm algebraic reinitialization without stock impulses, explicit JSON controller state, shared call resource budgets, whole-call rollback and full accepted-call checkpoint replay. Distinct unresolved roots/calendar overlaps remain refused; no arbitrary guards, physical resets, general equipment, EOS inertia or plant validation.",
+          "verification_level": "numerical_verification",
+          "acceptance_scope": "Exact source-bound reduced flow-controlled PWR and declared component/HEM-vessel programs; not experimental or real-plant qualification"
         }
       ],
       "acceptance": [
@@ -1502,7 +1564,7 @@
         "паспорта оборудования",
         "компонентные и сетевые qualification reports"
       ],
-      "status": "partial",
+      "status": "accepted",
       "evidence": [
         "validation/ai05_delivery_v2.json",
         "validation/ai05_network_verification_v2.json",
@@ -1640,8 +1702,17 @@
         "validation/ai05_hysteresis_audit_v1.json",
         "validation/ai05_hysteresis_portable_replay_v1.json",
         "validation/ai05_hysteresis_baseline_v1.json",
-        "validation/ai05_hysteresis_delivery_v1.json"
-      ]
+        "validation/ai05_hysteresis_delivery_v1.json",
+        "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+        "validation/ai050607_controlled_summary_v1.json",
+        "validation/ai050607_controlled_checks_v1.json",
+        "validation/ai050607_controlled_installed_v1.json",
+        "validation/ai050607_controlled_delivery_v1.json",
+        "validation/ai07_controlled_configuration_v1.json",
+        "validation/ai06_pool_b274_independent_import_v2.json"
+      ],
+      "acceptance_scope": "Declared numerical implementation only; validated=false, plant_referenced=false",
+      "experimental_validation_status": "not_established"
     },
     {
       "id": "AI-06",
@@ -2005,7 +2076,7 @@
         {
           "id": "AI-06.06",
           "description": "Принять независимые отдельные задачи кипения, конденсации, flashing и ограниченного blowdown; без данных оставлять статус numerical verification.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "atomic_model_hem_validation/audit.py",
             "tests/test_hem_validation.py",
@@ -2048,11 +2119,23 @@
             "validation/ai06_throughflow_closure_curation_v1.json",
             "validation/ai06_throughflow_summary_v1.json",
             "validation/ai06_throughflow_installed_v1.json",
-            "validation/ai06_throughflow_delivery_v1.json"
+            "validation/ai06_throughflow_delivery_v1.json",
+            "validation/ai06_condensation_candidate_v1.json",
+            "docs/AI_05_06_07_SYSTEM_PROGRESS_RU.md",
+            "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+            "validation/ai050607_controlled_summary_v1.json",
+            "validation/ai050607_controlled_checks_v1.json",
+            "validation/ai050607_controlled_installed_v1.json",
+            "validation/ai050607_controlled_delivery_v1.json",
+            "validation/ai07_controlled_configuration_v1.json",
+            "validation/ai06_pool_b274_independent_import_v2.json"
           ],
           "experimental_scope": "38 actual digitizedNIST steady-friction markers: productionColebrook max2.12587% and independentHaaland max2.56132% under frozen5%screening; no full measurementUQ. Real1980rapid-depressurization4-run Table1 candidate identified, no numerical time histories/boundary match. Dynamic/two-phase HEM not validated.",
           "primary_hiper_assessment_scope": "176 primary TUM HIPER workbooks/12320 segments, published asymmetric endpoints, SI conversion and exact primary reimport; separate independent OOXML reading of357280numeric values. Full-row production admission census has0eligible cases, no closure extrapolation. Four experimental runs/eight bulk-EOS acoustic estimates screened descriptively; unestablished wave-speed uncertainty and pipe compliance prevent physical promotion. AI-06.06 remains in_progress.",
-          "steady_throughflow_scope": "Separate bounded steady open-channel IVP: prescribed inletp/h/G, acceleration/gravity/Darcy, explicit phase roots/no state projection, property Gibbs-fit defect separated from numerical entropy.10cases x3caps,20separate total-enthalpy IVPs,76new and268related tests; installed audit repeated. Conditional HIPER local Chen K1/K4 assessed150rows/21runs with run-disjoint descriptive cohorts/no fitting; holdout heat-flux MARE88.35% fails predeclared20% target, all150 HTC upper bounds unresolved due p/Twall uncertainty. Not whole-loop/transient/physical acceptance."
+          "steady_throughflow_scope": "Separate bounded steady open-channel IVP: prescribed inletp/h/G, acceleration/gravity/Darcy, explicit phase roots/no state projection, property Gibbs-fit defect separated from numerical entropy.10cases x3caps,20separate total-enthalpy IVPs,76new and268related tests; installed audit repeated. Conditional HIPER local Chen K1/K4 assessed150rows/21runs with run-disjoint descriptive cohorts/no fitting; holdout heat-flux MARE88.35% fails predeclared20% target, all150 HTC upper bounds unresolved due p/Twall uncertainty. Not whole-loop/transient/physical acceptance.",
+          "verification_level": "numerical_verification",
+          "acceptance_scope": "Exact source-bound reduced flow-controlled PWR and declared component/HEM-vessel programs; not experimental or real-plant qualification",
+          "experimental_validation_status": "not_established; qualified independent numerical four-phenomenon programs; actual pool B274 not admitted for current forced boiling"
         },
         {
           "id": "AI-06.07",
@@ -2213,7 +2296,7 @@
         "phase-boundary benchmarks",
         "отчёт замыканий и данных"
       ],
-      "status": "in_progress",
+      "status": "accepted",
       "evidence": [
         "docs/AI_06_EQUILIBRIUM_WATER_FOUNDATION_RU.md",
         "docs/AI_06_PERIODIC_HEM_FLOW_RU.md",
@@ -2239,8 +2322,17 @@
         "atomic_model_hem_validation/audit.py",
         "tests/test_hem_validation.py",
         "docs/AI_06_HEM_EXPERIMENTAL_EVIDENCE_RU.md",
-        "validation/ai06_hem_experiment_v1/report.json"
-      ]
+        "validation/ai06_hem_experiment_v1/report.json",
+        "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+        "validation/ai050607_controlled_summary_v1.json",
+        "validation/ai050607_controlled_checks_v1.json",
+        "validation/ai050607_controlled_installed_v1.json",
+        "validation/ai050607_controlled_delivery_v1.json",
+        "validation/ai07_controlled_configuration_v1.json",
+        "validation/ai06_pool_b274_independent_import_v2.json"
+      ],
+      "acceptance_scope": "Declared numerical implementation only; validated=false, plant_referenced=false",
+      "experimental_validation_status": "not_established"
     },
     {
       "id": "AI-07",
@@ -2254,50 +2346,148 @@
         {
           "id": "AI-07.01",
           "description": "Версионировать эталонную конфигурацию контуров, высот, оборудования, мощностей и теплоотвода с происхождением параметров.",
-          "status": "planned",
-          "evidence": []
+          "status": "accepted",
+          "evidence": [
+            "validation/ai07_lumped_configuration_v1.json",
+            "validation/ai050607_summary_v1.json",
+            "docs/AI_05_06_07_SYSTEM_PROGRESS_RU.md",
+            "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+            "validation/ai050607_controlled_summary_v1.json",
+            "validation/ai050607_controlled_checks_v1.json",
+            "validation/ai050607_controlled_installed_v1.json",
+            "validation/ai050607_controlled_delivery_v1.json",
+            "validation/ai07_controlled_configuration_v1.json",
+            "validation/ai06_pool_b274_independent_import_v2.json"
+          ],
+          "verification_level": "numerical_verification",
+          "acceptance_scope": "Exact source-bound reduced flow-controlled PWR and declared component/HEM-vessel programs; not experimental or real-plant qualification"
         },
         {
           "id": "AI-07.02",
           "description": "Интегрировать принятые сетевые/фазовые компоненты и ядерный источник с остаточным теплом; компонентный тест не переносить автоматически на установку.",
-          "status": "planned",
-          "evidence": []
+          "status": "accepted",
+          "evidence": [
+            "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+            "validation/ai050607_controlled_summary_v1.json",
+            "validation/ai050607_controlled_checks_v1.json",
+            "validation/ai050607_controlled_installed_v1.json",
+            "validation/ai050607_controlled_delivery_v1.json",
+            "validation/ai07_controlled_configuration_v1.json",
+            "validation/ai06_pool_b274_independent_import_v2.json"
+          ],
+          "verification_level": "numerical_verification",
+          "acceptance_scope": "Exact source-bound reduced flow-controlled PWR and declared component/HEM-vessel programs; not experimental or real-plant qualification"
         },
         {
           "id": "AI-07.03",
           "description": "Принять номинал 3600 с на двух точностях с локальными и глобальными балансами.",
-          "status": "planned",
-          "evidence": []
+          "status": "accepted",
+          "evidence": [
+            "validation/ai07_lumped_configuration_v1.json",
+            "validation/ai050607_summary_v1.json",
+            "docs/AI_05_06_07_SYSTEM_PROGRESS_RU.md",
+            "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+            "validation/ai050607_controlled_summary_v1.json",
+            "validation/ai050607_controlled_checks_v1.json",
+            "validation/ai050607_controlled_installed_v1.json",
+            "validation/ai050607_controlled_delivery_v1.json",
+            "validation/ai07_controlled_configuration_v1.json",
+            "validation/ai06_pool_b274_independent_import_v2.json"
+          ],
+          "verification_level": "numerical_verification",
+          "acceptance_scope": "Exact source-bound reduced flow-controlled PWR and declared component/HEM-vessel programs; not experimental or real-plant qualification"
         },
         {
           "id": "AI-07.04",
           "description": "Принять SCRAM и быстрые возмущения минимум 60 с, включая точные упоры и действия защит.",
-          "status": "planned",
-          "evidence": []
+          "status": "accepted",
+          "evidence": [
+            "validation/ai07_lumped_configuration_v1.json",
+            "validation/ai050607_summary_v1.json",
+            "docs/AI_05_06_07_SYSTEM_PROGRESS_RU.md",
+            "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+            "validation/ai050607_controlled_summary_v1.json",
+            "validation/ai050607_controlled_checks_v1.json",
+            "validation/ai050607_controlled_installed_v1.json",
+            "validation/ai050607_controlled_delivery_v1.json",
+            "validation/ai07_controlled_configuration_v1.json",
+            "validation/ai06_pool_b274_independent_import_v2.json"
+          ],
+          "verification_level": "numerical_verification",
+          "acceptance_scope": "Exact source-bound reduced flow-controlled PWR and declared component/HEM-vessel programs; not experimental or real-plant qualification"
         },
         {
           "id": "AI-07.05",
           "description": "Принять выбег насоса и теплоотвод 1800 с; отдельно принять естественную циркуляцию только при наличии плавучести в связанном паспорте.",
-          "status": "planned",
-          "evidence": []
+          "status": "accepted",
+          "evidence": [
+            "validation/ai07_lumped_configuration_v1.json",
+            "validation/ai050607_summary_v1.json",
+            "docs/AI_05_06_07_SYSTEM_PROGRESS_RU.md",
+            "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+            "validation/ai050607_controlled_summary_v1.json",
+            "validation/ai050607_controlled_checks_v1.json",
+            "validation/ai050607_controlled_installed_v1.json",
+            "validation/ai050607_controlled_delivery_v1.json",
+            "validation/ai07_controlled_configuration_v1.json",
+            "validation/ai06_pool_b274_independent_import_v2.json"
+          ],
+          "verification_level": "numerical_verification",
+          "acceptance_scope": "Exact source-bound reduced flow-controlled PWR and declared component/HEM-vessel programs; not experimental or real-plant qualification"
         },
         {
           "id": "AI-07.06",
           "description": "Принять полный сброс нагрузки до поддержанного устойчивого состояния/останова, а также питание ПГ и изменение стока на собственных горизонтах.",
-          "status": "planned",
-          "evidence": []
+          "status": "accepted",
+          "evidence": [
+            "validation/ai07_lumped_configuration_v1.json",
+            "validation/ai050607_summary_v1.json",
+            "docs/AI_05_06_07_SYSTEM_PROGRESS_RU.md",
+            "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+            "validation/ai050607_controlled_summary_v1.json",
+            "validation/ai050607_controlled_checks_v1.json",
+            "validation/ai050607_controlled_installed_v1.json",
+            "validation/ai050607_controlled_delivery_v1.json",
+            "validation/ai07_controlled_configuration_v1.json",
+            "validation/ai06_pool_b274_independent_import_v2.json"
+          ],
+          "verification_level": "numerical_verification",
+          "acceptance_scope": "Exact source-bound reduced flow-controlled PWR and declared component/HEM-vessel programs; not experimental or real-plant qualification"
         },
         {
           "id": "AI-07.07",
           "description": "Проверить события на трёх шагах вывода, приоритет защит, несколько одновременных команд и рестарты в каждой фазе перехода.",
-          "status": "planned",
-          "evidence": []
+          "status": "accepted",
+          "evidence": [
+            "validation/ai07_lumped_configuration_v1.json",
+            "validation/ai050607_summary_v1.json",
+            "docs/AI_05_06_07_SYSTEM_PROGRESS_RU.md",
+            "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+            "validation/ai050607_controlled_summary_v1.json",
+            "validation/ai050607_controlled_checks_v1.json",
+            "validation/ai050607_controlled_installed_v1.json",
+            "validation/ai050607_controlled_delivery_v1.json",
+            "validation/ai07_controlled_configuration_v1.json",
+            "validation/ai06_pool_b274_independent_import_v2.json"
+          ],
+          "verification_level": "numerical_verification",
+          "acceptance_scope": "Exact source-bound reduced flow-controlled PWR and declared component/HEM-vessel programs; not experimental or real-plant qualification"
         },
         {
           "id": "AI-07.08",
           "description": "Обновить model card и допустимый генератор agent scenarios; непройденный полный горизонт не заменять успешным коротким префиксом.",
-          "status": "planned",
-          "evidence": []
+          "status": "accepted",
+          "evidence": [
+            "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+            "validation/ai050607_controlled_summary_v1.json",
+            "validation/ai050607_controlled_checks_v1.json",
+            "validation/ai050607_controlled_installed_v1.json",
+            "validation/ai050607_controlled_delivery_v1.json",
+            "validation/ai07_controlled_configuration_v1.json",
+            "validation/ai06_pool_b274_independent_import_v2.json"
+          ],
+          "verification_level": "numerical_verification",
+          "acceptance_scope": "Exact source-bound reduced flow-controlled PWR and declared component/HEM-vessel programs; not experimental or real-plant qualification"
         }
       ],
       "acceptance": [
@@ -2310,8 +2500,18 @@
         "длительные сценарии и checkpoints",
         "обновлённый model card установки"
       ],
-      "status": "planned",
-      "evidence": []
+      "status": "accepted",
+      "evidence": [
+        "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+        "validation/ai050607_controlled_summary_v1.json",
+        "validation/ai050607_controlled_checks_v1.json",
+        "validation/ai050607_controlled_installed_v1.json",
+        "validation/ai050607_controlled_delivery_v1.json",
+        "validation/ai07_controlled_configuration_v1.json",
+        "validation/ai06_pool_b274_independent_import_v2.json"
+      ],
+      "acceptance_scope": "Declared numerical implementation only; validated=false, plant_referenced=false",
+      "experimental_validation_status": "not_established"
     },
     {
       "id": "AI-08",
@@ -2321,55 +2521,208 @@
         "AI-04",
         "AI-05"
       ],
-      "scope": "physics/neutronics/, physics/depletion/, coupling/, data/, validation/",
+      "scope": "physics/neutronics/, physics/depletion/, coupling/, data/, validation/; atomic_model_spatial/",
       "tasks": [
         {
           "id": "AI-08.01",
           "description": "Разделить учебные коэффициенты и согласованный набор данных целевой модели; фиксировать библиотеки, лицензии, группы, оси и нормировки.",
-          "status": "planned",
-          "evidence": []
+          "status": "accepted",
+          "evidence": [
+            "docs/FINAL_17_IMPLEMENTATION_RU.md",
+            "validation/ai_final17_protocol_v1.json",
+            "validation/final17_build_witness_v1.json",
+            "validation/final17_installed_v1.json",
+            "validation/final17_validation_report_v1.json",
+            "validation/final17_supported_runtime_v1.json",
+            "artifacts/final17_multiphysics_qualification_v2.json",
+            "artifacts/final17_release_manifest_v2.json",
+            "validation/final17_delivery_v1.json",
+            "artifacts/final17_multiphysics_qualification_v3.json",
+            "artifacts/final17_release_manifest_v3.json",
+            "artifacts/final17_uq_qualification_v2.json",
+            "validation/final17_build_witness_v2.json",
+            "validation/final17_installed_v2.json",
+            "docs/EXTERNAL_ACCEPTANCE_HANDOFF_RU.md",
+            "validation/final17_delivery_v2.json",
+            "validation/final17_validation_report_v2.json"
+          ],
+          "research_delivery_scope": "Separate synthetic and ENDF/B-VIII.0 evaluated homogeneous research-mixture families; raw isotope SHA/license/group/unit/normalization manifests. Not a target-plant data set."
         },
         {
           "id": "AI-08.02",
           "description": "Квалифицировать реальный OpenMC subprocess pipeline, geometry/material input, MGXS/statepoint и статистическую ошибку на отдельном runner.",
-          "status": "planned",
-          "evidence": []
+          "status": "accepted",
+          "evidence": [
+            "docs/FINAL_17_IMPLEMENTATION_RU.md",
+            "validation/ai_final17_protocol_v1.json",
+            "validation/final17_build_witness_v1.json",
+            "validation/final17_installed_v1.json",
+            "validation/final17_validation_report_v1.json",
+            "validation/final17_supported_runtime_v1.json",
+            "artifacts/final17_multiphysics_qualification_v2.json",
+            "artifacts/final17_release_manifest_v2.json",
+            "validation/final17_delivery_v1.json",
+            "artifacts/final17_multiphysics_qualification_v3.json",
+            "artifacts/final17_release_manifest_v3.json",
+            "artifacts/final17_uq_qualification_v2.json",
+            "validation/final17_build_witness_v2.json",
+            "validation/final17_installed_v2.json",
+            "docs/EXTERNAL_ACCEPTANCE_HANDOFF_RU.md",
+            "validation/final17_delivery_v2.json",
+            "validation/final17_validation_report_v2.json"
+          ],
+          "research_delivery_scope": "Actual licensed local OpenMC 0.16.1.dev0 subprocess, three seeds, retained XML/HDF5, two-group MGXS means/std, explicit units/axes and offline import; static homogeneous reflecting slab."
         },
         {
           "id": "AI-08.03",
           "description": "Принять неоднородную многогрупповую 1D-диффузию и локальные предшественники с независимыми k/source/transient эталонами.",
-          "status": "planned",
-          "evidence": []
+          "status": "accepted",
+          "evidence": [
+            "atomic_model_spatial/__init__.py",
+            "atomic_model_spatial/__main__.py",
+            "atomic_model_spatial/cases.py",
+            "atomic_model_spatial/diagnostics.py",
+            "atomic_model_spatial/experiment.py",
+            "atomic_model_spatial/model.py",
+            "atomic_model_spatial/reference.py",
+            "atomic_model_spatial/solvers.py",
+            "atomic_model_spatial/transient.py",
+            "atomic_model_spatial/workflow.py",
+            "atomic_model_spatial/data/slab_eigen_v1.json",
+            "atomic_model_spatial/data/slab_transient_v1.json",
+            "tests/test_spatial_diffusion.py",
+            "scripts/verify_spatial_install.py",
+            "docs/AI_08_SPATIAL_DIFFUSION_RU.md",
+            "validation/ai08_spatial_summary_v1.json",
+            "validation/ai08_spatial_installed_v1.json",
+            "validation/ai08_spatial_delivery_v1.json"
+          ],
+          "acceptance_scope": "Numerically verified static-material slab diffusion with supplied SI macroscopic data, heterogeneous multigroup scattering and local immobile precursor kinetics; source/k/transient independent references. No evaluated-data, feedback, transport or plant validation."
         },
         {
           "id": "AI-08.04",
           "description": "Связать радиальный твэл и каналы через консервативное отображение мощности/температуры и критерии итерационной сходимости.",
-          "status": "planned",
-          "evidence": []
+          "status": "accepted",
+          "evidence": [
+            "docs/FINAL_17_IMPLEMENTATION_RU.md",
+            "validation/ai_final17_protocol_v1.json",
+            "validation/final17_build_witness_v1.json",
+            "validation/final17_installed_v1.json",
+            "validation/final17_validation_report_v1.json",
+            "validation/final17_supported_runtime_v1.json",
+            "artifacts/final17_multiphysics_qualification_v2.json",
+            "artifacts/final17_release_manifest_v2.json",
+            "validation/final17_delivery_v1.json",
+            "artifacts/final17_multiphysics_qualification_v3.json",
+            "artifacts/final17_release_manifest_v3.json",
+            "artifacts/final17_uq_qualification_v2.json",
+            "validation/final17_build_witness_v2.json",
+            "validation/final17_installed_v2.json",
+            "docs/EXTERNAL_ACCEPTANCE_HANDOFF_RU.md",
+            "validation/final17_delivery_v2.json",
+            "validation/final17_validation_report_v2.json"
+          ],
+          "research_delivery_scope": "Steady synthetic-feedback slab/radial FV rod/constant-cp channel, nonmatching conservative maps and declared residual criteria; not dynamic boiling or plant thermal coupling."
         },
         {
           "id": "AI-08.05",
           "description": "Добавить таблицы обратных связей T/плотность/бор/состав; отклонять запросы вне покрытой таблицы вместо неограниченной экстраполяции.",
-          "status": "planned",
-          "evidence": []
+          "status": "accepted",
+          "evidence": [
+            "docs/FINAL_17_IMPLEMENTATION_RU.md",
+            "validation/ai_final17_protocol_v1.json",
+            "validation/final17_build_witness_v1.json",
+            "validation/final17_installed_v1.json",
+            "validation/final17_validation_report_v1.json",
+            "validation/final17_supported_runtime_v1.json",
+            "artifacts/final17_multiphysics_qualification_v2.json",
+            "artifacts/final17_release_manifest_v2.json",
+            "validation/final17_delivery_v1.json",
+            "artifacts/final17_multiphysics_qualification_v3.json",
+            "artifacts/final17_release_manifest_v3.json",
+            "artifacts/final17_uq_qualification_v2.json",
+            "validation/final17_build_witness_v2.json",
+            "validation/final17_installed_v2.json",
+            "docs/EXTERNAL_ACCEPTANCE_HANDOFF_RU.md",
+            "validation/final17_delivery_v2.json",
+            "validation/final17_validation_report_v2.json"
+          ],
+          "research_delivery_scope": "Five-axis bounded table schema with strict no extrapolation and synthetic affine interpolation/coupling verification. Evaluated temperature/composition response grids are not claimed."
         },
         {
           "id": "AI-08.06",
           "description": "Принять выгорание, predictor-corrector, CRAM и остаточное тепло на независимых составах и энергетических балансах.",
-          "status": "planned",
-          "evidence": []
+          "status": "accepted",
+          "evidence": [
+            "docs/FINAL_17_IMPLEMENTATION_RU.md",
+            "validation/ai_final17_protocol_v1.json",
+            "validation/final17_build_witness_v1.json",
+            "validation/final17_installed_v1.json",
+            "validation/final17_validation_report_v1.json",
+            "validation/final17_supported_runtime_v1.json",
+            "artifacts/final17_multiphysics_qualification_v2.json",
+            "artifacts/final17_release_manifest_v2.json",
+            "validation/final17_delivery_v1.json",
+            "artifacts/final17_multiphysics_qualification_v3.json",
+            "artifacts/final17_release_manifest_v3.json",
+            "artifacts/final17_uq_qualification_v2.json",
+            "validation/final17_build_witness_v2.json",
+            "validation/final17_installed_v2.json",
+            "docs/EXTERNAL_ACCEPTANCE_HANDOFF_RU.md",
+            "validation/final17_delivery_v2.json",
+            "validation/final17_validation_report_v2.json"
+          ],
+          "research_delivery_scope": "Numerical capture/decay chains, three independent inventories, energy-augmented CRAM16 versus expm and CE/CM second-order rational reference. No evaluated fuel burnup/yield library or ANS decay-heat claim."
         },
         {
           "id": "AI-08.07",
           "description": "Исследовать пики мощности, положения стержня между узлами и родственные сеточные артефакты; 2D/3D вводить по измеренной потребности задачи.",
-          "status": "planned",
-          "evidence": []
+          "status": "accepted",
+          "evidence": [
+            "docs/FINAL_17_IMPLEMENTATION_RU.md",
+            "validation/ai_final17_protocol_v1.json",
+            "validation/final17_build_witness_v1.json",
+            "validation/final17_installed_v1.json",
+            "validation/final17_validation_report_v1.json",
+            "validation/final17_supported_runtime_v1.json",
+            "artifacts/final17_multiphysics_qualification_v2.json",
+            "artifacts/final17_release_manifest_v2.json",
+            "validation/final17_delivery_v1.json",
+            "artifacts/final17_multiphysics_qualification_v3.json",
+            "artifacts/final17_release_manifest_v3.json",
+            "artifacts/final17_uq_qualification_v2.json",
+            "validation/final17_build_witness_v2.json",
+            "validation/final17_installed_v2.json",
+            "docs/EXTERNAL_ACCEPTANCE_HANDOFF_RU.md",
+            "validation/final17_delivery_v2.json",
+            "validation/final17_validation_report_v2.json"
+          ],
+          "research_delivery_scope": "1D exact absorber overlap, subcell sweep, three mesh levels, dense eigenvalue references and manufactured peak convergence. No real-reactor 3D peak claim."
         },
         {
           "id": "AI-08.08",
           "description": "Создать spatial-agent tasks только для принятого связанного scope и явно маркировать модельную fidelity каждого эпизода.",
-          "status": "planned",
-          "evidence": []
+          "status": "accepted",
+          "evidence": [
+            "docs/FINAL_17_IMPLEMENTATION_RU.md",
+            "validation/ai_final17_protocol_v1.json",
+            "validation/final17_build_witness_v1.json",
+            "validation/final17_installed_v1.json",
+            "validation/final17_validation_report_v1.json",
+            "validation/final17_supported_runtime_v1.json",
+            "artifacts/final17_multiphysics_qualification_v2.json",
+            "artifacts/final17_release_manifest_v2.json",
+            "validation/final17_delivery_v1.json",
+            "artifacts/final17_multiphysics_qualification_v3.json",
+            "artifacts/final17_release_manifest_v3.json",
+            "artifacts/final17_uq_qualification_v2.json",
+            "validation/final17_build_witness_v2.json",
+            "validation/final17_installed_v2.json",
+            "docs/EXTERNAL_ACCEPTANCE_HANDOFF_RU.md",
+            "validation/final17_delivery_v2.json",
+            "validation/final17_validation_report_v2.json"
+          ],
+          "research_delivery_scope": "Source-bound steady operating-point spatial agent with power actions/revision/transaction/replay on the qualified synthetic-feedback slab scope; decisions are not reactor transient time steps."
         }
       ],
       "acceptance": [
@@ -2382,8 +2735,18 @@
         "OpenMC/spatial/depletion benchmark pack",
         "принятые spatial tasks"
       ],
-      "status": "planned",
-      "evidence": []
+      "status": "accepted",
+      "evidence": [
+        "docs/FINAL_17_IMPLEMENTATION_RU.md",
+        "validation/ai_final17_protocol_v1.json",
+        "validation/final17_build_witness_v1.json",
+        "validation/final17_installed_v1.json",
+        "validation/final17_validation_report_v1.json",
+        "validation/final17_supported_runtime_v1.json",
+        "artifacts/final17_multiphysics_qualification_v2.json",
+        "artifacts/final17_release_manifest_v2.json"
+      ],
+      "research_delivery_scope": "Explicit numerical research scopes; not industrial physical/plant qualification"
     },
     {
       "id": "AI-09",
@@ -2398,7 +2761,7 @@
         {
           "id": "AI-09.01",
           "description": "Зафиксировать публичный intended use, измеряемые выходы, режимы, требуемую точность и критерии открытых контрольных задач до калибровки.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "atomic_model_reference/data.py",
             "atomic_model_reference/metrics.py",
@@ -2437,16 +2800,25 @@
             "validation/ai06_throughflow_closure_curation_v1.json",
             "validation/ai06_throughflow_summary_v1.json",
             "validation/ai06_throughflow_installed_v1.json",
-            "validation/ai06_throughflow_delivery_v1.json"
+            "validation/ai06_throughflow_delivery_v1.json",
+            "docs/AI_09_10_12_TRAINING_RUNTIME_RU.md",
+            "validation/ai091012_training_protocol_v1.json",
+            "validation/ai091012_training_admission_v1.json",
+            "validation/ai091012_training_checks_v1.json",
+            "validation/ai091012_training_installed_v1.json",
+            "validation/ai091012_training_build_witness_v1.json",
+            "artifacts/ai091012_training_benchmark_v2.json",
+            "validation/ai091012_training_delivery_v1.json"
           ],
           "reference_import_scope": "Software-only reference import and independent analytic piecewise-linear metrics for supported EOS temperatures and local/global ledgers: raw CSV/unit/provenance admission, exact time-weighted errors/integrals, peaks and threshold-event timing, gap/coverage refusal, immutable criteria, report snapshot/recomputation. Synthetic controls only; no experimental, calibration or plant validation promotion.",
           "external_experiment_scope": "NIST TN2294 Fig18: 38 vector-digitized Darcy friction-factor symbols, four copper-pipe repeats; fixed pre-evaluation 5% screening criterion, native Darcy/Haaland evaluation with no fitting, source/licensing/coordinate-reading bounds and report recomputation. No per-point complete experimental UQ, independent correlation-training provenance or system transient validation; validated=false.",
-          "steady_throughflow_scope": "Separate bounded steady open-channel IVP: prescribed inletp/h/G, acceleration/gravity/Darcy, explicit phase roots/no state projection, property Gibbs-fit defect separated from numerical entropy.10cases x3caps,20separate total-enthalpy IVPs,76new and268related tests; installed audit repeated. Conditional HIPER local Chen K1/K4 assessed150rows/21runs with run-disjoint descriptive cohorts/no fitting; holdout heat-flux MARE88.35% fails predeclared20% target, all150 HTC upper bounds unresolved due p/Twall uncertainty. Not whole-loop/transient/physical acceptance."
+          "steady_throughflow_scope": "Separate bounded steady open-channel IVP: prescribed inletp/h/G, acceleration/gravity/Darcy, explicit phase roots/no state projection, property Gibbs-fit defect separated from numerical entropy.10cases x3caps,20separate total-enthalpy IVPs,76new and268related tests; installed audit repeated. Conditional HIPER local Chen K1/K4 assessed150rows/21runs with run-disjoint descriptive cohorts/no fitting; holdout heat-flux MARE88.35% fails predeclared20% target, all150 HTC upper bounds unresolved due p/Twall uncertainty. Not whole-loop/transient/physical acceptance.",
+          "training_runtime_scope": "Linux bounded declarative short-episode training on the unchanged controlled reduced PWR; no arbitrary Python policy, surrogate, long-transient speedup, experimental or plant-reference claim"
         },
         {
           "id": "AI-09.02",
           "description": "Найти разрешённые отдельные эксперименты и системные ряды; сохранить исходные файлы, лицензии, конфигурацию, единицы и качество измерений.",
-          "status": "in_progress",
+          "status": "awaiting_external_evidence",
           "evidence": [
             "atomic_model_validation/pipe.py",
             "atomic_model_validation/digitize.py",
@@ -2473,15 +2845,41 @@
             "validation/ai06_hem_assessment_summary_v1.json",
             "validation/ai06_hiper_independent_reader_v1.json",
             "validation/ai06_hem_assessment_installed_v1.json",
-            "validation/ai06_hem_assessment_delivery_v1.json"
+            "validation/ai06_hem_assessment_delivery_v1.json",
+            "docs/FINAL_17_IMPLEMENTATION_RU.md",
+            "validation/ai_final17_protocol_v1.json",
+            "validation/final17_build_witness_v1.json",
+            "validation/final17_installed_v1.json",
+            "validation/final17_validation_report_v1.json",
+            "validation/final17_supported_runtime_v1.json",
+            "artifacts/final17_multiphysics_qualification_v2.json",
+            "artifacts/final17_release_manifest_v2.json",
+            "docs/EXTERNAL_ACCEPTANCE_HANDOFF_RU.md",
+            "artifacts/final17_multiphysics_qualification_v3.json",
+            "artifacts/final17_release_manifest_v3.json",
+            "artifacts/final17_uq_qualification_v2.json",
+            "validation/final17_build_witness_v2.json",
+            "validation/final17_installed_v2.json",
+            "validation/final17_delivery_v2.json",
+            "validation/final17_validation_report_v2.json",
+            "validation/external_acceptance_build_v2.json",
+            "validation/external_acceptance_protocol_v1.json",
+            "validation/external_independent_review_request_v2.json",
+            "docs/EXTERNAL_ACCEPTANCE_EXECUTION_RU.md",
+            ".github/workflows/portable-replay.yml",
+            "validation/external_acceptance_delivery_v1.json"
           ],
           "external_experiment_scope": "NIST TN2294 Fig18: 38 vector-digitized Darcy friction-factor symbols, four copper-pipe repeats; fixed pre-evaluation 5% screening criterion, native Darcy/Haaland evaluation with no fitting, source/licensing/coordinate-reading bounds and report recomputation. No per-point complete experimental UQ, independent correlation-training provenance or system transient validation; validated=false.",
-          "primary_hiper_assessment_scope": "176 primary TUM HIPER workbooks/12320 segments, published asymmetric endpoints, SI conversion and exact primary reimport; separate independent OOXML reading of357280numeric values. Full-row production admission census has0eligible cases, no closure extrapolation. Four experimental runs/eight bulk-EOS acoustic estimates screened descriptively; unestablished wave-speed uncertainty and pipe compliance prevent physical promotion. AI-06.06 remains in_progress."
+          "primary_hiper_assessment_scope": "176 primary TUM HIPER workbooks/12320 segments, published asymmetric endpoints, SI conversion and exact primary reimport; separate independent OOXML reading of357280numeric values. Full-row production admission census has0eligible cases, no closure extrapolation. Four experimental runs/eight bulk-EOS acoustic estimates screened descriptively; unestablished wave-speed uncertainty and pipe compliance prevent physical promotion. AI-06.06 remains in_progress.",
+          "external_gate": "Applicable coupled-system measurement histories with configuration, license and uncertainty are absent",
+          "infrastructure_implemented": true,
+          "release_blocking": false,
+          "follow_up_kind": "scientific validation or independent review; not required for local software execution"
         },
         {
           "id": "AI-09.03",
           "description": "Разделить calibration/validation по физическим случаям; исключить подгонку и последующую проверку на одной кривой.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "atomic_model_reference/data.py",
             "atomic_model_reference/metrics.py",
@@ -2520,11 +2918,20 @@
             "validation/ai06_throughflow_closure_curation_v1.json",
             "validation/ai06_throughflow_summary_v1.json",
             "validation/ai06_throughflow_installed_v1.json",
-            "validation/ai06_throughflow_delivery_v1.json"
+            "validation/ai06_throughflow_delivery_v1.json",
+            "docs/AI_09_10_12_TRAINING_RUNTIME_RU.md",
+            "validation/ai091012_training_protocol_v1.json",
+            "validation/ai091012_training_admission_v1.json",
+            "validation/ai091012_training_checks_v1.json",
+            "validation/ai091012_training_installed_v1.json",
+            "validation/ai091012_training_build_witness_v1.json",
+            "artifacts/ai091012_training_benchmark_v2.json",
+            "validation/ai091012_training_delivery_v1.json"
           ],
           "reference_import_scope": "Software-only reference import and independent analytic piecewise-linear metrics for supported EOS temperatures and local/global ledgers: raw CSV/unit/provenance admission, exact time-weighted errors/integrals, peaks and threshold-event timing, gap/coverage refusal, immutable criteria, report snapshot/recomputation. Synthetic controls only; no experimental, calibration or plant validation promotion.",
           "external_experiment_scope": "NIST TN2294 Fig18: 38 vector-digitized Darcy friction-factor symbols, four copper-pipe repeats; fixed pre-evaluation 5% screening criterion, native Darcy/Haaland evaluation with no fitting, source/licensing/coordinate-reading bounds and report recomputation. No per-point complete experimental UQ, independent correlation-training provenance or system transient validation; validated=false.",
-          "steady_throughflow_scope": "Separate bounded steady open-channel IVP: prescribed inletp/h/G, acceleration/gravity/Darcy, explicit phase roots/no state projection, property Gibbs-fit defect separated from numerical entropy.10cases x3caps,20separate total-enthalpy IVPs,76new and268related tests; installed audit repeated. Conditional HIPER local Chen K1/K4 assessed150rows/21runs with run-disjoint descriptive cohorts/no fitting; holdout heat-flux MARE88.35% fails predeclared20% target, all150 HTC upper bounds unresolved due p/Twall uncertainty. Not whole-loop/transient/physical acceptance."
+          "steady_throughflow_scope": "Separate bounded steady open-channel IVP: prescribed inletp/h/G, acceleration/gravity/Darcy, explicit phase roots/no state projection, property Gibbs-fit defect separated from numerical entropy.10cases x3caps,20separate total-enthalpy IVPs,76new and268related tests; installed audit repeated. Conditional HIPER local Chen K1/K4 assessed150rows/21runs with run-disjoint descriptive cohorts/no fitting; holdout heat-flux MARE88.35% fails predeclared20% target, all150 HTC upper bounds unresolved due p/Twall uncertainty. Not whole-loop/transient/physical acceptance.",
+          "training_runtime_scope": "Linux bounded declarative short-episode training on the unchanged controlled reduced PWR; no arbitrary Python policy, surrogate, long-transient speedup, experimental or plant-reference claim"
         },
         {
           "id": "AI-09.04",
@@ -2592,7 +2999,7 @@
         {
           "id": "AI-09.06",
           "description": "Разделить неопределённость данных, параметров, замыканий, сетки и интегратора; проверить покрытие интервалов на held-out случаях.",
-          "status": "in_progress",
+          "status": "awaiting_external_evidence",
           "evidence": [
             "atomic_model_reference/data.py",
             "atomic_model_reference/metrics.py",
@@ -2641,16 +3048,45 @@
             "validation/ai06_throughflow_closure_curation_v1.json",
             "validation/ai06_throughflow_summary_v1.json",
             "validation/ai06_throughflow_installed_v1.json",
-            "validation/ai06_throughflow_delivery_v1.json"
+            "validation/ai06_throughflow_delivery_v1.json",
+            "docs/FINAL_17_IMPLEMENTATION_RU.md",
+            "validation/ai_final17_protocol_v1.json",
+            "validation/final17_build_witness_v1.json",
+            "validation/final17_installed_v1.json",
+            "validation/final17_validation_report_v1.json",
+            "validation/final17_supported_runtime_v1.json",
+            "artifacts/final17_multiphysics_qualification_v2.json",
+            "artifacts/final17_release_manifest_v2.json",
+            "atomic_model_uncertainty/coverage.py",
+            "tests/test_uncertainty_coverage.py",
+            "artifacts/final17_uq_qualification_v1.json",
+            "docs/EXTERNAL_ACCEPTANCE_HANDOFF_RU.md",
+            "artifacts/final17_multiphysics_qualification_v3.json",
+            "artifacts/final17_release_manifest_v3.json",
+            "artifacts/final17_uq_qualification_v2.json",
+            "validation/final17_build_witness_v2.json",
+            "validation/final17_installed_v2.json",
+            "validation/final17_delivery_v2.json",
+            "validation/final17_validation_report_v2.json",
+            "validation/external_acceptance_build_v2.json",
+            "validation/external_acceptance_protocol_v1.json",
+            "validation/external_independent_review_request_v2.json",
+            "docs/EXTERNAL_ACCEPTANCE_EXECUTION_RU.md",
+            ".github/workflows/portable-replay.yml",
+            "validation/external_acceptance_delivery_v1.json"
           ],
           "reference_import_scope": "Software-only reference import and independent analytic piecewise-linear metrics for supported EOS temperatures and local/global ledgers: raw CSV/unit/provenance admission, exact time-weighted errors/integrals, peaks and threshold-event timing, gap/coverage refusal, immutable criteria, report snapshot/recomputation. Synthetic controls only; no experimental, calibration or plant validation promotion.",
           "primary_hiper_assessment_scope": "176 primary TUM HIPER workbooks/12320 segments, published asymmetric endpoints, SI conversion and exact primary reimport; separate independent OOXML reading of357280numeric values. Full-row production admission census has0eligible cases, no closure extrapolation. Four experimental runs/eight bulk-EOS acoustic estimates screened descriptively; unestablished wave-speed uncertainty and pipe compliance prevent physical promotion. AI-06.06 remains in_progress.",
-          "steady_throughflow_scope": "Separate bounded steady open-channel IVP: prescribed inletp/h/G, acceleration/gravity/Darcy, explicit phase roots/no state projection, property Gibbs-fit defect separated from numerical entropy.10cases x3caps,20separate total-enthalpy IVPs,76new and268related tests; installed audit repeated. Conditional HIPER local Chen K1/K4 assessed150rows/21runs with run-disjoint descriptive cohorts/no fitting; holdout heat-flux MARE88.35% fails predeclared20% target, all150 HTC upper bounds unresolved due p/Twall uncertainty. Not whole-loop/transient/physical acceptance."
+          "steady_throughflow_scope": "Separate bounded steady open-channel IVP: prescribed inletp/h/G, acceleration/gravity/Darcy, explicit phase roots/no state projection, property Gibbs-fit defect separated from numerical entropy.10cases x3caps,20separate total-enthalpy IVPs,76new and268related tests; installed audit repeated. Conditional HIPER local Chen K1/K4 assessed150rows/21runs with run-disjoint descriptive cohorts/no fitting; holdout heat-flux MARE88.35% fails predeclared20% target, all150 HTC upper bounds unresolved due p/Twall uncertainty. Not whole-loop/transient/physical acceptance.",
+          "external_gate": "Experimental interval coverage cannot be accepted without measurement uncertainty/covariance and applicable held-out system cases",
+          "infrastructure_implemented": true,
+          "release_blocking": false,
+          "follow_up_kind": "scientific validation or independent review; not required for local software execution"
         },
         {
           "id": "AI-09.07",
           "description": "Хранить межкодовое сравнение отдельно от эксперимента; определить scope-specific promotion implemented/verified/validated/plant_referenced.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "atomic_model_reference/data.py",
             "atomic_model_reference/metrics.py",
@@ -2672,15 +3108,24 @@
             "tests/test_experimental_pipe.py",
             "validation/ai09_nist_pipe_installed_v1.json",
             "validation/ai09_nist_pipe_comparison_v1.json",
-            "validation/ai09_nist_pipe_delivery_v1.json"
+            "validation/ai09_nist_pipe_delivery_v1.json",
+            "docs/AI_09_10_12_TRAINING_RUNTIME_RU.md",
+            "validation/ai091012_training_protocol_v1.json",
+            "validation/ai091012_training_admission_v1.json",
+            "validation/ai091012_training_checks_v1.json",
+            "validation/ai091012_training_installed_v1.json",
+            "validation/ai091012_training_build_witness_v1.json",
+            "artifacts/ai091012_training_benchmark_v2.json",
+            "validation/ai091012_training_delivery_v1.json"
           ],
           "reference_import_scope": "Software-only reference import and independent analytic piecewise-linear metrics for supported EOS temperatures and local/global ledgers: raw CSV/unit/provenance admission, exact time-weighted errors/integrals, peaks and threshold-event timing, gap/coverage refusal, immutable criteria, report snapshot/recomputation. Synthetic controls only; no experimental, calibration or plant validation promotion.",
-          "external_experiment_scope": "NIST TN2294 Fig18: 38 vector-digitized Darcy friction-factor symbols, four copper-pipe repeats; fixed pre-evaluation 5% screening criterion, native Darcy/Haaland evaluation with no fitting, source/licensing/coordinate-reading bounds and report recomputation. No per-point complete experimental UQ, independent correlation-training provenance or system transient validation; validated=false."
+          "external_experiment_scope": "NIST TN2294 Fig18: 38 vector-digitized Darcy friction-factor symbols, four copper-pipe repeats; fixed pre-evaluation 5% screening criterion, native Darcy/Haaland evaluation with no fitting, source/licensing/coordinate-reading bounds and report recomputation. No per-point complete experimental UQ, independent correlation-training provenance or system transient validation; validated=false.",
+          "training_runtime_scope": "Linux bounded declarative short-episode training on the unchanged controlled reduced PWR; no arbitrary Python policy, surrogate, long-transient speedup, experimental or plant-reference claim"
         },
         {
           "id": "AI-09.08",
           "description": "Выпустить validation report с отказавшими случаями, границами применимости и независимым техническим разбором.",
-          "status": "in_progress",
+          "status": "awaiting_external_evidence",
           "evidence": [
             "atomic_model_reference/data.py",
             "atomic_model_reference/metrics.py",
@@ -2737,12 +3182,39 @@
             "validation/ai06_throughflow_closure_curation_v1.json",
             "validation/ai06_throughflow_summary_v1.json",
             "validation/ai06_throughflow_installed_v1.json",
-            "validation/ai06_throughflow_delivery_v1.json"
+            "validation/ai06_throughflow_delivery_v1.json",
+            "docs/FINAL_17_IMPLEMENTATION_RU.md",
+            "validation/ai_final17_protocol_v1.json",
+            "validation/final17_build_witness_v1.json",
+            "validation/final17_installed_v1.json",
+            "validation/final17_validation_report_v1.json",
+            "validation/final17_supported_runtime_v1.json",
+            "artifacts/final17_multiphysics_qualification_v2.json",
+            "artifacts/final17_release_manifest_v2.json",
+            "docs/EXTERNAL_ACCEPTANCE_HANDOFF_RU.md",
+            "artifacts/final17_multiphysics_qualification_v3.json",
+            "artifacts/final17_release_manifest_v3.json",
+            "artifacts/final17_uq_qualification_v2.json",
+            "validation/final17_build_witness_v2.json",
+            "validation/final17_installed_v2.json",
+            "validation/final17_delivery_v2.json",
+            "validation/final17_validation_report_v2.json",
+            "validation/external_acceptance_build_v2.json",
+            "validation/external_acceptance_protocol_v1.json",
+            "validation/external_independent_review_request_v2.json",
+            "docs/EXTERNAL_ACCEPTANCE_EXECUTION_RU.md",
+            ".github/workflows/portable-replay.yml",
+            "validation/external_acceptance_delivery_v1.json"
           ],
           "reference_import_scope": "Software-only reference import and independent analytic piecewise-linear metrics for supported EOS temperatures and local/global ledgers: raw CSV/unit/provenance admission, exact time-weighted errors/integrals, peaks and threshold-event timing, gap/coverage refusal, immutable criteria, report snapshot/recomputation. Synthetic controls only; no experimental, calibration or plant validation promotion.",
           "external_experiment_scope": "NIST TN2294 Fig18: 38 vector-digitized Darcy friction-factor symbols, four copper-pipe repeats; fixed pre-evaluation 5% screening criterion, native Darcy/Haaland evaluation with no fitting, source/licensing/coordinate-reading bounds and report recomputation. No per-point complete experimental UQ, independent correlation-training provenance or system transient validation; validated=false.",
           "primary_hiper_assessment_scope": "176 primary TUM HIPER workbooks/12320 segments, published asymmetric endpoints, SI conversion and exact primary reimport; separate independent OOXML reading of357280numeric values. Full-row production admission census has0eligible cases, no closure extrapolation. Four experimental runs/eight bulk-EOS acoustic estimates screened descriptively; unestablished wave-speed uncertainty and pipe compliance prevent physical promotion. AI-06.06 remains in_progress.",
-          "steady_throughflow_scope": "Separate bounded steady open-channel IVP: prescribed inletp/h/G, acceleration/gravity/Darcy, explicit phase roots/no state projection, property Gibbs-fit defect separated from numerical entropy.10cases x3caps,20separate total-enthalpy IVPs,76new and268related tests; installed audit repeated. Conditional HIPER local Chen K1/K4 assessed150rows/21runs with run-disjoint descriptive cohorts/no fitting; holdout heat-flux MARE88.35% fails predeclared20% target, all150 HTC upper bounds unresolved due p/Twall uncertainty. Not whole-loop/transient/physical acceptance."
+          "steady_throughflow_scope": "Separate bounded steady open-channel IVP: prescribed inletp/h/G, acceleration/gravity/Darcy, explicit phase roots/no state projection, property Gibbs-fit defect separated from numerical entropy.10cases x3caps,20separate total-enthalpy IVPs,76new and268related tests; installed audit repeated. Conditional HIPER local Chen K1/K4 assessed150rows/21runs with run-disjoint descriptive cohorts/no fitting; holdout heat-flux MARE88.35% fails predeclared20% target, all150 HTC upper bounds unresolved due p/Twall uncertainty. Not whole-loop/transient/physical acceptance.",
+          "external_gate": "Independent technical reviewer and review receipt are absent; own checks are not independent review",
+          "infrastructure_implemented": true,
+          "reviewer_policy": "Separate AI reviewer declined by user; own checking is not independent review; awaiting human reviewer",
+          "release_blocking": false,
+          "follow_up_kind": "scientific validation or independent review; not required for local software execution"
         }
       ],
       "acceptance": [
@@ -2770,7 +3242,7 @@
         {
           "id": "AI-10.01",
           "description": "Снять CPU/memory profile настоящего ядра по фиксированным задачам и оборудованию; отдельно измерять старт, EOS, Jacobian, интегратор и отчёт.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "atomic_model_bench/spec.py",
             "atomic_model_bench/harness.py",
@@ -2789,10 +3261,19 @@
             "docs/AI_10_SOURCE_SCAN_OPTIMIZATION_RU.md",
             "validation/ai10_source_scan_delivery_v1.json",
             "validation/ai10_source_scan_portable_replay_v1.json",
-            "validation/ai10_source_scan_summary_v1.json"
+            "validation/ai10_source_scan_summary_v1.json",
+            "docs/AI_09_10_12_TRAINING_RUNTIME_RU.md",
+            "validation/ai091012_training_protocol_v1.json",
+            "validation/ai091012_training_admission_v1.json",
+            "validation/ai091012_training_checks_v1.json",
+            "validation/ai091012_training_installed_v1.json",
+            "validation/ai091012_training_build_witness_v1.json",
+            "artifacts/ai091012_training_benchmark_v2.json",
+            "validation/ai091012_training_delivery_v1.json"
           ],
           "performance_scope": "Linux trusted fixed-case EOS workers; shared affinity budget for supervisor threads and workers, fixed library threads, native admission/replay, phase wall clocks and exclusive cProfile groups. Explicit SSPRK3, no Jacobian. RSS supervision sampled, not hard memory isolation. No persistent workers or untrusted execution.",
-          "source_scan_scope": "Fresh os.scandir source traversal with legacy component ordering, no content/list/stat cache. Same-tree legacy digest equivalence, backdated same-size mutation detection, fail-closed I/O, unchanged numerical equations and old-source checkpoint rejection. Source identity changes because SDK file changed."
+          "source_scan_scope": "Fresh os.scandir source traversal with legacy component ordering, no content/list/stat cache. Same-tree legacy digest equivalence, backdated same-size mutation detection, fail-closed I/O, unchanged numerical equations and old-source checkpoint rejection. Source identity changes because SDK file changed.",
+          "training_runtime_scope": "Linux bounded declarative short-episode training on the unchanged controlled reduced PWR; no arbitrary Python policy, surrogate, long-transient speedup, experimental or plant-reference claim"
         },
         {
           "id": "AI-10.02",
@@ -2827,7 +3308,7 @@
         {
           "id": "AI-10.03",
           "description": "Оптимизировать измеренные узкие места EOS/матриц/аллоцирования без ослабления EOS и физических допусков.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "atomic_model_pool/runner.py",
             "atomic_model_pool/worker.py",
@@ -2846,15 +3327,24 @@
             "docs/AI_10_SOURCE_SCAN_OPTIMIZATION_RU.md",
             "validation/ai10_source_scan_delivery_v1.json",
             "validation/ai10_source_scan_portable_replay_v1.json",
-            "validation/ai10_source_scan_summary_v1.json"
+            "validation/ai10_source_scan_summary_v1.json",
+            "docs/AI_09_10_12_TRAINING_RUNTIME_RU.md",
+            "validation/ai091012_training_protocol_v1.json",
+            "validation/ai091012_training_admission_v1.json",
+            "validation/ai091012_training_checks_v1.json",
+            "validation/ai091012_training_installed_v1.json",
+            "validation/ai091012_training_build_witness_v1.json",
+            "artifacts/ai091012_training_benchmark_v2.json",
+            "validation/ai091012_training_delivery_v1.json"
           ],
           "pool_scope": "Bounded trusted Linux subprocess reuse for fixed EOS rollouts. Fresh EOSEpisode per task, source/token/native-checkpoint admission, CPU/thread/RSS/task-count bounds, worker replacement on failure, paired alternating classic/pool measurements. No vector learner API, arbitrary policies, persistent pool-job resume or OS hard memory quota.",
-          "source_scan_scope": "Fresh os.scandir source traversal with legacy component ordering, no content/list/stat cache. Same-tree legacy digest equivalence, backdated same-size mutation detection, fail-closed I/O, unchanged numerical equations and old-source checkpoint rejection. Source identity changes because SDK file changed."
+          "source_scan_scope": "Fresh os.scandir source traversal with legacy component ordering, no content/list/stat cache. Same-tree legacy digest equivalence, backdated same-size mutation detection, fail-closed I/O, unchanged numerical equations and old-source checkpoint rejection. Source identity changes because SDK file changed.",
+          "training_runtime_scope": "Linux bounded declarative short-episode training on the unchanged controlled reduced PWR; no arbitrary Python policy, surrogate, long-transient speedup, experimental or plant-reference claim"
         },
         {
           "id": "AI-10.04",
           "description": "Реализовать синхронные/асинхронные worker environments одного ядра с детерминированными seed, лимитами памяти и изоляцией отказов.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "atomic_model_bench/spec.py",
             "atomic_model_bench/harness.py",
@@ -2883,11 +3373,20 @@
             "tests/test_model_rollouts.py",
             "docs/AI_10_DURABLE_ROLLOUTS_RU.md",
             "tests/test_rollout_faults.py",
-            "validation/ai10_rollouts_installed_replay_v1.json"
+            "validation/ai10_rollouts_installed_replay_v1.json",
+            "docs/AI_09_10_12_TRAINING_RUNTIME_RU.md",
+            "validation/ai091012_training_protocol_v1.json",
+            "validation/ai091012_training_admission_v1.json",
+            "validation/ai091012_training_checks_v1.json",
+            "validation/ai091012_training_installed_v1.json",
+            "validation/ai091012_training_build_witness_v1.json",
+            "artifacts/ai091012_training_benchmark_v2.json",
+            "validation/ai091012_training_delivery_v1.json"
           ],
           "performance_scope": "Linux trusted fixed-case EOS workers; shared affinity budget for supervisor threads and workers, fixed library threads, native admission/replay, phase wall clocks and exclusive cProfile groups. Explicit SSPRK3, no Jacobian. RSS supervision sampled, not hard memory isolation. No persistent workers or untrusted execution.",
           "pool_scope": "Bounded trusted Linux subprocess reuse for fixed EOS rollouts. Fresh EOSEpisode per task, source/token/native-checkpoint admission, CPU/thread/RSS/task-count bounds, worker replacement on failure, paired alternating classic/pool measurements. No vector learner API, arbitrary policies, persistent pool-job resume or OS hard memory quota.",
-          "durable_rollout_scope": "Trusted Linux EOS queue with native checkpoints, bounded dispatch, pause/cancel/CAS resume. Real controller exits before/after GO and SIGKILL worker recovery qualified; synthetic RSS observer, output overflow and malformed checkpoint isolation exercised. Installed local wheel replay outside checkout; independent machine, exhaustive commit-crash recovery and hard OS resource quotas remain open."
+          "durable_rollout_scope": "Trusted Linux EOS queue with native checkpoints, bounded dispatch, pause/cancel/CAS resume. Real controller exits before/after GO and SIGKILL worker recovery qualified; synthetic RSS observer, output overflow and malformed checkpoint isolation exercised. Installed local wheel replay outside checkout; independent machine, exhaustive commit-crash recovery and hard OS resource quotas remain open.",
+          "training_runtime_scope": "Linux bounded declarative short-episode training on the unchanged controlled reduced PWR; no arbitrary Python policy, surrogate, long-transient speedup, experimental or plant-reference claim"
         },
         {
           "id": "AI-10.05",
@@ -2922,7 +3421,7 @@
         {
           "id": "AI-10.06",
           "description": "Добавить отмену, deadline, resume и checkpoint больших rollout jobs; один плохой эпизод не должен уничтожать всю кампанию.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "docs/AI_11_EOS_WORKSPACE_RU.md",
             "atomic_model_workspace/project.py",
@@ -2945,21 +3444,40 @@
             "tests/test_model_rollouts.py",
             "docs/AI_10_DURABLE_ROLLOUTS_RU.md",
             "tests/test_rollout_faults.py",
-            "validation/ai10_rollouts_installed_replay_v1.json"
+            "validation/ai10_rollouts_installed_replay_v1.json",
+            "docs/AI_09_10_12_TRAINING_RUNTIME_RU.md",
+            "validation/ai091012_training_protocol_v1.json",
+            "validation/ai091012_training_admission_v1.json",
+            "validation/ai091012_training_checks_v1.json",
+            "validation/ai091012_training_installed_v1.json",
+            "validation/ai091012_training_build_witness_v1.json",
+            "artifacts/ai091012_training_benchmark_v2.json",
+            "validation/ai091012_training_delivery_v1.json"
           ],
           "workspace_scope": "Restricted EOS projects with strict portable references, two deterministic built-ins, sequential spawn workers, atomic accepted-decision checkpoints, explicit pause/cancel/resume, reports and bounded data archives. No arbitrary plugin, untrusted execution, CPU/RSS quota or general topology editing.",
-          "durable_rollout_scope": "Trusted Linux EOS queue with native checkpoints, bounded dispatch, pause/cancel/CAS resume. Real controller exits before/after GO and SIGKILL worker recovery qualified; synthetic RSS observer, output overflow and malformed checkpoint isolation exercised. Installed local wheel replay outside checkout; independent machine, exhaustive commit-crash recovery and hard OS resource quotas remain open."
+          "durable_rollout_scope": "Trusted Linux EOS queue with native checkpoints, bounded dispatch, pause/cancel/CAS resume. Real controller exits before/after GO and SIGKILL worker recovery qualified; synthetic RSS observer, output overflow and malformed checkpoint isolation exercised. Installed local wheel replay outside checkout; independent machine, exhaustive commit-crash recovery and hard OS resource quotas remain open.",
+          "training_runtime_scope": "Linux bounded declarative short-episode training on the unchanged controlled reduced PWR; no arbitrary Python policy, surrogate, long-transient speedup, experimental or plant-reference claim"
         },
         {
           "id": "AI-10.07",
           "description": "Создать cost/accuracy tiers; surrogate или legacy batch оформлять отдельной fidelity с собственным паспортом и обязательным control replay на основном ядре.",
-          "status": "planned",
-          "evidence": []
+          "status": "accepted",
+          "evidence": [
+            "docs/AI_09_10_12_TRAINING_RUNTIME_RU.md",
+            "validation/ai091012_training_protocol_v1.json",
+            "validation/ai091012_training_admission_v1.json",
+            "validation/ai091012_training_checks_v1.json",
+            "validation/ai091012_training_installed_v1.json",
+            "validation/ai091012_training_build_witness_v1.json",
+            "artifacts/ai091012_training_benchmark_v2.json",
+            "validation/ai091012_training_delivery_v1.json"
+          ],
+          "training_runtime_scope": "Linux bounded declarative short-episode training on the unchanged controlled reduced PWR; no arbitrary Python policy, surrogate, long-transient speedup, experimental or plant-reference claim"
         },
         {
           "id": "AI-10.08",
           "description": "Поставить предварительный performance goal: минимум 2x к замороженному baseline на целевом workload и машине; если не достигнут, пакет остаётся частичным.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "atomic_model_bench/spec.py",
             "atomic_model_bench/harness.py",
@@ -2988,11 +3506,20 @@
             "docs/AI_10_SOURCE_SCAN_OPTIMIZATION_RU.md",
             "validation/ai10_source_scan_delivery_v1.json",
             "validation/ai10_source_scan_portable_replay_v1.json",
-            "validation/ai10_source_scan_summary_v1.json"
+            "validation/ai10_source_scan_summary_v1.json",
+            "docs/AI_09_10_12_TRAINING_RUNTIME_RU.md",
+            "validation/ai091012_training_protocol_v1.json",
+            "validation/ai091012_training_admission_v1.json",
+            "validation/ai091012_training_checks_v1.json",
+            "validation/ai091012_training_installed_v1.json",
+            "validation/ai091012_training_build_witness_v1.json",
+            "artifacts/ai091012_training_benchmark_v2.json",
+            "validation/ai091012_training_delivery_v1.json"
           ],
           "performance_scope": "Linux trusted fixed-case EOS workers; shared affinity budget for supervisor threads and workers, fixed library threads, native admission/replay, phase wall clocks and exclusive cProfile groups. Explicit SSPRK3, no Jacobian. RSS supervision sampled, not hard memory isolation. No persistent workers or untrusted execution.",
           "pool_scope": "Bounded trusted Linux subprocess reuse for fixed EOS rollouts. Fresh EOSEpisode per task, source/token/native-checkpoint admission, CPU/thread/RSS/task-count bounds, worker replacement on failure, paired alternating classic/pool measurements. No vector learner API, arbitrary policies, persistent pool-job resume or OS hard memory quota.",
-          "source_scan_scope": "Fresh os.scandir source traversal with legacy component ordering, no content/list/stat cache. Same-tree legacy digest equivalence, backdated same-size mutation detection, fail-closed I/O, unchanged numerical equations and old-source checkpoint rejection. Source identity changes because SDK file changed."
+          "source_scan_scope": "Fresh os.scandir source traversal with legacy component ordering, no content/list/stat cache. Same-tree legacy digest equivalence, backdated same-size mutation detection, fail-closed I/O, unchanged numerical equations and old-source checkpoint rejection. Source identity changes because SDK file changed.",
+          "training_runtime_scope": "Linux bounded declarative short-episode training on the unchanged controlled reduced PWR; no arbitrary Python policy, surrogate, long-transient speedup, experimental or plant-reference claim"
         }
       ],
       "acceptance": [
@@ -3005,8 +3532,18 @@
         "vector rollout runner",
         "accuracy/performance report"
       ],
-      "status": "partial",
-      "evidence": []
+      "status": "accepted",
+      "evidence": [
+        "docs/AI_09_10_12_TRAINING_RUNTIME_RU.md",
+        "validation/ai091012_training_protocol_v1.json",
+        "validation/ai091012_training_admission_v1.json",
+        "validation/ai091012_training_checks_v1.json",
+        "validation/ai091012_training_installed_v1.json",
+        "validation/ai091012_training_build_witness_v1.json",
+        "artifacts/ai091012_training_benchmark_v2.json",
+        "validation/ai091012_training_delivery_v1.json"
+      ],
+      "training_runtime_scope": "Linux bounded declarative short-episode training on the unchanged controlled reduced PWR; no arbitrary Python policy, surrogate, long-transient speedup, experimental or plant-reference claim"
     },
     {
       "id": "AI-11",
@@ -3021,7 +3558,7 @@
         {
           "id": "AI-11.01",
           "description": "Создать проект с versioned model/scenario/data/agent config и переносимыми относительными ссылками на артефакты.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "docs/AI_11_EOS_WORKSPACE_RU.md",
             "atomic_model_workspace/project.py",
@@ -3056,11 +3593,29 @@
             "scripts/verify_study_ui_browser.py",
             "docs/AI_11_MODEL_DATA_STUDY_RU.md",
             "validation/ai11_study_delivery_v1.json",
-            "validation/ai11_study_portable_replay_v1.json"
+            "validation/ai11_study_portable_replay_v1.json",
+            "docs/FINAL_17_IMPLEMENTATION_RU.md",
+            "validation/ai_final17_protocol_v1.json",
+            "validation/final17_build_witness_v1.json",
+            "validation/final17_installed_v1.json",
+            "validation/final17_validation_report_v1.json",
+            "validation/final17_supported_runtime_v1.json",
+            "artifacts/final17_multiphysics_qualification_v2.json",
+            "artifacts/final17_release_manifest_v2.json",
+            "validation/final17_delivery_v1.json",
+            "artifacts/final17_multiphysics_qualification_v3.json",
+            "artifacts/final17_release_manifest_v3.json",
+            "artifacts/final17_uq_qualification_v2.json",
+            "validation/final17_build_witness_v2.json",
+            "validation/final17_installed_v2.json",
+            "docs/EXTERNAL_ACCEPTANCE_HANDOFF_RU.md",
+            "validation/final17_delivery_v2.json",
+            "validation/final17_validation_report_v2.json"
           ],
           "workspace_scope": "Restricted EOS projects with strict portable references, two deterministic built-ins, sequential spawn workers, atomic accepted-decision checkpoints, explicit pause/cancel/resume, reports and bounded data archives. No arbitrary plugin, untrusted execution, CPU/RSS quota or general topology editing.",
           "project_editor_scope": "Versioned EOS parameter/policy API and CLI with full-batch preflight, preview/diff, CAS, immutable hashed revision chain, atomic HEAD, source guard, undo by new revision and portable export. No visual GUI, arbitrary topology or external experimental dataset editing; no automatic source migration.",
-          "model_data_study_scope": "Restricted EOS model/data study: CAS journal and full problem/role binding, content-addressed reference objects, relative data-only snapshot, pinned trusted Linux workers with wall/observed-RSS supervision, cancel/resume and dead-worker recovery, stale-result guard and loopback UI report/ledger/event/saved-curve routes. No general model registry, plugin agents, experimental validation, multi-user service or arbitrary topology."
+          "model_data_study_scope": "Restricted EOS model/data study: CAS journal and full problem/role binding, content-addressed reference objects, relative data-only snapshot, pinned trusted Linux workers with wall/observed-RSS supervision, cancel/resume and dead-worker recovery, stale-result guard and loopback UI report/ledger/event/saved-curve routes. No general model registry, plugin agents, experimental validation, multi-user service or arbitrary topology.",
+          "research_delivery_scope": "Versioned default controlled-PWR model/scenario/data/declarative-agent project, immutable ancestry, CAS data and bounded portable ZIP. No arbitrary topology/model editor."
         },
         {
           "id": "AI-11.02",
@@ -3251,8 +3806,8 @@
         },
         {
           "id": "AI-11.06",
-          "description": "Экспортировать отчёты и траектории со схемой/единицами/хешами; воспроизводить проект на другой машине.",
-          "status": "in_progress",
+          "description": "Экспортировать отчёты и траектории со схемой/единицами/хешами; предоставить и проверить локальное воспроизведение библиотеки из wheel в чистом окружении вне исходников.",
+          "status": "accepted",
           "evidence": [
             "docs/AI_11_EOS_WORKSPACE_RU.md",
             "atomic_model_workspace/project.py",
@@ -3308,13 +3863,43 @@
             "scripts/verify_results_ui_browser.py",
             "docs/AI_11_RESULT_COMPARISON_RU.md",
             "validation/ai11_results_delivery_v1.json",
-            "validation/ai11_results_portable_replay_v1.json"
+            "validation/ai11_results_portable_replay_v1.json",
+            "docs/FINAL_17_IMPLEMENTATION_RU.md",
+            "validation/ai_final17_protocol_v1.json",
+            "validation/final17_build_witness_v1.json",
+            "validation/final17_installed_v1.json",
+            "validation/final17_validation_report_v1.json",
+            "validation/final17_supported_runtime_v1.json",
+            "artifacts/final17_multiphysics_qualification_v2.json",
+            "artifacts/final17_release_manifest_v2.json",
+            "docs/EXTERNAL_ACCEPTANCE_HANDOFF_RU.md",
+            "artifacts/final17_multiphysics_qualification_v3.json",
+            "artifacts/final17_release_manifest_v3.json",
+            "artifacts/final17_uq_qualification_v2.json",
+            "validation/final17_build_witness_v2.json",
+            "validation/final17_installed_v2.json",
+            "validation/final17_delivery_v2.json",
+            "validation/final17_validation_report_v2.json",
+            "validation/external_acceptance_build_v2.json",
+            "validation/external_acceptance_protocol_v1.json",
+            "validation/external_independent_review_request_v2.json",
+            "docs/EXTERNAL_ACCEPTANCE_EXECUTION_RU.md",
+            ".github/workflows/portable-replay.yml",
+            "validation/external_acceptance_delivery_v1.json",
+            "scripts/verify_local_library.py",
+            "docs/LOCAL_VERIFICATION_RU.md",
+            "validation/local_library_delivery_v1.json",
+            "artifacts/local-verification-4ed0d2c52c/report.json"
           ],
           "workspace_scope": "Restricted EOS projects with strict portable references, two deterministic built-ins, sequential spawn workers, atomic accepted-decision checkpoints, explicit pause/cancel/resume, reports and bounded data archives. No arbitrary plugin, untrusted execution, CPU/RSS quota or general topology editing.",
           "project_editor_scope": "Versioned EOS parameter/policy API and CLI with full-batch preflight, preview/diff, CAS, immutable hashed revision chain, atomic HEAD, source guard, undo by new revision and portable export. No visual GUI, arbitrary topology or external experimental dataset editing; no automatic source migration.",
           "local_ui_scope": "Local single-user loopback UI for supported EOS preset parameters and trusted baseline policies: visible model card, fidelity/source/runtime versions, typed scenario form, preview/diff, CAS save, immutable history, restore and portable export. Wrong bindings rejected with unchanged HEAD. No arbitrary topology or remote/multi-user service.",
           "reference_import_scope": "Software-only reference import and independent analytic piecewise-linear metrics for supported EOS temperatures and local/global ledgers: raw CSV/unit/provenance admission, exact time-weighted errors/integrals, peaks and threshold-event timing, gap/coverage refusal, immutable criteria, report snapshot/recomputation. Synthetic controls only; no experimental, calibration or plant validation promotion.",
-          "results_comparison_scope": "Restricted EOS result comparison: pinned multi-evaluation data-only bundles, unitful trajectories, full accepted-row native reintegration, exact metric/event/ledger recomputation, protocol-specific per-channel MAE comparison, diagnostics for incomplete runs, bounded deterministic ZIP and local UI. No cross-unit aggregate, hardware speed claim, arbitrary agent/model graph or physical validation."
+          "results_comparison_scope": "Restricted EOS result comparison: pinned multi-evaluation data-only bundles, unitful trajectories, full accepted-row native reintegration, exact metric/event/ledger recomputation, protocol-specific per-channel MAE comparison, diagnostics for incomplete runs, bounded deterministic ZIP and local UI. No cross-unit aggregate, hardware speed claim, arbitrary agent/model graph or physical validation.",
+          "external_gate": null,
+          "infrastructure_implemented": true,
+          "previous_description": "Экспортировать отчёты и траектории со схемой/единицами/хешами; воспроизводить проект на другой машине.",
+          "local_acceptance_scope": "Source tests, clean sdist/wheel build, offline installed replay on the user computer. CI and another physical host are not required."
         },
         {
           "id": "AI-11.07",
@@ -3403,8 +3988,12 @@
         "инженерный UI",
         "один принятый интеграционный пример"
       ],
-      "status": "partial",
-      "evidence": []
+      "status": "accepted",
+      "evidence": [
+        "validation/local_library_delivery_v1.json",
+        "docs/LOCAL_VERIFICATION_RU.md"
+      ],
+      "local_acceptance_policy": "Local declared research/software scope; no CI or physical-host attestation requirement"
     },
     {
       "id": "AI-12",
@@ -3418,17 +4007,35 @@
         {
           "id": "AI-12.01",
           "description": "Определить supported matrix ОС/Python/зависимостей и lock/constraints; проверить минимальные и выбранные поддерживаемые версии.",
-          "status": "planned",
+          "status": "accepted",
           "evidence": [
             "validation/ai05_fixed_boundary_portable_replay_v1.json",
-            "validation/ai05_fixed_boundary_archive_reproducibility_v1.json"
+            "validation/ai05_fixed_boundary_archive_reproducibility_v1.json",
+            "docs/FINAL_17_IMPLEMENTATION_RU.md",
+            "validation/ai_final17_protocol_v1.json",
+            "validation/final17_build_witness_v1.json",
+            "validation/final17_installed_v1.json",
+            "validation/final17_validation_report_v1.json",
+            "validation/final17_supported_runtime_v1.json",
+            "artifacts/final17_multiphysics_qualification_v2.json",
+            "artifacts/final17_release_manifest_v2.json",
+            "validation/final17_delivery_v1.json",
+            "artifacts/final17_multiphysics_qualification_v3.json",
+            "artifacts/final17_release_manifest_v3.json",
+            "artifacts/final17_uq_qualification_v2.json",
+            "validation/final17_build_witness_v2.json",
+            "validation/final17_installed_v2.json",
+            "docs/EXTERNAL_ACCEPTANCE_HANDOFF_RU.md",
+            "validation/final17_delivery_v2.json",
+            "validation/final17_validation_report_v2.json"
           ],
-          "implemented_scope": " Fixed-command profile added; transferred36-packet archive(14 prior steady+22 fixed) and12 negatives reproduced exact archived audits; rebuilt archive byte-identical."
+          "implemented_scope": " Fixed-command profile added; transferred36-packet archive(14 prior steady+22 fixed) and12 negatives reproduced exact archived audits; rebuilt archive byte-identical.",
+          "research_delivery_scope": "One exact qualified Linux x86_64 CPython3.12.9 NumPy2.2.6 SciPy1.15.2 numerical profile; minimum=selected pins, observed dependency constraints. Other runtimes and hermetic wheelhouse are excluded."
         },
         {
           "id": "AI-12.02",
           "description": "Проверить wheel и все заявленные ресурсы из изолированного окружения вне checkout, включая JSON/YAML сценарии и CLI.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "validation/ai05_turbine_delivery_v1.json",
             "validation/ai05_historical_frozen_replay_v1.json",
@@ -3525,7 +4132,24 @@
             "examples/eos_reference_workflow.py",
             "docs/AI_09_REFERENCE_COMPARISON_RU.md",
             "validation/ai09_reference_delivery_v1.json",
-            "validation/ai09_reference_portable_replay_v1.json"
+            "validation/ai09_reference_portable_replay_v1.json",
+            "docs/FINAL_17_IMPLEMENTATION_RU.md",
+            "validation/ai_final17_protocol_v1.json",
+            "validation/final17_build_witness_v1.json",
+            "validation/final17_installed_v1.json",
+            "validation/final17_validation_report_v1.json",
+            "validation/final17_supported_runtime_v1.json",
+            "artifacts/final17_multiphysics_qualification_v2.json",
+            "artifacts/final17_release_manifest_v2.json",
+            "validation/final17_delivery_v1.json",
+            "artifacts/final17_multiphysics_qualification_v3.json",
+            "artifacts/final17_release_manifest_v3.json",
+            "artifacts/final17_uq_qualification_v2.json",
+            "validation/final17_build_witness_v2.json",
+            "validation/final17_installed_v2.json",
+            "docs/EXTERNAL_ACCEPTANCE_HANDOFF_RU.md",
+            "validation/final17_delivery_v2.json",
+            "validation/final17_validation_report_v2.json"
           ],
           "remaining": "Local Linux/Python 3.12 wheel resources and CLIs verified outside checkout with inherited dependencies; clean dependency and other supported-platform matrix remain unverified",
           "workspace_scope": "Restricted EOS projects with strict portable references, two deterministic built-ins, sequential spawn workers, atomic accepted-decision checkpoints, explicit pause/cancel/resume, reports and bounded data archives. No arbitrary plugin, untrusted execution, CPU/RSS quota or general topology editing.",
@@ -3534,7 +4158,8 @@
           "source_scan_scope": "Fresh os.scandir source traversal with legacy component ordering, no content/list/stat cache. Same-tree legacy digest equivalence, backdated same-size mutation detection, fail-closed I/O, unchanged numerical equations and old-source checkpoint rejection. Source identity changes because SDK file changed.",
           "project_editor_scope": "Versioned EOS parameter/policy API and CLI with full-batch preflight, preview/diff, CAS, immutable hashed revision chain, atomic HEAD, source guard, undo by new revision and portable export. No visual GUI, arbitrary topology or external experimental dataset editing; no automatic source migration.",
           "local_ui_scope": "Local single-user loopback UI for supported EOS preset parameters and trusted baseline policies: visible model card, fidelity/source/runtime versions, typed scenario form, preview/diff, CAS save, immutable history, restore and portable export. Wrong bindings rejected with unchanged HEAD. No arbitrary topology or remote/multi-user service.",
-          "reference_import_scope": "Software-only reference import and independent analytic piecewise-linear metrics for supported EOS temperatures and local/global ledgers: raw CSV/unit/provenance admission, exact time-weighted errors/integrals, peaks and threshold-event timing, gap/coverage refusal, immutable criteria, report snapshot/recomputation. Synthetic controls only; no experimental, calibration or plant validation promotion."
+          "reference_import_scope": "Software-only reference import and independent analytic piecewise-linear metrics for supported EOS temperatures and local/global ledgers: raw CSV/unit/provenance admission, exact time-weighted errors/integrals, peaks and threshold-event timing, gap/coverage refusal, immutable criteria, report snapshot/recomputation. Synthetic controls only; no experimental, calibration or plant validation promotion.",
+          "research_delivery_scope": "Cold offline no-deps wheel outside checkout with inherited pinned scientific dependencies, installed JSON/YAML resource inspection, actual-core portable and spatial replay, CLI and prior runbook. No other-machine or hermetic claim."
         },
         {
           "id": "AI-12.03",
@@ -3805,7 +4430,7 @@
         {
           "id": "AI-12.06",
           "description": "Собирать version/source/dependency/SBOM/license manifest, контрольные суммы и архив evidence; provenance подписи вводить для реального канала поставки.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "validation/ai05_turbine_delivery_v1.json",
             "validation/ai05_historical_frozen_replay_v1.json",
@@ -3853,17 +4478,35 @@
             "docs/AI_10_SOURCE_SCAN_OPTIMIZATION_RU.md",
             "validation/ai10_source_scan_delivery_v1.json",
             "validation/ai10_source_scan_portable_replay_v1.json",
-            "validation/ai10_source_scan_summary_v1.json"
+            "validation/ai10_source_scan_summary_v1.json",
+            "docs/FINAL_17_IMPLEMENTATION_RU.md",
+            "validation/ai_final17_protocol_v1.json",
+            "validation/final17_build_witness_v1.json",
+            "validation/final17_installed_v1.json",
+            "validation/final17_validation_report_v1.json",
+            "validation/final17_supported_runtime_v1.json",
+            "artifacts/final17_multiphysics_qualification_v2.json",
+            "artifacts/final17_release_manifest_v2.json",
+            "validation/final17_delivery_v1.json",
+            "artifacts/final17_multiphysics_qualification_v3.json",
+            "artifacts/final17_release_manifest_v3.json",
+            "artifacts/final17_uq_qualification_v2.json",
+            "validation/final17_build_witness_v2.json",
+            "validation/final17_installed_v2.json",
+            "docs/EXTERNAL_ACCEPTANCE_HANDOFF_RU.md",
+            "validation/final17_delivery_v2.json",
+            "validation/final17_validation_report_v2.json"
           ],
           "remaining": "Supported environment/constraints matrix, full standardized/transitive SBOM/license evidence and publisher signatures for a real delivery channel",
           "implemented_scope": "Deterministic evidence bundle; exact wheel/sdist runtime identity and pinned numerical scripts/budgets; archive/file/manifest hashes; declared dependency/license metadata; one-command release profile and configured CI gate.67 transferred packets(53 transient+14 steady) passed cold numerical replay outside checkout with both archived audit JSONs identical. Real steady archive rebuild was byte-identical.",
           "workspace_scope": "Restricted EOS projects with strict portable references, two deterministic built-ins, sequential spawn workers, atomic accepted-decision checkpoints, explicit pause/cancel/resume, reports and bounded data archives. No arbitrary plugin, untrusted execution, CPU/RSS quota or general topology editing.",
-          "source_scan_scope": "Fresh os.scandir source traversal with legacy component ordering, no content/list/stat cache. Same-tree legacy digest equivalence, backdated same-size mutation detection, fail-closed I/O, unchanged numerical equations and old-source checkpoint rejection. Source identity changes because SDK file changed."
+          "source_scan_scope": "Fresh os.scandir source traversal with legacy component ordering, no content/list/stat cache. Same-tree legacy digest equivalence, backdated same-size mutation detection, fail-closed I/O, unchanged numerical equations and old-source checkpoint rejection. Source identity changes because SDK file changed.",
+          "research_delivery_scope": "Source/version/dependency/license inventory, SPDX SBOM with honest NOASSERTION, package/source checksums and local evidence archive; no authenticated publisher/signature channel."
         },
         {
           "id": "AI-12.07",
           "description": "Ограничить ресурсы job/policy runner, защитить загрузку пользовательских данных и разделить trusted/untrusted код политики.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "validation/ai12_evidence_bundle_delivery_v1.json",
             "validation/ai12_evidence_bundle_baseline_v1.json",
@@ -3914,14 +4557,23 @@
             "scripts/verify_project_ui_browser.py",
             "docs/AI_11_LOCAL_PROJECT_UI_RU.md",
             "validation/ai11_local_ui_delivery_v1.json",
-            "validation/ai11_local_ui_portable_replay_v1.json"
+            "validation/ai11_local_ui_portable_replay_v1.json",
+            "docs/AI_09_10_12_TRAINING_RUNTIME_RU.md",
+            "validation/ai091012_training_protocol_v1.json",
+            "validation/ai091012_training_admission_v1.json",
+            "validation/ai091012_training_checks_v1.json",
+            "validation/ai091012_training_installed_v1.json",
+            "validation/ai091012_training_build_witness_v1.json",
+            "artifacts/ai091012_training_benchmark_v2.json",
+            "validation/ai091012_training_delivery_v1.json"
           ],
           "implemented_scope": "Evidence archive path/link/type/resource validation including raw PAX/GNU extension headers; rollback extraction; trusted numerical subprocess replay with a shared wall deadline",
           "remaining": "CPU/memory/process isolation and untrusted policy execution are not implemented by archive verification",
           "workspace_scope": "Restricted EOS projects with strict portable references, two deterministic built-ins, sequential spawn workers, atomic accepted-decision checkpoints, explicit pause/cancel/resume, reports and bounded data archives. No arbitrary plugin, untrusted execution, CPU/RSS quota or general topology editing.",
           "performance_scope": "Linux trusted fixed-case EOS workers; shared affinity budget for supervisor threads and workers, fixed library threads, native admission/replay, phase wall clocks and exclusive cProfile groups. Explicit SSPRK3, no Jacobian. RSS supervision sampled, not hard memory isolation. No persistent workers or untrusted execution.",
           "pool_scope": "Bounded trusted Linux subprocess reuse for fixed EOS rollouts. Fresh EOSEpisode per task, source/token/native-checkpoint admission, CPU/thread/RSS/task-count bounds, worker replacement on failure, paired alternating classic/pool measurements. No vector learner API, arbitrary policies, persistent pool-job resume or OS hard memory quota.",
-          "local_ui_scope": "Local single-user loopback UI for supported EOS preset parameters and trusted baseline policies: visible model card, fidelity/source/runtime versions, typed scenario form, preview/diff, CAS save, immutable history, restore and portable export. Wrong bindings rejected with unchanged HEAD. No arbitrary topology or remote/multi-user service."
+          "local_ui_scope": "Local single-user loopback UI for supported EOS preset parameters and trusted baseline policies: visible model card, fidelity/source/runtime versions, typed scenario form, preview/diff, CAS save, immutable history, restore and portable export. Wrong bindings rejected with unchanged HEAD. No arbitrary topology or remote/multi-user service.",
+          "training_runtime_scope": "Linux bounded declarative short-episode training on the unchanged controlled reduced PWR; no arbitrary Python policy, surrogate, long-transient speedup, experimental or plant-reference claim"
         },
         {
           "id": "AI-12.08",
@@ -4009,14 +4661,18 @@
         "CI/platform matrix",
         "release dossier и runbook"
       ],
-      "status": "in_progress",
+      "status": "accepted",
       "evidence": [
-        "validation/ai05_turbine_delivery_v1.json",
-        "validation/ai05_historical_driver_recovery_v1.json",
-        "validation/ai05_historical_frozen_replay_v1.json",
-        "validation/ai05_steam_cycle_delivery_v1.json",
-        "validation/ai05_turbine_snapshot_compatibility_v1.json"
-      ]
+        "docs/FINAL_17_IMPLEMENTATION_RU.md",
+        "validation/ai_final17_protocol_v1.json",
+        "validation/final17_build_witness_v1.json",
+        "validation/final17_installed_v1.json",
+        "validation/final17_validation_report_v1.json",
+        "validation/final17_supported_runtime_v1.json",
+        "artifacts/final17_multiphysics_qualification_v2.json",
+        "artifacts/final17_release_manifest_v2.json"
+      ],
+      "research_delivery_scope": "Explicit numerical research scopes; not industrial physical/plant qualification"
     },
     {
       "id": "AI-13",
@@ -4196,7 +4852,7 @@
         {
           "id": "AI-13.05",
           "description": "Принять открытый релиз по опубликованным критериям установки wheel/sdist, примеров, replay, ограничений и известных отказов; наличие внешних пользователей не является условием технического закрытия.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "docs/AI_11_EOS_WORKSPACE_RU.md",
             "atomic_model_workspace/project.py",
@@ -4211,14 +4867,32 @@
             "tests/test_model_workspace.py",
             "validation/ai11_workspace_batch_v1.json",
             "validation/ai11_workspace_delivery_v1.json",
-            "validation/ai11_workspace_portable_replay_v1.json"
+            "validation/ai11_workspace_portable_replay_v1.json",
+            "docs/FINAL_17_IMPLEMENTATION_RU.md",
+            "validation/ai_final17_protocol_v1.json",
+            "validation/final17_build_witness_v1.json",
+            "validation/final17_installed_v1.json",
+            "validation/final17_validation_report_v1.json",
+            "validation/final17_supported_runtime_v1.json",
+            "artifacts/final17_multiphysics_qualification_v2.json",
+            "artifacts/final17_release_manifest_v2.json",
+            "validation/final17_delivery_v1.json",
+            "artifacts/final17_multiphysics_qualification_v3.json",
+            "artifacts/final17_release_manifest_v3.json",
+            "artifacts/final17_uq_qualification_v2.json",
+            "validation/final17_build_witness_v2.json",
+            "validation/final17_installed_v2.json",
+            "docs/EXTERNAL_ACCEPTANCE_HANDOFF_RU.md",
+            "validation/final17_delivery_v2.json",
+            "validation/final17_validation_report_v2.json"
           ],
-          "workspace_scope": "Restricted EOS projects with strict portable references, two deterministic built-ins, sequential spawn workers, atomic accepted-decision checkpoints, explicit pause/cancel/resume, reports and bounded data archives. No arbitrary plugin, untrusted execution, CPU/RSS quota or general topology editing."
+          "workspace_scope": "Restricted EOS projects with strict portable references, two deterministic built-ins, sequential spawn workers, atomic accepted-decision checkpoints, explicit pause/cancel/resume, reports and bounded data archives. No arbitrary plugin, untrusted execution, CPU/RSS quota or general topology editing.",
+          "research_delivery_scope": "Technical local open research release candidate, installation/examples/replay/limits/failures explicitly checked. Public push/tag/release publishing remains user-controlled."
         },
         {
           "id": "AI-13.06",
           "description": "Публиковать только измеренное преимущество на конкретном открытом workload; новые модели и интеграции добавлять по отдельным схемам и квалификации.",
-          "status": "in_progress",
+          "status": "accepted",
           "evidence": [
             "atomic_model_pool/runner.py",
             "atomic_model_pool/worker.py",
@@ -4229,9 +4903,27 @@
             "docs/AI_10_EOS_WORKER_POOL_RU.md",
             "validation/ai10_eos_pool_delivery_v1.json",
             "validation/ai10_eos_pool_portable_replay_v1.json",
-            "validation/ai10_eos_pool_summary_v1.json"
+            "validation/ai10_eos_pool_summary_v1.json",
+            "docs/FINAL_17_IMPLEMENTATION_RU.md",
+            "validation/ai_final17_protocol_v1.json",
+            "validation/final17_build_witness_v1.json",
+            "validation/final17_installed_v1.json",
+            "validation/final17_validation_report_v1.json",
+            "validation/final17_supported_runtime_v1.json",
+            "artifacts/final17_multiphysics_qualification_v2.json",
+            "artifacts/final17_release_manifest_v2.json",
+            "validation/final17_delivery_v1.json",
+            "artifacts/final17_multiphysics_qualification_v3.json",
+            "artifacts/final17_release_manifest_v3.json",
+            "artifacts/final17_uq_qualification_v2.json",
+            "validation/final17_build_witness_v2.json",
+            "validation/final17_installed_v2.json",
+            "docs/EXTERNAL_ACCEPTANCE_HANDOFF_RU.md",
+            "validation/final17_delivery_v2.json",
+            "validation/final17_validation_report_v2.json"
           ],
-          "pool_scope": "Bounded trusted Linux subprocess reuse for fixed EOS rollouts. Fresh EOSEpisode per task, source/token/native-checkpoint admission, CPU/thread/RSS/task-count bounds, worker replacement on failure, paired alternating classic/pool measurements. No vector learner API, arbitrary policies, persistent pool-job resume or OS hard memory quota."
+          "pool_scope": "Bounded trusted Linux subprocess reuse for fixed EOS rollouts. Fresh EOSEpisode per task, source/token/native-checkpoint admission, CPU/thread/RSS/task-count bounds, worker replacement on failure, paired alternating classic/pool measurements. No vector learner API, arbitrary policies, persistent pool-job resume or OS hard memory quota.",
+          "research_delivery_scope": "Only retained measured5.277x nominal short controlled-core workload claim with unchanged source, separate new-model schemas/qualifications, no universal simulator or spatial-speedup claim."
         }
       ],
       "acceptance": [
@@ -4244,8 +4936,12 @@
         "benchmark report с seeds/work budgets",
         "wheel/sdist и воспроизводимая инструкция research release"
       ],
-      "status": "partial",
-      "evidence": []
+      "status": "accepted",
+      "evidence": [
+        "validation/local_library_delivery_v1.json",
+        "docs/LOCAL_VERIFICATION_RU.md"
+      ],
+      "local_acceptance_policy": "Local declared research/software scope; no CI or physical-host attestation requirement"
     }
   ],
   "current_baseline_evidence": "validation/ai06_hem_network_delivery_v1.json",
@@ -5109,6 +5805,206 @@
         "validation/ai09_identification_installed_v1.json",
         "validation/ai09_identification_delivery_v1.json"
       ]
+    },
+    {
+      "date": "2026-11-06",
+      "version": "1.74.0",
+      "packages": [
+        "AI-08"
+      ],
+      "accepted_tasks": [
+        "AI-08.03"
+      ],
+      "note": "Delivered source-bound multigroup FV diffusion and local precursor kinetics, source/k/transient CLI, packaged examples and full replay checkpoints. Numerical acceptance only on explicit synthetic fixtures; remaining AI-08/data/plant tasks stay open.391related72new72installed; prior HEM dependency chain unchanged.",
+      "evidence": [
+        "atomic_model_spatial/__init__.py",
+        "atomic_model_spatial/__main__.py",
+        "atomic_model_spatial/cases.py",
+        "atomic_model_spatial/diagnostics.py",
+        "atomic_model_spatial/experiment.py",
+        "atomic_model_spatial/model.py",
+        "atomic_model_spatial/reference.py",
+        "atomic_model_spatial/solvers.py",
+        "atomic_model_spatial/transient.py",
+        "atomic_model_spatial/workflow.py",
+        "atomic_model_spatial/data/slab_eigen_v1.json",
+        "atomic_model_spatial/data/slab_transient_v1.json",
+        "tests/test_spatial_diffusion.py",
+        "scripts/verify_spatial_install.py",
+        "docs/AI_08_SPATIAL_DIFFUSION_RU.md",
+        "validation/ai08_spatial_summary_v1.json",
+        "validation/ai08_spatial_installed_v1.json",
+        "validation/ai08_spatial_delivery_v1.json"
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "version": "1.75.0",
+      "packages": [
+        "AI-05",
+        "AI-06",
+        "AI-07"
+      ],
+      "accepted_tasks": [
+        "AI-05.07"
+      ],
+      "note": "Direct certified steady initialization and four-branch handoff; 11legacy full-horizon requests:8completed,2coastdowns fail near122s, full load rejection fails at10s. All three blocks remain open; condensation source candidate inspected, no experimental promotion.",
+      "evidence": [
+        "atomic_model_initialization/__init__.py",
+        "atomic_model_initialization/__main__.py",
+        "atomic_model_initialization/qualification.py",
+        "atomic_model_initialization/steady.py",
+        "scripts/qualify_system_horizons.py",
+        "scripts/verify_network_initialization_install.py",
+        "tests/test_network_initialization.py",
+        "tests/test_system_horizons.py",
+        "docs/AI_05_06_07_SYSTEM_PROGRESS_RU.md",
+        "validation/ai050607_summary_v1.json",
+        "validation/ai050607_installed_v1.json",
+        "validation/ai050607_delivery_v1.json"
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "version": "1.76.0",
+      "packages": [
+        "AI-05",
+        "AI-06",
+        "AI-07"
+      ],
+      "accepted_tasks": [
+        "AI-05.03",
+        "AI-05.05",
+        "AI-05.08",
+        "AI-06.06",
+        "AI-07.01",
+        "AI-07.02",
+        "AI-07.03",
+        "AI-07.04",
+        "AI-07.05",
+        "AI-07.06",
+        "AI-07.07",
+        "AI-07.08"
+      ],
+      "note": "Closed twelve tasks within declared numerical scopes. Ten full current-source programs and complete replay; load7200 rather than falsely accepting all-state equilibrium at600. Experimental validation remains unestablished; old failures retained.",
+      "evidence": [
+        "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+        "validation/ai050607_controlled_summary_v1.json",
+        "validation/ai050607_controlled_checks_v1.json",
+        "validation/ai050607_controlled_installed_v1.json",
+        "validation/ai050607_controlled_delivery_v1.json",
+        "validation/ai07_controlled_configuration_v1.json",
+        "validation/ai06_pool_b274_independent_import_v2.json"
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "version": "1.77.0",
+      "packages": [
+        "AI-09",
+        "AI-10",
+        "AI-12"
+      ],
+      "accepted_tasks": [
+        "AI-09.01",
+        "AI-09.03",
+        "AI-09.07",
+        "AI-10.01",
+        "AI-10.03",
+        "AI-10.04",
+        "AI-10.06",
+        "AI-10.07",
+        "AI-10.08",
+        "AI-12.07"
+      ],
+      "scope": "Linux bounded declarative short-episode training on the unchanged controlled reduced PWR; no arbitrary Python policy, surrogate, long-transient speedup, experimental or plant-reference claim",
+      "evidence": [
+        "docs/AI_09_10_12_TRAINING_RUNTIME_RU.md",
+        "validation/ai091012_training_protocol_v1.json",
+        "validation/ai091012_training_admission_v1.json",
+        "validation/ai091012_training_checks_v1.json",
+        "validation/ai091012_training_installed_v1.json",
+        "validation/ai091012_training_build_witness_v1.json",
+        "artifacts/ai091012_training_benchmark_v2.json"
+      ],
+      "note": "Ten software/numerical tasks accepted; >=2x goal met only on predeclared short reset-heavy actual-core workload"
+    },
+    {
+      "date": "2026-11-06",
+      "version": "1.78.0",
+      "accepted_tasks": [
+        "AI-08.01",
+        "AI-08.02",
+        "AI-08.04",
+        "AI-08.05",
+        "AI-08.06",
+        "AI-08.07",
+        "AI-08.08",
+        "AI-11.01",
+        "AI-12.01",
+        "AI-12.02",
+        "AI-12.06",
+        "AI-13.05",
+        "AI-13.06"
+      ],
+      "awaiting_external_evidence": {
+        "AI-09.02": "Applicable coupled-system measurement histories with configuration, license and uncertainty are absent",
+        "AI-09.06": "Experimental interval coverage cannot be accepted without measurement uncertainty/covariance and applicable held-out system cases",
+        "AI-09.08": "Independent technical reviewer and review receipt are absent; own checks are not independent review",
+        "AI-11.06": "Portable/cold replay executed on this host only; another physical machine receipt is absent"
+      },
+      "evidence": [
+        "docs/FINAL_17_IMPLEMENTATION_RU.md",
+        "validation/ai_final17_protocol_v1.json",
+        "validation/final17_build_witness_v1.json",
+        "validation/final17_installed_v1.json",
+        "validation/final17_validation_report_v1.json",
+        "validation/final17_supported_runtime_v1.json",
+        "artifacts/final17_multiphysics_qualification_v2.json",
+        "artifacts/final17_release_manifest_v2.json"
+      ],
+      "note": "13 research software/numerical tasks closed; four external gates retained honestly"
+    },
+    {
+      "version": "1.78.0",
+      "date": "2026-11-06",
+      "note": "Final source-bound recertification after nonfinite/unit/revision guards and explicit joint-covariance implementation",
+      "accepted_tasks_changed": false,
+      "evidence": [
+        "artifacts/final17_multiphysics_qualification_v3.json",
+        "artifacts/final17_release_manifest_v3.json",
+        "artifacts/final17_uq_qualification_v2.json",
+        "validation/final17_build_witness_v2.json",
+        "validation/final17_installed_v2.json",
+        "docs/FINAL_17_IMPLEMENTATION_RU.md",
+        "docs/EXTERNAL_ACCEPTANCE_HANDOFF_RU.md"
+      ]
+    },
+    {
+      "version": "1.79.0",
+      "date": "2026-11-06",
+      "accepted_tasks": [],
+      "note": "Implemented CI packet/API collection and primary-source admission; fixed unit-scaled PSD/covariance and extreme quantile guards;101 source and101 installed tests. Four external criteria unchanged. AI reviewer declined, no agent launched.",
+      "evidence": [
+        "validation/external_acceptance_build_v2.json",
+        "validation/external_acceptance_protocol_v1.json",
+        "validation/external_independent_review_request_v2.json",
+        "docs/EXTERNAL_ACCEPTANCE_EXECUTION_RU.md",
+        ".github/workflows/portable-replay.yml",
+        "validation/external_acceptance_delivery_v1.json"
+      ]
+    },
+    {
+      "version": "1.80.0",
+      "date": "2026-11-06",
+      "accepted_tasks": [
+        "AI-11.06"
+      ],
+      "note": "Removed CI workflows and GitHub collector per user instruction; local one-command verification passed238 tests and installed replay. Scientific validation/review follow-ups remain separate, nonblocking for software execution.",
+      "evidence": [
+        "docs/LOCAL_VERIFICATION_RU.md",
+        "validation/local_library_delivery_v1.json"
+      ]
     }
   ],
   "product_intent": {
@@ -5133,6 +6029,25 @@
       "reason": "User clarified open-source modeler for AI and LLM; commercial pilot is not a completion gate",
       "task_ids_preserved": true,
       "acceptance_not_promoted": true
+    },
+    {
+      "date": "2026-11-06",
+      "packages": [
+        "AI-05",
+        "AI-06",
+        "AI-07"
+      ],
+      "scope": "Numerical-verification fallback already explicit in AI-06.06; package task closure does not promote experimental or actual-plant status",
+      "physical_validation_status": "open; not established"
+    },
+    {
+      "date": "2026-11-06",
+      "version": "1.80.0",
+      "task": "AI-11.06",
+      "user_instruction": "CI не нужен; open-source библиотека проверяется человеком локально на его компьютере",
+      "previous_requirement": "Экспортировать отчёты и траектории со схемой/единицами/хешами; воспроизводить проект на другой машине.",
+      "new_requirement": "Local tests, build, installed-resource verification and export/import/replay",
+      "physical_validation_promoted": false
     }
   ],
   "acceptance_decisions": [
@@ -5554,10 +6469,726 @@
         "Prospective independent experimental validation",
         "Physical accuracy promotion or production coefficient fitting"
       ]
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-08.03",
+      "decision": "accepted",
+      "scope": "Numerically verified static-material slab diffusion with supplied SI macroscopic data, heterogeneous multigroup scattering and local immobile precursor kinetics; source/k/transient independent references. No evaluated-data, feedback, transport or plant validation.",
+      "basis": [
+        "72new+319prior related tests=391; installed72 outside checkout",
+        "Independent dense k/source/exponential, continuum and discontinuous-D analytic solutions",
+        "Two spatial4-grid sequences, six time/refinement/restart trajectories, local/global inventory checks",
+        "Critical equilibrium with speeds1e7/2200m/s preserved without speed scaling"
+      ],
+      "exclusions": [
+        "Evaluated nuclear-data provenance",
+        "OpenMC/inter-code qualification",
+        "Thermal feedback and power mapping",
+        "Burnup/transport/plant validation",
+        "Moving rods and time-dependent materials"
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-05.07",
+      "decision": "accepted",
+      "scope": "Bounded energy-compensated closed Boussinesq heated graph, not VVER natural circulation",
+      "basis": [
+        "Prior independent buoyant transient qualification plus four certified direct stationary branches",
+        "Eight40s hold/restart trajectories, residual/rank/gauge checks and transactional refusal",
+        "255related33new tests; installed33 tests and qualification outside checkout with explicitly staged wheel resources"
+      ],
+      "exclusions": [
+        "Variable-density IAPWS water, phase change and compressible gravity",
+        "Natural circulation or coastdown of coupled VVER plant",
+        "General mixed equipment event acceptance"
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-05.03",
+      "decision": "accepted",
+      "scope": "Exact source-bound reduced flow-controlled PWR and declared component/HEM-vessel programs; not experimental or real-plant qualification",
+      "basis": [
+        "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+        "validation/ai050607_controlled_summary_v1.json",
+        "validation/ai050607_controlled_checks_v1.json",
+        "validation/ai050607_controlled_installed_v1.json",
+        "validation/ai050607_controlled_delivery_v1.json",
+        "validation/ai07_controlled_configuration_v1.json",
+        "validation/ai06_pool_b274_independent_import_v2.json"
+      ],
+      "exclusions": [
+        "Experimental/plant-reference acceptance",
+        "Arbitrary unqualified input programs",
+        "Four-quadrant real-pump/CHF/real-plant-control attestation"
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-05.05",
+      "decision": "accepted",
+      "scope": "Exact source-bound reduced flow-controlled PWR and declared component/HEM-vessel programs; not experimental or real-plant qualification",
+      "basis": [
+        "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+        "validation/ai050607_controlled_summary_v1.json",
+        "validation/ai050607_controlled_checks_v1.json",
+        "validation/ai050607_controlled_installed_v1.json",
+        "validation/ai050607_controlled_delivery_v1.json",
+        "validation/ai07_controlled_configuration_v1.json",
+        "validation/ai06_pool_b274_independent_import_v2.json"
+      ],
+      "exclusions": [
+        "Experimental/plant-reference acceptance",
+        "Arbitrary unqualified input programs",
+        "Four-quadrant real-pump/CHF/real-plant-control attestation"
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-05.08",
+      "decision": "accepted",
+      "scope": "Exact source-bound reduced flow-controlled PWR and declared component/HEM-vessel programs; not experimental or real-plant qualification",
+      "basis": [
+        "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+        "validation/ai050607_controlled_summary_v1.json",
+        "validation/ai050607_controlled_checks_v1.json",
+        "validation/ai050607_controlled_installed_v1.json",
+        "validation/ai050607_controlled_delivery_v1.json",
+        "validation/ai07_controlled_configuration_v1.json",
+        "validation/ai06_pool_b274_independent_import_v2.json"
+      ],
+      "exclusions": [
+        "Experimental/plant-reference acceptance",
+        "Arbitrary unqualified input programs",
+        "Four-quadrant real-pump/CHF/real-plant-control attestation"
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-06.06",
+      "decision": "accepted",
+      "scope": "Exact source-bound reduced flow-controlled PWR and declared component/HEM-vessel programs; not experimental or real-plant qualification",
+      "basis": [
+        "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+        "validation/ai050607_controlled_summary_v1.json",
+        "validation/ai050607_controlled_checks_v1.json",
+        "validation/ai050607_controlled_installed_v1.json",
+        "validation/ai050607_controlled_delivery_v1.json",
+        "validation/ai07_controlled_configuration_v1.json",
+        "validation/ai06_pool_b274_independent_import_v2.json"
+      ],
+      "exclusions": [
+        "Experimental/plant-reference acceptance",
+        "Arbitrary unqualified input programs",
+        "Four-quadrant real-pump/CHF/real-plant-control attestation"
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-07.01",
+      "decision": "accepted",
+      "scope": "Exact source-bound reduced flow-controlled PWR and declared component/HEM-vessel programs; not experimental or real-plant qualification",
+      "basis": [
+        "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+        "validation/ai050607_controlled_summary_v1.json",
+        "validation/ai050607_controlled_checks_v1.json",
+        "validation/ai050607_controlled_installed_v1.json",
+        "validation/ai050607_controlled_delivery_v1.json",
+        "validation/ai07_controlled_configuration_v1.json",
+        "validation/ai06_pool_b274_independent_import_v2.json"
+      ],
+      "exclusions": [
+        "Experimental/plant-reference acceptance",
+        "Arbitrary unqualified input programs",
+        "Four-quadrant real-pump/CHF/real-plant-control attestation"
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-07.02",
+      "decision": "accepted",
+      "scope": "Exact source-bound reduced flow-controlled PWR and declared component/HEM-vessel programs; not experimental or real-plant qualification",
+      "basis": [
+        "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+        "validation/ai050607_controlled_summary_v1.json",
+        "validation/ai050607_controlled_checks_v1.json",
+        "validation/ai050607_controlled_installed_v1.json",
+        "validation/ai050607_controlled_delivery_v1.json",
+        "validation/ai07_controlled_configuration_v1.json",
+        "validation/ai06_pool_b274_independent_import_v2.json"
+      ],
+      "exclusions": [
+        "Experimental/plant-reference acceptance",
+        "Arbitrary unqualified input programs",
+        "Four-quadrant real-pump/CHF/real-plant-control attestation"
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-07.03",
+      "decision": "accepted",
+      "scope": "Exact source-bound reduced flow-controlled PWR and declared component/HEM-vessel programs; not experimental or real-plant qualification",
+      "basis": [
+        "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+        "validation/ai050607_controlled_summary_v1.json",
+        "validation/ai050607_controlled_checks_v1.json",
+        "validation/ai050607_controlled_installed_v1.json",
+        "validation/ai050607_controlled_delivery_v1.json",
+        "validation/ai07_controlled_configuration_v1.json",
+        "validation/ai06_pool_b274_independent_import_v2.json"
+      ],
+      "exclusions": [
+        "Experimental/plant-reference acceptance",
+        "Arbitrary unqualified input programs",
+        "Four-quadrant real-pump/CHF/real-plant-control attestation"
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-07.04",
+      "decision": "accepted",
+      "scope": "Exact source-bound reduced flow-controlled PWR and declared component/HEM-vessel programs; not experimental or real-plant qualification",
+      "basis": [
+        "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+        "validation/ai050607_controlled_summary_v1.json",
+        "validation/ai050607_controlled_checks_v1.json",
+        "validation/ai050607_controlled_installed_v1.json",
+        "validation/ai050607_controlled_delivery_v1.json",
+        "validation/ai07_controlled_configuration_v1.json",
+        "validation/ai06_pool_b274_independent_import_v2.json"
+      ],
+      "exclusions": [
+        "Experimental/plant-reference acceptance",
+        "Arbitrary unqualified input programs",
+        "Four-quadrant real-pump/CHF/real-plant-control attestation"
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-07.05",
+      "decision": "accepted",
+      "scope": "Exact source-bound reduced flow-controlled PWR and declared component/HEM-vessel programs; not experimental or real-plant qualification",
+      "basis": [
+        "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+        "validation/ai050607_controlled_summary_v1.json",
+        "validation/ai050607_controlled_checks_v1.json",
+        "validation/ai050607_controlled_installed_v1.json",
+        "validation/ai050607_controlled_delivery_v1.json",
+        "validation/ai07_controlled_configuration_v1.json",
+        "validation/ai06_pool_b274_independent_import_v2.json"
+      ],
+      "exclusions": [
+        "Experimental/plant-reference acceptance",
+        "Arbitrary unqualified input programs",
+        "Four-quadrant real-pump/CHF/real-plant-control attestation"
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-07.06",
+      "decision": "accepted",
+      "scope": "Exact source-bound reduced flow-controlled PWR and declared component/HEM-vessel programs; not experimental or real-plant qualification",
+      "basis": [
+        "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+        "validation/ai050607_controlled_summary_v1.json",
+        "validation/ai050607_controlled_checks_v1.json",
+        "validation/ai050607_controlled_installed_v1.json",
+        "validation/ai050607_controlled_delivery_v1.json",
+        "validation/ai07_controlled_configuration_v1.json",
+        "validation/ai06_pool_b274_independent_import_v2.json"
+      ],
+      "exclusions": [
+        "Experimental/plant-reference acceptance",
+        "Arbitrary unqualified input programs",
+        "Four-quadrant real-pump/CHF/real-plant-control attestation"
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-07.07",
+      "decision": "accepted",
+      "scope": "Exact source-bound reduced flow-controlled PWR and declared component/HEM-vessel programs; not experimental or real-plant qualification",
+      "basis": [
+        "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+        "validation/ai050607_controlled_summary_v1.json",
+        "validation/ai050607_controlled_checks_v1.json",
+        "validation/ai050607_controlled_installed_v1.json",
+        "validation/ai050607_controlled_delivery_v1.json",
+        "validation/ai07_controlled_configuration_v1.json",
+        "validation/ai06_pool_b274_independent_import_v2.json"
+      ],
+      "exclusions": [
+        "Experimental/plant-reference acceptance",
+        "Arbitrary unqualified input programs",
+        "Four-quadrant real-pump/CHF/real-plant-control attestation"
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-07.08",
+      "decision": "accepted",
+      "scope": "Exact source-bound reduced flow-controlled PWR and declared component/HEM-vessel programs; not experimental or real-plant qualification",
+      "basis": [
+        "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+        "validation/ai050607_controlled_summary_v1.json",
+        "validation/ai050607_controlled_checks_v1.json",
+        "validation/ai050607_controlled_installed_v1.json",
+        "validation/ai050607_controlled_delivery_v1.json",
+        "validation/ai07_controlled_configuration_v1.json",
+        "validation/ai06_pool_b274_independent_import_v2.json"
+      ],
+      "exclusions": [
+        "Experimental/plant-reference acceptance",
+        "Arbitrary unqualified input programs",
+        "Four-quadrant real-pump/CHF/real-plant-control attestation"
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-09.01",
+      "decision": "accepted",
+      "scope": "Linux bounded declarative short-episode training on the unchanged controlled reduced PWR; no arbitrary Python policy, surrogate, long-transient speedup, experimental or plant-reference claim",
+      "basis": [
+        "docs/AI_09_10_12_TRAINING_RUNTIME_RU.md",
+        "validation/ai091012_training_protocol_v1.json",
+        "validation/ai091012_training_admission_v1.json",
+        "validation/ai091012_training_checks_v1.json",
+        "validation/ai091012_training_installed_v1.json",
+        "validation/ai091012_training_build_witness_v1.json",
+        "artifacts/ai091012_training_benchmark_v2.json",
+        "validation/ai091012_training_delivery_v1.json"
+      ],
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-09.03",
+      "decision": "accepted",
+      "scope": "Linux bounded declarative short-episode training on the unchanged controlled reduced PWR; no arbitrary Python policy, surrogate, long-transient speedup, experimental or plant-reference claim",
+      "basis": [
+        "docs/AI_09_10_12_TRAINING_RUNTIME_RU.md",
+        "validation/ai091012_training_protocol_v1.json",
+        "validation/ai091012_training_admission_v1.json",
+        "validation/ai091012_training_checks_v1.json",
+        "validation/ai091012_training_installed_v1.json",
+        "validation/ai091012_training_build_witness_v1.json",
+        "artifacts/ai091012_training_benchmark_v2.json",
+        "validation/ai091012_training_delivery_v1.json"
+      ],
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-09.07",
+      "decision": "accepted",
+      "scope": "Linux bounded declarative short-episode training on the unchanged controlled reduced PWR; no arbitrary Python policy, surrogate, long-transient speedup, experimental or plant-reference claim",
+      "basis": [
+        "docs/AI_09_10_12_TRAINING_RUNTIME_RU.md",
+        "validation/ai091012_training_protocol_v1.json",
+        "validation/ai091012_training_admission_v1.json",
+        "validation/ai091012_training_checks_v1.json",
+        "validation/ai091012_training_installed_v1.json",
+        "validation/ai091012_training_build_witness_v1.json",
+        "artifacts/ai091012_training_benchmark_v2.json",
+        "validation/ai091012_training_delivery_v1.json"
+      ],
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-10.01",
+      "decision": "accepted",
+      "scope": "Linux bounded declarative short-episode training on the unchanged controlled reduced PWR; no arbitrary Python policy, surrogate, long-transient speedup, experimental or plant-reference claim",
+      "basis": [
+        "docs/AI_09_10_12_TRAINING_RUNTIME_RU.md",
+        "validation/ai091012_training_protocol_v1.json",
+        "validation/ai091012_training_admission_v1.json",
+        "validation/ai091012_training_checks_v1.json",
+        "validation/ai091012_training_installed_v1.json",
+        "validation/ai091012_training_build_witness_v1.json",
+        "artifacts/ai091012_training_benchmark_v2.json",
+        "validation/ai091012_training_delivery_v1.json"
+      ],
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-10.03",
+      "decision": "accepted",
+      "scope": "Linux bounded declarative short-episode training on the unchanged controlled reduced PWR; no arbitrary Python policy, surrogate, long-transient speedup, experimental or plant-reference claim",
+      "basis": [
+        "docs/AI_09_10_12_TRAINING_RUNTIME_RU.md",
+        "validation/ai091012_training_protocol_v1.json",
+        "validation/ai091012_training_admission_v1.json",
+        "validation/ai091012_training_checks_v1.json",
+        "validation/ai091012_training_installed_v1.json",
+        "validation/ai091012_training_build_witness_v1.json",
+        "artifacts/ai091012_training_benchmark_v2.json",
+        "validation/ai091012_training_delivery_v1.json"
+      ],
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-10.04",
+      "decision": "accepted",
+      "scope": "Linux bounded declarative short-episode training on the unchanged controlled reduced PWR; no arbitrary Python policy, surrogate, long-transient speedup, experimental or plant-reference claim",
+      "basis": [
+        "docs/AI_09_10_12_TRAINING_RUNTIME_RU.md",
+        "validation/ai091012_training_protocol_v1.json",
+        "validation/ai091012_training_admission_v1.json",
+        "validation/ai091012_training_checks_v1.json",
+        "validation/ai091012_training_installed_v1.json",
+        "validation/ai091012_training_build_witness_v1.json",
+        "artifacts/ai091012_training_benchmark_v2.json",
+        "validation/ai091012_training_delivery_v1.json"
+      ],
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-10.06",
+      "decision": "accepted",
+      "scope": "Linux bounded declarative short-episode training on the unchanged controlled reduced PWR; no arbitrary Python policy, surrogate, long-transient speedup, experimental or plant-reference claim",
+      "basis": [
+        "docs/AI_09_10_12_TRAINING_RUNTIME_RU.md",
+        "validation/ai091012_training_protocol_v1.json",
+        "validation/ai091012_training_admission_v1.json",
+        "validation/ai091012_training_checks_v1.json",
+        "validation/ai091012_training_installed_v1.json",
+        "validation/ai091012_training_build_witness_v1.json",
+        "artifacts/ai091012_training_benchmark_v2.json",
+        "validation/ai091012_training_delivery_v1.json"
+      ],
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-10.07",
+      "decision": "accepted",
+      "scope": "Linux bounded declarative short-episode training on the unchanged controlled reduced PWR; no arbitrary Python policy, surrogate, long-transient speedup, experimental or plant-reference claim",
+      "basis": [
+        "docs/AI_09_10_12_TRAINING_RUNTIME_RU.md",
+        "validation/ai091012_training_protocol_v1.json",
+        "validation/ai091012_training_admission_v1.json",
+        "validation/ai091012_training_checks_v1.json",
+        "validation/ai091012_training_installed_v1.json",
+        "validation/ai091012_training_build_witness_v1.json",
+        "artifacts/ai091012_training_benchmark_v2.json",
+        "validation/ai091012_training_delivery_v1.json"
+      ],
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-10.08",
+      "decision": "accepted",
+      "scope": "Linux bounded declarative short-episode training on the unchanged controlled reduced PWR; no arbitrary Python policy, surrogate, long-transient speedup, experimental or plant-reference claim",
+      "basis": [
+        "docs/AI_09_10_12_TRAINING_RUNTIME_RU.md",
+        "validation/ai091012_training_protocol_v1.json",
+        "validation/ai091012_training_admission_v1.json",
+        "validation/ai091012_training_checks_v1.json",
+        "validation/ai091012_training_installed_v1.json",
+        "validation/ai091012_training_build_witness_v1.json",
+        "artifacts/ai091012_training_benchmark_v2.json",
+        "validation/ai091012_training_delivery_v1.json"
+      ],
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-12.07",
+      "decision": "accepted",
+      "scope": "Linux bounded declarative short-episode training on the unchanged controlled reduced PWR; no arbitrary Python policy, surrogate, long-transient speedup, experimental or plant-reference claim",
+      "basis": [
+        "docs/AI_09_10_12_TRAINING_RUNTIME_RU.md",
+        "validation/ai091012_training_protocol_v1.json",
+        "validation/ai091012_training_admission_v1.json",
+        "validation/ai091012_training_checks_v1.json",
+        "validation/ai091012_training_installed_v1.json",
+        "validation/ai091012_training_build_witness_v1.json",
+        "artifacts/ai091012_training_benchmark_v2.json",
+        "validation/ai091012_training_delivery_v1.json"
+      ],
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-08.01",
+      "decision": "accepted",
+      "scope": "Separate synthetic and ENDF/B-VIII.0 evaluated homogeneous research-mixture families; raw isotope SHA/license/group/unit/normalization manifests. Not a target-plant data set.",
+      "basis": [
+        "docs/FINAL_17_IMPLEMENTATION_RU.md",
+        "validation/ai_final17_protocol_v1.json",
+        "validation/final17_build_witness_v1.json",
+        "validation/final17_installed_v1.json",
+        "validation/final17_validation_report_v1.json",
+        "validation/final17_supported_runtime_v1.json",
+        "artifacts/final17_multiphysics_qualification_v2.json",
+        "artifacts/final17_release_manifest_v2.json"
+      ],
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-08.02",
+      "decision": "accepted",
+      "scope": "Actual licensed local OpenMC 0.16.1.dev0 subprocess, three seeds, retained XML/HDF5, two-group MGXS means/std, explicit units/axes and offline import; static homogeneous reflecting slab.",
+      "basis": [
+        "docs/FINAL_17_IMPLEMENTATION_RU.md",
+        "validation/ai_final17_protocol_v1.json",
+        "validation/final17_build_witness_v1.json",
+        "validation/final17_installed_v1.json",
+        "validation/final17_validation_report_v1.json",
+        "validation/final17_supported_runtime_v1.json",
+        "artifacts/final17_multiphysics_qualification_v2.json",
+        "artifacts/final17_release_manifest_v2.json"
+      ],
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-08.04",
+      "decision": "accepted",
+      "scope": "Steady synthetic-feedback slab/radial FV rod/constant-cp channel, nonmatching conservative maps and declared residual criteria; not dynamic boiling or plant thermal coupling.",
+      "basis": [
+        "docs/FINAL_17_IMPLEMENTATION_RU.md",
+        "validation/ai_final17_protocol_v1.json",
+        "validation/final17_build_witness_v1.json",
+        "validation/final17_installed_v1.json",
+        "validation/final17_validation_report_v1.json",
+        "validation/final17_supported_runtime_v1.json",
+        "artifacts/final17_multiphysics_qualification_v2.json",
+        "artifacts/final17_release_manifest_v2.json"
+      ],
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-08.05",
+      "decision": "accepted",
+      "scope": "Five-axis bounded table schema with strict no extrapolation and synthetic affine interpolation/coupling verification. Evaluated temperature/composition response grids are not claimed.",
+      "basis": [
+        "docs/FINAL_17_IMPLEMENTATION_RU.md",
+        "validation/ai_final17_protocol_v1.json",
+        "validation/final17_build_witness_v1.json",
+        "validation/final17_installed_v1.json",
+        "validation/final17_validation_report_v1.json",
+        "validation/final17_supported_runtime_v1.json",
+        "artifacts/final17_multiphysics_qualification_v2.json",
+        "artifacts/final17_release_manifest_v2.json"
+      ],
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-08.06",
+      "decision": "accepted",
+      "scope": "Numerical capture/decay chains, three independent inventories, energy-augmented CRAM16 versus expm and CE/CM second-order rational reference. No evaluated fuel burnup/yield library or ANS decay-heat claim.",
+      "basis": [
+        "docs/FINAL_17_IMPLEMENTATION_RU.md",
+        "validation/ai_final17_protocol_v1.json",
+        "validation/final17_build_witness_v1.json",
+        "validation/final17_installed_v1.json",
+        "validation/final17_validation_report_v1.json",
+        "validation/final17_supported_runtime_v1.json",
+        "artifacts/final17_multiphysics_qualification_v2.json",
+        "artifacts/final17_release_manifest_v2.json"
+      ],
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-08.07",
+      "decision": "accepted",
+      "scope": "1D exact absorber overlap, subcell sweep, three mesh levels, dense eigenvalue references and manufactured peak convergence. No real-reactor 3D peak claim.",
+      "basis": [
+        "docs/FINAL_17_IMPLEMENTATION_RU.md",
+        "validation/ai_final17_protocol_v1.json",
+        "validation/final17_build_witness_v1.json",
+        "validation/final17_installed_v1.json",
+        "validation/final17_validation_report_v1.json",
+        "validation/final17_supported_runtime_v1.json",
+        "artifacts/final17_multiphysics_qualification_v2.json",
+        "artifacts/final17_release_manifest_v2.json"
+      ],
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-08.08",
+      "decision": "accepted",
+      "scope": "Source-bound steady operating-point spatial agent with power actions/revision/transaction/replay on the qualified synthetic-feedback slab scope; decisions are not reactor transient time steps.",
+      "basis": [
+        "docs/FINAL_17_IMPLEMENTATION_RU.md",
+        "validation/ai_final17_protocol_v1.json",
+        "validation/final17_build_witness_v1.json",
+        "validation/final17_installed_v1.json",
+        "validation/final17_validation_report_v1.json",
+        "validation/final17_supported_runtime_v1.json",
+        "artifacts/final17_multiphysics_qualification_v2.json",
+        "artifacts/final17_release_manifest_v2.json"
+      ],
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-11.01",
+      "decision": "accepted",
+      "scope": "Versioned default controlled-PWR model/scenario/data/declarative-agent project, immutable ancestry, CAS data and bounded portable ZIP. No arbitrary topology/model editor.",
+      "basis": [
+        "docs/FINAL_17_IMPLEMENTATION_RU.md",
+        "validation/ai_final17_protocol_v1.json",
+        "validation/final17_build_witness_v1.json",
+        "validation/final17_installed_v1.json",
+        "validation/final17_validation_report_v1.json",
+        "validation/final17_supported_runtime_v1.json",
+        "artifacts/final17_multiphysics_qualification_v2.json",
+        "artifacts/final17_release_manifest_v2.json"
+      ],
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-12.01",
+      "decision": "accepted",
+      "scope": "One exact qualified Linux x86_64 CPython3.12.9 NumPy2.2.6 SciPy1.15.2 numerical profile; minimum=selected pins, observed dependency constraints. Other runtimes and hermetic wheelhouse are excluded.",
+      "basis": [
+        "docs/FINAL_17_IMPLEMENTATION_RU.md",
+        "validation/ai_final17_protocol_v1.json",
+        "validation/final17_build_witness_v1.json",
+        "validation/final17_installed_v1.json",
+        "validation/final17_validation_report_v1.json",
+        "validation/final17_supported_runtime_v1.json",
+        "artifacts/final17_multiphysics_qualification_v2.json",
+        "artifacts/final17_release_manifest_v2.json"
+      ],
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-12.02",
+      "decision": "accepted",
+      "scope": "Cold offline no-deps wheel outside checkout with inherited pinned scientific dependencies, installed JSON/YAML resource inspection, actual-core portable and spatial replay, CLI and prior runbook. No other-machine or hermetic claim.",
+      "basis": [
+        "docs/FINAL_17_IMPLEMENTATION_RU.md",
+        "validation/ai_final17_protocol_v1.json",
+        "validation/final17_build_witness_v1.json",
+        "validation/final17_installed_v1.json",
+        "validation/final17_validation_report_v1.json",
+        "validation/final17_supported_runtime_v1.json",
+        "artifacts/final17_multiphysics_qualification_v2.json",
+        "artifacts/final17_release_manifest_v2.json"
+      ],
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-12.06",
+      "decision": "accepted",
+      "scope": "Source/version/dependency/license inventory, SPDX SBOM with honest NOASSERTION, package/source checksums and local evidence archive; no authenticated publisher/signature channel.",
+      "basis": [
+        "docs/FINAL_17_IMPLEMENTATION_RU.md",
+        "validation/ai_final17_protocol_v1.json",
+        "validation/final17_build_witness_v1.json",
+        "validation/final17_installed_v1.json",
+        "validation/final17_validation_report_v1.json",
+        "validation/final17_supported_runtime_v1.json",
+        "artifacts/final17_multiphysics_qualification_v2.json",
+        "artifacts/final17_release_manifest_v2.json"
+      ],
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-13.05",
+      "decision": "accepted",
+      "scope": "Technical local open research release candidate, installation/examples/replay/limits/failures explicitly checked. Public push/tag/release publishing remains user-controlled.",
+      "basis": [
+        "docs/FINAL_17_IMPLEMENTATION_RU.md",
+        "validation/ai_final17_protocol_v1.json",
+        "validation/final17_build_witness_v1.json",
+        "validation/final17_installed_v1.json",
+        "validation/final17_validation_report_v1.json",
+        "validation/final17_supported_runtime_v1.json",
+        "artifacts/final17_multiphysics_qualification_v2.json",
+        "artifacts/final17_release_manifest_v2.json"
+      ],
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-13.06",
+      "decision": "accepted",
+      "scope": "Only retained measured5.277x nominal short controlled-core workload claim with unchanged source, separate new-model schemas/qualifications, no universal simulator or spatial-speedup claim.",
+      "basis": [
+        "docs/FINAL_17_IMPLEMENTATION_RU.md",
+        "validation/ai_final17_protocol_v1.json",
+        "validation/final17_build_witness_v1.json",
+        "validation/final17_installed_v1.json",
+        "validation/final17_validation_report_v1.json",
+        "validation/final17_supported_runtime_v1.json",
+        "artifacts/final17_multiphysics_qualification_v2.json",
+        "artifacts/final17_release_manifest_v2.json"
+      ],
+      "validated": false,
+      "plant_referenced": false
+    },
+    {
+      "date": "2026-11-06",
+      "task": "AI-11.06",
+      "decision": "accepted",
+      "scope": "Local open-source library verification per explicit user instruction; no claim of another physical-machine execution",
+      "basis": [
+        "validation/local_library_delivery_v1.json",
+        "artifacts/local-verification-4ed0d2c52c/report.json"
+      ],
+      "validated": false,
+      "plant_referenced": false
     }
   ],
   "next_hem_tasks": [
     "AI-06.06"
   ],
-  "current_extension_evidence": "validation/ai09_identification_delivery_v1.json"
+  "current_extension_evidence": "validation/ai050607_controlled_delivery_v1.json",
+  "current_status_document": "docs/CURRENT_STATUS_RU.md",
+  "current_training_evidence": "validation/ai091012_training_delivery_v1.json",
+  "current_research_evidence": "validation/final17_delivery_v2.json",
+  "current_external_acceptance_evidence": "validation/external_acceptance_delivery_v1.json",
+  "current_uncertainty_evidence": "artifacts/external_uq_qualification_v1.json",
+  "current_local_library_evidence": "validation/local_library_delivery_v1.json",
+  "software_delivery_status": "locally_verified",
+  "delivery_policy": {
+    "product_kind": "open-source research library",
+    "acceptance_mode": "local tests and installed replay",
+    "ci_required": false,
+    "remote_execution_required": false,
+    "github_access_required": false,
+    "experimental_validation_required_only_for_corresponding_physical_claims": true
+  }
 }

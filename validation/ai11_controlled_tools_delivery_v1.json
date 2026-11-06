@@ -1,0 +1,285 @@
+{
+  "payload": {
+    "additional_external_client_tests": {
+      "log": "/tmp/controlled-external-agents-v1.log",
+      "passed": 42
+    },
+    "agent_source": {
+      "adapter_sha256": "02217793a4f0b13af8efe386da2fee5fe9724dd2205bcfb5b47da69138d37d65",
+      "controlled_runtime": {
+        "core": {
+          "implementation": {
+            "__init__.py": "ad0dd4131dd3d8902cc61e6e9d5fe880796adb064bd4a96ad3ea2758f0bb5617",
+            "__main__.py": "686862cbdf166087c2a55b57fd23a54c46da8cd577409e1dd3e1834d63baf745",
+            "model.py": "ebaa00ae1fb5f471902f3a4bb797170871633eea2d95248673a4b20622c935f4",
+            "qualification.py": "4e6357b624f9e0d6693af75e90506b70652d6b7bd7a785c15685bc8440034ed3",
+            "session.py": "207c94855b94ec8950c201cf27fd046d9dea9509eae7bb4aecf72bfdd8e91edd"
+          },
+          "plant": {
+            "files": {
+              "__init__.py": "63dda0755dc9c4682c9e860b28a73212400f9da27f48649b41bc4200a870ddbb",
+              "__main__.py": "7dce37e37c56ff8312643deded0f8e537a9502f6ccf5de527e74b722ae1d4993",
+              "continuation.py": "317b98d0c616370e6b33464dfa084bf96b3be3d3e17162ebddc654015cc539bd",
+              "data/beavrs/LICENSE": "1d1b6d1266b5bf6274c169ca0caef559ad2e6e9b3e99b02303a8b3041a54a135",
+              "data/beavrs/absorber.json": "605907b49919cd4b4dacf6f19828053b9ce9bb0c02754092dc826d08ea1c4d29",
+              "data/beavrs/expdata.tex": "13eea6a808136dfee603d607cb1ac97ededbdfb31a7bb6a8728a937aa183e801",
+              "gravity.py": "b94165142d879fcc96408dc420b1bf79ef272a23c860c67649c955fe9578f0e4",
+              "initialization.py": "6c43cdcf9f31d5c04e0891f8e249e419b35d0888e1fd6207dd969f498d7b3b98",
+              "one_way.py": "c75fcdc2219f5d64ae30cf6c60d246f5a2a8d8d347bf4527753e2597ebc104aa",
+              "ports.py": "218173e77659ed8e47f0f3e3ffa04fbece6d0c12472abd432fcdc97e9fe8540d",
+              "pwr.py": "a771e1869ce166cb301cd3efdcf92399f1ca1071fcd335d11319951a48e609d6",
+              "qualification.py": "112f61731aa99d58b81872de6f8cba6da54836f4443d5a213a65e801eb2c2b42",
+              "session.py": "f3dd8379d4f82a218a01aa233494858a2c03b7ab84a03ed64b4a3fad5bed3eb1",
+              "volume.py": "9cc6b4bf27e9e78521a358c7a71eeacf91831e84aed221bd3be7bea0d39a2c5e",
+              "water.py": "8e85c45065fd6766bbd5a519608ddfe72c0e6aaf29277ba6408b0001dda625fa"
+            },
+            "foundation_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67"
+          },
+          "runtime": {
+            "machine": "x86_64",
+            "numpy": "2.2.6",
+            "python": "3.12.9",
+            "scipy": "1.15.2",
+            "system": "Linux"
+          },
+          "shared_bootstrap": {
+            "canonical": "7c407aa79cd2164bece0e4f1ffd03ea5e0858497aabe26010e42c758425d76a2",
+            "charging": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883",
+            "water_types": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a"
+          },
+          "shared_leaves": {
+            "canonical": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12",
+            "charging": "3241851687ecd267ac644453cb49b9d8cd1d85fbc7075e14baaf403058f4fed1",
+            "water_types": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be"
+          }
+        },
+        "dependencies": {
+          "episode": "8ead90af2f1002dea84d3486230b0b78d68899ccdbc0bffe3d0b6ff14178917f",
+          "schema": "5c416d64952d94fa98816fa64add504982baf5a4ddd14474b265a1c7257a18a9",
+          "spec": "4ddfec2f127eb1802158641c9cf8efb432c2f25be70fc5866598b54ff2793745"
+        }
+      },
+      "eos_runtime": {
+        "native_signature": {
+          "budgets": {
+            "validation/ai05_compressible_storage_budget_v1.json": "cd9d496635eabded1e879fd2bec25ed1a7f9fa048369f62213ac6d21eb6f4883",
+            "validation/ai05_conservative_loop_budget_v1.json": "e21c0b6badf1483e3336dabf57a037901820d7bdee84615ebdc5a381d3c04a4f",
+            "validation/ai05_controlled_assembly_budget_v1.json": "b9f45eeec54a706098ea2a61a47568788e78c7ba04be0f3a6893b2d0b66dac68",
+            "validation/ai05_open_channel_budget_v1.json": "7fd48810de0e630c9f1de484e919789d0d93d445aa8ac28ed242fc7884f45f86",
+            "validation/ai05_terminal_chambers_budget_v1.json": "00cd8f90d843ceabda5e67b3e47cc2d22b67555497861d5a9436686a8d2035c4"
+          },
+          "drivers": {
+            "atomic_model_runtime/resources.py": "f0632f5853da75f6b7d11b3c802ecaec3b4759fac8471dc92f2756b306c1f060",
+            "scripts/__init__.py": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883",
+            "scripts/compressible_storage_graph.py": "e849e7e0209e4f91b18f9773c47d8894f8b2ed3b951d3c454813a243584aca7d",
+            "scripts/conservative_eos_loop.py": "5daa7eb5602dbe9ff1639eaa7bb4b70c7928f19d16fe1bf4b255f1b6d44313ca",
+            "scripts/controlled_eos_assembly.py": "1f25149e4a107f17ee0001d9944de5b2d98cc8a9f8319d726c468006350fd546",
+            "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+            "scripts/open_eos_channel.py": "eebc4ab58d0afe512d8238358e695d760313d908a36190c9ca667b7a136d887d",
+            "scripts/solve_hydraulic_graph.py": "6b90a4751ad2dfbdf37977c7c9809d75228f81bfe64604eaa4e8a120687da8a5",
+            "scripts/terminal_eos_chambers.py": "32bacf9f02ae8fbd6b3f019971e71d6bbf193593bbfcfd8d0f5b75fcd6f99e8f"
+          },
+          "numpy": "2.2.6",
+          "python": "3.12.9",
+          "scipy": "1.15.2",
+          "source_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67"
+        },
+        "public_runtime_sha256": "f3db4a846514ff5754a2074f1e694f820fd7dc0d6f15453b2638a8da1837b6d7"
+      },
+      "episode_contract": "2.1.0",
+      "implementation": "CPython",
+      "physics_source_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+      "protocol_version": "1.2.0",
+      "python": "3.12.9",
+      "versions": {
+        "gymnasium": "1.2.0",
+        "numpy": "2.2.6",
+        "scipy": "1.15.2"
+      }
+    },
+    "ci_required": false,
+    "installed_agent_checks": {
+      "gym_lifecycle_passed": true,
+      "host_restart_equal": true,
+      "jsonl_restart_equal": true,
+      "plant_referenced": false,
+      "provenance": {
+        "adapter_sha256": "02217793a4f0b13af8efe386da2fee5fe9724dd2205bcfb5b47da69138d37d65",
+        "controlled_runtime": {
+          "core": {
+            "implementation": {
+              "__init__.py": "ad0dd4131dd3d8902cc61e6e9d5fe880796adb064bd4a96ad3ea2758f0bb5617",
+              "__main__.py": "686862cbdf166087c2a55b57fd23a54c46da8cd577409e1dd3e1834d63baf745",
+              "model.py": "ebaa00ae1fb5f471902f3a4bb797170871633eea2d95248673a4b20622c935f4",
+              "qualification.py": "4e6357b624f9e0d6693af75e90506b70652d6b7bd7a785c15685bc8440034ed3",
+              "session.py": "207c94855b94ec8950c201cf27fd046d9dea9509eae7bb4aecf72bfdd8e91edd"
+            },
+            "plant": {
+              "files": {
+                "__init__.py": "63dda0755dc9c4682c9e860b28a73212400f9da27f48649b41bc4200a870ddbb",
+                "__main__.py": "7dce37e37c56ff8312643deded0f8e537a9502f6ccf5de527e74b722ae1d4993",
+                "continuation.py": "317b98d0c616370e6b33464dfa084bf96b3be3d3e17162ebddc654015cc539bd",
+                "data/beavrs/LICENSE": "1d1b6d1266b5bf6274c169ca0caef559ad2e6e9b3e99b02303a8b3041a54a135",
+                "data/beavrs/absorber.json": "605907b49919cd4b4dacf6f19828053b9ce9bb0c02754092dc826d08ea1c4d29",
+                "data/beavrs/expdata.tex": "13eea6a808136dfee603d607cb1ac97ededbdfb31a7bb6a8728a937aa183e801",
+                "gravity.py": "b94165142d879fcc96408dc420b1bf79ef272a23c860c67649c955fe9578f0e4",
+                "initialization.py": "6c43cdcf9f31d5c04e0891f8e249e419b35d0888e1fd6207dd969f498d7b3b98",
+                "one_way.py": "c75fcdc2219f5d64ae30cf6c60d246f5a2a8d8d347bf4527753e2597ebc104aa",
+                "ports.py": "218173e77659ed8e47f0f3e3ffa04fbece6d0c12472abd432fcdc97e9fe8540d",
+                "pwr.py": "a771e1869ce166cb301cd3efdcf92399f1ca1071fcd335d11319951a48e609d6",
+                "qualification.py": "112f61731aa99d58b81872de6f8cba6da54836f4443d5a213a65e801eb2c2b42",
+                "session.py": "f3dd8379d4f82a218a01aa233494858a2c03b7ab84a03ed64b4a3fad5bed3eb1",
+                "volume.py": "9cc6b4bf27e9e78521a358c7a71eeacf91831e84aed221bd3be7bea0d39a2c5e",
+                "water.py": "8e85c45065fd6766bbd5a519608ddfe72c0e6aaf29277ba6408b0001dda625fa"
+              },
+              "foundation_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67"
+            },
+            "runtime": {
+              "machine": "x86_64",
+              "numpy": "2.2.6",
+              "python": "3.12.9",
+              "scipy": "1.15.2",
+              "system": "Linux"
+            },
+            "shared_bootstrap": {
+              "canonical": "7c407aa79cd2164bece0e4f1ffd03ea5e0858497aabe26010e42c758425d76a2",
+              "charging": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883",
+              "water_types": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a"
+            },
+            "shared_leaves": {
+              "canonical": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12",
+              "charging": "3241851687ecd267ac644453cb49b9d8cd1d85fbc7075e14baaf403058f4fed1",
+              "water_types": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be"
+            }
+          },
+          "dependencies": {
+            "episode": "8ead90af2f1002dea84d3486230b0b78d68899ccdbc0bffe3d0b6ff14178917f",
+            "schema": "5c416d64952d94fa98816fa64add504982baf5a4ddd14474b265a1c7257a18a9",
+            "spec": "4ddfec2f127eb1802158641c9cf8efb432c2f25be70fc5866598b54ff2793745"
+          }
+        },
+        "eos_runtime": {
+          "native_signature": {
+            "budgets": {
+              "validation/ai05_compressible_storage_budget_v1.json": "cd9d496635eabded1e879fd2bec25ed1a7f9fa048369f62213ac6d21eb6f4883",
+              "validation/ai05_conservative_loop_budget_v1.json": "e21c0b6badf1483e3336dabf57a037901820d7bdee84615ebdc5a381d3c04a4f",
+              "validation/ai05_controlled_assembly_budget_v1.json": "b9f45eeec54a706098ea2a61a47568788e78c7ba04be0f3a6893b2d0b66dac68",
+              "validation/ai05_open_channel_budget_v1.json": "7fd48810de0e630c9f1de484e919789d0d93d445aa8ac28ed242fc7884f45f86",
+              "validation/ai05_terminal_chambers_budget_v1.json": "00cd8f90d843ceabda5e67b3e47cc2d22b67555497861d5a9436686a8d2035c4"
+            },
+            "drivers": {
+              "atomic_model_runtime/resources.py": "f0632f5853da75f6b7d11b3c802ecaec3b4759fac8471dc92f2756b306c1f060",
+              "scripts/__init__.py": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883",
+              "scripts/compressible_storage_graph.py": "e849e7e0209e4f91b18f9773c47d8894f8b2ed3b951d3c454813a243584aca7d",
+              "scripts/conservative_eos_loop.py": "5daa7eb5602dbe9ff1639eaa7bb4b70c7928f19d16fe1bf4b255f1b6d44313ca",
+              "scripts/controlled_eos_assembly.py": "1f25149e4a107f17ee0001d9944de5b2d98cc8a9f8319d726c468006350fd546",
+              "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+              "scripts/open_eos_channel.py": "eebc4ab58d0afe512d8238358e695d760313d908a36190c9ca667b7a136d887d",
+              "scripts/solve_hydraulic_graph.py": "6b90a4751ad2dfbdf37977c7c9809d75228f81bfe64604eaa4e8a120687da8a5",
+              "scripts/terminal_eos_chambers.py": "32bacf9f02ae8fbd6b3f019971e71d6bbf193593bbfcfd8d0f5b75fcd6f99e8f"
+            },
+            "numpy": "2.2.6",
+            "python": "3.12.9",
+            "scipy": "1.15.2",
+            "source_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67"
+          },
+          "public_runtime_sha256": "f3db4a846514ff5754a2074f1e694f820fd7dc0d6f15453b2638a8da1837b6d7"
+        },
+        "episode_contract": "2.1.0",
+        "implementation": "CPython",
+        "physics_source_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+        "protocol_version": "1.2.0",
+        "python": "3.12.9",
+        "versions": {
+          "gymnasium": "1.2.0",
+          "numpy": "2.2.6",
+          "scipy": "1.15.2"
+        }
+      },
+      "python_tool_equal": true,
+      "schema_version": 1,
+      "validated": false
+    },
+    "network_required": false,
+    "phases": [
+      {
+        "exit_code": 0,
+        "log": "source-tests.log",
+        "name": "source-tests",
+        "passed": true,
+        "wall_s": 148.67688762699981
+      },
+      {
+        "exit_code": 0,
+        "log": "build-source.log",
+        "name": "build-source",
+        "passed": true,
+        "wall_s": 1.665980852994835
+      },
+      {
+        "exit_code": 0,
+        "log": "build-wheel.log",
+        "name": "build-wheel",
+        "passed": true,
+        "wall_s": 1.0652237649992458
+      },
+      {
+        "exit_code": 0,
+        "log": "install.log",
+        "name": "install",
+        "passed": true,
+        "wall_s": 0.7648120049998397
+      },
+      {
+        "exit_code": 0,
+        "log": "installed-replay.log",
+        "name": "installed-replay",
+        "passed": true,
+        "wall_s": 4.269431250999332
+      },
+      {
+        "exit_code": 0,
+        "log": "installed-uncertainty.log",
+        "name": "installed-uncertainty",
+        "passed": true,
+        "wall_s": 0.3140831040000194
+      },
+      {
+        "exit_code": 0,
+        "log": "installed-agent-interfaces.log",
+        "name": "installed-agent-interfaces",
+        "passed": true,
+        "wall_s": 4.36955296999804
+      }
+    ],
+    "plant_referenced": false,
+    "report_path": "artifacts/local-verification-31a90ea70d/report.json",
+    "report_sha256": "c173f558b0198e60fe09e29832566418b7ad55fffb30639125caec7b5401d6bb",
+    "schema_version": 1,
+    "scope": "controlled research PWR Python/Gymnasium/JSONL interfaces",
+    "source_files": {
+      "atomic_agent_tools/controlled.py": "dd95943f50ec9b8274ad4223fda7b85bed06bf3ed531e814e9285416b819bcb7",
+      "atomic_agent_tools/protocol.py": "d026867eae9ce78967981bdfbe2df930213ec49f7e96134a1861a5c985c8dada",
+      "atomic_agent_tools/server.py": "ed81c231618b4a8578b88c991667d9458c33ba367fbe503335295d8aa64c84b8",
+      "examples/llm_controlled_episode.py": "8cfc69d17eebb1a3c4171504a6c6596d903d4d02e2bf4c987666fc34b2ac018b",
+      "scripts/verify_local_library.py": "7afeda3bb219bd63c3cd0f6626ee964f91304e361267f281664d182c4e3865a5",
+      "scripts/verify_pwr_agent_install.py": "cbfd182ab5412d183382e2fdccc19d7fd98a1da0efe8b9363be7a368e765dabc",
+      "tests/test_controlled_agent_tools.py": "39a559cc60f335e4b23ac7014ebe948e8bdbda91204edc6604393487b88c3dcc"
+    },
+    "tests": {
+      "counts": {
+        "collected": 315,
+        "errors": 0,
+        "failed": 0,
+        "passed": 315,
+        "skipped": 0
+      },
+      "exit_code": 0,
+      "external_or_physical_validation_claimed": false,
+      "gate_failures": [],
+      "schema_version": 1
+    },
+    "validated": false
+  },
+  "sha256": "5e81f424e4699dbb2d51511f03ad8c5fbf76dc35d7220be9206c11f8d1d514ac"
+}

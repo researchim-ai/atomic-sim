@@ -1,0 +1,1215 @@
+{
+  "schema_version": 1,
+  "bundle_id": "ai050607-controlled-numerical-v1",
+  "scope": "Source-bound bounded numerical acceptance; no experimental or real-plant attestation",
+  "entries": [
+    {
+      "source": "artifacts/ai050607_final_checks_v1/installed-smoke.log",
+      "path": "checks/installed-smoke.log"
+    },
+    {
+      "source": "artifacts/ai050607_final_checks_v1/installed-tests.log",
+      "path": "checks/installed-tests.log"
+    },
+    {
+      "source": "artifacts/ai050607_final_checks_v1/regression.log",
+      "path": "checks/regression.log"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/coastdown/checkpoint-envelope.json",
+      "path": "current_campaign/coastdown/checkpoint-envelope.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/coastdown/protocol.json",
+      "path": "current_campaign/coastdown/protocol.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/coastdown/replay.json",
+      "path": "current_campaign/coastdown/replay.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/coastdown/result.json",
+      "path": "current_campaign/coastdown/result.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/coastdown/trace.jsonl",
+      "path": "current_campaign/coastdown/trace.jsonl"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/coastdown_peer/checkpoint-envelope.json",
+      "path": "current_campaign/coastdown_peer/checkpoint-envelope.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/coastdown_peer/protocol.json",
+      "path": "current_campaign/coastdown_peer/protocol.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/coastdown_peer/replay.json",
+      "path": "current_campaign/coastdown_peer/replay.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/coastdown_peer/result.json",
+      "path": "current_campaign/coastdown_peer/result.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/coastdown_peer/trace.jsonl",
+      "path": "current_campaign/coastdown_peer/trace.jsonl"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/feed/checkpoint-envelope.json",
+      "path": "current_campaign/feed/checkpoint-envelope.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/feed/protocol.json",
+      "path": "current_campaign/feed/protocol.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/feed/replay.json",
+      "path": "current_campaign/feed/replay.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/feed/result.json",
+      "path": "current_campaign/feed/result.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/feed/trace.jsonl",
+      "path": "current_campaign/feed/trace.jsonl"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/load_rejection/checkpoint-envelope.json",
+      "path": "current_campaign/load_rejection/checkpoint-envelope.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/load_rejection/protocol.json",
+      "path": "current_campaign/load_rejection/protocol.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/load_rejection/replay.json",
+      "path": "current_campaign/load_rejection/replay.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/load_rejection/result.json",
+      "path": "current_campaign/load_rejection/result.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/load_rejection/trace.jsonl",
+      "path": "current_campaign/load_rejection/trace.jsonl"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/natural/checkpoint-envelope.json",
+      "path": "current_campaign/natural/checkpoint-envelope.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/natural/protocol.json",
+      "path": "current_campaign/natural/protocol.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/natural/replay.json",
+      "path": "current_campaign/natural/replay.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/natural/result.json",
+      "path": "current_campaign/natural/result.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/natural/trace.jsonl",
+      "path": "current_campaign/natural/trace.jsonl"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/natural_perturbation/checkpoint-envelope.json",
+      "path": "current_campaign/natural_perturbation/checkpoint-envelope.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/natural_perturbation/protocol.json",
+      "path": "current_campaign/natural_perturbation/protocol.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/natural_perturbation/replay.json",
+      "path": "current_campaign/natural_perturbation/replay.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/natural_perturbation/result.json",
+      "path": "current_campaign/natural_perturbation/result.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/natural_perturbation/trace.jsonl",
+      "path": "current_campaign/natural_perturbation/trace.jsonl"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/nominal_bdf/checkpoint-envelope.json",
+      "path": "current_campaign/nominal_bdf/checkpoint-envelope.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/nominal_bdf/protocol.json",
+      "path": "current_campaign/nominal_bdf/protocol.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/nominal_bdf/replay.json",
+      "path": "current_campaign/nominal_bdf/replay.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/nominal_bdf/result.json",
+      "path": "current_campaign/nominal_bdf/result.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/nominal_bdf/trace.jsonl",
+      "path": "current_campaign/nominal_bdf/trace.jsonl"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/nominal_radau/checkpoint-envelope.json",
+      "path": "current_campaign/nominal_radau/checkpoint-envelope.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/nominal_radau/protocol.json",
+      "path": "current_campaign/nominal_radau/protocol.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/nominal_radau/replay.json",
+      "path": "current_campaign/nominal_radau/replay.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/nominal_radau/result.json",
+      "path": "current_campaign/nominal_radau/result.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/nominal_radau/trace.jsonl",
+      "path": "current_campaign/nominal_radau/trace.jsonl"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/recertification.json",
+      "path": "current_campaign/recertification.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/scram/checkpoint-envelope.json",
+      "path": "current_campaign/scram/checkpoint-envelope.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/scram/protocol.json",
+      "path": "current_campaign/scram/protocol.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/scram/replay.json",
+      "path": "current_campaign/scram/replay.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/scram/result.json",
+      "path": "current_campaign/scram/result.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/scram/trace.jsonl",
+      "path": "current_campaign/scram/trace.jsonl"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/sink/checkpoint-envelope.json",
+      "path": "current_campaign/sink/checkpoint-envelope.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/sink/protocol.json",
+      "path": "current_campaign/sink/protocol.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/sink/replay.json",
+      "path": "current_campaign/sink/replay.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/sink/result.json",
+      "path": "current_campaign/sink/result.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_final_v1/sink/trace.jsonl",
+      "path": "current_campaign/sink/trace.jsonl"
+    },
+    {
+      "source": "artifacts/ai06_four_phenomena_v2.json",
+      "path": "evidence/ai06_four_phenomena_v2.json"
+    },
+    {
+      "source": "artifacts/ai06_pool_b274_primary.csv.gz",
+      "path": "evidence/ai06_pool_b274_primary.csv.gz"
+    },
+    {
+      "source": "artifacts/ai06_pool_b274_screen_final_v2.json",
+      "path": "evidence/ai06_pool_b274_screen_final_v2.json"
+    },
+    {
+      "source": "artifacts/ai07_controlled_events_final_v1.json",
+      "path": "evidence/ai07_controlled_events_final_v1.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v1/load_rejection/checkpoint-envelope.json",
+      "path": "failed_600s_load/checkpoint-envelope.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v1/load_rejection/protocol.json",
+      "path": "failed_600s_load/protocol.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v1/load_rejection/result.json",
+      "path": "failed_600s_load/result.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v1/load_rejection/trace.jsonl",
+      "path": "failed_600s_load/trace.jsonl"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_dev_source_v1/atomic_model_controlled_plant/__init__.py",
+      "path": "failed_600s_source/atomic_model_controlled_plant/__init__.py"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_dev_source_v1/atomic_model_controlled_plant/__main__.py",
+      "path": "failed_600s_source/atomic_model_controlled_plant/__main__.py"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_dev_source_v1/atomic_model_controlled_plant/model.py",
+      "path": "failed_600s_source/atomic_model_controlled_plant/model.py"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_dev_source_v1/atomic_model_controlled_plant/qualification.py",
+      "path": "failed_600s_source/atomic_model_controlled_plant/qualification.py"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_dev_source_v1/atomic_model_controlled_plant/session.py",
+      "path": "failed_600s_source/atomic_model_controlled_plant/session.py"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/campaign.json",
+      "path": "historical_legacy_campaign/campaign.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/coastdown_refined_1800/checkpoint.json",
+      "path": "historical_legacy_campaign/coastdown_refined_1800/checkpoint.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/coastdown_refined_1800/input.json",
+      "path": "historical_legacy_campaign/coastdown_refined_1800/input.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/coastdown_refined_1800/manifest.json",
+      "path": "historical_legacy_campaign/coastdown_refined_1800/manifest.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/coastdown_refined_1800/report.json",
+      "path": "historical_legacy_campaign/coastdown_refined_1800/report.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/coastdown_refined_1800/report.md",
+      "path": "historical_legacy_campaign/coastdown_refined_1800/report.md"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/coastdown_refined_1800/trajectory.csv",
+      "path": "historical_legacy_campaign/coastdown_refined_1800/trajectory.csv"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/feed_change/checkpoint.json",
+      "path": "historical_legacy_campaign/feed_change/checkpoint.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/feed_change/input.json",
+      "path": "historical_legacy_campaign/feed_change/input.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/feed_change/manifest.json",
+      "path": "historical_legacy_campaign/feed_change/manifest.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/feed_change/report.json",
+      "path": "historical_legacy_campaign/feed_change/report.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/feed_change/report.md",
+      "path": "historical_legacy_campaign/feed_change/report.md"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/feed_change/trajectory.csv",
+      "path": "historical_legacy_campaign/feed_change/trajectory.csv"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/load_rejection/checkpoint.json",
+      "path": "historical_legacy_campaign/load_rejection/checkpoint.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/load_rejection/input.json",
+      "path": "historical_legacy_campaign/load_rejection/input.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/load_rejection/manifest.json",
+      "path": "historical_legacy_campaign/load_rejection/manifest.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/load_rejection/report.json",
+      "path": "historical_legacy_campaign/load_rejection/report.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/load_rejection/report.md",
+      "path": "historical_legacy_campaign/load_rejection/report.md"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/load_rejection/trajectory.csv",
+      "path": "historical_legacy_campaign/load_rejection/trajectory.csv"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_coarse/checkpoint.json",
+      "path": "historical_legacy_campaign/nominal_coarse/checkpoint.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_coarse/input.json",
+      "path": "historical_legacy_campaign/nominal_coarse/input.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_coarse/manifest.json",
+      "path": "historical_legacy_campaign/nominal_coarse/manifest.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_coarse/report.json",
+      "path": "historical_legacy_campaign/nominal_coarse/report.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_coarse/report.md",
+      "path": "historical_legacy_campaign/nominal_coarse/report.md"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_coarse/trajectory.csv",
+      "path": "historical_legacy_campaign/nominal_coarse/trajectory.csv"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_radau/checkpoint.json",
+      "path": "historical_legacy_campaign/nominal_radau/checkpoint.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_radau/input.json",
+      "path": "historical_legacy_campaign/nominal_radau/input.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_radau/manifest.json",
+      "path": "historical_legacy_campaign/nominal_radau/manifest.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_radau/report.json",
+      "path": "historical_legacy_campaign/nominal_radau/report.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_radau/report.md",
+      "path": "historical_legacy_campaign/nominal_radau/report.md"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_radau/trajectory.csv",
+      "path": "historical_legacy_campaign/nominal_radau/trajectory.csv"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_tight/checkpoint.json",
+      "path": "historical_legacy_campaign/nominal_tight/checkpoint.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_tight/input.json",
+      "path": "historical_legacy_campaign/nominal_tight/input.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_tight/manifest.json",
+      "path": "historical_legacy_campaign/nominal_tight/manifest.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_tight/report.json",
+      "path": "historical_legacy_campaign/nominal_tight/report.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_tight/report.md",
+      "path": "historical_legacy_campaign/nominal_tight/report.md"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/nominal_tight/trajectory.csv",
+      "path": "historical_legacy_campaign/nominal_tight/trajectory.csv"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/protected_coastdown_1800/checkpoint.json",
+      "path": "historical_legacy_campaign/protected_coastdown_1800/checkpoint.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/protected_coastdown_1800/input.json",
+      "path": "historical_legacy_campaign/protected_coastdown_1800/input.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/protected_coastdown_1800/manifest.json",
+      "path": "historical_legacy_campaign/protected_coastdown_1800/manifest.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/protected_coastdown_1800/report.json",
+      "path": "historical_legacy_campaign/protected_coastdown_1800/report.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/protected_coastdown_1800/report.md",
+      "path": "historical_legacy_campaign/protected_coastdown_1800/report.md"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/protected_coastdown_1800/trajectory.csv",
+      "path": "historical_legacy_campaign/protected_coastdown_1800/trajectory.csv"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_coarse/checkpoint.json",
+      "path": "historical_legacy_campaign/scram_coarse/checkpoint.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_coarse/input.json",
+      "path": "historical_legacy_campaign/scram_coarse/input.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_coarse/manifest.json",
+      "path": "historical_legacy_campaign/scram_coarse/manifest.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_coarse/report.json",
+      "path": "historical_legacy_campaign/scram_coarse/report.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_coarse/report.md",
+      "path": "historical_legacy_campaign/scram_coarse/report.md"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_coarse/trajectory.csv",
+      "path": "historical_legacy_campaign/scram_coarse/trajectory.csv"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_quarter/checkpoint.json",
+      "path": "historical_legacy_campaign/scram_quarter/checkpoint.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_quarter/input.json",
+      "path": "historical_legacy_campaign/scram_quarter/input.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_quarter/manifest.json",
+      "path": "historical_legacy_campaign/scram_quarter/manifest.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_quarter/report.json",
+      "path": "historical_legacy_campaign/scram_quarter/report.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_quarter/report.md",
+      "path": "historical_legacy_campaign/scram_quarter/report.md"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_quarter/trajectory.csv",
+      "path": "historical_legacy_campaign/scram_quarter/trajectory.csv"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_tight/checkpoint.json",
+      "path": "historical_legacy_campaign/scram_tight/checkpoint.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_tight/input.json",
+      "path": "historical_legacy_campaign/scram_tight/input.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_tight/manifest.json",
+      "path": "historical_legacy_campaign/scram_tight/manifest.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_tight/report.json",
+      "path": "historical_legacy_campaign/scram_tight/report.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_tight/report.md",
+      "path": "historical_legacy_campaign/scram_tight/report.md"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/scram_tight/trajectory.csv",
+      "path": "historical_legacy_campaign/scram_tight/trajectory.csv"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/sink_change/checkpoint.json",
+      "path": "historical_legacy_campaign/sink_change/checkpoint.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/sink_change/input.json",
+      "path": "historical_legacy_campaign/sink_change/input.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/sink_change/manifest.json",
+      "path": "historical_legacy_campaign/sink_change/manifest.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/sink_change/report.json",
+      "path": "historical_legacy_campaign/sink_change/report.json"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/sink_change/report.md",
+      "path": "historical_legacy_campaign/sink_change/report.md"
+    },
+    {
+      "source": "artifacts/ai050607_plant_campaign_v1/sink_change/trajectory.csv",
+      "path": "historical_legacy_campaign/sink_change/trajectory.csv"
+    },
+    {
+      "source": "artifacts/ai050607_base_dev_source_v1/atomic_model_plant_extension/__init__.py",
+      "path": "parent_base_source/atomic_model_plant_extension/__init__.py"
+    },
+    {
+      "source": "artifacts/ai050607_base_dev_source_v1/atomic_model_plant_extension/__main__.py",
+      "path": "parent_base_source/atomic_model_plant_extension/__main__.py"
+    },
+    {
+      "source": "artifacts/ai050607_base_dev_source_v1/atomic_model_plant_extension/continuation.py",
+      "path": "parent_base_source/atomic_model_plant_extension/continuation.py"
+    },
+    {
+      "source": "artifacts/ai050607_base_dev_source_v1/atomic_model_plant_extension/data/beavrs/LICENSE",
+      "path": "parent_base_source/atomic_model_plant_extension/data/beavrs/LICENSE"
+    },
+    {
+      "source": "artifacts/ai050607_base_dev_source_v1/atomic_model_plant_extension/data/beavrs/absorber.json",
+      "path": "parent_base_source/atomic_model_plant_extension/data/beavrs/absorber.json"
+    },
+    {
+      "source": "artifacts/ai050607_base_dev_source_v1/atomic_model_plant_extension/data/beavrs/expdata.tex",
+      "path": "parent_base_source/atomic_model_plant_extension/data/beavrs/expdata.tex"
+    },
+    {
+      "source": "artifacts/ai050607_base_dev_source_v1/atomic_model_plant_extension/gravity.py",
+      "path": "parent_base_source/atomic_model_plant_extension/gravity.py"
+    },
+    {
+      "source": "artifacts/ai050607_base_dev_source_v1/atomic_model_plant_extension/initialization.py",
+      "path": "parent_base_source/atomic_model_plant_extension/initialization.py"
+    },
+    {
+      "source": "artifacts/ai050607_base_dev_source_v1/atomic_model_plant_extension/one_way.py",
+      "path": "parent_base_source/atomic_model_plant_extension/one_way.py"
+    },
+    {
+      "source": "artifacts/ai050607_base_dev_source_v1/atomic_model_plant_extension/ports.py",
+      "path": "parent_base_source/atomic_model_plant_extension/ports.py"
+    },
+    {
+      "source": "artifacts/ai050607_base_dev_source_v1/atomic_model_plant_extension/pwr.py",
+      "path": "parent_base_source/atomic_model_plant_extension/pwr.py"
+    },
+    {
+      "source": "artifacts/ai050607_base_dev_source_v1/atomic_model_plant_extension/qualification.py",
+      "path": "parent_base_source/atomic_model_plant_extension/qualification.py"
+    },
+    {
+      "source": "artifacts/ai050607_base_dev_source_v1/atomic_model_plant_extension/session.py",
+      "path": "parent_base_source/atomic_model_plant_extension/session.py"
+    },
+    {
+      "source": "artifacts/ai050607_base_dev_source_v1/atomic_model_plant_extension/volume.py",
+      "path": "parent_base_source/atomic_model_plant_extension/volume.py"
+    },
+    {
+      "source": "artifacts/ai050607_base_dev_source_v1/atomic_model_plant_extension/water.py",
+      "path": "parent_base_source/atomic_model_plant_extension/water.py"
+    },
+    {
+      "source": "artifacts/ai050607_base_dev_source_v1/identity.json",
+      "path": "parent_base_source/identity.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/coastdown.log",
+      "path": "parent_campaign/coastdown.log"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/coastdown/checkpoint-envelope.json",
+      "path": "parent_campaign/coastdown/checkpoint-envelope.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/coastdown/protocol.json",
+      "path": "parent_campaign/coastdown/protocol.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/coastdown/result.json",
+      "path": "parent_campaign/coastdown/result.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/coastdown/trace.jsonl",
+      "path": "parent_campaign/coastdown/trace.jsonl"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/coastdown_peer.log",
+      "path": "parent_campaign/coastdown_peer.log"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/coastdown_peer/checkpoint-envelope.json",
+      "path": "parent_campaign/coastdown_peer/checkpoint-envelope.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/coastdown_peer/protocol.json",
+      "path": "parent_campaign/coastdown_peer/protocol.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/coastdown_peer/result.json",
+      "path": "parent_campaign/coastdown_peer/result.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/coastdown_peer/trace.jsonl",
+      "path": "parent_campaign/coastdown_peer/trace.jsonl"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/execution.json",
+      "path": "parent_campaign/execution.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/feed.log",
+      "path": "parent_campaign/feed.log"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/feed/checkpoint-envelope.json",
+      "path": "parent_campaign/feed/checkpoint-envelope.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/feed/protocol.json",
+      "path": "parent_campaign/feed/protocol.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/feed/result.json",
+      "path": "parent_campaign/feed/result.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/feed/trace.jsonl",
+      "path": "parent_campaign/feed/trace.jsonl"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/load_rejection.log",
+      "path": "parent_campaign/load_rejection.log"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/load_rejection/checkpoint-envelope.json",
+      "path": "parent_campaign/load_rejection/checkpoint-envelope.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/load_rejection/protocol.json",
+      "path": "parent_campaign/load_rejection/protocol.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/load_rejection/result.json",
+      "path": "parent_campaign/load_rejection/result.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/load_rejection/trace.jsonl",
+      "path": "parent_campaign/load_rejection/trace.jsonl"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/natural.log",
+      "path": "parent_campaign/natural.log"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/natural/checkpoint-envelope.json",
+      "path": "parent_campaign/natural/checkpoint-envelope.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/natural/protocol.json",
+      "path": "parent_campaign/natural/protocol.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/natural/result.json",
+      "path": "parent_campaign/natural/result.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/natural/trace.jsonl",
+      "path": "parent_campaign/natural/trace.jsonl"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/natural_perturbation.log",
+      "path": "parent_campaign/natural_perturbation.log"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/natural_perturbation/checkpoint-envelope.json",
+      "path": "parent_campaign/natural_perturbation/checkpoint-envelope.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/natural_perturbation/protocol.json",
+      "path": "parent_campaign/natural_perturbation/protocol.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/natural_perturbation/result.json",
+      "path": "parent_campaign/natural_perturbation/result.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/natural_perturbation/trace.jsonl",
+      "path": "parent_campaign/natural_perturbation/trace.jsonl"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/nominal_bdf.log",
+      "path": "parent_campaign/nominal_bdf.log"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/nominal_bdf/checkpoint-envelope.json",
+      "path": "parent_campaign/nominal_bdf/checkpoint-envelope.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/nominal_bdf/protocol.json",
+      "path": "parent_campaign/nominal_bdf/protocol.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/nominal_bdf/result.json",
+      "path": "parent_campaign/nominal_bdf/result.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/nominal_bdf/trace.jsonl",
+      "path": "parent_campaign/nominal_bdf/trace.jsonl"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/nominal_radau.log",
+      "path": "parent_campaign/nominal_radau.log"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/nominal_radau/checkpoint-envelope.json",
+      "path": "parent_campaign/nominal_radau/checkpoint-envelope.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/nominal_radau/protocol.json",
+      "path": "parent_campaign/nominal_radau/protocol.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/nominal_radau/result.json",
+      "path": "parent_campaign/nominal_radau/result.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/nominal_radau/trace.jsonl",
+      "path": "parent_campaign/nominal_radau/trace.jsonl"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/scram.log",
+      "path": "parent_campaign/scram.log"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/scram/checkpoint-envelope.json",
+      "path": "parent_campaign/scram/checkpoint-envelope.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/scram/protocol.json",
+      "path": "parent_campaign/scram/protocol.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/scram/result.json",
+      "path": "parent_campaign/scram/result.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/scram/trace.jsonl",
+      "path": "parent_campaign/scram/trace.jsonl"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/sink.log",
+      "path": "parent_campaign/sink.log"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/sink/checkpoint-envelope.json",
+      "path": "parent_campaign/sink/checkpoint-envelope.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/sink/protocol.json",
+      "path": "parent_campaign/sink/protocol.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/sink/result.json",
+      "path": "parent_campaign/sink/result.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/sink/trace.jsonl",
+      "path": "parent_campaign/sink/trace.jsonl"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_campaign_v2/source.json",
+      "path": "parent_campaign/source.json"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_dev_source_v2/atomic_model_controlled_plant/__init__.py",
+      "path": "parent_controlled_source/atomic_model_controlled_plant/__init__.py"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_dev_source_v2/atomic_model_controlled_plant/__main__.py",
+      "path": "parent_controlled_source/atomic_model_controlled_plant/__main__.py"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_dev_source_v2/atomic_model_controlled_plant/model.py",
+      "path": "parent_controlled_source/atomic_model_controlled_plant/model.py"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_dev_source_v2/atomic_model_controlled_plant/qualification.py",
+      "path": "parent_controlled_source/atomic_model_controlled_plant/qualification.py"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_dev_source_v2/atomic_model_controlled_plant/session.py",
+      "path": "parent_controlled_source/atomic_model_controlled_plant/session.py"
+    },
+    {
+      "source": "artifacts/ai050607_controlled_dev_source_v2/identity.json",
+      "path": "parent_controlled_source/identity.json"
+    },
+    {
+      "source": ".gitattributes",
+      "path": "review_sources/.gitattributes"
+    },
+    {
+      "source": ".github/workflows/ci.yml",
+      "path": "review_sources/.github/workflows/ci.yml"
+    },
+    {
+      "source": ".github/workflows/numerical.yml",
+      "path": "review_sources/.github/workflows/numerical.yml"
+    },
+    {
+      "source": "README.md",
+      "path": "review_sources/README.md"
+    },
+    {
+      "source": "atomic_model_controlled_plant/__init__.py",
+      "path": "review_sources/atomic_model_controlled_plant/__init__.py"
+    },
+    {
+      "source": "atomic_model_controlled_plant/__main__.py",
+      "path": "review_sources/atomic_model_controlled_plant/__main__.py"
+    },
+    {
+      "source": "atomic_model_controlled_plant/model.py",
+      "path": "review_sources/atomic_model_controlled_plant/model.py"
+    },
+    {
+      "source": "atomic_model_controlled_plant/qualification.py",
+      "path": "review_sources/atomic_model_controlled_plant/qualification.py"
+    },
+    {
+      "source": "atomic_model_controlled_plant/session.py",
+      "path": "review_sources/atomic_model_controlled_plant/session.py"
+    },
+    {
+      "source": "atomic_model_phase_assessment/__init__.py",
+      "path": "review_sources/atomic_model_phase_assessment/__init__.py"
+    },
+    {
+      "source": "atomic_model_phase_assessment/__main__.py",
+      "path": "review_sources/atomic_model_phase_assessment/__main__.py"
+    },
+    {
+      "source": "atomic_model_phase_assessment/assessment.py",
+      "path": "review_sources/atomic_model_phase_assessment/assessment.py"
+    },
+    {
+      "source": "atomic_model_phase_assessment/data/pool_b274/CITATION.cff",
+      "path": "review_sources/atomic_model_phase_assessment/data/pool_b274/CITATION.cff"
+    },
+    {
+      "source": "atomic_model_phase_assessment/data/pool_b274/LICENSE",
+      "path": "review_sources/atomic_model_phase_assessment/data/pool_b274/LICENSE"
+    },
+    {
+      "source": "atomic_model_phase_assessment/data/pool_b274/NOTICE.md",
+      "path": "review_sources/atomic_model_phase_assessment/data/pool_b274/NOTICE.md"
+    },
+    {
+      "source": "atomic_model_phase_assessment/data/pool_b274/PRIMARY_README.md",
+      "path": "review_sources/atomic_model_phase_assessment/data/pool_b274/PRIMARY_README.md"
+    },
+    {
+      "source": "atomic_model_phase_assessment/data/pool_b274/data_dictionary.csv",
+      "path": "review_sources/atomic_model_phase_assessment/data/pool_b274/data_dictionary.csv"
+    },
+    {
+      "source": "atomic_model_phase_assessment/data/pool_b274/event_definition.md",
+      "path": "review_sources/atomic_model_phase_assessment/data/pool_b274/event_definition.md"
+    },
+    {
+      "source": "atomic_model_phase_assessment/data/pool_b274/manifest.json",
+      "path": "review_sources/atomic_model_phase_assessment/data/pool_b274/manifest.json"
+    },
+    {
+      "source": "atomic_model_phase_assessment/data/pool_b274/pressure.csv.gz",
+      "path": "review_sources/atomic_model_phase_assessment/data/pool_b274/pressure.csv.gz"
+    },
+    {
+      "source": "atomic_model_phase_assessment/data/pool_b274/thermal.csv.gz",
+      "path": "review_sources/atomic_model_phase_assessment/data/pool_b274/thermal.csv.gz"
+    },
+    {
+      "source": "atomic_model_phase_assessment/dataset.py",
+      "path": "review_sources/atomic_model_phase_assessment/dataset.py"
+    },
+    {
+      "source": "atomic_model_phase_assessment/importer.py",
+      "path": "review_sources/atomic_model_phase_assessment/importer.py"
+    },
+    {
+      "source": "atomic_model_phase_assessment/vessel.py",
+      "path": "review_sources/atomic_model_phase_assessment/vessel.py"
+    },
+    {
+      "source": "atomic_model_plant_extension/__init__.py",
+      "path": "review_sources/atomic_model_plant_extension/__init__.py"
+    },
+    {
+      "source": "atomic_model_plant_extension/__main__.py",
+      "path": "review_sources/atomic_model_plant_extension/__main__.py"
+    },
+    {
+      "source": "atomic_model_plant_extension/continuation.py",
+      "path": "review_sources/atomic_model_plant_extension/continuation.py"
+    },
+    {
+      "source": "atomic_model_plant_extension/data/beavrs/LICENSE",
+      "path": "review_sources/atomic_model_plant_extension/data/beavrs/LICENSE"
+    },
+    {
+      "source": "atomic_model_plant_extension/data/beavrs/absorber.json",
+      "path": "review_sources/atomic_model_plant_extension/data/beavrs/absorber.json"
+    },
+    {
+      "source": "atomic_model_plant_extension/data/beavrs/expdata.tex",
+      "path": "review_sources/atomic_model_plant_extension/data/beavrs/expdata.tex"
+    },
+    {
+      "source": "atomic_model_plant_extension/gravity.py",
+      "path": "review_sources/atomic_model_plant_extension/gravity.py"
+    },
+    {
+      "source": "atomic_model_plant_extension/initialization.py",
+      "path": "review_sources/atomic_model_plant_extension/initialization.py"
+    },
+    {
+      "source": "atomic_model_plant_extension/one_way.py",
+      "path": "review_sources/atomic_model_plant_extension/one_way.py"
+    },
+    {
+      "source": "atomic_model_plant_extension/ports.py",
+      "path": "review_sources/atomic_model_plant_extension/ports.py"
+    },
+    {
+      "source": "atomic_model_plant_extension/pwr.py",
+      "path": "review_sources/atomic_model_plant_extension/pwr.py"
+    },
+    {
+      "source": "atomic_model_plant_extension/qualification.py",
+      "path": "review_sources/atomic_model_plant_extension/qualification.py"
+    },
+    {
+      "source": "atomic_model_plant_extension/session.py",
+      "path": "review_sources/atomic_model_plant_extension/session.py"
+    },
+    {
+      "source": "atomic_model_plant_extension/volume.py",
+      "path": "review_sources/atomic_model_plant_extension/volume.py"
+    },
+    {
+      "source": "atomic_model_plant_extension/water.py",
+      "path": "review_sources/atomic_model_plant_extension/water.py"
+    },
+    {
+      "source": "docs/AI_05_06_07_EXTENDED_MODEL_RU.md",
+      "path": "review_sources/docs/AI_05_06_07_EXTENDED_MODEL_RU.md"
+    },
+    {
+      "source": "docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md",
+      "path": "review_sources/docs/AI_INDUSTRIAL_EXECUTION_PLAN_RU.md"
+    },
+    {
+      "source": "docs/CURRENT_STATUS_RU.md",
+      "path": "review_sources/docs/CURRENT_STATUS_RU.md"
+    },
+    {
+      "source": "docs/READINESS_REVIEW_RU.md",
+      "path": "review_sources/docs/READINESS_REVIEW_RU.md"
+    },
+    {
+      "source": "pyproject.toml",
+      "path": "review_sources/pyproject.toml"
+    },
+    {
+      "source": "scripts/accept_050607_numerical_delivery.py",
+      "path": "review_sources/scripts/accept_050607_numerical_delivery.py"
+    },
+    {
+      "source": "scripts/assess_controlled_plant.py",
+      "path": "review_sources/scripts/assess_controlled_plant.py"
+    },
+    {
+      "source": "scripts/build_extended_plant_evidence.py",
+      "path": "review_sources/scripts/build_extended_plant_evidence.py"
+    },
+    {
+      "source": "scripts/controlled_plant_release.py",
+      "path": "review_sources/scripts/controlled_plant_release.py"
+    },
+    {
+      "source": "scripts/describe_controlled_plant.py",
+      "path": "review_sources/scripts/describe_controlled_plant.py"
+    },
+    {
+      "source": "scripts/extended_natural_initialization.py",
+      "path": "review_sources/scripts/extended_natural_initialization.py"
+    },
+    {
+      "source": "scripts/fetch_pool_primary.py",
+      "path": "review_sources/scripts/fetch_pool_primary.py"
+    },
+    {
+      "source": "scripts/qualify_controlled_events.py",
+      "path": "review_sources/scripts/qualify_controlled_events.py"
+    },
+    {
+      "source": "scripts/qualify_extended_events.py",
+      "path": "review_sources/scripts/qualify_extended_events.py"
+    },
+    {
+      "source": "scripts/qualify_extended_natural.py",
+      "path": "review_sources/scripts/qualify_extended_natural.py"
+    },
+    {
+      "source": "scripts/recertify_controlled_metadata.py",
+      "path": "review_sources/scripts/recertify_controlled_metadata.py"
+    },
+    {
+      "source": "scripts/replay_controlled_programs.py",
+      "path": "review_sources/scripts/replay_controlled_programs.py"
+    },
+    {
+      "source": "scripts/run_controlled_plant_campaign.py",
+      "path": "review_sources/scripts/run_controlled_plant_campaign.py"
+    },
+    {
+      "source": "scripts/select_controlled_evidence.py",
+      "path": "review_sources/scripts/select_controlled_evidence.py"
+    },
+    {
+      "source": "scripts/verify_controlled_install.py",
+      "path": "review_sources/scripts/verify_controlled_install.py"
+    },
+    {
+      "source": "scripts/verify_pool_primary.py",
+      "path": "review_sources/scripts/verify_pool_primary.py"
+    },
+    {
+      "source": "scripts/write_050607_delivery.py",
+      "path": "review_sources/scripts/write_050607_delivery.py"
+    },
+    {
+      "source": "tests/test_controlled_plant.py",
+      "path": "review_sources/tests/test_controlled_plant.py"
+    },
+    {
+      "source": "tests/test_extended_natural_initialization.py",
+      "path": "review_sources/tests/test_extended_natural_initialization.py"
+    },
+    {
+      "source": "tests/test_phase_assessment.py",
+      "path": "review_sources/tests/test_phase_assessment.py"
+    },
+    {
+      "source": "tests/test_phase_primary_transport.py",
+      "path": "review_sources/tests/test_phase_primary_transport.py"
+    },
+    {
+      "source": "tests/test_plant_extension.py",
+      "path": "review_sources/tests/test_plant_extension.py"
+    },
+    {
+      "source": "artifacts/ai050607_release_build_v1/atomic_sim-2.0.0-py3-none-any.whl",
+      "path": "runtime/atomic_sim-2.0.0-py3-none-any.whl"
+    },
+    {
+      "source": "artifacts/ai050607_release_build_v1/atomic_sim-2.0.0.tar.gz",
+      "path": "runtime/atomic_sim-2.0.0.tar.gz"
+    },
+    {
+      "source": "validation/ai050607_controlled_acceptance_protocol_v3.json",
+      "path": "validation/ai050607_controlled_acceptance_protocol_v3.json"
+    },
+    {
+      "source": "validation/ai050607_controlled_checks_v1.json",
+      "path": "validation/ai050607_controlled_checks_v1.json"
+    },
+    {
+      "source": "validation/ai050607_controlled_delivery_v1.json",
+      "path": "validation/ai050607_controlled_delivery_v1.json"
+    },
+    {
+      "source": "validation/ai050607_controlled_installed_v1.json",
+      "path": "validation/ai050607_controlled_installed_v1.json"
+    },
+    {
+      "source": "validation/ai050607_controlled_runtime_witness_v1.json",
+      "path": "validation/ai050607_controlled_runtime_witness_v1.json"
+    },
+    {
+      "source": "validation/ai050607_controlled_summary_v1.json",
+      "path": "validation/ai050607_controlled_summary_v1.json"
+    },
+    {
+      "source": "validation/ai050607_extended_environment_v1.json",
+      "path": "validation/ai050607_extended_environment_v1.json"
+    },
+    {
+      "source": "validation/ai050607_external_dependencies_v1.json",
+      "path": "validation/ai050607_external_dependencies_v1.json"
+    },
+    {
+      "source": "validation/ai06_pool_b274_independent_import_v2.json",
+      "path": "validation/ai06_pool_b274_independent_import_v2.json"
+    },
+    {
+      "source": "validation/ai06_pool_b274_offline_primary_v1.json",
+      "path": "validation/ai06_pool_b274_offline_primary_v1.json"
+    },
+    {
+      "source": "validation/ai07_controlled_configuration_v1.json",
+      "path": "validation/ai07_controlled_configuration_v1.json"
+    },
+    {
+      "source": "validation/ai_industrial_workplan_v1.json",
+      "path": "validation/ai_industrial_workplan_v1.json"
+    }
+  ],
+  "metadata": {
+    "source": {
+      "plant": {
+        "foundation_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+        "files": {
+          "__init__.py": "63dda0755dc9c4682c9e860b28a73212400f9da27f48649b41bc4200a870ddbb",
+          "__main__.py": "7dce37e37c56ff8312643deded0f8e537a9502f6ccf5de527e74b722ae1d4993",
+          "continuation.py": "317b98d0c616370e6b33464dfa084bf96b3be3d3e17162ebddc654015cc539bd",
+          "data/beavrs/LICENSE": "1d1b6d1266b5bf6274c169ca0caef559ad2e6e9b3e99b02303a8b3041a54a135",
+          "data/beavrs/absorber.json": "605907b49919cd4b4dacf6f19828053b9ce9bb0c02754092dc826d08ea1c4d29",
+          "data/beavrs/expdata.tex": "13eea6a808136dfee603d607cb1ac97ededbdfb31a7bb6a8728a937aa183e801",
+          "gravity.py": "b94165142d879fcc96408dc420b1bf79ef272a23c860c67649c955fe9578f0e4",
+          "initialization.py": "6c43cdcf9f31d5c04e0891f8e249e419b35d0888e1fd6207dd969f498d7b3b98",
+          "one_way.py": "c75fcdc2219f5d64ae30cf6c60d246f5a2a8d8d347bf4527753e2597ebc104aa",
+          "ports.py": "218173e77659ed8e47f0f3e3ffa04fbece6d0c12472abd432fcdc97e9fe8540d",
+          "pwr.py": "a771e1869ce166cb301cd3efdcf92399f1ca1071fcd335d11319951a48e609d6",
+          "qualification.py": "112f61731aa99d58b81872de6f8cba6da54836f4443d5a213a65e801eb2c2b42",
+          "session.py": "f3dd8379d4f82a218a01aa233494858a2c03b7ab84a03ed64b4a3fad5bed3eb1",
+          "volume.py": "9cc6b4bf27e9e78521a358c7a71eeacf91831e84aed221bd3be7bea0d39a2c5e",
+          "water.py": "8e85c45065fd6766bbd5a519608ddfe72c0e6aaf29277ba6408b0001dda625fa"
+        }
+      },
+      "runtime": {
+        "python": "3.12.9",
+        "system": "Linux",
+        "machine": "x86_64",
+        "numpy": "2.2.6",
+        "scipy": "1.15.2"
+      },
+      "implementation": {
+        "__init__.py": "ad0dd4131dd3d8902cc61e6e9d5fe880796adb064bd4a96ad3ea2758f0bb5617",
+        "__main__.py": "686862cbdf166087c2a55b57fd23a54c46da8cd577409e1dd3e1834d63baf745",
+        "model.py": "ebaa00ae1fb5f471902f3a4bb797170871633eea2d95248673a4b20622c935f4",
+        "qualification.py": "4e6357b624f9e0d6693af75e90506b70652d6b7bd7a785c15685bc8440034ed3",
+        "session.py": "207c94855b94ec8950c201cf27fd046d9dea9509eae7bb4aecf72bfdd8e91edd"
+      },
+      "shared_bootstrap": {
+        "water_types": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+        "canonical": "7c407aa79cd2164bece0e4f1ffd03ea5e0858497aabe26010e42c758425d76a2",
+        "charging": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883"
+      },
+      "shared_leaves": {
+        "water_types": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+        "canonical": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12",
+        "charging": "3241851687ecd267ac644453cb49b9d8cd1d85fbc7075e14baaf403058f4fed1"
+      }
+    },
+    "all_three_blocks_numerical_acceptance": true,
+    "validated": false,
+    "plant_referenced": false
+  },
+  "runtime": {
+    "wheel": "runtime/atomic_sim-2.0.0-py3-none-any.whl",
+    "sdist": "runtime/atomic_sim-2.0.0.tar.gz",
+    "source_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67"
+  }
+}

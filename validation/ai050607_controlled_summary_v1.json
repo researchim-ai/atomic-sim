@@ -1,0 +1,887 @@
+{
+  "payload": {
+    "protocol": {
+      "source": {
+        "plant": {
+          "foundation_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+          "files": {
+            "__init__.py": "63dda0755dc9c4682c9e860b28a73212400f9da27f48649b41bc4200a870ddbb",
+            "__main__.py": "7dce37e37c56ff8312643deded0f8e537a9502f6ccf5de527e74b722ae1d4993",
+            "continuation.py": "317b98d0c616370e6b33464dfa084bf96b3be3d3e17162ebddc654015cc539bd",
+            "data/beavrs/LICENSE": "1d1b6d1266b5bf6274c169ca0caef559ad2e6e9b3e99b02303a8b3041a54a135",
+            "data/beavrs/absorber.json": "605907b49919cd4b4dacf6f19828053b9ce9bb0c02754092dc826d08ea1c4d29",
+            "data/beavrs/expdata.tex": "13eea6a808136dfee603d607cb1ac97ededbdfb31a7bb6a8728a937aa183e801",
+            "gravity.py": "b94165142d879fcc96408dc420b1bf79ef272a23c860c67649c955fe9578f0e4",
+            "initialization.py": "6c43cdcf9f31d5c04e0891f8e249e419b35d0888e1fd6207dd969f498d7b3b98",
+            "one_way.py": "c75fcdc2219f5d64ae30cf6c60d246f5a2a8d8d347bf4527753e2597ebc104aa",
+            "ports.py": "218173e77659ed8e47f0f3e3ffa04fbece6d0c12472abd432fcdc97e9fe8540d",
+            "pwr.py": "a771e1869ce166cb301cd3efdcf92399f1ca1071fcd335d11319951a48e609d6",
+            "qualification.py": "112f61731aa99d58b81872de6f8cba6da54836f4443d5a213a65e801eb2c2b42",
+            "session.py": "f3dd8379d4f82a218a01aa233494858a2c03b7ab84a03ed64b4a3fad5bed3eb1",
+            "volume.py": "9cc6b4bf27e9e78521a358c7a71eeacf91831e84aed221bd3be7bea0d39a2c5e",
+            "water.py": "8e85c45065fd6766bbd5a519608ddfe72c0e6aaf29277ba6408b0001dda625fa"
+          }
+        },
+        "runtime": {
+          "python": "3.12.9",
+          "system": "Linux",
+          "machine": "x86_64",
+          "numpy": "2.2.6",
+          "scipy": "1.15.2"
+        },
+        "implementation": {
+          "__init__.py": "ad0dd4131dd3d8902cc61e6e9d5fe880796adb064bd4a96ad3ea2758f0bb5617",
+          "__main__.py": "686862cbdf166087c2a55b57fd23a54c46da8cd577409e1dd3e1834d63baf745",
+          "model.py": "ebaa00ae1fb5f471902f3a4bb797170871633eea2d95248673a4b20622c935f4",
+          "qualification.py": "4e6357b624f9e0d6693af75e90506b70652d6b7bd7a785c15685bc8440034ed3",
+          "session.py": "207c94855b94ec8950c201cf27fd046d9dea9509eae7bb4aecf72bfdd8e91edd"
+        },
+        "shared_bootstrap": {
+          "water_types": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+          "canonical": "7c407aa79cd2164bece0e4f1ffd03ea5e0858497aabe26010e42c758425d76a2",
+          "charging": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883"
+        },
+        "shared_leaves": {
+          "water_types": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+          "canonical": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12",
+          "charging": "3241851687ecd267ac644453cb49b9d8cd1d85fbc7075e14baaf403058f4fed1"
+        }
+      },
+      "driver_sha256": "384747df70c8fe7c9a7b87f8dea319e483acf2f167fce7c6e9488a57970d3d8c",
+      "limits": {
+        "nominal_relative_state_difference": 1e-05,
+        "coastdown_relative_state_difference": 0.001,
+        "rod_stop_spread_s": 1e-10,
+        "source_open_spread_s": 0.001
+      },
+      "validated": false,
+      "plant_referenced": false
+    },
+    "checks": {
+      "coastdown": true,
+      "coastdown_peer": true,
+      "feed": true,
+      "load_rejection": true,
+      "natural": true,
+      "natural_perturbation": true,
+      "nominal_radau": true,
+      "nominal_bdf": true,
+      "scram": true,
+      "sink": true,
+      "current_code_settling_reevaluation": true,
+      "direct_ranked_initialization": true,
+      "nominal_two_methods_and_accuracies": true,
+      "coastdown_two_temporal_controls": true,
+      "load_to_full_equilibrium_7200s": true,
+      "three_output_clocks_and12_restarts": true,
+      "four_independent_phase_programs": true,
+      "independent_primary_import": true,
+      "all10_histories_recomputed_and_admitted": true
+    },
+    "all_three_blocks_numerical_acceptance": true,
+    "nominal_relative_state_difference": 5.513473315689898e-11,
+    "coastdown_relative_state_difference": 8.563582967706995e-09,
+    "completed_horizons_s": {
+      "coastdown": 1800.0,
+      "coastdown_peer": 1800.0,
+      "feed": 120.0,
+      "load_rejection": 7200.0,
+      "natural": 1800.0,
+      "natural_perturbation": 120.0,
+      "nominal_radau": 3600.0,
+      "nominal_bdf": 3600.0,
+      "scram": 60.0,
+      "sink": 120.0
+    },
+    "ledger_max_relative": {
+      "energy_relative": 4.847164202426904e-07,
+      "mass_relative": 1.6922612360453182e-15,
+      "boron_relative": 3.83094818644825e-15
+    },
+    "equilibrium_postconditions": {
+      "final_normalized_rate_per_s": 2.0312683823069613e-07,
+      "tail_relative_ranges": {
+        "relative_fission": 3.3531801835184893e-07,
+        "primary_flow_kg_s": 1.1958965112027528e-10,
+        "feed_flow_kg_s": 4.242131816867274e-09
+      }
+    },
+    "event_spreads": {
+      "rod_stop": {
+        "spread_s": 3.552713678800501e-15,
+        "tolerance_s": 1e-10
+      },
+      "dump_source_opened": {
+        "spread_s": 7.997931206205067e-09,
+        "tolerance_s": 0.001
+      }
+    },
+    "independent_phase_cases": 4,
+    "phase_trajectories": 12,
+    "fully_replayed_programs": 10,
+    "agent_scenario_manifest": {
+      "schema_version": 1,
+      "admitted": [
+        {
+          "case": "coastdown",
+          "configuration": {
+            "height_m": 10.0,
+            "maximum_internal_step_s": 2.0,
+            "initialization": "nominal",
+            "implementation_sha256": "511448e789290092530647ba58bb1f497e080fbbf35675d12280072c011967c5"
+          },
+          "model_id": "pwr-reduced-flow-controlled",
+          "duration_s": 1800.0,
+          "commands": [
+            [
+              10.0,
+              {
+                "scram": true,
+                "motor_off": true
+              }
+            ]
+          ],
+          "solver": {
+            "method": "Radau",
+            "rtol": 1e-06,
+            "atol": 1e-05,
+            "max_step_s": 2.0,
+            "output_step_s": 5.0
+          },
+          "source": {
+            "plant": {
+              "foundation_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+              "files": {
+                "__init__.py": "63dda0755dc9c4682c9e860b28a73212400f9da27f48649b41bc4200a870ddbb",
+                "__main__.py": "7dce37e37c56ff8312643deded0f8e537a9502f6ccf5de527e74b722ae1d4993",
+                "continuation.py": "317b98d0c616370e6b33464dfa084bf96b3be3d3e17162ebddc654015cc539bd",
+                "data/beavrs/LICENSE": "1d1b6d1266b5bf6274c169ca0caef559ad2e6e9b3e99b02303a8b3041a54a135",
+                "data/beavrs/absorber.json": "605907b49919cd4b4dacf6f19828053b9ce9bb0c02754092dc826d08ea1c4d29",
+                "data/beavrs/expdata.tex": "13eea6a808136dfee603d607cb1ac97ededbdfb31a7bb6a8728a937aa183e801",
+                "gravity.py": "b94165142d879fcc96408dc420b1bf79ef272a23c860c67649c955fe9578f0e4",
+                "initialization.py": "6c43cdcf9f31d5c04e0891f8e249e419b35d0888e1fd6207dd969f498d7b3b98",
+                "one_way.py": "c75fcdc2219f5d64ae30cf6c60d246f5a2a8d8d347bf4527753e2597ebc104aa",
+                "ports.py": "218173e77659ed8e47f0f3e3ffa04fbece6d0c12472abd432fcdc97e9fe8540d",
+                "pwr.py": "a771e1869ce166cb301cd3efdcf92399f1ca1071fcd335d11319951a48e609d6",
+                "qualification.py": "112f61731aa99d58b81872de6f8cba6da54836f4443d5a213a65e801eb2c2b42",
+                "session.py": "f3dd8379d4f82a218a01aa233494858a2c03b7ab84a03ed64b4a3fad5bed3eb1",
+                "volume.py": "9cc6b4bf27e9e78521a358c7a71eeacf91831e84aed221bd3be7bea0d39a2c5e",
+                "water.py": "8e85c45065fd6766bbd5a519608ddfe72c0e6aaf29277ba6408b0001dda625fa"
+              }
+            },
+            "runtime": {
+              "python": "3.12.9",
+              "system": "Linux",
+              "machine": "x86_64",
+              "numpy": "2.2.6",
+              "scipy": "1.15.2"
+            },
+            "implementation": {
+              "__init__.py": "ad0dd4131dd3d8902cc61e6e9d5fe880796adb064bd4a96ad3ea2758f0bb5617",
+              "__main__.py": "686862cbdf166087c2a55b57fd23a54c46da8cd577409e1dd3e1834d63baf745",
+              "model.py": "ebaa00ae1fb5f471902f3a4bb797170871633eea2d95248673a4b20622c935f4",
+              "qualification.py": "4e6357b624f9e0d6693af75e90506b70652d6b7bd7a785c15685bc8440034ed3",
+              "session.py": "207c94855b94ec8950c201cf27fd046d9dea9509eae7bb4aecf72bfdd8e91edd"
+            },
+            "shared_bootstrap": {
+              "water_types": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+              "canonical": "7c407aa79cd2164bece0e4f1ffd03ea5e0858497aabe26010e42c758425d76a2",
+              "charging": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883"
+            },
+            "shared_leaves": {
+              "water_types": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+              "canonical": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12",
+              "charging": "3241851687ecd267ac644453cb49b9d8cd1d85fbc7075e14baaf403058f4fed1"
+            }
+          },
+          "evidence_sha256": "eddc282e09fed1ae0fd40e0f7cf19d53a32fb304777e7efa462e141b655fc43f",
+          "checkpoint_sha256": "c7ccef7f0f9a78521629c60043577a44650ddd27b0c436b81192cc9d9c230bd6",
+          "scope": "Exact accepted command program/configuration; arbitrary perturbations are not promoted"
+        },
+        {
+          "case": "coastdown",
+          "configuration": {
+            "height_m": 10.0,
+            "maximum_internal_step_s": 1.0,
+            "initialization": "nominal",
+            "implementation_sha256": "511448e789290092530647ba58bb1f497e080fbbf35675d12280072c011967c5"
+          },
+          "model_id": "pwr-reduced-flow-controlled",
+          "duration_s": 1800.0,
+          "commands": [
+            [
+              10.0,
+              {
+                "scram": true,
+                "motor_off": true
+              }
+            ]
+          ],
+          "solver": {
+            "method": "Radau",
+            "rtol": 1e-07,
+            "atol": 1e-06,
+            "max_step_s": 1.0,
+            "output_step_s": 5.0
+          },
+          "source": {
+            "plant": {
+              "foundation_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+              "files": {
+                "__init__.py": "63dda0755dc9c4682c9e860b28a73212400f9da27f48649b41bc4200a870ddbb",
+                "__main__.py": "7dce37e37c56ff8312643deded0f8e537a9502f6ccf5de527e74b722ae1d4993",
+                "continuation.py": "317b98d0c616370e6b33464dfa084bf96b3be3d3e17162ebddc654015cc539bd",
+                "data/beavrs/LICENSE": "1d1b6d1266b5bf6274c169ca0caef559ad2e6e9b3e99b02303a8b3041a54a135",
+                "data/beavrs/absorber.json": "605907b49919cd4b4dacf6f19828053b9ce9bb0c02754092dc826d08ea1c4d29",
+                "data/beavrs/expdata.tex": "13eea6a808136dfee603d607cb1ac97ededbdfb31a7bb6a8728a937aa183e801",
+                "gravity.py": "b94165142d879fcc96408dc420b1bf79ef272a23c860c67649c955fe9578f0e4",
+                "initialization.py": "6c43cdcf9f31d5c04e0891f8e249e419b35d0888e1fd6207dd969f498d7b3b98",
+                "one_way.py": "c75fcdc2219f5d64ae30cf6c60d246f5a2a8d8d347bf4527753e2597ebc104aa",
+                "ports.py": "218173e77659ed8e47f0f3e3ffa04fbece6d0c12472abd432fcdc97e9fe8540d",
+                "pwr.py": "a771e1869ce166cb301cd3efdcf92399f1ca1071fcd335d11319951a48e609d6",
+                "qualification.py": "112f61731aa99d58b81872de6f8cba6da54836f4443d5a213a65e801eb2c2b42",
+                "session.py": "f3dd8379d4f82a218a01aa233494858a2c03b7ab84a03ed64b4a3fad5bed3eb1",
+                "volume.py": "9cc6b4bf27e9e78521a358c7a71eeacf91831e84aed221bd3be7bea0d39a2c5e",
+                "water.py": "8e85c45065fd6766bbd5a519608ddfe72c0e6aaf29277ba6408b0001dda625fa"
+              }
+            },
+            "runtime": {
+              "python": "3.12.9",
+              "system": "Linux",
+              "machine": "x86_64",
+              "numpy": "2.2.6",
+              "scipy": "1.15.2"
+            },
+            "implementation": {
+              "__init__.py": "ad0dd4131dd3d8902cc61e6e9d5fe880796adb064bd4a96ad3ea2758f0bb5617",
+              "__main__.py": "686862cbdf166087c2a55b57fd23a54c46da8cd577409e1dd3e1834d63baf745",
+              "model.py": "ebaa00ae1fb5f471902f3a4bb797170871633eea2d95248673a4b20622c935f4",
+              "qualification.py": "4e6357b624f9e0d6693af75e90506b70652d6b7bd7a785c15685bc8440034ed3",
+              "session.py": "207c94855b94ec8950c201cf27fd046d9dea9509eae7bb4aecf72bfdd8e91edd"
+            },
+            "shared_bootstrap": {
+              "water_types": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+              "canonical": "7c407aa79cd2164bece0e4f1ffd03ea5e0858497aabe26010e42c758425d76a2",
+              "charging": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883"
+            },
+            "shared_leaves": {
+              "water_types": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+              "canonical": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12",
+              "charging": "3241851687ecd267ac644453cb49b9d8cd1d85fbc7075e14baaf403058f4fed1"
+            }
+          },
+          "evidence_sha256": "2b3f98ad232580a734ac05c5228b755868f249efeb445e5b00a6e383f3edd71b",
+          "checkpoint_sha256": "0d6af2257d154dc0a6d6855bb43ee8fb51d04beb91866af077ca7081a219ebf0",
+          "scope": "Exact accepted command program/configuration; arbitrary perturbations are not promoted"
+        },
+        {
+          "case": "feed_disturbance",
+          "configuration": {
+            "height_m": 10.0,
+            "maximum_internal_step_s": 2.0,
+            "initialization": "nominal",
+            "implementation_sha256": "511448e789290092530647ba58bb1f497e080fbbf35675d12280072c011967c5"
+          },
+          "model_id": "pwr-reduced-flow-controlled",
+          "duration_s": 120.0,
+          "commands": [
+            [
+              10.0,
+              {
+                "feed_bias_kg_s": -10.0
+              }
+            ],
+            [
+              30.0,
+              {
+                "feed_bias_kg_s": 0.0
+              }
+            ]
+          ],
+          "solver": {
+            "method": "Radau",
+            "rtol": 1e-06,
+            "atol": 1e-05,
+            "max_step_s": 2.0,
+            "output_step_s": 5.0
+          },
+          "source": {
+            "plant": {
+              "foundation_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+              "files": {
+                "__init__.py": "63dda0755dc9c4682c9e860b28a73212400f9da27f48649b41bc4200a870ddbb",
+                "__main__.py": "7dce37e37c56ff8312643deded0f8e537a9502f6ccf5de527e74b722ae1d4993",
+                "continuation.py": "317b98d0c616370e6b33464dfa084bf96b3be3d3e17162ebddc654015cc539bd",
+                "data/beavrs/LICENSE": "1d1b6d1266b5bf6274c169ca0caef559ad2e6e9b3e99b02303a8b3041a54a135",
+                "data/beavrs/absorber.json": "605907b49919cd4b4dacf6f19828053b9ce9bb0c02754092dc826d08ea1c4d29",
+                "data/beavrs/expdata.tex": "13eea6a808136dfee603d607cb1ac97ededbdfb31a7bb6a8728a937aa183e801",
+                "gravity.py": "b94165142d879fcc96408dc420b1bf79ef272a23c860c67649c955fe9578f0e4",
+                "initialization.py": "6c43cdcf9f31d5c04e0891f8e249e419b35d0888e1fd6207dd969f498d7b3b98",
+                "one_way.py": "c75fcdc2219f5d64ae30cf6c60d246f5a2a8d8d347bf4527753e2597ebc104aa",
+                "ports.py": "218173e77659ed8e47f0f3e3ffa04fbece6d0c12472abd432fcdc97e9fe8540d",
+                "pwr.py": "a771e1869ce166cb301cd3efdcf92399f1ca1071fcd335d11319951a48e609d6",
+                "qualification.py": "112f61731aa99d58b81872de6f8cba6da54836f4443d5a213a65e801eb2c2b42",
+                "session.py": "f3dd8379d4f82a218a01aa233494858a2c03b7ab84a03ed64b4a3fad5bed3eb1",
+                "volume.py": "9cc6b4bf27e9e78521a358c7a71eeacf91831e84aed221bd3be7bea0d39a2c5e",
+                "water.py": "8e85c45065fd6766bbd5a519608ddfe72c0e6aaf29277ba6408b0001dda625fa"
+              }
+            },
+            "runtime": {
+              "python": "3.12.9",
+              "system": "Linux",
+              "machine": "x86_64",
+              "numpy": "2.2.6",
+              "scipy": "1.15.2"
+            },
+            "implementation": {
+              "__init__.py": "ad0dd4131dd3d8902cc61e6e9d5fe880796adb064bd4a96ad3ea2758f0bb5617",
+              "__main__.py": "686862cbdf166087c2a55b57fd23a54c46da8cd577409e1dd3e1834d63baf745",
+              "model.py": "ebaa00ae1fb5f471902f3a4bb797170871633eea2d95248673a4b20622c935f4",
+              "qualification.py": "4e6357b624f9e0d6693af75e90506b70652d6b7bd7a785c15685bc8440034ed3",
+              "session.py": "207c94855b94ec8950c201cf27fd046d9dea9509eae7bb4aecf72bfdd8e91edd"
+            },
+            "shared_bootstrap": {
+              "water_types": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+              "canonical": "7c407aa79cd2164bece0e4f1ffd03ea5e0858497aabe26010e42c758425d76a2",
+              "charging": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883"
+            },
+            "shared_leaves": {
+              "water_types": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+              "canonical": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12",
+              "charging": "3241851687ecd267ac644453cb49b9d8cd1d85fbc7075e14baaf403058f4fed1"
+            }
+          },
+          "evidence_sha256": "418f641c50937cb47b6350e1aab05f5ad1605c216db165e4333f3145fba69bdd",
+          "checkpoint_sha256": "376658466a3c46201107e16db998485fa0aa9b35f13b3d6531488606e2c5acea",
+          "scope": "Exact accepted command program/configuration; arbitrary perturbations are not promoted"
+        },
+        {
+          "case": "load_rejection_equilibrium",
+          "configuration": {
+            "height_m": 10.0,
+            "maximum_internal_step_s": 2.0,
+            "initialization": "nominal",
+            "implementation_sha256": "511448e789290092530647ba58bb1f497e080fbbf35675d12280072c011967c5"
+          },
+          "model_id": "pwr-reduced-flow-controlled",
+          "duration_s": 7200.0,
+          "commands": [
+            [
+              10.0,
+              {
+                "throttle": 0.0
+              }
+            ]
+          ],
+          "solver": {
+            "method": "Radau",
+            "rtol": 1e-06,
+            "atol": 1e-05,
+            "max_step_s": 2.0,
+            "output_step_s": 5.0
+          },
+          "source": {
+            "plant": {
+              "foundation_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+              "files": {
+                "__init__.py": "63dda0755dc9c4682c9e860b28a73212400f9da27f48649b41bc4200a870ddbb",
+                "__main__.py": "7dce37e37c56ff8312643deded0f8e537a9502f6ccf5de527e74b722ae1d4993",
+                "continuation.py": "317b98d0c616370e6b33464dfa084bf96b3be3d3e17162ebddc654015cc539bd",
+                "data/beavrs/LICENSE": "1d1b6d1266b5bf6274c169ca0caef559ad2e6e9b3e99b02303a8b3041a54a135",
+                "data/beavrs/absorber.json": "605907b49919cd4b4dacf6f19828053b9ce9bb0c02754092dc826d08ea1c4d29",
+                "data/beavrs/expdata.tex": "13eea6a808136dfee603d607cb1ac97ededbdfb31a7bb6a8728a937aa183e801",
+                "gravity.py": "b94165142d879fcc96408dc420b1bf79ef272a23c860c67649c955fe9578f0e4",
+                "initialization.py": "6c43cdcf9f31d5c04e0891f8e249e419b35d0888e1fd6207dd969f498d7b3b98",
+                "one_way.py": "c75fcdc2219f5d64ae30cf6c60d246f5a2a8d8d347bf4527753e2597ebc104aa",
+                "ports.py": "218173e77659ed8e47f0f3e3ffa04fbece6d0c12472abd432fcdc97e9fe8540d",
+                "pwr.py": "a771e1869ce166cb301cd3efdcf92399f1ca1071fcd335d11319951a48e609d6",
+                "qualification.py": "112f61731aa99d58b81872de6f8cba6da54836f4443d5a213a65e801eb2c2b42",
+                "session.py": "f3dd8379d4f82a218a01aa233494858a2c03b7ab84a03ed64b4a3fad5bed3eb1",
+                "volume.py": "9cc6b4bf27e9e78521a358c7a71eeacf91831e84aed221bd3be7bea0d39a2c5e",
+                "water.py": "8e85c45065fd6766bbd5a519608ddfe72c0e6aaf29277ba6408b0001dda625fa"
+              }
+            },
+            "runtime": {
+              "python": "3.12.9",
+              "system": "Linux",
+              "machine": "x86_64",
+              "numpy": "2.2.6",
+              "scipy": "1.15.2"
+            },
+            "implementation": {
+              "__init__.py": "ad0dd4131dd3d8902cc61e6e9d5fe880796adb064bd4a96ad3ea2758f0bb5617",
+              "__main__.py": "686862cbdf166087c2a55b57fd23a54c46da8cd577409e1dd3e1834d63baf745",
+              "model.py": "ebaa00ae1fb5f471902f3a4bb797170871633eea2d95248673a4b20622c935f4",
+              "qualification.py": "4e6357b624f9e0d6693af75e90506b70652d6b7bd7a785c15685bc8440034ed3",
+              "session.py": "207c94855b94ec8950c201cf27fd046d9dea9509eae7bb4aecf72bfdd8e91edd"
+            },
+            "shared_bootstrap": {
+              "water_types": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+              "canonical": "7c407aa79cd2164bece0e4f1ffd03ea5e0858497aabe26010e42c758425d76a2",
+              "charging": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883"
+            },
+            "shared_leaves": {
+              "water_types": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+              "canonical": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12",
+              "charging": "3241851687ecd267ac644453cb49b9d8cd1d85fbc7075e14baaf403058f4fed1"
+            }
+          },
+          "evidence_sha256": "f203db982038bfb5e62fecf4d617ed346b67b22af7cec7c861092695ab324173",
+          "checkpoint_sha256": "1a0a2e70e69940de5ed84df86b462e1e0d383e59f3e8e4d3bc08da9afdc90e75",
+          "scope": "Exact accepted command program/configuration; arbitrary perturbations are not promoted"
+        },
+        {
+          "case": "natural",
+          "configuration": {
+            "height_m": 10.0,
+            "maximum_internal_step_s": 2.0,
+            "initialization": "natural",
+            "implementation_sha256": "511448e789290092530647ba58bb1f497e080fbbf35675d12280072c011967c5"
+          },
+          "model_id": "pwr-reduced-flow-controlled",
+          "duration_s": 1800.0,
+          "commands": [],
+          "solver": {
+            "method": "Radau",
+            "rtol": 1e-06,
+            "atol": 1e-05,
+            "max_step_s": 2.0,
+            "output_step_s": 5.0
+          },
+          "source": {
+            "plant": {
+              "foundation_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+              "files": {
+                "__init__.py": "63dda0755dc9c4682c9e860b28a73212400f9da27f48649b41bc4200a870ddbb",
+                "__main__.py": "7dce37e37c56ff8312643deded0f8e537a9502f6ccf5de527e74b722ae1d4993",
+                "continuation.py": "317b98d0c616370e6b33464dfa084bf96b3be3d3e17162ebddc654015cc539bd",
+                "data/beavrs/LICENSE": "1d1b6d1266b5bf6274c169ca0caef559ad2e6e9b3e99b02303a8b3041a54a135",
+                "data/beavrs/absorber.json": "605907b49919cd4b4dacf6f19828053b9ce9bb0c02754092dc826d08ea1c4d29",
+                "data/beavrs/expdata.tex": "13eea6a808136dfee603d607cb1ac97ededbdfb31a7bb6a8728a937aa183e801",
+                "gravity.py": "b94165142d879fcc96408dc420b1bf79ef272a23c860c67649c955fe9578f0e4",
+                "initialization.py": "6c43cdcf9f31d5c04e0891f8e249e419b35d0888e1fd6207dd969f498d7b3b98",
+                "one_way.py": "c75fcdc2219f5d64ae30cf6c60d246f5a2a8d8d347bf4527753e2597ebc104aa",
+                "ports.py": "218173e77659ed8e47f0f3e3ffa04fbece6d0c12472abd432fcdc97e9fe8540d",
+                "pwr.py": "a771e1869ce166cb301cd3efdcf92399f1ca1071fcd335d11319951a48e609d6",
+                "qualification.py": "112f61731aa99d58b81872de6f8cba6da54836f4443d5a213a65e801eb2c2b42",
+                "session.py": "f3dd8379d4f82a218a01aa233494858a2c03b7ab84a03ed64b4a3fad5bed3eb1",
+                "volume.py": "9cc6b4bf27e9e78521a358c7a71eeacf91831e84aed221bd3be7bea0d39a2c5e",
+                "water.py": "8e85c45065fd6766bbd5a519608ddfe72c0e6aaf29277ba6408b0001dda625fa"
+              }
+            },
+            "runtime": {
+              "python": "3.12.9",
+              "system": "Linux",
+              "machine": "x86_64",
+              "numpy": "2.2.6",
+              "scipy": "1.15.2"
+            },
+            "implementation": {
+              "__init__.py": "ad0dd4131dd3d8902cc61e6e9d5fe880796adb064bd4a96ad3ea2758f0bb5617",
+              "__main__.py": "686862cbdf166087c2a55b57fd23a54c46da8cd577409e1dd3e1834d63baf745",
+              "model.py": "ebaa00ae1fb5f471902f3a4bb797170871633eea2d95248673a4b20622c935f4",
+              "qualification.py": "4e6357b624f9e0d6693af75e90506b70652d6b7bd7a785c15685bc8440034ed3",
+              "session.py": "207c94855b94ec8950c201cf27fd046d9dea9509eae7bb4aecf72bfdd8e91edd"
+            },
+            "shared_bootstrap": {
+              "water_types": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+              "canonical": "7c407aa79cd2164bece0e4f1ffd03ea5e0858497aabe26010e42c758425d76a2",
+              "charging": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883"
+            },
+            "shared_leaves": {
+              "water_types": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+              "canonical": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12",
+              "charging": "3241851687ecd267ac644453cb49b9d8cd1d85fbc7075e14baaf403058f4fed1"
+            }
+          },
+          "evidence_sha256": "1ca48bf18c7035559a50737a31be1a985cdf7a1110f26991e7062c833866e8ce",
+          "checkpoint_sha256": "6d167de36cb690ce04290bda16a5ee8783c3b7b1908004ee4c337d17c8463e78",
+          "scope": "Exact accepted command program/configuration; arbitrary perturbations are not promoted"
+        },
+        {
+          "case": "natural_perturbation",
+          "configuration": {
+            "height_m": 10.0,
+            "maximum_internal_step_s": 2.0,
+            "initialization": "natural",
+            "implementation_sha256": "511448e789290092530647ba58bb1f497e080fbbf35675d12280072c011967c5"
+          },
+          "model_id": "pwr-reduced-flow-controlled",
+          "duration_s": 120.0,
+          "commands": [
+            [
+              10.0,
+              {
+                "throttle": 0.049
+              }
+            ],
+            [
+              30.0,
+              {
+                "throttle": 0.05
+              }
+            ]
+          ],
+          "solver": {
+            "method": "BDF",
+            "rtol": 1e-06,
+            "atol": 1e-05,
+            "max_step_s": 2.0,
+            "output_step_s": 5.0
+          },
+          "source": {
+            "plant": {
+              "foundation_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+              "files": {
+                "__init__.py": "63dda0755dc9c4682c9e860b28a73212400f9da27f48649b41bc4200a870ddbb",
+                "__main__.py": "7dce37e37c56ff8312643deded0f8e537a9502f6ccf5de527e74b722ae1d4993",
+                "continuation.py": "317b98d0c616370e6b33464dfa084bf96b3be3d3e17162ebddc654015cc539bd",
+                "data/beavrs/LICENSE": "1d1b6d1266b5bf6274c169ca0caef559ad2e6e9b3e99b02303a8b3041a54a135",
+                "data/beavrs/absorber.json": "605907b49919cd4b4dacf6f19828053b9ce9bb0c02754092dc826d08ea1c4d29",
+                "data/beavrs/expdata.tex": "13eea6a808136dfee603d607cb1ac97ededbdfb31a7bb6a8728a937aa183e801",
+                "gravity.py": "b94165142d879fcc96408dc420b1bf79ef272a23c860c67649c955fe9578f0e4",
+                "initialization.py": "6c43cdcf9f31d5c04e0891f8e249e419b35d0888e1fd6207dd969f498d7b3b98",
+                "one_way.py": "c75fcdc2219f5d64ae30cf6c60d246f5a2a8d8d347bf4527753e2597ebc104aa",
+                "ports.py": "218173e77659ed8e47f0f3e3ffa04fbece6d0c12472abd432fcdc97e9fe8540d",
+                "pwr.py": "a771e1869ce166cb301cd3efdcf92399f1ca1071fcd335d11319951a48e609d6",
+                "qualification.py": "112f61731aa99d58b81872de6f8cba6da54836f4443d5a213a65e801eb2c2b42",
+                "session.py": "f3dd8379d4f82a218a01aa233494858a2c03b7ab84a03ed64b4a3fad5bed3eb1",
+                "volume.py": "9cc6b4bf27e9e78521a358c7a71eeacf91831e84aed221bd3be7bea0d39a2c5e",
+                "water.py": "8e85c45065fd6766bbd5a519608ddfe72c0e6aaf29277ba6408b0001dda625fa"
+              }
+            },
+            "runtime": {
+              "python": "3.12.9",
+              "system": "Linux",
+              "machine": "x86_64",
+              "numpy": "2.2.6",
+              "scipy": "1.15.2"
+            },
+            "implementation": {
+              "__init__.py": "ad0dd4131dd3d8902cc61e6e9d5fe880796adb064bd4a96ad3ea2758f0bb5617",
+              "__main__.py": "686862cbdf166087c2a55b57fd23a54c46da8cd577409e1dd3e1834d63baf745",
+              "model.py": "ebaa00ae1fb5f471902f3a4bb797170871633eea2d95248673a4b20622c935f4",
+              "qualification.py": "4e6357b624f9e0d6693af75e90506b70652d6b7bd7a785c15685bc8440034ed3",
+              "session.py": "207c94855b94ec8950c201cf27fd046d9dea9509eae7bb4aecf72bfdd8e91edd"
+            },
+            "shared_bootstrap": {
+              "water_types": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+              "canonical": "7c407aa79cd2164bece0e4f1ffd03ea5e0858497aabe26010e42c758425d76a2",
+              "charging": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883"
+            },
+            "shared_leaves": {
+              "water_types": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+              "canonical": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12",
+              "charging": "3241851687ecd267ac644453cb49b9d8cd1d85fbc7075e14baaf403058f4fed1"
+            }
+          },
+          "evidence_sha256": "458c6dccd853908322ebf091147dec11318649a746f44add91f70bd8957f4a6f",
+          "checkpoint_sha256": "1ee642eb01984c59b2eb1981cf885b54984e70c2750d56044a939e45562317d3",
+          "scope": "Exact accepted command program/configuration; arbitrary perturbations are not promoted"
+        },
+        {
+          "case": "nominal",
+          "configuration": {
+            "height_m": 10.0,
+            "maximum_internal_step_s": 2.0,
+            "initialization": "nominal",
+            "implementation_sha256": "511448e789290092530647ba58bb1f497e080fbbf35675d12280072c011967c5"
+          },
+          "model_id": "pwr-reduced-flow-controlled",
+          "duration_s": 3600.0,
+          "commands": [],
+          "solver": {
+            "method": "Radau",
+            "rtol": 1e-06,
+            "atol": 1e-05,
+            "max_step_s": 2.0,
+            "output_step_s": 5.0
+          },
+          "source": {
+            "plant": {
+              "foundation_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+              "files": {
+                "__init__.py": "63dda0755dc9c4682c9e860b28a73212400f9da27f48649b41bc4200a870ddbb",
+                "__main__.py": "7dce37e37c56ff8312643deded0f8e537a9502f6ccf5de527e74b722ae1d4993",
+                "continuation.py": "317b98d0c616370e6b33464dfa084bf96b3be3d3e17162ebddc654015cc539bd",
+                "data/beavrs/LICENSE": "1d1b6d1266b5bf6274c169ca0caef559ad2e6e9b3e99b02303a8b3041a54a135",
+                "data/beavrs/absorber.json": "605907b49919cd4b4dacf6f19828053b9ce9bb0c02754092dc826d08ea1c4d29",
+                "data/beavrs/expdata.tex": "13eea6a808136dfee603d607cb1ac97ededbdfb31a7bb6a8728a937aa183e801",
+                "gravity.py": "b94165142d879fcc96408dc420b1bf79ef272a23c860c67649c955fe9578f0e4",
+                "initialization.py": "6c43cdcf9f31d5c04e0891f8e249e419b35d0888e1fd6207dd969f498d7b3b98",
+                "one_way.py": "c75fcdc2219f5d64ae30cf6c60d246f5a2a8d8d347bf4527753e2597ebc104aa",
+                "ports.py": "218173e77659ed8e47f0f3e3ffa04fbece6d0c12472abd432fcdc97e9fe8540d",
+                "pwr.py": "a771e1869ce166cb301cd3efdcf92399f1ca1071fcd335d11319951a48e609d6",
+                "qualification.py": "112f61731aa99d58b81872de6f8cba6da54836f4443d5a213a65e801eb2c2b42",
+                "session.py": "f3dd8379d4f82a218a01aa233494858a2c03b7ab84a03ed64b4a3fad5bed3eb1",
+                "volume.py": "9cc6b4bf27e9e78521a358c7a71eeacf91831e84aed221bd3be7bea0d39a2c5e",
+                "water.py": "8e85c45065fd6766bbd5a519608ddfe72c0e6aaf29277ba6408b0001dda625fa"
+              }
+            },
+            "runtime": {
+              "python": "3.12.9",
+              "system": "Linux",
+              "machine": "x86_64",
+              "numpy": "2.2.6",
+              "scipy": "1.15.2"
+            },
+            "implementation": {
+              "__init__.py": "ad0dd4131dd3d8902cc61e6e9d5fe880796adb064bd4a96ad3ea2758f0bb5617",
+              "__main__.py": "686862cbdf166087c2a55b57fd23a54c46da8cd577409e1dd3e1834d63baf745",
+              "model.py": "ebaa00ae1fb5f471902f3a4bb797170871633eea2d95248673a4b20622c935f4",
+              "qualification.py": "4e6357b624f9e0d6693af75e90506b70652d6b7bd7a785c15685bc8440034ed3",
+              "session.py": "207c94855b94ec8950c201cf27fd046d9dea9509eae7bb4aecf72bfdd8e91edd"
+            },
+            "shared_bootstrap": {
+              "water_types": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+              "canonical": "7c407aa79cd2164bece0e4f1ffd03ea5e0858497aabe26010e42c758425d76a2",
+              "charging": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883"
+            },
+            "shared_leaves": {
+              "water_types": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+              "canonical": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12",
+              "charging": "3241851687ecd267ac644453cb49b9d8cd1d85fbc7075e14baaf403058f4fed1"
+            }
+          },
+          "evidence_sha256": "ba1908143f57fa7236750977171e4dc0fdb94e3c027d35dd0ef8683c76a4d4ba",
+          "checkpoint_sha256": "d6aa9243fdbc612353fa089f93ebcf5453784fc18ab794e13b907d8606eaa6a8",
+          "scope": "Exact accepted command program/configuration; arbitrary perturbations are not promoted"
+        },
+        {
+          "case": "nominal",
+          "configuration": {
+            "height_m": 10.0,
+            "maximum_internal_step_s": 1.0,
+            "initialization": "nominal",
+            "implementation_sha256": "511448e789290092530647ba58bb1f497e080fbbf35675d12280072c011967c5"
+          },
+          "model_id": "pwr-reduced-flow-controlled",
+          "duration_s": 3600.0,
+          "commands": [],
+          "solver": {
+            "method": "BDF",
+            "rtol": 1e-07,
+            "atol": 1e-06,
+            "max_step_s": 1.0,
+            "output_step_s": 5.0
+          },
+          "source": {
+            "plant": {
+              "foundation_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+              "files": {
+                "__init__.py": "63dda0755dc9c4682c9e860b28a73212400f9da27f48649b41bc4200a870ddbb",
+                "__main__.py": "7dce37e37c56ff8312643deded0f8e537a9502f6ccf5de527e74b722ae1d4993",
+                "continuation.py": "317b98d0c616370e6b33464dfa084bf96b3be3d3e17162ebddc654015cc539bd",
+                "data/beavrs/LICENSE": "1d1b6d1266b5bf6274c169ca0caef559ad2e6e9b3e99b02303a8b3041a54a135",
+                "data/beavrs/absorber.json": "605907b49919cd4b4dacf6f19828053b9ce9bb0c02754092dc826d08ea1c4d29",
+                "data/beavrs/expdata.tex": "13eea6a808136dfee603d607cb1ac97ededbdfb31a7bb6a8728a937aa183e801",
+                "gravity.py": "b94165142d879fcc96408dc420b1bf79ef272a23c860c67649c955fe9578f0e4",
+                "initialization.py": "6c43cdcf9f31d5c04e0891f8e249e419b35d0888e1fd6207dd969f498d7b3b98",
+                "one_way.py": "c75fcdc2219f5d64ae30cf6c60d246f5a2a8d8d347bf4527753e2597ebc104aa",
+                "ports.py": "218173e77659ed8e47f0f3e3ffa04fbece6d0c12472abd432fcdc97e9fe8540d",
+                "pwr.py": "a771e1869ce166cb301cd3efdcf92399f1ca1071fcd335d11319951a48e609d6",
+                "qualification.py": "112f61731aa99d58b81872de6f8cba6da54836f4443d5a213a65e801eb2c2b42",
+                "session.py": "f3dd8379d4f82a218a01aa233494858a2c03b7ab84a03ed64b4a3fad5bed3eb1",
+                "volume.py": "9cc6b4bf27e9e78521a358c7a71eeacf91831e84aed221bd3be7bea0d39a2c5e",
+                "water.py": "8e85c45065fd6766bbd5a519608ddfe72c0e6aaf29277ba6408b0001dda625fa"
+              }
+            },
+            "runtime": {
+              "python": "3.12.9",
+              "system": "Linux",
+              "machine": "x86_64",
+              "numpy": "2.2.6",
+              "scipy": "1.15.2"
+            },
+            "implementation": {
+              "__init__.py": "ad0dd4131dd3d8902cc61e6e9d5fe880796adb064bd4a96ad3ea2758f0bb5617",
+              "__main__.py": "686862cbdf166087c2a55b57fd23a54c46da8cd577409e1dd3e1834d63baf745",
+              "model.py": "ebaa00ae1fb5f471902f3a4bb797170871633eea2d95248673a4b20622c935f4",
+              "qualification.py": "4e6357b624f9e0d6693af75e90506b70652d6b7bd7a785c15685bc8440034ed3",
+              "session.py": "207c94855b94ec8950c201cf27fd046d9dea9509eae7bb4aecf72bfdd8e91edd"
+            },
+            "shared_bootstrap": {
+              "water_types": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+              "canonical": "7c407aa79cd2164bece0e4f1ffd03ea5e0858497aabe26010e42c758425d76a2",
+              "charging": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883"
+            },
+            "shared_leaves": {
+              "water_types": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+              "canonical": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12",
+              "charging": "3241851687ecd267ac644453cb49b9d8cd1d85fbc7075e14baaf403058f4fed1"
+            }
+          },
+          "evidence_sha256": "1b5624cebcfbe0141a72182665395069438b615a936aec7af134a872f097bb58",
+          "checkpoint_sha256": "c2ebc88fe2af40d33fdd1c29e6dbbde2c0ce6462185a4638674c0188427f43fd",
+          "scope": "Exact accepted command program/configuration; arbitrary perturbations are not promoted"
+        },
+        {
+          "case": "scram",
+          "configuration": {
+            "height_m": 10.0,
+            "maximum_internal_step_s": 2.0,
+            "initialization": "nominal",
+            "implementation_sha256": "511448e789290092530647ba58bb1f497e080fbbf35675d12280072c011967c5"
+          },
+          "model_id": "pwr-reduced-flow-controlled",
+          "duration_s": 60.0,
+          "commands": [
+            [
+              10.0,
+              {
+                "scram": true
+              }
+            ]
+          ],
+          "solver": {
+            "method": "Radau",
+            "rtol": 1e-06,
+            "atol": 1e-05,
+            "max_step_s": 2.0,
+            "output_step_s": 5.0
+          },
+          "source": {
+            "plant": {
+              "foundation_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+              "files": {
+                "__init__.py": "63dda0755dc9c4682c9e860b28a73212400f9da27f48649b41bc4200a870ddbb",
+                "__main__.py": "7dce37e37c56ff8312643deded0f8e537a9502f6ccf5de527e74b722ae1d4993",
+                "continuation.py": "317b98d0c616370e6b33464dfa084bf96b3be3d3e17162ebddc654015cc539bd",
+                "data/beavrs/LICENSE": "1d1b6d1266b5bf6274c169ca0caef559ad2e6e9b3e99b02303a8b3041a54a135",
+                "data/beavrs/absorber.json": "605907b49919cd4b4dacf6f19828053b9ce9bb0c02754092dc826d08ea1c4d29",
+                "data/beavrs/expdata.tex": "13eea6a808136dfee603d607cb1ac97ededbdfb31a7bb6a8728a937aa183e801",
+                "gravity.py": "b94165142d879fcc96408dc420b1bf79ef272a23c860c67649c955fe9578f0e4",
+                "initialization.py": "6c43cdcf9f31d5c04e0891f8e249e419b35d0888e1fd6207dd969f498d7b3b98",
+                "one_way.py": "c75fcdc2219f5d64ae30cf6c60d246f5a2a8d8d347bf4527753e2597ebc104aa",
+                "ports.py": "218173e77659ed8e47f0f3e3ffa04fbece6d0c12472abd432fcdc97e9fe8540d",
+                "pwr.py": "a771e1869ce166cb301cd3efdcf92399f1ca1071fcd335d11319951a48e609d6",
+                "qualification.py": "112f61731aa99d58b81872de6f8cba6da54836f4443d5a213a65e801eb2c2b42",
+                "session.py": "f3dd8379d4f82a218a01aa233494858a2c03b7ab84a03ed64b4a3fad5bed3eb1",
+                "volume.py": "9cc6b4bf27e9e78521a358c7a71eeacf91831e84aed221bd3be7bea0d39a2c5e",
+                "water.py": "8e85c45065fd6766bbd5a519608ddfe72c0e6aaf29277ba6408b0001dda625fa"
+              }
+            },
+            "runtime": {
+              "python": "3.12.9",
+              "system": "Linux",
+              "machine": "x86_64",
+              "numpy": "2.2.6",
+              "scipy": "1.15.2"
+            },
+            "implementation": {
+              "__init__.py": "ad0dd4131dd3d8902cc61e6e9d5fe880796adb064bd4a96ad3ea2758f0bb5617",
+              "__main__.py": "686862cbdf166087c2a55b57fd23a54c46da8cd577409e1dd3e1834d63baf745",
+              "model.py": "ebaa00ae1fb5f471902f3a4bb797170871633eea2d95248673a4b20622c935f4",
+              "qualification.py": "4e6357b624f9e0d6693af75e90506b70652d6b7bd7a785c15685bc8440034ed3",
+              "session.py": "207c94855b94ec8950c201cf27fd046d9dea9509eae7bb4aecf72bfdd8e91edd"
+            },
+            "shared_bootstrap": {
+              "water_types": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+              "canonical": "7c407aa79cd2164bece0e4f1ffd03ea5e0858497aabe26010e42c758425d76a2",
+              "charging": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883"
+            },
+            "shared_leaves": {
+              "water_types": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+              "canonical": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12",
+              "charging": "3241851687ecd267ac644453cb49b9d8cd1d85fbc7075e14baaf403058f4fed1"
+            }
+          },
+          "evidence_sha256": "506c32d338e7717d4ed561dd4e5c5ce39ff1d233f4346124a57e8d7476635c54",
+          "checkpoint_sha256": "70b46a20df5d5728f5ceef970ddd5c8b5f9dca740b9512264f263969bc31795d",
+          "scope": "Exact accepted command program/configuration; arbitrary perturbations are not promoted"
+        },
+        {
+          "case": "sink_disturbance",
+          "configuration": {
+            "height_m": 10.0,
+            "maximum_internal_step_s": 2.0,
+            "initialization": "nominal",
+            "implementation_sha256": "511448e789290092530647ba58bb1f497e080fbbf35675d12280072c011967c5"
+          },
+          "model_id": "pwr-reduced-flow-controlled",
+          "duration_s": 120.0,
+          "commands": [
+            [
+              10.0,
+              {
+                "sink_temperature_k": 305.0
+              }
+            ],
+            [
+              30.0,
+              {
+                "sink_temperature_k": 300.0
+              }
+            ]
+          ],
+          "solver": {
+            "method": "Radau",
+            "rtol": 1e-06,
+            "atol": 1e-05,
+            "max_step_s": 2.0,
+            "output_step_s": 5.0
+          },
+          "source": {
+            "plant": {
+              "foundation_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+              "files": {
+                "__init__.py": "63dda0755dc9c4682c9e860b28a73212400f9da27f48649b41bc4200a870ddbb",
+                "__main__.py": "7dce37e37c56ff8312643deded0f8e537a9502f6ccf5de527e74b722ae1d4993",
+                "continuation.py": "317b98d0c616370e6b33464dfa084bf96b3be3d3e17162ebddc654015cc539bd",
+                "data/beavrs/LICENSE": "1d1b6d1266b5bf6274c169ca0caef559ad2e6e9b3e99b02303a8b3041a54a135",
+                "data/beavrs/absorber.json": "605907b49919cd4b4dacf6f19828053b9ce9bb0c02754092dc826d08ea1c4d29",
+                "data/beavrs/expdata.tex": "13eea6a808136dfee603d607cb1ac97ededbdfb31a7bb6a8728a937aa183e801",
+                "gravity.py": "b94165142d879fcc96408dc420b1bf79ef272a23c860c67649c955fe9578f0e4",
+                "initialization.py": "6c43cdcf9f31d5c04e0891f8e249e419b35d0888e1fd6207dd969f498d7b3b98",
+                "one_way.py": "c75fcdc2219f5d64ae30cf6c60d246f5a2a8d8d347bf4527753e2597ebc104aa",
+                "ports.py": "218173e77659ed8e47f0f3e3ffa04fbece6d0c12472abd432fcdc97e9fe8540d",
+                "pwr.py": "a771e1869ce166cb301cd3efdcf92399f1ca1071fcd335d11319951a48e609d6",
+                "qualification.py": "112f61731aa99d58b81872de6f8cba6da54836f4443d5a213a65e801eb2c2b42",
+                "session.py": "f3dd8379d4f82a218a01aa233494858a2c03b7ab84a03ed64b4a3fad5bed3eb1",
+                "volume.py": "9cc6b4bf27e9e78521a358c7a71eeacf91831e84aed221bd3be7bea0d39a2c5e",
+                "water.py": "8e85c45065fd6766bbd5a519608ddfe72c0e6aaf29277ba6408b0001dda625fa"
+              }
+            },
+            "runtime": {
+              "python": "3.12.9",
+              "system": "Linux",
+              "machine": "x86_64",
+              "numpy": "2.2.6",
+              "scipy": "1.15.2"
+            },
+            "implementation": {
+              "__init__.py": "ad0dd4131dd3d8902cc61e6e9d5fe880796adb064bd4a96ad3ea2758f0bb5617",
+              "__main__.py": "686862cbdf166087c2a55b57fd23a54c46da8cd577409e1dd3e1834d63baf745",
+              "model.py": "ebaa00ae1fb5f471902f3a4bb797170871633eea2d95248673a4b20622c935f4",
+              "qualification.py": "4e6357b624f9e0d6693af75e90506b70652d6b7bd7a785c15685bc8440034ed3",
+              "session.py": "207c94855b94ec8950c201cf27fd046d9dea9509eae7bb4aecf72bfdd8e91edd"
+            },
+            "shared_bootstrap": {
+              "water_types": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+              "canonical": "7c407aa79cd2164bece0e4f1ffd03ea5e0858497aabe26010e42c758425d76a2",
+              "charging": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883"
+            },
+            "shared_leaves": {
+              "water_types": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+              "canonical": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12",
+              "charging": "3241851687ecd267ac644453cb49b9d8cd1d85fbc7075e14baaf403058f4fed1"
+            }
+          },
+          "evidence_sha256": "552b40d8bcb3c19e6692af212c92f90ea160e72ac9a4f19d2648313d88388885",
+          "checkpoint_sha256": "3e1e687a64daea2912aa6e24e8300d99261b7f3313a4d64a54f35bd633b0846c",
+          "scope": "Exact accepted command program/configuration; arbitrary perturbations are not promoted"
+        }
+      ],
+      "candidates_awaiting_full_replay": [],
+      "rejected": [],
+      "validated": false,
+      "plant_referenced": false,
+      "old_model_failures_superseded": false
+    },
+    "scope": "Numerical qualification of the exact reduced source-bound configuration/programs, not a plant reference or experimental attestation",
+    "experimental_validation_status": "not_established; pool B274 not admitted for current forced boiling closure",
+    "validated": false,
+    "plant_referenced": false
+  },
+  "sha256": "0e5009c79bbcb6661cdabc2c8fe62328703589a34356e77a22137867a69cc422"
+}

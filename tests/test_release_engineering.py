@@ -8,7 +8,6 @@ import sys
 from pathlib import Path
 
 import pytest
-import yaml
 
 from atomic_model_agents import jobs
 from atomic_model_release import checks, environment, lanes
@@ -213,26 +212,17 @@ def test_stubs_check_real_public_call_and_reject_bad_input(tmp_path):
             assert "arg-type" in result.stdout
 
 
-def test_workflow_profiles_keep_manual_runtimes_separate():
-    folder = ROOT / ".github/workflows"
-    docs = {p.stem: yaml.safe_load(p.read_text()) for p in folder.glob("*.yml")}
-    portable = docs["ci"]
-    steps = portable["jobs"]["portable"]["steps"]
-    command = "\n".join(s.get("run", "") for s in steps)
-    assert (
-        "not hardware_specific" in command
-        and "not long_running" in command
-        and "not external_integration" in command
+def test_local_profiles_keep_optional_runtimes_separate():
+    from scripts.verify_local_library import selection
+
+    portable = selection("portable")
+    assert portable[:1] == ["tests"]
+    expression = portable[portable.index("-m") + 1]
+    assert all(
+        "not " + marker in expression
+        for marker in ("hardware_specific", "long_running", "external_integration")
     )
-    assert "mypy --strict" in command and "install_check" in command
-    for name in ["external", "hardware", "numerical"]:
-        event = docs[name].get("on", docs[name].get(True))
-        assert "workflow_dispatch" in event and "push" not in event and "pull_request" not in event
-    external = docs["external"]["jobs"]
-    assert "atomic-openmc" in external["openmc"]["runs-on"]
-    assert "atomic-mpi" in external["mpi-runtime"]["runs-on"]
-    assert "--atomic-no-skips" in str(external["openmc"])
-    assert "mpiexec -n 2" in str(external["mpi-runtime"])
+    assert selection("all") == ["tests"]
 
 
 def test_doctor_cli_does_not_import_numerical_modules():

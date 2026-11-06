@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "delivery_id": "ai050607-controlled-numerical-v1",
+  "date": "2026-11-06",
+  "source": {
+    "plant": {
+      "foundation_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+      "files": {
+        "__init__.py": "63dda0755dc9c4682c9e860b28a73212400f9da27f48649b41bc4200a870ddbb",
+        "__main__.py": "7dce37e37c56ff8312643deded0f8e537a9502f6ccf5de527e74b722ae1d4993",
+        "continuation.py": "317b98d0c616370e6b33464dfa084bf96b3be3d3e17162ebddc654015cc539bd",
+        "data/beavrs/LICENSE": "1d1b6d1266b5bf6274c169ca0caef559ad2e6e9b3e99b02303a8b3041a54a135",
+        "data/beavrs/absorber.json": "605907b49919cd4b4dacf6f19828053b9ce9bb0c02754092dc826d08ea1c4d29",
+        "data/beavrs/expdata.tex": "13eea6a808136dfee603d607cb1ac97ededbdfb31a7bb6a8728a937aa183e801",
+        "gravity.py": "b94165142d879fcc96408dc420b1bf79ef272a23c860c67649c955fe9578f0e4",
+        "initialization.py": "6c43cdcf9f31d5c04e0891f8e249e419b35d0888e1fd6207dd969f498d7b3b98",
+        "one_way.py": "c75fcdc2219f5d64ae30cf6c60d246f5a2a8d8d347bf4527753e2597ebc104aa",
+        "ports.py": "218173e77659ed8e47f0f3e3ffa04fbece6d0c12472abd432fcdc97e9fe8540d",
+        "pwr.py": "a771e1869ce166cb301cd3efdcf92399f1ca1071fcd335d11319951a48e609d6",
+        "qualification.py": "112f61731aa99d58b81872de6f8cba6da54836f4443d5a213a65e801eb2c2b42",
+        "session.py": "f3dd8379d4f82a218a01aa233494858a2c03b7ab84a03ed64b4a3fad5bed3eb1",
+        "volume.py": "9cc6b4bf27e9e78521a358c7a71eeacf91831e84aed221bd3be7bea0d39a2c5e",
+        "water.py": "8e85c45065fd6766bbd5a519608ddfe72c0e6aaf29277ba6408b0001dda625fa"
+      }
+    },
+    "runtime": {
+      "python": "3.12.9",
+      "system": "Linux",
+      "machine": "x86_64",
+      "numpy": "2.2.6",
+      "scipy": "1.15.2"
+    },
+    "implementation": {
+      "__init__.py": "ad0dd4131dd3d8902cc61e6e9d5fe880796adb064bd4a96ad3ea2758f0bb5617",
+      "__main__.py": "686862cbdf166087c2a55b57fd23a54c46da8cd577409e1dd3e1834d63baf745",
+      "model.py": "ebaa00ae1fb5f471902f3a4bb797170871633eea2d95248673a4b20622c935f4",
+      "qualification.py": "4e6357b624f9e0d6693af75e90506b70652d6b7bd7a785c15685bc8440034ed3",
+      "session.py": "207c94855b94ec8950c201cf27fd046d9dea9509eae7bb4aecf72bfdd8e91edd"
+    },
+    "shared_bootstrap": {
+      "water_types": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+      "canonical": "7c407aa79cd2164bece0e4f1ffd03ea5e0858497aabe26010e42c758425d76a2",
+      "charging": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883"
+    },
+    "shared_leaves": {
+      "water_types": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+      "canonical": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12",
+      "charging": "3241851687ecd267ac644453cb49b9d8cd1d85fbc7075e14baaf403058f4fed1"
+    }
+  },
+  "model_id": "pwr-reduced-flow-controlled",
+  "model_version": "1.0.0",
+  "accepted_tasks": [
+    "AI-05.03",
+    "AI-05.05",
+    "AI-05.08",
+    "AI-06.06",
+    "AI-07.01",
+    "AI-07.02",
+    "AI-07.03",
+    "AI-07.04",
+    "AI-07.05",
+    "AI-07.06",
+    "AI-07.07",
+    "AI-07.08"
+  ],
+  "all_three_blocks_numerical_acceptance": true,
+  "regression_tests": 451,
+  "installed_tests": 61,
+  "full_current_code_replayed_programs": 10,
+  "phase_cases": 4,
+  "phase_trajectories": 12,
+  "completed_horizons_s": {
+    "coastdown": 1800.0,
+    "coastdown_peer": 1800.0,
+    "feed": 120.0,
+    "load_rejection": 7200.0,
+    "natural": 1800.0,
+    "natural_perturbation": 120.0,
+    "nominal_radau": 3600.0,
+    "nominal_bdf": 3600.0,
+    "scram": 60.0,
+    "sink": 120.0
+  },
+  "evidence": [
+    "validation/ai050607_controlled_summary_v1.json",
+    "validation/ai050607_controlled_checks_v1.json",
+    "validation/ai050607_controlled_installed_v1.json",
+    "validation/ai07_controlled_configuration_v1.json",
+    "validation/ai06_pool_b274_independent_import_v2.json",
+    "validation/ai06_pool_b274_offline_primary_v1.json",
+    "artifacts/ai050607_controlled_final_v1",
+    "artifacts/ai07_controlled_events_final_v1.json",
+    "artifacts/ai06_four_phenomena_v2.json"
+  ],
+  "archive": "artifacts/ai050607_controlled_publication_v1.tar.gz",
+  "archive_receipt": "validation/ai050607_controlled_publication_v1.json",
+  "scope": "Declared numerical configuration and exact accepted programs; not arbitrary regimes, a real plant or experimental validation",
+  "experimental_validation_status": "not_established; pool B274 screened but not admitted for current forced-flow closure",
+  "legacy_failed_horizons_preserved": true,
+  "load600_all_state_equilibrium_failed_and_preserved": true,
+  "calibration_performed": false,
+  "validated": false,
+  "plant_referenced": false
+}

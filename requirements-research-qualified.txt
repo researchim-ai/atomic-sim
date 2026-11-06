@@ -1,0 +1,4 @@
+# Qualified numerical core profile only; other dependencies follow package metadata.
+# Linux x86_64, CPython 3.12.9. No other runtime is qualified by this file.
+numpy==2.2.6
+scipy==1.15.2

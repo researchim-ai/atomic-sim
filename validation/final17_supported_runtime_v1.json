@@ -1,0 +1,34 @@
+{
+  "scope": "Headless controlled-PWR and steady spatial research paths",
+  "observed": {
+    "system": "Linux",
+    "machine": "x86_64",
+    "python": "3.12.9",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2"
+  },
+  "supported": [
+    {
+      "system": "Linux",
+      "machine": "x86_64",
+      "python": "3.12.9",
+      "numpy": "2.2.6",
+      "scipy": "1.15.2",
+      "minimum": {
+        "system": "Linux",
+        "machine": "x86_64",
+        "python": "3.12.9",
+        "numpy": "2.2.6",
+        "scipy": "1.15.2"
+      },
+      "qualification": "exact pinned runtime only"
+    }
+  ],
+  "observed_matches_supported": true,
+  "excluded": [
+    "Untested OS/architectures",
+    "Other Python/NumPy/SciPy versions",
+    "GPU/MPI reactor solver"
+  ],
+  "note": "Package installability >=3.10 is not a qualification claim; only this exact profile is admitted"
+}

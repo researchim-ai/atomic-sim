@@ -1,10 +1,20 @@
 <p align="center">
+
+Текущий статус и очередь оставшихся работ: [локальная проверка и научные направления](docs/CURRENT_STATUS_RU.md).
   <img src="src/imgs/atomic-sim.png" alt="Atomic Reactor Simulator" width="600"/>
 </p>
 
 # 🔬 Симулятор Атомного Реактора
 
 Открытый моделёр реакторных систем на Python для ИИ, RL и LLM-агентов. С версии 2.0 есть проверяемое ядро установки ВВЭР (статус `verified` по аналитическим эталонам и балансам) и прежняя учебная ветка. Это не цифровой двойник действующего блока и не `plant_referenced` модель.
+
+Локальная проверка библиотеки одной командой: `python -m scripts.verify_local_library`.
+[Тесты, сборка wheel/sdist, установка вне исходников и replay](docs/LOCAL_VERIFICATION_RU.md).
+CI и GitHub-доступ не требуются.
+
+Исследовательская multiphysics-связка и переносимые проекты: `atomic-multiphysics --output artifacts/research.json`; [OpenMC/MGXS, радиальный твэл, канал, depletion-методы и точные ограничения](docs/FINAL_17_IMPLEMENTATION_RU.md). Явная covariance и held-out coverage: `atomic-uncertainty examples/research/uncertainty.json --output artifacts/uncertainty.json`. Локальный порядок проверки описан выше; экспериментальные claims требуют отдельных данных.
+
+Кампании обучения на основном PWR-ядре: `atomic-training examples/training/cases.json artifacts/my-training --workers 2`; [изолированные workers, точный EOS-кэш, cancel/resume и solver tiers](docs/AI_09_10_12_TRAINING_RUNTIME_RU.md). Ускорение 5,277× измерено только на объявленных коротких номинальных эпизодах; физическая валидация не заявлена.
 
 Новый ограниченный HEM: [EOS до16 МПа, фазовые переходы, кипящая теплоотдача и численная квалификация](docs/AI_06_QUALIFIED_HEM_RU.md); `atomic-hem-qualified demo --output artifacts/qualified_demo.json`. Экспериментальная валидация двухфазной динамики остаётся отдельной задачей.
 
@@ -368,3 +378,13 @@ python scripts/export_pdf.py
 **Разработано с использованием PyTorch 🔥**
 
 Условная идентифицируемость Chen: [метод, ограничения и CLI](docs/AI_09_CLOSURE_IDENTIFIABILITY_RU.md). `python -m atomic_model_hem_identification analyse --output report.json --require-calibratable` сохраняет диагностику и возвращает код 3 при отказе в калибровке.
+
+Пространственная многогрупповая диффузия: [контракт, примеры, квалификация и ограничения](docs/AI_08_SPATIAL_DIFFUSION_RU.md). `atomic-spatial` / `python -m atomic_model_spatial` предоставляет source/k/transient расчёты, локальные предшественники и restart с полной проверкой истории.
+
+Согласованная инициализация нагреваемой сети и проверка полных горизонтов ВВЭР: [реализация, CLI и сохранённые отказы](docs/AI_05_06_07_SYSTEM_PROGRESS_RU.md).
+
+Новая отдельная конфигурация `pwr-reduced-flow-controlled`, транзакционные сессии и независимые фазовые проверки описаны в [расширении AI-05/06/07](docs/AI_05_06_07_EXTENDED_MODEL_RU.md). Экспериментальная аттестация этой конфигурации не заявлена.
+
+Единый интерфейс нового PWR-ядра для Python и Gymnasium: [сквозной пример агента, checkpoint и campaign replay](docs/PWR_AGENT_QUICKSTART_RU.md).
+
+Управляемый PWR через локальный JSONL: `python -m examples.llm_controlled_episode`; [контракт LLM tools 1.2](docs/PWR_LLM_TOOLS_RU.md).

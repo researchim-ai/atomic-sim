@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "checked_date": "2026-11-06",
+  "source_doi": "10.5281/zenodo.14090025",
+  "record_url": "https://zenodo.org/records/14090025",
+  "file_url": "https://zenodo.org/records/14090025/files/4in_st.csv?download=1",
+  "file_name": "4in_st.csv",
+  "publisher_reported_md5": "0a58078063cbf2edd45274bb0f752392",
+  "md5_independently_verified": false,
+  "inspection": "Primary CSV inspected through web line view; exact original bytes were not downloaded into the workspace. No reconstructed CSV is presented as original.",
+  "observed_layout": {
+    "case_columns": 12,
+    "variable_rows": 57,
+    "variable_label_column": "last",
+    "runtime_row_is_not_a_time_axis": true,
+    "NCG_row_values": "zero in all twelve case columns",
+    "examples_of_explicit_unit_labels": ["F1_test(gpm)", "Pin (kpa)", "Pout (kpa)", "T_i (deg R)"],
+    "channel_metadata_and_units_require_primary_methodology_check": true
+  },
+  "license_status": "License heading present on public record, identifier not established from inspected view; redistribution permission not certified here. Raw data not added to repository.",
+  "scope": "Candidate pure-steam condensation operating cases; not qualified dynamic HEM histories",
+  "admission": "not_admitted",
+  "reasons": [
+    "No pressure/temperature/flow time histories established; runtime row describes case duration",
+    "Channel definitions, pressure reference and unit conventions require primary methodology",
+    "Geometry, wall properties, coolant boundaries and measurement uncertainty not yet qualified",
+    "Current bounded Chen boiling implementation is not a wall-condensation closure",
+    "No experimental benchmark thresholds or physical promotion established"
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "numerical",
+  "distribution": "gaussian",
+  "confidence": 0.95,
+  "target_coverage": 0.9,
+  "cases": [
+    {
+      "id": "manufactured-heldout",
+      "family": "analytic-verification",
+      "split": "validation",
+      "observed": [
+        1.0
+      ],
+      "predicted": [
+        0.0
+      ],
+      "units": [
+        "K"
+      ],
+      "component_covariances": {
+        "data": [
+          [
+            1.0
+          ]
+        ],
+        "parameters": [
+          [
+            4.0
+          ]
+        ],
+        "closures": [
+          [
+            0.0
+          ]
+        ],
+        "mesh": [
+          [
+            0.0
+          ]
+        ],
+        "integrator": [
+          [
+            0.0
+          ]
+        ]
+      },
+      "joint_covariance": [
+        [
+          1.0,
+          -1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          -1.0,
+          4.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "provenance": "Explicit manufactured covariance fixture; no measured physical case or experimental coverage claim"
+    }
+  ]
+}

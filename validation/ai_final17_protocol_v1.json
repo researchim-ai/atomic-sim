@@ -1,0 +1,20 @@
+{
+ "schema_version":1,
+ "scope":"Research homogeneous ENDF/B-VIII.0 MGXS slab, conservative rod/channel coupling, reproducible open software release",
+ "physical_claims":{"validated":false,"plant_referenced":false},
+ "criteria":{
+  "openmc_k_standard_error_max":0.01,
+  "openmc_replicates":3,
+  "openmc_particles":4000,
+  "openmc_batches":45,
+  "openmc_inactive":10,
+  "thermal_energy_relative_max":1e-9,
+  "coupling_temperature_residual_k_max":0.00001,
+  "coupling_power_relative_max":0.000001,
+  "depletion_relative_error_max":0.00000001,
+  "manufactured_peak_convergence_min_order":1.5,
+  "heldout_coverage_minimum":0.9
+ },
+ "external_gates":["Another physical machine replay must carry a separately supplied receipt","Independent technical review must identify an actual independent reviewer","Experimental coverage cannot be inferred from digitization bounds or a numerical oracle"],
+ "policy":"Implement infrastructure and run available real checks. Keep failed/unsupported/external evidence open rather than relaxing criteria."
+}

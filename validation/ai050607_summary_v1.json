@@ -1,0 +1,250 @@
+{
+  "schema_version": 1,
+  "initialization_source": {
+    "parent": {
+      "source_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+      "drivers": {
+        "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+        "scripts/solve_hydraulic_graph.py": "6b90a4751ad2dfbdf37977c7c9809d75228f81bfe64604eaa4e8a120687da8a5",
+        "scripts/thermal_inertial_graph.py": "767145fe44da7c28e66ff968471adf7d1e74a5376708c15ea066b21a9c7601bb",
+        "scripts/buoyant_inertial_graph.py": "d888c0e96f89ba1a1e79e5981b70286c379ff2eb005a4ebbefc0487cdfd172bf"
+      },
+      "budgets": {
+        "validation/ai05_inertial_graph_budget_v1.json": "79e86139c02d2216b137c5d569b8f92e0c7984bce5811fb0d5074f9aaa2591b1",
+        "validation/ai05_thermal_inertial_budget_v1.json": "610a61bea07784c5c97246c3a3d49a3b9f1944de40cc17b978bd6b3a3c9584a2",
+        "validation/ai05_buoyant_graph_budget_v1.json": "7042fbf4147d590c40ddda273fce04a20491416e2a646b76c66dd8504290c547"
+      },
+      "python": "3.12.9",
+      "numpy": "2.2.6",
+      "scipy": "1.15.2"
+    },
+    "sources": {
+      "__init__.py": "5e70a8a17351c8d36606fbcdec0c4c3f903e4e87cc7ccd39496b7f7de669b929",
+      "__main__.py": "7ffe1006e930379f1b1f549963cc7fb84aaab360fd6055919f9cda95b6409d5f",
+      "qualification.py": "9990c8e72ab092809db45336f0540bc6c30d5691de26e53de39d35ba731a422f",
+      "steady.py": "132335fec007836823c7f9c89cd6c657cea08d95a41492415f708fa0c2651fb4"
+    },
+    "python": "3.12.9",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2"
+  },
+  "plant_source_sha256": "71fe3f4ce5c9f3e4dc86a36c17c1cdb32470ca19e0214ebc9c91af1c1a997d67",
+  "new_tests_passed": 33,
+  "total_related_tests_passed": 255,
+  "installed_tests_passed": 33,
+  "full_project_regression_repeated": false,
+  "initialization_cases": 4,
+  "hold_trajectories": 8,
+  "restarts": 8,
+  "initialization_max_momentum_residual_pa": 3.7061909097246826e-11,
+  "plant_requested_cases": 11,
+  "plant_completed_cases": 8,
+  "plant_failed_cases": [
+    "protected_coastdown_1800",
+    "coastdown_refined_1800",
+    "load_rejection"
+  ],
+  "comparisons": {
+    "nominal_coarse/nominal_tight": {
+      "common_times": 721,
+      "max_scaled_differences": {
+        "fission_power_w": 2.5540782559302545e-11,
+        "fuel_temperature_k": 9.860514182946644e-12,
+        "mass_flow_kg_s": 4.874689491569168e-12,
+        "primary_pressure_pa": 2.298725303262472e-11,
+        "reactivity": 1.2953478290001074e-12,
+        "rod_insertion": 0.0,
+        "sg_pressure_pa": 2.563843736425042e-11,
+        "thermal_power_w": 2.5246220250283517e-11
+      },
+      "numerical_refinement_passed": true
+    },
+    "nominal_tight/nominal_radau": {
+      "common_times": 1441,
+      "max_scaled_differences": {
+        "fission_power_w": 6.756705622519217e-11,
+        "fuel_temperature_k": 2.7075088837591466e-11,
+        "mass_flow_kg_s": 1.3218393885634011e-11,
+        "primary_pressure_pa": 6.286974530667067e-11,
+        "reactivity": 1.9499566406011575e-12,
+        "rod_insertion": 0.0,
+        "sg_pressure_pa": 6.890244549140334e-11,
+        "thermal_power_w": 6.705545609997165e-11
+      },
+      "numerical_refinement_passed": true
+    },
+    "scram_coarse/scram_tight": {
+      "common_times": 61,
+      "max_scaled_differences": {
+        "fission_power_w": 7.901326191809869e-07,
+        "fuel_temperature_k": 2.6497460453356326e-08,
+        "mass_flow_kg_s": 1.5227669589674205e-08,
+        "primary_pressure_pa": 1.09971261350438e-07,
+        "reactivity": 1.344094440348248e-07,
+        "rod_insertion": 2.220446049250313e-16,
+        "sg_pressure_pa": 7.297681295312941e-09,
+        "thermal_power_w": 7.386081073361058e-07
+      },
+      "numerical_refinement_passed": true
+    },
+    "scram_tight/scram_quarter": {
+      "common_times": 121,
+      "max_scaled_differences": {
+        "fission_power_w": 3.5418669639095184e-08,
+        "fuel_temperature_k": 9.134525953413686e-10,
+        "mass_flow_kg_s": 1.859775390281963e-08,
+        "primary_pressure_pa": 7.2857564082369206e-09,
+        "reactivity": 1.4302317706896273e-08,
+        "rod_insertion": 4.440892098500626e-16,
+        "sg_pressure_pa": 8.540585986338556e-10,
+        "thermal_power_w": 3.3210569043313305e-08
+      },
+      "numerical_refinement_passed": true
+    }
+  },
+  "scram_rod_stop_times": {
+    "scram_coarse": [
+      13.75
+    ],
+    "scram_quarter": [
+      13.749999999999998
+    ],
+    "scram_tight": [
+      13.75
+    ]
+  },
+  "case_outcomes": {
+    "coastdown_refined_1800": {
+      "status": "failed",
+      "requested_duration_s": 1800.0,
+      "completed_time_s": 122.0,
+      "numerical_acceptance": false,
+      "error": {
+        "attempted_commands": [],
+        "attempted_interval_s": [
+          122.0,
+          122.5
+        ],
+        "class": "domain",
+        "message": "Объёмное кипение в первичном контуре core вне паспорта ВВЭР",
+        "model_limit": {
+          "criterion": "primary_bulk_boiling",
+          "evaluation_phase": "rhs_probe",
+          "evaluation_time_s": 122.2041899238984,
+          "limit": 0.0001,
+          "node": "core",
+          "observed": 0.00010075453721237512
+        },
+        "type": "ModelLimitError"
+      }
+    },
+    "feed_change": {
+      "status": "completed",
+      "requested_duration_s": 120.0,
+      "completed_time_s": 120.0,
+      "numerical_acceptance": true,
+      "error": null
+    },
+    "load_rejection": {
+      "status": "failed",
+      "requested_duration_s": 600.0,
+      "completed_time_s": 10.0,
+      "numerical_acceptance": false,
+      "error": {
+        "attempted_commands": [
+          {
+            "scram": true,
+            "t": 10.0,
+            "throttle": 0.0
+          }
+        ],
+        "attempted_interval_s": [
+          10.0,
+          10.5
+        ],
+        "class": "domain",
+        "message": "Обратный расход через насос feed вне проверенного квадранта",
+        "type": "DomainError"
+      }
+    },
+    "nominal_coarse": {
+      "status": "completed",
+      "requested_duration_s": 3600.0,
+      "completed_time_s": 3600.0,
+      "numerical_acceptance": true,
+      "error": null
+    },
+    "nominal_radau": {
+      "status": "completed",
+      "requested_duration_s": 3600.0,
+      "completed_time_s": 3600.0,
+      "numerical_acceptance": true,
+      "error": null
+    },
+    "nominal_tight": {
+      "status": "completed",
+      "requested_duration_s": 3600.0,
+      "completed_time_s": 3600.0,
+      "numerical_acceptance": true,
+      "error": null
+    },
+    "protected_coastdown_1800": {
+      "status": "failed",
+      "requested_duration_s": 1800.0,
+      "completed_time_s": 122.0,
+      "numerical_acceptance": false,
+      "error": {
+        "attempted_commands": [],
+        "attempted_interval_s": [
+          122.0,
+          123.0
+        ],
+        "class": "domain",
+        "message": "Объёмное кипение в первичном контуре core вне паспорта ВВЭР",
+        "model_limit": {
+          "criterion": "primary_bulk_boiling",
+          "evaluation_phase": "rhs_probe",
+          "evaluation_time_s": 122.2193492514479,
+          "limit": 0.0001,
+          "node": "core",
+          "observed": 0.0001051108870277325
+        },
+        "type": "ModelLimitError"
+      }
+    },
+    "scram_coarse": {
+      "status": "completed",
+      "requested_duration_s": 60.0,
+      "completed_time_s": 60.0,
+      "numerical_acceptance": true,
+      "error": null
+    },
+    "scram_quarter": {
+      "status": "completed",
+      "requested_duration_s": 60.0,
+      "completed_time_s": 60.0,
+      "numerical_acceptance": true,
+      "error": null
+    },
+    "scram_tight": {
+      "status": "completed",
+      "requested_duration_s": 60.0,
+      "completed_time_s": 60.0,
+      "numerical_acceptance": true,
+      "error": null
+    },
+    "sink_change": {
+      "status": "completed",
+      "requested_duration_s": 120.0,
+      "completed_time_s": 120.0,
+      "numerical_acceptance": true,
+      "error": null
+    }
+  },
+  "all_three_blocks_closed": false,
+  "accepted_tasks": [
+    "AI-05.07"
+  ],
+  "validated": false,
+  "plant_referenced": false
+}

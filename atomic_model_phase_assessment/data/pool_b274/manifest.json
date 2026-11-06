@@ -1,0 +1,101 @@
+{
+  "case": "B-274",
+  "data_license": "CC-BY-4.0",
+  "files": {
+    "CITATION.cff": "4c98922f2a86950c65eeb117f8c142554bb0f0f7996dd20383557c6c7609f2ea",
+    "LICENSE": "bc268f757ee39aeca302a679ffa394828ac56bcca7417ca27e1e85aa6cf7c30e",
+    "NOTICE.md": "719140d64a168d54bcde0305f8c6f8ff1b36e99c45f3c1f16a2819fb0954841e",
+    "PRIMARY_README.md": "699ccd15277f3b53a3485f1bd1057d26351e2159b2fd20d61dd24c1bc14bc3fb",
+    "data_dictionary.csv": "5cd98e1e26f1f9103150217a9b2e800f6ee2ce4565af7aefb1e0be02ade7f10d",
+    "event_definition.md": "c33c48a9a0fb54e924ea62cbe58173abc5aecbacd700e61ef42a5a676f21912a",
+    "pressure.csv.gz": "22f7f80042772213b17017aeb508691e9d02b34ec12cd378e007cd349b762469",
+    "thermal.csv.gz": "6a933b94afa3dedff21c2838f7ae62f0b557bd6c3f1b7d4a36c8e897cd53e0d3"
+  },
+  "native_counts": {
+    "pressure": 8150000,
+    "thermal": 975000
+  },
+  "parser_sha256": "433788faf71cc420383db9689965d945974a6c568d99ed9752d8acf18eef074e",
+  "plant_referenced": false,
+  "primary_bytes": 518599832,
+  "primary_member": "ned3-013_SubatmosphericBoiling/A-FlatCu/100kPa/Boiling-274_csv_data.csv",
+  "primary_member_crc32": 3284962502,
+  "primary_sha256": "e6bf6caf68072eca8a6f696bc39e31db4249c28fe13feb87a3299bef99c67531",
+  "protocol": {
+    "case": "B-274",
+    "clocks_joined": false,
+    "filter_on_error_or_phase": false,
+    "heat_flux_includes_negative_values": true,
+    "include_first_and_last_sample": true,
+    "max_primary_rows": 10000000,
+    "nominal_pressure_pa": 100000,
+    "pressure_native_stride": 2500,
+    "schema_version": 1,
+    "thermal_native_stride": 300,
+    "whole_heating_and_cooling_history_retained": true
+  },
+  "ranges": {
+    "pressure/pressure_pa": {
+      "max": 100490.539,
+      "min": 99624.787
+    },
+    "thermal/heat_flux_w_m2": {
+      "max": 812065.610393697,
+      "min": -36089.54173228133
+    },
+    "thermal/htc_w_m2_k": {
+      "max": 56227.00810641756,
+      "min": 790.8949052729766
+    },
+    "thermal/liquid_temperature_k": {
+      "max": 373.322719,
+      "min": 373.178816
+    },
+    "thermal/surface_temperature_k": {
+      "max": 431.59924600700003,
+      "min": 371.693039244
+    },
+    "thermal/tc1_k": {
+      "max": 437.851996,
+      "min": 370.46246199999996
+    },
+    "thermal/tc2_k": {
+      "max": 435.42594699999995,
+      "min": 370.893292
+    },
+    "thermal/tc3_k": {
+      "max": 435.384712,
+      "min": 371.00543799999997
+    },
+    "thermal/tc4_k": {
+      "max": 434.12944,
+      "min": 371.163482
+    },
+    "thermal/vapor_temperature_k": {
+      "max": 372.723122,
+      "min": 372.51160799999997
+    },
+    "thermal/wall_superheat_k": {
+      "max": 58.83214744794532,
+      "min": -1.0740593150547255
+    }
+  },
+  "retained_counts": {
+    "pressure": 3261,
+    "thermal": 3251
+  },
+  "scalars": {
+    "CHF_Time_value": 137.896552,
+    "CHF_value": 81.2065610393697,
+    "HTC_value": 5.541399307217232,
+    "Mean Pressure_value (kPa)": 100.04,
+    "Saturation Temperature_value (degC)": 99.61709855905474,
+    "T_liquid_mean": 100.111,
+    "T_vapour_mean": 99.464,
+    "Target Pressure_value (kPa)": 100.0
+  },
+  "schema_version": 1,
+  "source_doi": "10.5281/zenodo.22234711",
+  "validated": false,
+  "whole_zip_checksum_verified": false
+}

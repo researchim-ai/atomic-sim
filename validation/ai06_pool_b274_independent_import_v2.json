@@ -1,0 +1,31 @@
+{
+  "primary_sha256": "e6bf6caf68072eca8a6f696bc39e31db4249c28fe13feb87a3299bef99c67531",
+  "native_counts": {
+    "pressure": 8150000,
+    "thermal": 975000
+  },
+  "compared_counts": {
+    "pressure": 3261,
+    "thermal": 3251
+  },
+  "max_absolute_errors": {
+    "pressure/time_s": 0.0,
+    "pressure/pressure_pa": 0.0,
+    "thermal/time_s": 0.0,
+    "thermal/tc1_k": 0.0,
+    "thermal/tc2_k": 0.0,
+    "thermal/tc3_k": 0.0,
+    "thermal/tc4_k": 0.0,
+    "thermal/vapor_temperature_k": 0.0,
+    "thermal/liquid_temperature_k": 0.0,
+    "thermal/surface_temperature_k": 0.0,
+    "thermal/heat_flux_w_m2": 0.0,
+    "thermal/wall_superheat_k": 0.0,
+    "thermal/htc_w_m2_k": 0.0
+  },
+  "parser": "pandas C round_trip; independent SI formulas",
+  "validated": false,
+  "clocks_joined": false,
+  "verification_driver_sha256": "f576d39596cdd76a99e89d4d973c2244a52d9b0fdddfa04e5fc4e25fd58d9086",
+  "python": "3.12.9"
+}

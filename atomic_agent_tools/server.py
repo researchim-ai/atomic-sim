@@ -12,6 +12,7 @@ from importlib import metadata
 from pathlib import Path
 
 from agent_envs import EnvConfig, PWRPlantEnv
+from atomic_agent_tools import controlled
 from atomic_agent_tools.protocol import (
     ACTION,
     CONFIG,
@@ -27,6 +28,7 @@ from atomic_agent_tools.protocol import (
     validate,
 )
 from atomic_model_runtime.episode import EOSEpisode, EpisodeRejected, model_card, runtime_provenance
+from atomic_pwr_agent import Episode as ControlledEpisode
 from core.status import DomainError
 from plants.vver import PASSPORT
 from sdk.experiment import _source_fingerprint
@@ -51,6 +53,7 @@ def provenance():
         protocol_version=PROTOCOL_VERSION,
         episode_contract="2.1.0",
         eos_runtime=runtime_provenance(),
+        controlled_runtime=controlled.provenance(),
         python=platform.python_version(),
         implementation=platform.python_implementation(),
         versions={name: metadata.version(name) for name in ["numpy", "scipy", "gymnasium"]},
@@ -64,7 +67,7 @@ def keys(value, fields):
 
 @dataclass
 class Session:
-    env: PWRPlantEnv
+    env: PWRPlantEnv | EOSEpisode | ControlledEpisode
     revision: int
     generation: str
     phase: str
@@ -124,7 +127,11 @@ class AgentToolServer:
         value = dict(
             schema_version=1,
             provenance=deepcopy(self.captured),
-            episode=s.env.export_episode(),
+            episode=(
+                controlled.export_episode(s.env)
+                if isinstance(s.env, ControlledEpisode)
+                else s.env.export_episode()
+            ),
             phase=s.phase,
             transition=deepcopy(s.transition),
         )
@@ -136,6 +143,9 @@ class AgentToolServer:
         return value
 
     def _view(self, name, s):
+        if isinstance(s.env, ControlledEpisode):
+            self._payload(s)  # Enforce the same checkpoint byte budget as other models.
+            return controlled.view(name, s)
         native = self._payload(s)["episode"]
         meta = s.env.observation_metadata()
         token = digest(
@@ -211,6 +221,10 @@ class AgentToolServer:
             keys(p["transition"], ["reward", "terminated", "truncated", "reason"])
             tr = p["transition"]
             native = p["episode"]
+            if isinstance(native, dict) and native.get("contract_version") == controlled.CONTRACT:
+                self._charge()
+                env = controlled.restore(native, p["phase"], tr)
+                return Session(env, 0, uuid.uuid4().hex, p["phase"], deepcopy(tr))
             if not isinstance(native, dict) or not isinstance(native.get("config"), dict):
                 raise ToolError("invalid_checkpoint", "Malformed native episode")
             is_eos = native.get("contract_version") == EOSEpisode.contract_version
@@ -287,9 +301,22 @@ class AgentToolServer:
                 return dict(
                     **catalog(),
                     model=PASSPORT.as_dict(),
-                    models=[PASSPORT.as_dict(), model_card()],
+                    models=[PASSPORT.as_dict(), model_card(), controlled.model_card()],
                     provenance=deepcopy(self.captured),
                 )
+            if tool == "create_controlled_episode":
+                name = args["session_id"]
+                self._new_name(name)
+                self._charge()
+                try:
+                    env = ControlledEpisode(**args.get("config", {}))
+                except ValueError as exc:
+                    raise ToolError("invalid_argument", str(exc)) from exc
+                candidate = Session(env, 0, uuid.uuid4().hex, "active", controlled.transition(env))
+                result = self._view(name, candidate)
+                self._sources()
+                self._sessions[name] = candidate
+                return result
             if tool in ("create_episode", "create_eos_episode"):
                 name = args["session_id"]
                 self._new_name(name)
@@ -325,6 +352,17 @@ class AgentToolServer:
             if tool == "inspect_episode":
                 return self._view(name, self._session(name))
             s = self._guard(name, args)
+            if tool == "export_controlled_case":
+                if not isinstance(s.env, ControlledEpisode):
+                    raise ToolError("invalid_argument", "Tool requires a controlled PWR episode")
+                if s.env.observe()["revision"] == 0:
+                    raise ToolError("invalid_state", "No accepted steps to export")
+                case = s.env.training_case(
+                    case_id=args["case_id"],
+                    family=args["family"],
+                    split=args.get("split", "validation"),
+                )
+                return dict(model=controlled.model_card(), case=case)
             if tool == "save_checkpoint":
                 p = self._payload(s)
                 checkpoint = dict(payload=p, sha256=digest(p))
@@ -348,6 +386,12 @@ class AgentToolServer:
                 if cid not in self._checkpoints:
                     raise ToolError("not_found", "Unknown checkpoint handle")
                 candidate = self._load(self._checkpoints[cid])
+                if isinstance(candidate.env, ControlledEpisode) != isinstance(
+                    s.env, ControlledEpisode
+                ):
+                    raise ToolError(
+                        "invalid_checkpoint", "Cannot change controlled model through restore"
+                    )
                 candidate.generation = s.generation
                 candidate.revision = s.revision + 1
             elif tool == "close_episode":
@@ -359,7 +403,39 @@ class AgentToolServer:
                 candidate = Session(
                     s.env, s.revision + 1, s.generation, "cancelled", deepcopy(s.transition)
                 )
+            elif tool == "step_controlled_episode":
+                if not isinstance(s.env, ControlledEpisode):
+                    raise ToolError("invalid_argument", "Tool requires a controlled PWR episode")
+                if s.phase != "active":
+                    raise ToolError("invalid_state", "Episode is not active")
+                from sdk.api import validate_commands
+
+                try:
+                    commands = validate_commands(args["action"])
+                except ValueError as exc:
+                    raise ToolError("invalid_argument", str(exc)) from exc
+                self._charge()
+                # Candidate replay makes a failed step/serialization/source check noncommitting.
+                env = ControlledEpisode.restore(s.env.checkpoint())
+                try:
+                    env.step(commands, observation_id=env.observe()["observation_id"])
+                except (DomainError, ValueError, RuntimeError) as exc:
+                    raise ToolError(
+                        "numerical_rejected", "Controlled step rejected; no state committed"
+                    ) from exc
+                tr = controlled.transition(env)
+                candidate = Session(
+                    env,
+                    s.revision + 1,
+                    s.generation,
+                    "completed" if tr["terminated"] or tr["truncated"] else "active",
+                    tr,
+                )
             else:
+                if isinstance(s.env, ControlledEpisode):
+                    raise ToolError(
+                        "invalid_argument", "Use step_controlled_episode for this model"
+                    )
                 if s.phase != "active":
                     raise ToolError("invalid_state", "Episode is not active")
                 native = s.env.export_episode()

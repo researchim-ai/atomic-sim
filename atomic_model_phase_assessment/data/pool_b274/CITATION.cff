@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+title: "Dataset of subatmospheric pool boiling of water on flat, microchannel, and micropillar copper surfaces"
+doi: "10.5281/zenodo.22234711"
+license: "CC-BY-4.0"
+authors:
+  - family-names: Hossain
+    given-names: "Mohammad Ishraq"
+  - family-names: Prince
+    given-names: "Zulkar Nain"
+  - family-names: Fahim
+    given-names: "MD Abrar Hoq"
+  - family-names: Dunlap
+    given-names: Christy
+  - family-names: Parjuli
+    given-names: Annapurna
+  - family-names: Hu
+    given-names: Han
+    affiliation: "University of Arkansas"
+repository-code: "https://github.com/UARK-NED3/BoilingLab"
+url: "https://doi.org/10.5281/zenodo.22234711"
+abstract: >-
+  Thirty transient saturated pool-boiling experiments with deionized water on
+  flat copper, straight-microchannel copper, and square-micropillar copper
+  surfaces at nominal vapor-space pressures from 10 to 100 kPa. The archive
+  contains native and processed thermal and pressure records, side-view video,
+  and selected image-derived quantities.
