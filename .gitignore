@@ -124,3 +124,7 @@ tallies.out
 /auto_control.png
 /manual_control.png
 /emergency_scram.png
+
+# Standalone bilingual project website
+/web/node_modules/
+/web/dist/

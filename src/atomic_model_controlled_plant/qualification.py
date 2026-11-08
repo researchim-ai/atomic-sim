@@ -69,6 +69,27 @@ def publish(path, payload):
         stream.write("\n")
 
 
+def sampled_observation(plant):
+    """SI diagnostics at an accepted output time, including the initial state."""
+    observation = plant.observation()
+    fields = (
+        "time_s", "fission_power_w", "thermal_power_w", "fuel_temperature_k",
+        "primary_pressure_pa", "sg_pressure_pa", "mass_flow_kg_s",
+        "feed_flow_kg_s", "steam_flow_kg_s", "dump_flow_kg_s", "rod_insertion",
+        "reactivity",
+    )
+    row = {key: float(observation[key]) for key in fields}
+    row.update(
+        omega_rad_s=float(plant.omega),
+        core_temperature_k=float(plant.network.volumes["core"].temperature_k),
+        cold_leg_temperature_k=float(plant.network.volumes["cold_leg"].temperature_k),
+        scram_latched=bool(plant.scram_latched),
+    )
+    if not all(np.isfinite(v) for v in row.values()):
+        raise ValueError("Nonfinite sampled plant observation")
+    return row
+
+
 def run_case(
     name, *, output, rtol=1e-6, atol=1e-5, max_step_s=2.0, output_step_s=5.0, method="Radau"
 ):
@@ -105,8 +126,11 @@ def run_case(
     maximum_x = 0.0
     maximum_power_drift = 0.0
     trace = output / "trace.jsonl"
+    observations = output / "observations.jsonl"
     try:
-        with trace.open("x") as stream:
+        with trace.open("x") as stream, observations.open("x") as samples:
+            samples.write(json.dumps(sampled_observation(p), allow_nan=False) + "\n")
+            samples.flush()
             while p.time_s < horizon:
                 now = p.time_s
                 next_change = min([t for t in changes if t > now] + [horizon])
@@ -146,6 +170,8 @@ def run_case(
                 )
                 stream.write(json.dumps(row, allow_nan=False) + "\n")
                 stream.flush()
+                samples.write(json.dumps(sampled_observation(p), allow_nan=False) + "\n")
+                samples.flush()
                 if transition["events"] or transition["protection_event_s"] is not None:
                     events.append(transition)
                 if int(p.time_s) % 100 == 0:
@@ -221,6 +247,7 @@ def run_case(
         events=events,
         steps=session.revision,
         trace_sha256=hashlib.sha256(trace.read_bytes()).hexdigest(),
+        observations_sha256=hashlib.sha256(observations.read_bytes()).hexdigest(),
         checkpoint_sha256=checkpoint["sha256"],
         wall_seconds=time.monotonic() - start,
         validated=False,

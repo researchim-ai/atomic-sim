@@ -171,3 +171,109 @@ def test_tiny_diagonal_block_mismatch_not_hidden_by_absolute_tolerance():
     case["component_covariances"]["data"] = [[1e-16]]
     with pytest.raises(ValueError, match="diagonal block"):
         evaluate(spec)
+
+
+def test_family_diagnostics_expose_imbalance_without_changing_acceptance():
+    spec = specification()
+    large = spec["cases"][0]
+    large.update(
+        observed=[0.0] * 9,
+        predicted=[0.0] * 9,
+        units=["K"] * 9,
+        joint_covariance=np.zeros((45, 45)).tolist(),
+        component_covariances={name: np.zeros((9, 9)).tolist() for name in COMPONENTS},
+    )
+    small = specification()["cases"][0]
+    small.update(id="miss", family="other-experiment", observed=[100.0])
+    calibration = copy.deepcopy(small)
+    calibration.update(id="fit", family="calibration-family", split="calibration")
+    spec["cases"].extend([small, calibration])
+    before = copy.deepcopy(spec)
+    result = evaluate(spec)
+    assert spec == before
+    assert result["heldout_coverage"] == 0.9
+    assert result["target_met"]
+    assert result["target_metric"] == "heldout_component_coverage"
+    assert result["heldout_families"] == 2
+    assert result["family_balanced_coverage"] == 0.5
+    assert not result["family_balanced_target_met"]
+    assert len(result["missed_components"]) == 2
+    miss = next(r for r in result["missed_components"] if r["case_id"] == "miss")
+    assert miss["component_index"] == 0 and miss["units"] == "K"
+    assert miss["residual"] == 100.0
+    assert miss["interval_half_width"] > 0
+    assert not result["validated"]
+
+
+def test_family_weight_is_invariant_under_duplicate_sampling():
+    spec = specification()
+    bad = copy.deepcopy(spec["cases"][0])
+    bad.update(id="bad", family="second", observed=[100.0])
+    spec["cases"].append(bad)
+    baseline = evaluate(spec)
+    duplicate = copy.deepcopy(spec["cases"][0])
+    duplicate["id"] = "repeat"
+    spec["cases"].append(duplicate)
+    repeated = evaluate(spec)
+    assert repeated["heldout_coverage"] != baseline["heldout_coverage"]
+    assert repeated["family_balanced_coverage"] == baseline["family_balanced_coverage"] == 0.5
+    family = next(r for r in repeated["family_diagnostics"] if r["family"] == "experiment-b")
+    assert family["case_ids"] == ["heldout", "repeat"]
+    assert family["components"] == 2
+
+
+@pytest.mark.parametrize("metric,expected", [(None, 0), ("pooled", 0), ("family-balanced", 2)])
+def test_cli_records_selected_criterion_and_preserves_failed_report(tmp_path, metric, expected):
+    import json
+    import os
+    import subprocess
+    import sys
+    from pathlib import Path
+
+    from atomic_model_multiphysics.provenance import unseal
+
+    spec = specification()
+    # Nine independent case records from one physical family, one from another.
+    # Repeated family membership must not increase its family-balanced weight.
+    template = spec["cases"][0]
+    spec["cases"] = []
+    for i in range(9):
+        case = copy.deepcopy(template)
+        case["id"] = f"pass-{i}"
+        spec["cases"].append(case)
+    miss = copy.deepcopy(template)
+    miss.update(id="miss", family="second-family", observed=[100.0])
+    spec["cases"].append(miss)
+    source = tmp_path / "input.json"
+    output = tmp_path / "report.json"
+    source.write_text(json.dumps(spec), encoding="utf-8")
+    root = Path(__file__).resolve().parents[1]
+    env = dict(os.environ)
+    env["PYTHONPATH"] = os.pathsep.join([str(root / "src"), str(root)])
+    command = [
+        sys.executable,
+        "-m",
+        "atomic_model_uncertainty",
+        str(source),
+        "--output",
+        str(output),
+    ]
+    if metric:
+        command.extend(["--acceptance-metric", metric])
+    process = subprocess.run(
+        command, cwd=tmp_path, env=env, capture_output=True, text=True, timeout=60
+    )
+    assert process.returncode == expected, process.stderr
+    summary = json.loads(process.stdout)
+    report = unseal(json.loads(output.read_text(encoding="utf-8")))
+    assert summary["acceptance"] == report["acceptance"]
+    assert report["acceptance"]["target_met"] == (expected == 0)
+    assert report["acceptance"]["metric"] == (
+        "family_balanced_coverage" if metric == "family-balanced" else "heldout_coverage"
+    )
+    assert report["heldout_coverage"] == 0.9
+    assert report["family_balanced_coverage"] == 0.5
+    assert report["target_met"]  # Legacy pooled result remains explicitly available.
+    assert len(report["missed_components"]) == 1
+    assert not report["validated"]
+    assert json.loads(source.read_text(encoding="utf-8")) == spec

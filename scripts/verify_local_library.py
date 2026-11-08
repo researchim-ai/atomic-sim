@@ -28,6 +28,13 @@ LIBRARY_TESTS = [
     "tests/test_pwr_agent.py",
     "tests/test_external_acceptance.py",
     "tests/test_uncertainty_coverage.py",
+    "tests/test_physics_verification.py",
+    "tests/test_pwr_horizon_profile.py",
+    "tests/test_pwr_refinement.py",
+    "tests/test_pwr_windowed_reference.py",
+    "tests/test_phase_release.py",
+    "tests/test_hem_closure_audit.py",
+    "tests/test_chf_screening.py",
     "tests/test_multiphysics.py",
     "tests/test_research_project.py",
     "tests/test_training_campaign.py",
@@ -50,26 +57,69 @@ def selection(suite):
     raise ValueError("Unknown local test suite")
 
 
-def check_wheel(path):
-    import atomic_model_acceptance
-
-    root = Path(atomic_model_acceptance.__file__).parent
+def check_wheel(path, *, source_root=None, resource_roots=None):
+    root = Path(source_root) if source_root is not None else ROOT / "src"
     expected = {
-        "atomic_model_acceptance/" + p.relative_to(root).as_posix(): p.read_bytes()
+        p.relative_to(root).as_posix(): p.read_bytes()
         for p in root.rglob("*")
-        if p.is_file() and "__pycache__" not in p.parts
+        if p.is_file()
+        and "__pycache__" not in p.parts
+        and not p.relative_to(root).parts[0].endswith(".egg-info")
     }
+    if not expected:
+        raise ValueError("Empty source inventory")
+    if resource_roots is None:
+        resource_roots = (
+            {name: ROOT / name for name in ("scripts", "data", "scenarios", "validation")}
+            if source_root is None
+            else {}
+        )
+    counts = {"src": len(expected)}
+    for name, directory in resource_roots.items():
+        if name not in {"scripts", "data", "scenarios", "validation"}:
+            raise ValueError("Unknown root-mapped package")
+        directory = Path(directory)
+        resources = {
+            name + "/" + p.relative_to(directory).as_posix(): p.read_bytes()
+            for p in directory.rglob("*")
+            if p.is_file() and "__pycache__" not in p.parts
+        }
+        if not resources or not (directory / "__init__.py").is_file():
+            raise ValueError("Missing root-mapped package: " + name)
+        if set(resources) & set(expected):
+            raise ValueError("Overlapping source and resource inventory")
+        expected.update(resources)
+        counts[name] = len(resources)
+    source_names = {name.split("/")[0] for name in expected}
     with zipfile.ZipFile(path) as archive:
+        names = archive.namelist()
+        if len(names) != len(set(names)):
+            raise ValueError("Wheel contains duplicate archive entries")
+        if any(
+            "__pycache__" in name.split("/") or name.endswith((".pyc", ".pyo")) for name in names
+        ):
+            raise ValueError("Wheel contains compiled Python cache")
+        extras = {
+            name.split("/")[0]
+            for name in names
+            if name.split("/")[0] not in source_names
+            and not name.split("/")[0].endswith(".dist-info")
+        }
+        if extras:
+            raise ValueError("Wheel contains unexpected top-level modules: " + str(sorted(extras)))
         actual = {
-            name
-            for name in archive.namelist()
-            if name.startswith("atomic_model_acceptance/") and not name.endswith("/")
+            name for name in names if name.split("/")[0] in source_names and not name.endswith("/")
         }
         if actual != set(expected):
-            raise ValueError("Wheel contains missing or stale acceptance modules/resources")
+            raise ValueError("Wheel contains missing or stale source modules/resources")
         if any(archive.read(name) != raw for name, raw in expected.items()):
-            raise ValueError("Wheel acceptance source bytes differ")
-    return dict(verified=True, files=len(expected))
+            raise ValueError("Wheel source bytes differ")
+    return dict(
+        verified=True,
+        files=len(expected),
+        package_counts=counts,
+        scope="src and declared root-mapped packages; exact bytes; no caches or duplicates",
+    )
 
 
 def verify(directory, *, suite="library", phase_timeout_s=1800):
@@ -230,6 +280,24 @@ def verify(directory, *, suite="library", phase_timeout_s=1800):
             cwd=work,
         )
         run(
+            "installed-uncertainty-criteria",
+            [
+                python,
+                "-m",
+                "scripts.verify_uncertainty_install",
+                ROOT / "examples/research/uncertainty_family_imbalance.json",
+                "uq-criteria.json",
+            ],
+            cwd=work,
+        )
+        criteria = unseal(read_json(work / "uq-criteria.json"))
+        if (
+            criteria["source"] != expected_uncertainty
+            or not criteria["python_cli_equal"]
+            or [r["exit_code"] for r in criteria["criteria"]] != [0, 2]
+        ):
+            raise ValueError("Installed UQ criteria verification differs")
+        run(
             "installed-agent-interfaces",
             [python, "-m", "scripts.verify_pwr_agent_install", "agent.json"],
             cwd=work,
@@ -254,7 +322,7 @@ def verify(directory, *, suite="library", phase_timeout_s=1800):
             or not uq["target_met"]
         ):
             raise ValueError("Installed replay or uncertainty source/criteria differ")
-        for name in ("installed.json", "uq.json", "agent.json"):
+        for name in ("installed.json", "uq.json", "uq-criteria.json", "agent.json"):
             shutil.copyfile(work / name, output / name)
         atomic_json(output / "comparison.json", seal(compared))
     if (

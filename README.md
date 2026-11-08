@@ -9,6 +9,13 @@
 Открытый моделёр реакторных систем на Python для ИИ, RL и LLM-агентов. С версии 2.0 есть проверяемое ядро установки ВВЭР (статус `verified` по аналитическим эталонам и балансам) и прежняя учебная ветка. Это не цифровой двойник действующего блока и не `plant_referenced` модель.
 
 Локальная проверка библиотеки одной командой: `python -m scripts.verify_local_library`.
+
+Профиль численной проверки физики: `python -m scripts.verify_physics` —
+EOS/фазы, балансы, сходимость, restart, связанный reduced-PWR и 1D-нейтроника.
+[Область проверок и оставшиеся физические задачи](docs/PHYSICS_VERIFICATION_RU.md).
+Для пространственных фазовых тестов добавьте `--include-phase-mesh`.
+Полные длительные режимы и replay: `python -m scripts.verify_pwr_horizons`
+([состав и ограничения](docs/PWR_FULL_HORIZONS_RU.md)).
 [Тесты, сборка wheel/sdist, установка вне исходников и replay](docs/LOCAL_VERIFICATION_RU.md).
 CI и GitHub-доступ не требуются.
 
@@ -395,3 +402,13 @@ python scripts/export_pdf.py
 Единый интерфейс нового PWR-ядра для Python и Gymnasium: [сквозной пример агента, checkpoint и campaign replay](docs/PWR_AGENT_QUICKSTART_RU.md).
 
 Управляемый PWR через локальный JSONL: `python -m examples.llm_controlled_episode`; [контракт LLM tools 1.2](docs/PWR_LLM_TOOLS_RU.md).
+
+Проверка физической точности: [шаг и допуски на полных PWR-горизонтах](docs/PWR_REFINEMENT_RU.md),
+[сетевой сброс с flashing и уточнением сетки](docs/PHASE_RELEASE_RU.md),
+[машинные паспорта замыканий HEM](docs/HEM_CLOSURE_AUDIT_RU.md).
+Эти численные проверки не заменяют [отбор экспериментальных данных](docs/EXPERIMENTAL_DATA_CANDIDATES_RU.md).
+
+## Сайт проекта
+
+Русская и английская версии сайта находятся в [`web/`](web/README.md).
+Локальный запуск: `cd web` → `npm run dev`. Статическая сборка: `npm run build`.

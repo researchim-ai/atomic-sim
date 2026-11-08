@@ -165,6 +165,39 @@ def evaluate(spec):
     if not heldout:
         raise ValueError("No held-out validation cases")
     coverage = sum(heldout) / len(heldout)
+    # Descriptive diagnostics only: observations in a physical family may be
+    # correlated. Do not turn these counts into binomial confidence bounds.
+    family_records = []
+    misses = []
+    for family in sorted(families):
+        members = [r for r in records if r["family"] == family]
+        outcomes = [v for r in members for v in r["covered"]]
+        family_records.append(
+            dict(
+                family=family,
+                split=families[family],
+                case_ids=[r["id"] for r in members],
+                components=len(outcomes),
+                covered_components=sum(outcomes),
+                coverage=sum(outcomes) / len(outcomes),
+            )
+        )
+        for record in members:
+            for index, covered in enumerate(record["covered"]):
+                if not covered:
+                    misses.append(
+                        dict(
+                            case_id=record["id"],
+                            family=family,
+                            split=record["split"],
+                            component_index=index,
+                            units=record["units"][index],
+                            residual=record["residual"][index],
+                            interval_half_width=record["interval_half_width"][index],
+                        )
+                    )
+    validation_families = [r for r in family_records if r["split"] == "validation"]
+    balanced = sum(r["coverage"] for r in validation_families) / len(validation_families)
     return dict(
         source=identity(),
         input_sha256=digest(spec),
@@ -173,12 +206,20 @@ def evaluate(spec):
         heldout_components=len(heldout),
         heldout_coverage=coverage,
         target_met=coverage >= spec["target_coverage"],
+        target_coverage=spec["target_coverage"],
+        target_metric="heldout_component_coverage",
+        family_diagnostics=family_records,
+        missed_components=misses,
+        heldout_families=len(validation_families),
+        family_balanced_coverage=balanced,
+        family_balanced_target_met=balanced >= spec["target_coverage"],
         confidence=spec["confidence"],
         assumptions=[
             "Gaussian marginal errors explicitly supplied",
             "Covariance PSD and symmetry tested after variance normalization; zero variance requires zero cross covariance",
             "All five residual-error contributions additive; cross-component covariance mandatory",
             "Coverage fraction descriptive; no independence between cases or simultaneous-coverage claim",
+            "Family-balanced coverage weights validation families equally; original target_met uses pooled components",
         ],
         physical_admissibility="requires independently admitted experimental/model/configuration evidence",
         experimental_validation_promoted=False,

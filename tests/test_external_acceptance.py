@@ -129,24 +129,48 @@ def test_failed_replay_cli_returns_failure(tmp_path, pair, monkeypatch):
     assert main() == 2
 
 
-def test_local_wheel_check_rejects_stale_deleted_modules(tmp_path):
+@pytest.mark.parametrize(
+    "defect", [None, "stale", "missing", "bytes", "duplicate", "cache", "extra"]
+)
+def test_local_wheel_checks_every_source_package(tmp_path, defect):
+    import warnings
     import zipfile
-    from pathlib import Path
 
-    import atomic_model_acceptance
     from scripts.verify_local_library import check_wheel
 
-    root = Path(atomic_model_acceptance.__file__).parent
+    source = tmp_path / "src"
+    (source / "first").mkdir(parents=True)
+    (source / "second").mkdir()
+    files = {
+        "first/__init__.py": b"# first",
+        "second/preset.json": b"{}",
+        "standalone.py": b"# module",
+    }
+    for name, raw in files.items():
+        (source / name).write_bytes(raw)
+    (source / "example.egg-info").mkdir()
+    (source / "example.egg-info" / "PKG-INFO").write_text("generated build metadata")
     archive = tmp_path / "source.whl"
     with zipfile.ZipFile(archive, "w") as z:
-        for p in root.rglob("*"):
-            if p.is_file() and "__pycache__" not in p.parts:
-                z.write(p, "atomic_model_acceptance/" + p.relative_to(root).as_posix())
-    assert check_wheel(archive)["verified"]
-    with zipfile.ZipFile(archive, "a") as z:
-        z.writestr("atomic_model_acceptance/github.py", "# removed module")
-    with pytest.raises(ValueError, match="stale"):
-        check_wheel(archive)
+        for name, raw in files.items():
+            if defect == "missing" and name == "second/preset.json":
+                continue
+            z.writestr(name, b"changed" if defect == "bytes" and name == "standalone.py" else raw)
+        if defect == "stale":
+            z.writestr("second/deleted.py", "# stale")
+        if defect == "duplicate":
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore", UserWarning)
+                z.writestr("first/__init__.py", "# duplicate")
+        if defect == "cache":
+            z.writestr("first/__pycache__/old.pyc", b"cache")
+        if defect == "extra":
+            z.writestr("removed_package/__init__.py", "# stale package")
+    if defect is None:
+        assert check_wheel(archive, source_root=source)["files"] == 3
+    else:
+        with pytest.raises(ValueError):
+            check_wheel(archive, source_root=source)
 
 
 def test_local_command_can_repeat_without_overwriting_previous_results(monkeypatch):
@@ -168,3 +192,37 @@ def test_local_command_preserves_explicit_output_and_suite(monkeypatch):
     )
     assert local.main(["--output", "chosen-output", "--suite", "portable"]) == 0
     assert calls == [("chosen-output", dict(suite="portable", phase_timeout_s=1800))]
+
+
+@pytest.mark.parametrize("defect", [None, "missing", "bytes", "stale"])
+def test_wheel_root_mapped_resources_match_exactly(tmp_path, defect):
+    import zipfile
+
+    from scripts.verify_local_library import check_wheel
+
+    source = tmp_path / "src"
+    source.mkdir()
+    (source / "module.py").write_bytes(b"# module")
+    resources = tmp_path / "validation"
+    resources.mkdir()
+    (resources / "__init__.py").write_bytes(b"")
+    # Frozen data bytes, including CRLF, must survive unchanged.
+    (resources / "measurements.csv").write_bytes(b"x,y\r\n1,2\r\n")
+    wheel = tmp_path / "test.whl"
+    with zipfile.ZipFile(wheel, "w") as archive:
+        archive.writestr("module.py", b"# module")
+        archive.writestr("validation/__init__.py", b"")
+        if defect != "missing":
+            archive.writestr(
+                "validation/measurements.csv",
+                b"x,y\n1,2\n" if defect == "bytes" else b"x,y\r\n1,2\r\n",
+            )
+        if defect == "stale":
+            archive.writestr("validation/removed.json", "{}")
+    if defect:
+        with pytest.raises(ValueError):
+            check_wheel(wheel, source_root=source, resource_roots={"validation": resources})
+    else:
+        result = check_wheel(wheel, source_root=source, resource_roots={"validation": resources})
+        assert result["files"] == 3
+        assert result["package_counts"] == {"src": 1, "validation": 2}

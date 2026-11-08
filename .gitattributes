@@ -28,3 +28,6 @@ src/atomic_model_phase_assessment/data/pool_b274/data_dictionary.csv -text
 # Keep digitized NIST measurements byte-identical to their frozen manifest.
 src/atomic_model_validation/data/nist_tn2294/measurements.csv -text whitespace=cr-at-eol
 validation/ai06_hem_experiment_v1/data/measurements.csv -text whitespace=cr-at-eol
+
+# Self-hosted website fonts
+*.woff2 -text

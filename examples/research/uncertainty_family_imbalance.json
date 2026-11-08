@@ -1,0 +1,325 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "numerical",
+  "distribution": "gaussian",
+  "confidence": 0.95,
+  "target_coverage": 0.75,
+  "cases": [
+    {
+      "id": "manufactured-0",
+      "family": "densely-sampled",
+      "split": "validation",
+      "observed": [
+        0.0
+      ],
+      "predicted": [
+        0.0
+      ],
+      "units": [
+        "K"
+      ],
+      "component_covariances": {
+        "data": [
+          [
+            1.0
+          ]
+        ],
+        "parameters": [
+          [
+            0.0
+          ]
+        ],
+        "closures": [
+          [
+            0.0
+          ]
+        ],
+        "mesh": [
+          [
+            0.0
+          ]
+        ],
+        "integrator": [
+          [
+            0.0
+          ]
+        ]
+      },
+      "joint_covariance": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "provenance": "Manufactured diagnostic fixture, not measurements; no physical validation claim"
+    },
+    {
+      "id": "manufactured-1",
+      "family": "densely-sampled",
+      "split": "validation",
+      "observed": [
+        0.0
+      ],
+      "predicted": [
+        0.0
+      ],
+      "units": [
+        "K"
+      ],
+      "component_covariances": {
+        "data": [
+          [
+            1.0
+          ]
+        ],
+        "parameters": [
+          [
+            0.0
+          ]
+        ],
+        "closures": [
+          [
+            0.0
+          ]
+        ],
+        "mesh": [
+          [
+            0.0
+          ]
+        ],
+        "integrator": [
+          [
+            0.0
+          ]
+        ]
+      },
+      "joint_covariance": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "provenance": "Manufactured diagnostic fixture, not measurements; no physical validation claim"
+    },
+    {
+      "id": "manufactured-2",
+      "family": "densely-sampled",
+      "split": "validation",
+      "observed": [
+        0.0
+      ],
+      "predicted": [
+        0.0
+      ],
+      "units": [
+        "K"
+      ],
+      "component_covariances": {
+        "data": [
+          [
+            1.0
+          ]
+        ],
+        "parameters": [
+          [
+            0.0
+          ]
+        ],
+        "closures": [
+          [
+            0.0
+          ]
+        ],
+        "mesh": [
+          [
+            0.0
+          ]
+        ],
+        "integrator": [
+          [
+            0.0
+          ]
+        ]
+      },
+      "joint_covariance": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "provenance": "Manufactured diagnostic fixture, not measurements; no physical validation claim"
+    },
+    {
+      "id": "manufactured-3",
+      "family": "sparse-family",
+      "split": "validation",
+      "observed": [
+        10.0
+      ],
+      "predicted": [
+        0.0
+      ],
+      "units": [
+        "K"
+      ],
+      "component_covariances": {
+        "data": [
+          [
+            1.0
+          ]
+        ],
+        "parameters": [
+          [
+            0.0
+          ]
+        ],
+        "closures": [
+          [
+            0.0
+          ]
+        ],
+        "mesh": [
+          [
+            0.0
+          ]
+        ],
+        "integrator": [
+          [
+            0.0
+          ]
+        ]
+      },
+      "joint_covariance": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "provenance": "Manufactured diagnostic fixture, not measurements; no physical validation claim"
+    }
+  ]
+}
