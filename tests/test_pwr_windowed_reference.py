@@ -11,6 +11,51 @@ from atomic_model_controlled_plant.session import Session
 from atomic_model_multiphysics.provenance import sha
 from scripts.run_pwr_windowed_reference import reset_history, tail_checks
 from scripts.verify_pwr_refinement import validate_window_journal
+from scripts.run_pwr_windowed_reference import save_progress
+from atomic_model_controlled_plant.session import identity
+from atomic_model_multiphysics.provenance import unseal
+from atomic_model_training.spec import read_json
+
+
+def test_progress_checkpoint_restores_exactly_without_accepting_prefix(tmp_path):
+    session = Session(maximum_internal_step_s=.5)
+    session.advance(.1)
+    trace, observations = tmp_path / "trace.jsonl", tmp_path / "observations.jsonl"
+    trace.write_text("trace\n")
+    observations.write_text("observations\n")
+    arguments = dict(source=identity(), driver=sha("scripts/run_pwr_windowed_reference.py"),
+                     resets=[], trace=trace, observations=observations)
+    path = save_progress(tmp_path, session, **arguments)
+    receipt = unseal(read_json(path))
+    assert receipt["full_horizon_accepted"] is False
+    assert receipt["time_s"] == .1
+    assert receipt["trace_sha256"] == sha(trace)
+    assert receipt["observations_sha256"] == sha(observations)
+    assert receipt["trace_bytes"] == len(trace.read_bytes())
+    assert receipt["observations_bytes"] == len(observations.read_bytes())
+    restored = Session.restore(receipt["checkpoint"])
+    assert restored.state_hash() == receipt["state_sha256"]
+    assert restored.advance(.1) == session.advance(.1)
+
+
+def test_progress_refuses_overwrite_and_changed_source(tmp_path):
+    session = Session(maximum_internal_step_s=.5)
+    trace = tmp_path / "trace.jsonl"
+    trace.write_text("")
+    arguments = dict(source=identity(), driver=sha("scripts/run_pwr_windowed_reference.py"),
+                     resets=[], trace=trace, observations=trace)
+    path = save_progress(tmp_path, session, **arguments)
+    original = path.read_bytes()
+    with pytest.raises(FileExistsError):
+        save_progress(tmp_path, session, **arguments)
+    assert path.read_bytes() == original
+    arguments["source"] = {}
+    with pytest.raises(ValueError, match="changed source"):
+        save_progress(tmp_path, session, **arguments)
+    arguments["source"] = identity()
+    arguments["driver"] = "0" * 64
+    with pytest.raises(ValueError, match="changed source"):
+        save_progress(tmp_path, session, **arguments)
 
 
 def test_actual_reset_preserves_state_ledger_and_exact_replay():
@@ -68,3 +113,62 @@ def test_settling_retains_native_tail_and_rate_criteria():
     plant.derivatives = lambda t, y: np.ones(2) * 1e-3
     assert not tail_checks(plant, rows, protocol())[0]["settled_final_rate"]
     with pytest.raises(ValueError, match="tail"):tail_checks(plant, rows[:-1], protocol())
+
+
+@pytest.fixture
+def short_campaign(monkeypatch):
+    import scripts.run_pwr_windowed_reference as worker
+    monkeypatch.setattr(worker, 'RESET_INTERVAL_S', .1)
+    monkeypatch.setattr(worker, 'SETTINGS', dict(worker.SETTINGS, output_step_s=.1))
+    monkeypatch.setattr(worker, 'CASES', {worker.CASE: dict(duration_s=.3, changes=[])})
+    # This short software test does not qualify 7200s settling.
+    monkeypatch.setattr(worker, 'tail_checks', lambda *args: ({'fixture_only': True}, {}))
+    return worker
+
+
+def test_resume_actual_short_campaign_has_identical_full_evidence(tmp_path, short_campaign):
+    worker = short_campaign
+    original, resumed = tmp_path / 'original', tmp_path / 'resumed'
+    direct = worker.run(original)
+    receipt = original / 'progress-checkpoints' / 'step-000001.json'
+    before = {p: p.read_bytes() for p in original.rglob('*') if p.is_file()}
+    continued = worker.run(resumed, resume_from=receipt)
+    assert direct['failure'] is continued['failure'] is None
+    for key in ('final_state', 'checkpoint_sha256', 'trace_sha256', 'observations_sha256',
+                'events', 'ledger', 'steps', 'checks', 'full_horizon_accepted'):
+        assert continued[key] == direct[key], key
+    assert all(p.read_bytes() == content for p, content in before.items())
+    assert continued['reference_execution']['resets'] == direct['reference_execution']['resets']
+    assert (resumed / 'resume-origin.json').exists()
+
+
+@pytest.mark.parametrize('damage', ['log', 'truncated', 'seal', 'source', 'solver', 'clock', 'reset', 'commands'])
+def test_resume_refuses_damaged_prefix_before_creating_output(tmp_path, short_campaign, damage):
+    from atomic_model_training.spec import atomic_json
+    from atomic_model_multiphysics.provenance import seal
+    worker = short_campaign
+    original = tmp_path / 'original'
+    worker.run(original)
+    receipt = original / 'progress-checkpoints' / 'step-000002.json'
+    envelope = read_json(receipt)
+    if damage in ('log', 'truncated'):
+        log = original / 'trace.jsonl'
+        raw = log.read_bytes()
+        log.write_bytes(b'!' + raw[1:] if damage == 'log' else raw[:10])
+    elif damage == 'seal':
+        envelope['sha256'] = '0' * 64
+        atomic_json(receipt, envelope)
+    else:
+        payload = unseal(envelope)
+        if damage == 'source': payload['source'] = {}
+        elif damage == 'solver': payload['solver']['rtol'] = 1e-3
+        elif damage == 'clock': payload['time_s'] = .15
+        elif damage == 'reset': payload['resets'] = []
+        else:
+            cp = unseal(payload['checkpoint'])
+            cp['history'][0]['commands'] = {'steam_throttle': .2}
+            payload['checkpoint'] = seal(cp)
+        atomic_json(receipt, seal(payload))
+    output = tmp_path / 'refused'
+    with pytest.raises(ValueError): worker.run(output, resume_from=receipt)
+    assert not output.exists()

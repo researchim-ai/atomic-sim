@@ -172,7 +172,7 @@ def load_evidence(directory, case, profile, source):
     return result, rows
 
 
-def verify(output, *, cases=DEFAULT_CASES, jobs=2, timeout_s=7200, reuse_from=None, reference_from=None):
+def verify(output, *, cases=DEFAULT_CASES, jobs=2, timeout_s=7200, reuse_from=None, reference_from=None, native_from=None):
     if not cases or len(set(cases)) != len(cases) or any(c not in DEFAULT_CASES for c in cases):
         raise ValueError("Choose distinct supported full-horizon cases")
     if type(jobs) is not int or not 1 <= jobs <= 4:
@@ -187,6 +187,9 @@ def verify(output, *, cases=DEFAULT_CASES, jobs=2, timeout_s=7200, reuse_from=No
     if reference is not None and (not reference.is_dir() or WINDOWED_CASE not in cases):
         raise ValueError("Windowed reference requires an existing directory and load-rejection case")
     reuse = Path(reuse_from).absolute() if reuse_from is not None else None
+    native = Path(native_from).absolute() if native_from is not None else None
+    if native is not None and not native.is_dir():
+        raise ValueError("Native campaign directory must exist")
     if reuse is not None:
         previous = unseal(read_json(reuse / "protocol.json"))
         # The checker may be fixed between runs; every native result is admitted
@@ -205,17 +208,26 @@ def verify(output, *, cases=DEFAULT_CASES, jobs=2, timeout_s=7200, reuse_from=No
         directory = output / name
         record = dict(case=case, profile=profile, passed=False, evidence_directory=str(directory))
         candidate = reference if reference is not None and case == WINDOWED_CASE and profile == "reference" else (reuse / name if reuse is not None else None)
+        if (candidate is None or not (candidate / "result.json").is_file()) and native is not None and profile == "cap-2":
+            candidate = native / case
         if candidate is not None and (candidate / "result.json").is_file():
             try:
                 load_evidence(candidate, case, profile, declared["source"])
                 record.update(passed=True, evidence_directory=str(candidate), reused=True)
                 if candidate == reference:
                     record["reference_worker_sha256"] = declared["reference_execution"][case]["worker_sha256"]
+                elif native is not None and candidate == native / case:
+                    record["native_campaign_reused_from"] = str(candidate)
                 else:
                     record["previous_checker_sha256"] = previous["driver_sha256"]
                 return record
             except (OSError, ValueError, KeyError, TypeError) as exc:
                 record["reuse_rejected"] = str(exc)
+        # An explicit external reference is read-only. Never duplicate a running
+        # calculation or silently replace refused evidence with a fresh worker.
+        if reference is not None and case == WINDOWED_CASE and profile == "reference":
+            record["error"] = dict(type="ValueError", message="External reference incomplete or refused; no calculation spawned")
+            return record
         settings = PROFILES[profile]
         command = [sys.executable, "-m", "atomic_model_controlled_plant", "run", case, "--output", str(directory)]
         for argument, key in [("--max-step", "max_step_s"), ("--rtol", "rtol"), ("--atol", "atol"), ("--output-step", "output_step_s"), ("--method", "method")]:
@@ -290,8 +302,9 @@ def main(argv=None):
     parser.add_argument("--timeout", type=int, default=7200)
     parser.add_argument("--reuse-from", type=Path)
     parser.add_argument("--reference-from", type=Path, help="Completed strict windowed load reference; always readmitted")
+    parser.add_argument("--native-from", type=Path, help="Readmit matching cap-2 results from full native horizon campaigns")
     args = parser.parse_args(argv)
-    report = verify(args.output, cases=args.cases, jobs=args.jobs, timeout_s=args.timeout, reuse_from=args.reuse_from, reference_from=args.reference_from)
+    report = verify(args.output, cases=args.cases, jobs=args.jobs, timeout_s=args.timeout, reuse_from=args.reuse_from, reference_from=args.reference_from, native_from=args.native_from)
     print(json.dumps(dict(passed=report["passed"], output=str(args.output))))
     return 0 if report["passed"] else 1
 

@@ -262,7 +262,7 @@ _R2_N = np.array(
         0.48225372718507e-6,
         0.22922076337661e-5,
         -0.16714766451061e-10,
-        -0.21171471012189e-2,
+        -0.21171472321355e-2,
         -0.23895741934104e2,
         -0.59059564324270e-17,
         -0.12621808899101e-5,
@@ -476,6 +476,19 @@ def classify_region(temperature_k: float, pressure_mpa: float) -> int:
     raise DomainError("T или p вне областей 1–5 IF97")
 
 
+def _derivative_coefficients(n, i, j, pressure_sign):
+    coefficients = np.array([n, pressure_sign*n*i, n*i*(i-1), n*j,
+                             n*j*(j-1), pressure_sign*n*i*j])
+    coefficients.setflags(write=False)
+    return coefficients
+
+
+_R1_DERIVATIVE_COEFFICIENTS = _derivative_coefficients(_R1_N, _R1_I, _R1_J, -1)
+_R2_DERIVATIVE_COEFFICIENTS = _derivative_coefficients(_R2_N, _R2_I, _R2_J, 1)
+_R2_IDEAL_DERIVATIVES = np.array([_R2_N0, _R2_N0*_R2_J0, _R2_N0*_R2_J0*(_R2_J0-1)])
+_R2_IDEAL_DERIVATIVES.setflags(write=False)
+
+
 def _region1_raw(temperature_k: float, pressure_mpa: float) -> dict:
     tau = 1386.0 / temperature_k
     pi = pressure_mpa / 16.53
@@ -483,49 +496,13 @@ def _region1_raw(temperature_k: float, pressure_mpa: float) -> dict:
     base_t = tau - 1.222
     if base_p <= 0.0 or base_t <= 0.0:
         raise DomainError("Аргумент области 1 IF97 покинул допустимый интервал")
-    bp_i = base_p**_R1_I
-    bt_j = base_t**_R1_J
-    gamma = float(np.sum(_R1_N * bp_i * bt_j))
-    i_pos = _R1_I > 0.0
-    gamma_pi = float(
-        -np.sum(
-            _R1_N[i_pos] * _R1_I[i_pos] * base_p ** (_R1_I[i_pos] - 1.0) * base_t ** _R1_J[i_pos]
-        )
-    )
-    i_second = _R1_I > 1.0
-    gamma_pi_pi = float(
-        np.sum(
-            _R1_N[i_second]
-            * _R1_I[i_second]
-            * (_R1_I[i_second] - 1.0)
-            * base_p ** (_R1_I[i_second] - 2.0)
-            * base_t ** _R1_J[i_second]
-        )
-    )
-    j_pos = _R1_J != 0.0
-    gamma_tau = float(
-        np.sum(_R1_N[j_pos] * bp_i[j_pos] * _R1_J[j_pos] * base_t ** (_R1_J[j_pos] - 1.0))
-    )
-    j_second = (_R1_J != 0.0) & (_R1_J != 1.0)
-    gamma_tau_tau = float(
-        np.sum(
-            _R1_N[j_second]
-            * bp_i[j_second]
-            * _R1_J[j_second]
-            * (_R1_J[j_second] - 1.0)
-            * base_t ** (_R1_J[j_second] - 2.0)
-        )
-    )
-    cross = i_pos & j_pos
-    gamma_pi_tau = float(
-        -np.sum(
-            _R1_N[cross]
-            * _R1_I[cross]
-            * base_p ** (_R1_I[cross] - 1.0)
-            * _R1_J[cross]
-            * base_t ** (_R1_J[cross] - 1.0)
-        )
-    )
+    powers = base_p**_R1_I * base_t**_R1_J
+    gamma, gp, gpp, gt, gtt, gpt = (_R1_DERIVATIVE_COEFFICIENTS @ powers).tolist()
+    gamma_pi = gp / base_p
+    gamma_pi_pi = gpp / (base_p * base_p)
+    gamma_tau = gt / base_t
+    gamma_tau_tau = gtt / (base_t * base_t)
+    gamma_pi_tau = gpt / (base_p * base_t)
     v = pi * gamma_pi * R_KJ * temperature_k / pressure_mpa / 1000.0
     h = tau * gamma_tau * R_KJ * temperature_k
     s = R_KJ * (tau * gamma_tau - gamma)
@@ -558,21 +535,8 @@ def _region1_raw(temperature_k: float, pressure_mpa: float) -> dict:
 
 
 def _region2_ideal(tau: float, pi: float) -> tuple:
-    g0 = np.log(pi) + float(np.sum(_R2_N0 * tau**_R2_J0))
-    g0_pi = 1.0 / pi
-    g0_pi_pi = -1.0 / pi**2
-    j_pos = _R2_J0 != 0.0
-    g0_tau = float(np.sum(_R2_N0[j_pos] * _R2_J0[j_pos] * tau ** (_R2_J0[j_pos] - 1.0)))
-    j_second = (_R2_J0 != 0.0) & (_R2_J0 != 1.0)
-    g0_tau_tau = float(
-        np.sum(
-            _R2_N0[j_second]
-            * _R2_J0[j_second]
-            * (_R2_J0[j_second] - 1.0)
-            * tau ** (_R2_J0[j_second] - 2.0)
-        )
-    )
-    return g0, g0_pi, g0_pi_pi, g0_tau, g0_tau_tau
+    ideal, first, second = (_R2_IDEAL_DERIVATIVES @ (tau**_R2_J0)).tolist()
+    return np.log(pi) + ideal, 1.0 / pi, -1.0 / pi**2, first / tau, second / (tau * tau)
 
 
 def _region2_raw(temperature_k: float, pressure_mpa: float) -> dict:
@@ -582,45 +546,13 @@ def _region2_raw(temperature_k: float, pressure_mpa: float) -> dict:
     if pi <= 0.0 or base_t <= 0.0:
         raise DomainError("Аргумент области 2 IF97 покинул допустимый интервал")
     g0, g0_pi, g0_pi_pi, g0_tau, g0_tau_tau = _region2_ideal(tau, pi)
-    gr = float(np.sum(_R2_N * pi**_R2_I * base_t**_R2_J))
-    i_pos = _R2_I > 0.0
-    gr_pi = float(
-        np.sum(_R2_N[i_pos] * _R2_I[i_pos] * pi ** (_R2_I[i_pos] - 1.0) * base_t ** _R2_J[i_pos])
-    )
-    i_second = _R2_I > 1.0
-    gr_pi_pi = float(
-        np.sum(
-            _R2_N[i_second]
-            * _R2_I[i_second]
-            * (_R2_I[i_second] - 1.0)
-            * pi ** (_R2_I[i_second] - 2.0)
-            * base_t ** _R2_J[i_second]
-        )
-    )
-    j_pos = _R2_J != 0.0
-    gr_tau = float(
-        np.sum(_R2_N[j_pos] * pi ** _R2_I[j_pos] * _R2_J[j_pos] * base_t ** (_R2_J[j_pos] - 1.0))
-    )
-    j_second = (_R2_J != 0.0) & (_R2_J != 1.0)
-    gr_tau_tau = float(
-        np.sum(
-            _R2_N[j_second]
-            * pi ** _R2_I[j_second]
-            * _R2_J[j_second]
-            * (_R2_J[j_second] - 1.0)
-            * base_t ** (_R2_J[j_second] - 2.0)
-        )
-    )
-    cross = i_pos & j_pos
-    gr_pi_tau = float(
-        np.sum(
-            _R2_N[cross]
-            * _R2_I[cross]
-            * pi ** (_R2_I[cross] - 1.0)
-            * _R2_J[cross]
-            * base_t ** (_R2_J[cross] - 1.0)
-        )
-    )
+    powers = pi**_R2_I * base_t**_R2_J
+    gr, gp, gpp, gt, gtt, gpt = (_R2_DERIVATIVE_COEFFICIENTS @ powers).tolist()
+    gr_pi = gp / pi
+    gr_pi_pi = gpp / (pi * pi)
+    gr_tau = gt / base_t
+    gr_tau_tau = gtt / (base_t * base_t)
+    gr_pi_tau = gpt / (pi * base_t)
     gamma_pi = g0_pi + gr_pi
     v = pi * gamma_pi * R_KJ * temperature_k / pressure_mpa / 1000.0
     h = tau * (g0_tau + gr_tau) * R_KJ * temperature_k

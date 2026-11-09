@@ -1,5 +1,12 @@
 # Сброс в конечный приёмник с равновесным flashing
 
+> Ранние исторические результаты ниже получены до исправления коэффициента n21 IF97
+> во внешнем benchmark 9 ноября 2026. Их source-bound приёмка автоматически
+> не перенесена на новое ядро. Актуальные повторные проверки указаны в
+> [текущем статусе](CURRENT_STATUS_RU.md) и
+> [протоколе внешнего сравнения](EXTERNAL_BENCHMARK_RU.md).
+
+
 ```bash
 python -m scripts.verify_phase_release --output artifacts/phase-release-local
 ```
@@ -62,3 +69,11 @@ flashing при расширении поршня и blowdown с заданны�
 уравнений или post-CHF. Материальная база соответствует ограниченному
 адаптеру [IAPWS IF97](https://iapws.org/technical-guidance/release/IF97-Rev).
 Численный успех сохраняет `validated=false`, `plant_referenced=false`.
+
+
+## Повторная проверка после ускорения EOS
+
+На новом ядре выполнены заново полные тепловые, сетевые и PWR программы;
+строгий PWR7200 и матрица 4×4 приняты. Старые хеши не переписывались.
+[Актуальные receipts и область](EOS_OPTIMIZATION_RU.md),
+[внешняя динамика и сохраняющийся фазовый предел](MODELICA_DYNAMIC_BENCHMARK_RU.md).

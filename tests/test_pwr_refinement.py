@@ -193,3 +193,32 @@ def test_completed_refinement_reuse_compares_again_without_subprocesses(tmp_path
     assert report["passed"] and not report["complete_default_matrix"]
     assert all(r["reused"] for r in report["runs"])
     assert len(calls) == 8  # Admission on reuse and again before comparison.
+
+
+def test_explicit_pending_reference_never_launches_duplicate_worker(tmp_path,monkeypatch):
+    from scripts import verify_pwr_refinement as driver
+    pending=tmp_path/'pending';pending.mkdir()
+    monkeypatch.setattr(driver,'PROFILES',{'reference':driver.PROFILES['reference']})
+    def forbidden(*args,**kwargs):raise AssertionError('Do not duplicate explicit external reference')
+    monkeypatch.setattr(driver.subprocess,'run',forbidden)
+    report=driver.verify(tmp_path/'out',cases=['load_rejection_equilibrium'],reference_from=pending)
+    assert not report['passed']
+    assert 'no calculation spawned' in report['runs'][0]['error']['message']
+
+
+def test_native_cap2_is_readmitted_without_pretending_it_is_a_strict_reference(tmp_path,monkeypatch):
+    from scripts import verify_pwr_refinement as driver
+    native=tmp_path/'native';(native/'scram').mkdir(parents=True)
+    (native/'scram/result.json').write_text('synthetic harness fixture')
+    monkeypatch.setattr(driver,'PROFILES',{'cap-2':driver.PROFILES['cap-2']})
+    seen=[]
+    def admission(directory,case,profile,source):
+        seen.append((directory,profile))
+        raise ValueError('Synthetic refused native evidence')
+    def refused(*args,**kwargs):
+        from types import SimpleNamespace
+        return SimpleNamespace(returncode=1)
+    monkeypatch.setattr(driver,'load_evidence',admission)
+    monkeypatch.setattr(driver.subprocess,'run',refused)
+    report=driver.verify(tmp_path/'out',cases=['scram'],native_from=native)
+    assert not report['passed'] and seen[0][1]=='cap-2'

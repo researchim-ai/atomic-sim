@@ -1,0 +1,5 @@
+# Optional external benchmark only; not required by the simulation library.
+CoolProp==8.0.0
+threadpoolctl==3.6.0
+# OpenMC is installed separately: https://docs.openmc.org/en/stable/quickinstall.html
+# The executable and Python API versions/hashes are recorded in each report.
