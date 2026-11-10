@@ -1,0 +1,1909 @@
+{
+  "payload": {
+    "date": "2026-11-10",
+    "schema_version": 1,
+    "report": {
+      "cases": [
+        {
+          "candidates": [
+            {
+              "absolute_errors": {
+                "energy_w_m2": 4212584.522868233,
+                "mass_kg_m2_s": 5.919915698453325,
+                "momentum_pa": 34.88344986131415
+              },
+              "envelope": "fixed_2500",
+              "flux": [
+                7.991148061421427,
+                4000022.129846553,
+                5686463.131606579
+              ],
+              "relative_mass_flux_error": 0.4255544939366035,
+              "wave_bound_m_s": 2500.0
+            },
+            {
+              "absolute_errors": {
+                "energy_w_m2": 114752.30833784863,
+                "mass_kg_m2_s": 0.1612598873460751,
+                "momentum_pa": 34.74459522217512
+              },
+              "envelope": "local_acoustic_diagnostic",
+              "flux": [
+                13.749803872528677,
+                4000022.268701192,
+                9784295.346136963
+              ],
+              "relative_mass_flux_error": 0.0115922038838766,
+              "wave_bound_m_s": 1452.9466371998128
+            }
+          ],
+          "case": "moderate",
+          "checks": {
+            "contact_velocity": true,
+            "left_isentropic": true,
+            "right_entropy": true,
+            "right_hugoniot": true,
+            "wave_order": true
+          },
+          "godunov_flux": [
+            13.911063759874752,
+            4000057.013296414,
+            9899047.654474812
+          ],
+          "input": {
+            "left": {
+              "density_kg_m3": 901.6653502706228,
+              "enthalpy_j_kg": 711617.4228541082,
+              "entropy_j_kg_k": 2016.639675637045,
+              "internal_energy_j_kg": 707159.0059938023,
+              "phase": "liquid",
+              "pressure_pa": 4020000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 441.0
+            },
+            "pressure_bracket_pa": [
+              1000000.0,
+              15000000.0
+            ],
+            "right": {
+              "density_kg_m3": 903.6565321639928,
+              "enthalpy_j_kg": 702901.5107826084,
+              "entropy_j_kg_k": 1996.9314731387608,
+              "internal_energy_j_kg": 698497.1825247591,
+              "phase": "liquid",
+              "pressure_pa": 3980000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 439.0
+            },
+            "velocity_left_m_s": 0.0,
+            "velocity_right_m_s": 0.0
+          },
+          "oracle": {
+            "left": {
+              "density_kg_m3": 901.6556467243161,
+              "enthalpy_j_kg": 711595.3045497567,
+              "entropy_j_kg_k": 2016.639675637044,
+              "internal_energy_j_kg": 707158.9581316939,
+              "phase": "liquid",
+              "pressure_pa": 4000056.7986715785,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 440.99748203254336
+            },
+            "left_inner_speed_m_s": -1433.5719287804677,
+            "left_outer_speed_m_s": -1433.6403911850916,
+            "left_residual": 1.7128915389510135e-16,
+            "left_wave": "rarefaction",
+            "pressure_pa": 4000056.7986715785,
+            "right": {
+              "density_kg_m3": 903.6662236214958,
+              "enthalpy_j_kg": 702923.705820665,
+              "entropy_j_kg_k": 1996.9314731387678,
+              "internal_energy_j_kg": 698497.2298784293,
+              "phase": "liquid",
+              "pressure_pa": 4000056.7986715785,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 439.00249028499894
+            },
+            "right_inner_speed_m_s": 1438.5951391186106,
+            "right_outer_speed_m_s": 1438.5951391186106,
+            "right_residual": 5.575028702575757e-10,
+            "right_wave": "shock",
+            "velocity_m_s": 0.01542835539311839,
+            "velocity_residual_m_s": 5.3339277439334865e-14
+          },
+          "passed": true
+        },
+        {
+          "candidates": [
+            {
+              "absolute_errors": {
+                "energy_w_m2": 1235810641.5572991,
+                "mass_kg_m2_s": 1739.0844960329273,
+                "momentum_pa": 7432.6804754519835
+              },
+              "envelope": "fixed_2500",
+              "flux": [
+                2404.3563221752606,
+                7989109.194561543,
+                1708685529.4251442
+              ],
+              "relative_mass_flux_error": 0.41971988314412234,
+              "wave_bound_m_s": 2500.0
+            },
+            {
+              "absolute_errors": {
+                "energy_w_m2": 58184225.88943577,
+                "mass_kg_m2_s": 82.0016279967681,
+                "momentum_pa": 19285.566823379137
+              },
+              "envelope": "local_acoustic_diagnostic",
+              "flux": [
+                4061.43919021142,
+                8000962.08090947,
+                2886311945.0930076
+              ],
+              "relative_mass_flux_error": 0.019790708156471104,
+              "wave_bound_m_s": 1477.0719535944313
+            }
+          ],
+          "case": "wide",
+          "checks": {
+            "contact_velocity": true,
+            "left_isentropic": true,
+            "right_entropy": true,
+            "right_hugoniot": true,
+            "wave_order": true
+          },
+          "godunov_flux": [
+            4143.440818208188,
+            7981676.514086091,
+            2944496170.9824433
+          ],
+          "input": {
+            "left": {
+              "density_kg_m3": 907.6565349896787,
+              "enthalpy_j_kg": 717291.8096749271,
+              "entropy_j_kg_k": 2004.4919835256167,
+              "internal_energy_j_kg": 701867.4729789331,
+              "phase": "liquid",
+              "pressure_pa": 14000000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 441.0
+            },
+            "pressure_bracket_pa": [
+              1000000.0,
+              15000000.0
+            ],
+            "right": {
+              "density_kg_m3": 902.4474681782928,
+              "enthalpy_j_kg": 701781.7569384335,
+              "entropy_j_kg_k": 1999.3752292965198,
+              "internal_energy_j_kg": 699565.5614583385,
+              "phase": "liquid",
+              "pressure_pa": 2000000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 439.0
+            },
+            "velocity_left_m_s": 0.0,
+            "velocity_right_m_s": 0.0
+          },
+          "oracle": {
+            "left": {
+              "density_kg_m3": 904.8038514741248,
+              "enthalpy_j_kg": 710629.849609243,
+              "entropy_j_kg_k": 2004.491983525619,
+              "internal_energy_j_kg": 701829.3763239218,
+              "phase": "liquid",
+              "pressure_pa": 7962702.123353753,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 440.25958818316525
+            },
+            "left_inner_speed_m_s": -1442.4791791864477,
+            "left_outer_speed_m_s": -1462.4474788063676,
+            "left_residual": 5.084133306960691e-14,
+            "left_wave": "rarefaction",
+            "pressure_pa": 7962702.123353753,
+            "right": {
+              "density_kg_m3": 905.3208592822544,
+              "enthalpy_j_kg": 708378.5283245124,
+              "entropy_j_kg_k": 1999.375340915096,
+              "internal_energy_j_kg": 699583.0807859827,
+              "phase": "liquid",
+              "pressure_pa": 7962702.123353753,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 439.7399106533853
+            },
+            "right_inner_speed_m_s": 1442.8277402956512,
+            "right_outer_speed_m_s": 1442.8277402956512,
+            "right_residual": 2.0047608018103347e-10,
+            "right_wave": "shock",
+            "velocity_m_s": 4.579380173346532,
+            "velocity_residual_m_s": 1.0267342531733448e-12
+          },
+          "passed": true
+        },
+        {
+          "candidates": [
+            {
+              "absolute_errors": {
+                "energy_w_m2": 1223721858.1278176,
+                "mass_kg_m2_s": 1743.3564627993674,
+                "momentum_pa": 27704.012131914496
+              },
+              "envelope": "fixed_2500",
+              "flux": [
+                -2409.6305678136787,
+                7975923.580465348,
+                -1691656829.9409747
+              ],
+              "relative_mass_flux_error": 0.41978374840771426,
+              "wave_bound_m_s": 2500.0
+            },
+            {
+              "absolute_errors": {
+                "energy_w_m2": 66910496.414592266,
+                "mass_kg_m2_s": 95.57071273278189,
+                "momentum_pa": 39467.14682277106
+              },
+              "envelope": "local_acoustic_diagnostic",
+              "flux": [
+                -4057.416317880264,
+                7987686.715156205,
+                -2848468191.6542
+              ],
+              "relative_mass_flux_error": 0.023012523763811066,
+              "wave_bound_m_s": 1481.8083267296013
+            }
+          ],
+          "case": "reversed",
+          "checks": {
+            "contact_velocity": true,
+            "left_entropy": true,
+            "left_hugoniot": true,
+            "right_isentropic": true,
+            "wave_order": true
+          },
+          "godunov_flux": [
+            -4152.987030613046,
+            7948219.568333434,
+            -2915378688.0687923
+          ],
+          "input": {
+            "left": {
+              "density_kg_m3": 900.4182762707859,
+              "enthalpy_j_kg": 710490.2386568271,
+              "entropy_j_kg_k": 2019.167256095141,
+              "internal_energy_j_kg": 708269.048735757,
+              "phase": "liquid",
+              "pressure_pa": 2000000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 441.0
+            },
+            "pressure_bracket_pa": [
+              1000000.0,
+              15000000.0
+            ],
+            "right": {
+              "density_kg_m3": 909.6091439815735,
+              "enthalpy_j_kg": 708669.6450547903,
+              "entropy_j_kg_k": 1984.8961307118814,
+              "internal_energy_j_kg": 693278.4189522044,
+              "phase": "liquid",
+              "pressure_pa": 14000000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 439.0
+            },
+            "velocity_left_m_s": 0.0,
+            "velocity_right_m_s": 0.0
+          },
+          "oracle": {
+            "left": {
+              "density_kg_m3": 903.2957776117454,
+              "enthalpy_j_kg": 717064.6885559303,
+              "entropy_j_kg_k": 2019.167368042134,
+              "internal_energy_j_kg": 708286.6128179698,
+              "phase": "liquid",
+              "pressure_pa": 7929198.749655848,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 441.7482733114025
+            },
+            "left_inner_speed_m_s": -1437.7490064394703,
+            "left_outer_speed_m_s": -1437.7490064394703,
+            "left_residual": 2.707665203161014e-10,
+            "left_wave": "shock",
+            "pressure_pa": 7929198.749655848,
+            "right": {
+              "density_kg_m3": 906.7591447451433,
+              "enthalpy_j_kg": 701985.1274728088,
+              "entropy_j_kg_k": 1984.8961307118823,
+              "internal_energy_j_kg": 693240.5796007446,
+              "phase": "liquid",
+              "pressure_pa": 7929198.749655848,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 438.26755684226157
+            },
+            "right_inner_speed_m_s": 1447.2258450920144,
+            "right_outer_speed_m_s": 1467.136957158021,
+            "right_residual": 5.0848583651752546e-14,
+            "right_wave": "rarefaction",
+            "velocity_m_s": -4.580033247726769,
+            "velocity_residual_m_s": 4.725109192804666e-13
+          },
+          "passed": true
+        },
+        {
+          "candidates": [
+            {
+              "absolute_errors": {
+                "energy_w_m2": 1075712.23771054,
+                "mass_kg_m2_s": 1.523763642489774,
+                "momentum_pa": 951262.5339920092
+              },
+              "envelope": "fixed_2500",
+              "flux": [
+                -0.9962391132282846,
+                10263608.296182841,
+                -705032.1289926767
+              ],
+              "relative_mass_flux_error": 0.6046674508717302,
+              "wave_bound_m_s": 2500.0
+            },
+            {
+              "absolute_errors": {
+                "energy_w_m2": 1076543.0625315353,
+                "mass_kg_m2_s": 1.5234828807896914,
+                "momentum_pa": 15182.102743417025
+              },
+              "envelope": "local_acoustic_diagnostic",
+              "flux": [
+                -0.9965198749283672,
+                9327527.864934249,
+                -704201.3041716814
+              ],
+              "relative_mass_flux_error": 0.6045560376205164,
+              "wave_bound_m_s": 1465.7498765869348
+            }
+          ],
+          "case": "compression",
+          "checks": {
+            "contact_velocity": true,
+            "left_entropy": true,
+            "left_hugoniot": true,
+            "right_entropy": true,
+            "right_hugoniot": true,
+            "wave_order": true
+          },
+          "godunov_flux": [
+            -2.5200027557180587,
+            9312345.762190832,
+            -1780744.3667032167
+          ],
+          "input": {
+            "left": {
+              "density_kg_m3": 904.087630899244,
+              "enthalpy_j_kg": 713859.979429948,
+              "entropy_j_kg_k": 2011.7291064810092,
+              "internal_energy_j_kg": 705011.2796727763,
+              "phase": "liquid",
+              "pressure_pa": 8000000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 441.0
+            },
+            "pressure_bracket_pa": [
+              1000000.0,
+              15000000.0
+            ],
+            "right": {
+              "density_kg_m3": 906.0771267357175,
+              "enthalpy_j_kg": 705195.9324903047,
+              "entropy_j_kg_k": 1992.0380671581286,
+              "internal_energy_j_kg": 696366.662040866,
+              "phase": "liquid",
+              "pressure_pa": 8000000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 439.0
+            },
+            "velocity_left_m_s": 1.0,
+            "velocity_right_m_s": -1.0
+          },
+          "oracle": {
+            "left": {
+              "density_kg_m3": 904.7143666607421,
+              "enthalpy_j_kg": 715311.0458424285,
+              "entropy_j_kg_k": 2011.7291076359943,
+              "internal_energy_j_kg": 705017.9123426717,
+              "phase": "liquid",
+              "pressure_pa": 9312345.755186955,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 441.162923709369
+            },
+            "left_inner_speed_m_s": -1446.5460112469627,
+            "left_outer_speed_m_s": -1446.5460112469627,
+            "left_residual": 4.6221781957456187e-10,
+            "left_wave": "shock",
+            "pressure_pa": 9312345.755186955,
+            "right": {
+              "density_kg_m3": 906.6996604942987,
+              "enthalpy_j_kg": 706643.8172152204,
+              "entropy_j_kg_k": 1992.038068291694,
+              "internal_energy_j_kg": 696373.2213818546,
+              "phase": "liquid",
+              "pressure_pa": 9312345.755186955,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 439.1602447467751
+            },
+            "right_inner_speed_m_s": 1451.4186765381705,
+            "right_outer_speed_m_s": 1451.4186765381705,
+            "right_residual": 4.2807446476444966e-10,
+            "right_wave": "shock",
+            "velocity_m_s": -0.002779313664178773,
+            "velocity_residual_m_s": 6.238343175368755e-13
+          },
+          "passed": true
+        },
+        {
+          "candidates": [
+            {
+              "absolute_errors": {
+                "energy_w_m2": 1094221.8840110002,
+                "mass_kg_m2_s": 1.5344687785345914,
+                "momentum_pa": 953421.4455162343
+              },
+              "envelope": "fixed_2500",
+              "flux": [
+                0.9932567229609504,
+                5738201.868574793,
+                706560.8494203091
+              ],
+              "relative_mass_flux_error": 0.6070551480478062,
+              "wave_bound_m_s": 2500.0
+            },
+            {
+              "absolute_errors": {
+                "energy_w_m2": 1093393.4916217027,
+                "mass_kg_m2_s": 1.5347495401171218,
+                "momentum_pa": 17341.01426764019
+              },
+              "envelope": "local_acoustic_diagnostic",
+              "flux": [
+                0.9929759613784199,
+                6674282.2998233875,
+                707389.2418096066
+              ],
+              "relative_mass_flux_error": 0.6071662208610387,
+              "wave_bound_m_s": 1465.7498765869348
+            }
+          ],
+          "case": "expansion",
+          "checks": {
+            "contact_velocity": true,
+            "left_isentropic": true,
+            "right_isentropic": true,
+            "wave_order": true
+          },
+          "godunov_flux": [
+            2.5277255014955418,
+            6691623.314091028,
+            1800782.7334313092
+          ],
+          "input": {
+            "left": {
+              "density_kg_m3": 904.087630899244,
+              "enthalpy_j_kg": 713859.979429948,
+              "entropy_j_kg_k": 2011.7291064810092,
+              "internal_energy_j_kg": 705011.2796727763,
+              "phase": "liquid",
+              "pressure_pa": 8000000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 441.0
+            },
+            "pressure_bracket_pa": [
+              1000000.0,
+              15000000.0
+            ],
+            "right": {
+              "density_kg_m3": 906.0771267357175,
+              "enthalpy_j_kg": 705195.9324903047,
+              "entropy_j_kg_k": 1992.0380671581286,
+              "internal_energy_j_kg": 696366.662040866,
+              "phase": "liquid",
+              "pressure_pa": 8000000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 439.0
+            },
+            "velocity_left_m_s": -1.0,
+            "velocity_right_m_s": 1.0
+          },
+          "oracle": {
+            "left": {
+              "density_kg_m3": 903.4598419175038,
+              "enthalpy_j_kg": 712412.298074286,
+              "entropy_j_kg_k": 2011.7291064810088,
+              "internal_energy_j_kg": 705005.63427303,
+              "phase": "liquid",
+              "pressure_pa": 6691623.307018885,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 440.8369946853348
+            },
+            "left_inner_speed_m_s": -1441.9340632265746,
+            "left_outer_speed_m_s": -1446.345560159375,
+            "left_residual": 1.1133292380078526e-14,
+            "left_wave": "rarefaction",
+            "pressure_pa": 6691623.307018885,
+            "right": {
+              "density_kg_m3": 905.453585295547,
+              "enthalpy_j_kg": 703751.4343250949,
+              "entropy_j_kg_k": 1992.0380671581295,
+              "internal_energy_j_kg": 696361.0794624161,
+              "phase": "liquid",
+              "pressure_pa": 6691623.307018885,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 438.8396831781534
+            },
+            "right_inner_speed_m_s": 1446.865140979268,
+            "right_outer_speed_m_s": 1451.2375015712225,
+            "right_residual": 1.1071168112424607e-14,
+            "right_wave": "rarefaction",
+            "velocity_m_s": 0.002797828286568549,
+            "velocity_residual_m_s": 1.1102230246251565e-16
+          },
+          "passed": true
+        },
+        {
+          "candidates": [
+            {
+              "absolute_errors": {
+                "energy_w_m2": 0.0,
+                "mass_kg_m2_s": 0.0,
+                "momentum_pa": 0.0
+              },
+              "envelope": "fixed_2500",
+              "flux": [
+                0.0,
+                8000000.0,
+                0.0
+              ],
+              "relative_mass_flux_error": null,
+              "wave_bound_m_s": 2500.0
+            },
+            {
+              "absolute_errors": {
+                "energy_w_m2": 0.0,
+                "mass_kg_m2_s": 0.0,
+                "momentum_pa": 0.0
+              },
+              "envelope": "local_acoustic_diagnostic",
+              "flux": [
+                0.0,
+                8000000.0,
+                0.0
+              ],
+              "relative_mass_flux_error": null,
+              "wave_bound_m_s": 1464.7398765869348
+            }
+          ],
+          "case": "contact",
+          "checks": {
+            "contact_velocity": true,
+            "left_isentropic": true,
+            "right_isentropic": true,
+            "wave_order": true
+          },
+          "godunov_flux": [
+            0.0,
+            8000000.0,
+            0.0
+          ],
+          "input": {
+            "left": {
+              "density_kg_m3": 904.087630899244,
+              "enthalpy_j_kg": 713859.979429948,
+              "entropy_j_kg_k": 2011.7291064810092,
+              "internal_energy_j_kg": 705011.2796727763,
+              "phase": "liquid",
+              "pressure_pa": 8000000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 441.0
+            },
+            "pressure_bracket_pa": [
+              1000000.0,
+              15000000.0
+            ],
+            "right": {
+              "density_kg_m3": 906.0771267357175,
+              "enthalpy_j_kg": 705195.9324903047,
+              "entropy_j_kg_k": 1992.0380671581286,
+              "internal_energy_j_kg": 696366.662040866,
+              "phase": "liquid",
+              "pressure_pa": 8000000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 439.0
+            },
+            "velocity_left_m_s": 0.0,
+            "velocity_right_m_s": -0.0
+          },
+          "oracle": {
+            "left": {
+              "density_kg_m3": 904.087630899244,
+              "enthalpy_j_kg": 713859.979429948,
+              "entropy_j_kg_k": 2011.7291064810092,
+              "internal_energy_j_kg": 705011.2796727763,
+              "phase": "liquid",
+              "pressure_pa": 8000000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 441.0
+            },
+            "left_inner_speed_m_s": -1445.345560159375,
+            "left_outer_speed_m_s": -1445.345560159375,
+            "left_residual": 0.0,
+            "left_wave": "contact",
+            "pressure_pa": 8000000.0,
+            "right": {
+              "density_kg_m3": 906.0771267357175,
+              "enthalpy_j_kg": 705195.9324903047,
+              "entropy_j_kg_k": 1992.0380671581286,
+              "internal_energy_j_kg": 696366.662040866,
+              "phase": "liquid",
+              "pressure_pa": 8000000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 439.0
+            },
+            "right_inner_speed_m_s": 1450.2375015712225,
+            "right_outer_speed_m_s": 1450.2375015712225,
+            "right_residual": 0.0,
+            "right_wave": "contact",
+            "velocity_m_s": 0.0,
+            "velocity_residual_m_s": 0.0
+          },
+          "passed": true
+        },
+        {
+          "candidates": [
+            {
+              "absolute_errors": {
+                "energy_w_m2": 7782.301097769647,
+                "mass_kg_m2_s": 0.02413107472986424,
+                "momentum_pa": 1.0337680578231812e-06
+              },
+              "envelope": "fixed_2500",
+              "flux": [
+                0.04000000132009518,
+                999999.9999974205,
+                12900.049537420273
+              ],
+              "relative_mass_flux_error": 0.3762774027222877,
+              "wave_bound_m_s": 2500.0
+            },
+            {
+              "absolute_errors": {
+                "energy_w_m2": 204.77812937281124,
+                "mass_kg_m2_s": 0.0006349686316709929,
+                "momentum_pa": 3.5300618037581444e-06
+              },
+              "envelope": "local_acoustic_diagnostic",
+              "flux": [
+                0.06349610741828843,
+                999999.9999999168,
+                20477.57250581711
+              ],
+              "relative_mass_flux_error": 0.009901106776632586,
+              "wave_bound_m_s": 1574.8996919305366
+            }
+          ],
+          "case": "acoustic-1e+06-100",
+          "checks": {
+            "contact_velocity": true,
+            "left_isentropic": true,
+            "linear_acoustic_limit": true,
+            "right_entropy": true,
+            "right_hugoniot": true,
+            "wave_order": true
+          },
+          "godunov_flux": [
+            0.06413107604995942,
+            999999.9999963867,
+            20682.35063518992
+          ],
+          "input": {
+            "left": {
+              "density_kg_m3": 974.1409983916134,
+              "enthalpy_j_kg": 322501.3284109688,
+              "entropy_j_kg_k": 1037.2015597676814,
+              "internal_energy_j_kg": 321474.68031623587,
+              "phase": "liquid",
+              "pressure_pa": 1000100.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 350.00000533980784
+            },
+            "pressure_bracket_pa": [
+              980000.0,
+              1020000.0
+            ],
+            "right": {
+              "density_kg_m3": 974.1409161357154,
+              "enthalpy_j_kg": 322501.1231018732,
+              "entropy_j_kg_k": 1037.201559767683,
+              "internal_energy_j_kg": 321474.68022955605,
+              "phase": "liquid",
+              "pressure_pa": 999900.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 349.99999466019176
+            },
+            "velocity_left_m_s": 0.0,
+            "velocity_right_m_s": 0.0
+          },
+          "oracle": {
+            "left": {
+              "density_kg_m3": 974.1409572636659,
+              "enthalpy_j_kg": 322501.22575641493,
+              "entropy_j_kg_k": 1037.201559767681,
+              "internal_energy_j_kg": 321474.68027289363,
+              "phase": "liquid",
+              "pressure_pa": 999999.9999921648,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 349.99999999999966
+            },
+            "left_inner_speed_m_s": -1559.3063770705833,
+            "left_outer_speed_m_s": -1559.3066256737986,
+            "left_residual": 7.308983011462515e-19,
+            "left_wave": "rarefaction",
+            "pressure_pa": 999999.9999921648,
+            "right": {
+              "density_kg_m3": 974.1409572636663,
+              "enthalpy_j_kg": 322501.2257564147,
+              "entropy_j_kg_k": 1037.20155976768,
+              "internal_energy_j_kg": 321474.6802728934,
+              "phase": "liquid",
+              "pressure_pa": 999999.9999921648,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 349.9999999999995
+            },
+            "right_inner_speed_m_s": 1559.3063820947243,
+            "right_outer_speed_m_s": 1559.3063820947243,
+            "right_residual": 9.398546691274478e-10,
+            "right_wave": "shock",
+            "velocity_m_s": 6.583346647296483e-05,
+            "velocity_residual_m_s": 2.7841018878337065e-13
+          },
+          "passed": true
+        },
+        {
+          "candidates": [
+            {
+              "absolute_errors": {
+                "energy_w_m2": 77822.98282647418,
+                "mass_kg_m2_s": 0.24131065734652024,
+                "momentum_pa": 0.0001169948372989893
+              },
+              "envelope": "fixed_2500",
+              "flux": [
+                0.4000001027293365,
+                999999.9997420502,
+                129000.52338838577
+              ],
+              "relative_mass_flux_error": 0.3762772627079843,
+              "wave_bound_m_s": 2500.0
+            },
+            {
+              "absolute_errors": {
+                "energy_w_m2": 2047.9958190300968,
+                "mass_kg_m2_s": 0.006350350672227778,
+                "momentum_pa": 0.0003666246775537729
+              },
+              "envelope": "local_acoustic_diagnostic",
+              "flux": [
+                0.634960409403629,
+                999999.99999168,
+                204775.51039582986
+              ],
+              "relative_mass_flux_error": 0.009902142717013876,
+              "wave_bound_m_s": 1574.9013533067844
+            }
+          ],
+          "case": "acoustic-1e+06-1000",
+          "checks": {
+            "contact_velocity": true,
+            "left_isentropic": true,
+            "linear_acoustic_limit": true,
+            "right_entropy": true,
+            "right_hugoniot": true,
+            "wave_order": true
+          },
+          "godunov_flux": [
+            0.6413107600758567,
+            999999.9996250554,
+            206823.50621485995
+          ],
+          "input": {
+            "left": {
+              "density_kg_m3": 974.1413685426784,
+              "enthalpy_j_kg": 322502.2523016881,
+              "entropy_j_kg_k": 1037.201559767674,
+              "internal_energy_j_kg": 321474.6807065124,
+              "phase": "liquid",
+              "pressure_pa": 1001000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 350.00005339805585
+            },
+            "pressure_bracket_pa": [
+              980000.0,
+              1020000.0
+            ],
+            "right": {
+              "density_kg_m3": 974.1405459836965,
+              "enthalpy_j_kg": 322500.1992107212,
+              "entropy_j_kg_k": 1037.2015597676748,
+              "internal_energy_j_kg": 321474.67983970355,
+              "phase": "liquid",
+              "pressure_pa": 999000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 349.9999466018928
+            },
+            "velocity_left_m_s": 0.0,
+            "velocity_right_m_s": 0.0
+          },
+          "oracle": {
+            "left": {
+              "density_kg_m3": 974.1409572633418,
+              "enthalpy_j_kg": 322501.2257556026,
+              "entropy_j_kg_k": 1037.201559767674,
+              "internal_energy_j_kg": 321474.6802728912,
+              "phase": "liquid",
+              "pressure_pa": 999999.9992028582,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 349.9999999999569
+            },
+            "left_inner_speed_m_s": -1559.305784567943,
+            "left_outer_speed_m_s": -1559.3082706007765,
+            "left_residual": 7.308983021307881e-18,
+            "left_wave": "rarefaction",
+            "pressure_pa": 999999.9992028582,
+            "right": {
+              "density_kg_m3": 974.1409572633418,
+              "enthalpy_j_kg": 322501.2257556008,
+              "entropy_j_kg_k": 1037.2015597676698,
+              "internal_energy_j_kg": 321474.6802728894,
+              "phase": "liquid",
+              "pressure_pa": 999999.9992028582,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 349.9999999999568
+            },
+            "right_inner_speed_m_s": 1559.3058579430888,
+            "right_outer_speed_m_s": 1559.3058579430888,
+            "right_residual": 2.336879324923123e-09,
+            "right_wave": "shock",
+            "velocity_m_s": 0.0006583346642948817,
+            "velocity_residual_m_s": 1.409849884406733e-13
+          },
+          "passed": true
+        },
+        {
+          "candidates": [
+            {
+              "absolute_errors": {
+                "energy_w_m2": 778226.831241247,
+                "mass_kg_m2_s": 2.4130972826367305,
+                "momentum_pa": 0.011701411916874349
+              },
+              "envelope": "fixed_2500",
+              "flux": [
+                4.000010318065961,
+                999999.9742050597,
+                1290008.2305073738
+              ],
+              "relative_mass_flux_error": 0.37627581398639326,
+              "wave_bound_m_s": 2500.0
+            },
+            {
+              "absolute_errors": {
+                "energy_w_m2": 20501.4061136127,
+                "mass_kg_m2_s": 0.06357001074617852,
+                "momentum_pa": 0.03666349034756422
+              },
+              "envelope": "local_acoustic_diagnostic",
+              "flux": [
+                6.349537589956513,
+                999999.9991671381,
+                2047733.6556350081
+              ],
+              "relative_mass_flux_error": 0.009912512732394055,
+              "wave_bound_m_s": 1574.917967005984
+            }
+          ],
+          "case": "acoustic-1e+06-10000",
+          "checks": {
+            "contact_velocity": true,
+            "left_isentropic": true,
+            "linear_acoustic_limit": true,
+            "right_entropy": true,
+            "right_hugoniot": true,
+            "wave_order": true
+          },
+          "godunov_flux": [
+            6.413107600702691,
+            999999.9625036478,
+            2068235.0617486208
+          ],
+          "input": {
+            "left": {
+              "density_kg_m3": 974.1450700103721,
+              "enthalpy_j_kg": 322511.49118958734,
+              "entropy_j_kg_k": 1037.2015597676773,
+              "internal_energy_j_kg": 321474.6846285386,
+              "phase": "liquid",
+              "pressure_pa": 1010000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 350.0005339782826
+            },
+            "pressure_bracket_pa": [
+              980000.0,
+              1020000.0
+            ],
+            "right": {
+              "density_kg_m3": 974.1368444205525,
+              "enthalpy_j_kg": 322490.96027991624,
+              "entropy_j_kg_k": 1037.201559767678,
+              "internal_energy_j_kg": 321474.6759604489,
+              "phase": "liquid",
+              "pressure_pa": 990000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 349.99946601665175
+            },
+            "velocity_left_m_s": 0.0,
+            "velocity_right_m_s": 0.0
+          },
+          "oracle": {
+            "left": {
+              "density_kg_m3": 974.1409572308835,
+              "enthalpy_j_kg": 322501.22567459004,
+              "entropy_j_kg_k": 1037.2015597676777,
+              "internal_energy_j_kg": 321474.6802728583,
+              "phase": "liquid",
+              "pressure_pa": 999999.9202839374,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 349.9999999957431
+            },
+            "left_inner_speed_m_s": -1559.2998594117244,
+            "left_outer_speed_m_s": -1559.324719807905,
+            "left_residual": 7.308983022237328e-17,
+            "left_wave": "rarefaction",
+            "pressure_pa": 999999.9202839374,
+            "right": {
+              "density_kg_m3": 974.1409572308839,
+              "enthalpy_j_kg": 322501.2256745895,
+              "entropy_j_kg_k": 1037.2015597676773,
+              "internal_energy_j_kg": 321474.6802728578,
+              "phase": "liquid",
+              "pressure_pa": 999999.9202839374,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 349.9999999957427
+            },
+            "right_inner_speed_m_s": 1559.3005959399238,
+            "right_outer_speed_m_s": 1559.3005959399238,
+            "right_residual": 4.247605409762878e-10,
+            "right_wave": "shock",
+            "velocity_m_s": 0.006583346643110813,
+            "velocity_residual_m_s": 5.950188258774247e-14
+          },
+          "passed": true
+        },
+        {
+          "candidates": [
+            {
+              "absolute_errors": {
+                "energy_w_m2": 20957.8146443477,
+                "mass_kg_m2_s": 0.02963249054868991,
+                "momentum_pa": 2.7478672564029694e-06
+              },
+              "envelope": "fixed_2500",
+              "flux": [
+                0.04000000132009518,
+                3999999.999996401,
+                28290.319442749023
+              ],
+              "relative_mass_flux_error": 0.4255555094097327,
+              "wave_bound_m_s": 2500.0
+            },
+            {
+              "absolute_errors": {
+                "energy_w_m2": 487.6139647283999,
+                "mass_kg_m2_s": 0.0006894430986731648,
+                "momentum_pa": 6.241258233785629e-06
+              },
+              "envelope": "local_acoustic_diagnostic",
+              "flux": [
+                0.06894304877011193,
+                3999999.9999998943,
+                48760.520122368325
+              ],
+              "relative_mass_flux_error": 0.009901169413444887,
+              "wave_bound_m_s": 1450.4725549774255
+            }
+          ],
+          "case": "acoustic-4e+06-100",
+          "checks": {
+            "contact_velocity": true,
+            "left_isentropic": true,
+            "linear_acoustic_limit": true,
+            "right_entropy": true,
+            "right_hugoniot": true,
+            "wave_order": true
+          },
+          "godunov_flux": [
+            0.06963249186878509,
+            3999999.999993653,
+            49248.134087096725
+          ],
+          "input": {
+            "left": {
+              "density_kg_m3": 902.6632605721771,
+              "enthalpy_j_kg": 707258.0698966881,
+              "entropy_j_kg_k": 2006.7933734135713,
+              "internal_energy_j_kg": 702826.6277690176,
+              "phase": "liquid",
+              "pressure_pa": 4000100.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 440.0000125205072
+            },
+            "pressure_bracket_pa": [
+              3980000.0,
+              4020000.0
+            ],
+            "right": {
+              "density_kg_m3": 902.6631635984982,
+              "enthalpy_j_kg": 707257.8483301088,
+              "entropy_j_kg_k": 2006.7933734135722,
+              "internal_energy_j_kg": 702826.6272929566,
+              "phase": "liquid",
+              "pressure_pa": 3999900.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 439.9999874794897
+            },
+            "velocity_left_m_s": 0.0,
+            "velocity_right_m_s": 0.0
+          },
+          "oracle": {
+            "left": {
+              "density_kg_m3": 902.6632120853407,
+              "enthalpy_j_kg": 707257.9591133877,
+              "entropy_j_kg_k": 2006.7933734135695,
+              "internal_energy_j_kg": 702826.6275309835,
+              "phase": "liquid",
+              "pressure_pa": 3999999.9999882816,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 439.9999999999984
+            },
+            "left_inner_speed_m_s": -1436.1110988585906,
+            "left_outer_speed_m_s": -1436.1114405717085,
+            "left_residual": 8.564389766563024e-19,
+            "left_wave": "rarefaction",
+            "pressure_pa": 3999999.9999882816,
+            "right": {
+              "density_kg_m3": 902.6632120853404,
+              "enthalpy_j_kg": 707257.959113388,
+              "entropy_j_kg_k": 2006.7933734135704,
+              "internal_energy_j_kg": 702826.6275309838,
+              "phase": "liquid",
+              "pressure_pa": 3999999.9999882816,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 439.99999999999847
+            },
+            "right_inner_speed_m_s": 1436.1110884460047,
+            "right_outer_speed_m_s": 1436.1110884460047,
+            "right_residual": 2.356426872477269e-10,
+            "right_wave": "shock",
+            "velocity_m_s": 7.71411650951405e-05,
+            "velocity_residual_m_s": 5.511468560183419e-14
+          },
+          "passed": true
+        },
+        {
+          "candidates": [
+            {
+              "absolute_errors": {
+                "energy_w_m2": 209578.05649785226,
+                "mass_kg_m2_s": 0.296324776093306,
+                "momentum_pa": 0.0002925754524767399
+              },
+              "envelope": "fixed_2500",
+              "flux": [
+                0.4000001439408152,
+                3999999.9996401,
+                282903.2853245735
+              ],
+              "relative_mass_flux_error": 0.42555532276338115,
+              "wave_bound_m_s": 2500.0
+            },
+            {
+              "absolute_errors": {
+                "energy_w_m2": 4876.9457231790875,
+                "mass_kg_m2_s": 0.006895568636074212,
+                "momentum_pa": 0.0006418894045054913
+              },
+              "envelope": "local_acoustic_diagnostic",
+              "flux": [
+                0.689429351398047,
+                3999999.999989414,
+                487604.3960992467
+              ],
+              "relative_mass_flux_error": 0.0099028031852376,
+              "wave_bound_m_s": 1450.4749599296217
+            }
+          ],
+          "case": "acoustic-4e+06-1000",
+          "checks": {
+            "contact_velocity": true,
+            "left_isentropic": true,
+            "linear_acoustic_limit": true,
+            "right_entropy": true,
+            "right_hugoniot": true,
+            "wave_order": true
+          },
+          "godunov_flux": [
+            0.6963249200341212,
+            3999999.9993475247,
+            492481.3418224258
+          ],
+          "input": {
+            "left": {
+              "density_kg_m3": 902.6636969528474,
+              "enthalpy_j_kg": 707259.0669460014,
+              "entropy_j_kg_k": 2006.7933734135756,
+              "internal_energy_j_kg": 702826.6299115816,
+              "phase": "liquid",
+              "pressure_pa": 4001000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 440.0001252049156
+            },
+            "pressure_bracket_pa": [
+              3980000.0,
+              4020000.0
+            ],
+            "right": {
+              "density_kg_m3": 902.6627272160584,
+              "enthalpy_j_kg": 707256.8512802098,
+              "entropy_j_kg_k": 2006.7933734135756,
+              "internal_energy_j_kg": 702826.6251509739,
+              "phase": "liquid",
+              "pressure_pa": 3999000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 439.99987479473924
+            },
+            "velocity_left_m_s": 0.0,
+            "velocity_right_m_s": 0.0
+          },
+          "oracle": {
+            "left": {
+              "density_kg_m3": 902.6632120847689,
+              "enthalpy_j_kg": 707257.9591120854,
+              "entropy_j_kg_k": 2006.7933734135747,
+              "internal_energy_j_kg": 702826.6275309832,
+              "phase": "liquid",
+              "pressure_pa": 3999999.9988103714,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 439.99999999985147
+            },
+            "left_inner_speed_m_s": -1436.1104045849856,
+            "left_outer_speed_m_s": -1436.1138217124967,
+            "left_residual": 8.564389781150189e-18,
+            "left_wave": "rarefaction",
+            "pressure_pa": 3999999.9988103714,
+            "right": {
+              "density_kg_m3": 902.6632120847689,
+              "enthalpy_j_kg": 707257.9591120858,
+              "entropy_j_kg_k": 2006.7933734135756,
+              "internal_energy_j_kg": 702826.6275309835,
+              "phase": "liquid",
+              "pressure_pa": 3999999.9988103714,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 439.9999999998516
+            },
+            "right_inner_speed_m_s": 1436.1102394582972,
+            "right_outer_speed_m_s": 1436.1102394582972,
+            "right_residual": 5.816720100373929e-10,
+            "right_wave": "shock",
+            "velocity_m_s": 0.0007714116524433361,
+            "velocity_residual_m_s": 1.950748590440199e-13
+          },
+          "passed": true
+        },
+        {
+          "candidates": [
+            {
+              "absolute_errors": {
+                "energy_w_m2": 2095771.4019841999,
+                "mass_kg_m2_s": 2.96323480789051,
+                "momentum_pa": 0.029266495257616043
+              },
+              "envelope": "fixed_2500",
+              "flux": [
+                4.00001439601283,
+                3999999.9640100743,
+                2829042.018055916
+              ],
+              "relative_mass_flux_error": 0.4255534623447672,
+              "wave_bound_m_s": 2500.0
+            },
+            {
+              "absolute_errors": {
+                "energy_w_m2": 48849.83915928658,
+                "mass_kg_m2_s": 0.06906933902823109,
+                "momentum_pa": 0.06419608276337385
+              },
+              "envelope": "local_acoustic_diagnostic",
+              "flux": [
+                6.894179864875109,
+                3999999.998939662,
+                4875963.580880829
+              ],
+              "relative_mass_flux_error": 0.009919124966763128,
+              "wave_bound_m_s": 1450.499008799858
+            }
+          ],
+          "case": "acoustic-4e+06-10000",
+          "checks": {
+            "contact_velocity": true,
+            "left_isentropic": true,
+            "linear_acoustic_limit": true,
+            "right_entropy": true,
+            "right_hugoniot": true,
+            "wave_order": true
+          },
+          "godunov_flux": [
+            6.96324920390334,
+            3999999.934743579,
+            4924813.420040116
+          ],
+          "input": {
+            "left": {
+              "density_kg_m3": 902.6680606799677,
+              "enthalpy_j_kg": 707269.037412606,
+              "entropy_j_kg_k": 2006.7933734135734,
+              "internal_energy_j_kg": 702826.6513632099,
+              "phase": "liquid",
+              "pressure_pa": 4010000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 440.0012520335891
+            },
+            "pressure_bracket_pa": [
+              3980000.0,
+              4020000.0
+            ],
+            "right": {
+              "density_kg_m3": 902.658363312072,
+              "enthalpy_j_kg": 707246.8807546915,
+              "entropy_j_kg_k": 2006.793373413573,
+              "internal_energy_j_kg": 702826.6037571355,
+              "phase": "liquid",
+              "pressure_pa": 3990000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 439.99874793182414
+            },
+            "velocity_left_m_s": 0.0,
+            "velocity_right_m_s": 0.0
+          },
+          "oracle": {
+            "left": {
+              "density_kg_m3": 902.6632120276604,
+              "enthalpy_j_kg": 707257.9589816006,
+              "entropy_j_kg_k": 2006.7933734135709,
+              "internal_energy_j_kg": 702826.627530701,
+              "phase": "liquid",
+              "pressure_pa": 3999999.8810282634,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 439.99999998510435
+            },
+            "left_inner_speed_m_s": -1436.1034615684912,
+            "left_outer_speed_m_s": -1436.137632475107,
+            "left_residual": 8.564389784967976e-17,
+            "left_wave": "rarefaction",
+            "pressure_pa": 3999999.8810282634,
+            "right": {
+              "density_kg_m3": 902.6632120276606,
+              "enthalpy_j_kg": 707257.9589816005,
+              "entropy_j_kg_k": 2006.7933734135709,
+              "internal_energy_j_kg": 702826.6275307009,
+              "phase": "liquid",
+              "pressure_pa": 3999999.8810282634,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 439.9999999851043
+            },
+            "right_inner_speed_m_s": 1436.1018040180747,
+            "right_outer_speed_m_s": 1436.1018040180747,
+            "right_residual": 7.931096335234145e-10,
+            "right_wave": "shock",
+            "velocity_m_s": 0.007714116528867651,
+            "velocity_residual_m_s": 4.031757566691496e-14
+          },
+          "passed": true
+        },
+        {
+          "candidates": [
+            {
+              "absolute_errors": {
+                "energy_w_m2": 63928.50408815793,
+                "mass_kg_m2_s": 0.05252314254572368,
+                "momentum_pa": 6.88992440700531e-06
+              },
+              "envelope": "fixed_2500",
+              "flux": [
+                0.04000000387804903,
+                13999999.999990933,
+                48685.97537279129
+              ],
+              "relative_mass_flux_error": 0.5676757068459195,
+              "wave_bound_m_s": 2500.0
+            },
+            {
+              "absolute_errors": {
+                "energy_w_m2": 1115.04247061153,
+                "mass_kg_m2_s": 0.000916109929176942,
+                "momentum_pa": 1.5737488865852356e-05
+              },
+              "envelope": "local_acoustic_diagnostic",
+              "flux": [
+                0.09160703649459577,
+                13999999.99999978,
+                111499.4369903377
+              ],
+              "relative_mass_flux_error": 0.009901413479617233,
+              "wave_bound_m_s": 1091.619202985893
+            }
+          ],
+          "case": "acoustic-1.4e+07-100",
+          "checks": {
+            "contact_velocity": true,
+            "left_isentropic": true,
+            "linear_acoustic_limit": true,
+            "right_entropy": true,
+            "right_hugoniot": true,
+            "wave_order": true
+          },
+          "godunov_flux": [
+            0.09252314642377271,
+            13999999.999984043,
+            112614.47946094922
+          ],
+          "input": {
+            "left": {
+              "density_kg_m3": 767.6137904880424,
+              "enthalpy_j_kg": 1217149.3930665078,
+              "entropy_j_kg_k": 3014.573129815561,
+              "internal_energy_j_kg": 1198910.9244857144,
+              "phase": "liquid",
+              "pressure_pa": 14000100.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 550.0000318606221
+            },
+            "pressure_bracket_pa": [
+              13980000.0,
+              14020000.0
+            ],
+            "right": {
+              "density_kg_m3": 767.6136192773896,
+              "enthalpy_j_kg": 1217149.132518788,
+              "entropy_j_kg_k": 3014.57312981556,
+              "internal_energy_j_kg": 1198910.9204177847,
+              "phase": "liquid",
+              "pressure_pa": 13999900.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 549.999968139357
+            },
+            "velocity_left_m_s": 0.0,
+            "velocity_right_m_s": 0.0
+          },
+          "oracle": {
+            "left": {
+              "density_kg_m3": 767.6137048827295,
+              "enthalpy_j_kg": 1217149.2627926196,
+              "entropy_j_kg_k": 3014.57312981556,
+              "internal_energy_j_kg": 1198910.9224517425,
+              "phase": "liquid",
+              "pressure_pa": 13999999.999972891,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 549.9999999999916
+            },
+            "left_inner_speed_m_s": -1080.8105070890672,
+            "left_outer_speed_m_s": -1080.8110920652407,
+            "left_residual": 1.338190380273849e-18,
+            "left_wave": "rarefaction",
+            "pressure_pa": 13999999.999972891,
+            "right": {
+              "density_kg_m3": 767.6137048827294,
+              "enthalpy_j_kg": 1217149.26279262,
+              "entropy_j_kg_k": 3014.5731298155615,
+              "internal_energy_j_kg": 1198910.9224517432,
+              "phase": "liquid",
+              "pressure_pa": 13999999.999972891,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 549.9999999999917
+            },
+            "right_inner_speed_m_s": 1080.8104566213901,
+            "right_outer_speed_m_s": 1080.8104566213901,
+            "right_residual": 5.963136174083616e-10,
+            "right_wave": "shock",
+            "velocity_m_s": 0.00012053347384920352,
+            "velocity_residual_m_s": 2.1967651764494278e-13
+          },
+          "passed": true
+        },
+        {
+          "candidates": [
+            {
+              "absolute_errors": {
+                "energy_w_m2": 639284.6488423399,
+                "mass_kg_m2_s": 0.5252311021118243,
+                "momentum_pa": 0.0006842557340860367
+              },
+              "envelope": "fixed_2500",
+              "flux": [
+                0.4000003625037607,
+                13999999.999093225,
+                486860.14622449875
+              ],
+              "relative_mass_flux_error": 0.5676753571389266,
+              "wave_bound_m_s": 2500.0
+            },
+            {
+              "absolute_errors": {
+                "energy_w_m2": 11154.715222156607,
+                "mass_kg_m2_s": 0.009164624012143796,
+                "momentum_pa": 0.0015690475702285767
+              },
+              "envelope": "local_acoustic_diagnostic",
+              "flux": [
+                0.9160668406034412,
+                13999999.999978017,
+                1114990.079844682
+              ],
+              "relative_mass_flux_error": 0.009905223030813714,
+              "wave_bound_m_s": 1091.6234247481314
+            }
+          ],
+          "case": "acoustic-1.4e+07-1000",
+          "checks": {
+            "contact_velocity": true,
+            "left_isentropic": true,
+            "linear_acoustic_limit": true,
+            "right_entropy": true,
+            "right_hugoniot": true,
+            "wave_order": true
+          },
+          "godunov_flux": [
+            0.925231464615585,
+            13999999.99840897,
+            1126144.7950668386
+          ],
+          "input": {
+            "left": {
+              "density_kg_m3": 767.6145609323371,
+              "enthalpy_j_kg": 1217150.5655305246,
+              "entropy_j_kg_k": 3014.573129815561,
+              "internal_energy_j_kg": 1198910.9427920051,
+              "phase": "liquid",
+              "pressure_pa": 14001000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 550.000318605263
+            },
+            "pressure_bracket_pa": [
+              13980000.0,
+              14020000.0
+            ],
+            "right": {
+              "density_kg_m3": 767.6128488258113,
+              "enthalpy_j_kg": 1217147.9600533326,
+              "entropy_j_kg_k": 3014.5731298155606,
+              "internal_energy_j_kg": 1198910.9021127135,
+              "phase": "liquid",
+              "pressure_pa": 13999000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 549.9996813926111
+            },
+            "velocity_left_m_s": 0.0,
+            "velocity_right_m_s": 0.0
+          },
+          "oracle": {
+            "left": {
+              "density_kg_m3": 767.6137048804358,
+              "enthalpy_j_kg": 1217149.2627891302,
+              "entropy_j_kg_k": 3014.573129815563,
+              "internal_energy_j_kg": 1198910.9224516887,
+              "phase": "liquid",
+              "pressure_pa": 13999999.997293755,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 549.999999999138
+            },
+            "left_inner_speed_m_s": -1080.809422275359,
+            "left_outer_speed_m_s": -1080.8152720278529,
+            "left_residual": 1.3381903797369633e-17,
+            "left_wave": "rarefaction",
+            "pressure_pa": 13999999.997293755,
+            "right": {
+              "density_kg_m3": 767.6137048804362,
+              "enthalpy_j_kg": 1217149.26278913,
+              "entropy_j_kg_k": 3014.5731298155624,
+              "internal_energy_j_kg": 1198910.9224516884,
+              "phase": "liquid",
+              "pressure_pa": 13999999.997293755,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 549.9999999991379
+            },
+            "right_inner_speed_m_s": 1080.8089081613755,
+            "right_outer_speed_m_s": 1080.8089081613755,
+            "right_residual": 6.105966669778251e-10,
+            "right_wave": "shock",
+            "velocity_m_s": 0.0012053347389878871,
+            "velocity_residual_m_s": 2.378939059632934e-13
+          },
+          "passed": true
+        },
+        {
+          "candidates": [
+            {
+              "absolute_errors": {
+                "energy_w_m2": 6392806.766253645,
+                "mass_kg_m2_s": 5.2522783885861255,
+                "momentum_pa": 0.06842097453773022
+              },
+              "envelope": "fixed_2500",
+              "flux": [
+                4.00003627106571,
+                13999999.909322644,
+                4868641.198277473
+              ],
+              "relative_mass_flux_error": 0.5676718293521341,
+              "wave_bound_m_s": 2500.0
+            },
+            {
+              "absolute_errors": {
+                "energy_w_m2": 111976.1267257072,
+                "mass_kg_m2_s": 0.09199868255302412,
+                "momentum_pa": 0.15689154900610447
+              },
+              "envelope": "local_acoustic_diagnostic",
+              "flux": [
+                9.160315977098811,
+                13999999.997793218,
+                11149471.83780541
+              ],
+              "relative_mass_flux_error": 0.009943315368879385,
+              "wave_bound_m_s": 1091.6656403158652
+            }
+          ],
+          "case": "acoustic-1.4e+07-10000",
+          "checks": {
+            "contact_velocity": true,
+            "left_isentropic": true,
+            "linear_acoustic_limit": true,
+            "right_entropy": true,
+            "right_hugoniot": true,
+            "wave_order": true
+          },
+          "godunov_flux": [
+            9.252314659651836,
+            13999999.84090167,
+            11261447.964531118
+          ],
+          "input": {
+            "left": {
+              "density_kg_m3": 767.6222650475524,
+              "enthalpy_j_kg": 1217162.2901059713,
+              "entropy_j_kg_k": 3014.573129815557,
+              "internal_energy_j_kg": 1198911.1259098258,
+              "phase": "liquid",
+              "pressure_pa": 14010000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 550.0031859569664
+            },
+            "pressure_bracket_pa": [
+              13980000.0,
+              14020000.0
+            ],
+            "right": {
+              "density_kg_m3": 767.605143982233,
+              "enthalpy_j_kg": 1217136.2353340518,
+              "entropy_j_kg_k": 3014.573129815559,
+              "internal_energy_j_kg": 1198910.7191169225,
+              "phase": "liquid",
+              "pressure_pa": 13990000.0,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 549.9968138304347
+            },
+            "velocity_left_m_s": 0.0,
+            "velocity_right_m_s": 0.0
+          },
+          "oracle": {
+            "left": {
+              "density_kg_m3": 767.6137046510887,
+              "enthalpy_j_kg": 1217149.2624401064,
+              "entropy_j_kg_k": 3014.573129815557,
+              "internal_energy_j_kg": 1198910.922446237,
+              "phase": "liquid",
+              "pressure_pa": 13999999.729380306,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 549.9999999137785
+            },
+            "left_inner_speed_m_s": -1080.7985730183862,
+            "left_outer_speed_m_s": -1080.8570696196684,
+            "left_residual": 1.3381903819557366e-16,
+            "left_wave": "rarefaction",
+            "pressure_pa": 13999999.729380306,
+            "right": {
+              "density_kg_m3": 767.6137046510879,
+              "enthalpy_j_kg": 1217149.262440109,
+              "entropy_j_kg_k": 3014.573129815562,
+              "internal_energy_j_kg": 1198910.9224462393,
+              "phase": "liquid",
+              "pressure_pa": 13999999.729380306,
+              "quality": null,
+              "region": 1,
+              "temperature_k": 549.9999999137791
+            },
+            "right_inner_speed_m_s": 1080.7934305638878,
+            "right_outer_speed_m_s": 1080.7934305638878,
+            "right_residual": 5.35295779924283e-10,
+            "right_wave": "shock",
+            "velocity_m_s": 0.012053347411061902,
+            "velocity_residual_m_s": 1.72552944155413e-14
+          },
+          "passed": true
+        }
+      ],
+      "completed": true,
+      "hllc_accuracy_gate": false,
+      "local_envelope_graph_qualified": false,
+      "oracle_cases": 15,
+      "passed": true,
+      "plant_referenced": false,
+      "source_unchanged": true,
+      "validated": false
+    },
+    "protocol": {
+      "drivers": {
+        "/home/user/workspace/atomic-sim/scripts/benchmark_liquid_riemann.py": "72463f44b9bbd7d48d3e2affb41ea1d3aff4f8e4bd3cfb4cbbbca6736600fa81",
+        "/home/user/workspace/atomic-sim/scripts/liquid_riemann.py": "29d949b645c808aaded1f6b023a91f7303d0ae926b6023835d343636ba7802c4"
+      },
+      "hllc_accuracy_gate": false,
+      "local_envelope_graph_qualified": false,
+      "plant_referenced": false,
+      "reference": "https://doi.org/10.1103/RevModPhys.61.75",
+      "scope": "Independent nonlinear single-phase IF97 shock/rarefaction oracle; shared EOS; subsonic star-region flux only",
+      "source": {
+        "contact": {
+          "__init__.py": "788b552f329b11de1518f5c32374773c9f7d4d05a077eed16127384810aa27eb",
+          "flux.py": "ecb62d999228725331e91e3d660a33cafa4328146ec1b0b5284eb82bf0895d11",
+          "model.py": "15d2d71794eaa28c116bb6135a2bb332c1edeabe37aea3fbcbc87c01d083270e",
+          "reference.py": "77a568ed3c87b91e59323d54057417726dfd12dc5f5b0710fe8e751ad60d04a7"
+        },
+        "foundation": {
+          "graph": {
+            "closures": {
+              "__init__.py": "72e961e145031884a59f12a87899fa56005082c1053afd7a6201dcf21a47a931"
+            },
+            "foundation": {
+              "flow": {
+                "flow": {
+                  "__init__.py": "cef2568fccc811ef9955c2c1b5517fb3caa1d80fbb7120548f131831202aae8a",
+                  "__main__.py": "c15a6a4c84b8b2b979b088ab098136c3fe936575d6ba6b1911d53ba106a45b8f",
+                  "cases.py": "556a38acb8557166b34c9042ab1630aceaf9a3cbe5bc3c22e03002c3ba13827c",
+                  "model.py": "39278c137e63b94cccc487bb49cd06186f7cdba8535034896faf47df86342cdd",
+                  "reference.py": "2add998c2d8b1df399436369db16e546aa9fcf4b53150832ae42a0ac71a35039",
+                  "workflow.py": "f79291e4971572595a69e70829111f38e4daae351bddee67e70a9e2d37b6e1ed"
+                },
+                "hem": {
+                  "hem_sources": {
+                    "__init__.py": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+                    "__main__.py": "8d9fab98b7490f270f0ef3b33ea95a8324a5340df3f821035f4e72c431952f82",
+                    "eos.py": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+                    "vessel.py": "d3284236f41d4e5827ab48b975e87a5b6fc0a36ec1a6cf21ad352255215ce478",
+                    "workflow.py": "0cf1dd9df09c315d18e0194b7713848c85a9337b44256a30c790b7a52f145ebb"
+                  },
+                  "if97_sha256": "2f7e10ab0b4d9dc009d75775ea4d0a19e6179a5356999c4099b90f0d07745658",
+                  "numpy": "2.2.6",
+                  "python": "3.12.9",
+                  "scipy": "1.15.2",
+                  "serialization_sha256": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12"
+                }
+              },
+              "system": {
+                "__init__.py": "1fd0c16bacafba221724c58f628a559762e272b52c98437da0ba868f1745e2a2",
+                "__main__.py": "1f545bec96bcca20791c2c74ff97e7d4e576acf8cea0ccd736d0daf448eb8435",
+                "cases.py": "372f5b9b00eea215e90b60f2a4619d2249e7135aa7139b5b412791352473b81c",
+                "model.py": "0a0e985362fd61f04aa2f699f453bdb3c2179635f091623705954673f3dce3eb",
+                "reference.py": "2d32514c62299293a0c2866f10dfc6d8b9269afb8e39e408bb9f4c7246148629",
+                "workflow.py": "063994bc4a676891850dbfdf6a8279c1b0cbe5a98d84e7fcbaf2088680694149"
+              }
+            },
+            "network": {
+              "__init__.py": "257d608d06fa413b2ac3f4c800791ea29b90968dbe99cc20367111c83ec47ada",
+              "__main__.py": "fde209eaaf6f1b1296075a1b99ade158fb0ce4f68a0a36d5993d6c8123e0cc81",
+              "cases.py": "ce447649165ca7c37f98b8718e1d50857ad7e7baacf60ddf1aac826d460a0bac",
+              "model.py": "e055e44d2204588026579422bb8627008e077fa8e75cd61a20990f20a3b97b5f",
+              "reference.py": "2d96f7d39fd6ac9d258fc88b73fdf9d375d1ec51cee33a8dc79f342913bc0037",
+              "workflow.py": "1c1cc048869142f6a2f494a45a241a7b103b6f0cd8920b0b0efe2291f07bea7a"
+            }
+          },
+          "mixture": {
+            "graph": {
+              "closures": {
+                "__init__.py": "72e961e145031884a59f12a87899fa56005082c1053afd7a6201dcf21a47a931"
+              },
+              "foundation": {
+                "flow": {
+                  "flow": {
+                    "__init__.py": "cef2568fccc811ef9955c2c1b5517fb3caa1d80fbb7120548f131831202aae8a",
+                    "__main__.py": "c15a6a4c84b8b2b979b088ab098136c3fe936575d6ba6b1911d53ba106a45b8f",
+                    "cases.py": "556a38acb8557166b34c9042ab1630aceaf9a3cbe5bc3c22e03002c3ba13827c",
+                    "model.py": "39278c137e63b94cccc487bb49cd06186f7cdba8535034896faf47df86342cdd",
+                    "reference.py": "2add998c2d8b1df399436369db16e546aa9fcf4b53150832ae42a0ac71a35039",
+                    "workflow.py": "f79291e4971572595a69e70829111f38e4daae351bddee67e70a9e2d37b6e1ed"
+                  },
+                  "hem": {
+                    "hem_sources": {
+                      "__init__.py": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+                      "__main__.py": "8d9fab98b7490f270f0ef3b33ea95a8324a5340df3f821035f4e72c431952f82",
+                      "eos.py": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+                      "vessel.py": "d3284236f41d4e5827ab48b975e87a5b6fc0a36ec1a6cf21ad352255215ce478",
+                      "workflow.py": "0cf1dd9df09c315d18e0194b7713848c85a9337b44256a30c790b7a52f145ebb"
+                    },
+                    "if97_sha256": "2f7e10ab0b4d9dc009d75775ea4d0a19e6179a5356999c4099b90f0d07745658",
+                    "numpy": "2.2.6",
+                    "python": "3.12.9",
+                    "scipy": "1.15.2",
+                    "serialization_sha256": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12"
+                  }
+                },
+                "system": {
+                  "__init__.py": "1fd0c16bacafba221724c58f628a559762e272b52c98437da0ba868f1745e2a2",
+                  "__main__.py": "1f545bec96bcca20791c2c74ff97e7d4e576acf8cea0ccd736d0daf448eb8435",
+                  "cases.py": "372f5b9b00eea215e90b60f2a4619d2249e7135aa7139b5b412791352473b81c",
+                  "model.py": "0a0e985362fd61f04aa2f699f453bdb3c2179635f091623705954673f3dce3eb",
+                  "reference.py": "2d32514c62299293a0c2866f10dfc6d8b9269afb8e39e408bb9f4c7246148629",
+                  "workflow.py": "063994bc4a676891850dbfdf6a8279c1b0cbe5a98d84e7fcbaf2088680694149"
+                }
+              },
+              "network": {
+                "__init__.py": "257d608d06fa413b2ac3f4c800791ea29b90968dbe99cc20367111c83ec47ada",
+                "__main__.py": "fde209eaaf6f1b1296075a1b99ade158fb0ce4f68a0a36d5993d6c8123e0cc81",
+                "cases.py": "ce447649165ca7c37f98b8718e1d50857ad7e7baacf60ddf1aac826d460a0bac",
+                "model.py": "e055e44d2204588026579422bb8627008e077fa8e75cd61a20990f20a3b97b5f",
+                "reference.py": "2d96f7d39fd6ac9d258fc88b73fdf9d375d1ec51cee33a8dc79f342913bc0037",
+                "workflow.py": "1c1cc048869142f6a2f494a45a241a7b103b6f0cd8920b0b0efe2291f07bea7a"
+              }
+            },
+            "mixture": {
+              "__init__.py": "22711d4a6f32c96051e44ba1bf1dcb7ea91271d7259d40618329d5151bc727bc",
+              "__main__.py": "17dec1d7ba6a9edba49df97e890790379bf3131e720de6dde69b4471585f36f3",
+              "cases.py": "e4ceac0bc12454fd04628a6266ab2af8bc34d0c51d0a2e8db30bb5c973cafab9",
+              "friction.py": "f341c513bbac80717c9887f5c6effd26cb92fe34e8b8f765c45f4f1449ebb5f5",
+              "inverse.py": "03f8907c878d2965be88894fda980fe1f910eee61fb8400048c1c5a376903d6c",
+              "model.py": "f9d19da622cc7aa3d4011f0979c7928f8553c5d784042ee17fcca543b17e7759",
+              "reference.py": "f240d629f07a3b7a9d2abb3077996a545b3f97da026ae94ca0df4f3ceaede3d2",
+              "workflow.py": "8591b06fc903fec534e05bfda9905579f54da5829b98fa1eaed0f25947559ddd"
+            }
+          },
+          "qualified": {
+            "__init__.py": "a224b8402fd91740b5ea7d8da29eacd461663b90a1a2c4d36f227415c6cfed0d",
+            "__main__.py": "5fea1ea7be283d43a3e248737444250c30b6d7a907ed14a23a298b969f6eecf1",
+            "cases.py": "d2590fabdd4e0482adb4cd38de4c3c0036ee71d162b9fc3ee8f45ec6eebbcaa3",
+            "closures.py": "8d211a5528a58c785ab38a15b83c8ac67d216734b638d9ae0fa60143aea69376",
+            "eos.py": "70f51ad4ef8190ea209193d4b3724d8ff05a4abbad2b1f642c53688f29af5eef",
+            "model.py": "2c0d8524c3ad794c1762e068a9d9f6fb812bbad8f170afeb5ab7f015d24c36d7",
+            "qualification.py": "0907e64a1674e8624fece26172f87fe64c89175f7ce1ef3ff28c2c028f04a003",
+            "reference.py": "50e8b56ddb6d7a244ac15d009a1b5cbf5991362a1e2c8fbcf0394fd239eff1e7"
+          }
+        }
+      },
+      "validated": false
+    },
+    "local_tests": {
+      "counts": {
+        "collected": 870,
+        "errors": 0,
+        "failed": 0,
+        "passed": 870,
+        "skipped": 0
+      },
+      "exit_code": 0,
+      "external_or_physical_validation_claimed": false,
+      "gate_failures": [],
+      "schema_version": 1
+    },
+    "wheel_inventory": {
+      "files": 1438,
+      "package_counts": {
+        "data": 4,
+        "scenarios": 73,
+        "scripts": 222,
+        "src": 433,
+        "validation": 706
+      },
+      "scope": "src and declared root-mapped packages; exact bytes; no caches or duplicates",
+      "verified": true
+    },
+    "installed_resource_count": 788,
+    "installed_replay": {
+      "benchmark_sha256": "72463f44b9bbd7d48d3e2affb41ea1d3aff4f8e4bd3cfb4cbbbca6736600fa81",
+      "checks": {
+        "all_15_cases": true,
+        "all_cases_passed": true,
+        "installed_import": true,
+        "oracle_and_flux_rows_identical": true,
+        "source_unchanged": true
+      },
+      "oracle_sha256": "29d949b645c808aaded1f6b023a91f7303d0ae926b6023835d343636ba7802c4",
+      "passed": true,
+      "plant_referenced": false,
+      "validated": false
+    },
+    "production_hllc_signature_preserved": true,
+    "validated": false,
+    "plant_referenced": false,
+    "evidence_sha256": {
+      "artifacts/liquid-riemann-v3/report.json": "4ee6b4e650629a20e601cfbde90159ec45911d2b4746ee0c70ca74a965b4f605",
+      "artifacts/liquid-riemann-v3/protocol.json": "5124fd90c5a8f9d247c1da8c27412e445802a420f735fcab0c11df68c37993a6",
+      "artifacts/local-liquid-riemann-v1/report.json": "4dd47e5f7c59dc05eb1ae40bebc6e2db1913ff8d6445a676a7713736f09dbeab",
+      "artifacts/installed-liquid-riemann-v1/report.json": "e0fadc4301c774522548b9cc80392bc7f6d876862cfbf2a890ad2f8366541dbd"
+    }
+  },
+  "sha256": "6e40ede8237bf16a6e7b93e5110bb7838a56e33edf441077d6af99a56e0e1397"
+}

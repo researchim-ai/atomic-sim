@@ -1,0 +1,1032 @@
+{
+  "payload": {
+    "date": "2026-11-10",
+    "schema_version": 1,
+    "report": {
+      "completed": true,
+      "external_modelica_local_hllc_compared": false,
+      "face_cases": [
+        {
+          "case": "moderate",
+          "checks": {
+            "diagnostic_reproduced": true,
+            "exact_wave_coverage": true,
+            "improves_fixed_mass_flux_error": true,
+            "mass_flux_relative_error_below_3_percent": true,
+            "physical_oracle": true
+          },
+          "passed": true,
+          "relative_mass_flux_error": 0.0115922038838766,
+          "wave_bound_m_s": 1452.9466371998128
+        },
+        {
+          "case": "wide",
+          "checks": {
+            "diagnostic_reproduced": true,
+            "exact_wave_coverage": true,
+            "improves_fixed_mass_flux_error": true,
+            "mass_flux_relative_error_below_3_percent": true,
+            "physical_oracle": true
+          },
+          "passed": true,
+          "relative_mass_flux_error": 0.019790708156471104,
+          "wave_bound_m_s": 1477.0719535944313
+        },
+        {
+          "case": "reversed",
+          "checks": {
+            "diagnostic_reproduced": true,
+            "exact_wave_coverage": true,
+            "improves_fixed_mass_flux_error": true,
+            "mass_flux_relative_error_below_3_percent": true,
+            "physical_oracle": true
+          },
+          "passed": true,
+          "relative_mass_flux_error": 0.023012523763811066,
+          "wave_bound_m_s": 1481.8083267296013
+        },
+        {
+          "case": "compression",
+          "checks": {
+            "diagnostic_reproduced": true,
+            "exact_wave_coverage": true,
+            "physical_oracle": true
+          },
+          "passed": true,
+          "relative_mass_flux_error": 0.6045560376205164,
+          "wave_bound_m_s": 1465.7498765869348
+        },
+        {
+          "case": "expansion",
+          "checks": {
+            "diagnostic_reproduced": true,
+            "exact_wave_coverage": true,
+            "physical_oracle": true
+          },
+          "passed": true,
+          "relative_mass_flux_error": 0.6071662208610387,
+          "wave_bound_m_s": 1465.7498765869348
+        },
+        {
+          "case": "contact",
+          "checks": {
+            "diagnostic_reproduced": true,
+            "exact_wave_coverage": true,
+            "physical_oracle": true
+          },
+          "passed": true,
+          "relative_mass_flux_error": null,
+          "wave_bound_m_s": 1464.7398765869348
+        },
+        {
+          "case": "acoustic-1e+06-100",
+          "checks": {
+            "diagnostic_reproduced": true,
+            "exact_wave_coverage": true,
+            "improves_fixed_mass_flux_error": true,
+            "mass_flux_relative_error_below_3_percent": true,
+            "physical_oracle": true
+          },
+          "passed": true,
+          "relative_mass_flux_error": 0.009901106776632586,
+          "wave_bound_m_s": 1574.8996919305366
+        },
+        {
+          "case": "acoustic-1e+06-1000",
+          "checks": {
+            "diagnostic_reproduced": true,
+            "exact_wave_coverage": true,
+            "improves_fixed_mass_flux_error": true,
+            "mass_flux_relative_error_below_3_percent": true,
+            "physical_oracle": true
+          },
+          "passed": true,
+          "relative_mass_flux_error": 0.009902142717013876,
+          "wave_bound_m_s": 1574.9013533067844
+        },
+        {
+          "case": "acoustic-1e+06-10000",
+          "checks": {
+            "diagnostic_reproduced": true,
+            "exact_wave_coverage": true,
+            "improves_fixed_mass_flux_error": true,
+            "mass_flux_relative_error_below_3_percent": true,
+            "physical_oracle": true
+          },
+          "passed": true,
+          "relative_mass_flux_error": 0.009912512732394055,
+          "wave_bound_m_s": 1574.917967005984
+        },
+        {
+          "case": "acoustic-4e+06-100",
+          "checks": {
+            "diagnostic_reproduced": true,
+            "exact_wave_coverage": true,
+            "improves_fixed_mass_flux_error": true,
+            "mass_flux_relative_error_below_3_percent": true,
+            "physical_oracle": true
+          },
+          "passed": true,
+          "relative_mass_flux_error": 0.009901169413444887,
+          "wave_bound_m_s": 1450.4725549774255
+        },
+        {
+          "case": "acoustic-4e+06-1000",
+          "checks": {
+            "diagnostic_reproduced": true,
+            "exact_wave_coverage": true,
+            "improves_fixed_mass_flux_error": true,
+            "mass_flux_relative_error_below_3_percent": true,
+            "physical_oracle": true
+          },
+          "passed": true,
+          "relative_mass_flux_error": 0.0099028031852376,
+          "wave_bound_m_s": 1450.4749599296217
+        },
+        {
+          "case": "acoustic-4e+06-10000",
+          "checks": {
+            "diagnostic_reproduced": true,
+            "exact_wave_coverage": true,
+            "improves_fixed_mass_flux_error": true,
+            "mass_flux_relative_error_below_3_percent": true,
+            "physical_oracle": true
+          },
+          "passed": true,
+          "relative_mass_flux_error": 0.009919124966763128,
+          "wave_bound_m_s": 1450.499008799858
+        },
+        {
+          "case": "acoustic-1.4e+07-100",
+          "checks": {
+            "diagnostic_reproduced": true,
+            "exact_wave_coverage": true,
+            "improves_fixed_mass_flux_error": true,
+            "mass_flux_relative_error_below_3_percent": true,
+            "physical_oracle": true
+          },
+          "passed": true,
+          "relative_mass_flux_error": 0.009901413479617233,
+          "wave_bound_m_s": 1091.619202985893
+        },
+        {
+          "case": "acoustic-1.4e+07-1000",
+          "checks": {
+            "diagnostic_reproduced": true,
+            "exact_wave_coverage": true,
+            "improves_fixed_mass_flux_error": true,
+            "mass_flux_relative_error_below_3_percent": true,
+            "physical_oracle": true
+          },
+          "passed": true,
+          "relative_mass_flux_error": 0.009905223030813714,
+          "wave_bound_m_s": 1091.6234247481314
+        },
+        {
+          "case": "acoustic-1.4e+07-10000",
+          "checks": {
+            "diagnostic_reproduced": true,
+            "exact_wave_coverage": true,
+            "improves_fixed_mass_flux_error": true,
+            "mass_flux_relative_error_below_3_percent": true,
+            "physical_oracle": true
+          },
+          "passed": true,
+          "relative_mass_flux_error": 0.009943315368879385,
+          "wave_bound_m_s": 1091.6656403158652
+        }
+      ],
+      "global_wave_bound_proved": false,
+      "long_runs": [
+        {
+          "case": "pressure_thermal_step",
+          "cells": 2,
+          "checks": {
+            "adiabatic": true,
+            "energy_balance": true,
+            "entropy": true,
+            "liquid_only": true,
+            "mass_balance": true,
+            "restart_exact": true
+          },
+          "horizon_s": 0.01,
+          "passed": true,
+          "scheme": "hllc-local"
+        },
+        {
+          "case": "reverse_pressure_step",
+          "cells": 2,
+          "checks": {
+            "adiabatic": true,
+            "energy_balance": true,
+            "entropy": true,
+            "liquid_only": true,
+            "mass_balance": true,
+            "restart_exact": true
+          },
+          "horizon_s": 0.01,
+          "passed": true,
+          "scheme": "hllc-local"
+        },
+        {
+          "case": "wide_pressure_step",
+          "cells": 2,
+          "checks": {
+            "adiabatic": true,
+            "energy_balance": true,
+            "entropy": true,
+            "liquid_only": true,
+            "mass_balance": true,
+            "restart_exact": true
+          },
+          "horizon_s": 0.01,
+          "passed": true,
+          "scheme": "hllc-local"
+        }
+      ],
+      "passed": true,
+      "plant_referenced": false,
+      "source_unchanged": true,
+      "stationary_contacts": [
+        {
+          "cells": 2,
+          "checks": {
+            "adiabatic": true,
+            "energy_balance": true,
+            "entropy": true,
+            "liquid_only": true,
+            "mass_balance": true,
+            "restart_exact": true
+          },
+          "maximum_temperature_change_k": 0.0,
+          "passed": true
+        },
+        {
+          "cells": 4,
+          "checks": {
+            "adiabatic": true,
+            "energy_balance": true,
+            "entropy": true,
+            "liquid_only": true,
+            "mass_balance": true,
+            "restart_exact": true
+          },
+          "maximum_temperature_change_k": 0.0,
+          "passed": true
+        },
+        {
+          "cells": 8,
+          "checks": {
+            "adiabatic": true,
+            "energy_balance": true,
+            "entropy": true,
+            "liquid_only": true,
+            "mass_balance": true,
+            "restart_exact": true
+          },
+          "maximum_temperature_change_k": 0.0,
+          "passed": true
+        },
+        {
+          "cells": 16,
+          "checks": {
+            "adiabatic": true,
+            "energy_balance": true,
+            "entropy": true,
+            "liquid_only": true,
+            "mass_balance": true,
+            "restart_exact": true
+          },
+          "maximum_temperature_change_k": 0.0,
+          "passed": true
+        },
+        {
+          "cells": 32,
+          "checks": {
+            "adiabatic": true,
+            "energy_balance": true,
+            "entropy": true,
+            "liquid_only": true,
+            "mass_balance": true,
+            "restart_exact": true
+          },
+          "maximum_temperature_change_k": 0.0,
+          "passed": true
+        }
+      ],
+      "validated": false,
+      "waves": [
+        {
+          "cap_s": 5e-06,
+          "case": "coupled_gradient",
+          "cells": 2,
+          "checks": {
+            "energy_balance": true,
+            "mass_balance": true,
+            "native_passed": true,
+            "peer_agreement": true,
+            "signed_axial_momentum_balance": true,
+            "strict_agreement": true
+          },
+          "maximum_errors": {
+            "face_energy_j": 8.026924298853988e-10,
+            "face_mass_kg": 1.0396712946379613e-15,
+            "internal_energy_j_kg": 1.5133991837501526e-09,
+            "mass_kg": 1.4210854715202004e-14,
+            "momentum_kg_m_s": 1.2065719246206336e-12,
+            "pressure_pa": 1.7065322026610374e-06,
+            "support_kg_m_s": 9.32698362987594e-13,
+            "temperature_k": 1.7053025658242404e-13,
+            "total_energy_j": 7.450580596923828e-09,
+            "velocity_m_s": 6.821601524755957e-13
+          },
+          "method": "DOP853",
+          "passed": true,
+          "peer_energy_residual_j": 1.0011717677116394e-08,
+          "peer_mass_residual_kg": 2.4868995751603507e-14,
+          "peer_momentum_residual_kg_m_s": 6.018541784738596e-16
+        },
+        {
+          "cap_s": 5e-06,
+          "case": "coupled_gradient",
+          "cells": 2,
+          "checks": {
+            "energy_balance": true,
+            "mass_balance": true,
+            "native_passed": true,
+            "peer_agreement": true,
+            "signed_axial_momentum_balance": true,
+            "strict_agreement": true
+          },
+          "maximum_errors": {
+            "face_energy_j": 7.711845537161643e-10,
+            "face_mass_kg": 1.0907839890625848e-15,
+            "internal_energy_j_kg": 1.6298145055770874e-09,
+            "mass_kg": 1.4210854715202004e-14,
+            "momentum_kg_m_s": 1.2055180394513962e-12,
+            "pressure_pa": 1.9281869754195213e-06,
+            "support_kg_m_s": 9.731104810839497e-13,
+            "temperature_k": 2.2737367544323206e-13,
+            "total_energy_j": 7.450580596923828e-09,
+            "velocity_m_s": 6.815643223954428e-13
+          },
+          "method": "Radau",
+          "passed": true,
+          "peer_energy_residual_j": 7.450580596923828e-09,
+          "peer_mass_residual_kg": 2.930988785010413e-14,
+          "peer_momentum_residual_kg_m_s": 1.0323773086406973e-15
+        },
+        {
+          "cap_s": 2.5e-06,
+          "case": "coupled_gradient",
+          "cells": 2,
+          "checks": {
+            "energy_balance": true,
+            "mass_balance": true,
+            "native_passed": true,
+            "peer_agreement": true,
+            "signed_axial_momentum_balance": true,
+            "strict_agreement": true
+          },
+          "maximum_errors": {
+            "face_energy_j": 5.412898670953403e-10,
+            "face_mass_kg": 7.094583588870693e-16,
+            "internal_energy_j_kg": 1.7462298274040222e-09,
+            "mass_kg": 1.4210854715202004e-14,
+            "momentum_kg_m_s": 6.707567308658277e-13,
+            "pressure_pa": 1.735985279083252e-06,
+            "support_kg_m_s": 7.495115639244432e-13,
+            "temperature_k": 2.2737367544323206e-13,
+            "total_energy_j": 9.313225746154785e-09,
+            "velocity_m_s": 3.7922605593959657e-13
+          },
+          "method": "DOP853",
+          "passed": true,
+          "peer_energy_residual_j": 1.0011717677116394e-08,
+          "peer_mass_residual_kg": 2.4868995751603507e-14,
+          "peer_momentum_residual_kg_m_s": 6.018541784738596e-16
+        },
+        {
+          "cap_s": 2.5e-06,
+          "case": "coupled_gradient",
+          "cells": 2,
+          "checks": {
+            "energy_balance": true,
+            "mass_balance": true,
+            "native_passed": true,
+            "peer_agreement": true,
+            "signed_axial_momentum_balance": true,
+            "strict_agreement": true
+          },
+          "maximum_errors": {
+            "face_energy_j": 4.471160872099311e-10,
+            "face_mass_kg": 6.078091642001921e-16,
+            "internal_energy_j_kg": 1.3969838619232178e-09,
+            "mass_kg": 1.7763568394002505e-14,
+            "momentum_kg_m_s": 6.697028456965903e-13,
+            "pressure_pa": 2.644723281264305e-06,
+            "support_kg_m_s": 8.68749516769185e-13,
+            "temperature_k": 2.8421709430404007e-13,
+            "total_energy_j": 9.313225746154785e-09,
+            "velocity_m_s": 3.808927525055135e-13
+          },
+          "method": "Radau",
+          "passed": true,
+          "peer_energy_residual_j": 7.450580596923828e-09,
+          "peer_mass_residual_kg": 2.930988785010413e-14,
+          "peer_momentum_residual_kg_m_s": 1.0323773086406973e-15
+        },
+        {
+          "cap_s": 5e-06,
+          "case": "coupled_gradient",
+          "cells": 4,
+          "checks": {
+            "energy_balance": true,
+            "mass_balance": true,
+            "native_passed": true,
+            "peer_agreement": true,
+            "signed_axial_momentum_balance": true,
+            "strict_agreement": true
+          },
+          "maximum_errors": {
+            "face_energy_j": 1.9848300494493265e-09,
+            "face_mass_kg": 2.885888746765403e-15,
+            "internal_energy_j_kg": 2.444721758365631e-09,
+            "mass_kg": 2.4868995751603507e-14,
+            "momentum_kg_m_s": 6.693115937243636e-12,
+            "pressure_pa": 1.0031857527792454e-05,
+            "support_kg_m_s": 1.331212917676794e-12,
+            "temperature_k": 1.2505552149377763e-12,
+            "total_energy_j": 1.4901161193847656e-08,
+            "velocity_m_s": 7.577560334168535e-12
+          },
+          "method": "DOP853",
+          "passed": true,
+          "peer_energy_residual_j": 6.111804395914078e-09,
+          "peer_mass_residual_kg": 1.6209256159527285e-14,
+          "peer_momentum_residual_kg_m_s": 5.152874112644701e-16
+        },
+        {
+          "cap_s": 5e-06,
+          "case": "coupled_gradient",
+          "cells": 4,
+          "checks": {
+            "energy_balance": true,
+            "mass_balance": true,
+            "native_passed": true,
+            "peer_agreement": true,
+            "signed_axial_momentum_balance": true,
+            "strict_agreement": true
+          },
+          "maximum_errors": {
+            "face_energy_j": 1.974547158157397e-09,
+            "face_mass_kg": 2.797028114659585e-15,
+            "internal_energy_j_kg": 1.862645149230957e-09,
+            "mass_kg": 2.4868995751603507e-14,
+            "momentum_kg_m_s": 6.66345944181745e-12,
+            "pressure_pa": 1.0445364750921726e-05,
+            "support_kg_m_s": 1.324329534924118e-12,
+            "temperature_k": 1.3642420526593924e-12,
+            "total_energy_j": 7.450580596923828e-09,
+            "velocity_m_s": 7.59578863904751e-12
+          },
+          "method": "Radau",
+          "passed": true,
+          "peer_energy_residual_j": 7.159542292356491e-09,
+          "peer_mass_residual_kg": 1.454392162258955e-14,
+          "peer_momentum_residual_kg_m_s": 8.097702738386892e-16
+        },
+        {
+          "cap_s": 2.5e-06,
+          "case": "coupled_gradient",
+          "cells": 4,
+          "checks": {
+            "energy_balance": true,
+            "mass_balance": true,
+            "native_passed": true,
+            "peer_agreement": true,
+            "signed_axial_momentum_balance": true,
+            "strict_agreement": true
+          },
+          "maximum_errors": {
+            "face_energy_j": 6.394076934590487e-10,
+            "face_mass_kg": 7.936855284519138e-16,
+            "internal_energy_j_kg": 1.862645149230957e-09,
+            "mass_kg": 2.4868995751603507e-14,
+            "momentum_kg_m_s": 7.599858649299726e-13,
+            "pressure_pa": 1.621665433049202e-06,
+            "support_kg_m_s": 4.570788192381769e-13,
+            "temperature_k": 3.410605131648481e-13,
+            "total_energy_j": 1.4901161193847656e-08,
+            "velocity_m_s": 8.838762648221213e-13
+          },
+          "method": "DOP853",
+          "passed": true,
+          "peer_energy_residual_j": 6.111804395914078e-09,
+          "peer_mass_residual_kg": 1.6209256159527285e-14,
+          "peer_momentum_residual_kg_m_s": 5.152874112644701e-16
+        },
+        {
+          "cap_s": 2.5e-06,
+          "case": "coupled_gradient",
+          "cells": 4,
+          "checks": {
+            "energy_balance": true,
+            "mass_balance": true,
+            "native_passed": true,
+            "peer_agreement": true,
+            "signed_axial_momentum_balance": true,
+            "strict_agreement": true
+          },
+          "maximum_errors": {
+            "face_energy_j": 4.939233327894144e-10,
+            "face_mass_kg": 6.97800604729339e-16,
+            "internal_energy_j_kg": 1.6298145055770874e-09,
+            "mass_kg": 2.4868995751603507e-14,
+            "momentum_kg_m_s": 7.218100544218375e-13,
+            "pressure_pa": 2.064858563244343e-06,
+            "support_kg_m_s": 9.46687173097871e-13,
+            "temperature_k": 2.8421709430404007e-13,
+            "total_energy_j": 5.587935447692871e-09,
+            "velocity_m_s": 9.157501823899364e-13
+          },
+          "method": "Radau",
+          "passed": true,
+          "peer_energy_residual_j": 7.159542292356491e-09,
+          "peer_mass_residual_kg": 1.454392162258955e-14,
+          "peer_momentum_residual_kg_m_s": 8.097702738386892e-16
+        },
+        {
+          "cap_s": 5e-06,
+          "case": "pressure_thermal_step",
+          "cells": 2,
+          "checks": {
+            "energy_balance": true,
+            "mass_balance": true,
+            "native_passed": true,
+            "peer_agreement": true,
+            "signed_axial_momentum_balance": true,
+            "strict_agreement": true
+          },
+          "maximum_errors": {
+            "face_energy_j": 7.942003410477128e-08,
+            "face_mass_kg": 1.1223412031290039e-13,
+            "internal_energy_j_kg": 2.2118911147117615e-09,
+            "mass_kg": 2.0250467969162855e-13,
+            "momentum_kg_m_s": 1.3619685240717772e-10,
+            "pressure_pa": 0.00011303834617137909,
+            "support_kg_m_s": 4.935563069352611e-11,
+            "temperature_k": 1.432454155292362e-11,
+            "total_energy_j": 1.2665987014770508e-07,
+            "velocity_m_s": 7.684754742276478e-11
+          },
+          "method": "DOP853",
+          "passed": true,
+          "peer_energy_residual_j": 6.868503987789154e-09,
+          "peer_mass_residual_kg": 1.0658141036401503e-14,
+          "peer_momentum_residual_kg_m_s": 4.6351811278100286e-15
+        },
+        {
+          "cap_s": 5e-06,
+          "case": "pressure_thermal_step",
+          "cells": 2,
+          "checks": {
+            "energy_balance": true,
+            "mass_balance": true,
+            "native_passed": true,
+            "peer_agreement": true,
+            "signed_axial_momentum_balance": true,
+            "strict_agreement": true
+          },
+          "maximum_errors": {
+            "face_energy_j": 7.98797117340655e-08,
+            "face_mass_kg": 1.128482666335048e-13,
+            "internal_energy_j_kg": 2.3283064365386963e-09,
+            "mass_kg": 2.0605739337042905e-13,
+            "momentum_kg_m_s": 1.3566169021483887e-10,
+            "pressure_pa": 0.00011196406558156013,
+            "support_kg_m_s": 4.8979931221992956e-11,
+            "temperature_k": 1.432454155292362e-11,
+            "total_energy_j": 1.2852251529693604e-07,
+            "velocity_m_s": 7.66811805025247e-11
+          },
+          "method": "Radau",
+          "passed": true,
+          "peer_energy_residual_j": 1.0593794286251068e-08,
+          "peer_mass_residual_kg": 2.220446049250313e-14,
+          "peer_momentum_residual_kg_m_s": 1.0085682289329156e-14
+        },
+        {
+          "cap_s": 2.5e-06,
+          "case": "pressure_thermal_step",
+          "cells": 2,
+          "checks": {
+            "energy_balance": true,
+            "mass_balance": true,
+            "native_passed": true,
+            "peer_agreement": true,
+            "signed_axial_momentum_balance": true,
+            "strict_agreement": true
+          },
+          "maximum_errors": {
+            "face_energy_j": 9.619867569199414e-09,
+            "face_mass_kg": 1.3639834230074095e-14,
+            "internal_energy_j_kg": 2.0954757928848267e-09,
+            "mass_kg": 4.263256414560601e-14,
+            "momentum_kg_m_s": 1.777618677256676e-11,
+            "pressure_pa": 1.6072764992713928e-05,
+            "support_kg_m_s": 6.530331830845171e-12,
+            "temperature_k": 2.3305801732931286e-12,
+            "total_energy_j": 1.6763806343078613e-08,
+            "velocity_m_s": 1.0051010371214808e-11
+          },
+          "method": "DOP853",
+          "passed": true,
+          "peer_energy_residual_j": 6.868503987789154e-09,
+          "peer_mass_residual_kg": 1.0658141036401503e-14,
+          "peer_momentum_residual_kg_m_s": 4.6351811278100286e-15
+        },
+        {
+          "cap_s": 2.5e-06,
+          "case": "pressure_thermal_step",
+          "cells": 2,
+          "checks": {
+            "energy_balance": true,
+            "mass_balance": true,
+            "native_passed": true,
+            "peer_agreement": true,
+            "signed_axial_momentum_balance": true,
+            "strict_agreement": true
+          },
+          "maximum_errors": {
+            "face_energy_j": 1.0034926667401578e-08,
+            "face_mass_kg": 1.425398055067851e-14,
+            "internal_energy_j_kg": 1.7462298274040222e-09,
+            "mass_kg": 4.618527782440651e-14,
+            "momentum_kg_m_s": 1.7241024580227915e-11,
+            "pressure_pa": 1.4998484402894974e-05,
+            "support_kg_m_s": 6.154632359312018e-12,
+            "temperature_k": 2.1600499167107046e-12,
+            "total_energy_j": 1.4901161193847656e-08,
+            "velocity_m_s": 9.942531173368074e-12
+          },
+          "method": "Radau",
+          "passed": true,
+          "peer_energy_residual_j": 1.0593794286251068e-08,
+          "peer_mass_residual_kg": 2.220446049250313e-14,
+          "peer_momentum_residual_kg_m_s": 1.0085682289329156e-14
+        },
+        {
+          "cap_s": 5e-06,
+          "case": "pressure_thermal_step",
+          "cells": 4,
+          "checks": {
+            "energy_balance": true,
+            "mass_balance": true,
+            "native_passed": true,
+            "peer_agreement": true,
+            "signed_axial_momentum_balance": true,
+            "strict_agreement": true
+          },
+          "maximum_errors": {
+            "face_energy_j": 3.8193559143140376e-07,
+            "face_mass_kg": 5.405486806265017e-13,
+            "internal_energy_j_kg": 5.238689482212067e-09,
+            "mass_kg": 9.353628982466944e-13,
+            "momentum_kg_m_s": 1.3814932860872764e-09,
+            "pressure_pa": 0.0019715125672519207,
+            "support_kg_m_s": 2.782009067558988e-10,
+            "temperature_k": 2.4590462999185547e-10,
+            "total_energy_j": 6.622867658734322e-07,
+            "velocity_m_s": 1.557262862064701e-09
+          },
+          "method": "DOP853",
+          "passed": true,
+          "peer_energy_residual_j": 1.4319084584712982e-08,
+          "peer_mass_residual_kg": 3.7192471324942744e-14,
+          "peer_momentum_residual_kg_m_s": 4.3966566498632176e-15
+        },
+        {
+          "cap_s": 5e-06,
+          "case": "pressure_thermal_step",
+          "cells": 4,
+          "checks": {
+            "energy_balance": true,
+            "mass_balance": true,
+            "native_passed": true,
+            "peer_agreement": true,
+            "signed_axial_momentum_balance": true,
+            "strict_agreement": true
+          },
+          "maximum_errors": {
+            "face_energy_j": 3.819635123747389e-07,
+            "face_mass_kg": 5.405788240409352e-13,
+            "internal_energy_j_kg": 5.820766091346741e-09,
+            "mass_kg": 9.35473920549157e-13,
+            "momentum_kg_m_s": 1.381510948174347e-09,
+            "pressure_pa": 0.001971679273992777,
+            "support_kg_m_s": 2.7823043868835384e-10,
+            "temperature_k": 2.4590462999185547e-10,
+            "total_energy_j": 6.619375199079514e-07,
+            "velocity_m_s": 1.5572185047517395e-09
+          },
+          "method": "Radau",
+          "passed": true,
+          "peer_energy_residual_j": 1.6880221664905548e-09,
+          "peer_mass_residual_kg": 4.451994328746878e-14,
+          "peer_momentum_residual_kg_m_s": 1.3535179921309037e-15
+        },
+        {
+          "cap_s": 2.5e-06,
+          "case": "pressure_thermal_step",
+          "cells": 4,
+          "checks": {
+            "energy_balance": true,
+            "mass_balance": true,
+            "native_passed": true,
+            "peer_agreement": true,
+            "signed_axial_momentum_balance": true,
+            "strict_agreement": true
+          },
+          "maximum_errors": {
+            "face_energy_j": 4.7227335431276884e-08,
+            "face_mass_kg": 6.681646911449796e-14,
+            "internal_energy_j_kg": 2.444721758365631e-09,
+            "mass_kg": 1.1590728377086634e-13,
+            "momentum_kg_m_s": 1.7133820924553067e-10,
+            "pressure_pa": 0.0002447851002216339,
+            "support_kg_m_s": 3.447420127145051e-11,
+            "temperature_k": 3.0468072509393096e-11,
+            "total_energy_j": 8.253846317529678e-08,
+            "velocity_m_s": 1.9319544922180576e-10
+          },
+          "method": "DOP853",
+          "passed": true,
+          "peer_energy_residual_j": 1.4319084584712982e-08,
+          "peer_mass_residual_kg": 3.7192471324942744e-14,
+          "peer_momentum_residual_kg_m_s": 4.3966566498632176e-15
+        },
+        {
+          "cap_s": 2.5e-06,
+          "case": "pressure_thermal_step",
+          "cells": 4,
+          "checks": {
+            "energy_balance": true,
+            "mass_balance": true,
+            "native_passed": true,
+            "peer_agreement": true,
+            "signed_axial_momentum_balance": true,
+            "strict_agreement": true
+          },
+          "maximum_errors": {
+            "face_energy_j": 4.725525637461203e-08,
+            "face_mass_kg": 6.684661252893146e-14,
+            "internal_energy_j_kg": 2.561137080192566e-09,
+            "mass_kg": 1.1723955140041653e-13,
+            "momentum_kg_m_s": 1.7135587133260133e-10,
+            "pressure_pa": 0.0002449518069624901,
+            "support_kg_m_s": 3.450373320390554e-11,
+            "temperature_k": 3.058175934711471e-11,
+            "total_energy_j": 8.218921720981598e-08,
+            "velocity_m_s": 1.9314977872317285e-10
+          },
+          "method": "Radau",
+          "passed": true,
+          "peer_energy_residual_j": 1.6880221664905548e-09,
+          "peer_mass_residual_kg": 4.451994328746878e-14,
+          "peer_momentum_residual_kg_m_s": 1.3535179921309037e-15
+        }
+      ],
+      "whole_plant_compared": false
+    },
+    "protocol": {
+      "caps_s": [
+        5e-06,
+        2.5e-06
+      ],
+      "drivers": {
+        "/home/user/workspace/atomic-sim/scripts/benchmark_liquid_riemann.py": "72463f44b9bbd7d48d3e2affb41ea1d3aff4f8e4bd3cfb4cbbbca6736600fa81",
+        "/home/user/workspace/atomic-sim/scripts/benchmark_modelica_hllc.py": "a2f96cc418d129613d8fc722a2062727b8fc0dc44f9a393aaa15358c8ccfe593",
+        "/home/user/workspace/atomic-sim/scripts/benchmark_modelica_network.py": "37c7f67bddeb14a14b3f6fe2989a76c5861d737f50585a00da379a14fd0a78e9",
+        "/home/user/workspace/atomic-sim/scripts/liquid_riemann.py": "29d949b645c808aaded1f6b023a91f7303d0ae926b6023835d343636ba7802c4",
+        "/home/user/workspace/atomic-sim/scripts/verify_contact_flux.py": "466d677041760c50713a0902af39bd12ce619153ffa6b0f9525faf6e3c5afc4e",
+        "/home/user/workspace/atomic-sim/scripts/verify_heterogeneous_network.py": "025ae6eebed1f220255fa2d0c66d160e13a9f8b0bda319997ebec3f17e9bf89e",
+        "/home/user/workspace/atomic-sim/scripts/verify_local_hllc.py": "708d694e39048124f486ab92f33b0f77baf5e7aeec108af7f7e849a9d2d0ce37"
+      },
+      "global_cfl_unchanged": true,
+      "long_times_s": [
+        0.0,
+        0.0025,
+        0.005,
+        0.0075,
+        0.01
+      ],
+      "plant_referenced": false,
+      "scheme": "hllc-local",
+      "scope": "Bounded liquid adiabatic graph; nonlinear wave coverage checked in 15 cases, not globally proved",
+      "signal_margin": 1.01,
+      "source": {
+        "contact": {
+          "__init__.py": "788b552f329b11de1518f5c32374773c9f7d4d05a077eed16127384810aa27eb",
+          "flux.py": "e1591f6ce15249412526e3df8983feb663e854c8902208d77e019984547c9a4c",
+          "model.py": "1db06f89454775c3201d5cb3a36b4beb2ca5237993866eb70b402f19de869044",
+          "reference.py": "c8b42b80b1aedc9bc87a858502aaa184b4ccc8e0523c58b75c097a1ccf325d47"
+        },
+        "foundation": {
+          "graph": {
+            "closures": {
+              "__init__.py": "72e961e145031884a59f12a87899fa56005082c1053afd7a6201dcf21a47a931"
+            },
+            "foundation": {
+              "flow": {
+                "flow": {
+                  "__init__.py": "cef2568fccc811ef9955c2c1b5517fb3caa1d80fbb7120548f131831202aae8a",
+                  "__main__.py": "c15a6a4c84b8b2b979b088ab098136c3fe936575d6ba6b1911d53ba106a45b8f",
+                  "cases.py": "556a38acb8557166b34c9042ab1630aceaf9a3cbe5bc3c22e03002c3ba13827c",
+                  "model.py": "39278c137e63b94cccc487bb49cd06186f7cdba8535034896faf47df86342cdd",
+                  "reference.py": "2add998c2d8b1df399436369db16e546aa9fcf4b53150832ae42a0ac71a35039",
+                  "workflow.py": "f79291e4971572595a69e70829111f38e4daae351bddee67e70a9e2d37b6e1ed"
+                },
+                "hem": {
+                  "hem_sources": {
+                    "__init__.py": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+                    "__main__.py": "8d9fab98b7490f270f0ef3b33ea95a8324a5340df3f821035f4e72c431952f82",
+                    "eos.py": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+                    "vessel.py": "d3284236f41d4e5827ab48b975e87a5b6fc0a36ec1a6cf21ad352255215ce478",
+                    "workflow.py": "0cf1dd9df09c315d18e0194b7713848c85a9337b44256a30c790b7a52f145ebb"
+                  },
+                  "if97_sha256": "2f7e10ab0b4d9dc009d75775ea4d0a19e6179a5356999c4099b90f0d07745658",
+                  "numpy": "2.2.6",
+                  "python": "3.12.9",
+                  "scipy": "1.15.2",
+                  "serialization_sha256": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12"
+                }
+              },
+              "system": {
+                "__init__.py": "1fd0c16bacafba221724c58f628a559762e272b52c98437da0ba868f1745e2a2",
+                "__main__.py": "1f545bec96bcca20791c2c74ff97e7d4e576acf8cea0ccd736d0daf448eb8435",
+                "cases.py": "372f5b9b00eea215e90b60f2a4619d2249e7135aa7139b5b412791352473b81c",
+                "model.py": "0a0e985362fd61f04aa2f699f453bdb3c2179635f091623705954673f3dce3eb",
+                "reference.py": "2d32514c62299293a0c2866f10dfc6d8b9269afb8e39e408bb9f4c7246148629",
+                "workflow.py": "063994bc4a676891850dbfdf6a8279c1b0cbe5a98d84e7fcbaf2088680694149"
+              }
+            },
+            "network": {
+              "__init__.py": "257d608d06fa413b2ac3f4c800791ea29b90968dbe99cc20367111c83ec47ada",
+              "__main__.py": "fde209eaaf6f1b1296075a1b99ade158fb0ce4f68a0a36d5993d6c8123e0cc81",
+              "cases.py": "ce447649165ca7c37f98b8718e1d50857ad7e7baacf60ddf1aac826d460a0bac",
+              "model.py": "e055e44d2204588026579422bb8627008e077fa8e75cd61a20990f20a3b97b5f",
+              "reference.py": "2d96f7d39fd6ac9d258fc88b73fdf9d375d1ec51cee33a8dc79f342913bc0037",
+              "workflow.py": "1c1cc048869142f6a2f494a45a241a7b103b6f0cd8920b0b0efe2291f07bea7a"
+            }
+          },
+          "mixture": {
+            "graph": {
+              "closures": {
+                "__init__.py": "72e961e145031884a59f12a87899fa56005082c1053afd7a6201dcf21a47a931"
+              },
+              "foundation": {
+                "flow": {
+                  "flow": {
+                    "__init__.py": "cef2568fccc811ef9955c2c1b5517fb3caa1d80fbb7120548f131831202aae8a",
+                    "__main__.py": "c15a6a4c84b8b2b979b088ab098136c3fe936575d6ba6b1911d53ba106a45b8f",
+                    "cases.py": "556a38acb8557166b34c9042ab1630aceaf9a3cbe5bc3c22e03002c3ba13827c",
+                    "model.py": "39278c137e63b94cccc487bb49cd06186f7cdba8535034896faf47df86342cdd",
+                    "reference.py": "2add998c2d8b1df399436369db16e546aa9fcf4b53150832ae42a0ac71a35039",
+                    "workflow.py": "f79291e4971572595a69e70829111f38e4daae351bddee67e70a9e2d37b6e1ed"
+                  },
+                  "hem": {
+                    "hem_sources": {
+                      "__init__.py": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+                      "__main__.py": "8d9fab98b7490f270f0ef3b33ea95a8324a5340df3f821035f4e72c431952f82",
+                      "eos.py": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+                      "vessel.py": "d3284236f41d4e5827ab48b975e87a5b6fc0a36ec1a6cf21ad352255215ce478",
+                      "workflow.py": "0cf1dd9df09c315d18e0194b7713848c85a9337b44256a30c790b7a52f145ebb"
+                    },
+                    "if97_sha256": "2f7e10ab0b4d9dc009d75775ea4d0a19e6179a5356999c4099b90f0d07745658",
+                    "numpy": "2.2.6",
+                    "python": "3.12.9",
+                    "scipy": "1.15.2",
+                    "serialization_sha256": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12"
+                  }
+                },
+                "system": {
+                  "__init__.py": "1fd0c16bacafba221724c58f628a559762e272b52c98437da0ba868f1745e2a2",
+                  "__main__.py": "1f545bec96bcca20791c2c74ff97e7d4e576acf8cea0ccd736d0daf448eb8435",
+                  "cases.py": "372f5b9b00eea215e90b60f2a4619d2249e7135aa7139b5b412791352473b81c",
+                  "model.py": "0a0e985362fd61f04aa2f699f453bdb3c2179635f091623705954673f3dce3eb",
+                  "reference.py": "2d32514c62299293a0c2866f10dfc6d8b9269afb8e39e408bb9f4c7246148629",
+                  "workflow.py": "063994bc4a676891850dbfdf6a8279c1b0cbe5a98d84e7fcbaf2088680694149"
+                }
+              },
+              "network": {
+                "__init__.py": "257d608d06fa413b2ac3f4c800791ea29b90968dbe99cc20367111c83ec47ada",
+                "__main__.py": "fde209eaaf6f1b1296075a1b99ade158fb0ce4f68a0a36d5993d6c8123e0cc81",
+                "cases.py": "ce447649165ca7c37f98b8718e1d50857ad7e7baacf60ddf1aac826d460a0bac",
+                "model.py": "e055e44d2204588026579422bb8627008e077fa8e75cd61a20990f20a3b97b5f",
+                "reference.py": "2d96f7d39fd6ac9d258fc88b73fdf9d375d1ec51cee33a8dc79f342913bc0037",
+                "workflow.py": "1c1cc048869142f6a2f494a45a241a7b103b6f0cd8920b0b0efe2291f07bea7a"
+              }
+            },
+            "mixture": {
+              "__init__.py": "22711d4a6f32c96051e44ba1bf1dcb7ea91271d7259d40618329d5151bc727bc",
+              "__main__.py": "17dec1d7ba6a9edba49df97e890790379bf3131e720de6dde69b4471585f36f3",
+              "cases.py": "e4ceac0bc12454fd04628a6266ab2af8bc34d0c51d0a2e8db30bb5c973cafab9",
+              "friction.py": "f341c513bbac80717c9887f5c6effd26cb92fe34e8b8f765c45f4f1449ebb5f5",
+              "inverse.py": "03f8907c878d2965be88894fda980fe1f910eee61fb8400048c1c5a376903d6c",
+              "model.py": "f9d19da622cc7aa3d4011f0979c7928f8553c5d784042ee17fcca543b17e7759",
+              "reference.py": "f240d629f07a3b7a9d2abb3077996a545b3f97da026ae94ca0df4f3ceaede3d2",
+              "workflow.py": "8591b06fc903fec534e05bfda9905579f54da5829b98fa1eaed0f25947559ddd"
+            }
+          },
+          "qualified": {
+            "__init__.py": "a224b8402fd91740b5ea7d8da29eacd461663b90a1a2c4d36f227415c6cfed0d",
+            "__main__.py": "5fea1ea7be283d43a3e248737444250c30b6d7a907ed14a23a298b969f6eecf1",
+            "cases.py": "d2590fabdd4e0482adb4cd38de4c3c0036ee71d162b9fc3ee8f45ec6eebbcaa3",
+            "closures.py": "8d211a5528a58c785ab38a15b83c8ac67d216734b638d9ae0fa60143aea69376",
+            "eos.py": "70f51ad4ef8190ea209193d4b3724d8ff05a4abbad2b1f642c53688f29af5eef",
+            "model.py": "2c0d8524c3ad794c1762e068a9d9f6fb812bbad8f170afeb5ab7f015d24c36d7",
+            "qualification.py": "0907e64a1674e8624fece26172f87fe64c89175f7ce1ef3ff28c2c028f04a003",
+            "reference.py": "50e8b56ddb6d7a244ac15d009a1b5cbf5991362a1e2c8fbcf0394fd239eff1e7"
+          }
+        }
+      },
+      "temporal_budgets": {
+        "face_energy_j": 1e-05,
+        "face_mass_kg": 1e-09,
+        "internal_energy_j_kg": 0.01,
+        "mass_kg": 1e-09,
+        "momentum_kg_m_s": 1e-08,
+        "pressure_pa": 0.1,
+        "support_kg_m_s": 1e-08,
+        "temperature_k": 1e-05,
+        "total_energy_j": 1e-05,
+        "velocity_m_s": 1e-06
+      },
+      "times_s": [
+        0.0,
+        0.00025,
+        0.0005,
+        0.00075,
+        0.001
+      ],
+      "validated": false
+    },
+    "local_tests": {
+      "counts": {
+        "collected": 882,
+        "errors": 0,
+        "failed": 0,
+        "passed": 882,
+        "skipped": 0
+      },
+      "exit_code": 0,
+      "external_or_physical_validation_claimed": false,
+      "gate_failures": [],
+      "schema_version": 1
+    },
+    "wheel_inventory": {
+      "files": 1439,
+      "package_counts": {
+        "data": 4,
+        "scenarios": 73,
+        "scripts": 223,
+        "src": 433,
+        "validation": 706
+      },
+      "scope": "src and declared root-mapped packages; exact bytes; no caches or duplicates",
+      "verified": true
+    },
+    "installed_resource_count": 788,
+    "installed_replay": {
+      "checks": {
+        "all_report_rows_identical": true,
+        "installed_import": true,
+        "qualification_passed": true,
+        "source_unchanged": true
+      },
+      "driver_sha256": "708d694e39048124f486ab92f33b0f77baf5e7aeec108af7f7e849a9d2d0ce37",
+      "flux_sha256": "e1591f6ce15249412526e3df8983feb663e854c8902208d77e019984547c9a4c",
+      "passed": true,
+      "plant_referenced": false,
+      "validated": false
+    },
+    "foundation_source_preserved": true,
+    "contact_source_changed": true,
+    "old_external_evidence_automatically_transferred": false,
+    "validated": false,
+    "plant_referenced": false,
+    "history": {
+      "qualification_v1": "Stopped before graph runs: wrong cap supplied to strict scenario builder; fixed caller, criteria unchanged.",
+      "delivery_v1": "881 passed / 1 failed: test supplied unsupported cap to scenario builder; test request construction corrected, physics unchanged."
+    },
+    "evidence_sha256": {
+      "artifacts/local-hllc-qualification-v2/report.json": "2aa75bc587f881b955aadfb2c672709cbb1afbc63321520e7b3224a37011aeed",
+      "artifacts/local-hllc-qualification-v2/protocol.json": "0e15077a04292e03fc8828f2670919620fbaf6724d9a95544e561485f9d6f63d",
+      "artifacts/local-local-hllc-delivery-v1/tests.json": "c42a7231467484a49b39f1d15638fbf5493bb99ad249625573d9d8fa2795731b",
+      "artifacts/local-local-hllc-delivery-v2/report.json": "3971ecaa5af284749a3d6541596ef5929c4d56c064c0ae073ae2e26886c71e0f",
+      "artifacts/installed-local-hllc-v1/report.json": "efe73d43307690e7f404e6294341bfa2c3c95ff7103ef14b1a18674217624c47"
+    }
+  },
+  "sha256": "8d66a409aa441fb32dfadb51a0e67d0979d5b9df311bc568e087956822dcecc6"
+}

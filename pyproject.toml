@@ -141,6 +141,8 @@ where = ["src", "."]
 namespaces = false
 include = [
     "atomic_model_acceptance*",
+    "atomic_model_decision*",
+    "atomic_model_thermal_agent*",
     "atomic_model_uncertainty*",
     "atomic_model_multiphysics*",
     "atomic_model_research*",

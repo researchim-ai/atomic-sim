@@ -1,0 +1,1314 @@
+{
+  "payload": {
+    "date": "2026-11-10",
+    "schema_version": 1,
+    "report": {
+      "assessment": {
+        "checks": {
+          "moderate-hllc-local-momentum_kg_m2_s-refines": true,
+          "moderate-hllc-local-pressure_pa-refines": true,
+          "moderate-hllc-momentum_kg_m2_s-refines": true,
+          "moderate-hllc-pressure_pa-refines": true,
+          "moderate-momentum_kg_m2_s-improves-fixed": true,
+          "moderate-pressure_pa-improves-fixed": true,
+          "moderate-time-error-small": true,
+          "wide-hllc-local-momentum_kg_m2_s-refines": true,
+          "wide-hllc-local-pressure_pa-refines": true,
+          "wide-hllc-momentum_kg_m2_s-refines": true,
+          "wide-hllc-pressure_pa-refines": true,
+          "wide-momentum_kg_m2_s-improves-fixed": true,
+          "wide-pressure_pa-improves-fixed": true,
+          "wide-time-error-small": true
+        },
+        "passed": true,
+        "ratios": [
+          {
+            "case": "moderate",
+            "metric": "pressure_pa",
+            "orders": [
+              0.29559808035303614,
+              0.35122519415365605
+            ],
+            "ratios": [
+              0.814734507911361,
+              0.7839180806411357
+            ],
+            "scheme": "hllc"
+          },
+          {
+            "case": "moderate",
+            "metric": "momentum_kg_m2_s",
+            "orders": [
+              0.370532339248206,
+              0.285705097982911
+            ],
+            "ratios": [
+              0.7734970318640774,
+              0.8203405802890517
+            ],
+            "scheme": "hllc"
+          },
+          {
+            "case": "moderate",
+            "metric": "pressure_pa",
+            "orders": [
+              0.3727468984616662,
+              0.27524253515688185
+            ],
+            "ratios": [
+              0.7723106127691007,
+              0.8263113931532118
+            ],
+            "scheme": "hllc-local"
+          },
+          {
+            "case": "moderate",
+            "metric": "momentum_kg_m2_s",
+            "orders": [
+              0.37384391312191606,
+              0.2739349723444522
+            ],
+            "ratios": [
+              0.771723576696975,
+              0.8270606463164447
+            ],
+            "scheme": "hllc-local"
+          },
+          {
+            "case": "wide",
+            "metric": "pressure_pa",
+            "orders": [
+              0.2419162361117676,
+              0.4228804148419976
+            ],
+            "ratios": [
+              0.8456213833241848,
+              0.7459338413252022
+            ],
+            "scheme": "hllc"
+          },
+          {
+            "case": "wide",
+            "metric": "momentum_kg_m2_s",
+            "orders": [
+              0.31564376618144613,
+              0.36046083191777756
+            ],
+            "ratios": [
+              0.803492372583116,
+              0.7789157352709628
+            ],
+            "scheme": "hllc"
+          },
+          {
+            "case": "wide",
+            "metric": "pressure_pa",
+            "orders": [
+              0.3127711368043934,
+              0.3560173874009475
+            ],
+            "ratios": [
+              0.805093844260902,
+              0.7813184636436163
+            ],
+            "scheme": "hllc-local"
+          },
+          {
+            "case": "wide",
+            "metric": "momentum_kg_m2_s",
+            "orders": [
+              0.31398306430302236,
+              0.3542876609821966
+            ],
+            "ratios": [
+              0.80441781389139,
+              0.7822557911090509
+            ],
+            "scheme": "hllc-local"
+          }
+        ]
+      },
+      "completed": true,
+      "passed": true,
+      "plant_referenced": false,
+      "rows": [
+        {
+          "cap_s": 1e-05,
+          "case": "moderate",
+          "cells": 16,
+          "checks": {
+            "boundary_drift": true,
+            "energy_balance": true,
+            "entropy": true,
+            "liquid": true,
+            "mass_balance": true,
+            "positive_mass": true
+          },
+          "l1": {
+            "centered_energy_j_m3": 9.709668693234562,
+            "density_kg_m3": 0.0011330902036732482,
+            "momentum_kg_m2_s": 1.631262010160801,
+            "pressure_pa": 2337.610169010528
+          },
+          "passed": true,
+          "scheme": "hllc"
+        },
+        {
+          "cap_s": 1e-05,
+          "case": "moderate",
+          "cells": 16,
+          "checks": {
+            "boundary_drift": true,
+            "energy_balance": true,
+            "entropy": true,
+            "liquid": true,
+            "mass_balance": true,
+            "positive_mass": true
+          },
+          "l1": {
+            "centered_energy_j_m3": 7.63792452691996,
+            "density_kg_m3": 0.0010456981524313846,
+            "momentum_kg_m2_s": 1.5015543090655938,
+            "pressure_pa": 2156.6224515792856
+          },
+          "passed": true,
+          "scheme": "hllc-local"
+        },
+        {
+          "cap_s": 1e-05,
+          "case": "moderate",
+          "cells": 32,
+          "checks": {
+            "boundary_drift": true,
+            "energy_balance": true,
+            "entropy": true,
+            "liquid": true,
+            "mass_balance": true,
+            "positive_mass": true
+          },
+          "l1": {
+            "centered_energy_j_m3": 7.451495763962157,
+            "density_kg_m3": 0.0009232509061654071,
+            "momentum_kg_m2_s": 1.261776323052008,
+            "pressure_pa": 1904.5316707373859
+          },
+          "passed": true,
+          "scheme": "hllc"
+        },
+        {
+          "cap_s": 1e-05,
+          "case": "moderate",
+          "cells": 32,
+          "checks": {
+            "boundary_drift": true,
+            "energy_balance": true,
+            "entropy": true,
+            "liquid": true,
+            "mass_balance": true,
+            "positive_mass": true
+          },
+          "l1": {
+            "centered_energy_j_m3": 5.858321738545783,
+            "density_kg_m3": 0.0008075803967919626,
+            "momentum_kg_m2_s": 1.158784861996855,
+            "pressure_pa": 1665.5824070907984
+          },
+          "passed": true,
+          "scheme": "hllc-local"
+        },
+        {
+          "cap_s": 1e-05,
+          "case": "moderate",
+          "cells": 64,
+          "checks": {
+            "boundary_drift": true,
+            "energy_balance": true,
+            "entropy": true,
+            "liquid": true,
+            "mass_balance": true,
+            "positive_mass": true
+          },
+          "l1": {
+            "centered_energy_j_m3": 5.66046197344258,
+            "density_kg_m3": 0.000723904908184636,
+            "momentum_kg_m2_s": 1.0350863210474701,
+            "pressure_pa": 1492.9968118447068
+          },
+          "passed": true,
+          "scheme": "hllc"
+        },
+        {
+          "cap_s": 1e-05,
+          "case": "moderate",
+          "cells": 64,
+          "checks": {
+            "boundary_drift": true,
+            "energy_balance": true,
+            "entropy": true,
+            "liquid": true,
+            "mass_balance": true,
+            "positive_mass": true
+          },
+          "l1": {
+            "centered_energy_j_m3": 4.873133188681095,
+            "density_kg_m3": 0.000667344428045169,
+            "momentum_kg_m2_s": 0.9583853569048311,
+            "pressure_pa": 1376.2897192146775
+          },
+          "passed": true,
+          "scheme": "hllc-local"
+        },
+        {
+          "cap_s": 5e-06,
+          "case": "moderate",
+          "cells": 64,
+          "checks": {
+            "boundary_drift": true,
+            "energy_balance": true,
+            "entropy": true,
+            "liquid": true,
+            "mass_balance": true,
+            "positive_mass": true
+          },
+          "l1": {
+            "centered_energy_j_m3": 4.873120494754403,
+            "density_kg_m3": 0.0006673427441015178,
+            "momentum_kg_m2_s": 0.9583829577458589,
+            "pressure_pa": 1376.2862464345671
+          },
+          "passed": true,
+          "scheme": "hllc-local"
+        },
+        {
+          "cap_s": 1e-05,
+          "case": "wide",
+          "cells": 16,
+          "checks": {
+            "boundary_drift": true,
+            "energy_balance": true,
+            "entropy": true,
+            "liquid": true,
+            "mass_balance": true,
+            "positive_mass": true
+          },
+          "l1": {
+            "centered_energy_j_m3": 3421.842279579363,
+            "density_kg_m3": 0.32850908302174275,
+            "momentum_kg_m2_s": 478.3796662111323,
+            "pressure_pa": 688495.5908628141
+          },
+          "passed": true,
+          "scheme": "hllc"
+        },
+        {
+          "cap_s": 1e-05,
+          "case": "wide",
+          "cells": 16,
+          "checks": {
+            "boundary_drift": true,
+            "energy_balance": true,
+            "entropy": true,
+            "liquid": true,
+            "mass_balance": true,
+            "positive_mass": true
+          },
+          "l1": {
+            "centered_energy_j_m3": 3594.112497489772,
+            "density_kg_m3": 0.30426918502315203,
+            "momentum_kg_m2_s": 440.1763633770345,
+            "pressure_pa": 637639.3370246808
+          },
+          "passed": true,
+          "scheme": "hllc-local"
+        },
+        {
+          "cap_s": 1e-05,
+          "case": "wide",
+          "cells": 32,
+          "checks": {
+            "boundary_drift": true,
+            "energy_balance": true,
+            "entropy": true,
+            "liquid": true,
+            "mass_balance": true,
+            "positive_mass": true
+          },
+          "l1": {
+            "centered_energy_j_m3": 3136.1118833275323,
+            "density_kg_m3": 0.27775337492409946,
+            "momentum_kg_m2_s": 384.37441299950177,
+            "pressure_pa": 582206.5939580149
+          },
+          "passed": true,
+          "scheme": "hllc"
+        },
+        {
+          "cap_s": 1e-05,
+          "case": "wide",
+          "cells": 32,
+          "checks": {
+            "boundary_drift": true,
+            "energy_balance": true,
+            "entropy": true,
+            "liquid": true,
+            "mass_balance": true,
+            "positive_mass": true
+          },
+          "l1": {
+            "centered_energy_j_m3": 3054.205198761243,
+            "density_kg_m3": 0.24491184667107646,
+            "momentum_kg_m2_s": 354.0857079544162,
+            "pressure_pa": 513359.50509717315
+          },
+          "passed": true,
+          "scheme": "hllc-local"
+        },
+        {
+          "cap_s": 1e-05,
+          "case": "wide",
+          "cells": 64,
+          "checks": {
+            "boundary_drift": true,
+            "energy_balance": true,
+            "entropy": true,
+            "liquid": true,
+            "mass_balance": true,
+            "positive_mass": true
+          },
+          "l1": {
+            "centered_energy_j_m3": 2500.760214642637,
+            "density_kg_m3": 0.20728509738093592,
+            "momentum_kg_m2_s": 299.39527852085166,
+            "pressure_pa": 434287.6010759643
+          },
+          "passed": true,
+          "scheme": "hllc"
+        },
+        {
+          "cap_s": 1e-05,
+          "case": "wide",
+          "cells": 64,
+          "checks": {
+            "boundary_drift": true,
+            "energy_balance": true,
+            "entropy": true,
+            "liquid": true,
+            "mass_balance": true,
+            "positive_mass": true
+          },
+          "l1": {
+            "centered_energy_j_m3": 2447.852045854087,
+            "density_kg_m3": 0.19147358213142063,
+            "momentum_kg_m2_s": 276.9855955962902,
+            "pressure_pa": 401097.2598193706
+          },
+          "passed": true,
+          "scheme": "hllc-local"
+        },
+        {
+          "cap_s": 5e-06,
+          "case": "wide",
+          "cells": 64,
+          "checks": {
+            "boundary_drift": true,
+            "energy_balance": true,
+            "entropy": true,
+            "liquid": true,
+            "mass_balance": true,
+            "positive_mass": true
+          },
+          "l1": {
+            "centered_energy_j_m3": 2447.8421548991455,
+            "density_kg_m3": 0.19147310674619966,
+            "momentum_kg_m2_s": 276.9849038309037,
+            "pressure_pa": 401096.24979397614
+          },
+          "passed": true,
+          "scheme": "hllc-local"
+        }
+      ],
+      "source_unchanged": true,
+      "validated": false,
+      "whole_plant_compared": false
+    },
+    "protocol": {
+      "cap_s": 1e-05,
+      "cases": [
+        "moderate",
+        "wide"
+      ],
+      "drivers": {
+        "/home/user/workspace/atomic-sim/scripts/benchmark_modelica_network.py": "37c7f67bddeb14a14b3f6fe2989a76c5861d737f50585a00da379a14fd0a78e9",
+        "/home/user/workspace/atomic-sim/scripts/liquid_riemann.py": "29d949b645c808aaded1f6b023a91f7303d0ae926b6023835d343636ba7802c4",
+        "/home/user/workspace/atomic-sim/scripts/liquid_riemann_profile.py": "a959895bd46d4096c05f64ad5cb20752aba74f62443a479b900ae0e34797764b",
+        "/home/user/workspace/atomic-sim/scripts/verify_hllc_spatial.py": "d7c5d46f6d7d5500c072692eea16460d73920be5cc99711bb4fab92e4a29e8b7"
+      },
+      "horizon_s": 0.001,
+      "length_m": 10.0,
+      "max_boundary_pressure_drift_fraction": 0.001,
+      "max_spatial_ratio": 0.98,
+      "max_time_fraction": 0.05,
+      "meshes": [
+        16,
+        32,
+        64
+      ],
+      "min_coarse_acoustic_travel_cells": 2.0,
+      "plant_referenced": false,
+      "reference": "Conservative cell averages of nonlinear IF97 Riemann solution before physical boundary arrival",
+      "schemes": [
+        "hllc",
+        "hllc-local"
+      ],
+      "source": {
+        "contact": {
+          "__init__.py": "788b552f329b11de1518f5c32374773c9f7d4d05a077eed16127384810aa27eb",
+          "flux.py": "e1591f6ce15249412526e3df8983feb663e854c8902208d77e019984547c9a4c",
+          "model.py": "1db06f89454775c3201d5cb3a36b4beb2ca5237993866eb70b402f19de869044",
+          "reference.py": "c8b42b80b1aedc9bc87a858502aaa184b4ccc8e0523c58b75c097a1ccf325d47"
+        },
+        "foundation": {
+          "graph": {
+            "closures": {
+              "__init__.py": "72e961e145031884a59f12a87899fa56005082c1053afd7a6201dcf21a47a931"
+            },
+            "foundation": {
+              "flow": {
+                "flow": {
+                  "__init__.py": "cef2568fccc811ef9955c2c1b5517fb3caa1d80fbb7120548f131831202aae8a",
+                  "__main__.py": "c15a6a4c84b8b2b979b088ab098136c3fe936575d6ba6b1911d53ba106a45b8f",
+                  "cases.py": "556a38acb8557166b34c9042ab1630aceaf9a3cbe5bc3c22e03002c3ba13827c",
+                  "model.py": "39278c137e63b94cccc487bb49cd06186f7cdba8535034896faf47df86342cdd",
+                  "reference.py": "2add998c2d8b1df399436369db16e546aa9fcf4b53150832ae42a0ac71a35039",
+                  "workflow.py": "f79291e4971572595a69e70829111f38e4daae351bddee67e70a9e2d37b6e1ed"
+                },
+                "hem": {
+                  "hem_sources": {
+                    "__init__.py": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+                    "__main__.py": "8d9fab98b7490f270f0ef3b33ea95a8324a5340df3f821035f4e72c431952f82",
+                    "eos.py": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+                    "vessel.py": "d3284236f41d4e5827ab48b975e87a5b6fc0a36ec1a6cf21ad352255215ce478",
+                    "workflow.py": "0cf1dd9df09c315d18e0194b7713848c85a9337b44256a30c790b7a52f145ebb"
+                  },
+                  "if97_sha256": "2f7e10ab0b4d9dc009d75775ea4d0a19e6179a5356999c4099b90f0d07745658",
+                  "numpy": "2.2.6",
+                  "python": "3.12.9",
+                  "scipy": "1.15.2",
+                  "serialization_sha256": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12"
+                }
+              },
+              "system": {
+                "__init__.py": "1fd0c16bacafba221724c58f628a559762e272b52c98437da0ba868f1745e2a2",
+                "__main__.py": "1f545bec96bcca20791c2c74ff97e7d4e576acf8cea0ccd736d0daf448eb8435",
+                "cases.py": "372f5b9b00eea215e90b60f2a4619d2249e7135aa7139b5b412791352473b81c",
+                "model.py": "0a0e985362fd61f04aa2f699f453bdb3c2179635f091623705954673f3dce3eb",
+                "reference.py": "2d32514c62299293a0c2866f10dfc6d8b9269afb8e39e408bb9f4c7246148629",
+                "workflow.py": "063994bc4a676891850dbfdf6a8279c1b0cbe5a98d84e7fcbaf2088680694149"
+              }
+            },
+            "network": {
+              "__init__.py": "257d608d06fa413b2ac3f4c800791ea29b90968dbe99cc20367111c83ec47ada",
+              "__main__.py": "fde209eaaf6f1b1296075a1b99ade158fb0ce4f68a0a36d5993d6c8123e0cc81",
+              "cases.py": "ce447649165ca7c37f98b8718e1d50857ad7e7baacf60ddf1aac826d460a0bac",
+              "model.py": "e055e44d2204588026579422bb8627008e077fa8e75cd61a20990f20a3b97b5f",
+              "reference.py": "2d96f7d39fd6ac9d258fc88b73fdf9d375d1ec51cee33a8dc79f342913bc0037",
+              "workflow.py": "1c1cc048869142f6a2f494a45a241a7b103b6f0cd8920b0b0efe2291f07bea7a"
+            }
+          },
+          "mixture": {
+            "graph": {
+              "closures": {
+                "__init__.py": "72e961e145031884a59f12a87899fa56005082c1053afd7a6201dcf21a47a931"
+              },
+              "foundation": {
+                "flow": {
+                  "flow": {
+                    "__init__.py": "cef2568fccc811ef9955c2c1b5517fb3caa1d80fbb7120548f131831202aae8a",
+                    "__main__.py": "c15a6a4c84b8b2b979b088ab098136c3fe936575d6ba6b1911d53ba106a45b8f",
+                    "cases.py": "556a38acb8557166b34c9042ab1630aceaf9a3cbe5bc3c22e03002c3ba13827c",
+                    "model.py": "39278c137e63b94cccc487bb49cd06186f7cdba8535034896faf47df86342cdd",
+                    "reference.py": "2add998c2d8b1df399436369db16e546aa9fcf4b53150832ae42a0ac71a35039",
+                    "workflow.py": "f79291e4971572595a69e70829111f38e4daae351bddee67e70a9e2d37b6e1ed"
+                  },
+                  "hem": {
+                    "hem_sources": {
+                      "__init__.py": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+                      "__main__.py": "8d9fab98b7490f270f0ef3b33ea95a8324a5340df3f821035f4e72c431952f82",
+                      "eos.py": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+                      "vessel.py": "d3284236f41d4e5827ab48b975e87a5b6fc0a36ec1a6cf21ad352255215ce478",
+                      "workflow.py": "0cf1dd9df09c315d18e0194b7713848c85a9337b44256a30c790b7a52f145ebb"
+                    },
+                    "if97_sha256": "2f7e10ab0b4d9dc009d75775ea4d0a19e6179a5356999c4099b90f0d07745658",
+                    "numpy": "2.2.6",
+                    "python": "3.12.9",
+                    "scipy": "1.15.2",
+                    "serialization_sha256": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12"
+                  }
+                },
+                "system": {
+                  "__init__.py": "1fd0c16bacafba221724c58f628a559762e272b52c98437da0ba868f1745e2a2",
+                  "__main__.py": "1f545bec96bcca20791c2c74ff97e7d4e576acf8cea0ccd736d0daf448eb8435",
+                  "cases.py": "372f5b9b00eea215e90b60f2a4619d2249e7135aa7139b5b412791352473b81c",
+                  "model.py": "0a0e985362fd61f04aa2f699f453bdb3c2179635f091623705954673f3dce3eb",
+                  "reference.py": "2d32514c62299293a0c2866f10dfc6d8b9269afb8e39e408bb9f4c7246148629",
+                  "workflow.py": "063994bc4a676891850dbfdf6a8279c1b0cbe5a98d84e7fcbaf2088680694149"
+                }
+              },
+              "network": {
+                "__init__.py": "257d608d06fa413b2ac3f4c800791ea29b90968dbe99cc20367111c83ec47ada",
+                "__main__.py": "fde209eaaf6f1b1296075a1b99ade158fb0ce4f68a0a36d5993d6c8123e0cc81",
+                "cases.py": "ce447649165ca7c37f98b8718e1d50857ad7e7baacf60ddf1aac826d460a0bac",
+                "model.py": "e055e44d2204588026579422bb8627008e077fa8e75cd61a20990f20a3b97b5f",
+                "reference.py": "2d96f7d39fd6ac9d258fc88b73fdf9d375d1ec51cee33a8dc79f342913bc0037",
+                "workflow.py": "1c1cc048869142f6a2f494a45a241a7b103b6f0cd8920b0b0efe2291f07bea7a"
+              }
+            },
+            "mixture": {
+              "__init__.py": "22711d4a6f32c96051e44ba1bf1dcb7ea91271d7259d40618329d5151bc727bc",
+              "__main__.py": "17dec1d7ba6a9edba49df97e890790379bf3131e720de6dde69b4471585f36f3",
+              "cases.py": "e4ceac0bc12454fd04628a6266ab2af8bc34d0c51d0a2e8db30bb5c973cafab9",
+              "friction.py": "f341c513bbac80717c9887f5c6effd26cb92fe34e8b8f765c45f4f1449ebb5f5",
+              "inverse.py": "03f8907c878d2965be88894fda980fe1f910eee61fb8400048c1c5a376903d6c",
+              "model.py": "f9d19da622cc7aa3d4011f0979c7928f8553c5d784042ee17fcca543b17e7759",
+              "reference.py": "f240d629f07a3b7a9d2abb3077996a545b3f97da026ae94ca0df4f3ceaede3d2",
+              "workflow.py": "8591b06fc903fec534e05bfda9905579f54da5829b98fa1eaed0f25947559ddd"
+            }
+          },
+          "qualified": {
+            "__init__.py": "a224b8402fd91740b5ea7d8da29eacd461663b90a1a2c4d36f227415c6cfed0d",
+            "__main__.py": "5fea1ea7be283d43a3e248737444250c30b6d7a907ed14a23a298b969f6eecf1",
+            "cases.py": "d2590fabdd4e0482adb4cd38de4c3c0036ee71d162b9fc3ee8f45ec6eebbcaa3",
+            "closures.py": "8d211a5528a58c785ab38a15b83c8ac67d216734b638d9ae0fa60143aea69376",
+            "eos.py": "70f51ad4ef8190ea209193d4b3724d8ff05a4abbad2b1f642c53688f29af5eef",
+            "model.py": "2c0d8524c3ad794c1762e068a9d9f6fb812bbad8f170afeb5ab7f015d24c36d7",
+            "qualification.py": "0907e64a1674e8624fece26172f87fe64c89175f7ce1ef3ff28c2c028f04a003",
+            "reference.py": "50e8b56ddb6d7a244ac15d009a1b5cbf5991362a1e2c8fbcf0394fd239eff1e7"
+          }
+        }
+      },
+      "validated": false
+    },
+    "first_attempt": {
+      "report": {
+        "assessment": {
+          "checks": {
+            "moderate-hllc-local-momentum_kg_m2_s-refines": false,
+            "moderate-hllc-local-pressure_pa-refines": false,
+            "moderate-hllc-momentum_kg_m2_s-refines": false,
+            "moderate-hllc-pressure_pa-refines": true,
+            "moderate-momentum_kg_m2_s-improves-fixed": true,
+            "moderate-pressure_pa-improves-fixed": true,
+            "moderate-time-error-small": true,
+            "wide-hllc-local-momentum_kg_m2_s-refines": false,
+            "wide-hllc-local-pressure_pa-refines": false,
+            "wide-hllc-momentum_kg_m2_s-refines": false,
+            "wide-hllc-pressure_pa-refines": true,
+            "wide-momentum_kg_m2_s-improves-fixed": true,
+            "wide-pressure_pa-improves-fixed": true,
+            "wide-time-error-small": true
+          },
+          "passed": false,
+          "ratios": [
+            {
+              "case": "moderate",
+              "metric": "pressure_pa",
+              "orders": [
+                0.11974665637650557,
+                0.5239821484339321,
+                0.29696812467685163
+              ],
+              "ratios": [
+                0.9203492538307281,
+                0.6954495911299566,
+                0.8139611687661777
+              ],
+              "scheme": "hllc"
+            },
+            {
+              "case": "moderate",
+              "metric": "momentum_kg_m2_s",
+              "orders": [
+                -0.18726269773160711,
+                0.5306546861584427,
+                0.37295383769004486
+              ],
+              "ratios": [
+                1.138601336058923,
+                0.6922405282637794,
+                0.7721998409871522
+              ],
+              "scheme": "hllc"
+            },
+            {
+              "case": "moderate",
+              "metric": "pressure_pa",
+              "orders": [
+                -0.19757235557301522,
+                0.5545872586903011,
+                0.37406100771281414
+              ],
+              "ratios": [
+                1.1467670485457753,
+                0.6808518156087083,
+                0.7716074576248952
+              ],
+              "scheme": "hllc-local"
+            },
+            {
+              "case": "moderate",
+              "metric": "momentum_kg_m2_s",
+              "orders": [
+                -0.20731758992699942,
+                0.55365043544411,
+                0.37520785958403086
+              ],
+              "ratios": [
+                1.1545395459112135,
+                0.6812940746633608,
+                0.7709943219329701
+              ],
+              "scheme": "hllc-local"
+            },
+            {
+              "case": "wide",
+              "metric": "pressure_pa",
+              "orders": [
+                0.14676044402147023,
+                0.5318492420147496,
+                0.2433813390743098
+              ],
+              "ratios": [
+                0.9032764845482664,
+                0.6916675882439337,
+                0.8447630636592258
+              ],
+              "scheme": "hllc"
+            },
+            {
+              "case": "wide",
+              "metric": "momentum_kg_m2_s",
+              "orders": [
+                -0.15531088669178755,
+                0.5377980538271298,
+                0.31820149835572187
+              ],
+              "ratios": [
+                1.1136615755669153,
+                0.6888214365801101,
+                0.8020691351233539
+              ],
+              "scheme": "hllc"
+            },
+            {
+              "case": "wide",
+              "metric": "pressure_pa",
+              "orders": [
+                -0.1569691405099416,
+                0.5625065943947922,
+                0.31418466318824423
+              ],
+              "ratios": [
+                1.114942369667445,
+                0.6771246784015532,
+                0.8043054142505427
+              ],
+              "scheme": "hllc-local"
+            },
+            {
+              "case": "wide",
+              "metric": "momentum_kg_m2_s",
+              "orders": [
+                -0.17377083169831367,
+                0.5603148752263176,
+                0.3154504740409525
+              ],
+              "ratios": [
+                1.1280029429325749,
+                0.6781541371239937,
+                0.8036000316245321
+              ],
+              "scheme": "hllc-local"
+            }
+          ]
+        },
+        "completed": true,
+        "passed": false,
+        "plant_referenced": false,
+        "rows": [
+          {
+            "cap_s": 1e-05,
+            "case": "moderate",
+            "cells": 8,
+            "checks": {
+              "energy_balance": true,
+              "entropy": true,
+              "liquid": true,
+              "mass_balance": true,
+              "positive_mass": true
+            },
+            "l1": {
+              "centered_energy_j_m3": 8.132334280817304,
+              "density_kg_m3": 0.0008858414200290099,
+              "momentum_kg_m2_s": 1.0365839546145983,
+              "pressure_pa": 1827.8607603751589
+            },
+            "passed": true,
+            "scheme": "hllc"
+          },
+          {
+            "cap_s": 1e-05,
+            "case": "moderate",
+            "cells": 8,
+            "checks": {
+              "energy_balance": true,
+              "entropy": true,
+              "liquid": true,
+              "mass_balance": true,
+              "positive_mass": true
+            },
+            "l1": {
+              "centered_energy_j_m3": 4.901523400156293,
+              "density_kg_m3": 0.0006702502343642891,
+              "momentum_kg_m2_s": 0.9553976533271694,
+              "pressure_pa": 1382.3492791056633
+            },
+            "passed": true,
+            "scheme": "hllc-local"
+          },
+          {
+            "cap_s": 1e-05,
+            "case": "moderate",
+            "cells": 16,
+            "checks": {
+              "energy_balance": true,
+              "entropy": true,
+              "liquid": true,
+              "mass_balance": true,
+              "positive_mass": true
+            },
+            "l1": {
+              "centered_energy_j_m3": 7.151493486133404,
+              "density_kg_m3": 0.000815386390314643,
+              "momentum_kg_m2_s": 1.1802558756614236,
+              "pressure_pa": 1682.2702869177447
+            },
+            "passed": true,
+            "scheme": "hllc"
+          },
+          {
+            "cap_s": 1e-05,
+            "case": "moderate",
+            "cells": 16,
+            "checks": {
+              "energy_balance": true,
+              "entropy": true,
+              "liquid": true,
+              "mass_balance": true,
+              "positive_mass": true
+            },
+            "l1": {
+              "centered_energy_j_m3": 5.617455046740361,
+              "density_kg_m3": 0.0007686398631960856,
+              "momentum_kg_m2_s": 1.1030443728369892,
+              "pressure_pa": 1585.2326028593816
+            },
+            "passed": true,
+            "scheme": "hllc-local"
+          },
+          {
+            "cap_s": 1e-05,
+            "case": "moderate",
+            "cells": 32,
+            "checks": {
+              "energy_balance": true,
+              "entropy": true,
+              "liquid": true,
+              "mass_balance": true,
+              "positive_mass": true
+            },
+            "l1": {
+              "centered_energy_j_m3": 4.858790334423247,
+              "density_kg_m3": 0.0005670925569809526,
+              "momentum_kg_m2_s": 0.8170209508542934,
+              "pressure_pa": 1169.9341832070204
+            },
+            "passed": true,
+            "scheme": "hllc"
+          },
+          {
+            "cap_s": 1e-05,
+            "case": "moderate",
+            "cells": 32,
+            "checks": {
+              "energy_balance": true,
+              "entropy": true,
+              "liquid": true,
+              "mass_balance": true,
+              "positive_mass": true
+            },
+            "l1": {
+              "centered_energy_j_m3": 3.822448726852599,
+              "density_kg_m3": 0.000523332609866145,
+              "momentum_kg_m2_s": 0.7514975953046037,
+              "pressure_pa": 1079.3084958189283
+            },
+            "passed": true,
+            "scheme": "hllc-local"
+          },
+          {
+            "cap_s": 1e-05,
+            "case": "moderate",
+            "cells": 64,
+            "checks": {
+              "energy_balance": true,
+              "entropy": true,
+              "liquid": true,
+              "mass_balance": true,
+              "positive_mass": true
+            },
+            "l1": {
+              "centered_energy_j_m3": 3.7258012664024136,
+              "density_kg_m3": 0.00046163280418376473,
+              "momentum_kg_m2_s": 0.6309034483328573,
+              "pressure_pa": 952.2809951426898
+            },
+            "passed": true,
+            "scheme": "hllc"
+          },
+          {
+            "cap_s": 1e-05,
+            "case": "moderate",
+            "cells": 64,
+            "checks": {
+              "energy_balance": true,
+              "entropy": true,
+              "liquid": true,
+              "mass_balance": true,
+              "positive_mass": true
+            },
+            "l1": {
+              "centered_energy_j_m3": 2.929200336955546,
+              "density_kg_m3": 0.0004037956693423439,
+              "momentum_kg_m2_s": 0.5794003789261305,
+              "pressure_pa": 832.8024844517931
+            },
+            "passed": true,
+            "scheme": "hllc-local"
+          },
+          {
+            "cap_s": 5e-06,
+            "case": "moderate",
+            "cells": 64,
+            "checks": {
+              "energy_balance": true,
+              "entropy": true,
+              "liquid": true,
+              "mass_balance": true,
+              "positive_mass": true
+            },
+            "l1": {
+              "centered_energy_j_m3": 2.929180443417863,
+              "density_kg_m3": 0.0004037929270701568,
+              "momentum_kg_m2_s": 0.5793964519324145,
+              "pressure_pa": 832.7968302332083
+            },
+            "passed": true,
+            "scheme": "hllc-local"
+          },
+          {
+            "cap_s": 1e-05,
+            "case": "wide",
+            "cells": 8,
+            "checks": {
+              "energy_balance": true,
+              "entropy": true,
+              "liquid": true,
+              "mass_balance": true,
+              "positive_mass": true
+            },
+            "l1": {
+              "centered_energy_j_m3": 2635.943611517294,
+              "density_kg_m3": 0.26314998471283957,
+              "momentum_kg_m2_s": 312.36595548385696,
+              "pressure_pa": 551570.8038444873
+            },
+            "passed": true,
+            "scheme": "hllc"
+          },
+          {
+            "cap_s": 1e-05,
+            "case": "wide",
+            "cells": 8,
+            "checks": {
+              "energy_balance": true,
+              "entropy": true,
+              "liquid": true,
+              "mass_balance": true,
+              "positive_mass": true
+            },
+            "l1": {
+              "centered_energy_j_m3": 1926.822229072197,
+              "density_kg_m3": 0.20170054540504623,
+              "momentum_kg_m2_s": 288.00891142106207,
+              "pressure_pa": 422722.7315000484
+            },
+            "passed": true,
+            "scheme": "hllc-local"
+          },
+          {
+            "cap_s": 1e-05,
+            "case": "wide",
+            "cells": 16,
+            "checks": {
+              "energy_balance": true,
+              "entropy": true,
+              "liquid": true,
+              "mass_balance": true,
+              "positive_mass": true
+            },
+            "l1": {
+              "centered_energy_j_m3": 2350.323933849744,
+              "density_kg_m3": 0.2377202572970063,
+              "momentum_kg_m2_s": 347.86996213761705,
+              "pressure_pa": 498220.9366761099
+            },
+            "passed": true,
+            "scheme": "hllc"
+          },
+          {
+            "cap_s": 1e-05,
+            "case": "wide",
+            "cells": 16,
+            "checks": {
+              "energy_balance": true,
+              "entropy": true,
+              "liquid": true,
+              "mass_balance": true,
+              "positive_mass": true
+            },
+            "l1": {
+              "centered_energy_j_m3": 2138.945395740382,
+              "density_kg_m3": 0.22490548919045494,
+              "momentum_kg_m2_s": 324.8748996737653,
+              "pressure_pa": 471311.4839709591
+            },
+            "passed": true,
+            "scheme": "hllc-local"
+          },
+          {
+            "cap_s": 1e-05,
+            "case": "wide",
+            "cells": 32,
+            "checks": {
+              "energy_balance": true,
+              "entropy": true,
+              "liquid": true,
+              "mass_balance": true,
+              "positive_mass": true
+            },
+            "l1": {
+              "centered_energy_j_m3": 1712.5870806919065,
+              "density_kg_m3": 0.16442402750776708,
+              "momentum_kg_m2_s": 239.62028706270186,
+              "pressure_pa": 344603.27368339855
+            },
+            "passed": true,
+            "scheme": "hllc"
+          },
+          {
+            "cap_s": 1e-05,
+            "case": "wide",
+            "cells": 32,
+            "checks": {
+              "energy_balance": true,
+              "entropy": true,
+              "liquid": true,
+              "mass_balance": true,
+              "positive_mass": true
+            },
+            "l1": {
+              "centered_energy_j_m3": 1798.5595832587805,
+              "density_kg_m3": 0.15228566923480713,
+              "momentum_kg_m2_s": 220.31525726150636,
+              "pressure_pa": 319136.6370107945
+            },
+            "passed": true,
+            "scheme": "hllc-local"
+          },
+          {
+            "cap_s": 1e-05,
+            "case": "wide",
+            "cells": 64,
+            "checks": {
+              "energy_balance": true,
+              "entropy": true,
+              "liquid": true,
+              "mass_balance": true,
+              "positive_mass": true
+            },
+            "l1": {
+              "centered_energy_j_m3": 1568.0868077717241,
+              "density_kg_m3": 0.13887898493006112,
+              "momentum_kg_m2_s": 192.19203640239107,
+              "pressure_pa": 291108.1172237864
+            },
+            "passed": true,
+            "scheme": "hllc"
+          },
+          {
+            "cap_s": 1e-05,
+            "case": "wide",
+            "cells": 64,
+            "checks": {
+              "energy_balance": true,
+              "entropy": true,
+              "liquid": true,
+              "mass_balance": true,
+              "positive_mass": true
+            },
+            "l1": {
+              "centered_energy_j_m3": 1527.1291867176878,
+              "density_kg_m3": 0.12245762600482557,
+              "momentum_kg_m2_s": 177.04534770271343,
+              "pressure_pa": 256683.32503349212
+            },
+            "passed": true,
+            "scheme": "hllc-local"
+          },
+          {
+            "cap_s": 5e-06,
+            "case": "wide",
+            "cells": 64,
+            "checks": {
+              "energy_balance": true,
+              "entropy": true,
+              "liquid": true,
+              "mass_balance": true,
+              "positive_mass": true
+            },
+            "l1": {
+              "centered_energy_j_m3": 1527.1119436161825,
+              "density_kg_m3": 0.12245682022085802,
+              "momentum_kg_m2_s": 177.0441880718664,
+              "pressure_pa": 256681.6365285437
+            },
+            "passed": true,
+            "scheme": "hllc-local"
+          }
+        ],
+        "source_unchanged": true,
+        "validated": false,
+        "whole_plant_compared": false
+      },
+      "protocol": {
+        "cap_s": 1e-05,
+        "cases": [
+          "moderate",
+          "wide"
+        ],
+        "drivers": {
+          "/home/user/workspace/atomic-sim/scripts/benchmark_modelica_network.py": "37c7f67bddeb14a14b3f6fe2989a76c5861d737f50585a00da379a14fd0a78e9",
+          "/home/user/workspace/atomic-sim/scripts/liquid_riemann.py": "29d949b645c808aaded1f6b023a91f7303d0ae926b6023835d343636ba7802c4",
+          "/home/user/workspace/atomic-sim/scripts/liquid_riemann_profile.py": "a959895bd46d4096c05f64ad5cb20752aba74f62443a479b900ae0e34797764b",
+          "/home/user/workspace/atomic-sim/scripts/verify_hllc_spatial.py": "32f6f8392a6b81d22f08360040ee8a4435fdd3dfdc5dcae012dbd8fc5a39ead0"
+        },
+        "horizon_s": 0.0005,
+        "length_m": 10.0,
+        "max_spatial_ratio": 0.98,
+        "max_time_fraction": 0.05,
+        "meshes": [
+          8,
+          16,
+          32,
+          64
+        ],
+        "plant_referenced": false,
+        "reference": "Conservative cell averages of nonlinear IF97 Riemann solution before physical boundary arrival",
+        "schemes": [
+          "hllc",
+          "hllc-local"
+        ],
+        "source": {
+          "contact": {
+            "__init__.py": "788b552f329b11de1518f5c32374773c9f7d4d05a077eed16127384810aa27eb",
+            "flux.py": "e1591f6ce15249412526e3df8983feb663e854c8902208d77e019984547c9a4c",
+            "model.py": "1db06f89454775c3201d5cb3a36b4beb2ca5237993866eb70b402f19de869044",
+            "reference.py": "c8b42b80b1aedc9bc87a858502aaa184b4ccc8e0523c58b75c097a1ccf325d47"
+          },
+          "foundation": {
+            "graph": {
+              "closures": {
+                "__init__.py": "72e961e145031884a59f12a87899fa56005082c1053afd7a6201dcf21a47a931"
+              },
+              "foundation": {
+                "flow": {
+                  "flow": {
+                    "__init__.py": "cef2568fccc811ef9955c2c1b5517fb3caa1d80fbb7120548f131831202aae8a",
+                    "__main__.py": "c15a6a4c84b8b2b979b088ab098136c3fe936575d6ba6b1911d53ba106a45b8f",
+                    "cases.py": "556a38acb8557166b34c9042ab1630aceaf9a3cbe5bc3c22e03002c3ba13827c",
+                    "model.py": "39278c137e63b94cccc487bb49cd06186f7cdba8535034896faf47df86342cdd",
+                    "reference.py": "2add998c2d8b1df399436369db16e546aa9fcf4b53150832ae42a0ac71a35039",
+                    "workflow.py": "f79291e4971572595a69e70829111f38e4daae351bddee67e70a9e2d37b6e1ed"
+                  },
+                  "hem": {
+                    "hem_sources": {
+                      "__init__.py": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+                      "__main__.py": "8d9fab98b7490f270f0ef3b33ea95a8324a5340df3f821035f4e72c431952f82",
+                      "eos.py": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+                      "vessel.py": "d3284236f41d4e5827ab48b975e87a5b6fc0a36ec1a6cf21ad352255215ce478",
+                      "workflow.py": "0cf1dd9df09c315d18e0194b7713848c85a9337b44256a30c790b7a52f145ebb"
+                    },
+                    "if97_sha256": "2f7e10ab0b4d9dc009d75775ea4d0a19e6179a5356999c4099b90f0d07745658",
+                    "numpy": "2.2.6",
+                    "python": "3.12.9",
+                    "scipy": "1.15.2",
+                    "serialization_sha256": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12"
+                  }
+                },
+                "system": {
+                  "__init__.py": "1fd0c16bacafba221724c58f628a559762e272b52c98437da0ba868f1745e2a2",
+                  "__main__.py": "1f545bec96bcca20791c2c74ff97e7d4e576acf8cea0ccd736d0daf448eb8435",
+                  "cases.py": "372f5b9b00eea215e90b60f2a4619d2249e7135aa7139b5b412791352473b81c",
+                  "model.py": "0a0e985362fd61f04aa2f699f453bdb3c2179635f091623705954673f3dce3eb",
+                  "reference.py": "2d32514c62299293a0c2866f10dfc6d8b9269afb8e39e408bb9f4c7246148629",
+                  "workflow.py": "063994bc4a676891850dbfdf6a8279c1b0cbe5a98d84e7fcbaf2088680694149"
+                }
+              },
+              "network": {
+                "__init__.py": "257d608d06fa413b2ac3f4c800791ea29b90968dbe99cc20367111c83ec47ada",
+                "__main__.py": "fde209eaaf6f1b1296075a1b99ade158fb0ce4f68a0a36d5993d6c8123e0cc81",
+                "cases.py": "ce447649165ca7c37f98b8718e1d50857ad7e7baacf60ddf1aac826d460a0bac",
+                "model.py": "e055e44d2204588026579422bb8627008e077fa8e75cd61a20990f20a3b97b5f",
+                "reference.py": "2d96f7d39fd6ac9d258fc88b73fdf9d375d1ec51cee33a8dc79f342913bc0037",
+                "workflow.py": "1c1cc048869142f6a2f494a45a241a7b103b6f0cd8920b0b0efe2291f07bea7a"
+              }
+            },
+            "mixture": {
+              "graph": {
+                "closures": {
+                  "__init__.py": "72e961e145031884a59f12a87899fa56005082c1053afd7a6201dcf21a47a931"
+                },
+                "foundation": {
+                  "flow": {
+                    "flow": {
+                      "__init__.py": "cef2568fccc811ef9955c2c1b5517fb3caa1d80fbb7120548f131831202aae8a",
+                      "__main__.py": "c15a6a4c84b8b2b979b088ab098136c3fe936575d6ba6b1911d53ba106a45b8f",
+                      "cases.py": "556a38acb8557166b34c9042ab1630aceaf9a3cbe5bc3c22e03002c3ba13827c",
+                      "model.py": "39278c137e63b94cccc487bb49cd06186f7cdba8535034896faf47df86342cdd",
+                      "reference.py": "2add998c2d8b1df399436369db16e546aa9fcf4b53150832ae42a0ac71a35039",
+                      "workflow.py": "f79291e4971572595a69e70829111f38e4daae351bddee67e70a9e2d37b6e1ed"
+                    },
+                    "hem": {
+                      "hem_sources": {
+                        "__init__.py": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+                        "__main__.py": "8d9fab98b7490f270f0ef3b33ea95a8324a5340df3f821035f4e72c431952f82",
+                        "eos.py": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+                        "vessel.py": "d3284236f41d4e5827ab48b975e87a5b6fc0a36ec1a6cf21ad352255215ce478",
+                        "workflow.py": "0cf1dd9df09c315d18e0194b7713848c85a9337b44256a30c790b7a52f145ebb"
+                      },
+                      "if97_sha256": "2f7e10ab0b4d9dc009d75775ea4d0a19e6179a5356999c4099b90f0d07745658",
+                      "numpy": "2.2.6",
+                      "python": "3.12.9",
+                      "scipy": "1.15.2",
+                      "serialization_sha256": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12"
+                    }
+                  },
+                  "system": {
+                    "__init__.py": "1fd0c16bacafba221724c58f628a559762e272b52c98437da0ba868f1745e2a2",
+                    "__main__.py": "1f545bec96bcca20791c2c74ff97e7d4e576acf8cea0ccd736d0daf448eb8435",
+                    "cases.py": "372f5b9b00eea215e90b60f2a4619d2249e7135aa7139b5b412791352473b81c",
+                    "model.py": "0a0e985362fd61f04aa2f699f453bdb3c2179635f091623705954673f3dce3eb",
+                    "reference.py": "2d32514c62299293a0c2866f10dfc6d8b9269afb8e39e408bb9f4c7246148629",
+                    "workflow.py": "063994bc4a676891850dbfdf6a8279c1b0cbe5a98d84e7fcbaf2088680694149"
+                  }
+                },
+                "network": {
+                  "__init__.py": "257d608d06fa413b2ac3f4c800791ea29b90968dbe99cc20367111c83ec47ada",
+                  "__main__.py": "fde209eaaf6f1b1296075a1b99ade158fb0ce4f68a0a36d5993d6c8123e0cc81",
+                  "cases.py": "ce447649165ca7c37f98b8718e1d50857ad7e7baacf60ddf1aac826d460a0bac",
+                  "model.py": "e055e44d2204588026579422bb8627008e077fa8e75cd61a20990f20a3b97b5f",
+                  "reference.py": "2d96f7d39fd6ac9d258fc88b73fdf9d375d1ec51cee33a8dc79f342913bc0037",
+                  "workflow.py": "1c1cc048869142f6a2f494a45a241a7b103b6f0cd8920b0b0efe2291f07bea7a"
+                }
+              },
+              "mixture": {
+                "__init__.py": "22711d4a6f32c96051e44ba1bf1dcb7ea91271d7259d40618329d5151bc727bc",
+                "__main__.py": "17dec1d7ba6a9edba49df97e890790379bf3131e720de6dde69b4471585f36f3",
+                "cases.py": "e4ceac0bc12454fd04628a6266ab2af8bc34d0c51d0a2e8db30bb5c973cafab9",
+                "friction.py": "f341c513bbac80717c9887f5c6effd26cb92fe34e8b8f765c45f4f1449ebb5f5",
+                "inverse.py": "03f8907c878d2965be88894fda980fe1f910eee61fb8400048c1c5a376903d6c",
+                "model.py": "f9d19da622cc7aa3d4011f0979c7928f8553c5d784042ee17fcca543b17e7759",
+                "reference.py": "f240d629f07a3b7a9d2abb3077996a545b3f97da026ae94ca0df4f3ceaede3d2",
+                "workflow.py": "8591b06fc903fec534e05bfda9905579f54da5829b98fa1eaed0f25947559ddd"
+              }
+            },
+            "qualified": {
+              "__init__.py": "a224b8402fd91740b5ea7d8da29eacd461663b90a1a2c4d36f227415c6cfed0d",
+              "__main__.py": "5fea1ea7be283d43a3e248737444250c30b6d7a907ed14a23a298b969f6eecf1",
+              "cases.py": "d2590fabdd4e0482adb4cd38de4c3c0036ee71d162b9fc3ee8f45ec6eebbcaa3",
+              "closures.py": "8d211a5528a58c785ab38a15b83c8ac67d216734b638d9ae0fa60143aea69376",
+              "eos.py": "70f51ad4ef8190ea209193d4b3724d8ff05a4abbad2b1f642c53688f29af5eef",
+              "model.py": "2c0d8524c3ad794c1762e068a9d9f6fb812bbad8f170afeb5ab7f015d24c36d7",
+              "qualification.py": "0907e64a1674e8624fece26172f87fe64c89175f7ce1ef3ff28c2c028f04a003",
+              "reference.py": "50e8b56ddb6d7a244ac15d009a1b5cbf5991362a1e2c8fbcf0394fd239eff1e7"
+            }
+          }
+        },
+        "validated": false
+      },
+      "interpretation": "Initial coarse range 8/16/32/64 at 0.0005 s did not resolve acoustic travel; negative verdict preserved. Separate range16/32/64 at0.001s adds two-cell travel and boundary gates; ratio0.98 unchanged."
+    },
+    "local_tests": {
+      "counts": {
+        "collected": 904,
+        "errors": 0,
+        "failed": 0,
+        "passed": 904,
+        "skipped": 0
+      },
+      "exit_code": 0,
+      "external_or_physical_validation_claimed": false,
+      "gate_failures": [],
+      "schema_version": 1
+    },
+    "wheel_inventory": {
+      "files": 1441,
+      "package_counts": {
+        "data": 4,
+        "scenarios": 73,
+        "scripts": 225,
+        "src": 433,
+        "validation": 706
+      },
+      "scope": "src and declared root-mapped packages; exact bytes; no caches or duplicates",
+      "verified": true
+    },
+    "installed_resource_count": 788,
+    "installed_replay": {
+      "checks": {
+        "all_rows_identical": true,
+        "installed_import": true,
+        "qualification_passed": true,
+        "source_unchanged": true
+      },
+      "driver_sha256": "d7c5d46f6d7d5500c072692eea16460d73920be5cc99711bb4fab92e4a29e8b7",
+      "passed": true,
+      "plant_referenced": false,
+      "profile_sha256": "a959895bd46d4096c05f64ad5cb20752aba74f62443a479b900ae0e34797764b",
+      "validated": false
+    },
+    "production_signature_preserved": true,
+    "validated": false,
+    "plant_referenced": false,
+    "evidence_sha256": {
+      "artifacts/hllc-spatial-v1/report.json": "b6331c7321b6a5de2f5c56e948b08557e6133efdd7c4970e03f42f1da65ea283",
+      "artifacts/hllc-spatial-v1/protocol.json": "8de24917dd9c1889509335a4fd771054489abb8bf2a29dcc0774842c2f6c4b22",
+      "artifacts/hllc-spatial-v1/driver.py": "32f6f8392a6b81d22f08360040ee8a4435fdd3dfdc5dcae012dbd8fc5a39ead0",
+      "artifacts/hllc-spatial-v2/report.json": "e8ab4d9ba63c809c65c003c13b3a6597ed51461370c6c31a9c861df93bf5ca75",
+      "artifacts/hllc-spatial-v2/protocol.json": "6dd5ec4c99cb48c0152dd5a98dce67f8ad1afbc4035fa5f9d91fb3757cb9f879",
+      "artifacts/local-spatial-delivery-v1/report.json": "2492b3291fdf2c93e91062b271eeb3a25a8ca7161f7d7206e038fa251cd028ae",
+      "artifacts/installed-hllc-spatial-v1/report.json": "1887e8b6513ed2c753ca3f2c15c1b2efea7f784e6a17c34104e2072b7650ee4f"
+    }
+  },
+  "sha256": "388509e0b42a76e579e779a73e533627c4cb2fd7535d156f225b4f0d131c77b6"
+}

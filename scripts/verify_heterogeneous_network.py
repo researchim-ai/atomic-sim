@@ -16,6 +16,8 @@ REFERENCE_BUDGETS=dict(pressure_pa=.1,temperature_k=1e-5,internal_energy_j_kg=.0
     face_mass_kg=1e-9,face_energy_j=1e-5,support_kg_m_s=1e-8)
 SPATIAL_MESHES=(2,4,8,16,32)
 MAX_L1_RATIO=.95
+ENERGY_REFINEMENT_FLOOR_J=1e-6
+MAX_TIME_ERROR_RATIO=.8
 
 
 def contact_request(cells):
@@ -72,18 +74,19 @@ def run(output):
     source=signature();drivers={str(Path(p).absolute()):sha(p) for p in (__file__,bench.__file__)}
     output.mkdir(parents=True,exist_ok=False)
     atomic_json(output/'protocol.json',seal(dict(source=source,drivers=drivers,budgets=REFERENCE_BUDGETS,
-        cases=bench.CASES,meshes=bench.MESHES,caps=bench.CAPS,spatial_meshes=SPATIAL_MESHES,
+        cases=bench.CASES,meshes=bench.MESHES,caps=bench.QUALIFICATION_CAPS,spatial_meshes=SPATIAL_MESHES,
         maximum_contact_error_ratio=MAX_L1_RATIO,reference='Independent absolute-stock graph RHS, shared normative EOS; DOP853/Radau',
+        energy_refinement_floor_j=ENERGY_REFINEMENT_FLOOR_J,maximum_temporal_error_ratio=MAX_TIME_ERROR_RATIO,
         validated=False,plant_referenced=False)))
     records=[]
     for case in bench.CASES:
         for cells in bench.MESHES:
             refs=[]
-            request=bench.request_for(case,cells,bench.CAPS[0])
+            request=bench.request_for(case,cells,bench.QUALIFICATION_CAPS[0])
             for method in ('DOP853','Radau'):
                 result=solve(request,[dict(duration_s=b-a,command=None) for a,b in zip(bench.TIMES,bench.TIMES[1:])],method,max_step=5e-6)
                 refs.append(result)
-            natives={cap:bench.execute(case,cells,cap) for cap in bench.CAPS}
+            natives={cap:bench.execute(case,cells,cap) for cap in bench.QUALIFICATION_CAPS}
             comparisons=[]
             for cap,native in natives.items():
                 for ref in refs:
@@ -94,10 +97,20 @@ def run(output):
                     records.append(record);comparisons.append(record)
                     print(case,cells,cap,ref['method'],record['passed'],flush=True)
             atomic_json(output/f'{case}-{cells}.json',seal(dict(references=refs,native={str(k):v for k,v in natives.items()},comparisons=comparisons)))
+    refinement=[]
+    for case in bench.CASES:
+        for cells in bench.MESHES:
+            for method in ('DOP853','Radau'):
+                pair=[next(r for r in records if r['case']==case and r['cells']==cells and r['method']==method and r['cap_s']==cap) for cap in bench.QUALIFICATION_CAPS]
+                coarse,fine=[max(r['maximum_errors'][k] for k in ('total_energy_j','face_energy_j')) for r in pair]
+                ratio=fine/coarse if coarse else None
+                evaluated=coarse>ENERGY_REFINEMENT_FLOOR_J
+                refinement.append(dict(case=case,cells=cells,method=method,coarse_energy_error_j=coarse,
+                    fine_energy_error_j=fine,ratio=ratio,evaluated=evaluated,passed=not evaluated or ratio<=MAX_TIME_ERROR_RATIO))
     contact=spatial();atomic_json(output/'contact.json',seal(contact))
     unchanged=signature()==source and all(sha(p)==h for p,h in drivers.items())
-    report=dict(completed=True,source_unchanged=unchanged,passed=unchanged and all(r['passed'] for r in records) and contact['passed'],
-        temporal=records,contact=contact,validated=False,plant_referenced=False)
+    report=dict(completed=True,source_unchanged=unchanged,passed=unchanged and all(r['passed'] for r in records) and all(r['passed'] for r in refinement) and contact['passed'],
+        temporal=records,temporal_refinement=refinement,contact=contact,validated=False,plant_referenced=False)
     atomic_json(output/'report.json',seal(report));return report
 
 

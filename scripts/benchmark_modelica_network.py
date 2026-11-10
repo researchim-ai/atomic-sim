@@ -22,6 +22,7 @@ from scripts.benchmark_modelica_cycles import library_manifest
 CASES=('thermal_contact','coupled_gradient','thermal_step','pressure_thermal_step')
 MESHES=(2,4)
 CAPS=(2e-5,1e-5)
+QUALIFICATION_CAPS=(1e-6,5e-7)
 TIMES=(0.,.00025,.0005,.00075,.001)
 METHODS=('dassl','ida')
 BUDGETS=dict(pressure_pa=100.,temperature_k=1e-3,internal_energy_j_kg=.1,
@@ -32,7 +33,7 @@ COLUMNS=dict(pressure_pa='pressure',temperature_k='temperature',internal_energy_
 
 
 def request_for(case,cells=2,cap=2e-5):
-    if case not in CASES or cells not in MESHES or cap not in CAPS:raise ValueError('Declared graph matrix only')
+    if case not in CASES or cells not in MESHES or cap not in CAPS+QUALIFICATION_CAPS:raise ValueError('Declared graph matrix only')
     request=baseline(0.,velocity=0.,cells=cells);request['friction']={}
     spec=request['model'];spec['max_step_s']=cap
     def point(x):
@@ -45,6 +46,7 @@ def request_for(case,cells=2,cap=2e-5):
     for node,x in zip(spec['nodes'],(0.,1.),strict=True):node['initial']=point(x)
     # Opposite axial orientation is an explicit check on junction signs.
     spec['edges'][1]['from_node'],spec['edges'][1]['to_node']='b','a'
+    spec['edges'][1]['diameter_m']=.04
     for edge in spec['edges']:
         forward=edge['from_node']=='a'
         edge['initial']=[point((j+.5)/cells if forward else 1-(j+.5)/cells) for j in range(cells)]
@@ -71,6 +73,7 @@ def execute(case,cells=2,cap=2e-5):
         adiabatic=all(s['global_ledger'][k]==0. for s in observations for k in ('external_fluid_heat_j','external_wall_heat_j','external_entropy_j_k')),
         heterogeneous=max(c['temperature_k'] for c in first['cells'])-min(c['temperature_k'] for c in first['cells'])>.001,
         transfer_nonzero=max(abs(v) for v in last['local_ledgers']['integrated_face_mass_kg'])>1e-10,
+        support_nonzero=max(abs(v) for v in last['local_ledgers']['node_support_impulse_kg_m_s'])>1e-6,
         changed=any(abs(a['mass_kg']-b['mass_kg'])>1e-10 for a,b in zip(first['cells'],last['cells'],strict=True)))
     return dict(request=request,observations=observations,checkpoint=saved,
                 record=dict(case=case,cells=cells,cap_s=cap,checks=checks,passed=all(checks.values())))
@@ -87,7 +90,7 @@ def topology(request,initial):
             volumes.append(area*edge['length_m']/edge['cells'])
         chain.append(names.index(edge['to_node']))
         for a,b in zip(chain,chain[1:]):faces.append((a,b));areas.append(area)
-    if names!=[c['id'] for c in initial['cells']] or any(abs(v-c['volume_m3'])>1e-15 for v,c in zip(volumes,initial['cells'],strict=True)):
+    if names!=[c['id'] for c in initial['cells']] or any(not math.isfinite(c['volume_m3']) or abs(v-c['volume_m3'])>1e-15 for v,c in zip(volumes,initial['cells'],strict=True)):
         raise ValueError('Initial cell identity/geometry mismatch')
     return names,volumes,faces,areas
 
@@ -205,6 +208,8 @@ def compare(native,peer):
                 errors[field]=max(errors[field],error)
         ledger=a['local_ledgers']
         for field,name,key in [('face_mass_kg','faceMass','integrated_face_mass_kg'),('face_energy_j','faceEnergy','integrated_face_energy_j'),('support_kg_m_s','support','node_support_impulse_kg_m_s')]:
+            count=len(names) if name=='support' else len(topology(native['request'],native['observations'][0])[2])
+            if len(ledger[key])!=count:raise ValueError('Incomplete face/support ledger')
             for i,value in enumerate(ledger[key],1):
                 error=abs(value-b[f'{name}[{i}]'])
                 if not math.isfinite(error):raise ValueError('Nonfinite face/support comparison')
