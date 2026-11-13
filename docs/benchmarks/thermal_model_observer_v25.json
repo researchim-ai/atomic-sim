@@ -1,0 +1,878 @@
+{
+  "payload": {
+    "protocol": {
+      "blind_test": false,
+      "drivers": {
+        "/home/user/workspace/atomic-sim/scripts/benchmark_thermal_faults.py": "5afc3151e2e0fad8e39641b560ba4dbca7d7ca6e459165df2599f5a76d5be221",
+        "/home/user/workspace/atomic-sim/scripts/benchmark_thermal_observer.py": "f547e1c506545d6004c91c65a85dc49129e247913654a1628fb4f2f34666c4f2",
+        "/home/user/workspace/atomic-sim/scripts/optimize_thermal_control.py": "92f8feb2ec6f4c2872d4d67d354ad47a686f43ee8afd362a16c6b8ea86f6befb",
+        "/home/user/workspace/atomic-sim/scripts/train_thermal_agent.py": "8b7434a51a0d63762414ced63ffaf11acc0ecc8a05eb7d0c9d57cf6021844121"
+      },
+      "faults": [
+        "healthy",
+        "bias_low",
+        "stuck"
+      ],
+      "monitor_config": {
+        "ambient_ua_max": 100.0,
+        "ambient_ua_min": 0.0,
+        "capacity_max": 500.0,
+        "capacity_min": 100.0,
+        "conductance_max": 15000.0,
+        "conductance_min": 1000.0,
+        "dt_s": 0.00025,
+        "max_power_w": 100000.0,
+        "model_margin_k": 0.003,
+        "noise_margin_k": 0.02,
+        "repeated_samples": 3
+      },
+      "monitor_source": {
+        "__init__.py": "5b419c8891f5b239abc6f6bec57aa2287d4c2a4b1ed1c33b763fa4617f3c72a1",
+        "monitor.py": "ee343d820a2c8851c3956836d8a73ddb8a5e9ec54dc7937df0e6a3d2c62f12d0"
+      },
+      "policies": [
+        "learned",
+        "repeat_guard",
+        "observer_guard"
+      ],
+      "scope": "One-step corner hypothesis envelope, assumed noise/model margins; no formal enclosure or unique sensor diagnosis",
+      "seeds": [
+        510,
+        511
+      ],
+      "source": {
+        "environment": {
+          "__init__.py": "1998121041823447ff6136cab63abaf22695427ea60fea190e38ec8ed9f006e6",
+          "environment.py": "55fb18438cf30e3d8ee9f75833d88e0d762105600046a4b55a3999ebbbdc1af2"
+        },
+        "physics": {
+          "contact": {
+            "contact": {
+              "__init__.py": "788b552f329b11de1518f5c32374773c9f7d4d05a077eed16127384810aa27eb",
+              "flux.py": "d2903ded4acf7341f6f294b1ace68cdb40b02ed5604ad40c60a33f1b57c8e15a",
+              "inverse.py": "20f85feb6ca36cd3a6ef78bca0505ea79e7f5cbb3b694a5293bf5c939b2fc600",
+              "model.py": "a4e22e046ae9d3a6ea00d65bef00a96230d7a06ea5217f8ee1331d14e141a94d",
+              "reference.py": "c8b42b80b1aedc9bc87a858502aaa184b4ccc8e0523c58b75c097a1ccf325d47"
+            },
+            "foundation": {
+              "graph": {
+                "closures": {
+                  "__init__.py": "72e961e145031884a59f12a87899fa56005082c1053afd7a6201dcf21a47a931"
+                },
+                "foundation": {
+                  "flow": {
+                    "flow": {
+                      "__init__.py": "cef2568fccc811ef9955c2c1b5517fb3caa1d80fbb7120548f131831202aae8a",
+                      "__main__.py": "c15a6a4c84b8b2b979b088ab098136c3fe936575d6ba6b1911d53ba106a45b8f",
+                      "cases.py": "556a38acb8557166b34c9042ab1630aceaf9a3cbe5bc3c22e03002c3ba13827c",
+                      "model.py": "39278c137e63b94cccc487bb49cd06186f7cdba8535034896faf47df86342cdd",
+                      "reference.py": "2add998c2d8b1df399436369db16e546aa9fcf4b53150832ae42a0ac71a35039",
+                      "workflow.py": "f79291e4971572595a69e70829111f38e4daae351bddee67e70a9e2d37b6e1ed"
+                    },
+                    "hem": {
+                      "hem_sources": {
+                        "__init__.py": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+                        "__main__.py": "8d9fab98b7490f270f0ef3b33ea95a8324a5340df3f821035f4e72c431952f82",
+                        "eos.py": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+                        "vessel.py": "d3284236f41d4e5827ab48b975e87a5b6fc0a36ec1a6cf21ad352255215ce478",
+                        "workflow.py": "0cf1dd9df09c315d18e0194b7713848c85a9337b44256a30c790b7a52f145ebb"
+                      },
+                      "if97_sha256": "2f7e10ab0b4d9dc009d75775ea4d0a19e6179a5356999c4099b90f0d07745658",
+                      "numpy": "2.2.6",
+                      "python": "3.12.9",
+                      "scipy": "1.15.2",
+                      "serialization_sha256": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12"
+                    }
+                  },
+                  "system": {
+                    "__init__.py": "1fd0c16bacafba221724c58f628a559762e272b52c98437da0ba868f1745e2a2",
+                    "__main__.py": "1f545bec96bcca20791c2c74ff97e7d4e576acf8cea0ccd736d0daf448eb8435",
+                    "cases.py": "372f5b9b00eea215e90b60f2a4619d2249e7135aa7139b5b412791352473b81c",
+                    "model.py": "0a0e985362fd61f04aa2f699f453bdb3c2179635f091623705954673f3dce3eb",
+                    "reference.py": "2d32514c62299293a0c2866f10dfc6d8b9269afb8e39e408bb9f4c7246148629",
+                    "workflow.py": "063994bc4a676891850dbfdf6a8279c1b0cbe5a98d84e7fcbaf2088680694149"
+                  }
+                },
+                "network": {
+                  "__init__.py": "257d608d06fa413b2ac3f4c800791ea29b90968dbe99cc20367111c83ec47ada",
+                  "__main__.py": "fde209eaaf6f1b1296075a1b99ade158fb0ce4f68a0a36d5993d6c8123e0cc81",
+                  "cases.py": "ce447649165ca7c37f98b8718e1d50857ad7e7baacf60ddf1aac826d460a0bac",
+                  "model.py": "e055e44d2204588026579422bb8627008e077fa8e75cd61a20990f20a3b97b5f",
+                  "reference.py": "2d96f7d39fd6ac9d258fc88b73fdf9d375d1ec51cee33a8dc79f342913bc0037",
+                  "workflow.py": "1c1cc048869142f6a2f494a45a241a7b103b6f0cd8920b0b0efe2291f07bea7a"
+                }
+              },
+              "mixture": {
+                "graph": {
+                  "closures": {
+                    "__init__.py": "72e961e145031884a59f12a87899fa56005082c1053afd7a6201dcf21a47a931"
+                  },
+                  "foundation": {
+                    "flow": {
+                      "flow": {
+                        "__init__.py": "cef2568fccc811ef9955c2c1b5517fb3caa1d80fbb7120548f131831202aae8a",
+                        "__main__.py": "c15a6a4c84b8b2b979b088ab098136c3fe936575d6ba6b1911d53ba106a45b8f",
+                        "cases.py": "556a38acb8557166b34c9042ab1630aceaf9a3cbe5bc3c22e03002c3ba13827c",
+                        "model.py": "39278c137e63b94cccc487bb49cd06186f7cdba8535034896faf47df86342cdd",
+                        "reference.py": "2add998c2d8b1df399436369db16e546aa9fcf4b53150832ae42a0ac71a35039",
+                        "workflow.py": "f79291e4971572595a69e70829111f38e4daae351bddee67e70a9e2d37b6e1ed"
+                      },
+                      "hem": {
+                        "hem_sources": {
+                          "__init__.py": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a",
+                          "__main__.py": "8d9fab98b7490f270f0ef3b33ea95a8324a5340df3f821035f4e72c431952f82",
+                          "eos.py": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be",
+                          "vessel.py": "d3284236f41d4e5827ab48b975e87a5b6fc0a36ec1a6cf21ad352255215ce478",
+                          "workflow.py": "0cf1dd9df09c315d18e0194b7713848c85a9337b44256a30c790b7a52f145ebb"
+                        },
+                        "if97_sha256": "2f7e10ab0b4d9dc009d75775ea4d0a19e6179a5356999c4099b90f0d07745658",
+                        "numpy": "2.2.6",
+                        "python": "3.12.9",
+                        "scipy": "1.15.2",
+                        "serialization_sha256": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12"
+                      }
+                    },
+                    "system": {
+                      "__init__.py": "1fd0c16bacafba221724c58f628a559762e272b52c98437da0ba868f1745e2a2",
+                      "__main__.py": "1f545bec96bcca20791c2c74ff97e7d4e576acf8cea0ccd736d0daf448eb8435",
+                      "cases.py": "372f5b9b00eea215e90b60f2a4619d2249e7135aa7139b5b412791352473b81c",
+                      "model.py": "0a0e985362fd61f04aa2f699f453bdb3c2179635f091623705954673f3dce3eb",
+                      "reference.py": "2d32514c62299293a0c2866f10dfc6d8b9269afb8e39e408bb9f4c7246148629",
+                      "workflow.py": "063994bc4a676891850dbfdf6a8279c1b0cbe5a98d84e7fcbaf2088680694149"
+                    }
+                  },
+                  "network": {
+                    "__init__.py": "257d608d06fa413b2ac3f4c800791ea29b90968dbe99cc20367111c83ec47ada",
+                    "__main__.py": "fde209eaaf6f1b1296075a1b99ade158fb0ce4f68a0a36d5993d6c8123e0cc81",
+                    "cases.py": "ce447649165ca7c37f98b8718e1d50857ad7e7baacf60ddf1aac826d460a0bac",
+                    "model.py": "e055e44d2204588026579422bb8627008e077fa8e75cd61a20990f20a3b97b5f",
+                    "reference.py": "2d96f7d39fd6ac9d258fc88b73fdf9d375d1ec51cee33a8dc79f342913bc0037",
+                    "workflow.py": "1c1cc048869142f6a2f494a45a241a7b103b6f0cd8920b0b0efe2291f07bea7a"
+                  }
+                },
+                "mixture": {
+                  "__init__.py": "22711d4a6f32c96051e44ba1bf1dcb7ea91271d7259d40618329d5151bc727bc",
+                  "__main__.py": "17dec1d7ba6a9edba49df97e890790379bf3131e720de6dde69b4471585f36f3",
+                  "cases.py": "e4ceac0bc12454fd04628a6266ab2af8bc34d0c51d0a2e8db30bb5c973cafab9",
+                  "friction.py": "f341c513bbac80717c9887f5c6effd26cb92fe34e8b8f765c45f4f1449ebb5f5",
+                  "inverse.py": "03f8907c878d2965be88894fda980fe1f910eee61fb8400048c1c5a376903d6c",
+                  "model.py": "f9d19da622cc7aa3d4011f0979c7928f8553c5d784042ee17fcca543b17e7759",
+                  "reference.py": "f240d629f07a3b7a9d2abb3077996a545b3f97da026ae94ca0df4f3ceaede3d2",
+                  "workflow.py": "8591b06fc903fec534e05bfda9905579f54da5829b98fa1eaed0f25947559ddd"
+                }
+              },
+              "qualified": {
+                "__init__.py": "a224b8402fd91740b5ea7d8da29eacd461663b90a1a2c4d36f227415c6cfed0d",
+                "__main__.py": "5fea1ea7be283d43a3e248737444250c30b6d7a907ed14a23a298b969f6eecf1",
+                "cases.py": "d2590fabdd4e0482adb4cd38de4c3c0036ee71d162b9fc3ee8f45ec6eebbcaa3",
+                "closures.py": "8d211a5528a58c785ab38a15b83c8ac67d216734b638d9ae0fa60143aea69376",
+                "eos.py": "70f51ad4ef8190ea209193d4b3724d8ff05a4abbad2b1f642c53688f29af5eef",
+                "model.py": "2c0d8524c3ad794c1762e068a9d9f6fb812bbad8f170afeb5ab7f015d24c36d7",
+                "qualification.py": "0907e64a1674e8624fece26172f87fe64c89175f7ce1ef3ff28c2c028f04a003",
+                "reference.py": "50e8b56ddb6d7a244ac15d009a1b5cbf5991362a1e2c8fbcf0394fd239eff1e7"
+              }
+            }
+          },
+          "heated": {
+            "__init__.py": "98497f444bb1d98b8e60c3fd832148719bbd0175b676f5353d70b80eafbe225e",
+            "model.py": "071bb92973866238af93275aad43230060386462825e80b6e436c8966967c66c"
+          }
+        }
+      },
+      "training_sha256": "4943c5c1cd51299228c9df5f17469a2752dcf853940428b22d7f8016a4c031ad"
+    },
+    "experiment": {
+      "completed": true,
+      "episodes": 72,
+      "passed": true,
+      "passed_means": "Complete numerical experiment, not guaranteed robustness",
+      "plant_referenced": false,
+      "source_unchanged": true,
+      "summary": [
+        {
+          "alarms": 0,
+          "completed": 8,
+          "episodes": 8,
+          "false_alarms": 0,
+          "fault": "healthy",
+          "mean_iae_k_s": 0.0004917122530453373,
+          "policy": "learned",
+          "total_energy_j": 392.1857245402256,
+          "tracking_degraded": 0
+        },
+        {
+          "alarms": 0,
+          "completed": 8,
+          "episodes": 8,
+          "false_alarms": 0,
+          "fault": "healthy",
+          "mean_iae_k_s": 0.0004917122530453373,
+          "policy": "repeat_guard",
+          "total_energy_j": 392.1857245402256,
+          "tracking_degraded": 0
+        },
+        {
+          "alarms": 0,
+          "completed": 8,
+          "episodes": 8,
+          "false_alarms": 0,
+          "fault": "healthy",
+          "mean_iae_k_s": 0.0004917122530453373,
+          "policy": "observer_guard",
+          "total_energy_j": 392.1857245402256,
+          "tracking_degraded": 0
+        },
+        {
+          "alarms": 0,
+          "completed": 8,
+          "episodes": 8,
+          "false_alarms": 0,
+          "fault": "bias_low",
+          "mean_iae_k_s": 0.0005685792872840398,
+          "policy": "learned",
+          "total_energy_j": 491.87223841220293,
+          "tracking_degraded": 2
+        },
+        {
+          "alarms": 0,
+          "completed": 8,
+          "episodes": 8,
+          "false_alarms": 0,
+          "fault": "bias_low",
+          "mean_iae_k_s": 0.0005685792872840398,
+          "policy": "repeat_guard",
+          "total_energy_j": 491.87223841220293,
+          "tracking_degraded": 2
+        },
+        {
+          "alarms": 8,
+          "completed": 8,
+          "episodes": 8,
+          "false_alarms": 0,
+          "fault": "bias_low",
+          "mean_iae_k_s": 0.0006179255587370421,
+          "policy": "observer_guard",
+          "total_energy_j": 216.8095573672477,
+          "tracking_degraded": 4
+        },
+        {
+          "alarms": 0,
+          "completed": 8,
+          "episodes": 8,
+          "false_alarms": 0,
+          "fault": "stuck",
+          "mean_iae_k_s": 0.0005615709520811603,
+          "policy": "learned",
+          "total_energy_j": 487.69889692218976,
+          "tracking_degraded": 4
+        },
+        {
+          "alarms": 8,
+          "completed": 8,
+          "episodes": 8,
+          "false_alarms": 0,
+          "fault": "stuck",
+          "mean_iae_k_s": 0.0005189946083906456,
+          "policy": "repeat_guard",
+          "total_energy_j": 363.70315036082593,
+          "tracking_degraded": 0
+        },
+        {
+          "alarms": 8,
+          "completed": 8,
+          "episodes": 8,
+          "false_alarms": 0,
+          "fault": "stuck",
+          "mean_iae_k_s": 0.0005189946083906456,
+          "policy": "observer_guard",
+          "total_energy_j": 363.70315036082593,
+          "tracking_degraded": 0
+        }
+      ],
+      "superiority_established": false,
+      "validated": false
+    },
+    "local_delivery": {
+      "agent_source": {
+        "adapter_sha256": "02217793a4f0b13af8efe386da2fee5fe9724dd2205bcfb5b47da69138d37d65",
+        "controlled_runtime": {
+          "core": {
+            "implementation": {
+              "__init__.py": "ad0dd4131dd3d8902cc61e6e9d5fe880796adb064bd4a96ad3ea2758f0bb5617",
+              "__main__.py": "686862cbdf166087c2a55b57fd23a54c46da8cd577409e1dd3e1834d63baf745",
+              "model.py": "ebaa00ae1fb5f471902f3a4bb797170871633eea2d95248673a4b20622c935f4",
+              "qualification.py": "efce06dc6487bc1d8dd38622221e63898f1f8fe71430fca3bee6a5a1a92ff795",
+              "session.py": "207c94855b94ec8950c201cf27fd046d9dea9509eae7bb4aecf72bfdd8e91edd"
+            },
+            "plant": {
+              "files": {
+                "__init__.py": "63dda0755dc9c4682c9e860b28a73212400f9da27f48649b41bc4200a870ddbb",
+                "__main__.py": "7dce37e37c56ff8312643deded0f8e537a9502f6ccf5de527e74b722ae1d4993",
+                "continuation.py": "317b98d0c616370e6b33464dfa084bf96b3be3d3e17162ebddc654015cc539bd",
+                "data/beavrs/LICENSE": "1d1b6d1266b5bf6274c169ca0caef559ad2e6e9b3e99b02303a8b3041a54a135",
+                "data/beavrs/absorber.json": "605907b49919cd4b4dacf6f19828053b9ce9bb0c02754092dc826d08ea1c4d29",
+                "data/beavrs/expdata.tex": "13eea6a808136dfee603d607cb1ac97ededbdfb31a7bb6a8728a937aa183e801",
+                "gravity.py": "b94165142d879fcc96408dc420b1bf79ef272a23c860c67649c955fe9578f0e4",
+                "initialization.py": "6c43cdcf9f31d5c04e0891f8e249e419b35d0888e1fd6207dd969f498d7b3b98",
+                "one_way.py": "c75fcdc2219f5d64ae30cf6c60d246f5a2a8d8d347bf4527753e2597ebc104aa",
+                "ports.py": "218173e77659ed8e47f0f3e3ffa04fbece6d0c12472abd432fcdc97e9fe8540d",
+                "pwr.py": "a771e1869ce166cb301cd3efdcf92399f1ca1071fcd335d11319951a48e609d6",
+                "qualification.py": "112f61731aa99d58b81872de6f8cba6da54836f4443d5a213a65e801eb2c2b42",
+                "session.py": "f3dd8379d4f82a218a01aa233494858a2c03b7ab84a03ed64b4a3fad5bed3eb1",
+                "volume.py": "9cc6b4bf27e9e78521a358c7a71eeacf91831e84aed221bd3be7bea0d39a2c5e",
+                "water.py": "8e85c45065fd6766bbd5a519608ddfe72c0e6aaf29277ba6408b0001dda625fa"
+              },
+              "foundation_sha256": "e3f612a351ff14ed1e041e7a3466401d73879e80ca66e9f89d18a8b561b40ddd"
+            },
+            "runtime": {
+              "machine": "x86_64",
+              "numpy": "2.2.6",
+              "python": "3.12.9",
+              "scipy": "1.15.2",
+              "system": "Linux"
+            },
+            "shared_bootstrap": {
+              "canonical": "7c407aa79cd2164bece0e4f1ffd03ea5e0858497aabe26010e42c758425d76a2",
+              "charging": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883",
+              "water_types": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a"
+            },
+            "shared_leaves": {
+              "canonical": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12",
+              "charging": "3241851687ecd267ac644453cb49b9d8cd1d85fbc7075e14baaf403058f4fed1",
+              "water_types": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be"
+            }
+          },
+          "dependencies": {
+            "episode": "8ead90af2f1002dea84d3486230b0b78d68899ccdbc0bffe3d0b6ff14178917f",
+            "schema": "5c416d64952d94fa98816fa64add504982baf5a4ddd14474b265a1c7257a18a9",
+            "spec": "4ddfec2f127eb1802158641c9cf8efb432c2f25be70fc5866598b54ff2793745"
+          }
+        },
+        "eos_runtime": {
+          "native_signature": {
+            "budgets": {
+              "validation/ai05_compressible_storage_budget_v1.json": "cd9d496635eabded1e879fd2bec25ed1a7f9fa048369f62213ac6d21eb6f4883",
+              "validation/ai05_conservative_loop_budget_v1.json": "e21c0b6badf1483e3336dabf57a037901820d7bdee84615ebdc5a381d3c04a4f",
+              "validation/ai05_controlled_assembly_budget_v1.json": "b9f45eeec54a706098ea2a61a47568788e78c7ba04be0f3a6893b2d0b66dac68",
+              "validation/ai05_open_channel_budget_v1.json": "7fd48810de0e630c9f1de484e919789d0d93d445aa8ac28ed242fc7884f45f86",
+              "validation/ai05_terminal_chambers_budget_v1.json": "00cd8f90d843ceabda5e67b3e47cc2d22b67555497861d5a9436686a8d2035c4"
+            },
+            "drivers": {
+              "atomic_model_runtime/resources.py": "d0ead1fec89dd70530c6e223601fd77ccaa53489d16eac3f11b45844f78d4cf2",
+              "scripts/__init__.py": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883",
+              "scripts/compressible_storage_graph.py": "e849e7e0209e4f91b18f9773c47d8894f8b2ed3b951d3c454813a243584aca7d",
+              "scripts/conservative_eos_loop.py": "5daa7eb5602dbe9ff1639eaa7bb4b70c7928f19d16fe1bf4b255f1b6d44313ca",
+              "scripts/controlled_eos_assembly.py": "1f25149e4a107f17ee0001d9944de5b2d98cc8a9f8319d726c468006350fd546",
+              "scripts/inertial_graph.py": "8382bae848313c6a017acfa9941b440869b4d74ab57757544c26ec4bca80f195",
+              "scripts/open_eos_channel.py": "eebc4ab58d0afe512d8238358e695d760313d908a36190c9ca667b7a136d887d",
+              "scripts/solve_hydraulic_graph.py": "3b0a4345bcea2f3814a5d6972d62dbe4938a60b3173299ae27675baee6af686c",
+              "scripts/terminal_eos_chambers.py": "32bacf9f02ae8fbd6b3f019971e71d6bbf193593bbfcfd8d0f5b75fcd6f99e8f"
+            },
+            "numpy": "2.2.6",
+            "python": "3.12.9",
+            "scipy": "1.15.2",
+            "source_sha256": "e3f612a351ff14ed1e041e7a3466401d73879e80ca66e9f89d18a8b561b40ddd"
+          },
+          "public_runtime_sha256": "42191241491420403273019d5bd2e4c9b843f862fdf86bceec251f456d56a8ad"
+        },
+        "episode_contract": "2.1.0",
+        "implementation": "CPython",
+        "physics_source_sha256": "e3f612a351ff14ed1e041e7a3466401d73879e80ca66e9f89d18a8b561b40ddd",
+        "protocol_version": "1.2.0",
+        "python": "3.12.9",
+        "versions": {
+          "gymnasium": "1.2.0",
+          "numpy": "2.2.6",
+          "scipy": "1.15.2"
+        }
+      },
+      "build_artifacts": [
+        "atomic_sim-2.0.0-py3-none-any.whl",
+        "atomic_sim-2.0.0.tar.gz"
+      ],
+      "ci_required": false,
+      "completed": true,
+      "dependency_scope": "offline wheel install in fresh venv, reusing installed scientific dependencies",
+      "installed_resource_count": 788,
+      "network_required": false,
+      "numerical_replay_accepted": true,
+      "phases": [
+        {
+          "exit_code": 0,
+          "log": "source-tests.log",
+          "name": "source-tests",
+          "passed": true,
+          "wall_s": 157.03468936399986
+        },
+        {
+          "exit_code": 0,
+          "log": "build-source.log",
+          "name": "build-source",
+          "passed": true,
+          "wall_s": 1.6158647499996732
+        },
+        {
+          "exit_code": 0,
+          "log": "build-wheel.log",
+          "name": "build-wheel",
+          "passed": true,
+          "wall_s": 1.0651514130004216
+        },
+        {
+          "exit_code": 0,
+          "log": "install.log",
+          "name": "install",
+          "passed": true,
+          "wall_s": 0.8148688809997111
+        },
+        {
+          "exit_code": 0,
+          "log": "installed-replay.log",
+          "name": "installed-replay",
+          "passed": true,
+          "wall_s": 1.6159530550003183
+        },
+        {
+          "exit_code": 0,
+          "log": "installed-uncertainty.log",
+          "name": "installed-uncertainty",
+          "passed": true,
+          "wall_s": 0.2640312300000005
+        },
+        {
+          "exit_code": 0,
+          "log": "installed-uncertainty-criteria.log",
+          "name": "installed-uncertainty-criteria",
+          "passed": true,
+          "wall_s": 0.7648922620001031
+        },
+        {
+          "exit_code": 0,
+          "log": "installed-agent-interfaces.log",
+          "name": "installed-agent-interfaces",
+          "passed": true,
+          "wall_s": 3.1683043059992997
+        }
+      ],
+      "plant_referenced": false,
+      "remote_execution_required": false,
+      "schema_version": 1,
+      "source": {
+        "base": {
+          "model": {
+            "files": {
+              "__init__.py": "f0cd4e69ec1583cf1cf12c7d7c08258154cee49f5ceee8dcca2a121d9d045987",
+              "__main__.py": "72162ff1c30ae06cdfd89585fe50ecb3fcf606b6a81196f4b080dc248dcd9cc5",
+              "absorber.py": "8427d2c42635b4ff0b24d654027603e95d982a9e5e43ea202514d543d2f629ec",
+              "agent.py": "2aaaa91fdbe44a53bb7bb0e3540b10d1aa7a0aa69752c1c1297a44a26785a731",
+              "coupled.py": "02d5e9f30a9ef6e13d7e684c98e2e2e432c417e123fa3e7103a882a858f6e7fe",
+              "depletion.py": "1daaff4cd27612d9b4cdbf31656c03ce9a6ca2372fe3262adfcb0ede30183f98",
+              "feedback.py": "f937907268f3b97fc489e974e6e94a8123abcc55b3813322ba50e8c2690c37ae",
+              "nuclear.py": "c9aaedb533c70f787d1bb319cecaf1ded1309ee4d4321ebb98bdb7a29f6d8d2a",
+              "openmc_worker.py": "0c0e1a956d7706b2817a99b989b2bc4fc17d6d4c4744e734e475e06e0944a2f8",
+              "provenance.py": "722ad7f4bcb1245f2d95c2dd0bb2f73c909d5e5917360f6ce3fb35101161ee94",
+              "qualification.py": "1839bc63b74615977daac92532f106183ba03e090439f03b5ee60f5e74687cdc",
+              "resources.py": "caddbafe01d195e5e42d894e1e2ebfd38ac2eebcefbbb313d24e1e4a65bcc781",
+              "transport.py": "4d0ec04cfd3fc7ee4807aa7435ea00117c436274a5f59831c65cd8cb037b494c"
+            },
+            "resources": {
+              "data/NOTICE.md": "6ddc8b19107a13769282227243a0ecd0ae9c468c839cb7af0472d16edef36ccf",
+              "data/mgxs_reference_v1.json": "4372e136e11d298d5a65ab5bf314c55d3bbbd2f752d51d051123a376d9db1185"
+            },
+            "spatial": {
+              "runtime": {
+                "numpy": "2.2.6",
+                "python": "3.12.9",
+                "scipy": "1.15.2"
+              },
+              "sources": {
+                "__init__.py": "bc8780e168df8c5c502ded4881ef3f47477330eb216b1552070270f54c3aef98",
+                "__main__.py": "a307c39023570f3ad7a87929a14ba448b1c866a7919297dc1dc084dbb4de539b",
+                "cases.py": "74b1d2478d16ea8e56f8ab8c9552e521a25c6497ee4cb0e5d9874f1c24de6abb",
+                "data/slab_eigen_v1.json": "370b794e008c729bb7c9eb070451a60daf0e9341c526722a4d51db41a39b7d7c",
+                "data/slab_transient_v1.json": "a774ce2ad72661e2ff5d6a5d37aec8f77100b3daaf11f1b29b3a15c5fa220c75",
+                "diagnostics.py": "c9039e9e86c69c6b482f2bb312a03048c7142c56ed77a0a18a4e45b9f74d6044",
+                "experiment.py": "2d956b67a5a13c51aa8e10ff2a19ea973177ce866618ca4b4014e542737a5442",
+                "model.py": "08aa018927adb15b2f75b0c12da986fab942eadc43ffa8dc19145067db675de5",
+                "reference.py": "d0e387e8adfe25c39e54ef7879f3cdc8a51262db0738871101a10f1c13ce2be7",
+                "solvers.py": "818cbd1893491a2894d063b09d21ebd2c77fca33f94c76b3cf75b288a7f57fce",
+                "transient.py": "85b8e07a1b91b13c50ca3348c120f0f94c30e60bad680afacc8a7464dfa8539d",
+                "workflow.py": "bfa53fc26fceec90c5ba4ff764126aee9b42fdb424482c69af3cc956b196cc79"
+              }
+            },
+            "training": {
+              "core": {
+                "implementation": {
+                  "__init__.py": "ad0dd4131dd3d8902cc61e6e9d5fe880796adb064bd4a96ad3ea2758f0bb5617",
+                  "__main__.py": "686862cbdf166087c2a55b57fd23a54c46da8cd577409e1dd3e1834d63baf745",
+                  "model.py": "ebaa00ae1fb5f471902f3a4bb797170871633eea2d95248673a4b20622c935f4",
+                  "qualification.py": "efce06dc6487bc1d8dd38622221e63898f1f8fe71430fca3bee6a5a1a92ff795",
+                  "session.py": "207c94855b94ec8950c201cf27fd046d9dea9509eae7bb4aecf72bfdd8e91edd"
+                },
+                "plant": {
+                  "files": {
+                    "__init__.py": "63dda0755dc9c4682c9e860b28a73212400f9da27f48649b41bc4200a870ddbb",
+                    "__main__.py": "7dce37e37c56ff8312643deded0f8e537a9502f6ccf5de527e74b722ae1d4993",
+                    "continuation.py": "317b98d0c616370e6b33464dfa084bf96b3be3d3e17162ebddc654015cc539bd",
+                    "data/beavrs/LICENSE": "1d1b6d1266b5bf6274c169ca0caef559ad2e6e9b3e99b02303a8b3041a54a135",
+                    "data/beavrs/absorber.json": "605907b49919cd4b4dacf6f19828053b9ce9bb0c02754092dc826d08ea1c4d29",
+                    "data/beavrs/expdata.tex": "13eea6a808136dfee603d607cb1ac97ededbdfb31a7bb6a8728a937aa183e801",
+                    "gravity.py": "b94165142d879fcc96408dc420b1bf79ef272a23c860c67649c955fe9578f0e4",
+                    "initialization.py": "6c43cdcf9f31d5c04e0891f8e249e419b35d0888e1fd6207dd969f498d7b3b98",
+                    "one_way.py": "c75fcdc2219f5d64ae30cf6c60d246f5a2a8d8d347bf4527753e2597ebc104aa",
+                    "ports.py": "218173e77659ed8e47f0f3e3ffa04fbece6d0c12472abd432fcdc97e9fe8540d",
+                    "pwr.py": "a771e1869ce166cb301cd3efdcf92399f1ca1071fcd335d11319951a48e609d6",
+                    "qualification.py": "112f61731aa99d58b81872de6f8cba6da54836f4443d5a213a65e801eb2c2b42",
+                    "session.py": "f3dd8379d4f82a218a01aa233494858a2c03b7ab84a03ed64b4a3fad5bed3eb1",
+                    "volume.py": "9cc6b4bf27e9e78521a358c7a71eeacf91831e84aed221bd3be7bea0d39a2c5e",
+                    "water.py": "8e85c45065fd6766bbd5a519608ddfe72c0e6aaf29277ba6408b0001dda625fa"
+                  },
+                  "foundation_sha256": "e3f612a351ff14ed1e041e7a3466401d73879e80ca66e9f89d18a8b561b40ddd"
+                },
+                "runtime": {
+                  "machine": "x86_64",
+                  "numpy": "2.2.6",
+                  "python": "3.12.9",
+                  "scipy": "1.15.2",
+                  "system": "Linux"
+                },
+                "shared_bootstrap": {
+                  "canonical": "7c407aa79cd2164bece0e4f1ffd03ea5e0858497aabe26010e42c758425d76a2",
+                  "charging": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883",
+                  "water_types": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a"
+                },
+                "shared_leaves": {
+                  "canonical": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12",
+                  "charging": "3241851687ecd267ac644453cb49b9d8cd1d85fbc7075e14baaf403058f4fed1",
+                  "water_types": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be"
+                }
+              },
+              "implementation": {
+                "__init__.py": "5d5e153fa439f3caf49891d061362789d1bdeb58634f7defb80073e237aedd1a",
+                "__main__.py": "d60d6f2f5a82380fbcca80db37a84d818d3cac78452b7364498ad798d2c775e7",
+                "cache.py": "caaf0f1b228aaad83cd9fb6adef37d259c6d54496bea6c8eb61338136632f969",
+                "episode.py": "23f39a20c9de20f652dbfd6e158dcdbdd6dcec7168f910ac19583e56119fefe1",
+                "evidence.py": "d22c8224f53cad5d5a161c89d45b5c238702970ea381f5a803cc33fba38dbe5e",
+                "runner.py": "4164515b0b051ee068751becc908f07923574a828c68c895e8f3792b4e24a09a",
+                "schema.py": "5c416d64952d94fa98816fa64add504982baf5a4ddd14474b265a1c7257a18a9",
+                "spec.py": "4ddfec2f127eb1802158641c9cf8efb432c2f25be70fc5866598b54ff2793745",
+                "template.py": "a8e46de67aa5e487fc084401d97cb7dc0fbd1f57588c9c09c1e1700cccebaa0b",
+                "tiers.py": "55ec8c61a91ab1614fced9d69111c22161736c3334da73d10cf87a0401ad3524",
+                "worker.py": "a423ae616decae73556cd53a1da5d67043709d8870f9a4b839a73a375246b33d"
+              }
+            }
+          },
+          "research": {
+            "__init__.py": "76189185ca43dc7380181b509f2fe0a00a06e3ec1bfe9dd5c7532846f8cd11a3",
+            "__main__.py": "b2eb208791defe52e0e4123b45fb427716e8831ca393090003f2403ee9a2a2f4",
+            "project.py": "a2cbf524d4b305d241a4278f36c0b4b8b906867b344a2c45e8e353fc38360a3d",
+            "release.py": "607d72e3e2dd0f4c90e3e347be05d1316723e27c343769fbf87344a8370a7f60"
+          }
+        },
+        "files": {
+          "__init__.py": "bd9a91a89fd5efd8eca0e5a3e33318b0c064c8f3556a077d006a376b83fa91a6",
+          "__main__.py": "6ac659d32b053daa3c84b015cd53ee6da48b5015015c729dc44526d9c8b5239b",
+          "candidates.py": "78839a513436238d0746c39de7f0de6734e9ffe4caf4e289cec215371958b0d2",
+          "replay.py": "4f6df8b6ec15b7951074ed8147c9e8884fa48cd51ba964e52b11949a4736e6d1"
+        },
+        "resources": {
+          "data/motel_2025/NOTICE.md": "ae10c9436ee323fc62bc1b173622014691d68842848a33a24dfafaab04d222c5",
+          "data/motel_2025/source.pdf": "772de7334df4e95b8807b2010dca0394570c6be2b1140a7aa67d8b5dee70cd62"
+        }
+      },
+      "suite": "library",
+      "tests": {
+        "counts": {
+          "collected": 1223,
+          "errors": 0,
+          "failed": 0,
+          "passed": 1223,
+          "skipped": 0
+        },
+        "exit_code": 0,
+        "external_or_physical_validation_claimed": false,
+        "gate_failures": [],
+        "schema_version": 1
+      },
+      "uncertainty_source": {
+        "base_release": {
+          "model": {
+            "files": {
+              "__init__.py": "f0cd4e69ec1583cf1cf12c7d7c08258154cee49f5ceee8dcca2a121d9d045987",
+              "__main__.py": "72162ff1c30ae06cdfd89585fe50ecb3fcf606b6a81196f4b080dc248dcd9cc5",
+              "absorber.py": "8427d2c42635b4ff0b24d654027603e95d982a9e5e43ea202514d543d2f629ec",
+              "agent.py": "2aaaa91fdbe44a53bb7bb0e3540b10d1aa7a0aa69752c1c1297a44a26785a731",
+              "coupled.py": "02d5e9f30a9ef6e13d7e684c98e2e2e432c417e123fa3e7103a882a858f6e7fe",
+              "depletion.py": "1daaff4cd27612d9b4cdbf31656c03ce9a6ca2372fe3262adfcb0ede30183f98",
+              "feedback.py": "f937907268f3b97fc489e974e6e94a8123abcc55b3813322ba50e8c2690c37ae",
+              "nuclear.py": "c9aaedb533c70f787d1bb319cecaf1ded1309ee4d4321ebb98bdb7a29f6d8d2a",
+              "openmc_worker.py": "0c0e1a956d7706b2817a99b989b2bc4fc17d6d4c4744e734e475e06e0944a2f8",
+              "provenance.py": "722ad7f4bcb1245f2d95c2dd0bb2f73c909d5e5917360f6ce3fb35101161ee94",
+              "qualification.py": "1839bc63b74615977daac92532f106183ba03e090439f03b5ee60f5e74687cdc",
+              "resources.py": "caddbafe01d195e5e42d894e1e2ebfd38ac2eebcefbbb313d24e1e4a65bcc781",
+              "transport.py": "4d0ec04cfd3fc7ee4807aa7435ea00117c436274a5f59831c65cd8cb037b494c"
+            },
+            "resources": {
+              "data/NOTICE.md": "6ddc8b19107a13769282227243a0ecd0ae9c468c839cb7af0472d16edef36ccf",
+              "data/mgxs_reference_v1.json": "4372e136e11d298d5a65ab5bf314c55d3bbbd2f752d51d051123a376d9db1185"
+            },
+            "spatial": {
+              "runtime": {
+                "numpy": "2.2.6",
+                "python": "3.12.9",
+                "scipy": "1.15.2"
+              },
+              "sources": {
+                "__init__.py": "bc8780e168df8c5c502ded4881ef3f47477330eb216b1552070270f54c3aef98",
+                "__main__.py": "a307c39023570f3ad7a87929a14ba448b1c866a7919297dc1dc084dbb4de539b",
+                "cases.py": "74b1d2478d16ea8e56f8ab8c9552e521a25c6497ee4cb0e5d9874f1c24de6abb",
+                "data/slab_eigen_v1.json": "370b794e008c729bb7c9eb070451a60daf0e9341c526722a4d51db41a39b7d7c",
+                "data/slab_transient_v1.json": "a774ce2ad72661e2ff5d6a5d37aec8f77100b3daaf11f1b29b3a15c5fa220c75",
+                "diagnostics.py": "c9039e9e86c69c6b482f2bb312a03048c7142c56ed77a0a18a4e45b9f74d6044",
+                "experiment.py": "2d956b67a5a13c51aa8e10ff2a19ea973177ce866618ca4b4014e542737a5442",
+                "model.py": "08aa018927adb15b2f75b0c12da986fab942eadc43ffa8dc19145067db675de5",
+                "reference.py": "d0e387e8adfe25c39e54ef7879f3cdc8a51262db0738871101a10f1c13ce2be7",
+                "solvers.py": "818cbd1893491a2894d063b09d21ebd2c77fca33f94c76b3cf75b288a7f57fce",
+                "transient.py": "85b8e07a1b91b13c50ca3348c120f0f94c30e60bad680afacc8a7464dfa8539d",
+                "workflow.py": "bfa53fc26fceec90c5ba4ff764126aee9b42fdb424482c69af3cc956b196cc79"
+              }
+            },
+            "training": {
+              "core": {
+                "implementation": {
+                  "__init__.py": "ad0dd4131dd3d8902cc61e6e9d5fe880796adb064bd4a96ad3ea2758f0bb5617",
+                  "__main__.py": "686862cbdf166087c2a55b57fd23a54c46da8cd577409e1dd3e1834d63baf745",
+                  "model.py": "ebaa00ae1fb5f471902f3a4bb797170871633eea2d95248673a4b20622c935f4",
+                  "qualification.py": "efce06dc6487bc1d8dd38622221e63898f1f8fe71430fca3bee6a5a1a92ff795",
+                  "session.py": "207c94855b94ec8950c201cf27fd046d9dea9509eae7bb4aecf72bfdd8e91edd"
+                },
+                "plant": {
+                  "files": {
+                    "__init__.py": "63dda0755dc9c4682c9e860b28a73212400f9da27f48649b41bc4200a870ddbb",
+                    "__main__.py": "7dce37e37c56ff8312643deded0f8e537a9502f6ccf5de527e74b722ae1d4993",
+                    "continuation.py": "317b98d0c616370e6b33464dfa084bf96b3be3d3e17162ebddc654015cc539bd",
+                    "data/beavrs/LICENSE": "1d1b6d1266b5bf6274c169ca0caef559ad2e6e9b3e99b02303a8b3041a54a135",
+                    "data/beavrs/absorber.json": "605907b49919cd4b4dacf6f19828053b9ce9bb0c02754092dc826d08ea1c4d29",
+                    "data/beavrs/expdata.tex": "13eea6a808136dfee603d607cb1ac97ededbdfb31a7bb6a8728a937aa183e801",
+                    "gravity.py": "b94165142d879fcc96408dc420b1bf79ef272a23c860c67649c955fe9578f0e4",
+                    "initialization.py": "6c43cdcf9f31d5c04e0891f8e249e419b35d0888e1fd6207dd969f498d7b3b98",
+                    "one_way.py": "c75fcdc2219f5d64ae30cf6c60d246f5a2a8d8d347bf4527753e2597ebc104aa",
+                    "ports.py": "218173e77659ed8e47f0f3e3ffa04fbece6d0c12472abd432fcdc97e9fe8540d",
+                    "pwr.py": "a771e1869ce166cb301cd3efdcf92399f1ca1071fcd335d11319951a48e609d6",
+                    "qualification.py": "112f61731aa99d58b81872de6f8cba6da54836f4443d5a213a65e801eb2c2b42",
+                    "session.py": "f3dd8379d4f82a218a01aa233494858a2c03b7ab84a03ed64b4a3fad5bed3eb1",
+                    "volume.py": "9cc6b4bf27e9e78521a358c7a71eeacf91831e84aed221bd3be7bea0d39a2c5e",
+                    "water.py": "8e85c45065fd6766bbd5a519608ddfe72c0e6aaf29277ba6408b0001dda625fa"
+                  },
+                  "foundation_sha256": "e3f612a351ff14ed1e041e7a3466401d73879e80ca66e9f89d18a8b561b40ddd"
+                },
+                "runtime": {
+                  "machine": "x86_64",
+                  "numpy": "2.2.6",
+                  "python": "3.12.9",
+                  "scipy": "1.15.2",
+                  "system": "Linux"
+                },
+                "shared_bootstrap": {
+                  "canonical": "7c407aa79cd2164bece0e4f1ffd03ea5e0858497aabe26010e42c758425d76a2",
+                  "charging": "5ce26227176838e653707a6c3c86393dd3a9684d45391a560ba3229ef1c96883",
+                  "water_types": "2acf9a87f1be27b0b9d760f0b95afc97f0b26ef1b1ebdb6fde7b0b811c53b12a"
+                },
+                "shared_leaves": {
+                  "canonical": "47829513f2f5eef33c012cfc14bf8103c789140b7f0e510c94b2b30af8481e12",
+                  "charging": "3241851687ecd267ac644453cb49b9d8cd1d85fbc7075e14baaf403058f4fed1",
+                  "water_types": "1abbec52672bb5ea99bc62ea4df0e4fe3f34c05b1d8fec5730960b8803a018be"
+                }
+              },
+              "implementation": {
+                "__init__.py": "5d5e153fa439f3caf49891d061362789d1bdeb58634f7defb80073e237aedd1a",
+                "__main__.py": "d60d6f2f5a82380fbcca80db37a84d818d3cac78452b7364498ad798d2c775e7",
+                "cache.py": "caaf0f1b228aaad83cd9fb6adef37d259c6d54496bea6c8eb61338136632f969",
+                "episode.py": "23f39a20c9de20f652dbfd6e158dcdbdd6dcec7168f910ac19583e56119fefe1",
+                "evidence.py": "d22c8224f53cad5d5a161c89d45b5c238702970ea381f5a803cc33fba38dbe5e",
+                "runner.py": "4164515b0b051ee068751becc908f07923574a828c68c895e8f3792b4e24a09a",
+                "schema.py": "5c416d64952d94fa98816fa64add504982baf5a4ddd14474b265a1c7257a18a9",
+                "spec.py": "4ddfec2f127eb1802158641c9cf8efb432c2f25be70fc5866598b54ff2793745",
+                "template.py": "a8e46de67aa5e487fc084401d97cb7dc0fbd1f57588c9c09c1e1700cccebaa0b",
+                "tiers.py": "55ec8c61a91ab1614fced9d69111c22161736c3334da73d10cf87a0401ad3524",
+                "worker.py": "a423ae616decae73556cd53a1da5d67043709d8870f9a4b839a73a375246b33d"
+              }
+            }
+          },
+          "research": {
+            "__init__.py": "76189185ca43dc7380181b509f2fe0a00a06e3ec1bfe9dd5c7532846f8cd11a3",
+            "__main__.py": "b2eb208791defe52e0e4123b45fb427716e8831ca393090003f2403ee9a2a2f4",
+            "project.py": "a2cbf524d4b305d241a4278f36c0b4b8b906867b344a2c45e8e353fc38360a3d",
+            "release.py": "607d72e3e2dd0f4c90e3e347be05d1316723e27c343769fbf87344a8370a7f60"
+          }
+        },
+        "files": {
+          "__init__.py": "2a45d933066f3f39f167cae30dbb7d78b704c37252010f8002a354cb2437bf8b",
+          "__main__.py": "590eff5dade4a9cf2e07288d1bbffae632fbd28c07a88919a2c77f15a6a70e37",
+          "coverage.py": "7404cd8ebea4e3f484cbac1f5f41c22a92b343ea2c3281e3359a6efae8e0f60a"
+        }
+      },
+      "validated": false,
+      "verification_scope": "local source, distribution and installed-library replay",
+      "verifier_sha256": "026e0923e82dd44cb39574743951c4cdf56046efa36530dc45e3be48fcb365c2",
+      "wheel_inventory": {
+        "files": 1468,
+        "package_counts": {
+          "data": 4,
+          "scenarios": 73,
+          "scripts": 243,
+          "src": 442,
+          "validation": 706
+        },
+        "scope": "src and declared root-mapped packages; exact bytes; no caches or duplicates",
+        "verified": true
+      }
+    },
+    "installed_episode": {
+      "passed": true,
+      "checks": {
+        "exact": true,
+        "monitor_replay": true,
+        "completed": true,
+        "installed_import": true,
+        "outside_checkout": true
+      },
+      "full_matrix_replayed": false,
+      "scope": "One bias/observer-control episode and monitor replay",
+      "validated": false,
+      "plant_referenced": false
+    },
+    "metrics_and_monitor_replays_verified": true,
+    "active_alarms": [
+      {
+        "fault": "healthy",
+        "policy": "learned",
+        "active_alarms": 0
+      },
+      {
+        "fault": "healthy",
+        "policy": "repeat_guard",
+        "active_alarms": 0
+      },
+      {
+        "fault": "healthy",
+        "policy": "observer_guard",
+        "active_alarms": 0
+      },
+      {
+        "fault": "bias_low",
+        "policy": "learned",
+        "active_alarms": 0
+      },
+      {
+        "fault": "bias_low",
+        "policy": "repeat_guard",
+        "active_alarms": 0
+      },
+      {
+        "fault": "bias_low",
+        "policy": "observer_guard",
+        "active_alarms": 8
+      },
+      {
+        "fault": "stuck",
+        "policy": "learned",
+        "active_alarms": 0
+      },
+      {
+        "fault": "stuck",
+        "policy": "repeat_guard",
+        "active_alarms": 8
+      },
+      {
+        "fault": "stuck",
+        "policy": "observer_guard",
+        "active_alarms": 8
+      }
+    ],
+    "control_improvement_established": false,
+    "control_finding": "Fixed4% fallback worsened bias tracking-degradation count from2/8 to4/8; detection is not effective recovery",
+    "evidence": {
+      "artifacts/thermal-observer-v1/protocol.json": "e67773810f7e6ad3ae75c0be9813c0b7117ab49ff4bb48fb0d277d097f71330e",
+      "artifacts/thermal-observer-v1/report.json": "1f49bb5f505ef92be06a7e1d9c31b5444ed5decf0b3bd66dcd79755ee8b38411",
+      "artifacts/thermal-observer-v1/3-511-healthy-repeat_guard.json": "aa6f96a71a346f1cf185faba7b34ac55bb51cebfb2f25bdf9b2bd297b6871ba7",
+      "artifacts/thermal-observer-v1/0-510-healthy-learned.json": "f28498a1d027939270828f5f24fc06eb89b9cd0b12802e2b601cc53bd639319f",
+      "artifacts/thermal-observer-v1/1-510-stuck-observer_guard.json": "90fe17977592070d2ff82f39a91133e3acda534031182dede86ccc107c276c0d",
+      "artifacts/thermal-observer-v1/2-511-bias_low-learned.json": "87f164197eedfcc7f600b84792e4205a8bb31c2a3113b8b5ceae03823a79330a",
+      "artifacts/thermal-observer-v1/0-511-bias_low-repeat_guard.json": "d02eaa9bcfd4f8dfdc9da274253a497c3263be1c87831e9fb437501e8f918c49",
+      "artifacts/thermal-observer-v1/3-511-healthy-observer_guard.json": "d08c962dc427b756f95d11812f5d710bbdaa8b65a39f7b6236aa93b8dc97cca3",
+      "artifacts/thermal-observer-v1/0-511-bias_low-observer_guard.json": "a315efb2e93892ee226e9ce07107378809a8f8c7d88099b63ec43686d4d6d7eb",
+      "artifacts/thermal-observer-v1/0-510-bias_low-repeat_guard.json": "5a0860e410041ba690a39501470fd10d1731df06ea48f28f2102fa0ec7ee606a",
+      "artifacts/thermal-observer-v1/0-510-stuck-observer_guard.json": "477a3f8943c311eba1006c3962d9b5be6a91b359726ea9b1df23bc157d4babc7",
+      "artifacts/thermal-observer-v1/3-511-bias_low-observer_guard.json": "7896adbd9ba53351854e8fc9268b2b96e68ab6db991a464ef14483e590af395a",
+      "artifacts/thermal-observer-v1/2-510-healthy-observer_guard.json": "784f3947c1b56d07b58401d1e06476076c6419424bae0a343ea9f636659f0682",
+      "artifacts/thermal-observer-v1/3-510-stuck-learned.json": "d3d423958edde9ed94e4e4fec1cc92407ce06a2bd7f1a1a795497543064a3916",
+      "artifacts/thermal-observer-v1/1-510-stuck-learned.json": "2edb8dcdc64c32e48c3d72e0d90609cdddc08d5dd9b0993c9318102bfe03bdde",
+      "artifacts/thermal-observer-v1/1-511-bias_low-repeat_guard.json": "a827e2a282ef1c77c76378ae1c634eb8d503bf405698ad7ce7398a714c4d9585",
+      "artifacts/thermal-observer-v1/0-511-healthy-observer_guard.json": "503442f095ff7eb8180594dcc0a9a5cee9a59e95012069154f8e19a093565ed9",
+      "artifacts/thermal-observer-v1/3-511-bias_low-repeat_guard.json": "2ca98fd9a6f4afed852223a6d44f7b0f4b4fe69010c60197e42d5be5bd02d95c",
+      "artifacts/thermal-observer-v1/1-510-bias_low-observer_guard.json": "ec31b307e17d50ab783b7811703fd414b451d6392db7e503b4660b62a4b9f53c",
+      "artifacts/thermal-observer-v1/3-510-healthy-learned.json": "53f27be0b22aafb9b5282504fdb1ed41f6c6d6a024d4849a5684dceaf690c08c",
+      "artifacts/thermal-observer-v1/2-510-healthy-learned.json": "fef683c3048eaea10cfed7f17e8f0536f98670352996125bf340da9dc29acda9",
+      "artifacts/thermal-observer-v1/0-511-stuck-observer_guard.json": "e6a5dfa6fa43d50012bced2b19c7b432365b7f83fb40be45eb440ef07fcc63ad",
+      "artifacts/thermal-observer-v1/0-510-stuck-learned.json": "496e592cc72219bd43c4b53d573d59bc1a1673dcd1c6ac83192aa9ca5ee22e65",
+      "artifacts/thermal-observer-v1/1-511-healthy-repeat_guard.json": "ea56e3e447c3a08ac9d463dd5a52fd70d89a871b042d07f9878a251f992a7b31",
+      "artifacts/thermal-observer-v1/0-510-healthy-observer_guard.json": "76fc9971457bb5b8192d6cbb77d6a1cbe2125bf11fbb07cbc5668acc16885e1b",
+      "artifacts/thermal-observer-v1/0-510-bias_low-learned.json": "29b71979b13b76b92cdf020b152f9b960354a0fd7bdd9bd39b028bc0d349bebf",
+      "artifacts/thermal-observer-v1/1-511-bias_low-observer_guard.json": "89678e684e1383691445ebf326e2d65327487e57064c7c04ac49ab9298391991",
+      "artifacts/thermal-observer-v1/1-511-bias_low-learned.json": "6207944cc523582192f328c659a3e0f58ca10dca104e4e7abf7acb1b62000912",
+      "artifacts/thermal-observer-v1/2-511-stuck-learned.json": "5bc08459641c112c7e5be4cea9c705b70ba39b1ec65a2f3f413ae35d70e792c9",
+      "artifacts/thermal-observer-v1/0-511-bias_low-learned.json": "b9de87daaf003764a591c0f09eae77d81495a5f65f6ff6e630d01f280d075fb7",
+      "artifacts/thermal-observer-v1/3-510-stuck-observer_guard.json": "1bb93db054d82b498be09192297f6bf6d1257423a824d0e3b7eea713fda6de68",
+      "artifacts/thermal-observer-v1/1-510-healthy-observer_guard.json": "7aac464b91c1cbecd705239cdad4f26ad759273990f6a44ef631f3714cfa15a8",
+      "artifacts/thermal-observer-v1/2-510-bias_low-observer_guard.json": "9a3b258a2dcdf0e3714bd6e378ed0db56ccf9602f7dc4f59ed4c4fb892bf8074",
+      "artifacts/thermal-observer-v1/0-510-healthy-repeat_guard.json": "82952eb1082fc69faae4fd3ec4ed80753788113136e890f78121e41f44848a51",
+      "artifacts/thermal-observer-v1/2-510-healthy-repeat_guard.json": "74cfb31254bf81a4fd860387ec5e35122b934533d83d250a04a0390672444bad",
+      "artifacts/thermal-observer-v1/2-510-stuck-observer_guard.json": "4a7b60c04b4d104c2161012ad40a03bb648fa4638367124b46c0f6f0310834c8",
+      "artifacts/thermal-observer-v1/3-511-bias_low-learned.json": "2ea5bf5e52593a115896b5a1fa597855a76caf4e230d4a7f960e25d1ff56f39e",
+      "artifacts/thermal-observer-v1/0-511-healthy-repeat_guard.json": "634dd1a094e4091a8f3cb89f3d518ef490fa5a2c62e70a070ad80ddce2492c65",
+      "artifacts/thermal-observer-v1/2-511-bias_low-observer_guard.json": "69a3dd74943b20b814ab473e15f3702829d57c21960c9daa885f792b34f6180b",
+      "artifacts/thermal-observer-v1/3-511-stuck-repeat_guard.json": "7a23411d03ffa8c4154897351d6ba80b8b0790464813a7907f817b518d561774",
+      "artifacts/thermal-observer-v1/2-511-stuck-repeat_guard.json": "eae01699ca9e29e73cd456990c1d7b5caa0f20916a7b93044b2024e15c2b39fb",
+      "artifacts/thermal-observer-v1/1-510-stuck-repeat_guard.json": "371b2f6696a52c99db265a4d59e41ff0ae93b54829ab73a683a74011a3b82dfb",
+      "artifacts/thermal-observer-v1/2-510-stuck-repeat_guard.json": "c9e605b8d0b83cb029001786b3f2a467635c93663a69084717482ba21342cb77",
+      "artifacts/thermal-observer-v1/2-511-healthy-observer_guard.json": "e771f668686f71e4d305fcb676a1a1769f9167dbfd84913d1fd36f5b51ef9ca3",
+      "artifacts/thermal-observer-v1/0-511-stuck-learned.json": "d1edc3278bff0d3bc8049e7bf431da3dba4e318fa7d0faec5e62c74a13720bb9",
+      "artifacts/thermal-observer-v1/0-510-bias_low-observer_guard.json": "39bac227ceffd20860dd382f5b3e02599e9b7cea9269589d6723eafcb578c163",
+      "artifacts/thermal-observer-v1/2-510-bias_low-learned.json": "30ce8d963d4241ac5a84fbd71116473e0221edfa892bcb66816e22a69314d143",
+      "artifacts/thermal-observer-v1/0-510-stuck-repeat_guard.json": "5784fab1a6ec1f65369d7c3bb224a4e01eabfb923930227dfa49d798b6f8c4e8",
+      "artifacts/thermal-observer-v1/3-510-bias_low-repeat_guard.json": "c2ff6a4255118a4d4d41b13dc59b4bcb916e2f4451e15ab5b6ec5e77252b2d11",
+      "artifacts/thermal-observer-v1/2-510-bias_low-repeat_guard.json": "1d4e6c4b6600d119757629795fd4248d4dd2d027de0c749ffa8515e726fbaaf2",
+      "artifacts/thermal-observer-v1/2-511-healthy-learned.json": "f532757a0b6edb90afb418503ac7ab03fd42fa12f31f7f3b892b87bbbd3148b5",
+      "artifacts/thermal-observer-v1/1-511-healthy-observer_guard.json": "512ff299abdcd960968bba42aa88409f4e6b559fcfb1d568a23c6975c0dc055d",
+      "artifacts/thermal-observer-v1/2-510-stuck-learned.json": "155a1c7b580b6a4cd31101b7b952fb127f8a3ef1c4113f490b3c1a3c69afa224",
+      "artifacts/thermal-observer-v1/2-511-healthy-repeat_guard.json": "201f797953b65a6e77457d63589c8320224b53c06d43efba7610ad4329d38a28",
+      "artifacts/thermal-observer-v1/0-511-healthy-learned.json": "c3524c319c4253dfbc3e104f1f99e9cadf942a929593b9d5ab427c59650a9a46",
+      "artifacts/thermal-observer-v1/3-510-stuck-repeat_guard.json": "e0dc11b23444eeae48c5753aadafb53a734074b97525d18955336b60e53b124c",
+      "artifacts/thermal-observer-v1/1-511-healthy-learned.json": "e0a08343eb491d009dd1a7539364bacb5f9227bd28b9c63e7fbe00f9755cc68b",
+      "artifacts/thermal-observer-v1/0-511-stuck-repeat_guard.json": "02733a9a644601584126e157d525fecf689fcfbf44d0f0b5e0e1bf1a9d564d55",
+      "artifacts/thermal-observer-v1/2-511-bias_low-repeat_guard.json": "c9d94cec2f322ce168cb00a7be3b4196916b4beb67c65d0aea257cbf6afafa94",
+      "artifacts/thermal-observer-v1/1-511-stuck-repeat_guard.json": "4fd10683f8393f656342fa48455a40c2318759a2b93359bfa69962ec500bbc2c",
+      "artifacts/thermal-observer-v1/1-511-stuck-learned.json": "3ccd5d03f63808006b25a3f5e915d7d73207757736fa998ba1fc8562ec83b255",
+      "artifacts/thermal-observer-v1/3-510-bias_low-observer_guard.json": "71ef16bf31a0b3ec4431c472278a8f9d4b8cb886a0ad5919a545945581631210",
+      "artifacts/thermal-observer-v1/1-511-stuck-observer_guard.json": "489e8465f31940c9368b8ca9945d2b2d04a80ad1ce9b09b8d695c1c350e15e57",
+      "artifacts/thermal-observer-v1/3-510-healthy-observer_guard.json": "d2e6587083b7b8d7abae6db4ea8cb52e95bca0608e8aa1062d61a5e4aee66f60",
+      "artifacts/thermal-observer-v1/1-510-healthy-repeat_guard.json": "1b4de5ee386b8841e584ea6a93bfef7b67df0774e23a719ad530bd9f69bee848",
+      "artifacts/thermal-observer-v1/1-510-bias_low-learned.json": "ef530b3ece03f8d30149acbb7ee4de18c94f55d00b56db801f14f439d2fb1804",
+      "artifacts/thermal-observer-v1/3-511-stuck-learned.json": "a824ce15e39e16298ed5382b731ad79880daa54c9d557532cee77602398b0a26",
+      "artifacts/thermal-observer-v1/3-510-healthy-repeat_guard.json": "b393446dd33b26d85f01cc4696c6721d0ed38be09779f39bd2b461a31ea42fbc",
+      "artifacts/thermal-observer-v1/3-511-healthy-learned.json": "1e9974f915a93e8180a37fb3a12c3cb1859ef3220dc0cc88a523c20858a255cb",
+      "artifacts/thermal-observer-v1/3-510-bias_low-learned.json": "c16c81ccf5bf07ee72ba4102dd2d11e6a402722a1be6b57da5709ac34b9b57e9",
+      "artifacts/thermal-observer-v1/1-510-healthy-learned.json": "e74064fd3dd74f3a471ea060e8d6435896e01e89d6bd6db41180eaad9593a293",
+      "artifacts/thermal-observer-v1/3-511-stuck-observer_guard.json": "53ff78869b7c24d4543a765bb1c6ce7e5f4b4db387bf8cd79d6755d983f1aff5",
+      "artifacts/thermal-observer-v1/1-510-bias_low-repeat_guard.json": "6ddd1c64f9aa7ed94a21a21a5f3402ed2bc62d7ffaf90ccd0098c66e6308ecff",
+      "artifacts/thermal-observer-v1/2-511-stuck-observer_guard.json": "800a8b58cea5bd338095777f306f23448d333236b0fa4ef93515403def410e53",
+      "artifacts/local-thermal-observer-delivery-v1/report.json": "074dc6d5ac7e55a68008a288a6c7fbb742aa9be147100063367bfb02dd0ff670",
+      "artifacts/installed-thermal-observer-v1/report.json": "729952330e6f343e7b2fcea0d1e392a171eed945a01440997180a28cf62e21b4"
+    },
+    "superiority_established": false,
+    "validated": false,
+    "plant_referenced": false
+  },
+  "sha256": "77c67c0417c9e67331ad55c00fbf789010f471202945ef91041b9d2bc203b55e"
+}
