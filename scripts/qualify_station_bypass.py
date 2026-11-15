@@ -14,7 +14,9 @@ from scripts import qualify_station_actuators as evidence
 TASKS = []
 CRITERIA = dict(energy_relative=1e-6, mass_relative=1e-10,
                 condenser_energy_w=.01, nozzle_grid_relative=1e-4,
-                entropy_roundoff_w_k=.01)
+                entropy_roundoff_w_k=.01, temporal_relative=1e-4,
+                pressure_event_time_s=.001)
+SETTINGS = [(1.,1e-7),(.5,2e-8),(.2,2e-9)]
 
 
 def run(output, reference=None):
@@ -26,9 +28,10 @@ def run(output, reference=None):
     serializer = sha(evidence.__file__)
     s = PWRBypassSession(max_step_s=.5)
     evidence.save(output/'protocol.json', dict(source=source, driver_sha256=driver,
-        serializer_sha256=serializer, criteria=CRITERIA, parameters=s.parameter_registry(),
+        serializer_sha256=serializer, criteria=CRITERIA, settings=SETTINGS, parameters=s.parameter_registry(),
         candidate_tasks=['NPP-05.04'], accepted_tasks=[], nominal_duration_s=0.,
-        trip_duration_s=16., scope='Component checks only; no full-duration station acceptance'))
+        trip_duration_s=16., upper_cycle_duration_s=3., upper_cycle_restart_s=.1,
+        upper_cycle_thresholds_pa=dict(open=6.4e6,close=6.38e6), scope='Component checks only; no full-duration station acceptance'))
     p, h = s.header.thermo.p_pa, s.header.thermo.h_j_kg
     entropy = iapws.properties_ph(p,h).s_j_kg_k
     grid = []
@@ -66,6 +69,53 @@ def run(output, reference=None):
     try: s.advance(.1,dict(scram=True,steam_bypass=1.1))
     except ValueError: rollback = s.checkpoint()==before
     evidence.save(output/'rollback.json',dict(exact=rollback))
+    trials = []
+    upper_trials = []
+    for step,rtol in SETTINGS:
+        session = PWRBypassSession(max_step_s=step,rtol=rtol)
+        session.advance(9.,dict(scram=True,turbine_trip=True))
+        checkpoint = json.loads(json.dumps(session.checkpoint()))
+        restored = PWRBypassSession.restore(checkpoint)
+        result = session.advance(7.)
+        restart = restored.advance(7.)==result
+        events = [e for e in result['events'] if e['kind']=='bypass_supply_close']
+        if len(events)!=1: raise ValueError('Expected one lower-pressure crossing')
+        observations.append(result)
+        trials.append(dict(step_s=step,rtol=rtol,state=session.state.tolist(),
+            pressure_event_time_s=events[0]['time_s'],restart_exact=restart))
+        print('bypass pressure refinement',step,flush=True)
+        upper = PWRBypassSession(bypass=BypassConfig(
+            relief_open_pa=6.4e6,relief_close_pa=6.38e6),max_step_s=step,rtol=rtol)
+        before = upper.advance(.1,dict(scram=True,turbine_trip=True))
+        saved = json.loads(json.dumps(upper.checkpoint()))
+        restored = PWRBypassSession.restore(saved)
+        after = upper.advance(2.9)
+        exact_upper = restored.advance(2.9)==after
+        roots = [e for e in after['events'] if e['kind'] in ('bypass_relief_open','bypass_relief_close')]
+        cycle_ok = (not before['header_bypass']['relief_latched']
+            and [e['kind'] for e in roots]==['bypass_relief_open','bypass_relief_close']
+            and .1<roots[0]['time_s']<roots[1]['time_s']<3.
+            and all(e['inventories_projected'] is False for e in roots)
+            and abs(roots[0]['pressure_pa']-6.4e6)<=.05
+            and abs(roots[1]['pressure_pa']-6.38e6)<=.05
+            and not after['header_bypass']['relief_latched']
+            and after['bypass_position']==upper.bypass_config.trip_opening)
+        observations.extend([before,after])
+        upper_trials.append(dict(step_s=step,rtol=rtol,before=before,checkpoint=saved,
+            final=after,state=upper.state.tolist(),roots=roots,
+            restart_exact=exact_upper,cycle_ok=cycle_ok))
+        print('bypass upper-cycle refinement',step,flush=True)
+
+    fine = np.asarray(trials[-1]['state'])
+    errors = [float(max(abs(np.asarray(t['state'])-fine)/np.maximum(abs(fine),1.))) for t in trials]
+    event_errors = [abs(t['pressure_event_time_s']-trials[-1]['pressure_event_time_s']) for t in trials]
+    evidence.save(output/'refinement.json',dict(trials=trials,state_relative_errors=errors,
+        pressure_event_time_errors_s=event_errors))
+    upper_fine = np.asarray(upper_trials[-1]['state'])
+    upper_errors = [float(max(abs(np.asarray(t['state'])-upper_fine)/np.maximum(abs(upper_fine),1.))) for t in upper_trials]
+    upper_event_errors = [max(abs(a['time_s']-b['time_s']) for a,b in zip(t['roots'],upper_trials[-1]['roots'])) for t in upper_trials]
+    evidence.save(output/'upper_cycle.json',dict(trials=upper_trials,state_relative_errors=upper_errors,
+        pressure_event_time_errors_s=upper_event_errors))
     unchanged = source==bypass_signature() and driver==sha(__file__) and serializer==sha(evidence.__file__)
     balances = all(r['energy_relative']<=CRITERIA['energy_relative']
         and r['mass_relative']<=CRITERIA['mass_relative']
@@ -74,19 +124,28 @@ def run(output, reference=None):
         for r in observations)
     passed = bool(unchanged and balances and exact and rollback
         and error<=CRITERIA['nozzle_grid_relative']
+        and all(t['restart_exact'] and t['cycle_ok'] for t in upper_trials)
+        and max(upper_errors)<=CRITERIA['temporal_relative']
+        and max(upper_event_errors)<=CRITERIA['pressure_event_time_s']
+        and all(t['restart_exact'] for t in trials)
+        and max(errors)<=CRITERIA['temporal_relative']
+        and max(event_errors)<=CRITERIA['pressure_event_time_s']
         and observations[0]['header_bypass']['flow_kg_s']>0
         and trip['header_bypass']['flow_kg_s']==0
         and not trip['header_bypass']['supply_permitted']
         and unavailable['bypass_position']==0
         and relief['header_bypass']['relief_latched'])
     report = dict(passed=passed,completed=True,source_unchanged=unchanged,
-        closed_tasks=[],restart_exact=exact,rollback_exact=rollback,
+        closed_tasks=[],restart_exact=exact and all(t['restart_exact'] for t in trials+upper_trials),rollback_exact=rollback,
+        upper_cycle_qualified=all(t['cycle_ok'] for t in upper_trials),
+        upper_refinement_relative_errors=upper_errors,upper_pressure_event_time_errors_s=upper_event_errors,
+        refinement_relative_errors=errors,pressure_event_time_errors_s=event_errors,
         nominal_duration_s=0.,trip_duration_s=16.,nozzle_grid_relative_error=error,
         max_energy_relative=max(r['energy_relative'] for r in observations),
         max_mass_relative=max(r['mass_relative'] for r in observations),
         full_duration_qualified=False,complete_package_b=False,complete_package_c=False,
         r1_accepted=False,validated=False,plant_referenced=False,
-        limitations=['No task closure; full-duration station and temporal refinement remain pending',
+        limitations=['No task closure; full-duration station acceptance remains pending',
             'No manufacturer valve data or experimental validation; equilibrium no-slip nozzle'])
     evidence.save(output/'report.json',report)
     if reference is not None:

@@ -129,3 +129,61 @@ def test_spatial_core_and_extra_actuator_coordinate_remain_compatible():
     r=s.advance(.02,dict(steam_bypass=.1))
     assert len(r['core']['owned_state'])==14 and r['header_bypass']['flow_kg_s']>0
     assert r['energy_relative']<1e-8
+
+
+def test_mutating_nozzle_diagnostics_cannot_poison_future_flow():
+    p,h=initial()
+    before=nozzle_flow(p,h,8000.,1.,.01,.8)
+    diagnostic=critical_nozzle(p,h)
+    diagnostic['mass_flux_kg_m2_s']=-1.
+    diagnostic['critical_pressure_pa']=0.
+    assert nozzle_flow(p,h,8000.,1.,.01,.8)==before
+
+
+@pytest.mark.parametrize('args',[(True,2.8e6),(6e6,float('nan')),(4e6,2.8e6)])
+def test_critical_nozzle_validates_direct_public_calls(args):
+    with pytest.raises(ValueError):critical_nozzle(*args)
+
+
+def test_boolean_nozzle_position_is_not_a_numeric_actuator_command():
+    p,h=initial()
+    with pytest.raises(ValueError):nozzle_flow(p,h,8000.,True,.01,.8)
+
+
+def test_upper_pressure_cycle_crosses_both_thresholds_and_restarts_before_opening():
+    s=PWRBypassSession(bypass=BypassConfig(relief_open_pa=6.4e6,relief_close_pa=6.38e6),max_step_s=.5)
+    early=s.advance(.1,dict(scram=True,turbine_trip=True))
+    assert not early['header_bypass']['relief_latched']
+    restored=PWRBypassSession.restore(json.loads(json.dumps(s.checkpoint())))
+    final=s.advance(2.9)
+    assert restored.advance(2.9)==final
+    roots=[e for e in final['events'] if e['kind'] in ('bypass_relief_open','bypass_relief_close')]
+    assert [e['kind'] for e in roots]==['bypass_relief_open','bypass_relief_close']
+    assert .1<roots[0]['time_s']<roots[1]['time_s']<3.
+    for event,pressure in zip(roots,[6.4e6,6.38e6]):
+        assert abs(event['pressure_pa']-pressure)<=.05
+        assert event['inventories_projected'] is False
+    assert not final['header_bypass']['relief_latched']
+    assert final['bypass_position']==s.bypass_config.trip_opening
+    assert final['energy_relative']<1e-8
+
+
+def test_unavailable_actuator_has_priority_over_pressure_relief_request():
+    s=PWRBypassSession(bypass=BypassConfig(relief_open_pa=6.36e6,relief_close_pa=6.33e6),max_step_s=.5)
+    r=s.advance(.1,dict(bypass_available=False))
+    assert r['header_bypass']['relief_latched']
+    assert r['header_bypass']['target']==r['bypass_position']==0.
+    assert r['header_bypass']['flow_kg_s']==0.
+    r=s.advance(.1,dict(bypass_available=True))
+    assert r['header_bypass']['relief_latched'] and r['header_bypass']['target']==1.
+    assert r['bypass_position']==pytest.approx(.2)
+    assert r['header_bypass']['flow_kg_s']>0.
+
+
+def test_actual_phase_domain_exit_rolls_back_entire_trip_and_inventories():
+    s=PWRBypassSession(bypass=BypassConfig(area_m2=.03,stroke_time_s=5.,trip_opening=1.),max_step_s=.5)
+    before=s.checkpoint()
+    with pytest.raises(ValueError,match='Near-dry equilibrium nozzle stagnation state'):
+        s.advance(10.,dict(scram=True,turbine_trip=True))
+    assert s.checkpoint()==before
+    assert s.time==0. and not s.scram_latched and not s.turbine_tripped

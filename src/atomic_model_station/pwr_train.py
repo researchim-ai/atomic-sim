@@ -1,5 +1,6 @@
 """Hot reduced-PWR / finite turbogenerator coupling; not a complete NPP R1."""
 from copy import deepcopy
+from .journal import Journal
 from dataclasses import asdict,dataclass
 import hashlib
 import math
@@ -72,7 +73,7 @@ class PWRTrainSession:
             raise ValueError('Physical integration options')
         self.config=config if config is not None else TrainConfig()
         if type(self.config) is not TrainConfig:raise ValueError('TrainConfig required')
-        self.max_step_s=float(max_step_s);self.rtol=float(rtol);self.time=0.;self.history=[];self.last_reduction=[]
+        self.max_step_s=float(max_step_s);self.rtol=float(rtol);self.time=0.;self.history=Journal();self.last_reduction=[]
         self.controls=dict(load_fraction=1.,generator_connected=True,valve_request=1.,governor_enabled=True,
             rod_target=0.,scram=False,turbine_trip=False)
         self.scram_latched=False;self.turbine_tripped=False;self.events=[];self.rod_drive=RodDrive();self.minimum_dump_sample_kg_s=0.
@@ -188,8 +189,10 @@ class PWRTrainSession:
             self.events.append(dict(time_s=self.time,kind='command_inhibited',reason='latched_turbine_trip',effective_generator_connected=False,effective_valve=0.))
     def _passive_column(self,index):
         return self.ledger_index<=index<self.ledger_index+4
+    def _maximum_history_steps(self):return 256
+
     def advance(self,duration_s,patch=None):
-        if type(duration_s) not in (float,int) or not math.isfinite(duration_s) or not 0<duration_s<=60 or self.time+duration_s>self._maximum_time_s() or len(self.history)>=256:raise ValueError('Physical duration/history budget')
+        if type(duration_s) not in (float,int) or not math.isfinite(duration_s) or not 0<duration_s<=60 or self.time+duration_s>self._maximum_time_s() or len(self.history)>=self._maximum_history_steps():raise ValueError('Physical duration/history budget')
         trial=deepcopy(self)
         if patch is not None:trial._set_controls(patch)
         trial._prepare_interval()
@@ -318,7 +321,7 @@ class PWRTrainSession:
             validated=False,plant_referenced=False)
     def checkpoint(self):
         return seal(deepcopy(dict(config=asdict(self.config),max_step_s=self.max_step_s,rtol=self.rtol,
-            source=physical_signature(),history=self.history,snapshot=self.snapshot())))
+            source=physical_signature(),history=list(self.history),snapshot=self.snapshot())))
     @classmethod
     def restore(cls,saved):
         p=unseal(deepcopy(saved))

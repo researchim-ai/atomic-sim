@@ -1,4 +1,4 @@
-"""Offline source/wheel station physics replay (primary, film, steam, stages or bypass); no CI or external runner.
+"""Offline source/wheel station physics replay (primary, film, steam, stages, bypass, bypass_full, control or feed_control/faults/campaign/env/hourly_replay); no CI or external runner.
 
 By default run the library profile and primary study first. Existing sealed
 runs may be reused explicitly with --library-evidence and --source-evidence.
@@ -29,15 +29,32 @@ from atomic_model_multiphysics.provenance import seal, sha
 import importlib
 out, reference, receipt, driver = map(Path, sys.argv[1:5])
 name = sys.argv[5]
-assert name in ('primary', 'film', 'steam', 'stages', 'bypass')
+assert name in ('primary', 'film', 'steam', 'stages', 'bypass', 'bypass_full', 'control', 'feed_control', 'faults', 'campaign', 'env', 'hourly_replay')
 study = importlib.import_module('scripts.qualify_station_' + name)
 assert 'site-packages' in Path(station.__file__).parts
 assert 'site-packages' in Path(study.__file__).parts
+if name in ('control','feed_control','faults','campaign','env','hourly_replay'):
+    import atomic_model_station_control as control
+    import atomic_model_station_signals as instruments
+    assert 'site-packages' in Path(control.__file__).parts
+    assert 'site-packages' in Path(instruments.__file__).parts
+if name in ('faults','campaign','env','hourly_replay'):
+    import atomic_model_station_faults as faults
+    assert 'site-packages' in Path(faults.__file__).parts
+if name in ('campaign','env','hourly_replay'):
+    import atomic_model_station_campaign as campaign
+    assert 'site-packages' in Path(campaign.__file__).parts
+if name == 'env':
+    import atomic_model_station_env as station_env
+    assert 'site-packages' in Path(station_env.__file__).parts
+if name == 'hourly_replay':
+    import atomic_model_station_readiness as readiness
+    assert 'site-packages' in Path(readiness.__file__).parts
 assert sha(study.__file__) == str(driver)
 result = study.run(out, reference)
 assert result['passed']
 payload = dict(passed=True, installed_import=True, source_driver_equal=True,
-    station_source=core_signature(), all_evidence_exact=True,
+    station_source=core_signature(), all_evidence_exact=True, evidence_comparison_scope=result.get('evidence_comparison_scope','all_json'),
     source_driver_sha256=sha(study.__file__), restart_exact=result['restart_exact'],
     numerical_runtime=dict(python=sys.version, numpy=numpy.__version__, scipy=scipy.__version__,
         thread_environment={k: os.environ.get(k) for k in
@@ -51,8 +68,8 @@ def read(path):
 
 
 def run(output, *, source_evidence=None, library_evidence=None, timeout_s=7200, study_name="primary"):
-    if study_name not in ("primary", "film", "steam", "stages", "bypass"):
-        raise ValueError("Study must be primary, film, steam, stages or bypass")
+    if study_name not in ("primary", "film", "steam", "stages", "bypass", "bypass_full", "control", "feed_control", "faults", "campaign", "env", "hourly_replay"):
+        raise ValueError("Study must be primary, film, steam, stages, bypass, bypass_full, control or feed_control/faults/campaign/env/hourly_replay")
     study = importlib.import_module("scripts.qualify_station_" + study_name)
     if type(timeout_s) is not int or not 1 <= timeout_s <= 14400:
         raise ValueError('Timeout domain: 1..14400 seconds')
@@ -80,7 +97,7 @@ def run(output, *, source_evidence=None, library_evidence=None, timeout_s=7200, 
         raise ValueError('Local library delivery not accepted')
     from atomic_model_station.core import core_signature
     expected = core_signature()
-    identity_name={'primary':'core_signature','film':'film_signature','steam':'steam_signature','stages':'stages_signature','bypass':'bypass_signature'}[study_name]
+    identity_name={'primary':'core_signature','film':'film_signature','steam':'steam_signature','stages':'stages_signature','bypass':'bypass_signature','bypass_full':'bypass_signature','control':'control_signature','feed_control':'feed_control_signature','faults':'faults_signature','campaign':'campaign_signature','env':'env_signature','hourly_replay':'hourly_signature'}[study_name]
     qualification_source=getattr(study,identity_name)()
     if protocol['source'] != qualification_source or protocol['driver_sha256'] != sha(study.__file__):
         raise ValueError('Stale source evidence')
@@ -124,7 +141,7 @@ def run(output, *, source_evidence=None, library_evidence=None, timeout_s=7200, 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, required=True)
-    parser.add_argument('--study', choices=['primary', 'film', 'steam', 'stages', 'bypass'], default='primary')
+    parser.add_argument('--study', choices=['primary', 'film', 'steam', 'stages', 'bypass', 'bypass_full', 'control', 'feed_control', 'faults', 'campaign', 'env', 'hourly_replay'], default='primary')
     parser.add_argument('--source-evidence', type=Path)
     parser.add_argument('--library-evidence', type=Path)
     parser.add_argument('--timeout-s', type=int, default=7200)

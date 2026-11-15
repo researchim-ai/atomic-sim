@@ -24,7 +24,7 @@ from .pwr_train import TrainConfig
 from .contracts import FluidState,fluid_connection
 
 NOZZLE_SOURCE='https://lwrs.inl.gov/content/uploads/11/2024/03/Development_of_RELAP5-3D-Modeling_RCIC_System.pdf'
-NOZZLE_VERSION='iheM-equilibrium-enthalpy-maximum/v1'
+NOZZLE_VERSION='ihem-equilibrium-enthalpy-maximum/v1'
 
 
 def bypass_signature():return dict(stages=stages_signature())
@@ -58,7 +58,7 @@ def isentropic_flux(pressure,enthalpy,entropy,throat_pressure):
 
 
 @lru_cache(maxsize=2048)
-def critical_nozzle(pressure,enthalpy):
+def _cached_critical_nozzle(pressure,enthalpy):
     point=iapws.properties_ph(pressure,enthalpy)
     if point.region not in (2,4) or point.quality<.99:raise ValueError('Near-dry equilibrium nozzle stagnation state')
     entropy=float(point.s_j_kg_k)
@@ -71,9 +71,19 @@ def critical_nozzle(pressure,enthalpy):
                 version=NOZZLE_VERSION,source=NOZZLE_SOURCE,validated=False)
 
 
+
+def critical_nozzle(pressure,enthalpy):
+    """Return caller-owned diagnostics; cached results must remain private."""
+    if (type(pressure) not in (int,float) or type(enthalpy) not in (int,float)
+            or not math.isfinite(pressure) or not math.isfinite(enthalpy)
+            or not 5e6<=pressure<=8e6):
+        raise ValueError('Nozzle stagnation pressure/enthalpy domain')
+    return dict(_cached_critical_nozzle(float(pressure),float(enthalpy)))
+
+
 def nozzle_flow(pressure,enthalpy,back_pressure,position,area,discharge_coefficient):
     values=(pressure,enthalpy,back_pressure,position,area,discharge_coefficient)
-    if any(not math.isfinite(v) for v in values) or not 5e6<=pressure<=8e6 or back_pressure<=0 or not 0<=position<=1 or not .0001<=area<=.03 or not .5<=discharge_coefficient<=1:
+    if any(type(v) not in (int,float) or not math.isfinite(v) for v in values) or not 5e6<=pressure<=8e6 or back_pressure<=0 or not 0<=position<=1 or not .0001<=area<=.03 or not .5<=discharge_coefficient<=1:
         raise ValueError('Bounded nozzle pressure/geometry/position')
     if position==0 or back_pressure>=pressure:
         return dict(flow_kg_s=0.,regime='closed' if position==0 else 'blocked',critical_pressure_pa=None,

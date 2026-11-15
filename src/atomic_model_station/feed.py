@@ -28,11 +28,14 @@ class FeedConfig:
     required_suction_head_m:float=3.
     tank_area_m2:float=10.
     check_opening_band_pa:float=1.
+    sg_area_m2:float=12.
+    hotwell_area_m2:float=100.
+    hotwell_sump_height_m:float=2.
 
     def __post_init__(self):
         for k,v in asdict(self).items():
             if type(v) not in (int,float) or not math.isfinite(v) or v<=0:raise ValueError('Positive finite feed parameter:'+k)
-        ranges=dict(feed_mass_kg=(100.,1e6),makeup_mass_kg=(1.,1e6),drain_mass_kg=(1.,1e6),
+        ranges=dict(sg_area_m2=(1.,1000.),hotwell_area_m2=(1.,1000.),hotwell_sump_height_m=(.1,20.),feed_mass_kg=(100.,1e6),makeup_mass_kg=(1.,1e6),drain_mass_kg=(1.,1e6),
             feed_gas_volume_m3=(.1,1e4),makeup_gas_volume_m3=(.1,1e4),drain_gas_volume_m3=(.1,1e4),
             feed_pressure_pa=(1e4,1e6),makeup_pressure_pa=(1e4,1e6),drain_pressure_pa=(1e4,1e6),
             condensate_friction_pa=(1e3,1e6),minimum_mass_kg=(1.,1000.),suction_static_head_m=(.1,100.),required_suction_head_m=(.1,50.),tank_area_m2=(1.,1000.),check_opening_band_pa=(1e-3,100.))
@@ -58,12 +61,13 @@ class FeedPWR(GovernedPWR):
         _,friction,back=self.feed_terms()
         steam=self.network.junctions['steam'].mass_flow_kg_s+self.network.junctions['dump'].mass_flow_kg_s
         demand=max(0.,steam+.05*(self.feed_sg_mass_ref-self.network.volumes['sg_secondary'].mass_kg))
+        if c['feed_flow_control']:demand=c['feed_flow_fraction']*self.feed_flow_scale_kg_s
         requested=back+friction+self.feed_inertance/.2*(demand-feed.mass_flow_kg_s)
         cap=self.maximum_feed_head_pa*c['feed_pump_fraction']**2 if c['feed_pump_on'] else 0.
         delivered=max(0.,min(cap,requested));feed.pump_pressure_pa=delivered;feed.flow_target_kg_s=demand
         feed.delivery_enthalpy_j_kg=source.enthalpy_j_kg+(back+friction)/self.feed_density_ref-delivered/source.density_kg_m3
         self.feed_controller=dict(requested_flow_kg_s=demand,requested_head_pa=requested,delivered_head_pa=delivered,
-            saturated=bool(requested!=delivered),available=c['feed_pump_on'])
+            saturated=bool(requested!=delivered),available=c['feed_pump_on'],external_flow_control=c['feed_flow_control'])
 
 
 class PWRFeedSession(PWRCooledSession):
@@ -82,13 +86,15 @@ class PWRFeedSession(PWRCooledSession):
             mass=getattr(c,name+'_mass_kg');vg=getattr(c,name+'_gas_volume_m3');pressure=getattr(c,name+'_pressure_pa')
             self.feed_tanks[name]=dict(initial_mass_kg=mass,initial_gas_m3=vg,initial_pressure_pa=pressure,total_volume_m3=vg+mass/self.feed_rho)
         self.controls.update(feed_pump_on=True,feed_pump_fraction=1.,feed_valve_fraction=1.,condensate_pump_on=True,
-            condensate_pump_fraction=1.,makeup_valve=0.,drain_valve=0.)
+            condensate_pump_fraction=1.,makeup_valve=0.,drain_valve=0.,feed_flow_control=False,feed_flow_fraction=.5,
+            condensate_flow_control=False,condensate_flow_fraction=.5,feed_inventory_control=False,feed_inventory_fraction=.5)
         self.state=np.r_[self.state,*[v for name in ('feed','makeup','drain') for v in (self.feed_tanks[name]['initial_mass_kg'],self.feed_tanks[name]['initial_mass_kg']*self.feed_u_ref)],q]
         p.feed_base_loss=p.network.junctions['feed'].loss_coefficient;p.feed_sg_mass_ref=p.network.volumes['sg_secondary'].mass_kg
+        p.feed_flow_scale_kg_s=2*q;self.feed_flow_scale_kg_s=2*q
         p.feed_train_ready=True;self.feed_ready=True
         self.feed_design=dict(density_kg_m3=self.feed_rho,reference_temperature_k=self.feed_temperature_ref,reference_internal_energy_j_kg=self.feed_u_ref,
             condensate_resistance_pa_s2_kg2=self.condensate_resistance,water_cp_j_kg_k=4180.,gas_gamma=1.4,
-            gas_model='Sealed ideal adiabatic cushions; gas energy included',measured=False,initial_state='Declared hot start; added pump losses create a physical thermal settling transient')
+            flow_scale_kg_s=self.feed_flow_scale_kg_s,gas_model='Sealed ideal adiabatic cushions; gas energy included',measured=False,initial_state='Declared hot start; added pump losses create a physical thermal settling transient')
         self.origin_feed_mass=sum(self.feed_tanks[n]['initial_mass_kg'] for n in self.feed_tanks)
         self._rhs(0.,self.state);self.origin_energy=self._stored();self._admit(self.state)
 
@@ -115,6 +121,7 @@ class PWRFeedSession(PWRCooledSession):
         qf=float(p.network.junctions['feed'].mass_flow_kg_s);qc=float(y[i+6]);actual=p.true_hotwell
         back=tank['pressure_pa']-actual['p'];friction=self.condensate_resistance*qc*abs(qc)
         demand=max(0.,qf+.05*(c.feed_mass_kg-tank['mass_kg'])+.02*(p.hotwell_mass_kg-p.condenser_mass_ref_kg))
+        if self.controls['condensate_flow_control']:demand=self.controls['condensate_flow_fraction']*self.feed_flow_scale_kg_s
         requested=back+friction+c.condensate_inertance_m_inv/.5*(demand-qc)
         cap=2e6*self.controls['condensate_pump_fraction']**2 if self.controls['condensate_pump_on'] else 0.
         head=max(0.,min(cap,requested));drive=head-back-friction
@@ -122,8 +129,11 @@ class PWRFeedSession(PWRCooledSession):
         cond_hyd=qc*head/rho;cond_elec=cond_hyd/c.pump_efficiency
         cond_loss=cond_elec-cond_hyd
         feed_hyd=p.boundary_terms_w()['feed_work_w'];feed_loss=feed_hyd*(1/c.pump_efficiency-1)
-        makeup=self.controls['makeup_valve']*5.*math.sqrt(max(0.,(tanks['makeup']['pressure_pa']-tank['pressure_pa'])/2e5))
-        drain=self.controls['drain_valve']*5.*math.sqrt(max(0.,(tank['pressure_pa']-tanks['drain']['pressure_pa'])/1e5))
+        inventory=self.controls['feed_inventory_fraction']
+        makeup_opening=max(0.,2*inventory-1.) if self.controls['feed_inventory_control'] else self.controls['makeup_valve']
+        drain_opening=max(0.,1.-2*inventory) if self.controls['feed_inventory_control'] else self.controls['drain_valve']
+        makeup=makeup_opening*5.*math.sqrt(max(0.,(tanks['makeup']['pressure_pa']-tank['pressure_pa'])/2e5))
+        drain=drain_opening*5.*math.sqrt(max(0.,(tank['pressure_pa']-tanks['drain']['pressure_pa'])/1e5))
         dm=[qc-qf+makeup-drain,-makeup,drain]
         incoming=actual['h']+(back+friction)/rho
         enthalpy=[qc*incoming-qf*tank['h_j_kg']+makeup*tanks['makeup']['h_j_kg']-drain*tank['h_j_kg']+cond_loss+feed_loss,
@@ -142,6 +152,9 @@ class PWRFeedSession(PWRCooledSession):
         added=hotwell_correction+sum(enthalpy)+kinetic
         self.instantaneous_energy_defect_w=float(self.instantaneous_energy_defect_w+added-extra)
         self.feed_terms=dict(tanks=tanks,feed_flow_kg_s=qf,condensate_flow_kg_s=qc,makeup_flow_kg_s=makeup,drain_flow_kg_s=drain,
+            flow_scale_kg_s=self.feed_flow_scale_kg_s,condensate_requested_flow_kg_s=demand,
+            condensate_external_flow_control=self.controls['condensate_flow_control'],
+            inventory_external_control=self.controls['feed_inventory_control'],makeup_opening=makeup_opening,drain_opening=drain_opening,
             condensate_head_pa=head,condensate_requested_head_pa=requested,condensate_drive_pa=drive,condensate_saturated=bool(head!=requested),
             condensate_electric_w=cond_elec,feed_electric_w=feed_hyd+feed_loss,feed_controller=deepcopy(p.feed_controller),
             check_opening_band_pa=c.check_opening_band_pa,feed_check_open=p._feed_open,condensate_check_open=self.condensate_open,internal_energy_residual_w=added-extra,
@@ -155,6 +168,7 @@ class PWRFeedSession(PWRCooledSession):
             p.feed_tank_p=tank['pressure_pa'];p.feed_tank_h=tank['h_j_kg'];p.feed_controls=self.controls
         super()._admit(y)
         if not self.feed_ready:return
+        if float(y[self.base_size-3])*(1-float(self.plant.condenser.state().quality))/float(self.plant.true_hotwell['rho'])/self.feed_config.hotwell_area_m2>self.feed_config.hotwell_sump_height_m:raise ValueError('Hotwell sump geometric capacity')
         from physics.materials.iapws import saturation_pressure_mpa
         for name in self.feed_tanks:
             v=self._tank(y,name)
@@ -166,19 +180,19 @@ class PWRFeedSession(PWRCooledSession):
         vapor=float(saturation_pressure_mpa(v['temperature_k'])*1e6)
         self.feed_suction_m=(v['pressure_pa']-vapor)/(self.feed_rho*9.80665)+v['level_m']
         state=p.condenser.state();liquid_mass=p.hotwell_mass_kg*(1-state.quality)
-        self.condensate_suction_m=self.feed_config.suction_static_head_m+(liquid_mass-p.condenser_mass_ref_kg*.95)/(self.feed_rho*100.)
+        self.condensate_suction_m=self.feed_config.suction_static_head_m+(liquid_mass-p.condenser_mass_ref_kg*.95)/(self.feed_rho*self.feed_config.hotwell_area_m2)
         if self.feed_suction_m<self.feed_config.required_suction_head_m or self.condensate_suction_m<self.feed_config.required_suction_head_m:
             raise ValueError('Suction head outside declared noncavitating scope')
         if y[i+6]<0:raise ValueError('Reverse condensate flow unsupported')
         if abs(p.true_hotwell['rho']/self.feed_rho-1)>.02:raise ValueError('Condensate reference-density scope exceeded')
 
     def _set_controls(self,patch):
-        extra={'feed_pump_on','feed_pump_fraction','feed_valve_fraction','condensate_pump_on','condensate_pump_fraction','makeup_valve','drain_valve'}
+        extra={'feed_pump_on','feed_pump_fraction','feed_valve_fraction','condensate_pump_on','condensate_pump_fraction','makeup_valve','drain_valve','feed_flow_control','feed_flow_fraction','condensate_flow_control','condensate_flow_fraction','feed_inventory_control','feed_inventory_fraction'}
         if type(patch) is not dict or not patch or not set(patch)<=set(self.controls):raise ValueError('Feed command patch')
         values=dict(self.controls,**patch)
-        for key in ('feed_pump_on','condensate_pump_on'):
+        for key in ('feed_pump_on','condensate_pump_on','feed_flow_control','condensate_flow_control','feed_inventory_control'):
             if type(values[key]) is not bool:raise ValueError('Boolean pump availability')
-        for key,low,high in [('feed_pump_fraction',0.,1.),('feed_valve_fraction',.1,1.),('condensate_pump_fraction',0.,1.),('makeup_valve',0.,1.),('drain_valve',0.,1.)]:
+        for key,low,high in [('feed_pump_fraction',0.,1.),('feed_valve_fraction',.1,1.),('condensate_pump_fraction',0.,1.),('makeup_valve',0.,1.),('drain_valve',0.,1.),('feed_flow_fraction',0.,1.),('condensate_flow_fraction',0.,1.),('feed_inventory_fraction',0.,1.)]:
             value=values[key]
             if type(value) not in (int,float) or not math.isfinite(value) or not low<=value<=high:raise ValueError('Feed command domain:'+key)
         regular={k:v for k,v in patch.items() if k not in extra}
@@ -266,16 +280,38 @@ class PWRFeedSession(PWRCooledSession):
         if not self.feed_ready:return result
         units=dict(feed_mass_kg='kg',makeup_mass_kg='kg',drain_mass_kg='kg',feed_gas_volume_m3='m^3',makeup_gas_volume_m3='m^3',drain_gas_volume_m3='m^3',
             feed_pressure_pa='Pa',makeup_pressure_pa='Pa',drain_pressure_pa='Pa',pump_efficiency='1',condensate_inertance_m_inv='1/m',
-            condensate_friction_pa='Pa',minimum_mass_kg='kg',suction_static_head_m='m',required_suction_head_m='m',tank_area_m2='m^2',check_opening_band_pa='Pa')
+            condensate_friction_pa='Pa',minimum_mass_kg='kg',suction_static_head_m='m',required_suction_head_m='m',tank_area_m2='m^2',check_opening_band_pa='Pa',sg_area_m2='m^2',hotwell_area_m2='m^2',hotwell_sump_height_m='m')
         for key,value in asdict(self.feed_config).items():
             result['parameters']['feed.'+key]=dict(value=float(value),unit=units[key],source='Declared reduced feed train, not manufacturer data',family='illustrative',version='1',uncertainty=None)
         for key,value,unit in [('gamma',1.4,'1'),('cp',4180.,'J/(kg*K)'),('density',self.feed_rho,'kg/m^3'),('condensate_resistance',self.condensate_resistance,'Pa*s^2/kg^2')]:
             result['parameters']['feed.design.'+key]=dict(value=float(value),unit=unit,source='Declared constitutive constant or constructed nominal value',family='illustrative',version='1',uncertainty=None)
         return result
 
+    def level_readouts(self):
+        from physics.materials import iapws
+        from .levels import collapsed_level,liquid_level
+        c=self.feed_config;p=self.plant;sg=p.network.volumes['sg_secondary'];point=sg.thermo
+        if point.region not in (1,2,4):raise ValueError('SG level thermodynamic scope')
+        liquid,_=iapws.saturation_properties(float(point.p_pa))
+        density=float(point.rho_kg_m3) if point.region==1 else float(liquid.rho_kg_m3)
+        sg_level=collapsed_level(float(sg.mass_kg),float(point.quality),density,c.sg_area_m2,float(sg.volume_m3))
+        hotwell_liquid=float(p.hotwell_mass_kg)*(1-float(p.condenser.state().quality))
+        hotwell=liquid_level(hotwell_liquid,float(p.true_hotwell['rho']),c.hotwell_area_m2)
+        if hotwell>c.hotwell_sump_height_m:raise ValueError('Hotwell sump geometric capacity')
+        return dict(sg_collapsed_level_m=float(sg_level),hotwell_level_m=float(hotwell),hotwell_liquid_mass_kg=hotwell_liquid,
+            feed_tank_level_m=float(self._tank(self.state,'feed')['level_m']),
+            feed_flow_kg_s=float(self.feed_terms['feed_flow_kg_s']),
+            sg_outflow_kg_s=float(p.network.junctions['steam'].mass_flow_kg_s+p.network.junctions['dump'].mass_flow_kg_s),condensate_flow_kg_s=float(self.feed_terms['condensate_flow_kg_s']),
+            sg_height_m=float(sg.volume_m3/c.sg_area_m2),hotwell_height_m=c.hotwell_sump_height_m,
+            feed_tank_height_m=float(self.feed_tanks['feed']['total_volume_m3']/c.tank_area_m2),
+            sg_area_m2=c.sg_area_m2,hotwell_area_m2=c.hotwell_area_m2,feed_tank_area_m2=c.tank_area_m2,
+            sg_level_kind='Collapsed liquid volume/area; not a swollen free-surface or differential-pressure instrument',
+            geometry_family='Declared equivalent vertical collecting sections, not manufacturer geometry',validated=False)
+
     def snapshot(self):
         result=super().snapshot()
         if self.feed_ready:
+            result['level_readouts']=self.level_readouts()
             inventory=self.plant.closed_inventories()['closed_mass_kg'];total=inventory+sum(self._tank(self.state,n)['mass_kg'] for n in self.feed_tanks)
             origin=self.origin_mass+self.origin_feed_mass
             terms=self.feed_terms;steam=self.plant.network.junctions['steam'];dump=self.plant.network.junctions['dump']
