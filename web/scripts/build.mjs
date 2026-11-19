@@ -5,6 +5,7 @@ import { content, languages } from '../src/content.mjs';
 import { render } from '../src/render.mjs';
 import { topics, chapters, ui } from '../src/physics/content.mjs';
 import { renderPhysicsIndex, renderPhysicsChapter } from '../src/physics/render.mjs';
+import { renderStation } from '../src/station/render.mjs';
 export const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export const output = resolve(root, 'dist');
 function keys(value, prefix = '') {
@@ -23,6 +24,8 @@ export async function build() {
   for (const lang of languages) {
     await mkdir(resolve(output, lang), { recursive: true });
     await writeFile(resolve(output, lang, 'index.html'), render(lang));
+    await mkdir(resolve(output,lang,'station'),{recursive:true});
+    await writeFile(resolve(output,lang,'station','index.html'),renderStation(lang));
     await mkdir(resolve(output,lang,'physics'),{recursive:true});
     await writeFile(resolve(output,lang,'physics','index.html'),renderPhysicsIndex(lang));
     for (const topic of topics) {

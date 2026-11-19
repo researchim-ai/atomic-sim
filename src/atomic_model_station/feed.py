@@ -223,10 +223,39 @@ class PWRFeedSession(PWRCooledSession):
     def _extend_known(self,known,modes):
         if not self.plant._feed_open:known[self.plant.feed_index]=lambda t:0.;modes.append(dict(name='feed_check',kind='exact_closed'))
         if not self.condensate_open:known[self.feed_index+6]=lambda t:0.;modes.append(dict(name='condensate_check',kind='exact_closed'))
+        # For an unsaturated head controller, dq/dt=(demand-q)/tau.
+        # A zero demand has an exact positive exponential, not a zero crossing.
+        # Keep the stock equations coupled to this actual flow; never clip it.
+        self._zero_demand_modes={}
+        candidates=[('feed',self.plant.feed_index,self.plant._feed_open,.2,
+                     self.plant.feed_controller['requested_flow_kg_s'],self.plant.feed_controller['saturated']),
+                    ('condensate',self.feed_index+6,self.condensate_open,.5,
+                     self.feed_terms['condensate_requested_flow_kg_s'],self.feed_terms['condensate_saturated'])]
+        for name,index,opened,tau,demand,saturated in candidates:
+            if (self.scram_latched or self.turbine_tripped) and self.state[12]==1. and opened and demand==0. and not saturated:
+                initial=float(self.state[index]);origin=self.time
+                if initial<0:raise ValueError('Exact zero-demand mode requires nonnegative flow')
+                known[index]=lambda t,q=initial,o=origin,tau=tau:q*math.exp(-(t-o)/tau)
+                self._zero_demand_modes[name]=index
+                modes.append(dict(name=name+'_zero_demand',kind='exact_closed_loop_exponential',
+                                  initial=initial,tau_s=tau,stocks_projected=False))
+
+    def _validate_known_modes(self,t,y,*,rhs_ready=False):
+        selected=getattr(self,'_zero_demand_modes',{})
+        if not selected:return
+        if not rhs_ready:self._rhs(t,y)
+        for name in selected:
+            if name=='feed':
+                demand=self.plant.feed_controller['requested_flow_kg_s'];saturated=self.plant.feed_controller['saturated']
+            else:
+                demand=self.feed_terms['condensate_requested_flow_kg_s'];saturated=self.feed_terms['condensate_saturated']
+            if demand!=0. or saturated:
+                raise ValueError('Exact zero-demand '+name+' mode changed inside interval; subdivide the command interval')
 
     def _flow_guards(self,feed):
         guards=[];self.guard_labels=[]
         for name,index,opened in [('feed',self.plant.feed_index,self.plant._feed_open),('condensate',self.feed_index+6,self.condensate_open)]:
+            if opened and name in getattr(self,'_zero_demand_modes',{}):continue
             if opened:
                 def event(t,y,j=index):return float(y[j])
                 event.direction=-1;self.guard_labels.append(name+'_closed')
@@ -263,7 +292,9 @@ class PWRFeedSession(PWRCooledSession):
                 trial.events.append(dict(time_s=now,kind=name+'_check_opened',reason='drive_zero_crossing'))
         # Validate the accepted prefix as well as the constraint-consistent root.
         for t in sorted(set(solution.t[:-1].tolist()+np.linspace(self.time,now,max(2,math.ceil((now-self.time)/.05)+1))[:-1].tolist())):
-            trial._admit(full(t,solution.sol(t)))
+            point=full(t,solution.sol(t))
+            trial._validate_known_modes(t,point)
+            trial._admit(point)
         _,motion=trial.rod_drive.trajectory(float(self.state[12]),float(trial.controls['rod_target']),trial.scram_latched,self.time)
         if motion['direction'] and now>=motion['arrival_s']:
             trial.events.append(dict(time_s=motion['arrival_s'],kind='rod_arrived',position=motion['target'],reason='scram_stop' if trial.scram_latched else 'requested_position'))

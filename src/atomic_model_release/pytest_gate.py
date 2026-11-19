@@ -11,6 +11,7 @@ def pytest_addoption(parser):
     group.addoption("--atomic-receipt", default=None)
     group.addoption("--atomic-require-executed", action="store_true")
     group.addoption("--atomic-no-skips", action="store_true")
+    group.addoption("--atomic-nodeids-file", default=None)
 
 
 def pytest_configure(config):
@@ -19,6 +20,10 @@ def pytest_configure(config):
 
 def pytest_collection_finish(session):
     session.config._atomic_results["collected"] = len(session.items)
+    target=session.config.getoption("--atomic-nodeids-file")
+    if target:
+        path=Path(target);path.parent.mkdir(parents=True,exist_ok=True)
+        path.write_text(json.dumps([item.nodeid for item in session.items],indent=2)+'\n')
 
 
 @pytest.hookimpl(hookwrapper=True)

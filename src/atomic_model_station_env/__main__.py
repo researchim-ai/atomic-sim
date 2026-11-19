@@ -39,4 +39,11 @@ def serve(input_stream,output_stream,env=None):
         output_stream.write(json.dumps(response,sort_keys=True,allow_nan=False)+'\n');output_stream.flush()
 
 
-if __name__=='__main__':serve(sys.stdin,sys.stdout)
+if __name__=='__main__':
+    import argparse
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--equilibrium-start',action='store_true')
+    parser.add_argument('--film-model',choices=['dittus_boelter','gnielinski'],default='dittus_boelter')
+    parser.add_argument('--inventory-deadband-m',type=float,default=0.)
+    args=parser.parse_args()
+    serve(sys.stdin,sys.stdout,StationEnv(EnvConfig(equilibrium_start=args.equilibrium_start,inventory_deadband_m=args.inventory_deadband_m,film_model=args.film_model)))

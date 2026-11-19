@@ -24,7 +24,8 @@ from .stages import StageConfig
 
 
 class PWRFaultSession(PWRBypassSession):
-    def __init__(self, *args, faults=(), fault_tick_s=1., history_budget_steps=256, **kwargs):
+    def __init__(self, *args, faults=(), fault_tick_s=1., history_budget_steps=256, equilibrium=None, **kwargs):
+        self.station_equilibrium = None
         self.history_budget_steps = history_budget(history_budget_steps)
         self.equipment_faults = canonical(faults, domain='equipment')
         if not finite(fault_tick_s) or not .01 <= fault_tick_s <= 60:
@@ -34,6 +35,10 @@ class PWRFaultSession(PWRBypassSession):
         self.stuck_positions = {}
         self.fault_events = []
         super().__init__(*args, **kwargs)
+        if equilibrium is not None:
+            from atomic_model_station_equilibrium import solve
+            initialized,_=solve(self,equilibrium)
+            self.__dict__.update(initialized.__dict__)
 
     def _maximum_history_steps(self):
         return self.history_budget_steps
@@ -119,6 +124,8 @@ class PWRFaultSession(PWRBypassSession):
                 active=[f.name for f in self.active_faults],
                 effective_controls=self._effective_controls(),
                 stuck_positions=deepcopy(self.stuck_positions), events=deepcopy(self.fault_events))
+        if self.station_equilibrium is not None:
+            result['equilibrium_initialization']=deepcopy(self.station_equilibrium)
         return result
 
     def checkpoint(self):
@@ -129,6 +136,8 @@ class PWRFaultSession(PWRBypassSession):
         payload['fault_spec_sha256'] = sha(fault_spec.__file__)
         payload['fault_state'] = dict(active=[f.name for f in self.active_faults],
                                      stuck_positions=deepcopy(self.stuck_positions), events=deepcopy(self.fault_events))
+        if self.station_equilibrium is not None:
+            payload['equilibrium_recipe']=dict(config=deepcopy(self.station_equilibrium['config']),source=deepcopy(self.station_equilibrium['source']))
         return seal(payload)
 
     @classmethod
@@ -136,13 +145,20 @@ class PWRFaultSession(PWRBypassSession):
         p = unseal(deepcopy(saved))
         if p['fault_spec_sha256'] != sha(fault_spec.__file__) or p['bypass_source'] != bypass_signature() or type(p['history']) is not list or len(p['history']) > history_budget(p['history_budget_steps']):
             raise ValueError('Fault plant source/history')
+        equilibrium=None
+        if 'equilibrium_recipe' in p:
+            from atomic_model_station_equilibrium import EquilibriumConfig,signature
+            recipe=p['equilibrium_recipe']
+            if type(recipe) is not dict or set(recipe)!={'config','source'} or recipe['source']!=signature():
+                raise ValueError('Equilibrium recipe source/fields')
+            equilibrium=EquilibriumConfig(**recipe['config'])
         owner = cls(TrainConfig(**p['config']), cooling=CoolingConfig(**p['cooling_config']),
                     feed=FeedConfig(**p['feed_config']), backup=BackupConfig(**p['backup_config']),
                     core=CoreConfig(**p['core_config']), primary=PrimaryConfig(**p['primary_config']),
                     film=FilmConfig(**p['film_config']), steam=SteamConfig(**p['steam_config']),
                     stages=StageConfig(**p['stage_config']), bypass=BypassConfig(**p['bypass_config']),
                     max_step_s=p['max_step_s'], rtol=p['rtol'],
-                    faults=[Fault(**f) for f in p['equipment_faults']], fault_tick_s=p['fault_tick_s'], history_budget_steps=p['history_budget_steps'])
+                    faults=[Fault(**f) for f in p['equipment_faults']], fault_tick_s=p['fault_tick_s'], history_budget_steps=p['history_budget_steps'],equilibrium=equilibrium)
         for row in p['history']:
             owner.advance(**row)
         if owner.checkpoint() != saved:

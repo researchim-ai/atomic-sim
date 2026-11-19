@@ -26,7 +26,8 @@ def run_episode(episode, resume=None):
     episode=Episode.from_payload(episode.payload())
     owner=FaultSession(episode.faults,tick_s=episode.tick_s,seed=episode.seed,
         react_on_alarm=episode.react_on_alarm,max_step_s=episode.max_step_s,rtol=episode.rtol,
-        tracking_tau_s=episode.tracking_tau_s,history_budget_steps=max(256,episode.ticks))
+        tracking_tau_s=episode.tracking_tau_s,history_budget_steps=max(256,episode.ticks),
+        equilibrium_start=episode.equilibrium_start,inventory_deadband_m=episode.inventory_deadband_m,film_model=episode.film_model)
     source=signature();commands={c['tick']:{k:deepcopy(v) for k,v in c.items() if k!='tick'} for c in episode.commands}
     chain=digest(dict(episode=episode.payload(),source=source))
     samples=[];anchors={};completed=0;rejection=None;rollback=None

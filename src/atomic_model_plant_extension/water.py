@@ -19,9 +19,20 @@ RHO_RTOL, U_ATOL = 2e-12, 2e-6
 SOURCE = "https://iapws.org/relguide/IF97-Rev.html"
 
 
-def _raw(p, t, region):
+def _raw_uncached(p, t, region):
     with np.errstate(invalid="ignore", divide="ignore", over="ignore"):
         return (iapws._region1_raw if region == 1 else iapws._region2_raw)(t, p * 1e-6)
+
+
+@lru_cache(maxsize=2048, typed=True)
+def _raw_values(p, t, region):
+    # Only scalar values are retained. Never share a mutable property dictionary.
+    return tuple(_raw_uncached(p, t, region).items())
+
+
+def _raw(p, t, region):
+    """Bounded exact-key memoization; no quantization of Newton/Jacobian probes."""
+    return dict(_raw_values(p, t, region))
 
 
 def _state(p, t, region):

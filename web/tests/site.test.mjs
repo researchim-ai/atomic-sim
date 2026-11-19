@@ -77,10 +77,10 @@ test('teaching balances preserve units, phase endpoints and mass/volume distinct
   assert.throws(()=>phaseFractions(1.1),RangeError);
   assert.throws(()=>heatingRate(1,0,0),RangeError);
 });
-test('navigation, translation links, anchors and assets resolve across all 18 HTML pages', async () => {
+test('navigation, translation links, anchors and assets resolve across all 20 HTML pages', async () => {
   const files=[];
   async function scan(dir){for(const item of await readdir(dir,{withFileTypes:true})){const p=resolve(dir,item.name);if(item.isDirectory())await scan(p);else if(p.endsWith('.html'))files.push(p);}}
-  await scan(output);assert.equal(files.length,18);
+  await scan(output);assert.equal(files.length,20);
   for(const file of files){
     const html=await readFile(file,'utf8');
     const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);

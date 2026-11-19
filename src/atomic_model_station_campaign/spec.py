@@ -38,8 +38,13 @@ class Episode:
     max_step_s: float = 1.
     rtol: float = 1e-7
     tracking_tau_s: float = 10.
+    equilibrium_start: bool = False
+    inventory_deadband_m: float = 0.
+    film_model: str = "dittus_boelter"
 
     def __post_init__(self):
+        from atomic_model_station.film_correlations import validate_model
+        validate_model(self.film_model)
         if type(self.name) is not str or not self.name.isidentifier() or len(self.name)>64:
             raise ValueError('Episode identifier')
         if type(self.ticks) is not int or not 1<=self.ticks<=8192:
@@ -48,8 +53,10 @@ class Episode:
             raise ValueError('Episode physical horizon')
         if type(self.seed) is not int or not 0<=self.seed<2**63:
             raise ValueError('Episode seed')
-        if any(type(v) is not bool for v in (self.automatic,self.expected_rejection,self.react_on_alarm)):
+        if any(type(v) is not bool for v in (self.automatic,self.expected_rejection,self.react_on_alarm,self.equilibrium_start)):
             raise ValueError('Episode boolean options')
+        if not finite(self.inventory_deadband_m) or not 0<=self.inventory_deadband_m<=.001:
+            raise ValueError('Episode inventory neutral band')
         if not finite(self.max_step_s) or not .01<=self.max_step_s<=1:
             raise ValueError('Episode solver step')
         if not finite(self.rtol) or not 1e-10<=self.rtol<=1e-5:

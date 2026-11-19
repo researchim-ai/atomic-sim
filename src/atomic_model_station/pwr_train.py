@@ -19,6 +19,16 @@ from .contracts import FluidState,fluid_connection
 from .actuators import RodDrive,boron_capability
 
 
+MAX_RHS_EVALUATIONS=50_000
+
+
+class RHSWorkLimit(SolverError):
+    def __init__(self,requested,limit):
+        super().__init__("Physical RHS evaluation budget exceeded")
+        self.requested=requested;self.limit=limit
+    def details(self):return dict(criterion="rhs_work_budget",requested_calls=self.requested,limit=self.limit)
+
+
 def physical_signature():
     return dict(station=signature(),controlled_plant=controlled_identity(),
                 turbine_sha256=hashlib.sha256(Path(turbine.__file__).read_bytes()).hexdigest())
@@ -73,7 +83,7 @@ class PWRTrainSession:
             raise ValueError('Physical integration options')
         self.config=config if config is not None else TrainConfig()
         if type(self.config) is not TrainConfig:raise ValueError('TrainConfig required')
-        self.max_step_s=float(max_step_s);self.rtol=float(rtol);self.time=0.;self.history=Journal();self.last_reduction=[]
+        self.max_step_s=float(max_step_s);self.rtol=float(rtol);self.time=0.;self.history=Journal();self.last_reduction=[];self.last_solver_statistics=None
         self.controls=dict(load_fraction=1.,generator_connected=True,valve_request=1.,governor_enabled=True,
             rod_target=0.,scram=False,turbine_trip=False)
         self.scram_latched=False;self.turbine_tripped=False;self.events=[];self.rod_drive=RodDrive();self.minimum_dump_sample_kg_s=0.
@@ -156,6 +166,9 @@ class PWRTrainSession:
         clad_rate=(p.fuel_to_clad_w-p.clad_to_coolant_w)/c.clad_capacity_j_k
         self.instantaneous_energy_defect_w=float(sum(p.account_rates_w(rate).values())+(work-generator-bearing)+c.clad_capacity_j_k*clad_rate-boundary)
         return np.r_[rate,work-generator-bearing,clad_rate,boundary,gross,own,abs(terms['nuclear_w'])+abs(terms['condenser_w'])+abs(net)+abs(terms['shaft_loss_w'])]
+    def _validate_known_modes(self,t,y,*,rhs_ready=False):
+        pass
+
     def _admit(self,y):
         p=self.plant;c=self.config;n=self.base_size
         p.train_energy_j=float(y[n]);p.clad_temperature_k=float(y[n+1]);p.refresh_algebraic(y[:n]);p._reject_if_out_of_domain()
@@ -230,8 +243,13 @@ class PWRTrainSession:
             y=origin_state.copy();y[retained]=small
             for i,fn in known.items():y[i]=fn(t)
             return trial._reconstruct_state(y)
+        rhs_evaluations=0
         def fun(t,small):
-            rate=trial._rhs(t,full(t,small))
+            nonlocal rhs_evaluations
+            rhs_evaluations+=1
+            if rhs_evaluations>MAX_RHS_EVALUATIONS:raise RHSWorkLimit(rhs_evaluations,MAX_RHS_EVALUATIONS)
+            state=full(t,small);rate=trial._rhs(t,state)
+            trial._validate_known_modes(t,state,rhs_ready=True)
             if rate[secondary_b]!=0. or any(plant.network.junctions[name].flow_target_kg_s!=0. for name in inactive.values()):
                 raise ValueError('Eliminated mode activated; this hot-domain adapter requires a new hybrid branch')
             return rate[retained]
@@ -247,8 +265,10 @@ class PWRTrainSession:
                 for _ in range(10):
                     up=small.copy();down=small.copy();up[column]+=delta;down[column]-=delta
                     try:above=probe(up)
+                    except RHSWorkLimit:raise
                     except (ValueError,DomainError,SolverError):above=None
                     try:below=probe(down)
+                    except RHSWorkLimit:raise
                     except (ValueError,DomainError,SolverError):below=None
                     if above is not None or below is not None:break
                     delta*=.5
@@ -262,11 +282,15 @@ class PWRTrainSession:
             event.terminal=True;event.direction=getattr(original,'direction',-1);events.append(event)
         solution=solve_ivp(fun,(trial.time,end),trial.state[retained],method='Radau',rtol=trial.rtol,atol=atol[retained],
             max_step=trial.max_step_s,jac=jac,events=events,dense_output=True)
-        if not solution.success:raise ValueError('Physical solver failed')
+        trial.last_solver_statistics=dict(scope='last_integrated_segment',method='Radau',rhs_evaluations=rhs_evaluations,rhs_limit=MAX_RHS_EVALUATIONS,
+            nfev=int(solution.nfev),njev=int(solution.njev),nlu=int(solution.nlu),accepted_nodes=len(solution.t))
+        if not solution.success:raise SolverError('Physical solver failed')
         if solution.t[-1]!=end or trial._stop_at_endpoint(solution):return self._resume_stop(trial,solution,full,end,duration_s,patch)
         # Accepted solver nodes and a separate dense-output sampling grid.
         for t in sorted(set(solution.t.tolist()+np.linspace(trial.time,end,max(2,math.ceil(duration_s/.05)+1)).tolist())):
-            trial._admit(full(t,solution.sol(t)))
+            point=full(t,solution.sol(t))
+            trial._validate_known_modes(t,point)
+            trial._admit(point)
         trial.state=full(end,solution.y[:,-1]);trial.time=end;trial.last_reduction=reduced_modes;trial._rhs(end,trial.state)
         trial._admit(trial.state);observation=trial.snapshot()
         if observation['energy_relative']>1e-6 or observation['mass_relative']>1e-10 or observation['boron_relative']>1e-10:raise ValueError('Physical global inventory ledger failure')
@@ -315,7 +339,7 @@ class PWRTrainSession:
             boron_relative=abs(inventory['boron_kg']-self.origin_boron)/max(abs(self.origin_boron),1e-9),
             instantaneous_energy_defect_w=self.instantaneous_energy_defect_w,
             expansion=deepcopy(p.live_expansion),charging=deepcopy(self.charging),
-            exact_mode_reduction=deepcopy(self.last_reduction),jacobian='Fixed relative probes with domain-admitted one-sided fallback',
+            solver_statistics=deepcopy(self.last_solver_statistics),exact_mode_reduction=deepcopy(self.last_reduction),jacobian='Fixed relative probes with domain-admitted one-sided fallback',
             steam_port_audit=dict(inlet=inlet,outlet=outlet,enthalpy_drop_work_w=inlet['enthalpy_a_to_b_w']-outlet['enthalpy_a_to_b_w']),
             reactor_connected=True,steam_cycle_connected=True,complete_package_b=False,
             validated=False,plant_referenced=False)

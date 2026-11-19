@@ -307,3 +307,27 @@ def test_initialization_does_not_impose_temporary_reflecting_end_conditions(velo
     observed = model.advance(1e-6)
     assert observed["global_ledger"]["energy_residual_j"] == pytest.approx(0, abs=1e-8)
     assert max(abs(x) for x in observed["local_ledgers"]["momentum_residual_kg_m_s"]) < 1e-8
+
+
+@pytest.mark.parametrize('topology',['branch','loop','parallel'])
+def test_unequal_volumes_preserve_quiescent_state_without_roundoff_transport(topology):
+    spec=baseline(topology)
+    for i,node in enumerate(spec['nodes']):node['volume_m3']=.013+.017*i
+    m=GraphHEMNetwork(spec);before=m.snapshot();after=m.advance(.001)
+    for a,b in zip(before['cells'],after['cells']):
+        assert a['mass_kg']==b['mass_kg']
+        assert a['total_energy_j']==b['total_energy_j']
+        assert b['momentum_kg_m_s']==0
+    assert after['global_ledger']['energy_residual_j']==0
+
+
+def test_density_perturbation_is_transported_without_tolerance_snapping():
+    m=GraphHEMNetwork(baseline());y=m._y.copy()
+    y[0]=1e-16 # Kept in integrated perturbation coordinates even below stock ULP.
+    rate,_=m.evaluate(y,m._controls)
+    expected=0.
+    for (a,b),area in zip(m.faces,m.face_areas):
+        if a==0:expected-=.5*m.wave*area*y[0]/m.volumes[0]
+        if b==0:expected-=.5*m.wave*area*y[0]/m.volumes[0]
+    assert expected<0 and rate[0]==pytest.approx(expected,rel=1e-12,abs=0.)
+    assert sum(rate[:m.n])==pytest.approx(0.,abs=1e-25)

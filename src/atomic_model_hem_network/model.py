@@ -336,7 +336,18 @@ class GraphHEMNetwork(FiniteHEMSystem):
         m, P, C, v, states, tw, speeds = point
         if np.any(P[: self.node_count] != 0):
             raise ValueError("Stationary node acquired momentum")
-        W = np.array([m, P, C]) / self.volumes
+        # Form the dissipative jump in the same perturbation coordinates as
+        # the integrator. Dividing independently rounded initial stocks by
+        # unequal volumes otherwise creates artificial transport at rest.
+        # No tolerance clipping or modification of conserved stocks occurs.
+        rho0 = np.array([s.density_kg_m3 for s in self.states0])
+        velocity0 = self.P0 / self.m0
+        reference = np.array([
+            rho0, rho0 * velocity0,
+            rho0 * (np.array([s.internal_energy_j_kg for s in self.states0])
+                    - self.eref + 0.5 * velocity0**2),
+        ])
+        delta = y[:3 * self.n].reshape(3, self.n) / self.volumes
         pressure = np.array([s.pressure_pa for s in states])
         temperature = np.array([s.temperature_k for s in states])
         F = np.array(
@@ -345,7 +356,9 @@ class GraphHEMNetwork(FiniteHEMSystem):
         flux = (
             np.array(
                 [
-                    0.5 * (F[:, a] + F[:, b]) - 0.5 * self.wave * (W[:, b] - W[:, a])
+                    0.5 * (F[:, a] + F[:, b]) - 0.5 * self.wave * (
+                        (reference[:, b] - reference[:, a]) + (delta[:, b] - delta[:, a])
+                    )
                     for a, b in self.faces
                 ]
             ).T

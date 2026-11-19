@@ -11,7 +11,7 @@
     "build": "node scripts/build.mjs",
     "dev": "node scripts/serve.mjs",
     "preview": "node scripts/serve.mjs",
-    "test": "node tests/site.test.mjs"
+    "test": "node tests/all.mjs"
   },
   "license": "Apache-2.0"
 }

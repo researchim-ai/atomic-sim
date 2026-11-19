@@ -1,0 +1,55 @@
+{
+  "title": "Turbulent pipe flow up to Re_tau = 1000",
+  "creator": {
+    "name": "Schlatter, Philipp",
+    "affiliation": "KTH Engineering Mechanics",
+    "orcid": "0000-0001-9627-5903"
+  },
+  "dataset_doi": "10.5281/zenodo.7352880",
+  "paper_doi": "10.1007/s10494-013-9482-8",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "archive_md5": "7ac89735122270da030a135c228b2ed9",
+  "archive_url": "https://zenodo.org/records/7352880/files/PIPE.tar.gz",
+  "profiles": {
+    "180": {
+      "file": "180_Re_1.dat",
+      "sha256": "231b82df2e6ca39de8e021abfee2a5885de65e889224632aa56c0397d1a873cf",
+      "md5": "25396c10a5d5739ca6a39b9bd9f8fbae"
+    },
+    "360": {
+      "file": "360_Re_1.dat",
+      "sha256": "da5a961e7ea1d52fbad772f8502900db5d3b7bd46436c8c7ab602dc4738772ab",
+      "md5": "d29d97fa538b0b0855b56f18577349bc"
+    },
+    "550": {
+      "file": "550_Re_1.dat",
+      "sha256": "c5862f839a5d07270a632e198f15dda9ddebdc892af11c6eeb6f1b9ed7abe58b",
+      "md5": "7d650df062f450acd1aa455eba172210"
+    },
+    "1000": {
+      "file": "1000_Re_1.dat",
+      "sha256": "ba9056ab7c2c869b4d17283aadda6547d139ef61d3928fb13524303ddd5c0bc2",
+      "md5": "ede339cc6275d2a716b65974c0a36c87"
+    }
+  },
+  "changes": "None: original mean-profile files extracted byte-for-byte from PIPE.tar.gz.",
+  "kind": "independent numerical DNS; not experimental measurements",
+  "coordinates": "column 1 is wall distance/R = 1-r/R; column 2 wall distance in viscous units",
+  "columns": [
+    "y/R",
+    "y+",
+    "Uz+",
+    "Uz/Ub",
+    "ur_rms+",
+    "ut_rms+",
+    "uz_rms+",
+    "uzur+",
+    "dUzdr+"
+  ],
+  "cess_source": "10.1017/jfm.2021.371 Appendix B, Eq B2",
+  "cess_constants": {
+    "kappa": 0.42,
+    "Aplus": 27
+  }
+}

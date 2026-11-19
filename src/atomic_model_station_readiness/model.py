@@ -118,19 +118,24 @@ def assess(samples,layout,config=None):
         scope='Whole physical-vector span, not only measured setpoint error; normalization max(abs(end),1 SI unit)')
 
 
-def prepare_hot_state(*,maximum_warmup_s=7200.,tick_s=5.,config=None,required_followup_s=0.,max_step_s=1.,rtol=1e-7,initial_session=None):
+def prepare_hot_state(*,maximum_warmup_s=7200.,tick_s=5.,config=None,required_followup_s=0.,max_step_s=1.,rtol=1e-7,initial_session=None,inventory_deadband_m=None):
     c=config if config is not None else ReadinessConfig(maximum_gap_s=tick_s)
     if type(c) is not ReadinessConfig:raise ValueError('ReadinessConfig required')
     if not finite(maximum_warmup_s) or not 0<maximum_warmup_s<=7200 or not finite(tick_s) or not .01<=tick_s<=10:
         raise ValueError('Hot preparation horizon/clock')
     if not finite(required_followup_s) or required_followup_s<0 or required_followup_s>7200:raise ValueError('Hot follow-up horizon')
+    if inventory_deadband_m is not None and (not finite(inventory_deadband_m) or not 0<=inventory_deadband_m<=.001):
+        raise ValueError('Hot inventory neutral band: 0..1 mm')
     if initial_session is None:
-        owner=FaultSession(tick_s=tick_s,history_budget_steps=8192,max_step_s=max_step_s,rtol=rtol)
+        owner=FaultSession(tick_s=tick_s,history_budget_steps=8192,max_step_s=max_step_s,rtol=rtol,
+            inventory_deadband_m=0. if inventory_deadband_m is None else inventory_deadband_m)
     else:
         if type(initial_session) is not FaultSession or initial_session.faults or initial_session.control.trip_latched:
             raise ValueError('Healthy FaultSession required for hot continuation')
         if initial_session.control.instruments.tick_s!=tick_s:
             raise ValueError('Hot continuation must preserve the control clock')
+        if inventory_deadband_m is not None and inventory_deadband_m!=initial_session.initial['inventory_deadband_m']:
+            raise ValueError('Hot continuation must preserve the inventory policy')
         owner=deepcopy(initial_session)
     duration=maximum_warmup_s-owner.control.plant.time
     ticks=round(duration/tick_s)

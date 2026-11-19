@@ -15,16 +15,21 @@ from .monitor import Monitor, MonitorConfig
 
 
 def signature():
-    return dict(control=control_signature(), files={p.name: hashlib.sha256(p.read_bytes()).hexdigest()
+    from atomic_model_station_equilibrium import signature as equilibrium_signature
+    return dict(control=control_signature(),equilibrium=equilibrium_signature(), files={p.name: hashlib.sha256(p.read_bytes()).hexdigest()
                 for p in sorted(Path(__file__).parent.glob('*.py'))})
 
 
 class FaultSession:
     def __init__(self, faults=(), *, tick_s=1., seed=0, react_on_alarm=False,
-                 monitor=None, max_step_s=1., rtol=1e-7, history_budget_steps=256, tracking_tau_s=10.):
+                 monitor=None, max_step_s=1., rtol=1e-7, history_budget_steps=256, tracking_tau_s=10.,inventory_deadband_m=0.,equilibrium_start=False,film_model="dittus_boelter"):
+        from atomic_model_station.film import FilmConfig
+        from atomic_model_station.film_correlations import validate_model
+        validate_model(film_model)
         self.faults = canonical(faults)
         if type(react_on_alarm) is not bool:
             raise ValueError('Boolean alarm reaction')
+        if type(equilibrium_start) is not bool:raise ValueError('Boolean equilibrium initialization')
         self.react_on_alarm = react_on_alarm
         self.monitor = Monitor(monitor)
         self.reacted = False
@@ -32,10 +37,16 @@ class FaultSession:
         history_budget(history_budget_steps)
         self.initial = dict(faults=[asdict(f) for f in self.faults], tick_s=tick_s, seed=seed,
                             react_on_alarm=react_on_alarm, monitor=asdict(self.monitor.config),
-                            max_step_s=max_step_s, rtol=rtol, history_budget_steps=history_budget_steps, tracking_tau_s=tracking_tau_s)
-        reference = feed_control_session(tick_s=tick_s, seed=seed, integration_step_s=max_step_s, rtol=rtol, tracking_tau_s=tracking_tau_s)
+                            max_step_s=max_step_s, rtol=rtol, history_budget_steps=history_budget_steps, tracking_tau_s=tracking_tau_s,inventory_deadband_m=inventory_deadband_m,equilibrium_start=equilibrium_start,film_model=film_model)
+        reference = feed_control_session(tick_s=tick_s, seed=seed, integration_step_s=max_step_s, rtol=rtol, tracking_tau_s=tracking_tau_s,inventory_deadband_m=inventory_deadband_m)
+        from atomic_model_station_equilibrium import EquilibriumConfig
         plant = PWRFaultSession(faults=[f for f in self.faults if f.domain == 'equipment'],
-                                fault_tick_s=tick_s, max_step_s=max_step_s, rtol=rtol, history_budget_steps=history_budget_steps)
+                                fault_tick_s=tick_s, max_step_s=max_step_s, rtol=rtol, history_budget_steps=history_budget_steps,
+                                equilibrium=EquilibriumConfig() if equilibrium_start else None,film=FilmConfig(correlation=film_model))
+        loop_configs=[v.config for v in reference.loops.values()]
+        if equilibrium_start:
+            from atomic_model_station_equilibrium.control import references
+            loop_configs=references(loop_configs,plant)
         instruments = StationSignals([*reference.instruments.sensors,
             Sensor('pressure_reference', 'steam_pressure_pa', lag_s=.2)], tick_s=tick_s, seed=seed,
             faults=[f for f in self.faults if f.domain == 'sensor'])
@@ -47,7 +58,7 @@ class FaultSession:
         if quantities[c.sensor]!=quantities[c.reference] or CATALOG[quantities[c.sensor]][1]!=c.unit:
             raise ValueError('Monitor channels require the same quantity and declared unit')
         self.control = ControlSession(plant, instruments=instruments,
-                                      loops=[v.config for v in reference.loops.values()])
+                                      loops=loop_configs)
         self.detection = self.monitor.advance(self.control.instruments.operator_frame())
 
     def step(self, operator=None, *, modes=None, targets=None, reset=False):

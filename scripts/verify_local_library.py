@@ -94,8 +94,97 @@ LIBRARY_TESTS = [
     "tests/test_station_faults.py",
     "tests/test_station_campaign.py",
     "tests/test_station_env.py",
+    "tests/test_station_evaluation.py",
+    "tests/test_station_tasks.py",
+    "tests/test_station_energy_eval.py",
+    "tests/test_station_heat_accounting.py",
+    "tests/test_station_event_heat.py",
+    "tests/test_station_refined_heat.py",
+    "tests/test_station_piecewise_heat.py",
+    "tests/test_station_jump_heat.py",
+    "tests/test_station_hybrid_heat.py",
+    "tests/test_station_hybrid_event_groups.py",
+    "tests/test_station_condensate_reopening.py",
+    "tests/test_station_feed_reopening.py",
+    "tests/test_station_relief_heat.py",
+    "tests/test_station_hybrid_schedule.py",
+    "tests/test_station_cycle_catalog.py",
+    "tests/test_station_hybrid_actions.py",
+    "tests/test_station_cost_matrix.py",
+    "tests/test_station_water_cache.py",
+    "tests/test_station_nominal_requalification.py",
+    "tests/test_station_examples.py",
+    "tests/test_station_capabilities.py",
+    "tests/test_station_controlled_recovery.py",
+    "tests/test_spatial_response.py",
+    "tests/test_station_evidence.py",
+    "tests/test_station_precision.py",
+    "tests/test_station_view.py",
+    "tests/test_station_delivery.py",
+    "tests/test_station_history.py",
+    "tests/test_local_test_batches.py",
+    "tests/test_hem_network.py",
+    "tests/test_hem_network_reference.py",
+    "tests/test_hem_qualified.py",
+    "tests/test_hem_mixture.py",
     "tests/test_station_readiness.py",
     "tests/test_station_hourly_protocol.py",
+    "tests/test_station_inventory.py",
+    "tests/test_station_inventory_deadband.py",
+    "tests/test_station_hot.py",
+    "tests/test_station_equilibrium.py",
+    "tests/test_station_load.py",
+    "tests/test_station_load_envelope.py",
+    "tests/test_station_zero_demand.py",
+    "tests/test_station_shutdown.py",
+    "tests/test_station_gnielinski.py",
+    "tests/test_station_solver_budget.py",
+    "tests/test_station_process.py",
+    "tests/test_station_low_flow_qualification.py",
+    "tests/test_station_mixed_convection.py",
+    "tests/test_station_mixed_qualification.py",
+    "tests/test_station_pipe.py",
+    "tests/test_station_pipe_qualification.py",
+    "tests/test_station_turbulence.py",
+    "tests/test_station_turbulence_qualification.py",
+    "tests/test_station_heated.py",
+    "tests/test_station_heated_qualification.py",
+    "tests/test_station_quadrature.py",
+    "tests/test_station_quadrature_qualification.py",
+    "tests/test_station_spectral.py",
+    "tests/test_station_spectral_qualification.py",
+    "tests/test_station_initialization.py",
+    "tests/test_station_pressure.py",
+    "tests/test_station_regular.py",
+    "tests/test_station_regular_qualification.py",
+    "tests/test_station_stokes_pressure.py",
+    "tests/test_station_stokes_pressure_qualification.py",
+    "tests/test_station_wall.py",
+    "tests/test_station_wall_qualification.py",
+    "tests/test_station_advection.py",
+    "tests/test_station_advection_qualification.py",
+    "tests/test_station_nonlinear.py",
+    "tests/test_station_nonlinear_qualification.py",
+    "tests/test_station_resolution.py",
+    "tests/test_station_resolution_qualification.py",
+    "tests/test_station_adaptive.py",
+    "tests/test_station_adaptive_qualification.py",
+    "tests/test_station_refined.py",
+    "tests/test_station_refined_qualification.py",
+    "tests/test_station_thermal.py",
+    "tests/test_station_thermal_qualification.py",
+    "tests/test_station_thermal_resolved.py",
+    "tests/test_station_thermal_resolved_qualification.py",
+    "tests/test_station_thermal_path.py",
+    "tests/test_station_thermal_path_qualification.py",
+    "tests/test_station_thermal_cases.py",
+    "tests/test_station_thermal_cases_qualification.py",
+    "tests/test_station_thermal_case_paths_qualification.py",
+    "tests/test_station_thermal_stationary_reference.py",
+    "tests/test_station_thermal_radial_catalog.py",
+    "tests/test_station_thermal_transient_reference.py",
+    "tests/test_station_thermal_radial_paths.py",
+    "tests/test_station_thermal_radial_resume.py",
     "tests/test_hem_closure_audit.py",
     "tests/test_chf_screening.py",
     "tests/test_multiphysics.py",
@@ -118,6 +207,35 @@ def selection(suite):
     if suite == "all":
         return ["tests"]
     raise ValueError("Unknown local test suite")
+
+
+def source_manifest(root=ROOT):
+    """Freeze all shipped code/resources and packaging rules, not generated caches."""
+    root=Path(root)
+    result={}
+    for name in ('src','scripts','data','scenarios','validation','requirements','tests','examples','configs'):
+        for p in sorted((root/name).rglob('*')):
+            if (p.is_file() and '__pycache__' not in p.parts and
+                not any(part.endswith('.egg-info') for part in p.relative_to(root).parts)):
+                result[p.relative_to(root).as_posix()]=hashlib.sha256(p.read_bytes()).hexdigest()
+    for name in ('pyproject.toml','MANIFEST.in','requirements.txt'):
+        p=root/name
+        if p.is_file():result[name]=hashlib.sha256(p.read_bytes()).hexdigest()
+    if not result:raise ValueError('Empty source manifest')
+    return result
+
+
+def evidence_manifest(root=ROOT):
+    root=Path(root)
+    return {p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
+        for p in sorted((root/'docs/benchmarks').glob('*.json')) if p.is_file()}
+
+
+def evidence_unchanged(expected,root=ROOT):
+    # New receipts may be published later; every validation input stays fixed.
+    root=Path(root)
+    return all((root/name).is_file() and hashlib.sha256((root/name).read_bytes()).hexdigest()==value
+        for name,value in expected.items())
 
 
 def check_wheel(path, *, source_root=None, resource_roots=None):
@@ -185,7 +303,7 @@ def check_wheel(path, *, source_root=None, resource_roots=None):
     )
 
 
-def verify(directory, *, suite="library", phase_timeout_s=1800):
+def verify(directory, *, suite="library", phase_timeout_s=1800, station_nominal=None, test_receipts=None):
     from atomic_agent_tools.server import provenance as agent_provenance
     from atomic_model_acceptance.replay import compare, make_request, source_identity, verify_packet
     from atomic_model_multiphysics.provenance import seal, unseal
@@ -193,6 +311,11 @@ def verify(directory, *, suite="library", phase_timeout_s=1800):
     from atomic_model_uncertainty.coverage import identity as uncertainty_identity
 
     chosen = selection(suite)
+    expected_tree = source_manifest()
+    expected_evidence = evidence_manifest()
+    if station_nominal is not None:
+        from scripts.verify_station_install import accept_nominal
+        accept_nominal(read_json(station_nominal))
     verifier_sha256 = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
     if not (ROOT / "pyproject.toml").is_file() or not (ROOT / "tests").is_dir():
         raise ValueError("Run local verification from the source checkout with tests")
@@ -202,6 +325,10 @@ def verify(directory, *, suite="library", phase_timeout_s=1800):
     if any(p.is_symlink() for p in (output, *output.parents)):
         raise ValueError("Verification directory must not be a symlink")
     output.mkdir(parents=True, exist_ok=False)
+    station_input = None
+    if station_nominal is not None:
+        station_input = output / "station-nominal-input.json"
+        shutil.copyfile(station_nominal, station_input)
     environment = dict(
         os.environ, OMP_NUM_THREADS="1", OPENBLAS_NUM_THREADS="1", MKL_NUM_THREADS="1"
     )
@@ -239,24 +366,30 @@ def verify(directory, *, suite="library", phase_timeout_s=1800):
         if code:
             raise ValueError(f"Local verification failed: {name}; see {log}")
 
-    run(
-        "source-tests",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            *chosen,
-            "-q",
-            "-p",
-            "atomic_model_release.pytest_gate",
-            "--atomic-require-executed",
-            "--atomic-receipt",
-            output / "tests.json",
-        ],
-    )
+    if test_receipts is None:
+        run(
+            "source-tests",
+            [sys.executable,"-m","pytest",*chosen,"-q","-p",
+                "atomic_model_release.pytest_gate","--atomic-require-executed",
+                "--atomic-receipt",output / "tests.json"],
+        )
+    else:
+        from scripts.verify_local_tests import accept_batches
+        test_receipts=Path(test_receipts).absolute()
+        run("source-tests-batches",[sys.executable,"-m","scripts.verify_local_tests",
+            "--output",test_receipts,"--suite",suite,"--accept"])
+        tests=accept_batches(test_receipts,suite=suite)
+        if tests!=unseal(read_json(test_receipts/'summary.json')):
+            raise ValueError('Source test batch summary changed')
+        atomic_json(output/'tests.json',tests)
     tests = read_json(output / "tests.json")
     if tests["exit_code"] or tests["counts"]["passed"] == 0:
         raise ValueError("Local tests did not execute successfully")
+    station_source = None
+    if station_input is not None:
+        run("source-station", [sys.executable, "-m", "scripts.verify_station_install",
+            "--output", output / "station-source.json", "--nominal-receipt", station_input])
+        station_source = unseal(read_json(output / "station-source.json"))["scientific"]
     run(
         "build-source",
         [sys.executable, "-m", "build", "--sdist", "--no-isolation", "--outdir", output / "build"],
@@ -365,6 +498,13 @@ def verify(directory, *, suite="library", phase_timeout_s=1800):
             [python, "-m", "scripts.verify_pwr_agent_install", "agent.json"],
             cwd=work,
         )
+        if station_input is not None:
+            run("installed-station", [python, "-I", "-m", "scripts.verify_station_install",
+                "--output", output / "station-installed.json", "--nominal-receipt", station_input,
+                "--require-installed"], cwd=work)
+            station_installed = unseal(read_json(output / "station-installed.json"))["scientific"]
+            if station_source != station_installed or not station_installed["passed"]:
+                raise ValueError("Installed native station results differ from source")
         agent = read_json(work / "agent.json")
         if agent["provenance"] != expected_agent or not all(
             agent[k]
@@ -393,6 +533,8 @@ def verify(directory, *, suite="library", phase_timeout_s=1800):
         or expected_source != source_identity()
         or expected_uncertainty != uncertainty_identity()
         or hashlib.sha256(Path(__file__).read_bytes()).hexdigest() != verifier_sha256
+        or source_manifest() != expected_tree
+        or not evidence_unchanged(expected_evidence)
     ):
         raise ValueError("Source files changed during local verification")
     report = dict(
@@ -409,6 +551,12 @@ def verify(directory, *, suite="library", phase_timeout_s=1800):
         installed_resource_count=installed["resource_count"],
         build_artifacts=[p.name for p in wheels + sdists],
         wheel_inventory=wheel_inventory,
+        source_files_sha256=expected_tree,
+        evidence_inputs_sha256=expected_evidence,
+        station_delivery=dict(accepted=station_source is not None,
+            scientific_exact=station_source is not None,
+            nominal=station_source['nominal'] if station_source is not None else None,
+            new_hour_executed=False),
         verification_scope="local source, distribution and installed-library replay",
         ci_required=False,
         remote_execution_required=False,
@@ -430,10 +578,19 @@ def main(argv=None):
     )
     parser.add_argument("--suite", choices=["library", "portable", "all"], default="library")
     parser.add_argument("--phase-timeout-s", type=int, default=1800)
+    parser.add_argument("--station-nominal", type=Path,
+        help="Explicit prior complete nominal receipt; exact source-bound reuse, no new hour")
+    parser.add_argument("--test-receipts",type=Path,
+        help="Completed source-bound pytest batches from verify_local_tests")
     args = parser.parse_args(argv)
     output = args.output or str(Path("artifacts") / ("local-verification-" + uuid.uuid4().hex[:10]))
     try:
-        verify(output, suite=args.suite, phase_timeout_s=args.phase_timeout_s)
+        options=dict(suite=args.suite,phase_timeout_s=args.phase_timeout_s)
+        if args.station_nominal is not None:
+            options['station_nominal']=args.station_nominal
+        if args.test_receipts is not None:
+            options['test_receipts']=args.test_receipts
+        verify(output, **options)
     except (OSError, ValueError) as error:
         print(str(error), file=sys.stderr)
         return 1

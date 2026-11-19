@@ -20,6 +20,7 @@ class PIConfig:
     feedforward_sensor:str|None=None
     feedforward_reference:float=0.
     feedforward_scale:float=1.
+    inventory_deadband_m:float=0.
 
     def __post_init__(self):
         if type(self.sensor) is not str or not self.sensor.isidentifier():raise ValueError('PI sensor')
@@ -33,6 +34,11 @@ class PIConfig:
         if type(self.direction) is not int or self.direction not in (-1,1):raise ValueError('PI direction')
         if not 0<=self.lower<self.upper<=1 or not self.lower<=self.bias<=self.upper:raise ValueError('PI bounds/bias')
         if not .01<=self.tracking_tau_s<=1e6 or not 0<self.rate_per_s<=100:raise ValueError('PI tracking/rate')
+        if not finite(self.inventory_deadband_m) or not 0<=self.inventory_deadband_m<=.001:
+            raise ValueError('Inventory neutral band: 0..1 mm')
+        if self.inventory_deadband_m and (self.output!='feed_inventory_fraction' or self.bias!=.5
+            or not self.lower<=.5<=self.upper or self.feedforward_sensor is not None):
+            raise ValueError('Neutral band requires unbiased split-range inventory loop')
 
 
 class PI:
@@ -46,6 +52,10 @@ class PI:
         error=c.direction*(target-value)/c.scale
         if abs(error)>1e6 or abs(feedforward)>1e6:raise ValueError('PI measurement scale domain')
         base=feedback-c.bias-c.kp*error-feedforward if entering or not self.valid_last else self.integral
+        if c.inventory_deadband_m>0 and abs(target-value)<=c.inventory_deadband_m:
+            # Neutral is a real actuator request, not a projected tank state.
+            # Discard stored demand in-band; commit still tracks delivered feedback.
+            error=0.;base=.5-c.bias;feedforward=0.
         raw=c.bias+c.kp*error+base+feedforward
         limited=min(c.upper,max(c.lower,raw))
         command=min(feedback+c.rate_per_s*dt,max(feedback-c.rate_per_s*dt,limited))

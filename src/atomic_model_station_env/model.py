@@ -3,6 +3,7 @@ from copy import deepcopy
 from dataclasses import asdict,dataclass
 import hashlib
 from pathlib import Path
+from core.status import DomainError,SolverError
 
 from atomic_model_multiphysics.provenance import seal,unseal
 from atomic_model_station.journal import Journal
@@ -40,11 +41,15 @@ class EnvConfig:
     faults:tuple=()
     max_step_s:float=1.
     rtol:float=1e-7
+    equilibrium_start:bool=False
+    inventory_deadband_m:float=0.
+    film_model:str="dittus_boelter"
 
     def __post_init__(self):
         e=Episode('environment',self.max_steps,tick_s=self.tick_s,seed=self.seed,automatic=self.automatic,
             react_on_alarm=self.react_on_alarm,faults=self.faults,max_step_s=self.max_step_s,rtol=self.rtol,
-            record_every=max(1,(self.max_steps+1023)//1024))
+            record_every=max(1,(self.max_steps+1023)//1024),equilibrium_start=self.equilibrium_start,
+            inventory_deadband_m=self.inventory_deadband_m,film_model=self.film_model)
         object.__setattr__(self,'faults',e.faults)
         if self.tick_s>10.:raise ValueError('Environment uses a declared 10s PI tracking constant')
         if type(self.terminal_on_trip) is not bool:raise ValueError('Boolean trip termination')
@@ -65,7 +70,8 @@ class StationEnv:
         if type(seed) is not int or not 0<=seed<2**63:raise ActionError('invalid_seed','Integer seed in 0..2**63-1 required')
         c=self.config
         session=FaultSession(c.faults,tick_s=c.tick_s,seed=seed,react_on_alarm=c.react_on_alarm,
-            max_step_s=c.max_step_s,rtol=c.rtol,history_budget_steps=max(256,c.max_steps))
+            max_step_s=c.max_step_s,rtol=c.rtol,history_budget_steps=max(256,c.max_steps),
+            equilibrium_start=c.equilibrium_start,inventory_deadband_m=c.inventory_deadband_m,film_model=c.film_model)
         observation=session.control.instruments.operator_frame()
         info=dict(steps=0,termination_reason=None,truncation_reason=None,trip_latched=False,
                   detection=deepcopy(session.detection),receipt=None,reaction=None,reward_terms=None)
@@ -124,7 +130,8 @@ class StationEnv:
         if len(self._history)==0 and self.config.automatic:
             kwargs['modes']=dict({k:'auto' for k in trial._session.control.loops},**(kwargs['modes'] or {}))
         try:result=trial._session.step(**kwargs)
-        except ValueError as error:raise ActionError('model_domain_rejected',str(error)) from None
+        except SolverError as error:raise ActionError('model_solver_rejected',str(error)) from None
+        except (ValueError,DomainError) as error:raise ActionError('model_domain_rejected',str(error)) from None
         trial._history.append(normalized);trial._plan=None
         trip=result['receipt']['trip_latched']
         terminated=bool(trip and self.config.terminal_on_trip)

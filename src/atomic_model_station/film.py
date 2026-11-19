@@ -10,7 +10,9 @@ import math
 from atomic_model_multiphysics.provenance import seal, unseal, sha
 from atomic_model_plant_extension import water
 from physics.hydraulics import closures
-from physics.materials.iapws import saturation_temperature_k
+from physics.materials.iapws import saturation_temperature_k, _region1_raw
+from core.status import ModelLimitError
+from .film_correlations import validate_model,nusselt_gnielinski,PASSPORT_GNIELINSKI,MAX_RICHARDSON_D
 from .primary import PWRPrimarySession, PrimaryPWR, PrimaryConfig
 from .core import CoreConfig, core_signature
 from .power import BackupConfig
@@ -28,8 +30,10 @@ class FilmConfig:
     heated_length_m: float = 4.
     minimum_subcooling_k: float = .1
     minimum_phase_fraction: float = 1e-8
+    correlation: str = "dittus_boelter"
 
     def __post_init__(self):
+        validate_model(self.correlation)
         for key, low, high in [('heated_length_m', 1., 8.),
                               ('minimum_subcooling_k', 0., 10.),
                               ('minimum_phase_fraction', 1e-9, 1e-3)]:
@@ -38,8 +42,9 @@ class FilmConfig:
                 raise ValueError('Film parameter domain: ' + key)
 
 
-def film_transfer(state, mass_flow_kg_s, geometry, wall_temperature_k):
-    """Heating-only Dittus-Boelter; no laminar/transition extrapolation."""
+def film_transfer(state, mass_flow_kg_s, geometry, wall_temperature_k, *, correlation="dittus_boelter"):
+    """Declared heating-only smooth tube; each closure retains its own bounds."""
+    validate_model(correlation)
     values = [mass_flow_kg_s, wall_temperature_k, state.viscosity_pa_s,
               state.conductivity_w_m_k, state.cp_j_kg_k,
               *[geometry[k] for k in ('diameter_m', 'length_m', 'flow_area_m2', 'heated_area_m2')]]
@@ -54,16 +59,31 @@ def film_transfer(state, mass_flow_kg_s, geometry, wall_temperature_k):
         raise ValueError('Equivalent fully developed round-tube geometry')
     re = mass_flow_kg_s * d / (geometry['flow_area_m2'] * state.viscosity_pa_s)
     pr = closures.prandtl(state.viscosity_pa_s, state.cp_j_kg_k, state.conductivity_w_m_k)
-    nu = closures.nusselt_dittus_boelter(re, pr).value
+    extra={};passport=closures.PASSPORT_DITTUS
+    if correlation=='dittus_boelter':
+        nu=closures.nusselt_dittus_boelter(re,pr).value
+    else:
+        nu=nusselt_gnielinski(re,pr).value;passport=PASSPORT_GNIELINSKI
+        raw=_region1_raw(float(state.T_k),float(state.p_pa)*1e-6)
+        beta=float(raw['dv_dt']/raw['v'])
+        velocity=mass_flow_kg_s/(geometry['flow_area_m2']*state.rho_kg_m3)
+        ri=9.80665*beta*(wall_temperature_k-state.T_k)*d/velocity**2
+        if not math.isfinite(ri) or beta<=0:raise ValueError('Positive finite film expansion/buoyancy state required')
+        if ri>MAX_RICHARDSON_D:
+            raise ModelLimitError('Gnielinski buoyancy screen outside declared domain',
+                                 criterion='film_richardson_d',node='core',observed=ri,limit=MAX_RICHARDSON_D)
+        extra=dict(thermal_expansion_per_k=beta,richardson_d=ri,richardson_d_maximum=MAX_RICHARDSON_D,
+                   buoyancy_screen='Local diameter-based engineering screen, not mixed-convection validation',
+                   property_correction='Bulk-property variant; no wall correction',friction_scope='Darcy factor in Nu only; network hydraulic losses are unchanged')
     h = nu * state.conductivity_w_m_k / d
     ua = h * geometry['heated_area_m2']
     return dict(reynolds=float(re), prandtl=float(pr), nusselt=float(nu), coefficient_w_m2_k=float(h),
                 conductance_w_k=float(ua), heat_w=float(ua * (wall_temperature_k - state.T_k)),
                 mass_flux_kg_m2_s=mass_flow_kg_s / geometry['flow_area_m2'],
-                model_id=closures.PASSPORT_DITTUS.model_id,
-                source=list(closures.PASSPORT_DITTUS.data_sources),
+                model_id=passport.model_id,
+                source=list(passport.data_sources),
                 uncertainty='Uncalibrated equivalent tube; no assigned confidence interval',
-                chf_w_m2=None, dnbr=None, boiling_supported=False, validated=False)
+                chf_w_m2=None, dnbr=None, boiling_supported=False, validated=False, **extra)
 
 
 def phase_inventory(volume):
@@ -104,7 +124,7 @@ class FilmPWR(PrimaryPWR):
         if not hasattr(self, 'film_geometry'):
             return
         self.film_terms = film_transfer(self.network.volumes['core'].thermo,
-            self.network.junctions['core_out'].mass_flow_kg_s, self.film_geometry, self.clad_temperature_k)
+            self.network.junctions['core_out'].mass_flow_kg_s, self.film_geometry, self.clad_temperature_k,correlation=self.film_correlation)
         self.clad_to_coolant_w = self.film_terms['heat_w']
         self.network.volumes['core'].heat_w = self.clad_to_coolant_w
 
@@ -136,6 +156,7 @@ class PWRFilmSession(PWRPrimarySession):
             equivalent_tube_count=4*area/(math.pi*diameter**2),
             sizing='One nominal UA match at unchanged M/U, clad temperature and actual core volume; not measured geometry')
         p.film_geometry = deepcopy(self.film_geometry)
+        p.film_correlation = self.film_config.correlation
         self.film_ready = True
         self._rhs(self.time, self.state)
         self._admit(self.state)
@@ -166,10 +187,13 @@ class PWRFilmSession(PWRPrimarySession):
         result = super().parameter_registry()
         if self.film_ready:
             for key, value in asdict(self.film_config).items():
+                if key=='correlation':continue
                 unit = 'm' if key.endswith('_m') else 'K' if key.endswith('_k') else '1'
                 result['parameters']['film.'+key] = dict(value=float(value), unit=unit,
                     source='Declared equivalent tube and phase guard; not a rod-bundle calibration',
                     family='illustrative', version='1', uncertainty=None)
+            result['parameters']['film.gnielinski_selected']=dict(value=int(self.film_config.correlation=='gnielinski'),unit='1',
+                source='0=Dittus-Boelter,1=bulk smooth-tube Gnielinski; explicit model selection',family='illustrative',version='1',uncertainty=None)
             for key in ('diameter_m', 'flow_area_m2', 'heated_area_m2'):
                 unit = 'm' if key=='diameter_m' else 'm^2'
                 result['parameters']['film_design.'+key] = dict(value=self.film_geometry[key], unit=unit,
