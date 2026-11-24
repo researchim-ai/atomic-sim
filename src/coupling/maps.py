@@ -13,28 +13,31 @@ def conserve_integral(
     source: np.ndarray, source_widths: np.ndarray, target_widths: np.ndarray
 ) -> np.ndarray:
     """Кусочно-постоянное отображение с сохранением интеграла по длине."""
-    if (
-        source.size != source_widths.size
-        or abs(float(np.sum(source_widths) - np.sum(target_widths))) > 1e-8
-    ):
-        raise DomainError("Сетки источника и приёмника должны покрывать одну длину")
-    src_edges = np.concatenate([[0.0], np.cumsum(source_widths)])
-    tgt_edges = np.concatenate([[0.0], np.cumsum(target_widths)])
-    total = source * source_widths
-    # Плотность источника.
-    values = np.zeros(target_widths.size)
-    for i, (left, right) in enumerate(zip(tgt_edges[:-1], tgt_edges[1:])):
-        integral = 0.0
-        for j, (s_left, s_right) in enumerate(zip(src_edges[:-1], src_edges[1:])):
-            overlap = max(0.0, min(right, s_right) - max(left, s_left))
-            if overlap > 0.0:
-                integral += source[j] * overlap
-        values[i] = integral / target_widths[i]
-    if abs(float(np.sum(values * target_widths) - np.sum(total))) > 1e-6 * max(
-        1.0, abs(float(np.sum(total)))
-    ):
-        raise DomainError("Отображение не сохранило интеграл")
-    return values
+    from math import fsum
+    from .conservative import ConservativeMap, vector
+    values=vector(source)
+    sw=vector(source_widths,len(values),positive=True)
+    tw=vector(target_widths,positive=True)
+    if max(len(sw),len(tw))>512:raise DomainError("One to 512 cells required")
+    try:extent=fsum(sw);other=fsum(tw)
+    except OverflowError as error:raise DomainError('Mesh length exceeds float64 range') from error
+    if abs(extent-other)>8*np.finfo(float).eps*max(extent,other):
+        raise DomainError("Meshes must cover the same length within roundoff")
+    a=np.r_[0.,np.cumsum(sw)];b=np.r_[0.,np.cumsum(tw)]
+    # Width-based legacy inputs can differ only by summation roundoff. Align
+    # their terminal coordinate, never rescale an interior cell or a state.
+    a[-1]=b[-1]=extent
+    operator=ConservativeMap(a,b)
+    result=operator.averages(values)
+    try:
+        with np.errstate(over='raise',invalid='raise'):
+            original=values*sw;transferred=result*tw
+        defect=abs(fsum(transferred)-fsum(original))
+        scale=max(fsum(abs(original)),1.)
+    except (FloatingPointError,OverflowError,ValueError) as error:
+        raise DomainError('Integral exceeds finite float64 range') from error
+    if defect>2e-12*scale:raise DomainError("Integral transfer failed")
+    return result
 
 
 class ExternalSolverAdapter:

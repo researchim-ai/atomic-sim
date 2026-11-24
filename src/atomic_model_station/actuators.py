@@ -41,3 +41,27 @@ class RodDrive:
 def boron_capability():
     return dict(available=False, reason='No finite chemical-volume-control supply/letdown tanks or mass-transfer commands in this configuration',
                 command=None, direct_inventory_assignment_allowed=False)
+
+
+def rod_arrival_event(motion,position,time_s):
+    """Report an exact-mode arrival, including a rounded target at the endpoint.
+
+    Position is never snapped. An early clock can qualify only when position
+    equals the target exactly and the timing discrepancy is bounded by ULPs.
+    """
+    required={'direction','arrival_s','target','speed_stroke_s','scram_latched'}
+    if type(motion) is not dict or not required<=set(motion):raise ValueError('Rod motion record required')
+    for value in (position,time_s,motion['arrival_s'],motion['target'],motion['speed_stroke_s']):
+        if type(value) not in (int,float) or not math.isfinite(value):raise ValueError('Finite rod arrival data required')
+    if (not 0<=position<=1 or not 0<=motion['target']<=1 or time_s<0 or motion['arrival_s']<0 or
+            not 0<motion['speed_stroke_s']<=.5 or type(motion['direction']) not in (int,float) or motion['direction'] not in (-1,0,1)
+            or type(motion['scram_latched']) is not bool):raise ValueError('Rod arrival domain')
+    if not motion['direction']:return None
+    arrival=motion['arrival_s']
+    if time_s<arrival:
+        if position!=motion['target']:return None
+        clock_bound=8*(math.ulp(time_s)+math.ulp(arrival)+math.ulp(motion['target'])/motion['speed_stroke_s'])
+        if arrival-time_s>clock_bound:raise ValueError('Rod target reached before analytic arrival beyond roundoff')
+    elif position!=motion['target']:raise ValueError('Analytic rod arrival lacks the exact target state')
+    return dict(time_s=min(arrival,time_s),kind='rod_arrived',position=motion['target'],
+        reason='scram_stop' if motion['scram_latched'] else 'requested_position')

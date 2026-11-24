@@ -10,6 +10,16 @@ def make_env():
     env=StationEnv(EnvConfig(max_steps=4,tick_s=.01,automatic=False,rtol=1e-10,max_step_s=.01));env.reset();return env
 
 
+def test_exact_target_at_rounded_endpoint_is_a_native_event_boundary():
+    from atomic_model_station.actuators import RodDrive,rod_arrival_event
+    at,motion=RodDrive().trajectory(.26,.27,False,0.)
+    assert motion['arrival_s']>1. and at(1.)==.27
+    event=rod_arrival_event(motion,at(1.),1.)
+    model._check_events([], [event],0.,1.,motion)
+    assert model._analytic_arrival(motion,0.,1.)==event
+    with pytest.raises(HeatEventError):model._check_events([],[],0.,1.,motion)
+
+
 @pytest.mark.parametrize('offset',[.000037,-.000037,.0001])
 def test_rod_boundary_is_sampled_without_changing_native_transition(offset):
     env=make_env();native=deepcopy(env)

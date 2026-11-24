@@ -4,7 +4,7 @@ import math
 import pytest
 
 from atomic_model_station import PWRTrainSession
-from atomic_model_station.actuators import RodDrive
+from atomic_model_station.actuators import RodDrive,rod_arrival_event
 
 
 def test_exact_drive_has_both_stroke_stops_and_no_overshoot():
@@ -16,6 +16,32 @@ def test_exact_drive_has_both_stroke_stops_and_no_overshoot():
         assert at((2.+motion['arrival_s'])/2)==pytest.approx((start+target)/2)
     at,motion=drive.trajectory(.5,0.,True,0.)
     assert at(2.5)==1. and motion['target']==1.
+
+
+@pytest.mark.parametrize('start,target',[(.26,.27),(.27,.26)])
+def test_rounded_target_at_interval_boundary_has_an_arrival_without_position_projection(start,target):
+    at,motion=RodDrive().trajectory(start,target,False,0.)
+    position=at(1.)
+    assert position==target and motion['arrival_s']>1.
+    event=rod_arrival_event(motion,position,1.)
+    assert event['time_s']==1. and event['position']==target and event['reason']=='requested_position'
+    assert at(1.)==position
+
+
+def test_arrival_does_not_snap_a_near_target_or_accept_a_corrupt_early_target():
+    at,motion=RodDrive().trajectory(.26,.27,False,0.)
+    assert rod_arrival_event(motion,math.nextafter(.27,0.),1.) is None
+    assert rod_arrival_event(motion,at(.5),.5) is None
+    with pytest.raises(ValueError,match='beyond roundoff'):rod_arrival_event(motion,.27,.5)
+    with pytest.raises(ValueError,match='exact target'):rod_arrival_event(motion,math.nextafter(.27,0.),2.)
+    _,stopped=RodDrive().trajectory(.27,.27,False,1.)
+    assert rod_arrival_event(stopped,.27,2.) is None
+
+
+def test_scram_roundoff_arrival_retains_trip_reason():
+    at,motion=RodDrive(scram_speed_s=.01).trajectory(.99,0.,True,0.)
+    assert at(1.)==1. and motion['arrival_s']>1.
+    assert rod_arrival_event(motion,at(1.),1.)['reason']=='scram_stop'
 
 
 @pytest.mark.parametrize('speed',[0.,True,float('nan'),-.01,1.])

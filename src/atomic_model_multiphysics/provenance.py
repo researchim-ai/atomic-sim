@@ -6,6 +6,7 @@ from pathlib import Path
 from atomic_model_spatial.workflow import identity as spatial_identity
 from atomic_model_training.episode import identity as training_identity
 from atomic_model_workspace.common import digest
+from coupling import conservative as exchange_operator
 
 
 def sha(path):
@@ -20,6 +21,7 @@ def identity():
     return dict(
         spatial=spatial_identity(),
         training=training_identity(),
+        exchange_operator_sha256=sha(exchange_operator.__file__),
         files={p.name: sha(p) for p in sorted(Path(__file__).parent.glob("*.py"))},
         resources={
             str(p.relative_to(Path(__file__).parent)): sha(p)

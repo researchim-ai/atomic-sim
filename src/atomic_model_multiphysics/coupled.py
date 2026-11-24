@@ -12,40 +12,35 @@ from .feedback import FeedbackTable
 from .provenance import seal, unseal
 
 
+def _operator(source_faces, target_faces):
+    from coupling.conservative import ConservativeMap
+    from core.status import DomainError
+    try:
+        return ConservativeMap(source_faces,target_faces)
+    except DomainError as error:
+        raise ValueError(str(error)) from error
+
+
 def overlaps(source_faces, target_faces):
-    a = np.asarray(source_faces, float)
-    b = np.asarray(target_faces, float)
-    if (
-        a.ndim != 1
-        or b.ndim != 1
-        or min(len(a), len(b)) < 2
-        or not np.isfinite(a).all()
-        or not np.isfinite(b).all()
-        or np.any(np.diff(a) <= 0)
-        or np.any(np.diff(b) <= 0)
-        or a[0] != b[0]
-        or a[-1] != b[-1]
-    ):
-        raise ValueError("Conservative maps require matching, increasing physical domains")
-    return np.maximum(
-        0, np.minimum(b[1:, None], a[None, 1:]) - np.maximum(b[:-1, None], a[None, :-1])
-    )
+    return _operator(source_faces,target_faces).overlap.copy()
 
 
 def map_power(source_faces, target_faces, powers):
-    matrix = overlaps(source_faces, target_faces)
-    q = np.asarray(powers, float)
-    if q.shape != (matrix.shape[1],) or not np.isfinite(q).all() or np.any(q < 0):
-        raise ValueError("Invalid cell-integrated power")
-    return matrix @ (q / np.diff(source_faces))
+    from core.status import DomainError
+    try:
+        return _operator(source_faces,target_faces).powers(powers)
+    except DomainError as error:
+        raise ValueError(str(error)) from error
 
 
 def map_temperature(source_faces, target_faces, temperature):
-    matrix = overlaps(source_faces, target_faces)
-    t = np.asarray(temperature, float)
-    if t.shape != (matrix.shape[1],) or not np.isfinite(t).all() or np.any(t <= 0):
-        raise ValueError("Invalid cell temperatures")
-    return matrix @ t / np.diff(target_faces)
+    from coupling.conservative import vector
+    from core.status import DomainError
+    try:
+        operator=_operator(source_faces,target_faces)
+        return operator.averages(vector(temperature,len(operator.source_widths),positive=True))
+    except DomainError as error:
+        raise ValueError(str(error)) from error
 
 
 def rod(length):
@@ -152,7 +147,7 @@ def solve(
     if not 0 < temperature_tolerance_k <= 1e-5 or not 0 < power_tolerance <= 1e-6:
         raise ValueError("Coupling tolerances may not be relaxed")
     faces = model.faces if channel_faces is None else np.asarray(channel_faces, float)
-    overlaps(model.faces, faces)
+    exchange=_operator(model.faces, faces)
     fuel = np.full(model.n, inlet_k)
     cool = np.full(model.n, inlet_k)
     previous = np.full(model.n, total_power_w / model.n)
@@ -175,10 +170,10 @@ def solve(
         eig = eigenvalue(Model(c))
         weights = np.sum(heat_response * np.array(eig["flux"]), axis=0) * model.width
         powers = weights / weights.sum() * total_power_w
-        target = map_power(model.faces, faces, powers)
+        target = exchange.powers(powers)
         temperatures = thermal(faces, target, inlet_k=inlet_k, mass_flow_kg_s=mass_flow_kg_s)
-        updated = map_temperature(faces, model.faces, temperatures["fuel_temperature_k"])
-        coolant = map_temperature(faces, model.faces, temperatures["coolant_temperature_k"])
+        updated = exchange.feedback_temperature(temperatures["fuel_temperature_k"])
+        coolant = exchange.feedback_temperature(temperatures["coolant_temperature_k"])
         temperature_error = float(max(np.max(abs(updated - fuel)), np.max(abs(coolant - cool))))
         power_error = float(np.max(abs(powers - previous)) / total_power_w)
         records.append(

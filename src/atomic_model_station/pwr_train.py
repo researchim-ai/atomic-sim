@@ -16,7 +16,7 @@ from atomic_model_multiphysics.provenance import seal,unseal
 from physics.power import steam_turbine_train as turbine
 from .model import signature
 from .contracts import FluidState,fluid_connection
-from .actuators import RodDrive,boron_capability
+from .actuators import RodDrive,boron_capability,rod_arrival_event
 
 
 MAX_RHS_EVALUATIONS=50_000
@@ -122,6 +122,9 @@ class PWRTrainSession:
     def _reconstruct_state(self,y):return y
     def _absolute_tolerances(self,atol):return atol
     def _prepare_interval(self):pass
+    def _solver_jacobian(self,matrix):
+        """Numerical storage hook; default preserves the full dense Jacobian."""
+        return matrix
     def _maximum_time_s(self):return 3600.
     def _inactive_target_names(self):return ('spray',)
     def _extend_known(self,known,modes):pass
@@ -204,6 +207,10 @@ class PWRTrainSession:
         return self.ledger_index<=index<self.ledger_index+4
     def _maximum_history_steps(self):return 256
 
+    def _record_rod_arrival(self,motion):
+        event=rod_arrival_event(motion,float(self.state[12]),float(self.time))
+        if event is not None:self.events.append(event)
+
     def advance(self,duration_s,patch=None):
         if type(duration_s) not in (float,int) or not math.isfinite(duration_s) or not 0<duration_s<=60 or self.time+duration_s>self._maximum_time_s() or len(self.history)>=self._maximum_history_steps():raise ValueError('Physical duration/history budget')
         trial=deepcopy(self)
@@ -275,7 +282,7 @@ class PWRTrainSession:
                 else:raise ValueError('No admissible physical Jacobian probe')
                 matrix[:,column]=(above-below)/(2*delta) if above is not None and below is not None else (above-base)/delta if above is not None else (base-below)/delta
             fun(t,small)
-            return matrix
+            return trial._solver_jacobian(matrix)
         events=[]
         for original in (low,high,*trial._flow_guards(feed)):
             def event(t,small,fn=original):return fn(t,full(t,small))
@@ -294,8 +301,7 @@ class PWRTrainSession:
         trial.state=full(end,solution.y[:,-1]);trial.time=end;trial.last_reduction=reduced_modes;trial._rhs(end,trial.state)
         trial._admit(trial.state);observation=trial.snapshot()
         if observation['energy_relative']>1e-6 or observation['mass_relative']>1e-10 or observation['boron_relative']>1e-10:raise ValueError('Physical global inventory ledger failure')
-        if motion['direction'] and trial.time>=motion['arrival_s']:
-            trial.events.append(dict(time_s=motion['arrival_s'],kind='rod_arrived',position=motion['target'],reason='scram_stop' if trial.scram_latched else 'requested_position'))
+        trial._record_rod_arrival(motion)
         trial.history.append(dict(duration_s=duration_s,patch=deepcopy(patch)))
         self.__dict__.update(trial.__dict__);return self.snapshot()
     def snapshot(self):

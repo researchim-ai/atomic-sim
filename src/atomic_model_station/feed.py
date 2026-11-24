@@ -296,8 +296,7 @@ class PWRFeedSession(PWRCooledSession):
             trial._validate_known_modes(t,point)
             trial._admit(point)
         _,motion=trial.rod_drive.trajectory(float(self.state[12]),float(trial.controls['rod_target']),trial.scram_latched,self.time)
-        if motion['direction'] and now>=motion['arrival_s']:
-            trial.events.append(dict(time_s=motion['arrival_s'],kind='rod_arrived',position=motion['target'],reason='scram_stop' if trial.scram_latched else 'requested_position'))
+        trial._record_rod_arrival(motion)
         trial.events.sort(key=lambda event:event['time_s'])
         trial._rhs(now,endpoint);trial._admit(endpoint)
         trial.hybrid_count=self.hybrid_count+1

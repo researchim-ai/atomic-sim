@@ -10,6 +10,7 @@ from atomic_model_station_event_heat.model import HeatEventError,_post_command
 from atomic_model_station_refined_heat.model import identity as refined_identity
 from atomic_model_station_heat_accounting import read_heat,assess_heat
 from atomic_model_station_heat_accounting.model import FLUXES
+from atomic_model_station.actuators import rod_arrival_event
 
 
 def identity():
@@ -21,6 +22,12 @@ def _motion(left):
     p=left._session.control.plant
     return p.rod_drive.trajectory(float(p.state[12]),float(p.controls['rod_target']),
         p.scram_latched,p.time)[1]
+
+
+def _analytic_arrival(motion,start,end):
+    position=(motion['target'] if end>=motion['arrival_s'] else
+        motion['initial']+motion['direction']*motion['speed_stroke_s']*(end-start))
+    return rod_arrival_event(motion,float(position),float(end))
 
 
 def _check_events(previous,events,start,end,motion,*,require_count=True):
@@ -38,7 +45,8 @@ def _check_events(previous,events,start,end,motion,*,require_count=True):
             event.get('reason')==('scram_stop' if motion['scram_latched'] else 'requested_position'))
         if not valid:raise HeatEventError(dict(reason='unresolved_physical_event',event=deepcopy(event)))
         arrivals.append(event)
-    expected=bool(motion['direction'] and start<motion['arrival_s']<=end)
+    expected_event=_analytic_arrival(motion,start,end)
+    expected=bool(expected_event is not None and start<expected_event['time_s']<=end)
     if len(arrivals)>1 or (require_count and len(arrivals)!=int(expected)):
         raise HeatEventError(dict(reason='rod_event_count',expected=int(expected),actual=len(arrivals)))
 
@@ -68,10 +76,11 @@ def _replay(left,right,native_state,count):
     replay_audit=assess_heat(samples)
     # Tie acceptance to the actual committed candidate's terminal counters/storage.
     tied=deepcopy(samples);tied[-1]=deepcopy(right)
-    return dict(subdivisions=count,actual_intervals=len(targets),event_boundaries_s=[arrival] if motion['direction'] and start<arrival<=end else [],
+    endpoint_arrival=_analytic_arrival(motion,start,end)
+    return dict(subdivisions=count,actual_intervals=len(targets),event_boundaries_s=[endpoint_arrival['time_s']] if endpoint_arrival is not None and start<endpoint_arrival['time_s']<=end else [],
         samples=samples,rod_samples=rod_samples,
         replay_rod_event_count=sum(e.get('kind')=='rod_arrived' for e in plant.events[len(events):]),
-        boundary_source='analytic drive law; replay journal may omit roundoff-coincident arrival',
+        boundary_source='Analytic drive law with ULP-coincident endpoint recognition; physical state is not projected',
         audit=replay_audit,
         native_endpoint_audit=assess_heat(tied),endpoint_state_relative=state_error,
         endpoint_state_scale='componentwise max(abs(native state),1 in native units)')
